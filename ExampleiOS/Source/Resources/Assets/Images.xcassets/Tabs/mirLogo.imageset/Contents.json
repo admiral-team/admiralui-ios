@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "mirLogo.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
