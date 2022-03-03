@@ -1,0 +1,11 @@
+module: AdmiralUI
+title: AdmiralUI documentation
+author: ton252
+theme: apple
+source-directory:./Source/Classes
+output:./docs
+min_acl: public
+hide_documentation_coverage: true
+skip-undocumented: true
+use_safe_filenames: true
+separate_global_declarations: true

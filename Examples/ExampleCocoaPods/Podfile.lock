@@ -1,0 +1,54 @@
+PODS:
+  - AdmiralSwiftUI (1.5.0):
+    - AdmiralTheme
+    - AdmiralUIResources
+  - AdmiralTheme (1.5.0):
+    - AdmiralUIResources
+  - AdmiralUIKit (1.5.0):
+    - AdmiralTheme
+    - AdmiralUIResources
+  - AdmiralUIResources (1.5.0)
+
+DEPENDENCIES:
+  - "AdmiralSwiftUI (from ``, branch `master`)"
+  - "AdmiralTheme (from ``, branch `master`)"
+  - "AdmiralUIKit (from ``, branch `master`)"
+  - "AdmiralUIResources (from ``, branch `master`)"
+
+EXTERNAL SOURCES:
+  AdmiralSwiftUI:
+    :branch: master
+    :git: ""
+  AdmiralTheme:
+    :branch: master
+    :git: ""
+  AdmiralUIKit:
+    :branch: master
+    :git: ""
+  AdmiralUIResources:
+    :branch: master
+    :git: ""
+
+CHECKOUT OPTIONS:
+  AdmiralSwiftUI:
+    :commit: dc38181f15aab70960f79d55187c8153c7624a37
+    :git: ""
+  AdmiralTheme:
+    :commit: dc38181f15aab70960f79d55187c8153c7624a37
+    :git: ""
+  AdmiralUIKit:
+    :commit: dc38181f15aab70960f79d55187c8153c7624a37
+    :git: ""
+  AdmiralUIResources:
+    :commit: dc38181f15aab70960f79d55187c8153c7624a37
+    :git: ""
+
+SPEC CHECKSUMS:
+  AdmiralSwiftUI: 28545f8399dd5c43cec924cbb550c6487b36af20
+  AdmiralTheme: 91a75f31d10864a3cd162cfb3a02a77c10e3c512
+  AdmiralUIKit: 2147c2f5cbe8268338071bd3edcc911f91d5d6da
+  AdmiralUIResources: 92649dee822a40cb6d5f325785883d300bd05e5a
+
+PODFILE CHECKSUM: 3eabae4c41bc4e250b30a95eaecfbfa48613de51
+
+COCOAPODS: 1.9.3

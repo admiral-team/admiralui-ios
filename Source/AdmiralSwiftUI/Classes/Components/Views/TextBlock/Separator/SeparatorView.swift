@@ -1,0 +1,73 @@
+//
+//  PaddingView.swift
+//  AdmiralSwiftUI
+//
+//  Created on 28.09.2021.
+//
+
+import SwiftUI
+import AdmiralTheme
+import AdmiralUIResources
+
+/**
+ SeparatorView - A padding view.
+
+ You can create a SeparatorView by specifying the following parameters in the initializer
+ 
+ ## Initializer parameters:
+ 
+ - textBlockStyle: TextBlockStyle - A style of separator view. Can be: title, body, headline, headlineSecondary, dropDown, paragraph, paragraphSecondary, link, separator, separatorShort, separatorEmpty
+ 
+ ## Example to create SeparatorView with different parameters:
+ # Code
+ ```
+ ScrollView {
+     SeparatorView(paddingStyle: .long)
+     SeparatorView(paddingStyle: .empty)
+     SeparatorView(paddingStyle: .short)
+ }
+ ```
+*/
+/// A padding view.
+@available(iOS 14.0.0, *)
+public struct SeparatorView: View {
+    
+    /// Text block style.
+    public var textBlockStyle: TextBlockStyle
+    
+    // MARK: - Private Properties
+    
+    @State private var scheme: SeparatorViewScheme? = nil
+    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SeparatorViewScheme>()
+
+    // MARK: - Initializer
+    
+    /// Initializes and returns a newly allocated view object with the zero frame rectangle.
+    public init(paddingStyle: SeparatorStyle = .short) {
+        self.textBlockStyle = paddingStyle.textBlockStyle
+    }
+    
+    public var body: some View {
+        let scheme = self.scheme ?? schemeProvider.scheme
+        return ListCell(
+            centerView: {
+                if textBlockStyle != .separatorEmpty {
+                    Line()
+                        .foregroundColor(scheme.lineTintColor.swiftUIColor)
+                }
+            }
+        )
+        .configCell(minHeight: textBlockStyle.minHeight, edgeInsets: textBlockStyle.edgeInsets)
+    }
+}
+
+@available(iOS 14.0, *)
+struct SeparatorView_Previews: PreviewProvider {
+    static var previews: some View {
+        ScrollView {
+            SeparatorView(paddingStyle: .long)
+            SeparatorView(paddingStyle: .empty)
+            SeparatorView(paddingStyle: .short)
+        }
+    }
+}

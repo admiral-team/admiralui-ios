@@ -1,0 +1,16 @@
+xcassets:
+    inputs: Source/AdmiralUIResources/Resources/Assets/Images.xcassets
+    outputs:
+        templateName: swift5
+        output: Source/AdmiralUIResources/Classes/CoreFoundation/Assets/Assets.swift
+        params:
+            publicAccess: 1
+            allValues: 1
+fonts:
+  inputs: Source/AdmiralUIResources/Resources/Fonts
+  outputs:
+    templateName: swift5
+    output: Source/AdmiralUIResources/Classes/CoreFoundation/Fonts/Fonts.swift
+    params:
+        publicAccess: 1
+        allValues: 1

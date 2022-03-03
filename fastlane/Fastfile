@@ -1,0 +1,506 @@
+fastlane_require 'dotenv'
+require_relative 'build_info'
+require_relative 'version'
+require_relative 'utils'
+require_relative 'templates_generator'
+
+before_all do
+  Dotenv.overload('.env', '.env.secret')
+end
+
+# Deploy Methods
+
+lane :deploy_appcenter_prod do |options|
+   check_release_issues(
+    fix_version: "iOS UNRELEASED (#{current_lib_internal_version})",
+    project: ENV['JIRA_PROJECT_NAME'],
+    close_status: "ВЫПОЛНЕНО"
+  )
+  
+  skip_archive = options[:skip_archive] || false
+  release_jira_version = options[:release_jira_version] || false
+  build_number = generate_random_build_number()
+  previous_build_number = current_app_build_number
+  branch_name = git_branch()
+  issues = jira_get_done_issues(fix_version: unreleased_version)
+  issues_string = issues.map { |i| "* #{i.summary.gsub('[', '\[').gsub(']', '\]')}" }.join("\n")
+  release_notes = "**Release:** #{current_lib_full_version}\n\n**Branch name:** #{branch_name}\n\n**Release notes:**\n#{issues_string}"
+
+  if !skip_archive
+    increment_app_build(build_number: build_number)
+
+      build_app(
+        workspace: ENV['PROJECT_WORKSPACE_PATH'],
+        configuration: "Release",
+        scheme: "ExampleiOS",
+        silent: true,
+        clean: true,
+        output_directory: "Release/AdmiralUI-Example/Prod",
+        export_method: "enterprise",
+        output_name: "admiralui-example.ipa",
+      )
+
+    increment_app_build(build_number: previous_build_number)
+  end
+
+  appcenter_upload(
+    api_token: ENV['APPCENTER_API_TOKEN'],
+    owner_name: ENV['APPCENTER_OWNER_NAME'],
+    owner_type: ENV['APPCENTER_OWNER_TYPE'],
+    app_name: ENV['APPCENTER_APP_NAME'],
+    file: "Release/AdmiralUI-Example/Prod/admiralui-example.ipa",
+    destinations: ENV['APPCENTER_DESTINATIONS_PROD'],
+    destination_type: "group",
+    release_notes: release_notes,
+    notify_testers: true
+  )
+
+  build_info_hash = lane_context[SharedValues::APPCENTER_BUILD_INFORMATION]
+  build_info = BuildInfo.from_hash(build_info_hash)
+  build_info.branch_name = branch_name
+  build_info.build_url = appcenter_build_prod_url
+  build_info.internal_version = current_lib_internal_version
+
+  puts "\n#{formatted_build_info(build_info: build_info)}"
+
+  if release_jira_version
+    replace_version_jira
+  end
+
+  chat_id = ENV['TELEGRAM_PROD_CHAT_ID']
+  team_chat_id = ENV['TELEGRAM_ADMIRAL_DEV_CHAT_ID']
+  send_message(build_info: build_info, chat_ids: [chat_id, team_chat_id])
+end
+
+lane :deploy_appcenter_dev do |options|
+  build_number = generate_random_build_number()
+  skip_archive = options[:skip_archive] || false
+  skip_jira_comment = options[:skip_jira_comment] || false
+  previous_build_number = current_app_build_number
+
+  puts "skip_archive: #{skip_archive}"
+  puts "skip_jira_comment: #{skip_jira_comment}"
+
+  branch_name = git_branch()
+  project_name = ENV['JIRA_PROJECT_NAME']
+  issue_name = options[:issue_name]
+
+  extracted_issue_name = jira_extract_issue_name(
+    text: issue_name || git_branch, 
+    project_prefix: ENV['JIRA_PROJECT_NAME']
+  ) rescue nil
+
+  issue_name = extracted_issue_name if issue_name.nil?
+  release_notes = "**Issue:** #{issue_name}\n\n**Branch:** #{branch_name}"
+
+  if !skip_archive
+    increment_app_build(build_number: build_number)
+    
+    build_app(
+      workspace: ENV['PROJECT_WORKSPACE_PATH'],
+      configuration: "Release",
+      scheme: "ExampleiOS",
+      silent: true,
+      clean: true,
+      output_directory: "Release/AdmiralUI-Example/Dev",
+      export_method: "enterprise",
+      output_name: "admiralui-example.ipa",
+    )
+
+    increment_app_build(build_number: previous_build_number)
+  end
+
+  appcenter_upload(
+    api_token: ENV['APPCENTER_API_TOKEN_DEV'],
+    owner_name: ENV['APPCENTER_OWNER_NAME'],
+    owner_type: ENV['APPCENTER_OWNER_TYPE'],
+    app_name: ENV['APPCENTER_APP_NAME_DEV'],
+    file: "Release/AdmiralUI-Example/Dev/admiralui-example.ipa",
+    destinations: ENV['APPCENTER_DESTINATIONS_DEV'],
+    destination_type: "group",
+    release_notes: release_notes,
+    notify_testers: true
+  )
+
+  build_info_hash = lane_context[SharedValues::APPCENTER_BUILD_INFORMATION]
+  build_info = BuildInfo.from_hash(build_info_hash)
+  build_info.branch_name = branch_name
+  build_info.build_url = appcenter_build_dev_url(build_id: build_info.build_id)
+  build_info.internal_version = current_lib_internal_version
+  build_info.issue = issue_name
+
+  if !skip_jira_comment && !extracted_issue_name.nil?
+    attachment_file = "qr-#{build_info.build_id}.png"
+    attachment_path = File.join(Dir.pwd, 'cache', attachment_file)
+
+    generate_qr_code(
+      file: attachment_path,
+      link: build_info.build_url
+    )
+
+    comment_body = formatted_build_info_jira(build_info: build_info)
+    comment_body += "\n\n!#{attachment_file}!"
+
+    jira_add_comment(
+      issue: extracted_issue_name, 
+      comment_body: comment_body,
+      attachment: attachment_path
+    )
+  end
+  
+  puts "\n#{formatted_build_info(build_info: build_info)}"
+
+  chat_id = ENV['TELEGRAM_DEV_CHAT_ID']
+  send_message(build_info: build_info, chat_ids: [chat_id])
+end
+
+lane :run_all_tests do |options|
+  run_tests_ukit(devices: options[:devices])
+  run_tests_swiftui(devices: options[:devices])
+end
+
+lane :run_tests_ukit do |options|
+  run_tests_app(scheme: 'AdmiralUIKit', devices: options[:devices])
+end
+
+lane :run_tests_swiftui do |options|
+  run_tests_app(scheme: 'AdmiralSwiftUI', devices: options[:devices])
+end
+
+lane :run_tests_app do |options|
+  scheme = options[:scheme]
+  devices = options[:devices] || ['iPhone 8 (14.5)']
+
+  run_tests(
+    workspace: ENV['PROJECT_WORKSPACE_PATH'],
+    scheme: scheme,
+    buildlog_path: './fastlane/buildlog',
+    derived_data_path: '~/Library/Developer/Xcode/DerivedData',
+    devices: devices,
+    ensure_devices_found: true
+  )
+end
+
+lane :start_check_release_issues do |options|
+   status = options[:status].presence || "ВЫПОЛНЕНО"
+   fix_version = options[:fix_version].presence || current_lib_version
+   check_release_issues(
+    fix_version: fix_version,
+    project: ENV['JIRA_PROJECT_NAME'],
+    close_status: status
+  )
+end
+
+# Code Genearation Methods
+
+lane :generate_colors do
+  styles = figma_get_styles(
+    access_token: ENV['FIGMA_ACCESS_TOKEN'],
+    file_key: ENV['FIGMA_COLORS_FILE_KEY'],
+    style_types: ["FILL"],
+  )
+
+  styles.styles.each { |s| s.name = s.name.delete(' ') }
+
+  figma_generate_styles(
+    styles: styles.to_json, 
+    template_file: Dir.pwd + "/../Templates/ColorPalette.liquid",
+    output_file: Dir.pwd + "/../Source/AdmiralUIResources/Classes/CoreFoundation/Colors/ColorPalette.swift"
+  )
+end
+
+lane :generate_fonts do
+  styles = figma_get_styles(
+    access_token: ENV['FIGMA_ACCESS_TOKEN'],
+    file_key: ENV['FIGMA_FONTS_FILE_KEY'],
+    style_types: ["TEXT"],
+  )
+
+  figma_generate_styles(
+    styles: styles.to_json, 
+    template_file: Dir.pwd + "/../Templates/FontPalette.liquid",
+    output_file: Dir.pwd + "/../Source/AdmiralUIResources/Classes/CoreFoundation/Fonts/FontPalette.swift"
+  )
+end
+
+lane :download_icons do
+  output_dir = Dir.pwd + '/../Source/AdmiralUIResources/Resources/Assets'
+
+  components_list = figma_get_image_links(
+    access_token: ENV['FIGMA_ACCESS_TOKEN'],
+    file_key: ENV['FIGMA_IMAGES_FILE_KEY'],
+    name_filter_regex: '^(Solid|Outline)',
+    page_filter_regex: 'Icons',
+    use_absolute_bounds: true,
+    format: 'pdf',
+  )
+
+  ouptut_icons_folder = File.join(output_dir, 'Images.xcassets')
+
+  figma_download_images(
+    image_components: components_list.to_json,
+    output_folder: ouptut_icons_folder,
+    output_format: 'xcassets',
+    naming_style: 'camelcase',
+    include_page_name: false,
+    include_frame_name: true,
+    xcassets_params: { 'template_rendering_intent': 'template', 'provides_namespace': true, 'preserves_vector_representation': true }
+  )
+
+  swiftgen_file_dir = Dir.pwd + '/../.swiftgen.yml'
+  system "swiftgen config run --config #{swiftgen_file_dir}"
+end
+
+lane :download_symbols do
+  output_dir = Dir.pwd + '/../Source/AdmiralUIResources/Resources/Assets'
+
+  components_list = figma_get_image_links(
+    access_token: ENV['FIGMA_ACCESS_TOKEN'],
+    file_key: ENV['FIGMA_SYMBOLS_FILE_KEY'],
+    name_filter_regex: '(Solid|Outline)',
+    use_absolute_bounds: true,
+    svg_include_id: true,
+    format: 'svg'
+  )
+
+  ouptut_icons_folder = File.join(output_dir, 'Symbols.xcassets')
+
+  figma_download_images(
+    image_components: components_list.to_json,
+    output_folder: ouptut_icons_folder,
+    output_format: 'xcassets-symbols',
+    naming_style: 'camelcase',
+    include_page_name: false,
+    include_frame_name: true,
+    xcassets_params: { 'provides_namespace': true }
+  )
+
+  assets_file = Dir.pwd + '/../Source/AdmiralUIResources/Classes/CoreFoundation/Assets/Symbols.swift'
+  symbolsets = find_resources(path: ouptut_icons_folder, extension: 'symbolset')
+
+  generate_swiftui_symbols(list: symbolsets, enum_name: 'AssetSymbol', image_type_name: 'SymbolImage', file: assets_file)
+end
+
+lane :upload_nexus_lib do |options|
+  branch = options[:branch]
+
+  upload_nexus_framework(
+    scheme: "AdmiralSwiftUI", 
+    artifact_id: "admiral-swiftui",
+    branch: branch
+  )
+
+  upload_nexus_framework(
+    scheme: "AdmiralUIKit", 
+    artifact_id: "admiral-uikit",
+    branch: branch
+
+  )
+
+  upload_nexus_framework(
+    scheme: "AdmiralTheme", 
+    artifact_id: "admiral-theme",
+    branch: branch
+  )
+
+  upload_nexus_framework(
+    scheme: "AdmiralUIResources", 
+    artifact_id: "admiral-resources",
+    branch: branch
+  )
+end
+
+# Supporting Methods
+
+lane :increment_app_version do |options|
+  version_number = options[:version_number]
+  increment_version_number(
+    version_number: version_number,
+    xcodeproj: ENV['EXAMPLE_PROJECT_PATH']
+  )
+  increment_version_number(
+    version_number: version_number,
+    xcodeproj: ENV['LIBRARY_PROJECT_PATH']
+  )
+
+  increment_podspec_version(
+    path: File.join(Dir.pwd, '../AdmiralSwiftUI.podspec'), 
+    version: version_number
+  )
+  increment_podspec_version(
+    path: File.join(Dir.pwd, '../AdmiralTheme.podspec'), 
+    version: version_number
+  )
+  increment_podspec_version(
+    path: File.join(Dir.pwd, '../AdmiralUIKit.podspec'), 
+    version: version_number
+  )
+  increment_podspec_version(
+    path: File.join(Dir.pwd, '../AdmiralUIResources.podspec'), 
+    version: version_number
+  )
+end
+
+lane :increment_app_build do |options|
+  build_number = options[:build_number]
+  increment_build_number(
+    build_number: build_number,
+    xcodeproj: ENV['EXAMPLE_PROJECT_PATH']
+  )
+end
+
+lane :tag_trigger_teamcity do |options|
+  tag = options[:tag] || current_lib_external_version
+  add_git_tag(tag: tag)
+  system("git push origin #{tag}")
+  teamcity_trigger(build_id:ENV['TEAMCITY_BUILD_ID_PROD'], branch_name: "tags/#{tag}")
+end
+
+# Dependency manager validation
+
+lane :validate_depenecy_managers do |options|
+  branch_name = git_branch() if options[:use_current_branch] == true
+  validate_spm_example(branch_name: branch_name)
+  validate_cocoapods_example(branch_name: branch_name)
+  validate_carthage_example(branch_name: branch_name)
+end
+
+lane :validate_cocoapods_example do |options|branch_name = options[:branch_name]
+  branch_name = options[:branch_name]
+
+  unless branch_name.nil?
+    file = Dir.pwd + "/../Examples/ExampleCocoaPods/Podfile"
+    replace(file: file, regex: /'develop'/, with: "'#{branch_name}'")
+  end
+
+  system("cd ../Examples/ExampleCocoaPods; pod install;")
+
+  build_app(
+    clean: true,
+    scheme: "ExampleCocoaPods",
+    configuration: "Release",
+    skip_archive: true,
+    workspace: Dir.pwd + "/../Examples/ExampleCocoaPods/ExampleCocoaPods.xcworkspace"
+  )
+end
+
+lane :set_version do |options|
+  internal = options[:internal_version]
+  external = options[:external_version]
+  update_app_version = options[:update_app_version]
+
+  set_version(
+    external_version: external,
+    internal_version: internal
+  )
+
+  if update_app_version
+    increment_app_version(version_number: current_lib_external_version)
+  end
+end
+
+lane :finish_release_version do |options|
+  external = options[:external_version]
+  last_version = options[:version_number]
+  internal = current_lib_internal_version
+  set_version(
+    external_version: external,
+    internal_version: internal, 
+  )
+  if !last_version.nil? && !last_version.empty?
+    increment_app_version(version_number: last_version)
+  end 
+end
+
+lane :start_next_release_version do
+  external = "0.0.0"
+  internal = "#{Integer(current_lib_internal_version) + 1}"
+  set_version(external_version: external, internal_version: internal)
+  increment_app_version(version_number: external)
+  add_unreleased_version
+end
+
+lane :validate_spm_example do |options|
+  branch_name = options[:branch_name]
+
+  unless branch_name.nil?
+    file = Dir.pwd + "/../Examples/ExampleSPM/ExampleSPM.xcodeproj/project.pbxproj"
+    replace(file: file, regex: /branch = develop;/, with: "branch = #{branch_name};")
+  end
+
+  system("cd ../Examples/ExampleSPM")
+
+  build_app(
+    clean: true,
+    scheme: "ExampleSPM",
+    configuration: "Release",
+    skip_archive: true,
+    project: Dir.pwd + "/../Examples/ExampleSPM/ExampleSPM.xcodeproj",
+  )
+end
+
+lane :validate_carthage_example do |options|
+  branch_name = options[:branch_name]
+  branch_name = git_branch()
+
+  unless branch_name.nil?
+    file = Dir.pwd + "/../Examples/ExampleCarthage/Cartfile"
+    replace(file: file, regex: /"develop"/, with: "\"#{branch_name}\"")
+  end
+
+  system("cd ../Examples/ExampleCarthage; carthage update --no-build; carthage build --platform iOS --use-xcframeworks")
+
+  build_app(
+    clean: true,
+    scheme: "ExampleCarthage",
+    configuration: "Release", 
+    skip_archive: true,
+    project: Dir.pwd + "/../Examples/ExampleCarthage/ExampleCarthage.xcodeproj",
+  )
+end
+
+def replace_version_jira
+  jira_replace_version(
+    version_name: unreleased_version,
+    version_attrs: {
+      'name' => current_lib_version
+    }
+  )
+end
+
+def add_unreleased_version
+  jira_add_version(
+    version_attrs: {
+      'project' => ENV['JIRA_PROJECT_NAME'],
+      'name' => unreleased_version,
+      'startDate' => DateTime.current.to_date
+    }
+  )
+end
+
+def upload_nexus_framework(scheme:, artifact_id:, branch:)
+  root_path = "Products/xcframeworks"
+  framework_path = root_path + "/#{scheme}.xcframework"
+  ziped_framework_path = framework_path + ".zip"
+  current_branch = (branch == "main" || branch == "master" || branch == nil) ? "" : "-#{branch}"
+
+  create_xcframework(
+    workspace: ENV['PROJECT_WORKSPACE_PATH'],
+    scheme: scheme,
+    destinations: ['iOS'],
+    xcframework_output_directory: root_path
+  )
+
+  zip(
+    path: framework_path,
+    output_path: ziped_framework_path
+  )
+
+  nexus_upload_maven(
+    repository: ENV['NEXUS_REPOSITORY_NAME'],
+    group_id: "#{ENV['NEXUS_GROUP_ID']}#{current_branch}",
+    artifact_id: artifact_id,
+    version: current_lib_external_version,
+    assets: [{ 'path' => ziped_framework_path, 'extension' => 'zip' }]
+  )
+end
