@@ -61,14 +61,6 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 
 
-### start_check_release_issues
-
-```sh
-[bundle exec] fastlane start_check_release_issues
-```
-
-
-
 ### generate_colors
 
 ```sh
@@ -101,14 +93,6 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 
 
-### upload_nexus_lib
-
-```sh
-[bundle exec] fastlane upload_nexus_lib
-```
-
-
-
 ### increment_app_version
 
 ```sh
@@ -121,14 +105,6 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ```sh
 [bundle exec] fastlane increment_app_build
-```
-
-
-
-### tag_trigger_teamcity
-
-```sh
-[bundle exec] fastlane tag_trigger_teamcity
 ```
 
 
