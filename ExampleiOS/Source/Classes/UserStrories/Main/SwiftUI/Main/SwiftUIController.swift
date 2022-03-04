@@ -186,6 +186,8 @@ struct CustomSwiftUIView: View {
             ChatSwiftUIView(navigationStyle: .fromMainPage)
         case .pageControls:
             PageControlsSwiftUIView()
+        case .admiralGun:
+            AdmiralGunView()
         default:
             EmptyView()
         }
