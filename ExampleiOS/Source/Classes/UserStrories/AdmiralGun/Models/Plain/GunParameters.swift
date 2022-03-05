@@ -2,12 +2,12 @@
 //  GunParameters.swift
 //  ExampleiOS
 //
-//  Created by Borisov Kirill on 05.03.2022.
+//  Created by on 05.03.2022.
 //
 
 import Foundation
 
-struct GunParameters {
+struct GunParameters: Hashable {
     let enabled: Bool
     let isIconEnabled: Bool?
     let isLoading: Bool?

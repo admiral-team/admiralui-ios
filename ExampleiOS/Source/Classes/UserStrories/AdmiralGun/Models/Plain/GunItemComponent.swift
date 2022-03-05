@@ -2,7 +2,7 @@
 //  GunItemComponent.swift
 //  ExampleiOS
 //
-//  Created by Borisov Kirill on 05.03.2022.
+//  Created by on 05.03.2022.
 //
 
 enum GunItemComponent: String {
