@@ -2,12 +2,12 @@
 //  GunItem.swift
 //  ExampleiOS
 //
-//  Created by Borisov Kirill on 05.03.2022.
+//  Created by on 05.03.2022.
 //
 
 import Foundation
 
-struct GunItem {
+struct GunItem: Hashable {
     let description: String
     let id: GunItemComponent
     let parameters: GunParameters

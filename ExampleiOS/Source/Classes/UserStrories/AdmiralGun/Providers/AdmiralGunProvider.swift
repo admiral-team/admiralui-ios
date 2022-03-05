@@ -2,7 +2,7 @@
 //  AdmiralGunProvider.swift
 //  ExampleiOS
 //
-//  Created by Борисов Кирилл Анатольевич on 05.03.2022.
+//  Created by on 05.03.2022.
 //
 
 import Combine
