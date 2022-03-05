@@ -18,7 +18,7 @@ extension GunItemDTO {
     func convertToPlain() -> GunItem {
         GunItem(
             description: description,
-            id: GunItemComponent.getComponent(by: id),
+            id: .init(rawValue: id) ?? .unknown,
             parameters: parameters.convertToPlain()
         )
     }
