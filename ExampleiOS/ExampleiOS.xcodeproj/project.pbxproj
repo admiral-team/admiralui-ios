@@ -332,6 +332,29 @@
 		E934038127B289380007B86D /* ActionBarSwiftUIViewSecondary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E934038027B289380007B86D /* ActionBarSwiftUIViewSecondary.swift */; };
 		E934038327B28A3E0007B86D /* ActionBarSwiftUIItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E934038227B28A3E0007B86D /* ActionBarSwiftUIItem.swift */; };
 		E934038527B28A960007B86D /* ActionBarSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E934038427B28A960007B86D /* ActionBarSwiftUI.swift */; };
+		E945186B27D369DD0048B133 /* Publishers+Decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945186A27D369DD0048B133 /* Publishers+Decode.swift */; };
+		E945186D27D369F60048B133 /* Publishers+Sink.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945186C27D369F60048B133 /* Publishers+Sink.swift */; };
+		E945187427D36A810048B133 /* GunItemsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945187327D36A810048B133 /* GunItemsDTO.swift */; };
+		E945187627D36A8F0048B133 /* GunItemDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945187527D36A8F0048B133 /* GunItemDTO.swift */; };
+		E945187827D36AA00048B133 /* GunParametersDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945187727D36AA00048B133 /* GunParametersDTO.swift */; };
+		E945187A27D36AAD0048B133 /* GunElementDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945187927D36AAD0048B133 /* GunElementDTO.swift */; };
+		E945187C27D36AC20048B133 /* GunItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945187B27D36AC20048B133 /* GunItems.swift */; };
+		E945187E27D36ACD0048B133 /* GunItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945187D27D36ACD0048B133 /* GunItem.swift */; };
+		E945188027D36ADD0048B133 /* GunParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945187F27D36ADD0048B133 /* GunParameters.swift */; };
+		E945188227D36AEA0048B133 /* GunElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945188127D36AEA0048B133 /* GunElement.swift */; };
+		E945188527D36C3C0048B133 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945188427D36C3C0048B133 /* HTTPMethod.swift */; };
+		E945188727D36C4A0048B133 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945188627D36C4A0048B133 /* APIError.swift */; };
+		E945188927D36C580048B133 /* URLHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945188827D36C580048B133 /* URLHost.swift */; };
+		E945188B27D36C670048B133 /* URLScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945188A27D36C670048B133 /* URLScheme.swift */; };
+		E945188E27D36C940048B133 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945188D27D36C940048B133 /* RequestBuilder.swift */; };
+		E945189027D36CAA0048B133 /* AdmiralGunEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945188F27D36CAA0048B133 /* AdmiralGunEndPoint.swift */; };
+		E945189327D36CCA0048B133 /* APIPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945189227D36CCA0048B133 /* APIPublisher.swift */; };
+		E945189627D36CED0048B133 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945189527D36CED0048B133 /* NetworkService.swift */; };
+		E945189827D36CFF0048B133 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945189727D36CFF0048B133 /* NetworkServiceProtocol.swift */; };
+		E945189B27D36D240048B133 /* AdmiralGunAPIFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945189A27D36D240048B133 /* AdmiralGunAPIFacade.swift */; };
+		E945189D27D36D360048B133 /* AdmiralGunAPIFacadeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945189C27D36D360048B133 /* AdmiralGunAPIFacadeProtocol.swift */; };
+		E94518A027D36D530048B133 /* AdmiralGunProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945189F27D36D530048B133 /* AdmiralGunProvider.swift */; };
+		E94518A227D36D630048B133 /* AdmiralGunProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94518A127D36D630048B133 /* AdmiralGunProviderProtocol.swift */; };
 		E95553CB27A2C7BB00A14BCA /* InputChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95553CA27A2C7BB00A14BCA /* InputChatViewModel.swift */; };
 		E95553CD27A2C84000A14BCA /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95553CC27A2C84000A14BCA /* ChatViewModel.swift */; };
 		E95553CF27A2CBE300A14BCA /* TextOperationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95553CE27A2CBE300A14BCA /* TextOperationViewModel.swift */; };
@@ -736,6 +759,29 @@
 		E934038027B289380007B86D /* ActionBarSwiftUIViewSecondary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionBarSwiftUIViewSecondary.swift; sourceTree = "<group>"; };
 		E934038227B28A3E0007B86D /* ActionBarSwiftUIItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionBarSwiftUIItem.swift; sourceTree = "<group>"; };
 		E934038427B28A960007B86D /* ActionBarSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionBarSwiftUI.swift; sourceTree = "<group>"; };
+		E945186A27D369DD0048B133 /* Publishers+Decode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers+Decode.swift"; sourceTree = "<group>"; };
+		E945186C27D369F60048B133 /* Publishers+Sink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers+Sink.swift"; sourceTree = "<group>"; };
+		E945187327D36A810048B133 /* GunItemsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GunItemsDTO.swift; sourceTree = "<group>"; };
+		E945187527D36A8F0048B133 /* GunItemDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GunItemDTO.swift; sourceTree = "<group>"; };
+		E945187727D36AA00048B133 /* GunParametersDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GunParametersDTO.swift; sourceTree = "<group>"; };
+		E945187927D36AAD0048B133 /* GunElementDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GunElementDTO.swift; sourceTree = "<group>"; };
+		E945187B27D36AC20048B133 /* GunItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GunItems.swift; sourceTree = "<group>"; };
+		E945187D27D36ACD0048B133 /* GunItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GunItem.swift; sourceTree = "<group>"; };
+		E945187F27D36ADD0048B133 /* GunParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GunParameters.swift; sourceTree = "<group>"; };
+		E945188127D36AEA0048B133 /* GunElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GunElement.swift; sourceTree = "<group>"; };
+		E945188427D36C3C0048B133 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		E945188627D36C4A0048B133 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		E945188827D36C580048B133 /* URLHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHost.swift; sourceTree = "<group>"; };
+		E945188A27D36C670048B133 /* URLScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLScheme.swift; sourceTree = "<group>"; };
+		E945188D27D36C940048B133 /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
+		E945188F27D36CAA0048B133 /* AdmiralGunEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralGunEndPoint.swift; sourceTree = "<group>"; };
+		E945189227D36CCA0048B133 /* APIPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIPublisher.swift; sourceTree = "<group>"; };
+		E945189527D36CED0048B133 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		E945189727D36CFF0048B133 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
+		E945189A27D36D240048B133 /* AdmiralGunAPIFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralGunAPIFacade.swift; sourceTree = "<group>"; };
+		E945189C27D36D360048B133 /* AdmiralGunAPIFacadeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralGunAPIFacadeProtocol.swift; sourceTree = "<group>"; };
+		E945189F27D36D530048B133 /* AdmiralGunProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralGunProvider.swift; sourceTree = "<group>"; };
+		E94518A127D36D630048B133 /* AdmiralGunProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralGunProviderProtocol.swift; sourceTree = "<group>"; };
 		E95553CA27A2C7BB00A14BCA /* InputChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputChatViewModel.swift; sourceTree = "<group>"; };
 		E95553CC27A2C84000A14BCA /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		E95553CE27A2CBE300A14BCA /* TextOperationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOperationViewModel.swift; sourceTree = "<group>"; };
@@ -2475,6 +2521,7 @@
 		E637ADDA25D2E18F00198FCF /* UserStrories */ = {
 			isa = PBXGroup;
 			children = (
+				E945186E27D36A310048B133 /* AdmiralGun */,
 				E6529CC22534EC9D009D8DE9 /* Common */,
 				0E0A3EF62611D220007C4CA8 /* Onboarding */,
 				E6529CBF2534EC5F009D8DE9 /* Main */,
@@ -2832,6 +2879,114 @@
 			path = Secondary;
 			sourceTree = "<group>";
 		};
+		E945186E27D36A310048B133 /* AdmiralGun */ = {
+			isa = PBXGroup;
+			children = (
+				E945189E27D36D460048B133 /* Providers */,
+				E945187027D36A500048B133 /* Network */,
+				E945186F27D36A490048B133 /* Models */,
+			);
+			path = AdmiralGun;
+			sourceTree = "<group>";
+		};
+		E945186F27D36A490048B133 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E945187227D36A700048B133 /* Plain */,
+				E945187127D36A630048B133 /* DTO */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E945187027D36A500048B133 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E945189927D36D100048B133 /* Facades */,
+				E945189427D36CD60048B133 /* Services */,
+				E945189127D36CC00048B133 /* API */,
+				E945188C27D36C7F0048B133 /* EndPoints */,
+				E945188327D36C2B0048B133 /* Models */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		E945187127D36A630048B133 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				E945187327D36A810048B133 /* GunItemsDTO.swift */,
+				E945187527D36A8F0048B133 /* GunItemDTO.swift */,
+				E945187727D36AA00048B133 /* GunParametersDTO.swift */,
+				E945187927D36AAD0048B133 /* GunElementDTO.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		E945187227D36A700048B133 /* Plain */ = {
+			isa = PBXGroup;
+			children = (
+				E945187B27D36AC20048B133 /* GunItems.swift */,
+				E945187D27D36ACD0048B133 /* GunItem.swift */,
+				E945187F27D36ADD0048B133 /* GunParameters.swift */,
+				E945188127D36AEA0048B133 /* GunElement.swift */,
+			);
+			path = Plain;
+			sourceTree = "<group>";
+		};
+		E945188327D36C2B0048B133 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E945188427D36C3C0048B133 /* HTTPMethod.swift */,
+				E945188627D36C4A0048B133 /* APIError.swift */,
+				E945188827D36C580048B133 /* URLHost.swift */,
+				E945188A27D36C670048B133 /* URLScheme.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E945188C27D36C7F0048B133 /* EndPoints */ = {
+			isa = PBXGroup;
+			children = (
+				E945188D27D36C940048B133 /* RequestBuilder.swift */,
+				E945188F27D36CAA0048B133 /* AdmiralGunEndPoint.swift */,
+			);
+			path = EndPoints;
+			sourceTree = "<group>";
+		};
+		E945189127D36CC00048B133 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				E945189227D36CCA0048B133 /* APIPublisher.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		E945189427D36CD60048B133 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E945189527D36CED0048B133 /* NetworkService.swift */,
+				E945189727D36CFF0048B133 /* NetworkServiceProtocol.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E945189927D36D100048B133 /* Facades */ = {
+			isa = PBXGroup;
+			children = (
+				E945189A27D36D240048B133 /* AdmiralGunAPIFacade.swift */,
+				E945189C27D36D360048B133 /* AdmiralGunAPIFacadeProtocol.swift */,
+			);
+			path = Facades;
+			sourceTree = "<group>";
+		};
+		E945189E27D36D460048B133 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				E945189F27D36D530048B133 /* AdmiralGunProvider.swift */,
+				E94518A127D36D630048B133 /* AdmiralGunProviderProtocol.swift */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
 		E95DC44427A12DDA00532BDC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -2845,6 +3000,8 @@
 			isa = PBXGroup;
 			children = (
 				E95DC44627A12DDA00532BDC /* Publishers+Extensions.swift */,
+				E945186A27D369DD0048B133 /* Publishers+Decode.swift */,
+				E945186C27D369F60048B133 /* Publishers+Sink.swift */,
 			);
 			path = Combine;
 			sourceTree = "<group>";
@@ -3267,6 +3424,7 @@
 				E9B4554727708D8800EA17FC /* TextMessageViewController.swift in Sources */,
 				C6BA67B82631D9B4001A7EB6 /* FAQTableViewCellCustomScheme.swift in Sources */,
 				E9BE41A827C7DFF400894224 /* DefaultCurrencyViewController.swift in Sources */,
+				E945188227D36AEA0048B133 /* GunElement.swift in Sources */,
 				C6DCBFC72631653200754365 /* InformersViewScheme.swift in Sources */,
 				0E9464E026B18E1A00F5E790 /* InformersAndToastsSwiftUItem.swift in Sources */,
 				0EFCDB5026B879CF006207B1 /* CurrencySwiftUIViewItem.swift in Sources */,
@@ -3285,6 +3443,7 @@
 				0EC136772666492A00F4EB7E /* FeedbackInputSwiftUIView.swift in Sources */,
 				E6ABDBAD253F3B4900B90570 /* SecureTextField.swift in Sources */,
 				0E6EA49027024A83002EBBBC /* TextBlocksSwiftUIView.swift in Sources */,
+				E94518A027D36D530048B133 /* AdmiralGunProvider.swift in Sources */,
 				0E195E9F256CEDE10096780B /* PrimaryTitleCellViewController.swift in Sources */,
 				0E4BC8382681D053000FC891 /* ImageBaseCellSwiftUIView.swift in Sources */,
 				0EBC46AC269F0061003CF5FA /* CalendarsSwiftUIItem.swift in Sources */,
@@ -3293,6 +3452,7 @@
 				E6903D8525DFE41E00245403 /* ThemeColorsViewController.swift in Sources */,
 				0EAF71B72638750B0041CA08 /* InformerTabSwiftUIView.swift in Sources */,
 				C6260AB1255B0748007175C2 /* SMSCodeViewController.swift in Sources */,
+				E945187A27D36AAD0048B133 /* GunElementDTO.swift in Sources */,
 				C6260AB5255B086F007175C2 /* StandardVSIconMenuViewController.swift in Sources */,
 				0E73863227764959003892C7 /* ToastNotificationsViewScheme.swift in Sources */,
 				C6E04A86256C256600C32381 /* SmallInformersViewController.swift in Sources */,
@@ -3302,11 +3462,13 @@
 				E9A709882758E70D003233DF /* ChatMessageCellScheme.swift in Sources */,
 				0EFCDB5326B87C2F006207B1 /* DefaultCurrencySwiftUIView.swift in Sources */,
 				E9A75608274E6AB9005024B3 /* InputChatViewController.swift in Sources */,
+				E945188027D36ADD0048B133 /* GunParameters.swift in Sources */,
 				0E3DB3C8265D253A00CA2F2A /* OTPTextFieldSwiftUIView.swift in Sources */,
 				0E548733256413040089F37C /* LeadingComponentsViewController.swift in Sources */,
 				0E59D36E2632C264007B5CC1 /* UnderlineSliderTabSwiftUIView.swift in Sources */,
 				E69505B025ECFAD3006483F2 /* ColorEditViewController.swift in Sources */,
 				0EB1AC642657EE12007D7795 /* ItemSwiftUIRowScheme.swift in Sources */,
+				E945188927D36C580048B133 /* URLHost.swift in Sources */,
 				0E195E92256C27FB0096780B /* TextBaseCellViewController.swift in Sources */,
 				C68656AA25598B0900B885B8 /* Assets.swift in Sources */,
 				E9A18D9C273ACD5000668C03 /* SwiftUIChatInputViewModel.swift in Sources */,
@@ -3335,6 +3497,8 @@
 				C6A13803260A0D3A001F04E5 /* ThemeSwitchListView.swift in Sources */,
 				0E74C5842684961E00F79D10 /* ActionBarSwiftUIViewDefault.swift in Sources */,
 				C6BA67B42631CA36001A7EB6 /* MenuInfoCellCustomScheme.swift in Sources */,
+				E945187827D36AA00048B133 /* GunParametersDTO.swift in Sources */,
+				E945186B27D369DD0048B133 /* Publishers+Decode.swift in Sources */,
 				E9BE41AB27C7DFF400894224 /* CurrencyViewController.swift in Sources */,
 				C6BA67C32631FB0D001A7EB6 /* ColorTokerCellCustomSheme.swift in Sources */,
 				0E4BC95526834FFD000FC891 /* SecondaryTitleBaseCellSwiftUI.swift in Sources */,
@@ -3346,6 +3510,7 @@
 				3B0268B627A85F7700B03E6F /* SwiftUITextMessageViewModel.swift in Sources */,
 				0E576F3125387C4800E223DD /* TagsChipsViewController.swift in Sources */,
 				C6260A99255A88BA007175C2 /* BaseRouter.swift in Sources */,
+				E945187627D36A8F0048B133 /* GunItemDTO.swift in Sources */,
 				0E3FB2B6255E60210015019E /* CellsViewController.swift in Sources */,
 				E9332FBD277CCC9000F9AF26 /* UploadingImageViewController.swift in Sources */,
 				E934038127B289380007B86D /* ActionBarSwiftUIViewSecondary.swift in Sources */,
@@ -3355,12 +3520,14 @@
 				0E853CC5259214E60033F17C /* StatusHistorySmallViewController.swift in Sources */,
 				C6C1750825F7A2B500DC052F /* FAQViewController.swift in Sources */,
 				C6B92A8B258B922400ABF9A0 /* BottomSheetExampleViewController.swift in Sources */,
+				E945189627D36CED0048B133 /* NetworkService.swift in Sources */,
 				0EAD1D06270ED4F00011B045 /* ActionNotificationSwiftUIView.swift in Sources */,
 				0EB054242639865D00238CB7 /* InfoSwiftUIView.swift in Sources */,
 				E65BDB8425DD7B6F00718A29 /* UITableView+Size.swift in Sources */,
 				C645BA9B25C997B40092D906 /* RadioControlsCellView.swift in Sources */,
 				0EB1AC4D2657A584007D7795 /* SwiftUIContentViewScheme.swift in Sources */,
 				C68656AE2559987300B885B8 /* SwitcherViewController.swift in Sources */,
+				E945187E27D36ACD0048B133 /* GunItem.swift in Sources */,
 				E6903D8125DFA98E00245403 /* EditSingleTextViewController.swift in Sources */,
 				0E853CC3259214DA0033F17C /* StatusHistoryStandardViewController.swift in Sources */,
 				C6BA67D72632DC16001A7EB6 /* LinksCellViewCustomScheme.swift in Sources */,
@@ -3373,6 +3540,7 @@
 				0E4BC8552681DBC0000FC891 /* ImageLableComponentsSwiftUIView.swift in Sources */,
 				E6968DDF269C5FA60006F2B3 /* UIViewController+ThemeView.swift in Sources */,
 				3B592041278DC75400706DA6 /* AlertCustomScheme.swift in Sources */,
+				E945187C27D36AC20048B133 /* GunItems.swift in Sources */,
 				E934038327B28A3E0007B86D /* ActionBarSwiftUIItem.swift in Sources */,
 				0E22C671262AFC8A00D09FC5 /* ButtonsSwiftUIView.swift in Sources */,
 				0E576D3825370C4600E223DD /* ButtonsViewController.swift in Sources */,
@@ -3401,6 +3569,7 @@
 				0E853CBF259213A20033F17C /* StatusHistoryViewController.swift in Sources */,
 				E934036927B124840007B86D /* ActionBarsViewController.swift in Sources */,
 				0E6EA49B27025DCA002EBBBC /* ParagraphSwiftUIView.swift in Sources */,
+				E94518A227D36D630048B133 /* AdmiralGunProviderProtocol.swift in Sources */,
 				C6BA67C52632D100001A7EB6 /* MenuListCellCustomScheme.swift in Sources */,
 				3B0268B827AAA8D900B03E6F /* SwiftUITextOperationViewModel.swift in Sources */,
 				E9332FC9277DA2F100F9AF26 /* PageControlsSwiftUIView.swift in Sources */,
@@ -3412,10 +3581,12 @@
 				0E45612926860A1F003F588D /* ShimmersSwiftUIView.swift in Sources */,
 				E63B50E325DD3F0100993D21 /* ColorTokenCell.swift in Sources */,
 				E934036B27B124E70007B86D /* ActionBarsViewModel.swift in Sources */,
+				E945186D27D369F60048B133 /* Publishers+Sink.swift in Sources */,
 				E9A18D8D2739563B00668C03 /* SwiftUIUploadingFileView.swift in Sources */,
 				E9C79CC927BD245C0002EC49 /* ErrorSwiftUIView.swift in Sources */,
 				E640F65625E1138C0036E24E /* SelectThemeTemplateViewController.swift in Sources */,
 				E6D5710825DE6CCA00D3304F /* UIView+Autolayout.swift in Sources */,
+				E945189D27D36D360048B133 /* AdmiralGunAPIFacadeProtocol.swift in Sources */,
 				C6DCBFF52631AABD00754365 /* BottomSheetViewControllerCustomTheme.swift in Sources */,
 				C674991225D40B1C00232C5F /* BigTabsView.swift in Sources */,
 				0E3DB3FA265D3F3500CA2F2A /* BankTextFieldSwiftUIView.swift in Sources */,
@@ -3484,6 +3655,7 @@
 				E9332FC7277DA28000F9AF26 /* PageControlsSwiftUIItem.swift in Sources */,
 				C686568C255937FE00B885B8 /* SettingsViewController.swift in Sources */,
 				E916FA062768C31900628C96 /* TextOperationScheme.swift in Sources */,
+				E945188727D36C4A0048B133 /* APIError.swift in Sources */,
 				C6260AC6255C3230007175C2 /* NumberViewController.swift in Sources */,
 				E9C79CBB27BD1C120002EC49 /* AlertOnboardingViewController.swift in Sources */,
 				E640F65B25E11C230036E24E /* UIView+DefalutHighlight.swift in Sources */,
@@ -3491,6 +3663,7 @@
 				C6DCBFCB263169C700754365 /* BadgeCellViewCustomScheme.swift in Sources */,
 				C673512A25CC46690045C123 /* ThemesViewController.swift in Sources */,
 				E95DC44727A12DDA00532BDC /* Publishers+Extensions.swift in Sources */,
+				E945189327D36CCA0048B133 /* APIPublisher.swift in Sources */,
 				E9BE41AC27C7DFF400894224 /* FlagsCurrencyViewModel.swift in Sources */,
 				0E73864E277B150E003892C7 /* ActionNotificationViewScheme.swift in Sources */,
 				C6C1750325F7995000DC052F /* InfoMainCell.swift in Sources */,
@@ -3514,6 +3687,7 @@
 				C6BA67C12631FA14001A7EB6 /* SectionHeaderCustomScheme.swift in Sources */,
 				C674990825D3FB9E00232C5F /* InformerTabViewController.swift in Sources */,
 				E9C79CC527BD22AE0002EC49 /* AlertOnboardingSwiftUIView.swift in Sources */,
+				E945188527D36C3C0048B133 /* HTTPMethod.swift in Sources */,
 				C6BA67D52632DB04001A7EB6 /* TimePickerViewControllerCustomScheme.swift in Sources */,
 				0EBC46AA269F0044003CF5FA /* CalendarsSwiftUIView.swift in Sources */,
 				0E110DCF27C7926E00BFF58F /* LinksHeaderViewController.swift in Sources */,
@@ -3534,6 +3708,7 @@
 				0EEAF9E3261F8D2B00E46143 /* SwiftUIController.swift in Sources */,
 				E9BE41B027C7DFF400894224 /* IconsFlagsCurrencyViewModel.swift in Sources */,
 				0EC9B0FC25655C3F009B1FC0 /* TralingComponentsViewController.swift in Sources */,
+				E945189827D36CFF0048B133 /* NetworkServiceProtocol.swift in Sources */,
 				E9BE41AE27C7DFF400894224 /* CurrencyHeaderItem.swift in Sources */,
 				E6968DE1269C85DA0006F2B3 /* ThemeSwitchView.swift in Sources */,
 				C68656B1255998A200B885B8 /* CheckboxViewController.swift in Sources */,
@@ -3545,7 +3720,9 @@
 				3B574A9F27C7DA13006FEF9A /* ZeroScreenViewControllerScheme.swift in Sources */,
 				C6723C8425D2901300226ED9 /* LinksCellView.swift in Sources */,
 				E934038527B28A960007B86D /* ActionBarSwiftUI.swift in Sources */,
+				E945189B27D36D240048B133 /* AdmiralGunAPIFacade.swift in Sources */,
 				0EC91E6626BD3B6500636204 /* BadgesSwiftUIView.swift in Sources */,
+				E945188B27D36C670048B133 /* URLScheme.swift in Sources */,
 				E6C2B23E25DC1172007D332A /* ColorMapCursor.swift in Sources */,
 				0E264B0D264E9ECF00601790 /* StandardTextFieldSwiftUIView.swift in Sources */,
 				C670865725B9B643003F361C /* LinerPageControl.swift in Sources */,
@@ -3567,6 +3744,7 @@
 				0E264B0A264E9E2A00601790 /* TextFieldsSwiftUIItem.swift in Sources */,
 				E6D91C482532047C00DCE489 /* AppDelegate.swift in Sources */,
 				C6BA67BC2631DCFC001A7EB6 /* ContactsTableViewCustomTheme.swift in Sources */,
+				E945188E27D36C940048B133 /* RequestBuilder.swift in Sources */,
 				0E110DB727C6E74900BFF58F /* DropDownViewController.swift in Sources */,
 				0E264B12264EAF1700601790 /* StandardTextFieldsSwiftUIItem.swift in Sources */,
 				0E73862627740BCF003892C7 /* NotificationsViewController.swift in Sources */,
@@ -3574,6 +3752,7 @@
 				E9BE41B227C7DFF400894224 /* CurrencyViewModel.swift in Sources */,
 				C6C1751225F7AEBF00DC052F /* FAQTableViewCells.swift in Sources */,
 				C69DD96A25DFD57000D08BE8 /* TextFieldTextView.swift in Sources */,
+				E945187427D36A810048B133 /* GunItemsDTO.swift in Sources */,
 				E6CCB26125DA714B00269F82 /* TitleBaseCellViewController.swift in Sources */,
 				0E22C676262D01DF00D09FC5 /* SwitcherSwiftUIView.swift in Sources */,
 				E9A18D87273946BD00668C03 /* SwiftUIChatInputView.swift in Sources */,
@@ -3607,6 +3786,7 @@
 				0E59D345263039C7007B5CC1 /* LogoTabSwiftUIView.swift in Sources */,
 				E9ECF1FD272975AD00363E5E /* ImagePicker.swift in Sources */,
 				C6DD6BAE260B97E0009799CB /* ThemeSwitchViewCoordinator.swift in Sources */,
+				E945189027D36CAA0048B133 /* AdmiralGunEndPoint.swift in Sources */,
 				0E4BC8A12681E96C000FC891 /* ImageTrailingLableComponentsSwiftUIView.swift in Sources */,
 				0E4BC72B267CF02A000FC891 /* TralingComponentsSwiftUIView.swift in Sources */,
 				E9BE41D427C8D83C00894224 /* MapButtonsViewModel.swift in Sources */,

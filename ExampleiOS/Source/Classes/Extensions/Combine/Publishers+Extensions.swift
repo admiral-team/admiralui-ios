@@ -2,7 +2,7 @@
 //  Publishers+Extensions.swift
 //  ExampleiOS
 //
-//  Created on 25.01.2022.
+//  Created by Borisov Kirill on 25.01.2022.
 //
 
 import Combine
