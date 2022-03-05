@@ -158,6 +158,8 @@
 		3B500E2827297F2500A860F0 /* UIApplication+EndEditing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B500E2727297F2500A860F0 /* UIApplication+EndEditing.swift */; };
 		3B574A9D27C7D9E2006FEF9A /* ZeroScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B574A9C27C7D9E2006FEF9A /* ZeroScreenViewController.swift */; };
 		3B574A9F27C7DA13006FEF9A /* ZeroScreenViewControllerScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B574A9E27C7DA13006FEF9A /* ZeroScreenViewControllerScheme.swift */; };
+		3B574AAA27D290F8006FEF9A /* AdmiralGunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B574AA927D290F8006FEF9A /* AdmiralGunView.swift */; };
+		3B574AAC27D29344006FEF9A /* AdmiralGunViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B574AAB27D29344006FEF9A /* AdmiralGunViewModel.swift */; };
 		3B59203F278D9A5700706DA6 /* AlertSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B59203E278D9A5700706DA6 /* AlertSwiftUIView.swift */; };
 		3B592041278DC75400706DA6 /* AlertCustomScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B592040278DC75400706DA6 /* AlertCustomScheme.swift */; };
 		C61C26F7261BB99300D01ED9 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61C26F6261BB99300D01ED9 /* BaseViewController.swift */; };
@@ -584,6 +586,8 @@
 		3B500E2727297F2500A860F0 /* UIApplication+EndEditing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+EndEditing.swift"; sourceTree = "<group>"; };
 		3B574A9C27C7D9E2006FEF9A /* ZeroScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroScreenViewController.swift; sourceTree = "<group>"; };
 		3B574A9E27C7DA13006FEF9A /* ZeroScreenViewControllerScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroScreenViewControllerScheme.swift; sourceTree = "<group>"; };
+		3B574AA927D290F8006FEF9A /* AdmiralGunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralGunView.swift; sourceTree = "<group>"; };
+		3B574AAB27D29344006FEF9A /* AdmiralGunViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralGunViewModel.swift; sourceTree = "<group>"; };
 		3B59203E278D9A5700706DA6 /* AlertSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSwiftUIView.swift; sourceTree = "<group>"; };
 		3B592040278DC75400706DA6 /* AlertCustomScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCustomScheme.swift; sourceTree = "<group>"; };
 		C61C26F6261BB99300D01ED9 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -1519,6 +1523,7 @@
 		0EA9F51E26284D81009F4B5A /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				3B574AA827D29057006FEF9A /* AdmiralGunUI */,
 				3B59203D278D99AA00706DA6 /* Alert&Onboarding */,
 				E9332FC2277D958200F9AF26 /* PageControls */,
 				E9A18DA5273D16F900668C03 /* Links */,
@@ -1826,6 +1831,15 @@
 				3B574A9E27C7DA13006FEF9A /* ZeroScreenViewControllerScheme.swift */,
 			);
 			path = ZeroScreen;
+			sourceTree = "<group>";
+		};
+		3B574AA827D29057006FEF9A /* AdmiralGunUI */ = {
+			isa = PBXGroup;
+			children = (
+				3B574AA927D290F8006FEF9A /* AdmiralGunView.swift */,
+				3B574AAB27D29344006FEF9A /* AdmiralGunViewModel.swift */,
+			);
+			path = AdmiralGunUI;
 			sourceTree = "<group>";
 		};
 		3B59203D278D99AA00706DA6 /* Alert&Onboarding */ = {
@@ -3580,6 +3594,7 @@
 				C6BA67D92632DDB2001A7EB6 /* CheckBoxesCellViewCustomScheme.swift in Sources */,
 				0EF548B4267A0F6B00E49DEB /* NavigationContentView.swift in Sources */,
 				C670867525BB1165003F361C /* BaseNavigationController.swift in Sources */,
+				3B574AAC27D29344006FEF9A /* AdmiralGunViewModel.swift in Sources */,
 				C61C26F7261BB99300D01ED9 /* BaseViewController.swift in Sources */,
 				0E45612926860A1F003F588D /* ShimmersSwiftUIView.swift in Sources */,
 				E63B50E325DD3F0100993D21 /* ColorTokenCell.swift in Sources */,
@@ -3787,6 +3802,7 @@
 				C6DCBFCE26316DBC00754365 /* ButtonsViewCustomScheme.swift in Sources */,
 				C6260A9B255AAEC5007175C2 /* BaseTableViewController.swift in Sources */,
 				E6D570FA25DD95F100D3304F /* Codable+Dictionary.swift in Sources */,
+				3B574AAA27D290F8006FEF9A /* AdmiralGunView.swift in Sources */,
 				0E59D345263039C7007B5CC1 /* LogoTabSwiftUIView.swift in Sources */,
 				E9ECF1FD272975AD00363E5E /* ImagePicker.swift in Sources */,
 				C6DD6BAE260B97E0009799CB /* ThemeSwitchViewCoordinator.swift in Sources */,
