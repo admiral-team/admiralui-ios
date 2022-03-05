@@ -9,6 +9,6 @@ import Foundation
 
 struct GunItem {
     let description: String
-    let id: String
+    let id: GunItemComponent
     let parameters: GunParameters
 }

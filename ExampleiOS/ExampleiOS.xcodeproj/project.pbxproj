@@ -355,6 +355,7 @@
 		E945189D27D36D360048B133 /* AdmiralGunAPIFacadeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945189C27D36D360048B133 /* AdmiralGunAPIFacadeProtocol.swift */; };
 		E94518A027D36D530048B133 /* AdmiralGunProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945189F27D36D530048B133 /* AdmiralGunProvider.swift */; };
 		E94518A227D36D630048B133 /* AdmiralGunProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94518A127D36D630048B133 /* AdmiralGunProviderProtocol.swift */; };
+		E94518A627D386BE0048B133 /* GunItemComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94518A527D386BE0048B133 /* GunItemComponent.swift */; };
 		E95553CB27A2C7BB00A14BCA /* InputChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95553CA27A2C7BB00A14BCA /* InputChatViewModel.swift */; };
 		E95553CD27A2C84000A14BCA /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95553CC27A2C84000A14BCA /* ChatViewModel.swift */; };
 		E95553CF27A2CBE300A14BCA /* TextOperationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95553CE27A2CBE300A14BCA /* TextOperationViewModel.swift */; };
@@ -782,6 +783,7 @@
 		E945189C27D36D360048B133 /* AdmiralGunAPIFacadeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralGunAPIFacadeProtocol.swift; sourceTree = "<group>"; };
 		E945189F27D36D530048B133 /* AdmiralGunProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralGunProvider.swift; sourceTree = "<group>"; };
 		E94518A127D36D630048B133 /* AdmiralGunProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralGunProviderProtocol.swift; sourceTree = "<group>"; };
+		E94518A527D386BE0048B133 /* GunItemComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GunItemComponent.swift; sourceTree = "<group>"; };
 		E95553CA27A2C7BB00A14BCA /* InputChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputChatViewModel.swift; sourceTree = "<group>"; };
 		E95553CC27A2C84000A14BCA /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		E95553CE27A2CBE300A14BCA /* TextOperationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOperationViewModel.swift; sourceTree = "<group>"; };
@@ -2926,6 +2928,7 @@
 			children = (
 				E945187B27D36AC20048B133 /* GunItems.swift */,
 				E945187D27D36ACD0048B133 /* GunItem.swift */,
+				E94518A527D386BE0048B133 /* GunItemComponent.swift */,
 				E945187F27D36ADD0048B133 /* GunParameters.swift */,
 				E945188127D36AEA0048B133 /* GunElement.swift */,
 			);
@@ -3718,6 +3721,7 @@
 				C6723C7F25D28FF500226ED9 /* LinksViewController.swift in Sources */,
 				E63B50FC25DD676900993D21 /* ModallyPresentedNavigationControllerDelegate.swift in Sources */,
 				3B574A9F27C7DA13006FEF9A /* ZeroScreenViewControllerScheme.swift in Sources */,
+				E94518A627D386BE0048B133 /* GunItemComponent.swift in Sources */,
 				C6723C8425D2901300226ED9 /* LinksCellView.swift in Sources */,
 				E934038527B28A960007B86D /* ActionBarSwiftUI.swift in Sources */,
 				E945189B27D36D240048B133 /* AdmiralGunAPIFacade.swift in Sources */,
