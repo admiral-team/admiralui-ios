@@ -5,11 +5,11 @@
 //  Created by on 05.03.2022.
 //
 
-enum GunItemComponent: String {
+enum GunItemId: String {
     case primaryButton = "PrimaryButton"
     case standartTextfield = "StandartTextfield"
     case tab = "Tab"
     case switcher = "Switcher"
     case toolbar = "Toolbar"
-    case unknown = ""
+    case unknown = "unknown"
 }

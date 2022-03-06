@@ -8,7 +8,15 @@
 import Foundation
 
 struct GunItem: Hashable {
+
+    var uid = UUID().uuidString
+
     let description: String
-    let id: GunItemComponent
-    let parameters: GunParameters
+    let id: GunItemId
+    let parameters: GunType
+
+    static func == (lhs: GunItem, rhs: GunItem) -> Bool {
+        lhs.uid == rhs.uid
+    }
+
 }

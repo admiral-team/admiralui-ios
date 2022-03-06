@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GunElement: Hashable {
+struct ToolBarElement: Hashable {
     let icon: String
     let title: String
 }
