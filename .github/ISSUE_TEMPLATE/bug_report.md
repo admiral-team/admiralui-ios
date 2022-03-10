@@ -1,38 +1,24 @@
 ---
 name: Bug report
-about: Create a report to help us improve
-title: ''
+about: Создание отчета об ошибке
+title: "[BUG]"
 labels: ''
 assignees: ''
 
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+**App version**: Версия приложения (добавить так же в labels)
+**OS version**: Версия операционной системы
+**Описание**: 
+> Подробное описание проблемы
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+**Шаги воспроизведения:**
+1. Шаг 1
+2. Шаг 2
+3. Шаг 3
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+**Фактический результат:**
+ Некорректный результат, которые происходит при выполнении шагов
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
-
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
-
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
-
-**Additional context**
-Add any other context about the problem here.
+**Ожидаемый результат:**
+ Корректный результат, который должен произойти в итоге
