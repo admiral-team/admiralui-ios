@@ -10,7 +10,7 @@ import Foundation
 struct PrimaryButtonDTO: Decodable {
     let enabled: Bool
     let isIconEnabled: Bool?
-    let isLoading: Bool?
+    let isLoading: Bool
     let size: Int?
     let text: String?
 }

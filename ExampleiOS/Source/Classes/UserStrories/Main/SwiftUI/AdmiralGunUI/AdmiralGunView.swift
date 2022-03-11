@@ -52,10 +52,10 @@ struct AdmiralGunView: View {
             )
             .eraseToAnyView()
         case .primaryButtton(var button):
-            return SwiftUI.Button(button.text ?? "", action: { button.isLoading?.toggle() })
+            return SwiftUI.Button(button.text ?? "", action: { button.isLoading.toggle() })
                 .buttonStyle(PrimaryButtonStyle(
                     isLoading: Binding<Bool>(
-                        get: { !(button.isLoading ?? false) },
+                        get: { !button.isLoading },
                         set: { button.isLoading = !$0 }
                     ),
                     sizeType: .small
