@@ -18,5 +18,5 @@ jobs:
         run:  |
               bundle config set path 'vendor'
               bundle install
-      - name: Start SwiftUI tests
+      - name: Start SwiftUI&UIKit tests
         run:  bundle exec fastlane run_all_tests
