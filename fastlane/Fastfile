@@ -49,7 +49,7 @@ lane :deploy_appcenter_dev do |options|
 
   skip_archive = options[:skip_archive] || false
   build_number = generate_random_build_number()
-
+  
   if !skip_archive
     increment_app_build(build_number: build_number)
     
