@@ -120,7 +120,8 @@ lane :run_tests_app do |options|
     buildlog_path: './fastlane/buildlog',
     derived_data_path: '~/Library/Developer/Xcode/DerivedData',
     devices: devices,
-    ensure_devices_found: true
+    ensure_devices_found: true,
+    result_bundle: true
   )
 end
 
