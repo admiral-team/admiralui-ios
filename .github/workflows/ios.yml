@@ -14,11 +14,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Install GEM
-        run:  gem install bundler:2.2.27
-      - name: Set path
-        run:  bundle config set path 'vendor'
-      - name: Bundle install
-        run:  bundle install
+      - name: Setup Environment
+        run:  |
+              gem install bundler:2.2.27
+              bundle config set path 'vendor'
+              bundle install
       - name: Start SwiftUI tests
         run:  bundle exec fastlane run_all_tests
