@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     name: Build and Test default scheme using any available iPhone simulator
-    runs-on: [self-hosted]
+    runs-on: [self-hosted, main]
 
     steps:
       - name: Checkout
