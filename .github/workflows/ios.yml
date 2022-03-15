@@ -16,6 +16,8 @@ jobs:
         run:  echo $APPCENTER_API_TOKEN
       - name: Install GEM
         run:  gem install bundler:2.2.27
+      - name: Bundle install
+        run:  bundle install
       - name: Start SwiftUI tests
         run:  bundle exec fastlane run_tests_swiftui
 #       - name: Build
