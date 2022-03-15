@@ -2,13 +2,21 @@
 //  GunItem.swift
 //  ExampleiOS
 //
-//  Created by Borisov Kirill on 05.03.2022.
+//  Created by on 05.03.2022.
 //
 
 import Foundation
 
-struct GunItem {
+struct GunItem: Hashable {
+
+    var uid = UUID().uuidString
+
     let description: String
-    let id: String
-    let parameters: GunParameters
+    let id: GunItemId
+    let parameters: GunType
+
+    static func == (lhs: GunItem, rhs: GunItem) -> Bool {
+        lhs.uid == rhs.uid
+    }
+
 }

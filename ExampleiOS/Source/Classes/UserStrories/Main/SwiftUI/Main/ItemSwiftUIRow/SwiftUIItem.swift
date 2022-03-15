@@ -33,6 +33,7 @@ enum SwiftUIItem: String, CaseIterable {
     case bottomSheets
     case currency
     case chat
+    case admiralGun
     
     var title: String {
         switch self {
@@ -82,6 +83,8 @@ enum SwiftUIItem: String, CaseIterable {
             return "Currency"
         case .chat :
             return "Chat"
+        case .admiralGun:
+            return "Admiral Gun"
         }
     }
     
@@ -133,6 +136,8 @@ enum SwiftUIItem: String, CaseIterable {
             return "Таблица курсов валют"
         case .chat:
             return "Чат"
+        case .admiralGun:
+            return "Загрузка шаблонов"
         }
     }
     
@@ -184,6 +189,8 @@ enum SwiftUIItem: String, CaseIterable {
             return Asset.Main.textBlocks.name
         case .chat:
             return Asset.Main.chat.name
+        case .admiralGun:
+            return Asset.Main.pencil.name
         }
     }
     
