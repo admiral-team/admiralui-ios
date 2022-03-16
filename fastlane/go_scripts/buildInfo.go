@@ -1,5 +1,10 @@
 package main
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 type BuildInfo struct {
 	Platform         string `json:"platform,omitempty"`
 	Build_id         string `json:"BuildID,omitempty"`
@@ -10,10 +15,10 @@ type BuildInfo struct {
 	Install_url      string `json:"InstallURL,omitempty"`
 	Build_url        string `json:"build_url,omitempty"`
 	Branch_name      string `json:"BranchName,omitempty"`
-	Issue            string `json:"Issue,omitempty"`
+	Issue            int    `json:"Issue,string,omitempty"`
 }
 
-func formatted_build_info_git(buildInfo BuildInfo) string {
+func (buildInfo BuildInfo) formatted_build_info_git() string {
 	var resultString string
 	if buildInfo.Platform != "" {
 		resultString += "Platform: " + buildInfo.Platform + "\n"
@@ -34,7 +39,17 @@ func formatted_build_info_git(buildInfo BuildInfo) string {
 		resultString += "Branch Name: " + buildInfo.Branch_name + "\n"
 	}
 	if buildInfo.Build_url != "" {
-		resultString += "Install URL: "+ buildInfo.Build_url + "\n"
+		resultString += "Install URL: " + buildInfo.Build_url + "\n"
 	}
 	return resultString
+}
+
+func configureBuildInfo(byString string) BuildInfo {
+	buildInfo := BuildInfo{}
+	err := json.Unmarshal([]byte(byString), &buildInfo)
+
+	if err != nil {
+		fmt.Println("Cannot Parse JSON From Command Line....", err)
+	}
+	return buildInfo
 }
