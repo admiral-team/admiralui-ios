@@ -92,6 +92,22 @@ def formatted_build_info_git(build_info:)
   result_string.strip
 end
 
+def formatted_build_info_json(build_info:)
+  str = '{'
+  str += '\"platform\"' + ':"\"' + "#{build_info.platform}" + '"\"' + '","' unless build_info.platform.nil?
+  str += '\"BuildID\"' + ':"\"' + "#{build_info.build_id}" + '"\"' + '","' unless build_info.platform.nil?
+  str += '\"Version\"' + ':"\"' + "#{build_info.version}" + '"\"' + '","' unless build_info.platform.nil?
+  str += '\"InternalVersion\"' + ':"\"' + "#{build_info.internal_version}" + '"\"' + '","' unless build_info.platform.nil?
+  str += '\"ShortVersion\"' + ':"\"' + "#{build_info.short_version}" + '"\"' + '","' unless build_info.platform.nil?
+  str += '\"download_url\"' + ':"\"' + "#{build_info.download_url}" + '"\"' + '","' unless build_info.platform.nil?
+  str += '\"InstallURL\"' + ':"\"' + "#{build_info.install_url}" + '"\"' + '","' unless build_info.platform.nil?
+  str += '\"build_url\"' + ':"\"' + "#{build_info.build_url}" + '"\"' + '","' unless build_info.platform.nil?
+  str += '\"BranchName\"' + ':"\"' + "#{build_info.branch_name}" + '"\"' + '","' unless build_info.platform.nil?
+  str += '\"Issue\"' + ':"\"' + "#{build_info.issue}" + '"\"' unless build_info.platform.nil?
+  str += '}'
+  str
+end
+
 def formatted_build_info_jira(build_info:)
   result_string = ""
   result_string += "*Platform:* #{build_info.platform}\n" unless build_info.platform.nil?
