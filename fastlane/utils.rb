@@ -6,6 +6,12 @@ def replace(file:, regex:, with:)
   File.open(file, "w") {|file| file.puts new_content }
 end
 
+def extract_issue_name(branch_name:)
+  branch_array = branch_name.split("/")
+  last_element = branch_array.last.split("-").first
+  last_element
+end
+
 def validate_cocoapods_imports(directory:, imports:)
   file_paths = Dir[File.join(directory, '**', '*.swift')]
   imports = imports.map { |i| "import #{i}" }

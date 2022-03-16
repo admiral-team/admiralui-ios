@@ -55,6 +55,10 @@ lane :deploy_appcenter_dev do |options|
   issue_name = options[:issue_name]
   previous_build_number = current_app_build_number
   
+  if issue_name == ""
+    issue_name = extract_issue_name(branch_name: branch_name)
+  end
+
   if !skip_archive
     increment_app_build(build_number: build_number)
     
@@ -92,7 +96,7 @@ lane :deploy_appcenter_dev do |options|
   build_info.issue = issue_name
 
   if !skip_git_comment && !issue_name.nil?
-    comment_body = formatted_build_info_git(build_info: build_info)
+    comment_body = formatted_build_info_json(build_info: build_info)
     system("cd ./go_scripts && ./main #{comment_body}")
   end
 end
