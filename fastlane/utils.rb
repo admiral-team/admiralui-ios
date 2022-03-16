@@ -8,8 +8,8 @@ end
 
 def extract_issue_name(branch_name:)
   branch_array = branch_name.split("/")
-  last_element = branch_array.last.split("-").first
-  last_element
+  issue_name = branch_array.last.split("-").first
+  issue_name
 end
 
 def validate_cocoapods_imports(directory:, imports:)
