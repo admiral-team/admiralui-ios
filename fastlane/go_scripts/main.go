@@ -2,13 +2,11 @@ package main
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
 	"log"
 	"main/auth"
 	"main/issues"
 	"os"
-	"strconv"
 
 	"github.com/joho/godotenv"
 )
@@ -21,21 +19,16 @@ func main() {
 		log.Fatal("Cannot read .env file")
 	}
 
-	buildInfo := BuildInfo{}
-
-	jsonBody := os.Args[1]
-	err := json.Unmarshal([]byte(jsonBody), &buildInfo)
-	if err != nil {
-		fmt.Println("Cannot Parse JSON From Command Line....", err)
-	}
-
 	ctx := context.Background()
-	client := auth.GetClient(os.Getenv("API_TOKEN"), ctx)
+	client := auth.GithubClient(os.Getenv("API_TOKEN"), ctx)
 
-	issueNumber, _ := strconv.Atoi(buildInfo.Issue)
-
-	// TODO: - Create single binary files to call different methods.
-
-	issues.CreateComment(ctx, os.Getenv("OWNER"), os.Getenv("REPO"), issueNumber, formatted_build_info_git(buildInfo), *client)
-	// issues.GetIssues(ctx, os.Getenv("OWNER"), os.Getenv("REPO"), *client)
+	switch os.Args[1] {
+	case "createComment":
+		buildInfo := configureBuildInfo(os.Args[2])
+		issues.CreateIssueComment(ctx, os.Getenv("OWNER"), os.Getenv("REPO"), buildInfo.Issue, buildInfo.formatted_build_info_git(), *client)
+	case "getIssues":
+		issues.GetIssues(ctx, os.Getenv("OWNER"), os.Getenv("REPO"), *client)
+	default:
+		fmt.Println("Unknown command")
+	}
 }

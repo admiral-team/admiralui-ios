@@ -97,7 +97,7 @@ lane :deploy_appcenter_dev do |options|
 
   if !skip_git_comment && !issue_name.nil?
     comment_body = formatted_build_info_json(build_info: build_info)
-    system("cd ./go_scripts && ./main #{comment_body}")
+    system("cd ./go_scripts && ./main createComment #{comment_body}")
   end
 end
 
