@@ -20,3 +20,5 @@ jobs:
               bundle install
       - name: Start SwiftUI&UIKit tests
         run:  bundle exec fastlane run_all_tests
+      - name: Deploy app center dev
+        run:  bundle exec fastlane deploy_appcenter_dev
