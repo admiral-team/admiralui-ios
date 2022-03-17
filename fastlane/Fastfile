@@ -49,6 +49,8 @@ lane :deploy_appcenter_dev do |options|
 
   skip_archive = options[:skip_archive] || false
   skip_git_comment = options[:skip_git_comment] || false
+  keychain_url = options[:keychain_url]
+  ci_password = options[:ci_password]
   build_number = generate_random_build_number()
 
   branch_name = git_branch()
@@ -61,6 +63,10 @@ lane :deploy_appcenter_dev do |options|
 
   if !skip_archive
     increment_app_build(build_number: build_number)
+    
+    if !keychain_url.nil? && !ci_password.nil?
+      unlock_keychain(path: keychain_url, password: ci_password)
+    end
     
     build_app(
       workspace: ENV['PROJECT_WORKSPACE_PATH'],
