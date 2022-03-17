@@ -61,16 +61,15 @@ lane :deploy_appcenter_dev do |options|
     issue_name = extract_issue_name(branch_name: branch_name)
   end
 
-  puts "CI_PASSWORD #{ci_password}"
-  puts "keychain_url #{keychain_url}"
-
   if !skip_archive
     increment_app_build(build_number: build_number)
 
-    unlock_keychain(
-      path: keychain_url,
-      password: ci_password
-    ) 
+    if !ci_password.nil? && !keychain_url.nil?
+      unlock_keychain(
+        path: keychain_url,
+        password: ci_password
+      ) 
+    end
     
     build_app(
       workspace: ENV['PROJECT_WORKSPACE_PATH'],
@@ -104,6 +103,9 @@ lane :deploy_appcenter_dev do |options|
   build_info.build_url = appcenter_build_dev_url(build_id: build_info.build_id)
   build_info.internal_version = current_lib_internal_version
   build_info.issue = issue_name
+
+  puts "ISSUENAME #{issue_name}"
+  puts "skip_git_comment #{skip_git_comment}"
 
   if !skip_git_comment && !issue_name.nil?
     comment_body = formatted_build_info_json(build_info: build_info)
