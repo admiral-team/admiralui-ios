@@ -19,7 +19,7 @@ jobs:
           KEYCHAIN_URL: ${{ secrets.KEYCHAIN_URL }}
           CI_PASSWORD:  ${{ secrets.CI_PASSWORD }}
         run:  bundle update
-      - name: Start SwiftUI&UIKit tests
+      - name: Start SwiftUI & UIKit tests
         run:  bundle exec fastlane run_all_tests
       - name: Deploy AppCenter Dev
         run: |
