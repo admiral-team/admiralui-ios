@@ -68,7 +68,7 @@ lane :deploy_appcenter_dev do |options|
     increment_app_build(build_number: build_number)
 
     unlock_keychain(
-      path: ENV['KEYCHAIN_PATH'],
+      path: keychain_url,
       password: ci_password
     ) 
     
