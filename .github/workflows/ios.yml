@@ -22,4 +22,4 @@ jobs:
       - name: Start SwiftUI&UIKit tests
         run:  bundle exec fastlane run_all_tests
       - name: Deploy AppCenter Dev
-        run:  bundle exec fastlane deploy_appcenter_dev keychain_url:"$ci_password" CI_PASSWORD:"$CI_PASSWORD"
+        run:  bundle exec fastlane deploy_appcenter_dev keychain_url:"$KEYCHAIN_URL" CI_PASSWORD:"$CI_PASSWORD"
