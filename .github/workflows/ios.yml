@@ -16,8 +16,8 @@ jobs:
         uses: actions/checkout@v2
       - name: Setup Environment
         run:  |
+              bundle install
               bundle update
-              gem update
       - name: Start SwiftUI&UIKit tests
         run:  bundle exec fastlane run_all_tests
       - name: Export UTF-8
