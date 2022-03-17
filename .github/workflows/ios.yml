@@ -25,5 +25,6 @@ jobs:
               export LANG=en_US.UTF-8
               export LANGUAGE=en_US.UTF-8
               export LC_ALL=en_US.UTF-8
+              bundle
       - name: Deploy AppCenter Dev
         run:  bundle exec fastlane deploy_appcenter_dev
