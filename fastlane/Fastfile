@@ -61,12 +61,15 @@ lane :deploy_appcenter_dev do |options|
     issue_name = extract_issue_name(branch_name: branch_name)
   end
 
+  puts "CI_PASSWORD #{ci_password}"
+  puts "keychain_url #{keychain_url}"
+
   if !skip_archive
     increment_app_build(build_number: build_number)
 
     unlock_keychain(
       path: ENV['KEYCHAIN_PATH'],
-      password: ENV['KEYCHAIN_PASSWORD']
+      password: ci_password
     ) 
     
     build_app(
