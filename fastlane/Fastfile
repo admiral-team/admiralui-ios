@@ -64,7 +64,7 @@ lane :deploy_appcenter_dev do |options|
   if !skip_archive
     increment_app_build(build_number: build_number)
 
-    if ci_password != "" && !keychain_url != ""
+    if ci_password != "" && keychain_url != ""
       unlock_keychain(
         path: keychain_url,
         password: ci_password
