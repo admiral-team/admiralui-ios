@@ -64,10 +64,12 @@ lane :deploy_appcenter_dev do |options|
   if !skip_archive
     increment_app_build(build_number: build_number)
 
-    unlock_keychain(
-      path: keychain_url,
-      password: ci_password
-    ) 
+    if ci_password != "" && !keychain_url != ""
+      unlock_keychain(
+        path: keychain_url,
+        password: ci_password
+      ) 
+    end
     
     build_app(
       workspace: ENV['PROJECT_WORKSPACE_PATH'],
