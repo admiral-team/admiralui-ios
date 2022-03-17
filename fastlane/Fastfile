@@ -62,11 +62,6 @@ lane :deploy_appcenter_dev do |options|
   if !skip_archive
     increment_app_build(build_number: build_number)
     
-    unlock_keychain(
-      path: ENV['KEYCHAIN_PATH'],
-      password: ENV['KEYCHAIN_PASSWORD']
-    )
-    
     build_app(
       workspace: ENV['PROJECT_WORKSPACE_PATH'],
       configuration: "Release",
