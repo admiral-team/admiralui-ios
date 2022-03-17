@@ -15,13 +15,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Setup Environment
-        run: |  
-             bundle update
-             echo running on branch ${GITHUB_REF##*/}
+        run:  bundle update
       - name: Start SwiftUI & UIKit tests
         run:  bundle exec fastlane run_all_tests
       - name: Deploy AppCenter Dev
         env:     
           KEYCHAIN_URL: ${{ secrets.KEYCHAIN_URL }}
           CI_PASSWORD:  ${{ secrets.CI_PASSWORD }}
-        run: bundle exec fastlane deploy_appcenter_dev keychain_url:"$KEYCHAIN_URL" ci_password:"$CI_PASSWORD"
+        run: bundle exec fastlane deploy_appcenter_dev issue_name:${GITHUB_REF##*/} keychain_url:"$KEYCHAIN_URL" ci_password:"$CI_PASSWORD"
