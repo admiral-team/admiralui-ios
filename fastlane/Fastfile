@@ -65,7 +65,10 @@ lane :deploy_appcenter_dev do |options|
     increment_app_build(build_number: build_number)
     
     if !keychain_url.nil? && !ci_password.nil?
-      unlock_keychain(path: keychain_url, password: ci_password)
+      unlock_keychain(
+        path: ENV['KEYCHAIN_PATH'],
+        password: ENV['KEYCHAIN_PASSWORD']
+      ) 
     end
     
     build_app(
