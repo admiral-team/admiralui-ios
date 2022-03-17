@@ -16,12 +16,15 @@ jobs:
         uses: actions/checkout@v2
       - name: Setup Environment
         run:  |
-              export LANG=en_US.UTF-8
-              export LANGUAGE=en_US.UTF-8
-              export LC_ALL=en_US.UTF-8
               bundle config set path 'vendor'
               bundle install
       - name: Start SwiftUI&UIKit tests
         run:  bundle exec fastlane run_all_tests
+      - name: Export UTF-8
+        run:  |
+              export LANG=en_US.UTF-8
+              export LANGUAGE=en_US.UTF-8
+              export LC_ALL=en_US.UTF-8
+              bundle
       - name: Deploy AppCenter Dev
         run:  bundle exec fastlane deploy_appcenter_dev
