@@ -50,3 +50,8 @@ jobs:
         run:  bundle exec fastlane run_all_tests
       - name: Deploy AppCenter Dev
         run:  bundle exec fastlane deploy_appcenter_dev
+      - name: Clean up keychain and provisioning profile
+        if: ${{ always() }}
+        run: |
+             security delete-keychain $RUNNER_TEMP/app-signing.keychain-db
+             rm ~/Library/MobileDevice/Provisioning\ Profiles/build_pp.mobileprovision
