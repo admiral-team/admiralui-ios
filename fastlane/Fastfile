@@ -52,12 +52,8 @@ lane :deploy_appcenter_dev do |options|
   build_number = generate_random_build_number()
 
   branch_name = git_branch()
-  issue_name = options[:issue_name]
+  issue_name = extract_issue_name(branch_name: options[:issue_name])
   previous_build_number = current_app_build_number
-  
-  if issue_name == ""
-    issue_name = extract_issue_name(branch_name: branch_name)
-  end
 
   if !skip_archive
     increment_app_build(build_number: build_number)
