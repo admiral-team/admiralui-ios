@@ -28,4 +28,4 @@ jobs:
           CI_PASSWORD:  ${{ secrets.CI_PASSWORD }}
         run: |
           bundle exec fastlane run unlock_keychain path:"$KEYCHAIN_URL" password:"$CI_PASSWORD"
-          bundle exec fastlane deploy_appcenter_dev issue_name:${GITHUB_REF##*/}
+          bundle exec fastlane deploy_appcenter_dev issue_name:eng:${{ steps.extract_branch.outputs.branch }}
