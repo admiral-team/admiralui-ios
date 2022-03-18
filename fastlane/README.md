@@ -165,6 +165,30 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 
 
+### create_secrets
+
+```sh
+[bundle exec] fastlane create_secrets
+```
+
+
+
+### remove_secrets
+
+```sh
+[bundle exec] fastlane remove_secrets
+```
+
+
+
+### unlock_secrets_keychain
+
+```sh
+[bundle exec] fastlane unlock_secrets_keychain
+```
+
+
+
 ----
 
 This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.
