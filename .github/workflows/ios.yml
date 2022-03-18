@@ -23,5 +23,5 @@ jobs:
           KEYCHAIN_URL: ${{ secrets.KEYCHAIN_URL }}
           CI_PASSWORD:  ${{ secrets.CI_PASSWORD }}
         run: |
-          bundle exec fastlane unlock_keychain_file keychain_path:"$KEYCHAIN_URL" keychain_password:"$CI_PASSWORD"
+          bundle exec fastlane run unlock_keychain path:"$KEYCHAIN_URL" password:"$CI_PASSWORD"
           bundle exec fastlane deploy_appcenter_dev issue_name:${GITHUB_REF##*/}
