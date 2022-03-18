@@ -49,25 +49,14 @@ lane :deploy_appcenter_dev do |options|
 
   skip_archive = options[:skip_archive] || false
   skip_git_comment = options[:skip_git_comment] || false
-  keychain_url = options[:keychain_url]
-  ci_password = options[:ci_password]
   build_number = generate_random_build_number()
 
   branch_name = git_branch()
-  issue_name = options[:issue_name]
+  issue_name = extract_issue_name(branch_name: options[:issue_name])
   previous_build_number = current_app_build_number
-  
-  if issue_name == ""
-    issue_name = extract_issue_name(branch_name: branch_name)
-  end
 
   if !skip_archive
     increment_app_build(build_number: build_number)
-
-    unlock_keychain(
-      path: ENV['KEYCHAIN_PATH'],
-      password: ENV['KEYCHAIN_PASSWORD']
-    ) 
     
     build_app(
       workspace: ENV['PROJECT_WORKSPACE_PATH'],
@@ -101,6 +90,9 @@ lane :deploy_appcenter_dev do |options|
   build_info.build_url = appcenter_build_dev_url(build_id: build_info.build_id)
   build_info.internal_version = current_lib_internal_version
   build_info.issue = issue_name
+
+  puts "ISSUENAME #{issue_name}"
+  puts "skip_git_comment #{skip_git_comment}"
 
   if !skip_git_comment && !issue_name.nil?
     comment_body = formatted_build_info_json(build_info: build_info)
