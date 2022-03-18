@@ -11,9 +11,54 @@ end
 # Deploy Methods
 
 lane :deploy_appcenter_prod do |options|
-
   skip_archive = options[:skip_archive] || false
   build_number = generate_random_build_number()
+  previous_build_number = current_app_build_number
+
+  if !skip_archive
+    increment_app_build(build_number: build_number)
+    
+    build_app(
+      workspace: ENV['PROJECT_WORKSPACE_PATH'],
+      configuration: "Release",
+      scheme: "ExampleiOS",
+      silent: true,
+      clean: true,
+      output_directory: "Release/AdmiralUI-Example/Prod",
+      export_method: "enterprise",
+      output_name: "admiralui-example.ipa",
+    )
+
+    increment_app_build(build_number: previous_build_number)
+  end
+
+  appcenter_upload(
+    api_token: ENV['APPCENTER_API_TOKEN'],
+    owner_name: ENV['APPCENTER_OWNER_NAME'],
+    owner_type: ENV['APPCENTER_OWNER_TYPE'],
+    app_name: ENV['APPCENTER_APP_NAME'],
+    file: "Release/AdmiralUI-Example/Prod/admiralui-example.ipa",
+    destinations: ENV['APPCENTER_DESTINATIONS_PROD'],
+    destination_type: "group",
+    release_notes: "",
+    notify_testers: true
+  )
+end
+
+lane :deploy_appcenter_dev do |options|
+  skip_archive = options[:skip_archive] || false
+  skip_git_comment = options[:skip_git_comment] || false
+  issue_name = options[:issue_name]
+  build_number = generate_random_build_number()
+  previous_build_number = current_app_build_number
+
+  branch_name = git_branch()
+
+  if issue_name.nil? || issue_name == ""
+    issue_name = extract_issue_name(branch_name: branch_name)
+  else
+    issue_name = extract_issue_name(branch_name: issue_name)
+  end
 
   if !skip_archive
     increment_app_build(build_number: build_number)
@@ -36,54 +81,6 @@ lane :deploy_appcenter_prod do |options|
     api_token: ENV['APPCENTER_API_TOKEN'],
     owner_name: ENV['APPCENTER_OWNER_NAME'],
     owner_type: ENV['APPCENTER_OWNER_TYPE'],
-    app_name: ENV['APPCENTER_APP_NAME'],
-    file: "Release/AdmiralUI-Example/Prod/admiralui-example.ipa",
-    destinations: ENV['APPCENTER_DESTINATIONS_PROD'],
-    destination_type: "group",
-    release_notes: "",
-    notify_testers: true
-  )
-end
-
-lane :deploy_appcenter_dev do |options|
-
-  skip_archive = options[:skip_archive] || false
-  skip_git_comment = options[:skip_git_comment] || false
-  github_token = options[:github_token]
-  issue_name = options[:issue_name]
-  build_number = generate_random_build_number()
-
-  branch_name = git_branch()
-
-  if issue_name.nil? || issue_name == ""
-    issue_name = extract_issue_name(branch_name: branch_name)
-  else
-    issue_name = extract_issue_name(branch_name: issue_name)
-  end
-
-  previous_build_number = current_app_build_number
-
-  if !skip_archive
-    increment_app_build(build_number: build_number)
-    
-    build_app(
-      workspace: ENV['PROJECT_WORKSPACE_PATH'],
-      configuration: "Release",
-      scheme: "ExampleiOS",
-      silent: true,
-      clean: true,
-      output_directory: "Release/AdmiralUI-Example/Dev",
-      export_method: "enterprise",
-      output_name: "admiralui-example.ipa",
-    )
-
-    increment_app_build(build_number: previous_build_number)
-  end
-
-  appcenter_upload(
-    api_token: ENV['APPCENTER_API_TOKEN_DEV'],
-    owner_name: ENV['APPCENTER_OWNER_NAME'],
-    owner_type: ENV['APPCENTER_OWNER_TYPE'],
     app_name: ENV['APPCENTER_APP_NAME_DEV'],
     file: "Release/AdmiralUI-Example/Dev/admiralui-example.ipa",
     destinations: ENV['APPCENTER_DESTINATIONS_DEV'],
@@ -92,19 +89,14 @@ lane :deploy_appcenter_dev do |options|
     notify_testers: true
   )
 
-  build_info_hash = lane_context[SharedValues::APPCENTER_BUILD_INFORMATION]
-  build_info = BuildInfo.from_hash(build_info_hash)
-  build_info.branch_name = branch_name
-  build_info.build_url = appcenter_build_dev_url(build_id: build_info.build_id)
-  build_info.internal_version = current_lib_internal_version
-  build_info.issue = issue_name
+  build_info = get_appcenter_build_info
 
   puts "ISSUENAME #{issue_name}"
   puts "skip_git_comment #{skip_git_comment}"
 
   if !skip_git_comment && !issue_name.nil?
     comment_body = formatted_build_info_json(build_info: build_info)
-    system("cd ./go_scripts && ./main createComment #{comment_body} #{github_token}")
+    system("cd ./go_scripts && ./main createComment #{comment_body} #{ENV['API_GITHUB_TOKEN']}")
   end
 end
 
@@ -265,7 +257,6 @@ lane :increment_app_build do |options|
   )
 end
 
-
 # Dependency manager validation
 
 lane :validate_depenecy_managers do |options|
@@ -385,5 +376,24 @@ def add_unreleased_version
       'name' => unreleased_version,
       'startDate' => DateTime.current.to_date
     }
+  )
+end
+
+def get_appcenter_build_info
+  build_info_hash = lane_context[SharedValues::APPCENTER_BUILD_INFORMATION]
+  build_info = BuildInfo.from_hash(build_info_hash)
+  build_info.branch_name = branch_name
+  build_info.build_url = appcenter_build_dev_url(build_id: build_info.build_id)
+  build_info.internal_version = current_lib_internal_version
+  build_info.issue = issue_name
+  build_info 
+end
+
+# Github
+
+lane :unlock_secrets_keychain do |options|
+  unlock_keychain(
+    path: "login.keychain",
+    password: options[:password]
   )
 end
