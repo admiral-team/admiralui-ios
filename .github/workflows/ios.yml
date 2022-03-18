@@ -1,11 +1,11 @@
 name: Build IOS App
 on:
-  workflow_dispatch:
   push:
     branches: [ main ]
   pull_request:
     types: ['opened', 'synchronize', 'reopened', 'edited']
     branches: ['main', 'develop', 'feature/**', 'rc/**']
+  workflow_dispatch:
 
 jobs:
   build:
