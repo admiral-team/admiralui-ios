@@ -49,6 +49,7 @@ lane :deploy_appcenter_dev do |options|
 
   skip_archive = options[:skip_archive] || false
   skip_git_comment = options[:skip_git_comment] || false
+  github_token = options[:github_token]
   build_number = generate_random_build_number()
 
   branch_name = git_branch()
@@ -96,7 +97,7 @@ lane :deploy_appcenter_dev do |options|
 
   if !skip_git_comment && !issue_name.nil?
     comment_body = formatted_build_info_json(build_info: build_info)
-    system("cd ./go_scripts && ./main createComment #{comment_body}")
+    system("cd ./go_scripts && ./main createComment #{comment_body} #{github_token}")
   end
 end
 

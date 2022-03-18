@@ -20,8 +20,9 @@ jobs:
         run:  bundle exec fastlane run_all_tests
       - name: Deploy AppCenter Dev
         env:     
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
           KEYCHAIN_URL: ${{ secrets.KEYCHAIN_URL }}
           CI_PASSWORD:  ${{ secrets.CI_PASSWORD }}
         run: |
           bundle exec fastlane run unlock_keychain path:"$KEYCHAIN_URL" password:"$CI_PASSWORD"
-          bundle exec fastlane deploy_appcenter_dev issue_name:${{ github.head_ref }}
+          bundle exec fastlane deploy_appcenter_dev issue_name:${{ github.head_ref }} github_token:"$TOKEN"
