@@ -18,11 +18,6 @@ jobs:
         run:  bundle update
       - name: Start SwiftUI & UIKit tests
         run:  bundle exec fastlane run_all_tests
-      - name: Get Branch Name
-        run: |
-          echo GITHUB_REF=${GITHUB_REF}
-          echo EXTRACT_GITHUB_REF=${GITHUB_REF##*/}
-          echo EXTRACT_GITHUB_REF_HEADS=$(echo ${GITHUB_REF#refs/heads/})
       - name: Deploy AppCenter Dev
         env:     
           KEYCHAIN_URL: ${{ secrets.KEYCHAIN_URL }}
