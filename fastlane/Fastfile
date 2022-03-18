@@ -50,10 +50,17 @@ lane :deploy_appcenter_dev do |options|
   skip_archive = options[:skip_archive] || false
   skip_git_comment = options[:skip_git_comment] || false
   github_token = options[:github_token]
+  issue_name = options[:issue_name]
   build_number = generate_random_build_number()
 
   branch_name = git_branch()
-  issue_name = extract_issue_name(branch_name: options[:issue_name])
+
+  if issue_name.nil? || issue_name == ""
+    issue_name = extract_issue_name(branch_name: branch_name)
+  else
+    issue_name = extract_issue_name(branch_name: issue_name)
+  end
+
   previous_build_number = current_app_build_number
 
   if !skip_archive
