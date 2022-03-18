@@ -104,7 +104,7 @@ lane :deploy_appcenter_dev do |options|
   end
 end
 
-lane :unlock_keychain do |options|
+lane :unlock_keychain_file do |options|
   keychain_path = options[:keychain_path]
   keychain_password = options[:keychain_password]
   unlock_keychain(
