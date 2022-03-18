@@ -49,8 +49,6 @@ lane :deploy_appcenter_dev do |options|
 
   skip_archive = options[:skip_archive] || false
   skip_git_comment = options[:skip_git_comment] || false
-  keychain_url = options[:keychain_url]
-  ci_password = options[:ci_password]
   build_number = generate_random_build_number()
 
   branch_name = git_branch()
@@ -63,13 +61,6 @@ lane :deploy_appcenter_dev do |options|
 
   if !skip_archive
     increment_app_build(build_number: build_number)
-
-    if ci_password != "" && keychain_url != ""
-      unlock_keychain(
-        path: keychain_url,
-        password: ci_password
-      ) 
-    end
     
     build_app(
       workspace: ENV['PROJECT_WORKSPACE_PATH'],
@@ -112,6 +103,15 @@ lane :deploy_appcenter_dev do |options|
     system("cd ./go_scripts && ./main createComment #{comment_body}")
   end
 end
+
+lane :unlock_keychain do |options|
+  keychain_path = options[:keychain_path]
+  keychain_password = options[:keychain_password]
+  unlock_keychain(
+    path: keychain_url,
+    password: ci_password
+  )
+end 
 
 lane :run_all_tests do |options|
   run_tests_ukit(devices: options[:devices])
