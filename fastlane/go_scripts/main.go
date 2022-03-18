@@ -13,9 +13,8 @@ import (
 
 func main() {
 	envError := godotenv.Load(".env")
-	envSecretError := godotenv.Load(".env.secret")
 
-	if envError != nil || envSecretError != nil {
+	if envError != nil {
 		log.Fatal("Cannot read .env file")
 	}
 

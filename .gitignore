@@ -91,7 +91,6 @@ fastlane/test_output
 fastlane/.env.secret
 fastlane/buildlog
 fastlane/cache
-fastlane/go_scripts/.env.secret
 
 # Code Injection
 #
