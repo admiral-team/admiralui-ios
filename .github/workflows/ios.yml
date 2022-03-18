@@ -18,8 +18,10 @@ jobs:
         run:  bundle update
       - name: Start SwiftUI & UIKit tests
         run:  bundle exec fastlane run_all_tests
-      - name: Deploy AppCenter
+      - name: Deploy AppCenter Dev
         env:     
           KEYCHAIN_URL: ${{ secrets.KEYCHAIN_URL }}
           CI_PASSWORD:  ${{ secrets.CI_PASSWORD }}
-        run: bundle exec fastlane deploy_appcenter_dev issue_name:${GITHUB_REF##*/} keychain_url:"$KEYCHAIN_URL" ci_password:"$CI_PASSWORD"
+        run: |
+          bundle exec fastlane unlock_keychain keychain_path:"$KEYCHAIN_URL" keychain_password:"$CI_PASSWORD"
+          bundle exec fastlane deploy_appcenter_dev issue_name:${GITHUB_REF##*/}
