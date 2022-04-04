@@ -113,6 +113,9 @@ public struct TextView<T>: TextFieldInput, AccessabilitySupportUIKit, Identifiab
     @State private var scheme: StandardTextFieldScheme? = nil
     @State private var textViewHeight: CGFloat = 36.0
     @State private var textViewWidth: CGFloat?
+    @State private var trailingViewSize: CGSize = CGSize(
+        width: 30.0,
+        height: LayoutGrid.halfModule * 6)
     
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<StandardTextFieldScheme>()
     
@@ -337,7 +340,7 @@ public struct TextView<T>: TextFieldInput, AccessabilitySupportUIKit, Identifiab
         let segmentSizeWidth = segmentSize.width
         var textViewWidth = segmentSizeWidth - rightOffset
         if !(trailingView() is EmptyView) {
-            textViewWidth -= labelOffset
+            textViewWidth -= trailingViewSize.width
         }
         return max(textViewWidth, 0.0)
     }
@@ -413,6 +416,7 @@ public struct TextView<T>: TextFieldInput, AccessabilitySupportUIKit, Identifiab
                     .foregroundColor(trailingViewTintColor)
                     .offset(y: LayoutGrid.module)
                     .accessibilityIdentifier(TextFieldsAccessibilityIdentifiers.trailingView.accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier))
+                    .modifier(SizeAwareViewModifier(viewSize: $trailingViewSize))
             }
         }
         .eraseToAnyView()
