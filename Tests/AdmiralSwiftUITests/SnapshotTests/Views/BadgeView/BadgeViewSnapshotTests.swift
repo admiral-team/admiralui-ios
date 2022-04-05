@@ -20,7 +20,7 @@ private struct BadgeViewWrapper<T: View>: View {
     // MARK: - Layout
     var body: some View {
         view
-            .frame(width: 60, height: 30)
+            .frame(width: 45, height: 45)
     }
 
 }
@@ -120,8 +120,7 @@ final class BadgeViewSnapshotTests: XCTestCase {
 private extension BadgeViewSnapshotTests {
 
     func checkNumberBadgeView<T: View>(view: T, named: String, testName: String, disabled: Bool = false) {
-        let zeroScreenWrapper = BadgeViewWrapper(view: view)
-        let view = UIHostingController(rootView: zeroScreenWrapper)
+        let view = UIHostingController(rootView: view)
         let result = verifySnapshot(
             matching: view,
             as: .image,
