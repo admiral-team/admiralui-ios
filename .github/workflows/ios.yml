@@ -20,6 +20,13 @@ jobs:
         uses: actions/checkout@v2
       - name: Setup Environment
         run:  bundle install
+      - name: Test Environment Variables
+        run: |
+          echo "EVENT_NUMBER: $EVENT_NUMBER"
+          echo "PR_ISSUE_NUMBER: $PR_ISSUE_NUMBER"
+        env:
+          EVENT_NUMBER: ${{ github.event.number }} 
+          PR_ISSUE_NUMBER: ${{ github.event.issue.number }}
       - name: Start SwiftUI & UIKit tests
         run:  bundle exec fastlane run_all_tests
       - name: Deploy AppCenter Dev
