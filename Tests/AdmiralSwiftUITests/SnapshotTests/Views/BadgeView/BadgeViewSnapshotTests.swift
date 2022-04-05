@@ -20,7 +20,7 @@ private struct BadgeViewWrapper<T: View>: View {
     // MARK: - Layout
     var body: some View {
         view
-            .frame(width: 50, height: 30)
+            .frame(width: 60, height: 30)
     }
 
 }
