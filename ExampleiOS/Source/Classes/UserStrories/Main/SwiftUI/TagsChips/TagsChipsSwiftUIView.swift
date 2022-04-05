@@ -177,7 +177,9 @@ struct TagsChipsSwiftUIView: View {
             tagStyle: tagStyle,
             leadingView: { leftImage },
             trailingView: {
-                SwiftUI.Button(action: {}, label: {
+                SwiftUI.Button(action: {
+                    print(#function)
+                }, label: {
                     rightButtonImage
                 })
             },
@@ -189,7 +191,9 @@ struct TagsChipsSwiftUIView: View {
             title: title,
             tagStyle: tagStyle,
             trailingView: {
-                SwiftUI.Button(action: {}, label: {
+                SwiftUI.Button(action: {
+                    print(#function)
+                }, label: {
                     rightButtonImage
                 })
             },
