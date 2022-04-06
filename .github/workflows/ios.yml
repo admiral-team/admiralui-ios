@@ -22,7 +22,7 @@ jobs:
         run:  bundle install
       - name: Commit changes
         run:  |
-          git commit --amend -m "New commit message"
+          git commit -m "New Commit Message"
           git push
       - name: Start SwiftUI & UIKit tests
         run:  bundle exec fastlane run_all_tests
