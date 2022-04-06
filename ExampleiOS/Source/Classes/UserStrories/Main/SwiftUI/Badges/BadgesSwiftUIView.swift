@@ -15,12 +15,12 @@ struct BadgesSwiftUIView: View {
 
     // MARK: - Properties
 
-    @ObservedObject private var manager = SwiftUIThemeManager.shared
+    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
 
     // MARK: - Layout
 
     public var body: some View {
-        let scheme = SwiftUIContentViewScheme(theme: manager.theme)
+        let scheme = schemeProvider.scheme
         navigationView(scheme: scheme)
             .navigationBarColor(
                 backgroundColor: scheme.backgroundColor.swiftUIColor,
