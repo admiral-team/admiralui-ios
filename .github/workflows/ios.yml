@@ -18,8 +18,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Commit Changes
-        run: git commit --only --allow-empty -m "Resolve Second message"
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Automated Resolve Message
       - name: Setup Environment
         run:  bundle install
       - name: Start SwiftUI & UIKit tests
