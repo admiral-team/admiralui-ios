@@ -19,7 +19,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Commit Changes
-        run: git commit --only --allow-empty -m "Resolve message"
+        run: git commit --only --allow-empty -m "Resolve Second message"
       - name: Setup Environment
         run:  bundle install
       - name: Start SwiftUI & UIKit tests
