@@ -17,8 +17,9 @@ jobs:
       FIGMA_ACCESS_TOKEN: ${{ secrets.FIGMA_ACCESS_TOKEN }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-      - uses: stefanzweifel/git-auto-commit-action@v4
+        uses: actions/checkout@v2e
+      - name: Link PR and Issue
+        uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Automated Resolve Message
       - name: Setup Environment
