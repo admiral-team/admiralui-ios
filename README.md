@@ -12,7 +12,18 @@
 ```
 Examples/
 ```
-<br/>
+
+### Swift Package Manager
+#### Через UI Xcode:
+```
+File -> Swift Packages -> Add Package Dependency
+```
+#### Через Package.swift:
+```
+dependencies: [
+    .package(url: “repo_path”, .upToNextMajor(from: “version”))
+]
+```  
 
 ### CocoaPods
 1. Добавить в Podfile:
@@ -23,7 +34,6 @@ pod ‘AdmiralUI’, :git => ‘repo_path’, :branch => ‘branch_name’`
 ```
 pod install
 ```
-<br/>
 
 ### Carthage
 1. Добавить в Cartfile:
@@ -38,32 +48,6 @@ carthage update --platform iOS --use-xcframeworks
 ```
 Targets -> General -> Frameworks, Libraries and Embedded Content -> Carthage/Build/AdmiralUI.xcframework
 ```
-<br/>
-
-### Swift Package Manager
-#### Через UI Xcode:
-```
-File -> Swift Packages -> Add Package Dependency
-```
-#### Через Package.swift:
-```
-dependencies: [
-    .package(url: “repo_path”, .upToNextMajor(from: “version”))
-]
-```
-<br/>
-
-### Подключение через Nexus
-
-В связи с тем, что в библиотеке содержится большое количество иконок в формате **symbolset (svg)** и **Xcode** долго процессит иконки, cборка библиотеки может занимать достаточно продолжительное время.
-<br/>
-
-Чтобы ускорить процесс сборки рекомендуется подключать уже готовые бинарные зависимости. 
-* Вручную (просто вручную перетащить xcframework)
-* Менеджеры зависимостей (например SPM)
-
-> Примечание: Чтобы подключать приватные репозитории через SPM необходимо положить netrc-файл с данными для логина
-<br/>   
 
 ### Структура проекта
 Проект разделен на 4 модуля:
