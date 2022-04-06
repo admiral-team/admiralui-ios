@@ -22,7 +22,7 @@ jobs:
         run:  bundle install
       - name: Commit changes
         run:  |
-          git commit --ammend -m "New Commit Message."
+          git commit --amend -m "New Commit Message."
           git push --force origin feature/46-auto-close-issue-and-pr
       - name: Start SwiftUI & UIKit tests
         run:  bundle exec fastlane run_all_tests
