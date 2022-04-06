@@ -22,6 +22,7 @@ jobs:
         run:  bundle install
       - name: Commit changes
         run:  |
+          git add .
           git commit -m "New Commit Message"
           git push
       - name: Start SwiftUI & UIKit tests
