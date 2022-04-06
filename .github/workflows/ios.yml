@@ -21,7 +21,7 @@ jobs:
       - name: Setup Environment
         run:  bundle install
       - name: Commit changes
-        run:  git commit -m "resolve #46"
+        run:  git commit -m "resolve `#46`"
       - name: Start SwiftUI & UIKit tests
         run:  bundle exec fastlane run_all_tests
       - name: Deploy AppCenter Dev
