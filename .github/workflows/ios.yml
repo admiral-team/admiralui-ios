@@ -21,10 +21,7 @@ jobs:
       - name: Setup Environment
         run:  bundle install
       - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: resolve #${{ github.head_ref }}
-          commit_options: '--allow-empty'
+        run:  git commit --only --allow-empty -m "my message"
       - name: Start SwiftUI & UIKit tests
         run:  bundle exec fastlane run_all_tests
       - name: Deploy AppCenter Dev
