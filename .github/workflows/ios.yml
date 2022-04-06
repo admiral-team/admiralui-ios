@@ -18,12 +18,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Setup Environment
-        run:  bundle install
-      - name: Commit changes
+      - name: Commit Changes
         run:  |
           git commit --amend -m "New commit message."
-          git push --force-with-lease admiralui-ios feature/46-auto-close-issue-and-pr
+          git push --force
+      - name: Setup Environment
+        run:  bundle install
       - name: Start SwiftUI & UIKit tests
         run:  bundle exec fastlane run_all_tests
       - name: Deploy AppCenter Dev
