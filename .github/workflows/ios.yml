@@ -20,6 +20,10 @@ jobs:
         uses: actions/checkout@v2
       - name: Setup Environment
         run:  bundle install
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: 'resolve #${{ github.head_ref }}'
       - name: Start SwiftUI & UIKit tests
         run:  bundle exec fastlane run_all_tests
       - name: Deploy AppCenter Dev
