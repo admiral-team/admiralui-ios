@@ -1,0 +1,13 @@
+current directory: /Users/ci-vtb/actions-runner/_work/admiralui-ios/admiralui-ios/vendor/ruby/2.6.0/gems/json-2.6.1/ext/json
+/Users/ci-vtb/.rvm/rubies/ruby-2.6.8/bin/ruby -I /Users/ci-vtb/.rvm/rubies/ruby-2.6.8/lib/ruby/site_ruby/2.6.0 -r ./siteconf20220406-48867-wsvlrh.rb extconf.rb
+creating Makefile
+
+current directory: /Users/ci-vtb/actions-runner/_work/admiralui-ios/admiralui-ios/vendor/ruby/2.6.0/gems/json-2.6.1/ext/json
+make "DESTDIR=" clean
+
+current directory: /Users/ci-vtb/actions-runner/_work/admiralui-ios/admiralui-ios/vendor/ruby/2.6.0/gems/json-2.6.1/ext/json
+make "DESTDIR="
+make: Nothing to be done for `all'.
+
+current directory: /Users/ci-vtb/actions-runner/_work/admiralui-ios/admiralui-ios/vendor/ruby/2.6.0/gems/json-2.6.1/ext/json
+make "DESTDIR=" install

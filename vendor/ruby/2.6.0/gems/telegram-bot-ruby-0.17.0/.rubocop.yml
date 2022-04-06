@@ -1,0 +1,16 @@
+---
+require: rubocop-rspec
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/BlockLength:
+  ExcludedMethods:
+    - context
+    - describe
+
+Metrics/LineLength:
+  Max: 120
+  Exclude:
+    - telegram-bot-ruby.gemspec
+    - examples/*.rb
