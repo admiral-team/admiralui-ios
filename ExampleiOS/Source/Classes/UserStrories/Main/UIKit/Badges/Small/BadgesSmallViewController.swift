@@ -19,7 +19,7 @@ final class BadgesSmallViewContoller: ScrollViewController {
     }
 
     private let viewModel = BadgesSmallViewModel()
-    private var badgeViews = [SmallBadgeCellView]()
+    private var badgeViews = [BadgeCellView]()
 
     // MARK: - Initializers
 
@@ -58,7 +58,7 @@ final class BadgesSmallViewContoller: ScrollViewController {
         viewModel.items.forEach { item in
             let additionalBadge = NumberBadge()
             additionalBadge.style = item.style
-            let additionalBadgeView = SmallBadgeCellView<Badge>(title: item.title, badgeView: additionalBadge)
+            let additionalBadgeView = BadgeCellView<Badge>(title: item.title, badgeView: additionalBadge)
             badgeViews.append(additionalBadgeView)
         }
     }

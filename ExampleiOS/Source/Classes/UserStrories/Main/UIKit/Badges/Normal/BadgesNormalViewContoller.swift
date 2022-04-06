@@ -58,7 +58,7 @@ final class BadgesNormalViewContoller: ScrollViewController {
         viewModel.items.forEach { item in
             let additionalBadge = NumberBadge()
             additionalBadge.style = item.style
-            let additionalBadgeView = BadgeCellView<Badge>(title: item.title, badgeView: additionalBadge)
+            let additionalBadgeView = BadgeCellView<Badge>(title: item.title, badgeView: additionalBadge, initialValue: 1)
             badgeViews.append(additionalBadgeView)
         }
     }
