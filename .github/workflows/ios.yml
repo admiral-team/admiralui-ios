@@ -21,7 +21,7 @@ jobs:
       - name: Setup Environment
         run:  bundle install
       - name: Commit changes
-        run:  git commit --only --allow-empty -m "my message"
+        run:  git commit --amend -m "New commit message"
       - name: Start SwiftUI & UIKit tests
         run:  bundle exec fastlane run_all_tests
       - name: Deploy AppCenter Dev
