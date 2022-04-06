@@ -18,6 +18,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_options: '--allow-empty'
+          commit_message: resolve #${{ github.head_ref }}
       - name: Setup Environment
         run:  bundle install
       - name: Start SwiftUI & UIKit tests
