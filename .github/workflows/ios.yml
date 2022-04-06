@@ -19,9 +19,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: resolve '#46'
+        run: |
+          git status
+          git add .
+          git commit -m 'commit message was created'
       - name: Setup Environment
         run:  bundle install
       - name: Start SwiftUI & UIKit tests
