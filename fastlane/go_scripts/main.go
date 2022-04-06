@@ -25,7 +25,6 @@ func main() {
 	case "createComment":
 		buildInfo := configureBuildInfo(os.Args[2])
 		formatedBuildInfo := buildInfo.formatted_build_info_git()
-		issues.CreateComment(ctx, os.Getenv("OWNER"), os.Getenv("REPO"), buildInfo.Issue, formatedBuildInfo, *client)
 		issues.CreateComment(ctx, os.Getenv("OWNER"), os.Getenv("REPO"), buildInfo.PullNumber, formatedBuildInfo, *client)
 	case "getIssues":
 		issues.GetIssues(ctx, os.Getenv("OWNER"), os.Getenv("REPO"), *client)

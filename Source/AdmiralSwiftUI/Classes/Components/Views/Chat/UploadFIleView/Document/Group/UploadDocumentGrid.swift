@@ -109,7 +109,7 @@ public struct UploadDocumentGrid: View {
     private func uploadDocumentView() -> some View {
         VStack(spacing: .zero) {
             if !models.isEmpty {
-                ForEach(0..<models.count) { index in
+                ForEach(0..<models.count,  id:\.self) { index in
                     UploadDocumentView(
                         model: models[index],
                         cornersOfGroup: getCorners(for: index),
