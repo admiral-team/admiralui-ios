@@ -21,7 +21,9 @@ jobs:
       - name: Setup Environment
         run:  bundle install
       - name: Commit changes
-        run:  git commit -m "resolve `#46`"
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Apply php-cs-fixer changes
       - name: Start SwiftUI & UIKit tests
         run:  bundle exec fastlane run_all_tests
       - name: Deploy AppCenter Dev
