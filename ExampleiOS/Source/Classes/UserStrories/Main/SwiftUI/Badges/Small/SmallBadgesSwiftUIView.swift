@@ -61,9 +61,23 @@ struct SmallBadgesSwiftUIView: View {
                 .font(scheme.textFont.swiftUIFont)
                 .foregroundColor(scheme.textColor.swiftUIColor)
             Spacer()
-            ArrowListView()
-            Spacer()
-                .frame(width: LayoutGrid.halfModule / 2)
+            InputNumber(
+                titleText: .constant(nil),
+                value: Binding<Double>(
+                    get: {
+                        guard let value = viewModel.items[index].rawValue else {
+                            return 1
+                        }
+                        return Double(value)
+                    },
+                    set: {
+                        viewModel.items[index].rawValue = Int($0)
+                    }
+                ),
+                minimumValue: .constant(0),
+                maximumValue: .constant(1000),
+                stepValue: .constant(1.0)
+            )
         })
         .frame(height: LayoutGrid.doubleModule * 4)
     }

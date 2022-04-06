@@ -81,7 +81,7 @@
 		0E73864E277B150E003892C7 /* ActionNotificationViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E73864D277B150E003892C7 /* ActionNotificationViewScheme.swift */; };
 		0E7386E5278EE1D6003892C7 /* CustomWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7386E4278EE1D6003892C7 /* CustomWindow.swift */; };
 		0E74C5842684961E00F79D10 /* ActionBarSwiftUIViewDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E74C5832684961E00F79D10 /* ActionBarSwiftUIViewDefault.swift */; };
-		0E76FAD8253D9215001B1F3D /* NormalBadgeCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E76FAD7253D9215001B1F3D /* NormalBadgeCellView.swift */; };
+		0E76FAD8253D9215001B1F3D /* BadgeCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E76FAD7253D9215001B1F3D /* BadgeCellView.swift */; };
 		0E76FB40253ED9AF001B1F3D /* RadioButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E76FB3F253ED9AF001B1F3D /* RadioButtonViewController.swift */; };
 		0E76FB43253EDB94001B1F3D /* SwitcherCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E76FB42253EDB94001B1F3D /* SwitcherCellView.swift */; };
 		0E81523626973D30004E0B34 /* ThemesViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E81523526973D30004E0B34 /* ThemesViewControllerRepresentable.swift */; };
@@ -321,7 +321,6 @@
 		E92DC2E927FC549A00CB789E /* BadgesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92DC2E827FC549A00CB789E /* BadgesViewController.swift */; };
 		E92DC2EC27FC555E00CB789E /* BadgesNormalViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92DC2EB27FC555E00CB789E /* BadgesNormalViewContoller.swift */; };
 		E92DC2EF27FC55D400CB789E /* BadgesSmallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92DC2EE27FC55D400CB789E /* BadgesSmallViewController.swift */; };
-		E92DC2F127FC599500CB789E /* SmallBadgeCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92DC2F027FC599500CB789E /* SmallBadgeCellView.swift */; };
 		E92DC2F327FC5CC300CB789E /* BadgesSmallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92DC2F227FC5CC300CB789E /* BadgesSmallViewModel.swift */; };
 		E92DC2F527FC60DF00CB789E /* BadgesNormalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92DC2F427FC60DF00CB789E /* BadgesNormalViewModel.swift */; };
 		E9332F8A277A0AF400F9AF26 /* UploadingFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9332F89277A0AF400F9AF26 /* UploadingFileViewController.swift */; };
@@ -535,7 +534,7 @@
 		0E73864D277B150E003892C7 /* ActionNotificationViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionNotificationViewScheme.swift; sourceTree = "<group>"; };
 		0E7386E4278EE1D6003892C7 /* CustomWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWindow.swift; sourceTree = "<group>"; };
 		0E74C5832684961E00F79D10 /* ActionBarSwiftUIViewDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionBarSwiftUIViewDefault.swift; sourceTree = "<group>"; };
-		0E76FAD7253D9215001B1F3D /* NormalBadgeCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalBadgeCellView.swift; sourceTree = "<group>"; };
+		0E76FAD7253D9215001B1F3D /* BadgeCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCellView.swift; sourceTree = "<group>"; };
 		0E76FB3F253ED9AF001B1F3D /* RadioButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonViewController.swift; sourceTree = "<group>"; };
 		0E76FB42253EDB94001B1F3D /* SwitcherCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitcherCellView.swift; sourceTree = "<group>"; };
 		0E81523526973D30004E0B34 /* ThemesViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesViewControllerRepresentable.swift; sourceTree = "<group>"; };
@@ -774,7 +773,6 @@
 		E92DC2E827FC549A00CB789E /* BadgesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesViewController.swift; sourceTree = "<group>"; };
 		E92DC2EB27FC555E00CB789E /* BadgesNormalViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesNormalViewContoller.swift; sourceTree = "<group>"; };
 		E92DC2EE27FC55D400CB789E /* BadgesSmallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesSmallViewController.swift; sourceTree = "<group>"; };
-		E92DC2F027FC599500CB789E /* SmallBadgeCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallBadgeCellView.swift; sourceTree = "<group>"; };
 		E92DC2F227FC5CC300CB789E /* BadgesSmallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesSmallViewModel.swift; sourceTree = "<group>"; };
 		E92DC2F427FC60DF00CB789E /* BadgesNormalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesNormalViewModel.swift; sourceTree = "<group>"; };
 		E9332F89277A0AF400F9AF26 /* UploadingFileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingFileViewController.swift; sourceTree = "<group>"; };
@@ -1408,8 +1406,7 @@
 		0E76FAD6253D9202001B1F3D /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				0E76FAD7253D9215001B1F3D /* NormalBadgeCellView.swift */,
-				E92DC2F027FC599500CB789E /* SmallBadgeCellView.swift */,
+				0E76FAD7253D9215001B1F3D /* BadgeCellView.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -3861,12 +3858,11 @@
 				C6BA67D52632DB04001A7EB6 /* TimePickerViewControllerCustomScheme.swift in Sources */,
 				0EBC46AA269F0044003CF5FA /* CalendarsSwiftUIView.swift in Sources */,
 				0E110DCF27C7926E00BFF58F /* LinksHeaderViewController.swift in Sources */,
-				0E76FAD8253D9215001B1F3D /* NormalBadgeCellView.swift in Sources */,
+				0E76FAD8253D9215001B1F3D /* BadgeCellView.swift in Sources */,
 				0EA9F81E262EC94000808B38 /* TabsSwiftUIItem.swift in Sources */,
 				0E9464E826B1908100F5E790 /* StaticNotificationsSwiftUIView.swift in Sources */,
 				0E6EA49827025AD5002EBBBC /* DropDownSwiftUIView.swift in Sources */,
 				C6260AAA255B0536007175C2 /* SliderViewController.swift in Sources */,
-				E92DC2F127FC599500CB789E /* SmallBadgeCellView.swift in Sources */,
 				C620B7F5256560F300CB1B29 /* VerticalCalendarViewController.swift in Sources */,
 				C6A7F2EC265401A000105F2D /* InformersSwiftUIItem.swift in Sources */,
 				0E4BC83A2681D062000FC891 /* ImageBaseCellSwiftUIItem.swift in Sources */,
