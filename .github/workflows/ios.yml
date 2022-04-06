@@ -21,8 +21,7 @@ jobs:
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_options: '--allow-empty'
-          commit_message: resolve #${{ github.head_ref }}
+          commit_message: resolve '#46'
       - name: Setup Environment
         run:  bundle install
       - name: Start SwiftUI & UIKit tests
