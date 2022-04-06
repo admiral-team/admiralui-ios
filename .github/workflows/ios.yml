@@ -19,10 +19,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Commit changes
-        run: |
-          git status
-          git add .
-          git commit -m 'commit message was created'
+        run:  git commit --only --allow-empty -m "my message"
       - name: Setup Environment
         run:  bundle install
       - name: Start SwiftUI & UIKit tests
