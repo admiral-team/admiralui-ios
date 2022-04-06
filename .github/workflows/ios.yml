@@ -22,7 +22,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Automated Resolve Message
-          commit_only: '--allow-empty'
+          commit_options: '--allow-empty'
       - name: Setup Environment
         run:  bundle install
       - name: Start SwiftUI & UIKit tests
