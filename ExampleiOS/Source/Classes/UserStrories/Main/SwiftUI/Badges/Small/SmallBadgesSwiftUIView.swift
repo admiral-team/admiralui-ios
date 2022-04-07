@@ -44,7 +44,7 @@ struct SmallBadgesSwiftUIView: View {
         return HStack(spacing: .zero, content: {
             BadgeView(
                 badgeStyle: viewModel.items[index].badgeStyle,
-                value: viewModel.items[index].rawValue,
+                value: nil,
                 offset: CGPoint(x: -LayoutGrid.halfModule, y: .zero)
             ) {
                 AssetSymbol.Category.Solid.bonus.image

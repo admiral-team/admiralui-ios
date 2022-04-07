@@ -162,6 +162,10 @@ final class BadgeCellView<T>: UIView, AnyAppThemable, AccessibilitySupport where
     }
     
     @objc private func stepperValueChanged(_ stepper: InputNumber) {
+        guard initialValue != nil else {
+            badgeView.text = nil
+            return
+        }
         badgeView.text = String(Int(stepper.value))
     }
 
