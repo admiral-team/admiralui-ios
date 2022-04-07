@@ -73,7 +73,11 @@ final class AlertController: BaseViewController, AccessibilitySupport {
         let action = AlertAction(title: "Хорошо", style: .primary) { [weak self] (_) in
             self?.vc.dismiss(animated: true, completion: nil)
         }
+        let secondAction = AlertAction(title: "Подтвердить", style: .alternative) { [weak self] (_) in
+            self?.vc.dismiss(animated: true, completion: nil)
+        }
         vc.addAction(action)
+        vc.addAction(secondAction)
     }
     
     @objc private func tapShowButton() {
