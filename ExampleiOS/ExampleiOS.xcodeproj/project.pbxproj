@@ -3529,7 +3529,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftgen >/dev/null; then\n    cd ..\n    swiftgen config run --config .swiftgen.yml\n    swiftgen config run --config .swiftgenExample.yml\nelse\n    echo \"SwiftGen does not exist, download from https://github.com/AliSoftware/SwiftGen\"\n    exit 1\nfi\n";
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftgen >/dev/null; then\n    cd ..\n    swiftgen config run --config .swiftgen.yml\n    swiftgen config run --config .swiftgenExample.yml\nelse\n    echo \"SwiftGen does not exist, download from https://github.com/AliSoftware/SwiftGen\"\n    exit 1\nfi\n";
 		};
 		E6D91C8925320D3C00DCE489 /* Swift Lint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3547,7 +3547,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  config_path=$SRCROOT/../.swiftlint.yml\n  swiftlint autocorrect --path Source/ --config $config_path\n  swiftlint --path Source/ --config $config_path\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftlint >/dev/null; then\n  config_path=$SRCROOT/../.swiftlint.yml\n  swiftlint autocorrect --path Source/ --config $config_path\n  swiftlint --path Source/ --config $config_path\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
