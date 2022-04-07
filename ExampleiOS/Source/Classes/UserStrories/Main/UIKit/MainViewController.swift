@@ -221,7 +221,7 @@ class MainViewController: UIViewController, AnyAppThemable {
                 didSelect: { [weak self] in self?.presentCalendar() }),
       
             MainTableViewCellViewModel(
-                title: "Alert",
+                title: "Alerts",
                 subtitle: "Информирующие сообщения",
                 image: Asset.Main.envelope.image,
                 didSelect: { [weak self] in self?.presentAlert() }),
