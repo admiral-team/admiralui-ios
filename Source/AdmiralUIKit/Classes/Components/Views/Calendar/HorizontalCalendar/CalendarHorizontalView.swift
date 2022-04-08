@@ -250,7 +250,7 @@ class CalendarHorizontalView: UIView, AnyAppThemable {
             weekView.heightAnchor.constraint(equalToConstant: LayoutGrid.halfModule * 9),
             
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            collectionView.topAnchor.constraint(equalTo: weekView.bottomAnchor, constant: LayoutGrid.doubleModule),
+            collectionView.topAnchor.constraint(equalTo: weekView.bottomAnchor, constant: LayoutGrid.halfModule * 5),
             trailingAnchor.constraint(equalTo: collectionView.trailingAnchor),
             bottomAnchor.constraint(equalTo: collectionView.bottomAnchor),
             
