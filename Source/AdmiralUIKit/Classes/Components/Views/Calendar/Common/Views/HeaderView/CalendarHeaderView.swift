@@ -101,14 +101,14 @@ class CalendarHeaderView: UICollectionReusableView, AnyAppThemable, Accessibilit
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: LayoutGrid.module),
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: LayoutGrid.tripleModule),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: LayoutGrid.doubleModule),
             trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: LayoutGrid.doubleModule),
             
             dayOfWeekStackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: LayoutGrid.module),
             dayOfWeekStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
             dayOfWeekStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            bottomAnchor.constraint(equalTo: dayOfWeekStackView.bottomAnchor, constant: LayoutGrid.module)
+            dayOfWeekStackView.heightAnchor.constraint(equalToConstant: LayoutGrid.quadrupleModule)
         ])
     }
     

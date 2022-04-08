@@ -454,7 +454,7 @@ extension CalendarVerticalView: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: LayoutGrid.halfModule * 20)
+        return CGSize(width: collectionView.frame.width, height: LayoutGrid.halfModule * 25)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
@@ -463,7 +463,7 @@ extension CalendarVerticalView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.width / 7
-        return CGSize(width: width, height: LayoutGrid.halfModule * 12)
+        return CGSize(width: width, height: LayoutGrid.halfModule * 17)
     }
     
 }
