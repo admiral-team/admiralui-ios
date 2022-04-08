@@ -57,7 +57,6 @@
 		0E576D3825370C4600E223DD /* ButtonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E576D3725370C4600E223DD /* ButtonsViewController.swift */; };
 		0E576D3A2537210A00E223DD /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E576D392537210A00E223DD /* ScrollViewController.swift */; };
 		0E576F3125387C4800E223DD /* TagsChipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E576F3025387C4800E223DD /* TagsChipsViewController.swift */; };
-		0E576F4A2539B81E00E223DD /* BadgesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E576F492539B81E00E223DD /* BadgesViewController.swift */; };
 		0E576F6D2539D5FE00E223DD /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E576F6C2539D5FE00E223DD /* SpinnerViewController.swift */; };
 		0E59D345263039C7007B5CC1 /* LogoTabSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E59D344263039C7007B5CC1 /* LogoTabSwiftUIView.swift */; };
 		0E59D36526318391007B5CC1 /* OutlineSliderTabSwiftUITab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E59D36426318391007B5CC1 /* OutlineSliderTabSwiftUITab.swift */; };
@@ -318,6 +317,12 @@
 		E916FA012768A7FF00628C96 /* TextOperationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E916FA002768A7FF00628C96 /* TextOperationViewController.swift */; };
 		E916FA042768B60C00628C96 /* TextOperationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E916FA032768B60C00628C96 /* TextOperationCell.swift */; };
 		E916FA062768C31900628C96 /* TextOperationScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E916FA052768C31900628C96 /* TextOperationScheme.swift */; };
+		E92DC2E727FC543F00CB789E /* BagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92DC2E627FC543F00CB789E /* BagesViewModel.swift */; };
+		E92DC2E927FC549A00CB789E /* BadgesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92DC2E827FC549A00CB789E /* BadgesViewController.swift */; };
+		E92DC2EC27FC555E00CB789E /* BadgesNormalViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92DC2EB27FC555E00CB789E /* BadgesNormalViewContoller.swift */; };
+		E92DC2EF27FC55D400CB789E /* BadgesSmallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92DC2EE27FC55D400CB789E /* BadgesSmallViewController.swift */; };
+		E92DC2F327FC5CC300CB789E /* BadgesSmallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92DC2F227FC5CC300CB789E /* BadgesSmallViewModel.swift */; };
+		E92DC2F527FC60DF00CB789E /* BadgesNormalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92DC2F427FC60DF00CB789E /* BadgesNormalViewModel.swift */; };
 		E9332F8A277A0AF400F9AF26 /* UploadingFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9332F89277A0AF400F9AF26 /* UploadingFileViewController.swift */; };
 		E9332FA2277C65F700F9AF26 /* UploadingFileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9332FA1277C65F700F9AF26 /* UploadingFileCell.swift */; };
 		E9332FA4277CA8E700F9AF26 /* UploadingFileCellScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9332FA3277CA8E700F9AF26 /* UploadingFileCellScheme.swift */; };
@@ -417,6 +422,11 @@
 		E9C79CC527BD22AE0002EC49 /* AlertOnboardingSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C79CC427BD22AE0002EC49 /* AlertOnboardingSwiftUIView.swift */; };
 		E9C79CC727BD23500002EC49 /* AlertOnboardingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C79CC627BD23500002EC49 /* AlertOnboardingItem.swift */; };
 		E9C79CC927BD245C0002EC49 /* ErrorSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C79CC827BD245C0002EC49 /* ErrorSwiftUIView.swift */; };
+		E9DAC2E127FB3A2F00842ACB /* SmallBadgesSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DAC2E027FB3A2F00842ACB /* SmallBadgesSwiftUIView.swift */; };
+		E9DAC2E327FB3A4100842ACB /* NormalBadgesSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DAC2E227FB3A4100842ACB /* NormalBadgesSwiftUIView.swift */; };
+		E9DAC2E527FB3A8C00842ACB /* SmallBadgesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DAC2E427FB3A8C00842ACB /* SmallBadgesViewModel.swift */; };
+		E9DAC2E727FB3A9700842ACB /* NormalBadgesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DAC2E627FB3A9700842ACB /* NormalBadgesViewModel.swift */; };
+		E9DAC2E927FB3FCA00842ACB /* BadgesItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DAC2E827FB3FCA00842ACB /* BadgesItem.swift */; };
 		E9ECF1FB2729729C00363E5E /* FilesPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ECF1FA2729729C00363E5E /* FilesPickerView.swift */; };
 		E9ECF1FD272975AD00363E5E /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ECF1FC272975AD00363E5E /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
@@ -500,7 +510,6 @@
 		0E576D3725370C4600E223DD /* ButtonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsViewController.swift; sourceTree = "<group>"; };
 		0E576D392537210A00E223DD /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
 		0E576F3025387C4800E223DD /* TagsChipsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsChipsViewController.swift; sourceTree = "<group>"; };
-		0E576F492539B81E00E223DD /* BadgesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesViewController.swift; sourceTree = "<group>"; };
 		0E576F6C2539D5FE00E223DD /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
 		0E59D344263039C7007B5CC1 /* LogoTabSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoTabSwiftUIView.swift; sourceTree = "<group>"; };
 		0E59D36426318391007B5CC1 /* OutlineSliderTabSwiftUITab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlineSliderTabSwiftUITab.swift; sourceTree = "<group>"; };
@@ -760,6 +769,12 @@
 		E916FA002768A7FF00628C96 /* TextOperationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOperationViewController.swift; sourceTree = "<group>"; };
 		E916FA032768B60C00628C96 /* TextOperationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOperationCell.swift; sourceTree = "<group>"; };
 		E916FA052768C31900628C96 /* TextOperationScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOperationScheme.swift; sourceTree = "<group>"; };
+		E92DC2E627FC543F00CB789E /* BagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagesViewModel.swift; sourceTree = "<group>"; };
+		E92DC2E827FC549A00CB789E /* BadgesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesViewController.swift; sourceTree = "<group>"; };
+		E92DC2EB27FC555E00CB789E /* BadgesNormalViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesNormalViewContoller.swift; sourceTree = "<group>"; };
+		E92DC2EE27FC55D400CB789E /* BadgesSmallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesSmallViewController.swift; sourceTree = "<group>"; };
+		E92DC2F227FC5CC300CB789E /* BadgesSmallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesSmallViewModel.swift; sourceTree = "<group>"; };
+		E92DC2F427FC60DF00CB789E /* BadgesNormalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesNormalViewModel.swift; sourceTree = "<group>"; };
 		E9332F89277A0AF400F9AF26 /* UploadingFileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingFileViewController.swift; sourceTree = "<group>"; };
 		E9332FA1277C65F700F9AF26 /* UploadingFileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingFileCell.swift; sourceTree = "<group>"; };
 		E9332FA3277CA8E700F9AF26 /* UploadingFileCellScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingFileCellScheme.swift; sourceTree = "<group>"; };
@@ -860,6 +875,11 @@
 		E9C79CC427BD22AE0002EC49 /* AlertOnboardingSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertOnboardingSwiftUIView.swift; sourceTree = "<group>"; };
 		E9C79CC627BD23500002EC49 /* AlertOnboardingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertOnboardingItem.swift; sourceTree = "<group>"; };
 		E9C79CC827BD245C0002EC49 /* ErrorSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorSwiftUIView.swift; sourceTree = "<group>"; };
+		E9DAC2E027FB3A2F00842ACB /* SmallBadgesSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallBadgesSwiftUIView.swift; sourceTree = "<group>"; };
+		E9DAC2E227FB3A4100842ACB /* NormalBadgesSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalBadgesSwiftUIView.swift; sourceTree = "<group>"; };
+		E9DAC2E427FB3A8C00842ACB /* SmallBadgesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallBadgesViewModel.swift; sourceTree = "<group>"; };
+		E9DAC2E627FB3A9700842ACB /* NormalBadgesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalBadgesViewModel.swift; sourceTree = "<group>"; };
+		E9DAC2E827FB3FCA00842ACB /* BadgesItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesItem.swift; sourceTree = "<group>"; };
 		E9ECF1FA2729729C00363E5E /* FilesPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesPickerView.swift; sourceTree = "<group>"; };
 		E9ECF1FC272975AD00363E5E /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1212,9 +1232,12 @@
 		0E576F482539B80000E223DD /* Badges */ = {
 			isa = PBXGroup;
 			children = (
+				E92DC2ED27FC55C600CB789E /* Small */,
+				E92DC2EA27FC554D00CB789E /* Normal */,
 				C6DCBFC9263169B400754365 /* CustomScheme */,
-				0E76FAD6253D9202001B1F3D /* View */,
-				0E576F492539B81E00E223DD /* BadgesViewController.swift */,
+				0E76FAD6253D9202001B1F3D /* Cells */,
+				E92DC2E627FC543F00CB789E /* BagesViewModel.swift */,
+				E92DC2E827FC549A00CB789E /* BadgesViewController.swift */,
 			);
 			path = Badges;
 			sourceTree = "<group>";
@@ -1380,12 +1403,12 @@
 			path = ActionBar;
 			sourceTree = "<group>";
 		};
-		0E76FAD6253D9202001B1F3D /* View */ = {
+		0E76FAD6253D9202001B1F3D /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				0E76FAD7253D9215001B1F3D /* BadgeCellView.swift */,
 			);
-			path = View;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		0E76FB3E253ED998001B1F3D /* RadioButton */ = {
@@ -1722,7 +1745,10 @@
 		0EC91E6426BD3B5400636204 /* Badges */ = {
 			isa = PBXGroup;
 			children = (
+				E9DAC2DF27FB39B000842ACB /* Small */,
+				E9DAC2DE27FB39A900842ACB /* Normal */,
 				0EC91E6526BD3B6500636204 /* BadgesSwiftUIView.swift */,
+				E9DAC2E827FB3FCA00842ACB /* BadgesItem.swift */,
 				0EC91E6726BD425200636204 /* BadgesSwiftUIViewScheme.swift */,
 			);
 			path = Badges;
@@ -2833,6 +2859,24 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		E92DC2EA27FC554D00CB789E /* Normal */ = {
+			isa = PBXGroup;
+			children = (
+				E92DC2EB27FC555E00CB789E /* BadgesNormalViewContoller.swift */,
+				E92DC2F427FC60DF00CB789E /* BadgesNormalViewModel.swift */,
+			);
+			path = Normal;
+			sourceTree = "<group>";
+		};
+		E92DC2ED27FC55C600CB789E /* Small */ = {
+			isa = PBXGroup;
+			children = (
+				E92DC2EE27FC55D400CB789E /* BadgesSmallViewController.swift */,
+				E92DC2F227FC5CC300CB789E /* BadgesSmallViewModel.swift */,
+			);
+			path = Small;
+			sourceTree = "<group>";
+		};
 		E9332F88277A0AD600F9AF26 /* UploadingFile */ = {
 			isa = PBXGroup;
 			children = (
@@ -3343,6 +3387,24 @@
 			path = Error;
 			sourceTree = "<group>";
 		};
+		E9DAC2DE27FB39A900842ACB /* Normal */ = {
+			isa = PBXGroup;
+			children = (
+				E9DAC2E227FB3A4100842ACB /* NormalBadgesSwiftUIView.swift */,
+				E9DAC2E627FB3A9700842ACB /* NormalBadgesViewModel.swift */,
+			);
+			path = Normal;
+			sourceTree = "<group>";
+		};
+		E9DAC2DF27FB39B000842ACB /* Small */ = {
+			isa = PBXGroup;
+			children = (
+				E9DAC2E027FB3A2F00842ACB /* SmallBadgesSwiftUIView.swift */,
+				E9DAC2E427FB3A8C00842ACB /* SmallBadgesViewModel.swift */,
+			);
+			path = Small;
+			sourceTree = "<group>";
+		};
 		E9ECF2002729AB3D00363E5E /* Pickers */ = {
 			isa = PBXGroup;
 			children = (
@@ -3586,7 +3648,9 @@
 				0E74C5842684961E00F79D10 /* ActionBarSwiftUIViewDefault.swift in Sources */,
 				C6BA67B42631CA36001A7EB6 /* MenuInfoCellCustomScheme.swift in Sources */,
 				E945187827D36AA00048B133 /* UnknownParametersDTO.swift in Sources */,
+				E92DC2EF27FC55D400CB789E /* BadgesSmallViewController.swift in Sources */,
 				E945186B27D369DD0048B133 /* Publishers+Decode.swift in Sources */,
+				E92DC2E727FC543F00CB789E /* BagesViewModel.swift in Sources */,
 				E9BE41AB27C7DFF400894224 /* CurrencyViewController.swift in Sources */,
 				C6BA67C32631FB0D001A7EB6 /* ColorTokerCellCustomSheme.swift in Sources */,
 				0E4BC95526834FFD000FC891 /* SecondaryTitleBaseCellSwiftUI.swift in Sources */,
@@ -3647,10 +3711,12 @@
 				C674990625D3FB8E00232C5F /* LogoTabsViewController.swift in Sources */,
 				C6DCBFF22631A92C00754365 /* BottomSheetBottomViewCustomScheme.swift in Sources */,
 				C6BA67DD2632DE70001A7EB6 /* SwitcherCellViewCustomScheme.swift in Sources */,
+				E9DAC2E727FB3A9700842ACB /* NormalBadgesViewModel.swift in Sources */,
 				E95553CF27A2CBE300A14BCA /* TextOperationViewModel.swift in Sources */,
 				C6BA67D12632D552001A7EB6 /* MainTitleTableViewCellCustomScheme.swift in Sources */,
 				0E0A3F0626121F38007C4CA8 /* UserSettingService.swift in Sources */,
 				E9A18D8F2739786500668C03 /* SwiftUIUploadFileViewModel.swift in Sources */,
+				E92DC2F527FC60DF00CB789E /* BadgesNormalViewModel.swift in Sources */,
 				C6D5BD692665598800437808 /* ToolBarSwiftUIView.swift in Sources */,
 				E6117EF625F9754300214949 /* CardTextField.swift in Sources */,
 				0E76FB43253EDB94001B1F3D /* SwitcherCellView.swift in Sources */,
@@ -3666,10 +3732,13 @@
 				0E73862A27752D10003892C7 /* InformersAndToastsViewController.swift in Sources */,
 				C6BA67D92632DDB2001A7EB6 /* CheckBoxesCellViewCustomScheme.swift in Sources */,
 				0EF548B4267A0F6B00E49DEB /* NavigationContentView.swift in Sources */,
+				E92DC2EC27FC555E00CB789E /* BadgesNormalViewContoller.swift in Sources */,
+				E92DC2F327FC5CC300CB789E /* BadgesSmallViewModel.swift in Sources */,
 				C670867525BB1165003F361C /* BaseNavigationController.swift in Sources */,
 				3B574AAC27D29344006FEF9A /* AdmiralGunViewModel.swift in Sources */,
 				E94518C027D4A8500048B133 /* ToolbarDTO.swift in Sources */,
 				C61C26F7261BB99300D01ED9 /* BaseViewController.swift in Sources */,
+				E9DAC2E927FB3FCA00842ACB /* BadgesItem.swift in Sources */,
 				0E45612926860A1F003F588D /* ShimmersSwiftUIView.swift in Sources */,
 				E63B50E325DD3F0100993D21 /* ColorTokenCell.swift in Sources */,
 				E934036B27B124E70007B86D /* ActionBarsViewModel.swift in Sources */,
@@ -3689,6 +3758,7 @@
 				C670865425B9B5CF003F361C /* PageControlsViewController.swift in Sources */,
 				E9BE41D827C8D87600894224 /* MapButtonCellView.swift in Sources */,
 				0E853D002593EC850033F17C /* HeadersViewController.swift in Sources */,
+				E9DAC2E327FB3A4100842ACB /* NormalBadgesSwiftUIView.swift in Sources */,
 				E9C79CC727BD23500002EC49 /* AlertOnboardingItem.swift in Sources */,
 				C68656902559629F00B885B8 /* MainTableViewCell.swift in Sources */,
 				0E03D90626C4294C00AD5D82 /* ToastNotificationsManager.swift in Sources */,
@@ -3738,6 +3808,7 @@
 				E9332FC1277CE97100F9AF26 /* UploadingImageCellScheme.swift in Sources */,
 				E9A18D93273A458D00668C03 /* SwiftUIUploadingPhotoViewModel.swift in Sources */,
 				0E6EA49527024DA0002EBBBC /* HeadersSwiftUIView.swift in Sources */,
+				E9DAC2E127FB3A2F00842ACB /* SmallBadgesSwiftUIView.swift in Sources */,
 				0E9464E326B18EC800F5E790 /* NotificationsSwiftUIView.swift in Sources */,
 				C6865688255937BF00B885B8 /* InfoViewController.swift in Sources */,
 				0E17A246269DB65E00F0A80B /* CalendarHorizontalSwiftUIView.swift in Sources */,
@@ -3809,6 +3880,7 @@
 				E6968DE1269C85DA0006F2B3 /* ThemeSwitchView.swift in Sources */,
 				C68656B1255998A200B885B8 /* CheckboxViewController.swift in Sources */,
 				0E6EA49227024A93002EBBBC /* TextBlocksSwiftUIItem.swift in Sources */,
+				E92DC2E927FC549A00CB789E /* BadgesViewController.swift in Sources */,
 				C6A13807260A2CAE001F04E5 /* ThemeSwitchComponentView.swift in Sources */,
 				0E4BC89F2681E959000FC891 /* ImageLeadingLableComponentsSwiftUIView.swift in Sources */,
 				C6723C7F25D28FF500226ED9 /* LinksViewController.swift in Sources */,
@@ -3834,6 +3906,7 @@
 				0EDD49B2273D9EDF002386FB /* CalendarsViewController.swift in Sources */,
 				0E0A3EFE2611DAEF007C4CA8 /* OnboardingViewController.swift in Sources */,
 				3B574A9D27C7D9E2006FEF9A /* ZeroScreenViewController.swift in Sources */,
+				E9DAC2E527FB3A8C00842ACB /* SmallBadgesViewModel.swift in Sources */,
 				0E110DA527C5017C00BFF58F /* HeadersBlocksViewController.swift in Sources */,
 				0E5F3D352535895F00E7327C /* TypographyCell.swift in Sources */,
 				C6C7D272265BADDC006F4106 /* SmallInformersSwiftUIView.swift in Sources */,
@@ -3874,7 +3947,6 @@
 				C674990C25D3FBB600232C5F /* UnderlineSliderTabs.swift in Sources */,
 				0E0A3EF82611D3EA007C4CA8 /* OnboardingPageViewController.swift in Sources */,
 				C6A7F2E82654005700105F2D /* BigInformersSwiftUIView.swift in Sources */,
-				0E576F4A2539B81E00E223DD /* BadgesViewController.swift in Sources */,
 				E94518B227D4A37C0048B133 /* StandartTextFieldPlain.swift in Sources */,
 				E6903D7F25DEFF4500245403 /* ThemeViewController.swift in Sources */,
 				C686568A255937DB00B885B8 /* ChatViewController.swift in Sources */,
