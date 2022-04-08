@@ -1,102 +1,56 @@
 //
-//  BadgesViewController.swift
-//  Example iOS
+//  BadgesVC.swift
+//  ExampleiOS
 //
-//  Created on 16.10.2020.
+//  Created on 04.04.2022.
 //
 
 import AdmiralUIKit
-import AdmiralTheme
 import UIKit
 
-final class BadgesViewController: ScrollViewController {
-    
-    // MARK: - Private Properties
-    
-    private enum BadgeState: Int {
-        case enabled
-        case disabled
-    }
+final class BadgesViewController: BaseTableViewController {
 
-    private var badgeViews = [BadgeCellView]()
-    
-    // MARK: - Initializers
+    // MARK: - Private properties
 
-    override func loadView() {
-        segmentControl = StandardSegmentedControl(
-            titles: ["Default",
-                     "Disabled"])
-        super.loadView()
-    }
-    
+    private let viewModel = BadgesViewModel()
+
+    // MARK: - Initializer
+
     override func viewDidLoad() {
+        setSegmentControl(hidden: true)
+
         super.viewDidLoad()
-        configureUI()
-        hideSegmentView(false)
-        refreshTheme()
+        tableView.separatorStyle = .none
+        tableViewManager.sections = createSections()
     }
-    
-    // MARK: - AnyAppThemable
-    
-    override func apply(theme: AppTheme) {
-        super.apply(theme: theme)
-        
-        badgeViews.forEach({ $0.apply(theme: theme) })
-    }
-    
+
     // MARK: - Private Methods
-    
-    private func configureUI() {
-        configureBadgeViews()
-        
-        badgeViews.forEach() {
-            stackView.addArrangedSubview($0)
+
+    private func createSections() -> [MainSectionViewModel] {
+        let items = viewModel.items.map { item -> MainTitleTableViewCellViewModel in
+            let title = item.getTitle()
+            return MainTitleTableViewCellViewModel(
+                title: title,
+                didSelect: { [weak self] in self?.presentVC(item: item, title: item.getTitle()) }
+            )
         }
-        segmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
+        return [MainSectionViewModel(items: items)]
     }
-    
-    private func configureBadgeViews() {
-        let additionalBadge = NumberBadge()
-        additionalBadge.style = .additional
-        let additionalBadgeView = BadgeCellView<Badge>(title: "Addittional", badgeView: additionalBadge)
-        
-        badgeViews.append(additionalBadgeView)
-        
-        let naturalBadge = NumberBadge()
-        naturalBadge.style = .natural
-        let naturalBadgeView = BadgeCellView<Badge>(title: "Natural", badgeView: naturalBadge)
-        
-        badgeViews.append(naturalBadgeView)
-        
-        let defaultBadge = NumberBadge()
-        defaultBadge.style = .default
-        let defaultBadgeView = BadgeCellView<Badge>(title: "Default", badgeView: defaultBadge)
 
-        badgeViews.append(defaultBadgeView)
+}
 
-        let succesBadge = NumberBadge()
-        succesBadge.style = .success
-        let successBadgeView = BadgeCellView<Badge>(title: "Success", badgeView: succesBadge)
+private extension BadgesViewController {
 
-        badgeViews.append(successBadgeView)
-
-        let errorBadge = NumberBadge()
-        errorBadge.style = .error
-        let errorBadgeView = BadgeCellView<Badge>(title: "Error", badgeView: errorBadge)
-
-        badgeViews.append(errorBadgeView)
-
-        let attentionBadge = NumberBadge()
-        attentionBadge.style = .attention
-        let attentionBadgeView = BadgeCellView<Badge>(title: "Attention", badgeView: attentionBadge)
-        
-        badgeViews.append(attentionBadgeView)
+    func presentVC(item: BadgesViewModel.Items, title: String) {
+        var vc: UIViewController
+        switch item {
+        case .small:
+            vc = BadgesSmallViewContoller()
+        case .normal:
+            vc = BadgesNormalViewContoller()
+        }
+        vc.title = title
+        navigationController?.pushViewController(vc, animated: true)
     }
-    
-    @objc private func segmentedValueChanged(_ control: StandardSegmentedControl) {
-        guard let state = BadgeState(rawValue: control.selectedSegmentIndex) else { return }
-        
-        badgeViews.forEach({ $0.isEnabled = state == .enabled ? true : false })
-    }
-    
+
 }

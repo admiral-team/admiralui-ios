@@ -18,8 +18,8 @@ struct CalendarHorizontalView: View {
     }
     
     enum Constants {
-        static let calendarHeight: CGFloat = 320.0
-        static let calendarHorizontalViewHeight: CGFloat = 306.0
+        static let calendarHeight: CGFloat = 376.0
+        static let calendarHorizontalViewHeight: CGFloat = 356.0
         static let pickerViewHeight: CGFloat = 215.0
         static let monthFormat = "LLLL"
         static let yearFormat = "yyyy"
@@ -189,9 +189,11 @@ struct CalendarHorizontalView: View {
                 if isHeaderOpen {
                     CalendarWeekView(locale)
                         .frame(height: LayoutGrid.halfModule * 9)
+                    Spacer()
+                        .frame(height: LayoutGrid.halfModule * 5)
                 } else {
                     Spacer()
-                        .frame(height: LayoutGrid.halfModule * 9)
+                        .frame(height: LayoutGrid.halfModule * 14)
                 }
                 ZStack {
                     if isHeaderOpen {
