@@ -3,7 +3,7 @@ on:
   push:
     branches: [ main ]
   pull_request:
-    types: ['opened', 'synchronize', 'reopened', 'edited']
+    types: ['opened', 'synchronize', 'reopened']
     branches: ['main', 'develop', 'feature/**', 'rc/**']
   workflow_dispatch:
 
@@ -27,4 +27,4 @@ jobs:
           CI_PASSWORD:  ${{ secrets.CI_PASSWORD }}
         run: |
           bundle exec fastlane unlock_secrets_keychain password:"$CI_PASSWORD"
-          bundle exec fastlane deploy_appcenter_dev issue_name:${{ github.head_ref }}
+          bundle exec fastlane deploy_appcenter_dev issue_name:${{ github.head_ref }} pull_request_number:${{ github.event.number }} 
