@@ -17,7 +17,7 @@ struct ImageBaseCellSwiftUIView: View {
     
     public var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Base Cells vs Lable") {
+        NavigationContentView(navigationTitle: "Base Cells vs Image") {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
             ScrollView(showsIndicators: false) {
