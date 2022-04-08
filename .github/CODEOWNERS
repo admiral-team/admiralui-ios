@@ -9,3 +9,6 @@
 # directory at the root of the repository and any of its
 # subdirectories.
 .github/workflows @admiral-team/admiralui-ios-core-team
+
+## code changes will send PR to following users
+* @Almazovivan @KirBorisov96 @ton252 @Andyatkov @Evgeniy-93
