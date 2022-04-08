@@ -26,8 +26,8 @@ enum SwiftUIItem: String, CaseIterable {
     case spiner
     case pageControls
     case shimmers
-    case timePicker
     case calendar
+    case timePicker
     case alert
     case toolBar
     case bottomSheets
