@@ -25,11 +25,6 @@ protocol CalendarGeneratorDelegate {
                      secondDate: Date,
                      with granularity: Calendar.Component,
                      byOrder order: ComparisonResult) -> Bool
-    func calculateMonthsData(startDate: Date, endDate: Date, monthDate: Date?) -> (
-        [Month],
-        Int,
-        [CalendarPickerYear],
-        [Int : (Int, Int)])
 }
 
 @available(iOS 14.0.0, *)
@@ -218,83 +213,25 @@ public struct CalendarGenerator: CalendarGeneratorDelegate {
         return calendarPickerYears
     }
     
-    // TODO: - Убрать когда сделаем вертикальный календарь инфинити станет
-    public func calculateMonthsData(startDate: Date, endDate: Date, monthDate: Date? = nil) -> (
-        [Month],
-        Int,
-        [CalendarPickerYear],
-        [Int : (Int, Int)]) {
-        
-        var months = [Month]()
-        var currentMonthIndex = 0
-        var calendarPickerYears = [CalendarPickerYear]()
-        var calendarPickerMonths = [CalendarPickerMonth]()
-        var pickerDataMonths = [Int : (Int, Int)]()
-        
-        var currentPickerDataMonths = 0
-        var currentPickerDataYear = 0
+    public func calculateDates(startDate: Date, endDate: Date, monthDate: Date? = nil) -> ([Date],Date?) {
+        var dates = [Date]()
+        let currentDate = (monthDate ?? Date()).firstDateOfMonth().removeTimeStamp()
         
         guard let totalMonths = calendar.dateComponents([.month],
                                                   from: startDate,
                                                   to: endDate).month else {
-            return (months,currentMonthIndex,calendarPickerYears, pickerDataMonths) }
+            return (dates, nil)
+        }
         
-        var currentYear: String?
         for monthIndex in 0...totalMonths {
-            if
-                let currentMonthDate = calendar.date(byAdding: .month, value: monthIndex, to: startDate),
-                let monthMetaData = monthMetadata(for: currentMonthDate) {
-                let days = generateDaysInMonth(metadata: monthMetaData)
-                let title = currentMonthDate.dateToString(dateFormat: "LLLL yyyy", locale).capitalized
-                if calendar.isDate(currentMonthDate, equalTo: monthDate ?? Date(), toGranularity: .month) {
-                    currentMonthIndex = monthIndex
-                }
-                
-                let monthTitle = currentMonthDate.dateToString(dateFormat: "LLLL", locale).capitalized
-                let yearTitle = currentMonthDate.dateToString(dateFormat: "yyyy", locale).capitalized
-                let month = Month(days: days, title: title, date: currentMonthDate)
-                months.append(month)
-                
-                if currentYear == nil || currentYear == yearTitle {
-                    currentYear = yearTitle
-                    calendarPickerMonths.append(CalendarPickerMonth(
-                                                    title: monthTitle,
-                                                    index: monthIndex,
-                                                    year: yearTitle,
-                                                    date: currentMonthDate))
-                    
-                    pickerDataMonths[monthIndex] = (currentPickerDataMonths, currentPickerDataYear)
-                    currentPickerDataMonths += 1
-                } else {
-                    calendarPickerYears.append(CalendarPickerYear(
-                                                title: calendarPickerMonths.first?.year ?? "",
-                                                months: calendarPickerMonths))
-                    currentYear = yearTitle
-
-                    
-                    calendarPickerMonths = []
-                    calendarPickerMonths.append(CalendarPickerMonth(
-                                                    title: monthTitle,
-                                                    index: monthIndex,
-                                                    year: yearTitle,
-                                                    date: currentMonthDate))
-                    currentPickerDataMonths = 0
-                    currentPickerDataYear += 1
-                    pickerDataMonths[monthIndex] = (currentPickerDataMonths, currentPickerDataYear)
-                    
-                    currentPickerDataMonths += 1
-                }
-                 
-                if monthIndex == totalMonths {
-                    calendarPickerYears.append(CalendarPickerYear(
-                                                title: yearTitle,
-                                                months: calendarPickerMonths))
-                    pickerDataMonths[monthIndex] = (currentPickerDataMonths, currentPickerDataYear)
+            if let currentMonthDate = calendar.date(byAdding: .month, value: monthIndex, to: startDate) {
+                if let date = currentMonthDate.firstDateOfMonth()?.removeTimeStamp() {
+                    dates.append(date)
                 }
             }
         }
         
-        return (months,currentMonthIndex,calendarPickerYears, pickerDataMonths)
+        return (dates, currentDate)
     }
     
     // MARK: - Private Methods
