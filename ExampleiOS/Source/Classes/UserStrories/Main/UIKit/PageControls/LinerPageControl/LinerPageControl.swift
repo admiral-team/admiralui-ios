@@ -40,8 +40,6 @@ final class LinerPageControl: BaseViewController {
     // MARK: - Private Methods
     
     private func configureUI() {
-        autoManage()
-        
         addSubviews()
         configureConstraints()
         configureSegment()
