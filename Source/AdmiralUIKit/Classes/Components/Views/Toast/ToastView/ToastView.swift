@@ -409,7 +409,7 @@ open class ToastView: UIView, AnyAppThemable {
             trailingView.bottomAnchor.constraint(equalTo: bottomAnchor),
             trailingView.trailingAnchor.constraint(equalTo: trailingAnchor),
             
-            closeButton.leadingAnchor.constraint(greaterThanOrEqualTo: trailingView.leadingAnchor, constant: LayoutGrid.doubleModule),
+            closeButton.leadingAnchor.constraint(greaterThanOrEqualTo: trailingView.leadingAnchor),
             closeButton.topAnchor.constraint(equalTo: leadingView.topAnchor, constant: LayoutGrid.doubleModule),
             trailingView.trailingAnchor.constraint(equalTo: closeButton.trailingAnchor, constant: LayoutGrid.doubleModule),
             trailingView.bottomAnchor.constraint(greaterThanOrEqualTo: closeButton.bottomAnchor, constant: LayoutGrid.doubleModule),
