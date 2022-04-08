@@ -11,9 +11,9 @@ final class AlertOnboardingViewModel {
 
     enum Items: CaseIterable {
         case alert
-        case error
         case onboarding
         case zeroScreen
+        case error
 
         func getTitle() -> String {
             switch self {

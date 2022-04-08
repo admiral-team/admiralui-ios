@@ -74,7 +74,7 @@ enum SwiftUIItem: String, CaseIterable {
         case .calendar:
             return "Calendar"
         case .alert:
-            return "Alert"
+            return "Alerts"
         case .toolBar:
             return "Tool bar"
         case .bottomSheets:
