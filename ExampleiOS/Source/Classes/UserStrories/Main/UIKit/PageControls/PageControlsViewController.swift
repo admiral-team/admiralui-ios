@@ -26,6 +26,9 @@ final class PageControlsViewController: BaseTableViewController {
         
         let items: [TableViewListItem] = [
             MainTitleTableViewCellViewModel(
+                title: "Liner",
+                didSelect: { [weak self] in self?.presentLinearPageCntrol() }),
+            MainTitleTableViewCellViewModel(
                 title: "Circle",
                 didSelect: { [weak self] in self?.presentCircularPageControl() })
         ]
