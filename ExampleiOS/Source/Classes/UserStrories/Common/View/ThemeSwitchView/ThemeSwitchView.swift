@@ -124,6 +124,9 @@ final class ThemeSwitchView: UIView, AppThemeable, ThemeSwitchListViewDelegate, 
             listView.isHidden = true
             delegate?.didTap(self)
         }
+
+        setNeedsLayout()
+        layoutIfNeeded()
     }
     
 }
