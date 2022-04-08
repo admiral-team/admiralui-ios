@@ -12,6 +12,7 @@ class BuildInfo
   attr_accessor :build_url
   attr_accessor :branch_name
   attr_accessor :issue
+  attr_accessor :pull_request_number
   
   def initialize()
     @platform = 'iOS'
@@ -91,6 +92,7 @@ def formatted_build_info_json(build_info:)
   str += '\"InstallURL\"' + ':"\"' + "#{build_info.install_url}" + '"\"' + '","' unless build_info.platform.nil?
   str += '\"build_url\"' + ':"\"' + "#{build_info.build_url}" + '"\"' + '","' unless build_info.platform.nil?
   str += '\"BranchName\"' + ':"\"' + "#{build_info.branch_name}" + '"\"' + '","' unless build_info.platform.nil?
+  str += '\"PullNumber\"' + ':"\"' + "#{build_info.pull_request_number}" + '"\"' + '","' unless build_info.platform.nil?
   str += '\"Issue\"' + ':"\"' + "#{build_info.issue}" + '"\"' unless build_info.platform.nil?
   str += '}'
   str
