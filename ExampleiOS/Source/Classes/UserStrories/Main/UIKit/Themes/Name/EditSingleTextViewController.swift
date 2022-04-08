@@ -102,7 +102,7 @@ final class EditSingleTextViewController: UIViewController {
     private func configureConstraints() {
         [infoView, textField, bottomButton].addToSuperview(view)
         
-        let bottomConstraint = view.bottomAnchor.constraint(equalTo: bottomButton.bottomAnchor, constant: LayoutGrid.halfModule * 6)
+        let bottomConstraint = view.bottomSafeAreaAnchor.constraint(equalTo: bottomButton.bottomAnchor, constant: LayoutGrid.halfModule * 6)
         self.bottomConstraint = bottomConstraint
         
         NSLayoutConstraint.activate([
@@ -191,7 +191,24 @@ extension EditSingleTextViewController: TextFieldInputDelegate {
 extension EditSingleTextViewController: KeyboardBindable {
         
     func keyboardFrameWillChangeFrame(info: KeyboardInfo) {
-        bottomConstraint?.constant = info.bottomOffset + LayoutGrid.halfModule * 3
+        let window = UIApplication.shared.windows.first
+        let bottomInset = window?.safeAreaInsets.bottom ?? 0
+        let tabBarHeight = tabBarController?.tabBar.frame.height ?? 0
+        var bottomOffset: CGFloat = 0.0
+        if tabBarHeight != 0 && bottomInset != 0 {
+            bottomOffset = LayoutGrid.halfModule * 8
+        }
+        var keyboardBottomOffset: CGFloat = 0.0
+        if info.bottomOffset == 0 {
+            keyboardBottomOffset = LayoutGrid.halfModule * 6
+        } else {
+            keyboardBottomOffset = info.frame.height
+            + LayoutGrid.doubleModule
+            + bottomOffset
+            - bottomInset
+            - tabBarHeight
+        }
+        bottomConstraint?.constant = keyboardBottomOffset
         UIView.animate(withDuration: info.duration, delay: 0, options: info.curve, animations: {
             self.view.layoutIfNeeded()
         }, completion: nil)
