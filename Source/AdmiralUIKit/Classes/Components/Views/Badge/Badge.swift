@@ -231,6 +231,14 @@ private final class BadgeLabel: UILabel {
     override func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {
         let rect = super.textRect(forBounds: bounds, limitedToNumberOfLines: numberOfLines)
 
+        guard let _ = text else {
+            return CGRect(
+                x: 0,
+                y: 0,
+                width: LayoutGrid.module + 2,
+                height: LayoutGrid.module + 2)
+        }
+
         guard let minSize = self.minSize else {
             return CGRect(
                 x: 0,

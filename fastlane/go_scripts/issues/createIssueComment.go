@@ -8,7 +8,7 @@ import (
 	"github.com/google/go-github/github"
 )
 
-func CreateIssueComment(ctx context.Context, owner string, repo string, number int, body string, client github.Client) {
+func CreateComment(ctx context.Context, owner string, repo string, number int, body string, client github.Client) {
 	if len(body) == 0 {
 		log.Fatal("Cannot build info form zero parameters")
 		return
