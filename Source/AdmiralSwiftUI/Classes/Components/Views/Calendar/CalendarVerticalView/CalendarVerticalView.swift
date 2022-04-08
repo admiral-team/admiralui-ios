@@ -230,6 +230,8 @@ struct CalendarVerticalView: View {
             Spacer()
                 .frame(height: LayoutGrid.halfModule * 5)
             CalendarWeekView(locale)
+            Spacer()
+                .frame(height: LayoutGrid.halfModule * 5)
             // TODO: - change CalendarVerticalDaysView to CalendarlDaysView
             CalendarVerticalDaysView(
                 days: month.days,

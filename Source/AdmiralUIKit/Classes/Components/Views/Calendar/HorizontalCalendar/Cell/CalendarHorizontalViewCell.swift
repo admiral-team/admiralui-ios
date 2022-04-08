@@ -291,7 +291,7 @@ extension CalendarHorizontalViewCell: UICollectionViewDelegateFlowLayout {
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.width / 7
-        return CGSize(width: width, height: LayoutGrid.halfModule * 12)
+        return CGSize(width: width, height: LayoutGrid.halfModule * 15)
     }
     
 }
