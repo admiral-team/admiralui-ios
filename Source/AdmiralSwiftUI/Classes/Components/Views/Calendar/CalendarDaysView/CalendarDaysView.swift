@@ -58,7 +58,7 @@ public struct CalendarDaysView: View {
         if let monthMetadata = generator.monthMetadata(for: date) {
             days = generator.generateDaysInMonth(metadata: monthMetadata)
         }
-        return LazyVGrid(columns: grid, spacing: LayoutGrid.module) {
+        return LazyVGrid(columns: grid, spacing: LayoutGrid.halfModule * 5) {
             ForEach(0..<days.count, id: \.self) { index in
                 dayView(day: days[index])
             }
