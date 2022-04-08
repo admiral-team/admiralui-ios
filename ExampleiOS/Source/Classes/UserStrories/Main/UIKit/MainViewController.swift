@@ -202,6 +202,7 @@ class MainViewController: UIViewController, AnyAppThemable {
                 subtitle: "Прогресс просмотра страниц",
                 image: Asset.Main.pageControls.image,
                 didSelect: { [weak self] in self?.presentPageControls() }),
+            
             MainTableViewCellViewModel(
                 title: "Shimmers",
                 subtitle: "Демонстрация процесса загрузки",
@@ -209,16 +210,16 @@ class MainViewController: UIViewController, AnyAppThemable {
                 didSelect: { [weak self] in self?.presentShimmering() }),
             
             MainTableViewCellViewModel(
-                title: "Time Picker",
-                subtitle: "Выбор времени",
-                image: Asset.Main.time.image,
-                didSelect: { [weak self] in self?.presentTimePickerl() }),
-            
-            MainTableViewCellViewModel(
                 title: "Calendar",
                 subtitle: "Каледарь",
                 image: Asset.Main.calendar.image,
                 didSelect: { [weak self] in self?.presentCalendar() }),
+            
+            MainTableViewCellViewModel(
+                title: "Time Picker",
+                subtitle: "Выбор времени",
+                image: Asset.Main.time.image,
+                didSelect: { [weak self] in self?.presentTimePickerl() }),
       
             MainTableViewCellViewModel(
                 title: "Alert",
