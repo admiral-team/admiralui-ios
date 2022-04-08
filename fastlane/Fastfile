@@ -49,9 +49,9 @@ lane :deploy_appcenter_dev do |options|
   skip_archive = options[:skip_archive] || false
   skip_git_comment = options[:skip_git_comment] || false
   issue_name = options[:issue_name]
+  pull_request_number = options[:pull_request_number]
   build_number = generate_random_build_number()
   previous_build_number = current_app_build_number
-
   branch_name = git_branch()
 
   if issue_name.nil? || issue_name == ""
@@ -95,9 +95,7 @@ lane :deploy_appcenter_dev do |options|
   build_info.build_url = appcenter_build_dev_url(build_id: build_info.build_id)
   build_info.internal_version = current_lib_internal_version
   build_info.issue = issue_name
-
-  puts "ISSUENAME #{issue_name}"
-  puts "skip_git_comment #{skip_git_comment}"
+  build_info.pull_request_number = pull_request_number
 
   if !skip_git_comment && !issue_name.nil?
     comment_body = formatted_build_info_json(build_info: build_info)
