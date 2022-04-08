@@ -21,6 +21,7 @@ type BuildInfo struct {
 
 func (buildInfo BuildInfo) formatted_build_info_git() string {
 	var resultString string
+
 	if buildInfo.Platform != "" {
 		resultString += "Platform: " + buildInfo.Platform + "\n"
 	}
