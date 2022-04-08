@@ -15,7 +15,7 @@ struct ThemeSwitchSwiftUIView: View {
     @State var sizeView: CGSize = CGSize(width: 56.0, height: 56.0)
     
     private let storage = AppThemeUserDefaultsStorage()
-    
+
     public var body: some View {
         GeometryReader { geo in
             VStack {
