@@ -165,22 +165,6 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 
 
-### create_secrets
-
-```sh
-[bundle exec] fastlane create_secrets
-```
-
-
-
-### remove_secrets
-
-```sh
-[bundle exec] fastlane remove_secrets
-```
-
-
-
 ### unlock_secrets_keychain
 
 ```sh
