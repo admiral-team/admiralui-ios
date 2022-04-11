@@ -63,7 +63,6 @@ struct NavigationContentView<Content>: View where Content: View {
             content()
             if isShowThemeSwitchSwiftUIView {
                 ThemeSwitchSwiftUIView()
-                    .padding(.trailing, LayoutGrid.module)
             }
         }
         .navigationBarTitle(navigationTitle, displayMode: navigationBarDisplayMode)

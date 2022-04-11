@@ -10,11 +10,23 @@ import AdmiralTheme
 import AdmiralUIKit
 import AdmiralSwiftUI
 
+struct ThemeItem {
+    var displayName: String
+    var identifier: String
+}
+
 final class ThemeSwitchViewCoordinator: ThemeSwitchViewDelegate, ThemeSwitchViewDataSource {
+
+    // MARK: - Internal Properties
+
+    let storage = AppThemeUserDefaultsStorage()
+
+    var items: [ThemeItem] {
+        storage.themes.map { .init(displayName: $0.displayName ?? "default", identifier: $0.identifier) }
+    }
 
     // MARK: - Private Properties
 
-    private let storage = AppThemeUserDefaultsStorage()
     private let manager = Appearance.shared.themeManager
     
     private var theme: AppTheme {
@@ -25,7 +37,7 @@ final class ThemeSwitchViewCoordinator: ThemeSwitchViewDelegate, ThemeSwitchView
             if #available(iOS 14.0.0, *) {
                 SwiftUIThemeManager.shared.theme = newValue
             }
-            manager.theme = newValue
+             manager.theme = newValue
         }
     }
     
@@ -35,13 +47,13 @@ final class ThemeSwitchViewCoordinator: ThemeSwitchViewDelegate, ThemeSwitchView
         return storage.themes.count > 2
     }
     
-    func didTap(_ view: ThemeSwitchView) {
+    func didTap(_ view: ThemeSwitchView? = nil) {
         let theme: AppTheme = manager.theme == .light ? .dark : .light
         saveTheme(id: theme.identifier)
         self.theme = storage.selectedTheme ?? .default
     }
     
-    func didSelect(_ view: ThemeSwitchView, at index: Int) {
+    func didSelect(_ view: ThemeSwitchView? = nil, at index: Int) {
         let id: AppTheme.ThemeIdentifier = storage.themes[index].identifier
         saveTheme(id: id)
         theme = storage.selectedTheme ?? .default

@@ -86,7 +86,6 @@
 		0E76FB40253ED9AF001B1F3D /* RadioButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E76FB3F253ED9AF001B1F3D /* RadioButtonViewController.swift */; };
 		0E76FB43253EDB94001B1F3D /* SwitcherCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E76FB42253EDB94001B1F3D /* SwitcherCellView.swift */; };
 		0E81523626973D30004E0B34 /* ThemesViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E81523526973D30004E0B34 /* ThemesViewControllerRepresentable.swift */; };
-		0E81523826974243004E0B34 /* ThemeSwitchViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E81523726974243004E0B34 /* ThemeSwitchViewRepresentable.swift */; };
 		0E8152452697835F004E0B34 /* ShimmersSwiftUIViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8152442697835F004E0B34 /* ShimmersSwiftUIViewScheme.swift */; };
 		0E8152482697AA6B004E0B34 /* ThemeSwitchSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8152472697AA6B004E0B34 /* ThemeSwitchSwiftUIView.swift */; };
 		0E853CBF259213A20033F17C /* StatusHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E853CBE259213A20033F17C /* StatusHistoryViewController.swift */; };
@@ -318,6 +317,9 @@
 		E916FA012768A7FF00628C96 /* TextOperationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E916FA002768A7FF00628C96 /* TextOperationViewController.swift */; };
 		E916FA042768B60C00628C96 /* TextOperationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E916FA032768B60C00628C96 /* TextOperationCell.swift */; };
 		E916FA062768C31900628C96 /* TextOperationScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E916FA052768C31900628C96 /* TextOperationScheme.swift */; };
+		E9178F5728007B3800C49230 /* ThemeSwitchViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9178F5628007B3800C49230 /* ThemeSwitchViewScheme.swift */; };
+		E9178F5B28007F5D00C49230 /* ThemeSwitchButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9178F5A28007F5D00C49230 /* ThemeSwitchButtonStyle.swift */; };
+		E9178F5D280420FA00C49230 /* ThemeSwitchButtonScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9178F5C280420FA00C49230 /* ThemeSwitchButtonScheme.swift */; };
 		E9332F8A277A0AF400F9AF26 /* UploadingFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9332F89277A0AF400F9AF26 /* UploadingFileViewController.swift */; };
 		E9332FA2277C65F700F9AF26 /* UploadingFileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9332FA1277C65F700F9AF26 /* UploadingFileCell.swift */; };
 		E9332FA4277CA8E700F9AF26 /* UploadingFileCellScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9332FA3277CA8E700F9AF26 /* UploadingFileCellScheme.swift */; };
@@ -529,7 +531,6 @@
 		0E76FB3F253ED9AF001B1F3D /* RadioButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonViewController.swift; sourceTree = "<group>"; };
 		0E76FB42253EDB94001B1F3D /* SwitcherCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitcherCellView.swift; sourceTree = "<group>"; };
 		0E81523526973D30004E0B34 /* ThemesViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesViewControllerRepresentable.swift; sourceTree = "<group>"; };
-		0E81523726974243004E0B34 /* ThemeSwitchViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSwitchViewRepresentable.swift; sourceTree = "<group>"; };
 		0E8152442697835F004E0B34 /* ShimmersSwiftUIViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmersSwiftUIViewScheme.swift; sourceTree = "<group>"; };
 		0E8152472697AA6B004E0B34 /* ThemeSwitchSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSwitchSwiftUIView.swift; sourceTree = "<group>"; };
 		0E853CBE259213A20033F17C /* StatusHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusHistoryViewController.swift; sourceTree = "<group>"; };
@@ -760,6 +761,9 @@
 		E916FA002768A7FF00628C96 /* TextOperationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOperationViewController.swift; sourceTree = "<group>"; };
 		E916FA032768B60C00628C96 /* TextOperationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOperationCell.swift; sourceTree = "<group>"; };
 		E916FA052768C31900628C96 /* TextOperationScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOperationScheme.swift; sourceTree = "<group>"; };
+		E9178F5628007B3800C49230 /* ThemeSwitchViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSwitchViewScheme.swift; sourceTree = "<group>"; };
+		E9178F5A28007F5D00C49230 /* ThemeSwitchButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSwitchButtonStyle.swift; sourceTree = "<group>"; };
+		E9178F5C280420FA00C49230 /* ThemeSwitchButtonScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSwitchButtonScheme.swift; sourceTree = "<group>"; };
 		E9332F89277A0AF400F9AF26 /* UploadingFileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingFileViewController.swift; sourceTree = "<group>"; };
 		E9332FA1277C65F700F9AF26 /* UploadingFileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingFileCell.swift; sourceTree = "<group>"; };
 		E9332FA3277CA8E700F9AF26 /* UploadingFileCellScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingFileCellScheme.swift; sourceTree = "<group>"; };
@@ -1409,8 +1413,8 @@
 		0E81523B2697693A004E0B34 /* Representable */ = {
 			isa = PBXGroup;
 			children = (
+				E9178F5528007AFB00C49230 /* ThemeSwitchView */,
 				0E81523C26976947004E0B34 /* ThemesViewController */,
-				0E8152462697AA4E004E0B34 /* ThemeSwitchView */,
 			);
 			path = Representable;
 			sourceTree = "<group>";
@@ -1421,14 +1425,6 @@
 				0E81523526973D30004E0B34 /* ThemesViewControllerRepresentable.swift */,
 			);
 			path = ThemesViewController;
-			sourceTree = "<group>";
-		};
-		0E8152462697AA4E004E0B34 /* ThemeSwitchView */ = {
-			isa = PBXGroup;
-			children = (
-				0E81523726974243004E0B34 /* ThemeSwitchViewRepresentable.swift */,
-			);
-			path = ThemeSwitchView;
 			sourceTree = "<group>";
 		};
 		0E853CBD259213430033F17C /* StatusHistory */ = {
@@ -1579,7 +1575,6 @@
 				0EEAF9E2261F8D2B00E46143 /* SwiftUIController.swift */,
 				E9332FCA277DAA3500F9AF26 /* CustomSwiftUIViewModel.swift */,
 				0EB1AC4C2657A584007D7795 /* SwiftUIContentViewScheme.swift */,
-				0E8152472697AA6B004E0B34 /* ThemeSwitchSwiftUIView.swift */,
 				0E29D282275B902600F3FC56 /* NavigationContentView */,
 				0E81523B2697693A004E0B34 /* Representable */,
 			);
@@ -2833,6 +2828,25 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		E9178F5528007AFB00C49230 /* ThemeSwitchView */ = {
+			isa = PBXGroup;
+			children = (
+				0E8152472697AA6B004E0B34 /* ThemeSwitchSwiftUIView.swift */,
+				E9178F5628007B3800C49230 /* ThemeSwitchViewScheme.swift */,
+				E9178F5928007F0100C49230 /* ThemeSwitchButton */,
+			);
+			path = ThemeSwitchView;
+			sourceTree = "<group>";
+		};
+		E9178F5928007F0100C49230 /* ThemeSwitchButton */ = {
+			isa = PBXGroup;
+			children = (
+				E9178F5A28007F5D00C49230 /* ThemeSwitchButtonStyle.swift */,
+				E9178F5C280420FA00C49230 /* ThemeSwitchButtonScheme.swift */,
+			);
+			path = ThemeSwitchButton;
+			sourceTree = "<group>";
+		};
 		E9332F88277A0AD600F9AF26 /* UploadingFile */ = {
 			isa = PBXGroup;
 			children = (
@@ -3590,7 +3604,6 @@
 				E9BE41AB27C7DFF400894224 /* CurrencyViewController.swift in Sources */,
 				C6BA67C32631FB0D001A7EB6 /* ColorTokerCellCustomSheme.swift in Sources */,
 				0E4BC95526834FFD000FC891 /* SecondaryTitleBaseCellSwiftUI.swift in Sources */,
-				0E81523826974243004E0B34 /* ThemeSwitchViewRepresentable.swift in Sources */,
 				C6DD6BAC260B976B009799CB /* UIView+Hidden.swift in Sources */,
 				E94518B827D4A5B90048B133 /* TabDTO.swift in Sources */,
 				0E110DA227C5011900BFF58F /* TextBlocksViewController.swift in Sources */,
@@ -3601,6 +3614,7 @@
 				C6260A99255A88BA007175C2 /* BaseRouter.swift in Sources */,
 				E945187627D36A8F0048B133 /* GunItemDTO.swift in Sources */,
 				0E3FB2B6255E60210015019E /* CellsViewController.swift in Sources */,
+				E9178F5B28007F5D00C49230 /* ThemeSwitchButtonStyle.swift in Sources */,
 				E9332FBD277CCC9000F9AF26 /* UploadingImageViewController.swift in Sources */,
 				E934038127B289380007B86D /* ActionBarSwiftUIViewSecondary.swift in Sources */,
 				E9BE41DA27C8D8A800894224 /* MapButtonsListViewController.swift in Sources */,
@@ -3708,6 +3722,7 @@
 				E9B82B8627B521BF00FC7BB9 /* View+Extensions.swift in Sources */,
 				C6E04AA8256E937600C32381 /* MessageInformerView.swift in Sources */,
 				E9BE41A727C7DFF400894224 /* DefaultCurrencyViewModel.swift in Sources */,
+				E9178F5728007B3800C49230 /* ThemeSwitchViewScheme.swift in Sources */,
 				0ED08A1A266FBA8E00389A1A /* CalendarSwiftUIView.swift in Sources */,
 				0E76FB40253ED9AF001B1F3D /* RadioButtonViewController.swift in Sources */,
 				E9332FA2277C65F700F9AF26 /* UploadingFileCell.swift in Sources */,
@@ -3831,6 +3846,7 @@
 				C6BA67BA2631DBB6001A7EB6 /* InformationViewControllerCustomScheme.swift in Sources */,
 				C6917EEF2639EB07003C77CA /* UITapGestureRecognizer+Label.swift in Sources */,
 				E6C2B23B25DC1172007D332A /* ColorMapView.swift in Sources */,
+				E9178F5D280420FA00C49230 /* ThemeSwitchButtonScheme.swift in Sources */,
 				0EDD49B2273D9EDF002386FB /* CalendarsViewController.swift in Sources */,
 				0E0A3EFE2611DAEF007C4CA8 /* OnboardingViewController.swift in Sources */,
 				3B574A9D27C7D9E2006FEF9A /* ZeroScreenViewController.swift in Sources */,
