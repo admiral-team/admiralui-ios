@@ -5,9 +5,9 @@
 //  Created on 09.07.2021.
 //
 
-import SwiftUI
 import AdmiralTheme
 import AdmiralSwiftUI
+import SwiftUI
 
 @available(iOS 14.0.0, *)
 struct ThemeSwitchSwiftUIView: View {

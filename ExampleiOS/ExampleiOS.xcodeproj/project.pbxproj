@@ -57,7 +57,6 @@
 		0E576D3825370C4600E223DD /* ButtonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E576D3725370C4600E223DD /* ButtonsViewController.swift */; };
 		0E576D3A2537210A00E223DD /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E576D392537210A00E223DD /* ScrollViewController.swift */; };
 		0E576F3125387C4800E223DD /* TagsChipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E576F3025387C4800E223DD /* TagsChipsViewController.swift */; };
-		0E576F4A2539B81E00E223DD /* BadgesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E576F492539B81E00E223DD /* BadgesViewController.swift */; };
 		0E576F6D2539D5FE00E223DD /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E576F6C2539D5FE00E223DD /* SpinnerViewController.swift */; };
 		0E59D345263039C7007B5CC1 /* LogoTabSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E59D344263039C7007B5CC1 /* LogoTabSwiftUIView.swift */; };
 		0E59D36526318391007B5CC1 /* OutlineSliderTabSwiftUITab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E59D36426318391007B5CC1 /* OutlineSliderTabSwiftUITab.swift */; };
@@ -87,7 +86,6 @@
 		0E76FB43253EDB94001B1F3D /* SwitcherCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E76FB42253EDB94001B1F3D /* SwitcherCellView.swift */; };
 		0E81523626973D30004E0B34 /* ThemesViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E81523526973D30004E0B34 /* ThemesViewControllerRepresentable.swift */; };
 		0E8152452697835F004E0B34 /* ShimmersSwiftUIViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8152442697835F004E0B34 /* ShimmersSwiftUIViewScheme.swift */; };
-		0E8152482697AA6B004E0B34 /* ThemeSwitchSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8152472697AA6B004E0B34 /* ThemeSwitchSwiftUIView.swift */; };
 		0E853CBF259213A20033F17C /* StatusHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E853CBE259213A20033F17C /* StatusHistoryViewController.swift */; };
 		0E853CC3259214DA0033F17C /* StatusHistoryStandardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E853CC2259214DA0033F17C /* StatusHistoryStandardViewController.swift */; };
 		0E853CC5259214E60033F17C /* StatusHistorySmallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E853CC4259214E60033F17C /* StatusHistorySmallViewController.swift */; };
@@ -317,9 +315,16 @@
 		E916FA012768A7FF00628C96 /* TextOperationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E916FA002768A7FF00628C96 /* TextOperationViewController.swift */; };
 		E916FA042768B60C00628C96 /* TextOperationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E916FA032768B60C00628C96 /* TextOperationCell.swift */; };
 		E916FA062768C31900628C96 /* TextOperationScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E916FA052768C31900628C96 /* TextOperationScheme.swift */; };
-		E9178F5728007B3800C49230 /* ThemeSwitchViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9178F5628007B3800C49230 /* ThemeSwitchViewScheme.swift */; };
-		E9178F5B28007F5D00C49230 /* ThemeSwitchButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9178F5A28007F5D00C49230 /* ThemeSwitchButtonStyle.swift */; };
-		E9178F5D280420FA00C49230 /* ThemeSwitchButtonScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9178F5C280420FA00C49230 /* ThemeSwitchButtonScheme.swift */; };
+		E9178F61280424C800C49230 /* ThemeSwitchButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9178F5F280424C800C49230 /* ThemeSwitchButtonStyle.swift */; };
+		E9178F62280424C800C49230 /* ThemeSwitchButtonScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9178F60280424C800C49230 /* ThemeSwitchButtonScheme.swift */; };
+		E9178F65280424D600C49230 /* ThemeSwitchSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9178F63280424D600C49230 /* ThemeSwitchSwiftUIView.swift */; };
+		E9178F66280424D600C49230 /* ThemeSwitchViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9178F64280424D600C49230 /* ThemeSwitchViewScheme.swift */; };
+		E92DC2E727FC543F00CB789E /* BagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92DC2E627FC543F00CB789E /* BagesViewModel.swift */; };
+		E92DC2E927FC549A00CB789E /* BadgesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92DC2E827FC549A00CB789E /* BadgesViewController.swift */; };
+		E92DC2EC27FC555E00CB789E /* BadgesNormalViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92DC2EB27FC555E00CB789E /* BadgesNormalViewContoller.swift */; };
+		E92DC2EF27FC55D400CB789E /* BadgesSmallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92DC2EE27FC55D400CB789E /* BadgesSmallViewController.swift */; };
+		E92DC2F327FC5CC300CB789E /* BadgesSmallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92DC2F227FC5CC300CB789E /* BadgesSmallViewModel.swift */; };
+		E92DC2F527FC60DF00CB789E /* BadgesNormalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92DC2F427FC60DF00CB789E /* BadgesNormalViewModel.swift */; };
 		E9332F8A277A0AF400F9AF26 /* UploadingFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9332F89277A0AF400F9AF26 /* UploadingFileViewController.swift */; };
 		E9332FA2277C65F700F9AF26 /* UploadingFileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9332FA1277C65F700F9AF26 /* UploadingFileCell.swift */; };
 		E9332FA4277CA8E700F9AF26 /* UploadingFileCellScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9332FA3277CA8E700F9AF26 /* UploadingFileCellScheme.swift */; };
@@ -419,6 +424,11 @@
 		E9C79CC527BD22AE0002EC49 /* AlertOnboardingSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C79CC427BD22AE0002EC49 /* AlertOnboardingSwiftUIView.swift */; };
 		E9C79CC727BD23500002EC49 /* AlertOnboardingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C79CC627BD23500002EC49 /* AlertOnboardingItem.swift */; };
 		E9C79CC927BD245C0002EC49 /* ErrorSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C79CC827BD245C0002EC49 /* ErrorSwiftUIView.swift */; };
+		E9DAC2E127FB3A2F00842ACB /* SmallBadgesSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DAC2E027FB3A2F00842ACB /* SmallBadgesSwiftUIView.swift */; };
+		E9DAC2E327FB3A4100842ACB /* NormalBadgesSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DAC2E227FB3A4100842ACB /* NormalBadgesSwiftUIView.swift */; };
+		E9DAC2E527FB3A8C00842ACB /* SmallBadgesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DAC2E427FB3A8C00842ACB /* SmallBadgesViewModel.swift */; };
+		E9DAC2E727FB3A9700842ACB /* NormalBadgesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DAC2E627FB3A9700842ACB /* NormalBadgesViewModel.swift */; };
+		E9DAC2E927FB3FCA00842ACB /* BadgesItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DAC2E827FB3FCA00842ACB /* BadgesItem.swift */; };
 		E9ECF1FB2729729C00363E5E /* FilesPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ECF1FA2729729C00363E5E /* FilesPickerView.swift */; };
 		E9ECF1FD272975AD00363E5E /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ECF1FC272975AD00363E5E /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
@@ -502,7 +512,6 @@
 		0E576D3725370C4600E223DD /* ButtonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsViewController.swift; sourceTree = "<group>"; };
 		0E576D392537210A00E223DD /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
 		0E576F3025387C4800E223DD /* TagsChipsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsChipsViewController.swift; sourceTree = "<group>"; };
-		0E576F492539B81E00E223DD /* BadgesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesViewController.swift; sourceTree = "<group>"; };
 		0E576F6C2539D5FE00E223DD /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
 		0E59D344263039C7007B5CC1 /* LogoTabSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoTabSwiftUIView.swift; sourceTree = "<group>"; };
 		0E59D36426318391007B5CC1 /* OutlineSliderTabSwiftUITab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlineSliderTabSwiftUITab.swift; sourceTree = "<group>"; };
@@ -532,7 +541,6 @@
 		0E76FB42253EDB94001B1F3D /* SwitcherCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitcherCellView.swift; sourceTree = "<group>"; };
 		0E81523526973D30004E0B34 /* ThemesViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesViewControllerRepresentable.swift; sourceTree = "<group>"; };
 		0E8152442697835F004E0B34 /* ShimmersSwiftUIViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmersSwiftUIViewScheme.swift; sourceTree = "<group>"; };
-		0E8152472697AA6B004E0B34 /* ThemeSwitchSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSwitchSwiftUIView.swift; sourceTree = "<group>"; };
 		0E853CBE259213A20033F17C /* StatusHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusHistoryViewController.swift; sourceTree = "<group>"; };
 		0E853CC2259214DA0033F17C /* StatusHistoryStandardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusHistoryStandardViewController.swift; sourceTree = "<group>"; };
 		0E853CC4259214E60033F17C /* StatusHistorySmallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusHistorySmallViewController.swift; sourceTree = "<group>"; };
@@ -761,9 +769,16 @@
 		E916FA002768A7FF00628C96 /* TextOperationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOperationViewController.swift; sourceTree = "<group>"; };
 		E916FA032768B60C00628C96 /* TextOperationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOperationCell.swift; sourceTree = "<group>"; };
 		E916FA052768C31900628C96 /* TextOperationScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOperationScheme.swift; sourceTree = "<group>"; };
-		E9178F5628007B3800C49230 /* ThemeSwitchViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSwitchViewScheme.swift; sourceTree = "<group>"; };
-		E9178F5A28007F5D00C49230 /* ThemeSwitchButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSwitchButtonStyle.swift; sourceTree = "<group>"; };
-		E9178F5C280420FA00C49230 /* ThemeSwitchButtonScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSwitchButtonScheme.swift; sourceTree = "<group>"; };
+		E9178F5F280424C800C49230 /* ThemeSwitchButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeSwitchButtonStyle.swift; sourceTree = "<group>"; };
+		E9178F60280424C800C49230 /* ThemeSwitchButtonScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeSwitchButtonScheme.swift; sourceTree = "<group>"; };
+		E9178F63280424D600C49230 /* ThemeSwitchSwiftUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeSwitchSwiftUIView.swift; sourceTree = "<group>"; };
+		E9178F64280424D600C49230 /* ThemeSwitchViewScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeSwitchViewScheme.swift; sourceTree = "<group>"; };
+		E92DC2E627FC543F00CB789E /* BagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagesViewModel.swift; sourceTree = "<group>"; };
+		E92DC2E827FC549A00CB789E /* BadgesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesViewController.swift; sourceTree = "<group>"; };
+		E92DC2EB27FC555E00CB789E /* BadgesNormalViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesNormalViewContoller.swift; sourceTree = "<group>"; };
+		E92DC2EE27FC55D400CB789E /* BadgesSmallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesSmallViewController.swift; sourceTree = "<group>"; };
+		E92DC2F227FC5CC300CB789E /* BadgesSmallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesSmallViewModel.swift; sourceTree = "<group>"; };
+		E92DC2F427FC60DF00CB789E /* BadgesNormalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesNormalViewModel.swift; sourceTree = "<group>"; };
 		E9332F89277A0AF400F9AF26 /* UploadingFileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingFileViewController.swift; sourceTree = "<group>"; };
 		E9332FA1277C65F700F9AF26 /* UploadingFileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingFileCell.swift; sourceTree = "<group>"; };
 		E9332FA3277CA8E700F9AF26 /* UploadingFileCellScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingFileCellScheme.swift; sourceTree = "<group>"; };
@@ -864,6 +879,11 @@
 		E9C79CC427BD22AE0002EC49 /* AlertOnboardingSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertOnboardingSwiftUIView.swift; sourceTree = "<group>"; };
 		E9C79CC627BD23500002EC49 /* AlertOnboardingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertOnboardingItem.swift; sourceTree = "<group>"; };
 		E9C79CC827BD245C0002EC49 /* ErrorSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorSwiftUIView.swift; sourceTree = "<group>"; };
+		E9DAC2E027FB3A2F00842ACB /* SmallBadgesSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallBadgesSwiftUIView.swift; sourceTree = "<group>"; };
+		E9DAC2E227FB3A4100842ACB /* NormalBadgesSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalBadgesSwiftUIView.swift; sourceTree = "<group>"; };
+		E9DAC2E427FB3A8C00842ACB /* SmallBadgesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallBadgesViewModel.swift; sourceTree = "<group>"; };
+		E9DAC2E627FB3A9700842ACB /* NormalBadgesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalBadgesViewModel.swift; sourceTree = "<group>"; };
+		E9DAC2E827FB3FCA00842ACB /* BadgesItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesItem.swift; sourceTree = "<group>"; };
 		E9ECF1FA2729729C00363E5E /* FilesPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesPickerView.swift; sourceTree = "<group>"; };
 		E9ECF1FC272975AD00363E5E /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1216,9 +1236,12 @@
 		0E576F482539B80000E223DD /* Badges */ = {
 			isa = PBXGroup;
 			children = (
+				E92DC2ED27FC55C600CB789E /* Small */,
+				E92DC2EA27FC554D00CB789E /* Normal */,
 				C6DCBFC9263169B400754365 /* CustomScheme */,
-				0E76FAD6253D9202001B1F3D /* View */,
-				0E576F492539B81E00E223DD /* BadgesViewController.swift */,
+				0E76FAD6253D9202001B1F3D /* Cells */,
+				E92DC2E627FC543F00CB789E /* BagesViewModel.swift */,
+				E92DC2E827FC549A00CB789E /* BadgesViewController.swift */,
 			);
 			path = Badges;
 			sourceTree = "<group>";
@@ -1384,12 +1407,12 @@
 			path = ActionBar;
 			sourceTree = "<group>";
 		};
-		0E76FAD6253D9202001B1F3D /* View */ = {
+		0E76FAD6253D9202001B1F3D /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				0E76FAD7253D9215001B1F3D /* BadgeCellView.swift */,
 			);
-			path = View;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		0E76FB3E253ED998001B1F3D /* RadioButton */ = {
@@ -1413,8 +1436,8 @@
 		0E81523B2697693A004E0B34 /* Representable */ = {
 			isa = PBXGroup;
 			children = (
-				E9178F5528007AFB00C49230 /* ThemeSwitchView */,
 				0E81523C26976947004E0B34 /* ThemesViewController */,
+				0E8152462697AA4E004E0B34 /* ThemeSwitchView */,
 			);
 			path = Representable;
 			sourceTree = "<group>";
@@ -1425,6 +1448,16 @@
 				0E81523526973D30004E0B34 /* ThemesViewControllerRepresentable.swift */,
 			);
 			path = ThemesViewController;
+			sourceTree = "<group>";
+		};
+		0E8152462697AA4E004E0B34 /* ThemeSwitchView */ = {
+			isa = PBXGroup;
+			children = (
+				E9178F63280424D600C49230 /* ThemeSwitchSwiftUIView.swift */,
+				E9178F64280424D600C49230 /* ThemeSwitchViewScheme.swift */,
+				E9178F5E280424C800C49230 /* ThemeSwitchButton */,
+			);
+			path = ThemeSwitchView;
 			sourceTree = "<group>";
 		};
 		0E853CBD259213430033F17C /* StatusHistory */ = {
@@ -1717,7 +1750,10 @@
 		0EC91E6426BD3B5400636204 /* Badges */ = {
 			isa = PBXGroup;
 			children = (
+				E9DAC2DF27FB39B000842ACB /* Small */,
+				E9DAC2DE27FB39A900842ACB /* Normal */,
 				0EC91E6526BD3B6500636204 /* BadgesSwiftUIView.swift */,
+				E9DAC2E827FB3FCA00842ACB /* BadgesItem.swift */,
 				0EC91E6726BD425200636204 /* BadgesSwiftUIViewScheme.swift */,
 			);
 			path = Badges;
@@ -2828,23 +2864,31 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		E9178F5528007AFB00C49230 /* ThemeSwitchView */ = {
+		E9178F5E280424C800C49230 /* ThemeSwitchButton */ = {
 			isa = PBXGroup;
 			children = (
-				0E8152472697AA6B004E0B34 /* ThemeSwitchSwiftUIView.swift */,
-				E9178F5628007B3800C49230 /* ThemeSwitchViewScheme.swift */,
-				E9178F5928007F0100C49230 /* ThemeSwitchButton */,
-			);
-			path = ThemeSwitchView;
-			sourceTree = "<group>";
-		};
-		E9178F5928007F0100C49230 /* ThemeSwitchButton */ = {
-			isa = PBXGroup;
-			children = (
-				E9178F5A28007F5D00C49230 /* ThemeSwitchButtonStyle.swift */,
-				E9178F5C280420FA00C49230 /* ThemeSwitchButtonScheme.swift */,
+				E9178F5F280424C800C49230 /* ThemeSwitchButtonStyle.swift */,
+				E9178F60280424C800C49230 /* ThemeSwitchButtonScheme.swift */,
 			);
 			path = ThemeSwitchButton;
+			sourceTree = "<group>";
+		};
+		E92DC2EA27FC554D00CB789E /* Normal */ = {
+			isa = PBXGroup;
+			children = (
+				E92DC2EB27FC555E00CB789E /* BadgesNormalViewContoller.swift */,
+				E92DC2F427FC60DF00CB789E /* BadgesNormalViewModel.swift */,
+			);
+			path = Normal;
+			sourceTree = "<group>";
+		};
+		E92DC2ED27FC55C600CB789E /* Small */ = {
+			isa = PBXGroup;
+			children = (
+				E92DC2EE27FC55D400CB789E /* BadgesSmallViewController.swift */,
+				E92DC2F227FC5CC300CB789E /* BadgesSmallViewModel.swift */,
+			);
+			path = Small;
 			sourceTree = "<group>";
 		};
 		E9332F88277A0AD600F9AF26 /* UploadingFile */ = {
@@ -3357,6 +3401,24 @@
 			path = Error;
 			sourceTree = "<group>";
 		};
+		E9DAC2DE27FB39A900842ACB /* Normal */ = {
+			isa = PBXGroup;
+			children = (
+				E9DAC2E227FB3A4100842ACB /* NormalBadgesSwiftUIView.swift */,
+				E9DAC2E627FB3A9700842ACB /* NormalBadgesViewModel.swift */,
+			);
+			path = Normal;
+			sourceTree = "<group>";
+		};
+		E9DAC2DF27FB39B000842ACB /* Small */ = {
+			isa = PBXGroup;
+			children = (
+				E9DAC2E027FB3A2F00842ACB /* SmallBadgesSwiftUIView.swift */,
+				E9DAC2E427FB3A8C00842ACB /* SmallBadgesViewModel.swift */,
+			);
+			path = Small;
+			sourceTree = "<group>";
+		};
 		E9ECF2002729AB3D00363E5E /* Pickers */ = {
 			isa = PBXGroup;
 			children = (
@@ -3600,7 +3662,9 @@
 				0E74C5842684961E00F79D10 /* ActionBarSwiftUIViewDefault.swift in Sources */,
 				C6BA67B42631CA36001A7EB6 /* MenuInfoCellCustomScheme.swift in Sources */,
 				E945187827D36AA00048B133 /* UnknownParametersDTO.swift in Sources */,
+				E92DC2EF27FC55D400CB789E /* BadgesSmallViewController.swift in Sources */,
 				E945186B27D369DD0048B133 /* Publishers+Decode.swift in Sources */,
+				E92DC2E727FC543F00CB789E /* BagesViewModel.swift in Sources */,
 				E9BE41AB27C7DFF400894224 /* CurrencyViewController.swift in Sources */,
 				C6BA67C32631FB0D001A7EB6 /* ColorTokerCellCustomSheme.swift in Sources */,
 				0E4BC95526834FFD000FC891 /* SecondaryTitleBaseCellSwiftUI.swift in Sources */,
@@ -3614,7 +3678,6 @@
 				C6260A99255A88BA007175C2 /* BaseRouter.swift in Sources */,
 				E945187627D36A8F0048B133 /* GunItemDTO.swift in Sources */,
 				0E3FB2B6255E60210015019E /* CellsViewController.swift in Sources */,
-				E9178F5B28007F5D00C49230 /* ThemeSwitchButtonStyle.swift in Sources */,
 				E9332FBD277CCC9000F9AF26 /* UploadingImageViewController.swift in Sources */,
 				E934038127B289380007B86D /* ActionBarSwiftUIViewSecondary.swift in Sources */,
 				E9BE41DA27C8D8A800894224 /* MapButtonsListViewController.swift in Sources */,
@@ -3661,10 +3724,13 @@
 				C674990625D3FB8E00232C5F /* LogoTabsViewController.swift in Sources */,
 				C6DCBFF22631A92C00754365 /* BottomSheetBottomViewCustomScheme.swift in Sources */,
 				C6BA67DD2632DE70001A7EB6 /* SwitcherCellViewCustomScheme.swift in Sources */,
+				E9DAC2E727FB3A9700842ACB /* NormalBadgesViewModel.swift in Sources */,
 				E95553CF27A2CBE300A14BCA /* TextOperationViewModel.swift in Sources */,
+				E9178F62280424C800C49230 /* ThemeSwitchButtonScheme.swift in Sources */,
 				C6BA67D12632D552001A7EB6 /* MainTitleTableViewCellCustomScheme.swift in Sources */,
 				0E0A3F0626121F38007C4CA8 /* UserSettingService.swift in Sources */,
 				E9A18D8F2739786500668C03 /* SwiftUIUploadFileViewModel.swift in Sources */,
+				E92DC2F527FC60DF00CB789E /* BadgesNormalViewModel.swift in Sources */,
 				C6D5BD692665598800437808 /* ToolBarSwiftUIView.swift in Sources */,
 				E6117EF625F9754300214949 /* CardTextField.swift in Sources */,
 				0E76FB43253EDB94001B1F3D /* SwitcherCellView.swift in Sources */,
@@ -3680,10 +3746,13 @@
 				0E73862A27752D10003892C7 /* InformersAndToastsViewController.swift in Sources */,
 				C6BA67D92632DDB2001A7EB6 /* CheckBoxesCellViewCustomScheme.swift in Sources */,
 				0EF548B4267A0F6B00E49DEB /* NavigationContentView.swift in Sources */,
+				E92DC2EC27FC555E00CB789E /* BadgesNormalViewContoller.swift in Sources */,
+				E92DC2F327FC5CC300CB789E /* BadgesSmallViewModel.swift in Sources */,
 				C670867525BB1165003F361C /* BaseNavigationController.swift in Sources */,
 				3B574AAC27D29344006FEF9A /* AdmiralGunViewModel.swift in Sources */,
 				E94518C027D4A8500048B133 /* ToolbarDTO.swift in Sources */,
 				C61C26F7261BB99300D01ED9 /* BaseViewController.swift in Sources */,
+				E9DAC2E927FB3FCA00842ACB /* BadgesItem.swift in Sources */,
 				0E45612926860A1F003F588D /* ShimmersSwiftUIView.swift in Sources */,
 				E63B50E325DD3F0100993D21 /* ColorTokenCell.swift in Sources */,
 				E934036B27B124E70007B86D /* ActionBarsViewModel.swift in Sources */,
@@ -3703,6 +3772,7 @@
 				C670865425B9B5CF003F361C /* PageControlsViewController.swift in Sources */,
 				E9BE41D827C8D87600894224 /* MapButtonCellView.swift in Sources */,
 				0E853D002593EC850033F17C /* HeadersViewController.swift in Sources */,
+				E9DAC2E327FB3A4100842ACB /* NormalBadgesSwiftUIView.swift in Sources */,
 				E9C79CC727BD23500002EC49 /* AlertOnboardingItem.swift in Sources */,
 				C68656902559629F00B885B8 /* MainTableViewCell.swift in Sources */,
 				0E03D90626C4294C00AD5D82 /* ToastNotificationsManager.swift in Sources */,
@@ -3722,7 +3792,6 @@
 				E9B82B8627B521BF00FC7BB9 /* View+Extensions.swift in Sources */,
 				C6E04AA8256E937600C32381 /* MessageInformerView.swift in Sources */,
 				E9BE41A727C7DFF400894224 /* DefaultCurrencyViewModel.swift in Sources */,
-				E9178F5728007B3800C49230 /* ThemeSwitchViewScheme.swift in Sources */,
 				0ED08A1A266FBA8E00389A1A /* CalendarSwiftUIView.swift in Sources */,
 				0E76FB40253ED9AF001B1F3D /* RadioButtonViewController.swift in Sources */,
 				E9332FA2277C65F700F9AF26 /* UploadingFileCell.swift in Sources */,
@@ -3749,20 +3818,22 @@
 				C6DCBFF02631A7F400754365 /* AlertControllerCustomScheme.swift in Sources */,
 				0E81523626973D30004E0B34 /* ThemesViewControllerRepresentable.swift in Sources */,
 				C6A7F2EA2654006C00105F2D /* InformersSwiftUIView.swift in Sources */,
+				E9178F65280424D600C49230 /* ThemeSwitchSwiftUIView.swift in Sources */,
 				0E6EA4A827026DF9002EBBBC /* SeparatorSwiftUIView.swift in Sources */,
 				E9332FC1277CE97100F9AF26 /* UploadingImageCellScheme.swift in Sources */,
 				E9A18D93273A458D00668C03 /* SwiftUIUploadingPhotoViewModel.swift in Sources */,
 				0E6EA49527024DA0002EBBBC /* HeadersSwiftUIView.swift in Sources */,
+				E9DAC2E127FB3A2F00842ACB /* SmallBadgesSwiftUIView.swift in Sources */,
 				0E9464E326B18EC800F5E790 /* NotificationsSwiftUIView.swift in Sources */,
 				C6865688255937BF00B885B8 /* InfoViewController.swift in Sources */,
 				0E17A246269DB65E00F0A80B /* CalendarHorizontalSwiftUIView.swift in Sources */,
 				0E264B08264E9E1E00601790 /* TextFieldsSwiftUIView.swift in Sources */,
 				E9A18D8B2739523300668C03 /* SwiftUITextMessageView.swift in Sources */,
-				0E8152482697AA6B004E0B34 /* ThemeSwitchSwiftUIView.swift in Sources */,
 				0E4BC925268346FC000FC891 /* TitleBaseCellSwiftUIView.swift in Sources */,
 				E94518A927D4A2040048B133 /* GunType.swift in Sources */,
 				C670867325BB0DDD003F361C /* BaseTabBarController.swift in Sources */,
 				E9332FC7277DA28000F9AF26 /* PageControlsSwiftUIItem.swift in Sources */,
+				E9178F66280424D600C49230 /* ThemeSwitchViewScheme.swift in Sources */,
 				C686568C255937FE00B885B8 /* SettingsViewController.swift in Sources */,
 				E916FA062768C31900628C96 /* TextOperationScheme.swift in Sources */,
 				E945188727D36C4A0048B133 /* APIError.swift in Sources */,
@@ -3824,6 +3895,7 @@
 				E6968DE1269C85DA0006F2B3 /* ThemeSwitchView.swift in Sources */,
 				C68656B1255998A200B885B8 /* CheckboxViewController.swift in Sources */,
 				0E6EA49227024A93002EBBBC /* TextBlocksSwiftUIItem.swift in Sources */,
+				E92DC2E927FC549A00CB789E /* BadgesViewController.swift in Sources */,
 				C6A13807260A2CAE001F04E5 /* ThemeSwitchComponentView.swift in Sources */,
 				0E4BC89F2681E959000FC891 /* ImageLeadingLableComponentsSwiftUIView.swift in Sources */,
 				C6723C7F25D28FF500226ED9 /* LinksViewController.swift in Sources */,
@@ -3832,6 +3904,7 @@
 				E94518A627D386BE0048B133 /* GunItemId.swift in Sources */,
 				C6723C8425D2901300226ED9 /* LinksCellView.swift in Sources */,
 				E934038527B28A960007B86D /* ActionBarSwiftUI.swift in Sources */,
+				E9178F61280424C800C49230 /* ThemeSwitchButtonStyle.swift in Sources */,
 				E945189B27D36D240048B133 /* AdmiralGunAPIFacade.swift in Sources */,
 				0EC91E6626BD3B6500636204 /* BadgesSwiftUIView.swift in Sources */,
 				E945188B27D36C670048B133 /* URLScheme.swift in Sources */,
@@ -3846,10 +3919,10 @@
 				C6BA67BA2631DBB6001A7EB6 /* InformationViewControllerCustomScheme.swift in Sources */,
 				C6917EEF2639EB07003C77CA /* UITapGestureRecognizer+Label.swift in Sources */,
 				E6C2B23B25DC1172007D332A /* ColorMapView.swift in Sources */,
-				E9178F5D280420FA00C49230 /* ThemeSwitchButtonScheme.swift in Sources */,
 				0EDD49B2273D9EDF002386FB /* CalendarsViewController.swift in Sources */,
 				0E0A3EFE2611DAEF007C4CA8 /* OnboardingViewController.swift in Sources */,
 				3B574A9D27C7D9E2006FEF9A /* ZeroScreenViewController.swift in Sources */,
+				E9DAC2E527FB3A8C00842ACB /* SmallBadgesViewModel.swift in Sources */,
 				0E110DA527C5017C00BFF58F /* HeadersBlocksViewController.swift in Sources */,
 				0E5F3D352535895F00E7327C /* TypographyCell.swift in Sources */,
 				C6C7D272265BADDC006F4106 /* SmallInformersSwiftUIView.swift in Sources */,
@@ -3890,7 +3963,6 @@
 				C674990C25D3FBB600232C5F /* UnderlineSliderTabs.swift in Sources */,
 				0E0A3EF82611D3EA007C4CA8 /* OnboardingPageViewController.swift in Sources */,
 				C6A7F2E82654005700105F2D /* BigInformersSwiftUIView.swift in Sources */,
-				0E576F4A2539B81E00E223DD /* BadgesViewController.swift in Sources */,
 				E94518B227D4A37C0048B133 /* StandartTextFieldPlain.swift in Sources */,
 				E6903D7F25DEFF4500245403 /* ThemeViewController.swift in Sources */,
 				C686568A255937DB00B885B8 /* ChatViewController.swift in Sources */,
