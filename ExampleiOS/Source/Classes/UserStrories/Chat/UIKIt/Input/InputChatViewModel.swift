@@ -56,7 +56,7 @@ final class InputChatViewModel {
             didSelect: nil,
             header: nil,
             direction: .right,
-            chatStatus: .receive
+            chatStatus: .read
         )
         messages.append(message)
     }
