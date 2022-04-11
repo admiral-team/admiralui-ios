@@ -10,9 +10,9 @@ import SwiftUI
 @available(iOS 14.0, *)
 enum AlertOnboardingItem: CaseIterable {
     case alert
-    case error
     case onboarding
     case zeroScreen
+    case error
 
     var title: String {
         switch self {

@@ -26,31 +26,29 @@ class CalendarViewSnapshotTest: XCTestCase, CalendarDataSource {
         super.setUp()
         Appearance.prepare()
     }
-    
-    // MARK: - Theme
-    
-    private lazy var theme: AppTheme = {
-        let theme = Appearance.shared.theme
-        return theme
-    }()
 
     // MARK: - View
       
     func testViewDefaultState() {
-        let view = createView()
+        let view = createView(appTheme: .light)
         checkView(view: view, named: "Default", testName: "CalendarView")
+    }
+    
+    func testViewDarkState() {
+        let view = createView(appTheme: .dark)
+        checkView(view: view, named: "Dark", testName: "CalendarView")
     }
     
     // MARK: - Private Methods
     
-    private func createView() -> UIView {
+    private func createView(appTheme: AppTheme) -> UIView {
         let calendarView = CalendarVerticalView()
         calendarView.calendarDataSource = self
         calendarView.calendarDelegate = self
         calendarView.locale = Locale(identifier: "ru")
         calendarView.reloadData()
-        calendarView.frame.size = CGSize(width: 320.0, height: 320.0)
-        calendarView.apply(theme: theme)
+        calendarView.frame.size = CGSize(width: 640.0, height: 960.0)
+        calendarView.apply(theme: appTheme)
         
         return calendarView
     }

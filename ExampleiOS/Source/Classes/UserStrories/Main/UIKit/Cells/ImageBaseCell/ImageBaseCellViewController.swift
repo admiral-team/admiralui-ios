@@ -28,7 +28,7 @@ final class ImageBaseCellViewController: ScrollViewController {
     // MARK: - Private Methods
     
     private func configureUI() {
-        navigationItem.title = "Image Base Cell"
+        navigationItem.title = "Base Cells vs Image"
         
         configureCells()
         

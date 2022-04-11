@@ -16,10 +16,12 @@ type BuildInfo struct {
 	Build_url        string `json:"build_url,omitempty"`
 	Branch_name      string `json:"BranchName,omitempty"`
 	Issue            int    `json:"Issue,string,omitempty"`
+	PullNumber       int    `json:"PullNumber,string,omitempty"`
 }
 
 func (buildInfo BuildInfo) formatted_build_info_git() string {
 	var resultString string
+
 	if buildInfo.Platform != "" {
 		resultString += "Platform: " + buildInfo.Platform + "\n"
 	}

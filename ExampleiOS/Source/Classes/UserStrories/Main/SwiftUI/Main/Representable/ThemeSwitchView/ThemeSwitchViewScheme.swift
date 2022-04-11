@@ -16,7 +16,6 @@ struct ThemeSwitchViewScheme: AppThemeScheme {
 
     var font: AFont
     var backgroundColor: AColor
-    var buttonColorSelected: AColor
     var shadowColor: AColor
     var imageColor: AColor
 
@@ -26,9 +25,7 @@ struct ThemeSwitchViewScheme: AppThemeScheme {
     // MARK: - Initializer
 
     init(theme: AppTheme) {
-        let alpha = theme.colors.disabledAlpha
         font = theme.fonts.body1
-        buttonColorSelected = theme.colors.elementExtra.withAlpha(alpha)
         backgroundColor = theme.colors.backgroundExtraSurface
         shadowColor = theme.colors.backgroundShadow
         imageColor = theme.colors.elementExtra

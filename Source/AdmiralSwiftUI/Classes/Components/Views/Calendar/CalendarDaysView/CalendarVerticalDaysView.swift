@@ -56,7 +56,7 @@ public struct CalendarVerticalDaysView: View {
     
     public var body: some View {
         let weekDays: [[Day]] = weeks()
-        return VStack(spacing: LayoutGrid.doubleModule) {
+        return VStack(spacing: LayoutGrid.halfModule * 5) {
             ForEach(weekDays, id: \.self) { week in
                 HStack(spacing: 0.0) {
                     ForEach(0..<week.count, id: \.self) { index in
