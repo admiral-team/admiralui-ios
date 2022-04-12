@@ -206,7 +206,7 @@ public struct BadgeView<Content>: View where Content: View {
             .padding(.vertical, LayoutGrid.halfModule / 2)
             .frame(minWidth: LayoutGrid.halfModule * 5, minHeight: LayoutGrid.halfModule * 5)
             .overlay(RoundedRectangle(cornerRadius: LayoutGrid.halfModule * 5)
-                        .stroke(strokeColor, lineWidth: LayoutGrid.halfModule))
+                        .stroke(strokeColor, lineWidth: LayoutGrid.halfModule / 2))
             .background(
                 RoundedRectangle(cornerRadius: LayoutGrid.halfModule * 5)
                     .foregroundColor(badgeForegroundColor)

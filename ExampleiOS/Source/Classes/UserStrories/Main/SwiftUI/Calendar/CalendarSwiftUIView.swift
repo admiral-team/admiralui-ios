@@ -17,8 +17,8 @@ struct CalendarSwiftUIView: View {
     
     // MARK: - Private Properties
     
-    private var startDate = Calendar.current.date(byAdding: .year, value: -100, to: Date()) ?? Date()
-    private var endDate = Calendar.current.date(byAdding: .year, value: 100, to: Date()) ?? Date()
+    private var startDate = Calendar.current.date(byAdding: .year, value: -10, to: Date()) ?? Date()
+    private var endDate = Calendar.current.date(byAdding: .year, value: 10, to: Date()) ?? Date()
     
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
     

@@ -52,14 +52,10 @@ struct CalendarVerticalView: View {
     
     // MARK: - Private Properties
     
-    @State private var months = [Month]()
+    @State private var dates = [Date]()
     
-    @State private var selectDate: Date?
-    @State private var privateSelectedStartDate: Date?
-    @State private var privateSelectedEndDate: Date?
     @State private var scheme: CalendarVerticalViewScheme? = nil
-    @State private var currentMonthIndex: Int?
-    @State private var isInitCalendar: Bool = false
+    @State private var currentMonthDate: Date?
     @State private var isScrollCalendar: Bool = false
     @ObservedObject var schemeProvider = AppThemeSchemeProvider<CalendarVerticalViewScheme>()
 
@@ -94,23 +90,10 @@ struct CalendarVerticalView: View {
             self._selectedStartDate = selectedStartDate
             self._selectedEndDate = selectedEndDate
             
-            if selectedStartDate.wrappedValue != nil {
-                self._privateSelectedStartDate = .init(initialValue: selectedStartDate.wrappedValue)
-            }
-            if selectedEndDate.wrappedValue != nil {
-                self._privateSelectedEndDate = .init(initialValue: selectedEndDate.wrappedValue)
-            }
-            
             self.notActiveAfterDate = notActiveAfterDate
             self._isMutlipleSelectionAllowed = .init(initialValue: isMutlipleSelectionAllowed)
             self._didSelectedDate = .init(initialValue: didSelectedDate)
             self._didSelectedDates = .init(initialValue: didSelectedDates)
-            
-        
-            let monthsData = preInitData()
-            
-            self._months = .init(initialValue: monthsData.0)
-            self._currentMonthIndex = .init(initialValue: monthsData.1)
         }
     
     var body: some View {
@@ -123,28 +106,22 @@ struct CalendarVerticalView: View {
                         contentListCell(scheme: scheme, scrollView: scrollView)
                     }
                 }
+                .opacity(isScrollCalendar ? 1.0 : 0.0)
                 .onAppear {
-                    guard !isInitCalendar,
-                          let currentMonthIndex = currentMonthIndex,
-                          currentMonthIndex < months.count else { return }
+                    let generator = CalendarGenerator()
+                    let monthsData = getDates(
+                        generator: generator,
+                        startDate: self.startDate,
+                        endDate: self.endDate,
+                        monthDate: monthYearDate)
                     
-                    let queue = DispatchQueue.global(qos: .userInteractive)
-                    queue.async {
-                        let generator = CalendarGenerator()
-                        let monthsData = getMonths(
-                            generator: generator,
-                            startDate: startDate,
-                            endDate: endDate,
-                            monthDate: monthYearDate)
-                        
-                        DispatchQueue.main.async {
-                            self.months = monthsData.0
-                            self.currentMonthIndex = monthsData.1
-                            self.isInitCalendar = true
-                        }
-                    }
+                    self.dates = monthsData.0
+                    self.currentMonthDate = monthsData.1
                     // WORKAROUND: Work for solve problem with scroll.
-                    scrollView.scrollTo(self.months[currentMonthIndex].id, anchor: .init(x: 0.0, y: Constants.offsetY))
+                    DispatchQueue.main.async {
+                        scrollView.scrollTo(monthsData.1)
+                        isScrollCalendar = true
+                    }
                 }
                 .padding(.horizontal, LayoutGrid.doubleModule)
             }
@@ -160,18 +137,9 @@ struct CalendarVerticalView: View {
     }
     
     func contentListCell(scheme: CalendarVerticalViewScheme, scrollView: ScrollViewProxy) -> some View {
-        ForEach(months, id: \.id) { month in
-            monthView(month: month)
-                .id(month.id)
-                .onAppear {
-                    if isInitCalendar, !isScrollCalendar {
-                        if month.id == self.months[self.currentMonthIndex ?? 0].id {
-                            isScrollCalendar = true
-                        }
-                        // WORKAROUND: Work for solve problem with scroll.
-                        scrollView.scrollTo(self.months[self.currentMonthIndex ?? 0].id, anchor: .init(x: 0.0, y: Constants.offsetY))
-                    }
-                }
+        ForEach(dates, id: \.self) { date in
+            monthView(date: date)
+                .id(date)
         }
         .listRowInsets(EdgeInsets(top: 0.0, leading: 0.0, bottom: 0.0, trailing: 0.0))
         .background(scheme.backgroundColor.swiftUIColor)
@@ -180,16 +148,16 @@ struct CalendarVerticalView: View {
     
     // MARK: - Private Methods
     
-    private func getMonths(
+    private func getDates(
         generator: CalendarGenerator,
         startDate: Date,
         endDate: Date,
-        monthDate: Date?) -> ([Month],Int,[CalendarPickerYear], [Int : (Int, Int)]) {
-        let monthsData = generator.calculateMonthsData(
+        monthDate: Date?) -> ([Date],Date?) {
+        let dates = generator.calculateDates(
             startDate: startDate,
             endDate: endDate,
             monthDate: monthDate)
-        return monthsData
+        return dates
     }
     
     private func weeks(days: [Day]) -> [Week] {
@@ -223,24 +191,21 @@ struct CalendarVerticalView: View {
         return weekDays
     }
     
-    private func monthView(month: Month) -> some View {
+    private func monthView(date: Date) -> some View {
         let scheme = self.scheme ?? schemeProvider.scheme
+        let title = date.dateToString(dateFormat: "LLLL yyyy", locale).capitalized
         return VStack(alignment: .leading, spacing: 0) {
-            MonthYearView(title: month.title)
+            MonthYearView(title: title)
             Spacer()
                 .frame(height: LayoutGrid.halfModule * 5)
             CalendarWeekView(locale)
-            // TODO: - change CalendarVerticalDaysView to CalendarlDaysView
-            CalendarVerticalDaysView(
-                days: month.days,
-                startDate: selectedStartDate,
-                endDate: selectedEndDate,
+            CalendarDaysView(
+                date: date,
+                isMutlipleSelectionAllowed: isMutlipleSelectionAllowed,
+                startDate: $selectedStartDate,
+                endDate: $selectedEndDate,
                 notActiveAfterDate: notActiveAfterDate,
-                pointDates: pointDates) { day in
-                let date = day.date
-
-                isMutlipleSelectionAllowed ? prepareMultipleSelectionDates(date: date) : prepareSingleSelectionDate(date: date)
-            }
+                pointDates: pointDates)
             Spacer()
                 .frame(height: LayoutGrid.halfModule)
             Line()
@@ -248,142 +213,6 @@ struct CalendarVerticalView: View {
             Spacer()
                 .frame(height: LayoutGrid.halfModule * 3)
         }
-    }
-    
-    private func preInitData() -> ([Month], Int) {
-        var preStartDate = Date()
-        var preEndDate = Date()
-        
-        if let monthYearDate = monthYearDate {
-            if self.startDate < monthYearDate,  monthYearDate < self.endDate {
-                if let calendarStartDate = Calendar.current.date(byAdding: .month, value: -1, to: monthYearDate), self.startDate < calendarStartDate {
-                    preStartDate = calendarStartDate
-                } else {
-                    preStartDate = self.startDate
-                }
-                
-                if let calendarEndDate = Calendar.current.date(byAdding: .month, value: 1, to: monthYearDate), self.endDate > calendarEndDate {
-                    preEndDate = calendarEndDate
-                } else {
-                    preEndDate = self.endDate
-                }
-                
-                preEndDate = monthYearDate
-            } else {
-                if let calendarStartDate = Calendar.current.date(byAdding: .month, value: -1, to: Date()), self.startDate < calendarStartDate {
-                    preStartDate = calendarStartDate
-                } else {
-                    preStartDate = self.startDate
-                }
-                
-                if let calendarEndDate = Calendar.current.date(byAdding: .month, value: 1, to: Date()), self.endDate > calendarEndDate {
-                    preEndDate = calendarEndDate
-                } else {
-                    preEndDate = self.endDate
-                }
-            }
-        }
-        else if self.startDate < Date(),  Date() < self.endDate {
-            if let calendarStartDate = Calendar.current.date(byAdding: .month, value: -1, to: Date()), self.startDate < calendarStartDate {
-                preStartDate = calendarStartDate
-            } else {
-                preStartDate = self.startDate
-            }
-            
-            if let calendarEndDate = Calendar.current.date(byAdding: .month, value: 1, to: Date()), self.endDate > calendarEndDate {
-                preEndDate = calendarEndDate
-            } else {
-                preEndDate = self.endDate
-            }
-        } else {
-            preStartDate = self.endDate
-            preEndDate = self.endDate
-        }
-        
-        var generator = CalendarGenerator()
-        generator.locale = locale
-        let monthsData = getMonths(
-            generator: generator,
-            startDate: preStartDate,
-            endDate: preEndDate,
-            monthDate: monthYearDate)
-        
-        return (monthsData.0, monthsData.1)
-    }
-    
-    private func getMonthsValue(generator: CalendarGenerator) -> ([Month],Int,[CalendarPickerYear],[Int : (Int, Int)]) {
-        let monthsValue = generator.calculateMonthsData(
-            startDate: self.startDate,
-            endDate: self.endDate)
-        return monthsValue
-    }
-    
-    private func prepareMultipleSelectionDates(date: Date) {
-        defer {
-            selectedStartDate = privateSelectedStartDate
-            selectedEndDate = privateSelectedEndDate
-            //didSelectedDates?(selectedDates)
-        }
-        
-        if let startDate = privateSelectedStartDate,
-            let endDate = privateSelectedEndDate,
-            startDate <= date, endDate >= date {
-            privateSelectedStartDate = date
-            privateSelectedEndDate = nil
-            return
-        }
-        
-        if let startDate = privateSelectedStartDate,
-           let _ = privateSelectedEndDate {
-            
-            if startDate > date {
-                privateSelectedStartDate = date
-            } else {
-                privateSelectedEndDate = date
-            }
-            return
-        } else if let startDate = privateSelectedStartDate {
-            
-            if startDate > date {
-                privateSelectedEndDate = privateSelectedStartDate
-                privateSelectedStartDate = date
-            } else {
-                privateSelectedEndDate = date
-            }
-        } else {
-            self.privateSelectedStartDate = date
-        }
-    }
-    
-    private func prepareSingleSelectionDate(date: Date) {
-        if
-            let selectedStartDate = privateSelectedStartDate,
-            selectedStartDate == date {
-            self.privateSelectedStartDate = nil
-        } else {
-            privateSelectedStartDate = date
-        }
-        
-        didSelectedDate?(privateSelectedStartDate)
-    }
-    
-    private func datesRange(from: Date, to: Date) -> [Date] {
-        if from > to { return [Date]() }
-        
-        var tempDate = from
-        var array = [tempDate]
-        
-        while tempDate < to {
-            guard let date = Calendar.current.date(
-                    byAdding: .day,
-                    value: 1,
-                    to: tempDate)
-            else { return array }
-            
-            tempDate = date
-            array.append(tempDate)
-        }
-        return array
     }
     
 }

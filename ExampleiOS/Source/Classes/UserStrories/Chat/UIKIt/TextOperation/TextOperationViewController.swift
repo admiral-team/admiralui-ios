@@ -9,7 +9,7 @@ import AdmiralUIKit
 import AdmiralTheme
 import UIKit
 
-final class TextOperationViewController: UIViewController, AnyAppThemable {
+ final class TextOperationViewController: UIViewController, AnyAppThemable {
 
     // MARK: - Private Properties
 
@@ -103,12 +103,12 @@ final class TextOperationViewController: UIViewController, AnyAppThemable {
         configureUI()
     }
 
-}
+ }
 
-extension TextOperationViewController: UITableViewDelegate {
+ extension TextOperationViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
 
-}
+ }

@@ -5,10 +5,8 @@
 //  Created on 30.12.2021.
 //
 
-import Foundation
-import Combine
-import AdmiralTheme
 import AdmiralSwiftUI
+import Combine
 
 @available(iOS 14.0.0, *)
 final class CustomSwiftUIViewModel: ObservableObject {

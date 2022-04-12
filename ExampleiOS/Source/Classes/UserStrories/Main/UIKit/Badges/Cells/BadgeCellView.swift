@@ -37,12 +37,14 @@ final class BadgeCellView<T>: UIView, AnyAppThemable, AccessibilitySupport where
     private let badgeView: Badge
     private let contentView = UIView()
     private let imageView = UIImageView()
+    private let initialValue: Int?
     
     // MARK: - Initializer
 
-    init(title: String, badgeView: T) {
+    init(title: String, badgeView: T, initialValue: Int? = nil) {
         self.titleLabel.text = title
         self.badgeView = badgeView
+        self.initialValue = initialValue
         super.init(frame: .zero)
         
         commonInit()
@@ -99,7 +101,11 @@ final class BadgeCellView<T>: UIView, AnyAppThemable, AccessibilitySupport where
     }
     
     private func configureBadgeView() {
-        badgeView.text = String(Int(inputTextField.value))
+        guard let badgeValue = initialValue else {
+            badgeView.text = nil
+            return
+        }
+        badgeView.text = String(badgeValue)
     }
     
     private func configureImageViews() {
@@ -156,6 +162,10 @@ final class BadgeCellView<T>: UIView, AnyAppThemable, AccessibilitySupport where
     }
     
     @objc private func stepperValueChanged(_ stepper: InputNumber) {
+        guard initialValue != nil else {
+            badgeView.text = nil
+            return
+        }
         badgeView.text = String(Int(stepper.value))
     }
 
