@@ -10,8 +10,8 @@ import AdmiralTheme
 import AdmiralUIKit
 
 protocol ThemeSwitchViewDelegate: AnyObject {
-    func didTap(_ view: ThemeSwitchView)
-    func didSelect(_ view: ThemeSwitchView, at index: Int)
+    func didTap(_ view: ThemeSwitchView?)
+    func didSelect(_ view: ThemeSwitchView?, at index: Int)
     func shouldShowMenu(_ view: ThemeSwitchView) -> Bool
 }
 
@@ -124,6 +124,9 @@ final class ThemeSwitchView: UIView, AppThemeable, ThemeSwitchListViewDelegate, 
             listView.isHidden = true
             delegate?.didTap(self)
         }
+
+        setNeedsLayout()
+        layoutIfNeeded()
     }
     
 }
