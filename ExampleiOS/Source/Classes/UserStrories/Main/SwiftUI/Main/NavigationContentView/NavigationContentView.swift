@@ -7,8 +7,6 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralSwiftUI
-import AdmiralUIResources
 
 @available(iOS 14.0.0, *)
 struct NavigationContentView<Content>: View where Content: View {
@@ -63,7 +61,6 @@ struct NavigationContentView<Content>: View where Content: View {
             content()
             if isShowThemeSwitchSwiftUIView {
                 ThemeSwitchSwiftUIView()
-                    .padding(.trailing, LayoutGrid.module)
             }
         }
         .navigationBarTitle(navigationTitle, displayMode: navigationBarDisplayMode)
