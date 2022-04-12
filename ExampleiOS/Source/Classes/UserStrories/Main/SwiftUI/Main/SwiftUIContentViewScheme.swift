@@ -5,11 +5,8 @@
 //  Created on 21.05.2021.
 //
 
-import SwiftUI
-import AdmiralSwiftUI
 import AdmiralTheme
 import AdmiralUIResources
-import Combine
 
 @available(iOS 14.0.0, *)
 public struct SwiftUIContentViewScheme: AppThemeScheme {
