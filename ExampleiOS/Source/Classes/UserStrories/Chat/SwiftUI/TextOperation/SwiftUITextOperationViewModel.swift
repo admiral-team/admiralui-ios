@@ -76,7 +76,7 @@ final class SwiftUITextOperationViewModel: ObservableObject {
         TextOperationItem(
             style: .error,
             chatStatus: .error,
-            direction: .right,
+            direction: .left,
             time: "21:21",
             title: "+ 35 000 ₽",
             description: "НПО «Ромашка»",

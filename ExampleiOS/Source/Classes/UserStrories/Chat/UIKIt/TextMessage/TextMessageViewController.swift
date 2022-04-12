@@ -13,6 +13,7 @@ final class TextMessageViewController: UIViewController, AnyAppThemable {
 
     // MARK: - Private Properties
 
+    private let viewModel = TextMessageViewModel()
     private let themeSwitchView = ThemeSwitchView(frame: .zero)
 
     private var tableView: UITableView = {
@@ -31,46 +32,6 @@ final class TextMessageViewController: UIViewController, AnyAppThemable {
         get { return themeSwitchView.isHidden }
         set { themeSwitchView.isHidden = newValue }
     }
-
-    private var chatMessages: [ChatMessageCellViewModel] = [
-        ChatMessageCellViewModel(
-            message: "Привет, какой у вас вопрос ?",
-            time: "12:34",
-            image: nil,
-            didSelect: nil,
-            header: nil,
-            direction: .left,
-            name: "Антон"
-        ),
-        ChatMessageCellViewModel(
-            message: "Будем рады ответить !",
-            time: "12:34",
-            image: nil,
-            didSelect: nil,
-            header: nil,
-            direction: .left,
-            state: .error
-        ),
-        ChatMessageCellViewModel(
-            message: "Каким образом использовать ChatBubbleView ?",
-            time: "12:34",
-            image: nil,
-            didSelect: nil,
-            header: nil,
-            direction: .right,
-            chatStatus: .sent,
-            state: .error
-        ),
-        ChatMessageCellViewModel(
-            message: "Повторная попытка отправки сообщения ?",
-            time: "12:34",
-            image: nil,
-            didSelect: nil,
-            header: nil,
-            direction: .right,
-            chatStatus: .sent
-        )
-    ]
 
     // MARK: - Initializer
 
@@ -115,14 +76,10 @@ final class TextMessageViewController: UIViewController, AnyAppThemable {
     }
 
     private func updateTable() {
-        tableViewManager.sections = createSections()
+        tableViewManager.sections = viewModel.sections
         tableView.reloadData()
         tableView.setNeedsLayout()
         tableView.layoutIfNeeded()
-    }
-
-    private func createSections() -> [MainSectionViewModel] {
-        [MainSectionViewModel(items: chatMessages)]
     }
 
     private func addSubviews() {
@@ -147,10 +104,16 @@ final class TextMessageViewController: UIViewController, AnyAppThemable {
         configureUI()
     }
 
-    private func showAlert() {
+    private func showAlert(index: Int) {
         let alert = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Повторить отправку", style: .default, handler: { _ in }))
-        alert.addAction(UIAlertAction(title: "Удалить", style: .default, handler: { _ in }))
+        alert.addAction(UIAlertAction(title: "Повторить отправку", style: .default, handler: { [weak self] _ in
+            self?.viewModel.changeMessageStatus(with: .default, index: index)
+            self?.updateTable()
+        }))
+        alert.addAction(UIAlertAction(title: "Удалить", style: .default, handler: { [weak self] _ in
+            self?.viewModel.removeMessage(by: index)
+            self?.updateTable()
+        }))
         alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: { _ in }))
         present(alert, animated: true, completion: {})
     }
@@ -164,9 +127,9 @@ extension TextMessageViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let model = chatMessages[indexPath.row]
+        let model = viewModel.chatMessages[indexPath.row]
         if model.state == .error {
-            showAlert()
+            showAlert(index: indexPath.row)
         }
     }
 
