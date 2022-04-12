@@ -2,7 +2,7 @@
 //  TextMessageViewModel.swift
 //  ExampleiOS
 //
-//  Created by Борисов Кирилл Анатольевич on 12.04.2022.
+//  Created on 12.04.2022.
 //
 
 import AdmiralUIKit
