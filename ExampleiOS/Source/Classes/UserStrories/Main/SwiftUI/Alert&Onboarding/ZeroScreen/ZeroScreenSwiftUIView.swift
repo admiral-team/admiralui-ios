@@ -2,7 +2,7 @@
 //  ZeroScreenSwiftUIView.swift
 //  ExampleiOS
 //
-//  Created by Алмазов Иван Александрович on 12.04.2022.
+//  Created on 12.04.2022.
 //
 
 import SwiftUI
@@ -12,12 +12,19 @@ import AdmiralSwiftUI
 @available(iOS 14.0.0, *)
 struct ZeroScreenSwiftUIView: View {
     
+    // MARK: - Constants
+    
     private enum Constants {
         static let title = "Title Center"
         static let subTitle = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         static let buttonTitle = "Хорошо"
     }
+    
+    // MARK: - Private properties
+    
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
+    
+    // MARK: - Layout
     
     var body: some View {
         let scheme = schemeProvider.scheme
@@ -37,6 +44,7 @@ struct ZeroScreenSwiftUIView: View {
             .background(scheme.backgroundColor.swiftUIColor)
         }
     }
+    
 }
 
 @available(iOS 14.0.0, *)
