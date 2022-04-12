@@ -7,9 +7,10 @@
 
 import AdmiralUIKit
 import AdmiralTheme
+import AdmiralUIResources
 import UIKit
 
-final class LinerPageControl: UIViewController, AppThemeable {
+final class LinerPageControl: BaseViewController {
     
     // MARK: - Private Properties
     
@@ -27,18 +28,18 @@ final class LinerPageControl: UIViewController, AppThemeable {
     
     // MARK: - AppThemeable
     
-    func apply(theme: AppTheme) {
+    override func apply(theme: AppTheme) {
+        super.apply(theme: theme)
         pageControl.apply(theme: theme)
         segmentControl.apply(theme: theme)
         nextButton.apply(theme: theme)
-        view.backgroundColor = theme.colors.backgroundBasic.uiColor
+        
+        nextButton.tintColor = theme.colors.elementStaticWhite.uiColor
     }
     
     // MARK: - Private Methods
     
     private func configureUI() {
-        
-        
         addSubviews()
         configureConstraints()
         configureSegment()
@@ -59,7 +60,10 @@ final class LinerPageControl: UIViewController, AppThemeable {
     
     private func configureButtons() {
         nextButton.setTitle("Next", for: [])
+        nextButton.setImage(AdmiralUIResources.Asset.System.Outline.arrowRightOutline.image, for: .normal)
         nextButton.addTarget(self, action: #selector(tapNexButton), for: .touchUpInside)
+        nextButton.semanticContentAttribute = .forceRightToLeft
+        nextButton.imageEdgeInsets = UIEdgeInsets(top: 0.0, left: LayoutGrid.doubleModule, bottom: 0.0, right: 0.0)
     }
     
     private func addSubviews() {
@@ -80,7 +84,7 @@ final class LinerPageControl: UIViewController, AppThemeable {
             
             nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             nextButton.topAnchor.constraint(equalTo: pageControl.bottomAnchor, constant: LayoutGrid.module * 6),
-            nextButton.heightAnchor.constraint(equalToConstant: LayoutGrid.module * 6),
+            nextButton.heightAnchor.constraint(equalToConstant: LayoutGrid.halfModule * 10),
             nextButton.widthAnchor.constraint(equalToConstant: LayoutGrid.module * 14)
         ])
         
