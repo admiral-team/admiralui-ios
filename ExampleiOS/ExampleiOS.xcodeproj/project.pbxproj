@@ -85,9 +85,7 @@
 		0E76FB40253ED9AF001B1F3D /* RadioButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E76FB3F253ED9AF001B1F3D /* RadioButtonViewController.swift */; };
 		0E76FB43253EDB94001B1F3D /* SwitcherCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E76FB42253EDB94001B1F3D /* SwitcherCellView.swift */; };
 		0E81523626973D30004E0B34 /* ThemesViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E81523526973D30004E0B34 /* ThemesViewControllerRepresentable.swift */; };
-		0E81523826974243004E0B34 /* ThemeSwitchViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E81523726974243004E0B34 /* ThemeSwitchViewRepresentable.swift */; };
 		0E8152452697835F004E0B34 /* ShimmersSwiftUIViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8152442697835F004E0B34 /* ShimmersSwiftUIViewScheme.swift */; };
-		0E8152482697AA6B004E0B34 /* ThemeSwitchSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8152472697AA6B004E0B34 /* ThemeSwitchSwiftUIView.swift */; };
 		0E853CBF259213A20033F17C /* StatusHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E853CBE259213A20033F17C /* StatusHistoryViewController.swift */; };
 		0E853CC3259214DA0033F17C /* StatusHistoryStandardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E853CC2259214DA0033F17C /* StatusHistoryStandardViewController.swift */; };
 		0E853CC5259214E60033F17C /* StatusHistorySmallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E853CC4259214E60033F17C /* StatusHistorySmallViewController.swift */; };
@@ -317,6 +315,10 @@
 		E916FA012768A7FF00628C96 /* TextOperationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E916FA002768A7FF00628C96 /* TextOperationViewController.swift */; };
 		E916FA042768B60C00628C96 /* TextOperationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E916FA032768B60C00628C96 /* TextOperationCell.swift */; };
 		E916FA062768C31900628C96 /* TextOperationScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E916FA052768C31900628C96 /* TextOperationScheme.swift */; };
+		E9178F61280424C800C49230 /* ThemeSwitchButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9178F5F280424C800C49230 /* ThemeSwitchButtonStyle.swift */; };
+		E9178F62280424C800C49230 /* ThemeSwitchButtonScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9178F60280424C800C49230 /* ThemeSwitchButtonScheme.swift */; };
+		E9178F65280424D600C49230 /* ThemeSwitchSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9178F63280424D600C49230 /* ThemeSwitchSwiftUIView.swift */; };
+		E9178F66280424D600C49230 /* ThemeSwitchViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9178F64280424D600C49230 /* ThemeSwitchViewScheme.swift */; };
 		E92DC2E727FC543F00CB789E /* BagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92DC2E627FC543F00CB789E /* BagesViewModel.swift */; };
 		E92DC2E927FC549A00CB789E /* BadgesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92DC2E827FC549A00CB789E /* BadgesViewController.swift */; };
 		E92DC2EC27FC555E00CB789E /* BadgesNormalViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92DC2EB27FC555E00CB789E /* BadgesNormalViewContoller.swift */; };
@@ -538,9 +540,7 @@
 		0E76FB3F253ED9AF001B1F3D /* RadioButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonViewController.swift; sourceTree = "<group>"; };
 		0E76FB42253EDB94001B1F3D /* SwitcherCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitcherCellView.swift; sourceTree = "<group>"; };
 		0E81523526973D30004E0B34 /* ThemesViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesViewControllerRepresentable.swift; sourceTree = "<group>"; };
-		0E81523726974243004E0B34 /* ThemeSwitchViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSwitchViewRepresentable.swift; sourceTree = "<group>"; };
 		0E8152442697835F004E0B34 /* ShimmersSwiftUIViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmersSwiftUIViewScheme.swift; sourceTree = "<group>"; };
-		0E8152472697AA6B004E0B34 /* ThemeSwitchSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSwitchSwiftUIView.swift; sourceTree = "<group>"; };
 		0E853CBE259213A20033F17C /* StatusHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusHistoryViewController.swift; sourceTree = "<group>"; };
 		0E853CC2259214DA0033F17C /* StatusHistoryStandardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusHistoryStandardViewController.swift; sourceTree = "<group>"; };
 		0E853CC4259214E60033F17C /* StatusHistorySmallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusHistorySmallViewController.swift; sourceTree = "<group>"; };
@@ -769,6 +769,10 @@
 		E916FA002768A7FF00628C96 /* TextOperationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOperationViewController.swift; sourceTree = "<group>"; };
 		E916FA032768B60C00628C96 /* TextOperationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOperationCell.swift; sourceTree = "<group>"; };
 		E916FA052768C31900628C96 /* TextOperationScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOperationScheme.swift; sourceTree = "<group>"; };
+		E9178F5F280424C800C49230 /* ThemeSwitchButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeSwitchButtonStyle.swift; sourceTree = "<group>"; };
+		E9178F60280424C800C49230 /* ThemeSwitchButtonScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeSwitchButtonScheme.swift; sourceTree = "<group>"; };
+		E9178F63280424D600C49230 /* ThemeSwitchSwiftUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeSwitchSwiftUIView.swift; sourceTree = "<group>"; };
+		E9178F64280424D600C49230 /* ThemeSwitchViewScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeSwitchViewScheme.swift; sourceTree = "<group>"; };
 		E92DC2E627FC543F00CB789E /* BagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagesViewModel.swift; sourceTree = "<group>"; };
 		E92DC2E827FC549A00CB789E /* BadgesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesViewController.swift; sourceTree = "<group>"; };
 		E92DC2EB27FC555E00CB789E /* BadgesNormalViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesNormalViewContoller.swift; sourceTree = "<group>"; };
@@ -1449,7 +1453,9 @@
 		0E8152462697AA4E004E0B34 /* ThemeSwitchView */ = {
 			isa = PBXGroup;
 			children = (
-				0E81523726974243004E0B34 /* ThemeSwitchViewRepresentable.swift */,
+				E9178F63280424D600C49230 /* ThemeSwitchSwiftUIView.swift */,
+				E9178F64280424D600C49230 /* ThemeSwitchViewScheme.swift */,
+				E9178F5E280424C800C49230 /* ThemeSwitchButton */,
 			);
 			path = ThemeSwitchView;
 			sourceTree = "<group>";
@@ -1602,7 +1608,6 @@
 				0EEAF9E2261F8D2B00E46143 /* SwiftUIController.swift */,
 				E9332FCA277DAA3500F9AF26 /* CustomSwiftUIViewModel.swift */,
 				0EB1AC4C2657A584007D7795 /* SwiftUIContentViewScheme.swift */,
-				0E8152472697AA6B004E0B34 /* ThemeSwitchSwiftUIView.swift */,
 				0E29D282275B902600F3FC56 /* NavigationContentView */,
 				0E81523B2697693A004E0B34 /* Representable */,
 			);
@@ -2859,6 +2864,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		E9178F5E280424C800C49230 /* ThemeSwitchButton */ = {
+			isa = PBXGroup;
+			children = (
+				E9178F5F280424C800C49230 /* ThemeSwitchButtonStyle.swift */,
+				E9178F60280424C800C49230 /* ThemeSwitchButtonScheme.swift */,
+			);
+			path = ThemeSwitchButton;
+			sourceTree = "<group>";
+		};
 		E92DC2EA27FC554D00CB789E /* Normal */ = {
 			isa = PBXGroup;
 			children = (
@@ -3654,7 +3668,6 @@
 				E9BE41AB27C7DFF400894224 /* CurrencyViewController.swift in Sources */,
 				C6BA67C32631FB0D001A7EB6 /* ColorTokerCellCustomSheme.swift in Sources */,
 				0E4BC95526834FFD000FC891 /* SecondaryTitleBaseCellSwiftUI.swift in Sources */,
-				0E81523826974243004E0B34 /* ThemeSwitchViewRepresentable.swift in Sources */,
 				C6DD6BAC260B976B009799CB /* UIView+Hidden.swift in Sources */,
 				E94518B827D4A5B90048B133 /* TabDTO.swift in Sources */,
 				0E110DA227C5011900BFF58F /* TextBlocksViewController.swift in Sources */,
@@ -3713,6 +3726,7 @@
 				C6BA67DD2632DE70001A7EB6 /* SwitcherCellViewCustomScheme.swift in Sources */,
 				E9DAC2E727FB3A9700842ACB /* NormalBadgesViewModel.swift in Sources */,
 				E95553CF27A2CBE300A14BCA /* TextOperationViewModel.swift in Sources */,
+				E9178F62280424C800C49230 /* ThemeSwitchButtonScheme.swift in Sources */,
 				C6BA67D12632D552001A7EB6 /* MainTitleTableViewCellCustomScheme.swift in Sources */,
 				0E0A3F0626121F38007C4CA8 /* UserSettingService.swift in Sources */,
 				E9A18D8F2739786500668C03 /* SwiftUIUploadFileViewModel.swift in Sources */,
@@ -3804,6 +3818,7 @@
 				C6DCBFF02631A7F400754365 /* AlertControllerCustomScheme.swift in Sources */,
 				0E81523626973D30004E0B34 /* ThemesViewControllerRepresentable.swift in Sources */,
 				C6A7F2EA2654006C00105F2D /* InformersSwiftUIView.swift in Sources */,
+				E9178F65280424D600C49230 /* ThemeSwitchSwiftUIView.swift in Sources */,
 				0E6EA4A827026DF9002EBBBC /* SeparatorSwiftUIView.swift in Sources */,
 				E9332FC1277CE97100F9AF26 /* UploadingImageCellScheme.swift in Sources */,
 				E9A18D93273A458D00668C03 /* SwiftUIUploadingPhotoViewModel.swift in Sources */,
@@ -3814,11 +3829,11 @@
 				0E17A246269DB65E00F0A80B /* CalendarHorizontalSwiftUIView.swift in Sources */,
 				0E264B08264E9E1E00601790 /* TextFieldsSwiftUIView.swift in Sources */,
 				E9A18D8B2739523300668C03 /* SwiftUITextMessageView.swift in Sources */,
-				0E8152482697AA6B004E0B34 /* ThemeSwitchSwiftUIView.swift in Sources */,
 				0E4BC925268346FC000FC891 /* TitleBaseCellSwiftUIView.swift in Sources */,
 				E94518A927D4A2040048B133 /* GunType.swift in Sources */,
 				C670867325BB0DDD003F361C /* BaseTabBarController.swift in Sources */,
 				E9332FC7277DA28000F9AF26 /* PageControlsSwiftUIItem.swift in Sources */,
+				E9178F66280424D600C49230 /* ThemeSwitchViewScheme.swift in Sources */,
 				C686568C255937FE00B885B8 /* SettingsViewController.swift in Sources */,
 				E916FA062768C31900628C96 /* TextOperationScheme.swift in Sources */,
 				E945188727D36C4A0048B133 /* APIError.swift in Sources */,
@@ -3889,6 +3904,7 @@
 				E94518A627D386BE0048B133 /* GunItemId.swift in Sources */,
 				C6723C8425D2901300226ED9 /* LinksCellView.swift in Sources */,
 				E934038527B28A960007B86D /* ActionBarSwiftUI.swift in Sources */,
+				E9178F61280424C800C49230 /* ThemeSwitchButtonStyle.swift in Sources */,
 				E945189B27D36D240048B133 /* AdmiralGunAPIFacade.swift in Sources */,
 				0EC91E6626BD3B6500636204 /* BadgesSwiftUIView.swift in Sources */,
 				E945188B27D36C670048B133 /* URLScheme.swift in Sources */,
