@@ -14,6 +14,7 @@ class OnboardingPageViewController: UIViewController, AnyAppThemable {
     // MARK: - Internal Properties
     
     var onboardingPageModels = [OnboardingPageModel]()
+    var isOnboardingRoot = true
     
     // MARK: - Private Properties
     
@@ -112,8 +113,10 @@ class OnboardingPageViewController: UIViewController, AnyAppThemable {
     }
     
     private func configureNaibgationBar() {
-        navigationItem.leftBarButtonItem = leftBarButton
-        navigationItem.rightBarButtonItem = rightBarButton
+        if isOnboardingRoot {
+            navigationItem.leftBarButtonItem = leftBarButton
+            navigationItem.rightBarButtonItem = rightBarButton
+        }
     }
     
     @objc private func tapExit() {
@@ -125,8 +128,10 @@ class OnboardingPageViewController: UIViewController, AnyAppThemable {
     }
     
     private func finish() {
-        userSettingService.setOnboardingFinish()
-        RootRouter().setRoot()
+        if isOnboardingRoot {
+            userSettingService.setOnboardingFinish()
+            RootRouter().setRoot()
+        }
     }
     
     private func goToNextPage() {

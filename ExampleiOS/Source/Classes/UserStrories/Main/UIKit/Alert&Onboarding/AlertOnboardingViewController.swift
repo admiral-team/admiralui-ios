@@ -13,6 +13,10 @@ final class AlertOnboardingViewController: BaseTableViewController {
     // MARK: - Private properties
 
     private let viewModel = AlertOnboardingViewModel()
+    private let onBoardingModel = OnboardingPageModel(
+        title: "Header",
+        subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        image: Asset.Onboarding.one.image)
 
     // MARK: - Initializer
 
@@ -49,7 +53,10 @@ private extension AlertOnboardingViewController {
         case .error:
             vc = ErrorViewController()
         case .onboarding:
-            vc = UIViewController()
+            let onboarding = OnboardingPageViewController()
+            onboarding.onboardingPageModels.append(onBoardingModel)
+            onboarding.isOnboardingRoot = false
+            vc = onboarding
         case .zeroScreen:
             vc = ZeroScreenViewController()
         }
