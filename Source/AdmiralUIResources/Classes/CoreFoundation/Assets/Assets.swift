@@ -383,8 +383,6 @@ public enum Asset {
       public static let cellsDisconnectOutline = ImageAsset(name: "Redact/Outline/cellsDisconnectOutline")
       public static let cellsMergeOutline = ImageAsset(name: "Redact/Outline/cellsMergeOutline")
       public static let changeFieldOutline = ImageAsset(name: "Redact/Outline/changeFieldOutline")
-      public static let chartBarOutline = ImageAsset(name: "Redact/Outline/chartBarOutline")
-      public static let chartTrendingOutline = ImageAsset(name: "Redact/Outline/chartTrendingOutline")
       public static let columnDeleteOutline = ImageAsset(name: "Redact/Outline/columnDeleteOutline")
       public static let columnInsertAfterOutline = ImageAsset(name: "Redact/Outline/columnInsertAfterOutline")
       public static let columnInsertBeforeOutline = ImageAsset(name: "Redact/Outline/columnInsertBeforeOutline")
@@ -1012,8 +1010,6 @@ public enum Asset {
     Redact.Outline.cellsDisconnectOutline,
     Redact.Outline.cellsMergeOutline,
     Redact.Outline.changeFieldOutline,
-    Redact.Outline.chartBarOutline,
-    Redact.Outline.chartTrendingOutline,
     Redact.Outline.columnDeleteOutline,
     Redact.Outline.columnInsertAfterOutline,
     Redact.Outline.columnInsertBeforeOutline,
