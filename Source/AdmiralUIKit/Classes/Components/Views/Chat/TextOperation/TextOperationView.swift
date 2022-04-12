@@ -237,7 +237,7 @@ public final class TextOperationView: UIView, AnyAppThemable {
     private func updateTrailingConstraints() {
         trailingConstraint.isActive = chatStatusBubbleView.chatDirection == .right
         errorTrailingConstraint.isActive = chatStatusBubbleView.chatDirection == .right
-        trailingConstraint.constant = textOperationStyle == .default ? .zero : Constants.padding
+        trailingConstraint.constant = textOperationStyle == .default || textOperationStyle == .success ? .zero : Constants.padding
     }
 
     private func updateColors() {
