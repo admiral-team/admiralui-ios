@@ -9,7 +9,6 @@ import SwiftUI
 
 @available(iOS 14.0, *)
 enum SwiftUIItem: String, CaseIterable {
-    
     case themes
     case buttons
     case textFields
