@@ -12,14 +12,14 @@ import UIKit
 struct TextOperationCellViewModel: TableViewListItem {
 
     var didSelect: (() -> Void)?
-    let title: String
-    let description: String
-    let time: String
-    let direction: ChatDirection
-    let chatStatus: ChatStatus
-    let style: TextOperationViewStyle
-    let titleLabelText: String
-    let chatBubbleTime: String
+    var title: String
+    var description: String
+    var time: String
+    var direction: ChatDirection
+    var chatStatus: ChatStatus
+    var style: TextOperationViewStyle
+    var titleLabelText: String
+    var chatBubbleTime: String
 
     var reuseIdentifier: String {
         String(describing: TextOperationCell.self)
@@ -30,7 +30,7 @@ struct TextOperationCellViewModel: TableViewListItem {
         description: String,
         time: String,
         didSelect: (() -> Void)? = nil,
-        direction: ChatDirection = .right,
+        direction: ChatDirection = .left,
         chatStatus: ChatStatus = .none,
         style: TextOperationViewStyle,
         titleLabelText: String,
@@ -55,6 +55,8 @@ final class TextOperationCell: UITableViewCell, AnyAppThemable, AccessibilitySup
 
     private let textOperationView = TextOperationView()
     private let titleLabel = UILabel()
+    private var leadingAnchorConstraint = NSLayoutConstraint()
+    private var trailingAnchorConstraint = NSLayoutConstraint()
 
     private var scheme = TextOperationScheme() {
         didSet { updateScheme() }
@@ -98,23 +100,23 @@ final class TextOperationCell: UITableViewCell, AnyAppThemable, AccessibilitySup
     }
 
     private func addSubviews() {
-        [titleLabel, textOperationView].forEach({
-            $0.translatesAutoresizingMaskIntoConstraints = false
-            contentView.addSubview($0)
-        })
-
+        [titleLabel, textOperationView].addToSuperview(contentView)
     }
 
     private func addConstraints() {
+        leadingAnchorConstraint = textOperationView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: LayoutGrid.doubleModule)
+        trailingAnchorConstraint = contentView.trailingAnchor.constraint(equalTo: textOperationView.trailingAnchor, constant: LayoutGrid.doubleModule)
+
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: LayoutGrid.doubleModule),
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: LayoutGrid.doubleModule),
 
+            leadingAnchorConstraint,
+            trailingAnchorConstraint,
             textOperationView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: LayoutGrid.doubleModule),
             textOperationView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: LayoutGrid.doubleModule),
-            textOperationView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
 
-            contentView.widthAnchor.constraint(equalTo: textOperationView.widthAnchor),
+            textOperationView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             contentView.heightAnchor.constraint(equalToConstant: LayoutGrid.module * 20)
         ])
     }
@@ -132,7 +134,8 @@ final class TextOperationCell: UITableViewCell, AnyAppThemable, AccessibilitySup
         titleLabel.setDynamicFont(
             font: scheme.titleFont.uiFont,
             textStyle: scheme.titleFont.textStyle,
-            adjustsFontForContentSize: adjustsFontForContentSizeCategory)
+            adjustsFontForContentSize: adjustsFontForContentSizeCategory
+        )
     }
 
     private func updateSchemeColors() {
@@ -156,6 +159,15 @@ extension TextOperationCell: TableViewListItemConfigurable {
         textOperationView.discriptionName = item.description
         textOperationView.chatBubbleTime = item.chatBubbleTime
         titleLabel.text = item.titleLabelText
+
+        switch item.direction {
+        case .left:
+            trailingAnchorConstraint.isActive = false
+            leadingAnchorConstraint.isActive = true
+        default:
+            leadingAnchorConstraint.isActive = false
+            trailingAnchorConstraint.isActive = true
+        }
     }
 
 }

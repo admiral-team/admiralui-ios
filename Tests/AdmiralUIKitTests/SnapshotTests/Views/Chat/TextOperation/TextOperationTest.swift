@@ -6,6 +6,10 @@ import AdmiralUIResources
 
 class TextOperationTest: XCTestCase {
 
+    private enum Constants {
+        static let width: CGFloat = LayoutGrid.module * 34
+    }
+
     override func setUp() {
         super.setUp()
         Appearance.prepare()
@@ -52,7 +56,10 @@ class TextOperationTest: XCTestCase {
         textOperationView.discriptionName = discriptionName
         textOperationView.timeName = timeName
         textOperationView.titleName = titleName
-        textOperationView.frame.size = CGSize(width: LayoutGrid.module * 29, height: 97)
+        textOperationView.frame.size = CGSize(
+            width: style == .default || style == .success ? LayoutGrid.module * 29 : Constants.width,
+            height: 97
+        )
         textOperationView.apply(theme: theme)
         return textOperationView
     }
