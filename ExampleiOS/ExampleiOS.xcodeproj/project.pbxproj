@@ -161,6 +161,7 @@
 		3B574AAC27D29344006FEF9A /* AdmiralGunViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B574AAB27D29344006FEF9A /* AdmiralGunViewModel.swift */; };
 		3B59203F278D9A5700706DA6 /* AlertSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B59203E278D9A5700706DA6 /* AlertSwiftUIView.swift */; };
 		3B592041278DC75400706DA6 /* AlertCustomScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B592040278DC75400706DA6 /* AlertCustomScheme.swift */; };
+		3BA8350928059BE500D54318 /* ZeroScreenSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8350828059BE500D54318 /* ZeroScreenSwiftUIView.swift */; };
 		C61C26F7261BB99300D01ED9 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61C26F6261BB99300D01ED9 /* BaseViewController.swift */; };
 		C620B7F5256560F300CB1B29 /* VerticalCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C620B7F4256560F300CB1B29 /* VerticalCalendarViewController.swift */; };
 		C6260A99255A88BA007175C2 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6260A98255A88BA007175C2 /* BaseRouter.swift */; };
@@ -611,6 +612,7 @@
 		3B574AAB27D29344006FEF9A /* AdmiralGunViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralGunViewModel.swift; sourceTree = "<group>"; };
 		3B59203E278D9A5700706DA6 /* AlertSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSwiftUIView.swift; sourceTree = "<group>"; };
 		3B592040278DC75400706DA6 /* AlertCustomScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCustomScheme.swift; sourceTree = "<group>"; };
+		3BA8350828059BE500D54318 /* ZeroScreenSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroScreenSwiftUIView.swift; sourceTree = "<group>"; };
 		C61C26F6261BB99300D01ED9 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		C620B7F4256560F300CB1B29 /* VerticalCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalCalendarViewController.swift; sourceTree = "<group>"; };
 		C6260A98255A88BA007175C2 /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
@@ -1895,12 +1897,21 @@
 		3B59203D278D99AA00706DA6 /* Alert&Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				3BA8350728059BC600D54318 /* ZeroScreen */,
 				E9C79CC327BD221F0002EC49 /* Error */,
 				E9C79CC227BD22140002EC49 /* Alert */,
 				E9C79CC427BD22AE0002EC49 /* AlertOnboardingSwiftUIView.swift */,
 				E9C79CC627BD23500002EC49 /* AlertOnboardingItem.swift */,
 			);
 			path = "Alert&Onboarding";
+			sourceTree = "<group>";
+		};
+		3BA8350728059BC600D54318 /* ZeroScreen */ = {
+			isa = PBXGroup;
+			children = (
+				3BA8350828059BE500D54318 /* ZeroScreenSwiftUIView.swift */,
+			);
+			path = ZeroScreen;
 			sourceTree = "<group>";
 		};
 		C620B7F3256560E100CB1B29 /* Calendar */ = {
@@ -3864,6 +3875,7 @@
 				0E6EA49827025AD5002EBBBC /* DropDownSwiftUIView.swift in Sources */,
 				C6260AAA255B0536007175C2 /* SliderViewController.swift in Sources */,
 				C620B7F5256560F300CB1B29 /* VerticalCalendarViewController.swift in Sources */,
+				3BA8350928059BE500D54318 /* ZeroScreenSwiftUIView.swift in Sources */,
 				C6A7F2EC265401A000105F2D /* InformersSwiftUIItem.swift in Sources */,
 				0E4BC83A2681D062000FC891 /* ImageBaseCellSwiftUIItem.swift in Sources */,
 				C6BA9C0C25DC0A01000D741F /* MediumButtonContainerView.swift in Sources */,
