@@ -68,7 +68,7 @@ struct AlertOnboardingSwiftUIView: View {
         case .error:
             ErrorSwiftUIView()
         case .onboarding:
-            EmptyView()
+            OnBoardingSwiftUIView()
         case .zeroScreen:
             EmptyView()
         }

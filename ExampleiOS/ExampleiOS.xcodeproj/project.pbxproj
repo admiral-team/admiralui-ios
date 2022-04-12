@@ -161,6 +161,8 @@
 		3B574AAC27D29344006FEF9A /* AdmiralGunViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B574AAB27D29344006FEF9A /* AdmiralGunViewModel.swift */; };
 		3B59203F278D9A5700706DA6 /* AlertSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B59203E278D9A5700706DA6 /* AlertSwiftUIView.swift */; };
 		3B592041278DC75400706DA6 /* AlertCustomScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B592040278DC75400706DA6 /* AlertCustomScheme.swift */; };
+		3BA83504280462AE00D54318 /* OnBoardingSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA83503280462AE00D54318 /* OnBoardingSwiftUIView.swift */; };
+		3BA835062804638400D54318 /* OnBoardingCustomScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA835052804638400D54318 /* OnBoardingCustomScheme.swift */; };
 		C61C26F7261BB99300D01ED9 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61C26F6261BB99300D01ED9 /* BaseViewController.swift */; };
 		C620B7F5256560F300CB1B29 /* VerticalCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C620B7F4256560F300CB1B29 /* VerticalCalendarViewController.swift */; };
 		C6260A99255A88BA007175C2 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6260A98255A88BA007175C2 /* BaseRouter.swift */; };
@@ -611,6 +613,8 @@
 		3B574AAB27D29344006FEF9A /* AdmiralGunViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralGunViewModel.swift; sourceTree = "<group>"; };
 		3B59203E278D9A5700706DA6 /* AlertSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSwiftUIView.swift; sourceTree = "<group>"; };
 		3B592040278DC75400706DA6 /* AlertCustomScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCustomScheme.swift; sourceTree = "<group>"; };
+		3BA83503280462AE00D54318 /* OnBoardingSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingSwiftUIView.swift; sourceTree = "<group>"; };
+		3BA835052804638400D54318 /* OnBoardingCustomScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingCustomScheme.swift; sourceTree = "<group>"; };
 		C61C26F6261BB99300D01ED9 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		C620B7F4256560F300CB1B29 /* VerticalCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalCalendarViewController.swift; sourceTree = "<group>"; };
 		C6260A98255A88BA007175C2 /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
@@ -1895,12 +1899,22 @@
 		3B59203D278D99AA00706DA6 /* Alert&Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				3BA83502280362C000D54318 /* OnBoarding */,
 				E9C79CC327BD221F0002EC49 /* Error */,
 				E9C79CC227BD22140002EC49 /* Alert */,
 				E9C79CC427BD22AE0002EC49 /* AlertOnboardingSwiftUIView.swift */,
 				E9C79CC627BD23500002EC49 /* AlertOnboardingItem.swift */,
 			);
 			path = "Alert&Onboarding";
+			sourceTree = "<group>";
+		};
+		3BA83502280362C000D54318 /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				3BA83503280462AE00D54318 /* OnBoardingSwiftUIView.swift */,
+				3BA835052804638400D54318 /* OnBoardingCustomScheme.swift */,
+			);
+			path = OnBoarding;
 			sourceTree = "<group>";
 		};
 		C620B7F3256560E100CB1B29 /* Calendar */ = {
@@ -3601,6 +3615,7 @@
 				E6903D8525DFE41E00245403 /* ThemeColorsViewController.swift in Sources */,
 				0EAF71B72638750B0041CA08 /* InformerTabSwiftUIView.swift in Sources */,
 				C6260AB1255B0748007175C2 /* SMSCodeViewController.swift in Sources */,
+				3BA83504280462AE00D54318 /* OnBoardingSwiftUIView.swift in Sources */,
 				E945187A27D36AAD0048B133 /* ToolBarElementDTO.swift in Sources */,
 				C6260AB5255B086F007175C2 /* StandardVSIconMenuViewController.swift in Sources */,
 				0E73863227764959003892C7 /* ToastNotificationsViewScheme.swift in Sources */,
@@ -3746,6 +3761,7 @@
 				E9A18D8D2739563B00668C03 /* SwiftUIUploadingFileView.swift in Sources */,
 				E9C79CC927BD245C0002EC49 /* ErrorSwiftUIView.swift in Sources */,
 				E640F65625E1138C0036E24E /* SelectThemeTemplateViewController.swift in Sources */,
+				3BA835062804638400D54318 /* OnBoardingCustomScheme.swift in Sources */,
 				E6D5710825DE6CCA00D3304F /* UIView+Autolayout.swift in Sources */,
 				E945189D27D36D360048B133 /* AdmiralGunAPIFacadeProtocol.swift in Sources */,
 				C6DCBFF52631AABD00754365 /* BottomSheetViewControllerCustomTheme.swift in Sources */,
