@@ -394,6 +394,7 @@
 		E9A709882758E70D003233DF /* ChatMessageCellScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A709872758E70D003233DF /* ChatMessageCellScheme.swift */; };
 		E9A755D327451AC2005024B3 /* IconTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A755D227451AC2005024B3 /* IconTabs.swift */; };
 		E9A75608274E6AB9005024B3 /* InputChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A75607274E6AB9005024B3 /* InputChatViewController.swift */; };
+		E9A8E5F82805CC23002786F0 /* SpinnerSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A8E5F72805CC23002786F0 /* SpinnerSwiftUIView.swift */; };
 		E9B4554727708D8800EA17FC /* TextMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4554627708D8800EA17FC /* TextMessageViewController.swift */; };
 		E9B82B8627B521BF00FC7BB9 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B82B8527B521BF00FC7BB9 /* View+Extensions.swift */; };
 		E9B82B8C27B521D100FC7BB9 /* SizePreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B82B8927B521D100FC7BB9 /* SizePreferenceKey.swift */; };
@@ -847,6 +848,7 @@
 		E9A709872758E70D003233DF /* ChatMessageCellScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageCellScheme.swift; sourceTree = "<group>"; };
 		E9A755D227451AC2005024B3 /* IconTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTabs.swift; sourceTree = "<group>"; };
 		E9A75607274E6AB9005024B3 /* InputChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputChatViewController.swift; sourceTree = "<group>"; };
+		E9A8E5F72805CC23002786F0 /* SpinnerSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerSwiftUIView.swift; sourceTree = "<group>"; };
 		E9B4554627708D8800EA17FC /* TextMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextMessageViewController.swift; sourceTree = "<group>"; };
 		E9B82B8527B521BF00FC7BB9 /* View+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		E9B82B8927B521D100FC7BB9 /* SizePreferenceKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizePreferenceKey.swift; sourceTree = "<group>"; };
@@ -1570,6 +1572,7 @@
 		0EA9F51E26284D81009F4B5A /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				E9A8E5F62805CC0E002786F0 /* Spinner */,
 				3B574AA827D29057006FEF9A /* AdmiralGunUI */,
 				3B59203D278D99AA00706DA6 /* Alert&Onboarding */,
 				E9332FC2277D958200F9AF26 /* PageControls */,
@@ -3224,6 +3227,14 @@
 			path = Input;
 			sourceTree = "<group>";
 		};
+		E9A8E5F62805CC0E002786F0 /* Spinner */ = {
+			isa = PBXGroup;
+			children = (
+				E9A8E5F72805CC23002786F0 /* SpinnerSwiftUIView.swift */,
+			);
+			path = Spinner;
+			sourceTree = "<group>";
+		};
 		E9B4554527708D6900EA17FC /* TextMessage */ = {
 			isa = PBXGroup;
 			children = (
@@ -3946,6 +3957,7 @@
 				C674991025D3FE6300232C5F /* TabsView.swift in Sources */,
 				C674990C25D3FBB600232C5F /* UnderlineSliderTabs.swift in Sources */,
 				0E0A3EF82611D3EA007C4CA8 /* OnboardingPageViewController.swift in Sources */,
+				E9A8E5F82805CC23002786F0 /* SpinnerSwiftUIView.swift in Sources */,
 				C6A7F2E82654005700105F2D /* BigInformersSwiftUIView.swift in Sources */,
 				E94518B227D4A37C0048B133 /* StandartTextFieldPlain.swift in Sources */,
 				E6903D7F25DEFF4500245403 /* ThemeViewController.swift in Sources */,
