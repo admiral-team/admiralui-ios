@@ -110,7 +110,7 @@ final class SwiftUIChatInputViewModel: ObservableObject {
                     ChatMessage(
                         text: text,
                         state: .message(direction: .right),
-                        status: .receive
+                        status: .read
                     )
                 )
                 self?.text = ""

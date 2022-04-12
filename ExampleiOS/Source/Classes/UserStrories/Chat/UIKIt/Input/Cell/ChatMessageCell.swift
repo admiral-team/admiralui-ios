@@ -12,14 +12,14 @@ import UIKit
 struct ChatMessageCellViewModel: TableViewListItem {
 
     var didSelect: (() -> Void)?
-    let message: String
-    let time: String
-    let name: String?
-    let image: UIImage?
-    let header: String?
-    let direction: ChatDirection
-    let chatStatus: ChatStatus?
-    let state: ChatBubbleState
+    var message: String
+    var time: String
+    var name: String?
+    var image: UIImage?
+    var header: String?
+    var direction: ChatDirection
+    var chatStatus: ChatStatus?
+    var state: ChatBubbleState
 
     var reuseIdentifier: String {
         String(describing: ChatMessageCell.self)

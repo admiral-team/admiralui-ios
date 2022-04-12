@@ -188,6 +188,8 @@ struct CustomSwiftUIView: View {
             PageControlsSwiftUIView()
         case .admiralGun:
             AdmiralGunView()
+        case .spiner:
+            SpinnerSwiftUIView()
         default:
             EmptyView()
         }
