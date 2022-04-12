@@ -311,6 +311,7 @@
 		E6D91C482532047C00DCE489 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D91C472532047C00DCE489 /* AppDelegate.swift */; };
 		E6D91C512532047D00DCE489 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6D91C502532047D00DCE489 /* Images.xcassets */; };
 		E6D91C542532047D00DCE489 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6D91C522532047D00DCE489 /* LaunchScreen.storyboard */; };
+		E9129E442805878F00725B7C /* TextMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9129E432805878F00725B7C /* TextMessageViewModel.swift */; };
 		E916F9F927677B8200628C96 /* SwiftUITextOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E916F9F827677B8200628C96 /* SwiftUITextOperation.swift */; };
 		E916FA012768A7FF00628C96 /* TextOperationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E916FA002768A7FF00628C96 /* TextOperationViewController.swift */; };
 		E916FA042768B60C00628C96 /* TextOperationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E916FA032768B60C00628C96 /* TextOperationCell.swift */; };
@@ -765,6 +766,7 @@
 		E6D91C502532047D00DCE489 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E6D91C532532047D00DCE489 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E6D91C552532047D00DCE489 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9129E432805878F00725B7C /* TextMessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextMessageViewModel.swift; sourceTree = "<group>"; };
 		E916F9F827677B8200628C96 /* SwiftUITextOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITextOperation.swift; sourceTree = "<group>"; };
 		E916FA002768A7FF00628C96 /* TextOperationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOperationViewController.swift; sourceTree = "<group>"; };
 		E916FA032768B60C00628C96 /* TextOperationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOperationCell.swift; sourceTree = "<group>"; };
@@ -3242,6 +3244,7 @@
 			isa = PBXGroup;
 			children = (
 				E9B4554627708D8800EA17FC /* TextMessageViewController.swift */,
+				E9129E432805878F00725B7C /* TextMessageViewModel.swift */,
 			);
 			path = TextMessage;
 			sourceTree = "<group>";
@@ -3885,6 +3888,7 @@
 				0EF8F7192535D96E002F9CF4 /* SectionHeader.swift in Sources */,
 				C671F50525F2627B00C362B2 /* InDevelopmentView.swift in Sources */,
 				E9332FCB277DAA3500F9AF26 /* CustomSwiftUIViewModel.swift in Sources */,
+				E9129E442805878F00725B7C /* TextMessageViewModel.swift in Sources */,
 				C6C1750F25F7A34600DC052F /* ContactsTableViewCell.swift in Sources */,
 				0ECF1B4E266153010068F591 /* InfoSwiftUIViewScheme.swift in Sources */,
 				0EEAF9E3261F8D2B00E46143 /* SwiftUIController.swift in Sources */,
