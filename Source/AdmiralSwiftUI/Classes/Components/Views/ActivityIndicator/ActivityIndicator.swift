@@ -70,7 +70,7 @@ public struct ActivityIndicator: View {
     
     // MARK: - Initializer
     
-    init(style: Style = .default, size: Size = .medium) {
+    public init(style: Style = .default, size: Size = .medium) {
         self.style = style
         self.size = size
     }
