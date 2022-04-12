@@ -59,6 +59,7 @@ public final class TextOperationView: UIView, AnyAppThemable {
         static let textBlockstackViewSpacing = LayoutGrid.halfModule
         static let trailingConstant: CGFloat = LayoutGrid.tripleModule / 2
         static let topAnchor: CGFloat = LayoutGrid.module
+        static let padding: CGFloat = LayoutGrid.quadrupleModule
     }
 
     // MARK: - Public properties
@@ -136,11 +137,16 @@ public final class TextOperationView: UIView, AnyAppThemable {
 
     private var textBlockStackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.distribution = .equalSpacing
         stackView.axis = .vertical
         stackView.spacing = Constants.textBlockstackViewSpacing
         return stackView
+    }()
+
+    private let errorView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = PrivateAsset.Custom.Chat.error.image
+        return imageView
     }()
 
     // MARK: - Private properties
@@ -151,6 +157,8 @@ public final class TextOperationView: UIView, AnyAppThemable {
     private let timeLabel = UILabel()
     private let textOperationView = UIView()
     private var chatStatusBubbleView = ChatBubbleStatusView()
+    private var trailingConstraint = NSLayoutConstraint()
+    private var errorTrailingConstraint = NSLayoutConstraint()
 
     // MARK: - Initializer
 
@@ -180,7 +188,7 @@ public final class TextOperationView: UIView, AnyAppThemable {
     private func addSubviews() {
         textBlockStackView.addArrangedSubview(titleLabel)
         textBlockStackView.addArrangedSubview(discriptionLabel)
-        [textOperationView].addToSuperview(self)
+        [textOperationView, errorView].addToSuperview(self)
         [textBlockStackView, timeLabel, chatStatusBubbleView].addToSuperview(textOperationView)
     }
 
@@ -193,11 +201,18 @@ public final class TextOperationView: UIView, AnyAppThemable {
     }
 
     private func setupConstraints() {
+        trailingConstraint = trailingAnchor.constraint(equalTo: textOperationView.trailingAnchor, constant: LayoutGrid.doubleModule)
+        errorTrailingConstraint = errorView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: .zero)
+
         NSLayoutConstraint.activate([
             textOperationView.widthAnchor.constraint(equalToConstant: Constants.width),
             textBlockStackView.leadingAnchor.constraint(equalTo: textOperationView.leadingAnchor, constant: Constants.trailingConstant),
             textBlockStackView.topAnchor.constraint(equalTo: textOperationView.topAnchor, constant: Constants.topAnchor),
             textOperationView.trailingAnchor.constraint(equalTo: textBlockStackView.trailingAnchor, constant: Constants.trailingConstant),
+
+            trailingConstraint,
+            errorTrailingConstraint,
+            bottomAnchor.constraint(equalTo: errorView.bottomAnchor, constant: LayoutGrid.module),
 
             timeLabel.leadingAnchor.constraint(equalTo: textOperationView.leadingAnchor, constant: Constants.trailingConstant),
             timeLabel.topAnchor.constraint(equalTo: textBlockStackView.bottomAnchor, constant: Constants.topAnchor),
@@ -211,6 +226,18 @@ public final class TextOperationView: UIView, AnyAppThemable {
     private func updateScheme() {
         updateFonts()
         updateColors()
+        updateUI()
+    }
+
+    private func updateUI() {
+        errorView.isHidden = !(textOperationStyle == .error && chatDirection == .right)
+        updateTrailingConstraints()
+    }
+
+    private func updateTrailingConstraints() {
+        trailingConstraint.isActive = chatStatusBubbleView.chatDirection == .right
+        errorTrailingConstraint.isActive = chatStatusBubbleView.chatDirection == .right
+        trailingConstraint.constant = textOperationStyle == .default ? .zero : Constants.padding
     }
 
     private func updateColors() {
