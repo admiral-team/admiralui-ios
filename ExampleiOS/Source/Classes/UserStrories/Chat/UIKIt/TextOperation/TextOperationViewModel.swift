@@ -5,6 +5,7 @@
 //  Created on 27.01.2022.
 //
 
+import AdmiralUIKit
 import Foundation
 
 final class TextOperationViewModel {
@@ -39,7 +40,7 @@ final class TextOperationViewModel {
             description: "НПО «Ромашка»",
             time: "13 мая 14:15",
             didSelect: nil,
-            direction: .left,
+            direction: .right,
             chatStatus: .none,
             style: .error,
             titleLabelText: "Error",
@@ -49,6 +50,16 @@ final class TextOperationViewModel {
 
     var sections: [MainSectionViewModel] {
         [MainSectionViewModel(items: textOperations)]
+    }
+
+    // MARK: - Internal Methods
+
+    func removeTextOperation(by index: Int) {
+        textOperations.remove(at: index)
+    }
+
+    func changeTextStatus(with style: TextOperationViewStyle, index: Int) {
+        textOperations[index].style = style
     }
 
 }
