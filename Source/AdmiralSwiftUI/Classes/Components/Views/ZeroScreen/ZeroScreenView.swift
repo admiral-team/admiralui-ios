@@ -94,8 +94,7 @@ public struct ZeroScreenView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(
                         width: LayoutGrid.module * 9,
-                        height: LayoutGrid.module * 9,
-                        alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        height: LayoutGrid.module * 9)
             }
             Spacer()
                 .frame(height: LayoutGrid.doubleModule * 2)
