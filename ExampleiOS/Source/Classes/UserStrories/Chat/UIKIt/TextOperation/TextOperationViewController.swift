@@ -103,33 +103,12 @@ import UIKit
         configureUI()
     }
 
-    private func showAlert(index: Int) {
-        let alert = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Повторить отправку", style: .default, handler: { [weak self] _ in
-            self?.viewModel.changeTextStatus(with: .default, index: index)
-            self?.updateTable()
-        }))
-        alert.addAction(UIAlertAction(title: "Удалить", style: .default, handler: { [weak self] _ in
-            self?.viewModel.removeTextOperation(by: index)
-            self?.updateTable()
-        }))
-        alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: { _ in }))
-        present(alert, animated: true, completion: {})
-    }
-
  }
 
  extension TextOperationViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
-    }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let model = viewModel.textOperations[indexPath.row]
-        if model.style == .error {
-            showAlert(index: indexPath.row)
-        }
     }
 
  }
