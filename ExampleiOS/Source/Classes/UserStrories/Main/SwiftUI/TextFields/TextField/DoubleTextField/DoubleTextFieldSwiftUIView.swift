@@ -50,7 +50,7 @@ struct DoubleTextFieldSwiftUIView: View {
                         secondTextField: StandardTextField($secondText, placeholder: "Placeholder", name: "Optional Label", state: $state),
                         alignment: .ratio(ration: 0.5),
                         info: "Info",
-                        infoNumberOfLines: 4,
+                        infoNumberOfLines: 1,
                         state: $state)
                     Spacer()
                         .frame(height: 80.0)
@@ -70,13 +70,15 @@ struct DoubleTextFieldSwiftUIView: View {
                         placeholder: "Placeholder",
                         name: "Optional Label",
                         state: $state,
-                        info: .constant("Info")),
+                        info: .constant("Info"),
+                        infoNumberOfLines: 3),
                     secondTextField: StandardTextField(
                         $fourText,
                         placeholder: "Placeholder",
                         name: "Optional Label",
                         state: $state,
-                        info: .constant("Info")),
+                        info: .constant("Info"),
+                        infoNumberOfLines: 3),
                     alignment: .ratio(ration: 0.7),
                     state: $state)
                 Spacer()

@@ -65,6 +65,8 @@ public struct DoubleTextField<T1, T2>: View where T1: TextFieldInput, T2: TextFi
     /// The maximum number of lines to use for info.
     public let infoNumberOfLines: Int?
     
+    @State private var segmentedSize: CGSize = .zero
+    @State private var isPresentTextField = false
     @State private var scheme: DoubleTextFieldScheme? = nil
     private var accessibilityIdentifier: String?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<DoubleTextFieldScheme>()
@@ -113,7 +115,7 @@ public struct DoubleTextField<T1, T2>: View where T1: TextFieldInput, T2: TextFi
         return VStack(spacing: 0) {
             switch alignment {
             case .fixedFirst(let firstWidth):
-                HStack {
+                HStack(alignment: .top) {
                     firstTextField
                         .state(state)
                         .frame(width: firstWidth)
@@ -129,7 +131,7 @@ public struct DoubleTextField<T1, T2>: View where T1: TextFieldInput, T2: TextFi
                         .padding(.bottom, LayoutGrid.halfModule * 3)
                 }
             case .fixedSecond(let secondWidth):
-                HStack {
+                HStack(alignment: .top) {
                     firstTextField
                         .state(state)
                         .frame(width: secondWidth)
@@ -145,24 +147,27 @@ public struct DoubleTextField<T1, T2>: View where T1: TextFieldInput, T2: TextFi
                         .padding(.bottom, LayoutGrid.halfModule * 3)
                 }
             case .ratio(let ration):
-                GeometryReader { geometry in
-                    HStack {
+                if segmentedSize.width != 0 {
+                    HStack(alignment: .top) {
                         firstTextField
                             .state(state)
-                            .frame(width: geometry.size.width * ration)
+                            .frame(width: segmentedSize.width * ration)
                         Spacer()
                             .frame(width: LayoutGrid.doubleModule)
                         secondTextField
                             .state(state)
+                        
                     }
-                    .frame(minHeight: geometry.size.height)
-                    if isShowInfo {
-                        textInfoView(infoColor: infoColor, textFont: scheme.informerFont.swiftUIFont)
-                            .offset(y: LayoutGrid.module * 5)
-                    }
+                    .padding(.top, LayoutGrid.tripleModule)
                 }
-                .padding(.top, LayoutGrid.module * 5)
-                .padding(.bottom, LayoutGrid.module * 6)
+                Line()
+                    .fill(Color.clear)
+                    .modifier(SizeAwareViewModifier(viewSize: $segmentedSize))
+                if isShowInfo {
+                    textInfoView(infoColor: infoColor, textFont: scheme.informerFont.swiftUIFont)
+                        .offset(y: -LayoutGrid.halfModule)
+                        .padding(.bottom, LayoutGrid.halfModule * 3)
+                }
             }
         }
     }
