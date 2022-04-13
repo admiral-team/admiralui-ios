@@ -121,6 +121,9 @@ public struct BankCardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
     /// Adds an action to perform change cursor position. On enter 3 parameters - startCursor, currentCursor, text. Return cursor position.
     private let onCursorPosition: ((Int, Int, String) -> (Int))?
     
+    // Flag is disable pasting. If flasg is true pasting is enabled.
+    private let canPerformActionPaste: Bool
+    
     @State private var scheme: BankCardTextFieldScheme? = nil
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<BankCardTextFieldScheme>()
     
@@ -138,6 +141,7 @@ public struct BankCardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
     ///   - returnKeyType: The visible title of the Return key.
     ///   - autocapitalizationType: The autocapitalization style for the text object.
     ///   - autocorrectionType: The autocorrection style for the text object.
+    ///   - canPerformActionPaste: Flag is disable pasting.
     ///   - placeholder: The string that displays when there is no other text in the text field.
     ///   - icon:  The text field’s traling image view.
     ///   - state: The textfield state.
@@ -156,6 +160,7 @@ public struct BankCardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
         returnKeyType: UIReturnKeyType = .default,
         autocapitalizationType: UITextAutocapitalizationType = .none,
         autocorrectionType: UITextAutocorrectionType = .yes,
+        canPerformActionPaste: Bool = true,
         placeholder: String = "",
         info: Binding<String> = .constant(""),
         infoNumberOfLines: Int? = nil,
@@ -185,6 +190,7 @@ public struct BankCardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
         self.returnKeyType = returnKeyType
         self.autocapitalizationType = autocapitalizationType
         self.autocorrectionType = autocorrectionType
+        self.canPerformActionPaste = canPerformActionPaste
         self.isResponder = isResponder
         self._isFocused = .init(initialValue: isResponder?.wrappedValue ?? false)
         self.trailingView = trailingView
@@ -200,6 +206,7 @@ public struct BankCardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
     ///   - returnKeyType: The visible title of the Return key.
     ///   - autocapitalizationType: The autocapitalization style for the text object.
     ///   - autocorrectionType: The autocorrection style for the text object.
+    ///   - canPerformActionPaste: Flag is disable pasting.
     ///   - placeholder: The string that displays when there is no other text in the text field.
     ///   - icon:  The text field’s traling image view.
     ///   - state: The textfield state.
@@ -217,6 +224,7 @@ public struct BankCardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
         returnKeyType: UIReturnKeyType = .default,
         autocapitalizationType: UITextAutocapitalizationType = .none,
         autocorrectionType: UITextAutocorrectionType = .yes,
+        canPerformActionPaste: Bool = true,
         placeholder: String = "",
         info: Binding<String> = .constant(""),
         infoNumberOfLines: Int? = nil,
@@ -233,6 +241,7 @@ public struct BankCardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
                 returnKeyType: returnKeyType,
                 autocapitalizationType: autocapitalizationType,
                 autocorrectionType: autocorrectionType,
+                canPerformActionPaste: canPerformActionPaste,
                 placeholder: placeholder,
                 info: info,
                 infoNumberOfLines: infoNumberOfLines,
@@ -359,6 +368,7 @@ public struct BankCardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
                         returnKeyType: returnKeyType,
                         autocapitalizationType: autocapitalizationType,
                         autocorrectionType: autocorrectionType,
+                        canPerformActionPaste: canPerformActionPaste,
                         textColor: textColor.uiColor,
                         placeholderColor: placeholderColor.uiColor,
                         tintColor: tintColor.uiColor,
@@ -405,6 +415,7 @@ extension BankCardTextField where T == EmptyView {
     ///   - returnKeyType: The visible title of the Return key.
     ///   - autocapitalizationType: The autocapitalization style for the text object.
     ///   - autocorrectionType: The autocorrection style for the text object.
+    ///   - canPerformActionPaste: Flag is disable pasting.
     ///   - placeholder: The string that displays when there is no other text in the text field.
     ///   - icon:  The text field’s traling image view.
     ///   - state: The textfield state.
@@ -422,6 +433,7 @@ extension BankCardTextField where T == EmptyView {
         returnKeyType: UIReturnKeyType = .default,
         autocapitalizationType: UITextAutocapitalizationType = .none,
         autocorrectionType: UITextAutocorrectionType = .yes,
+        canPerformActionPaste: Bool = true,
         placeholder: String = "",
         info: Binding<String> = .constant(""),
         infoNumberOfLines: Int? = nil,
@@ -450,6 +462,7 @@ extension BankCardTextField where T == EmptyView {
         self.returnKeyType = returnKeyType
         self.autocapitalizationType = autocapitalizationType
         self.autocorrectionType = autocorrectionType
+        self.canPerformActionPaste = canPerformActionPaste
         self.isResponder = isResponder
         self._isFocused = .init(initialValue: isResponder?.wrappedValue ?? false)
         self.trailingView = { EmptyView() }
@@ -465,6 +478,7 @@ extension BankCardTextField where T == EmptyView {
     ///   - returnKeyType: The visible title of the Return key.
     ///   - autocapitalizationType: The autocapitalization style for the text object.
     ///   - autocorrectionType: The autocorrection style for the text object.
+    ///   - canPerformActionPaste: Flag is disable pasting.
     ///   - placeholder: The string that displays when there is no other text in the text field.
     ///   - icon:  The text field’s traling image view.
     ///   - state: The textfield state.
@@ -481,6 +495,7 @@ extension BankCardTextField where T == EmptyView {
         returnKeyType: UIReturnKeyType = .default,
         autocapitalizationType: UITextAutocapitalizationType = .none,
         autocorrectionType: UITextAutocorrectionType = .yes,
+        canPerformActionPaste: Bool = true,
         placeholder: String = "",
         info: Binding<String> = .constant(""),
         infoNumberOfLines: Int? = nil,
@@ -496,6 +511,7 @@ extension BankCardTextField where T == EmptyView {
             returnKeyType: returnKeyType,
             autocapitalizationType: autocapitalizationType,
             autocorrectionType: autocorrectionType,
+            canPerformActionPaste: canPerformActionPaste,
             placeholder: placeholder,
             info: info,
             infoNumberOfLines: infoNumberOfLines,

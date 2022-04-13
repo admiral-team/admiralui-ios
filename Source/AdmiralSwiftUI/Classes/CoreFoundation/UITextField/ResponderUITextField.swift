@@ -14,6 +14,8 @@ final class ResponderUITextField: UITextField {
     var isFirstResponderBinding: Binding<Bool>?
 
     var onDeleteBackward: () -> Void = { }
+    
+    var canPerformActionPaste: Bool = true
         
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -43,6 +45,15 @@ final class ResponderUITextField: UITextField {
         }
         
        return super.resignFirstResponder()
+    }
+    
+    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+        if !canPerformActionPaste {
+            if action == #selector(UIResponderStandardEditActions.paste(_:)) {
+                return false
+            }
+        }
+        return super.canPerformAction(action, withSender: sender)
     }
     
     override func deleteBackward() {
