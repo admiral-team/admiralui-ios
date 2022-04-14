@@ -16,7 +16,7 @@ struct ToolBarSwiftUIView: View {
     
     @State private var startValue: Double = 4.0
     @State private var sliceItemArray = [
-        ToolBarItem(title: "Оплатить", image: Image(uiImage: Asset.Toolbar.card.image), badgeStyle: .value(3)),
+        ToolBarItem(title: "Оплатить", image: Image(uiImage: Asset.Toolbar.card.image)),
         ToolBarItem(title: "Пополнить", image: Image(uiImage: Asset.Toolbar.getCash.image)),
         ToolBarItem(title: "Подробнее", image: Image(uiImage: Asset.Toolbar.info.image), isEnabled: false),
         ToolBarItem(title: "Настройки", image: Image(uiImage: Asset.Toolbar.settings.image))
