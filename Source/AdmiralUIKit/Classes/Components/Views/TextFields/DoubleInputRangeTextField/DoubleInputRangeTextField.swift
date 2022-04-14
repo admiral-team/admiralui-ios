@@ -26,7 +26,7 @@ import AdmiralTheme
 public class DoubleInputRangeTextField: UIView, AnyAppThemable, AccessibilitySupport {
     
     private enum Constants {
-        static let leadingLabelFrame = CGRect(x: .zero, y: .zero, width: LayoutGrid.quadrupleModule, height: LayoutGrid.halfModule * 5)
+        static let leadingLabelFrame = CGRect(x: .zero, y: .zero, width: LayoutGrid.tripleModule, height: LayoutGrid.halfModule * 5)
         static let fromLabelText = "От"
         static let toLabelText = "До"
     }
@@ -239,7 +239,7 @@ public class DoubleInputRangeTextField: UIView, AnyAppThemable, AccessibilitySup
             leftTextField.trailingAnchor.constraint(equalTo: slider.trailingAnchor),
             slider.topAnchor.constraint(equalTo: leftTextField.bottomAnchor),
 
-            minValueLabel.leadingAnchor.constraint(equalTo: leftTextField.leadingAnchor),
+            minValueLabel.leadingAnchor.constraint(equalTo: leftTextField.trailingAnchor),
             minValueLabel.topAnchor.constraint(equalTo: slider.bottomAnchor),
             minValueLabel.widthAnchor.constraint(equalTo: maxValueLabel.widthAnchor, multiplier: 1.0),
 
