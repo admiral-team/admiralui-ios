@@ -96,7 +96,7 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
     /// Adds an action to perform change cursor position. On enter 3 parameters - startCursor, currentCursor, text. Return cursor position.
     private let onCursorPosition: ((Int, Int, String) -> (Int))?
     
-    // Flag is disable pasting. If flasg is true pasting is enabled.
+    /// Flag is disable pasting. If flasg is true pasting is enabled.
     private let canPerformActionPaste: Bool
     
     @Environment(\.isEnabled) private var isEnabled

@@ -126,7 +126,7 @@ public struct SecurityTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
     /// Adds an action to perform change cursor position. On enter 3 parameters - startCursor, currentCursor, text. Return cursor position.
     private let onCursorPosition: ((Int, Int, String) -> (Int))?
     
-    // Flag is disable pasting. If flasg is true pasting is enabled.
+    /// Flag is disable pasting. If flasg is true pasting is enabled.
     private let canPerformActionPaste: Bool
     
     // MARK: - Private Properties

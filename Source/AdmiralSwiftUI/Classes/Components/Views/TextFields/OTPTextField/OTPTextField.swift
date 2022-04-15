@@ -106,7 +106,7 @@ public struct OTPTextField: TextFieldInput, AccessabilitySupportUIKit, Identifia
     /// Constants that identify the semantic meaning for a text-entry area.
     private let textContentType: UITextContentType?
     
-    // Flag is disable pasting. If flasg is true pasting is enabled.
+    /// Flag is disable pasting. If flasg is true pasting is enabled.
     private let canPerformActionPaste: Bool
     
     @State private var scheme: OTPTextFieldScheme? = nil
