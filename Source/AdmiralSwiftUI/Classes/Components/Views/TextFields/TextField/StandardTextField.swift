@@ -152,7 +152,7 @@ public struct StandardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
     /// Constants that identify the semantic meaning for a text-entry area.
     private var textContentType: UITextContentType? = nil
     
-    // Flag is disable pasting. If flasg is true pasting is enabled.
+    /// Flag is disable pasting. If flasg is true pasting is enabled.
     private let canPerformActionPaste: Bool
     
     /// Adds an action to perform change cursor position. On enter 3 parameters - startCursor, currentCursor, text. Return cursor position.
