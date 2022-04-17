@@ -20,30 +20,13 @@ jobs:
         uses: actions/checkout@v2
       - name: Setup Environment
         run:  bundle install
-      - name: Start SwiftUI & UIKit tests
-        run:  bundle exec fastlane run_all_tests
-      - name: Deploy AppCenter Dev
-        env:     
-          CI_PASSWORD:  ${{ secrets.CI_PASSWORD }}
-        run: |
-          bundle exec fastlane unlock_secrets_keychain password:"$CI_PASSWORD"
-          bundle exec fastlane deploy_appcenter_dev issue_name:${{ github.head_ref }} pull_request_number:${{ github.event.number }} 
       - name: Build XCFrameworks
         run:  bundle exec fastlane build_git_packages
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
-        env:
-          ADMIRAL_SWIFTUI: Products/xcframeworks/AdmiralSwiftUI.xcframework
-          ADMIRAL_UIKIT: Products/xcframeworks/AdmiralUIKit.xcframework
-          ADMIRAL_THEMES: Products/xcframeworks/AdmiralTheme.xcframework
-          ADMIRAL_UIRESOURCES: Products/xcframeworks/AdmiralUIResources.xcframework
         with:
           name: Artifacts
-          path: |
-            $ADMIRAL_SWIFTUI
-            $ADMIRAL_UIKIT
-            $ADMIRAL_THEMES
-            $ADMIRAL_UIRESOURCES
+          path: Products/xcframeworks
 
 
 
