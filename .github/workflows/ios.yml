@@ -26,7 +26,11 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Artifacts
-          path: Products/xcframeworks
+          path: |
+            Products/xcframeworks/AdmiralSwiftUI.xcframework
+            Products/xcframeworks/AdmiralUIKit.xcframework
+            Products/xcframeworks/AdmiralTheme.xcframework
+            Products/xcframeworks/AdmiralUIResources.xcframework
 
 
 
