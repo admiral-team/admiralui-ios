@@ -86,16 +86,15 @@ public struct ZeroScreenView: View {
 
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
-        VStack(alignment: .center, spacing: 0.0, content: {
+        VStack(alignment: .center, spacing: 0.0) {
             Spacer()
             if let image = image {
                 image
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(
-                        width: Constants.imageSize.width,
-                        height: Constants.imageSize.height,
-                        alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        width: LayoutGrid.module * 9,
+                        height: LayoutGrid.module * 9)
             }
             Spacer()
                 .frame(height: LayoutGrid.doubleModule * 2)
@@ -121,7 +120,8 @@ public struct ZeroScreenView: View {
             }
             Spacer()
                 .frame(height: LayoutGrid.doubleModule)
-        })
+        }
+        .padding(.horizontal, LayoutGrid.doubleModule)
     }
     
     // MARK: - Internal Methods
@@ -145,7 +145,5 @@ struct ZeroScreenView_Previews: PreviewProvider {
             subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             buttonTitle: "Ok",
             buttonAction: {})
-            .padding(.horizontal, LayoutGrid.doubleModule)
-        
     }
 }
