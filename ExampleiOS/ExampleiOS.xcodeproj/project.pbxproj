@@ -153,6 +153,8 @@
 		3B0268B627A85F7700B03E6F /* SwiftUITextMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0268B527A85F7700B03E6F /* SwiftUITextMessageViewModel.swift */; };
 		3B0268B827AAA8D900B03E6F /* SwiftUITextOperationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0268B727AAA8D900B03E6F /* SwiftUITextOperationViewModel.swift */; };
 		3B500E2827297F2500A860F0 /* UIApplication+EndEditing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B500E2727297F2500A860F0 /* UIApplication+EndEditing.swift */; };
+		3B56DAD8280D70F900161355 /* OnBoardingPageUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B56DAD7280D70F900161355 /* OnBoardingPageUIView.swift */; };
+		3B56DADA280D772900161355 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B56DAD9280D772900161355 /* PageViewController.swift */; };
 		3B574A9D27C7D9E2006FEF9A /* ZeroScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B574A9C27C7D9E2006FEF9A /* ZeroScreenViewController.swift */; };
 		3B574A9F27C7DA13006FEF9A /* ZeroScreenViewControllerScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B574A9E27C7DA13006FEF9A /* ZeroScreenViewControllerScheme.swift */; };
 		3B574AAA27D290F8006FEF9A /* AdmiralGunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B574AA927D290F8006FEF9A /* AdmiralGunView.swift */; };
@@ -610,6 +612,8 @@
 		3B0268B527A85F7700B03E6F /* SwiftUITextMessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITextMessageViewModel.swift; sourceTree = "<group>"; };
 		3B0268B727AAA8D900B03E6F /* SwiftUITextOperationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITextOperationViewModel.swift; sourceTree = "<group>"; };
 		3B500E2727297F2500A860F0 /* UIApplication+EndEditing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+EndEditing.swift"; sourceTree = "<group>"; };
+		3B56DAD7280D70F900161355 /* OnBoardingPageUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingPageUIView.swift; sourceTree = "<group>"; };
+		3B56DAD9280D772900161355 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		3B574A9C27C7D9E2006FEF9A /* ZeroScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroScreenViewController.swift; sourceTree = "<group>"; };
 		3B574A9E27C7DA13006FEF9A /* ZeroScreenViewControllerScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroScreenViewControllerScheme.swift; sourceTree = "<group>"; };
 		3B574AA927D290F8006FEF9A /* AdmiralGunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralGunView.swift; sourceTree = "<group>"; };
@@ -1921,17 +1925,17 @@
 			path = "Alert&Onboarding";
 			sourceTree = "<group>";
 		};
-
 		3BA83502280362C000D54318 /* OnBoarding */ = {
 			isa = PBXGroup;
 			children = (
 				3BA83503280462AE00D54318 /* OnBoardingSwiftUIView.swift */,
+				3B56DAD7280D70F900161355 /* OnBoardingPageUIView.swift */,
 				3BA835052804638400D54318 /* OnBoardingCustomScheme.swift */,
+				3B56DAD9280D772900161355 /* PageViewController.swift */,
 			);
 			path = OnBoarding;
-               sourceTree = "<group>";
-   };
-
+			sourceTree = "<group>";
+		};
 		3BA8350728059BC600D54318 /* ZeroScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -1940,7 +1944,6 @@
 			path = ZeroScreen;
 			sourceTree = "<group>";
 		};
-        
 		C620B7F3256560E100CB1B29 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -3774,6 +3777,7 @@
 				0E0A3F0626121F38007C4CA8 /* UserSettingService.swift in Sources */,
 				E9A18D8F2739786500668C03 /* SwiftUIUploadFileViewModel.swift in Sources */,
 				E92DC2F527FC60DF00CB789E /* BadgesNormalViewModel.swift in Sources */,
+				3B56DAD8280D70F900161355 /* OnBoardingPageUIView.swift in Sources */,
 				C6D5BD692665598800437808 /* ToolBarSwiftUIView.swift in Sources */,
 				E6117EF625F9754300214949 /* CardTextField.swift in Sources */,
 				0E76FB43253EDB94001B1F3D /* SwitcherCellView.swift in Sources */,
@@ -4025,6 +4029,7 @@
 				0E4BC8A12681E96C000FC891 /* ImageTrailingLableComponentsSwiftUIView.swift in Sources */,
 				0E4BC72B267CF02A000FC891 /* TralingComponentsSwiftUIView.swift in Sources */,
 				E9BE41D427C8D83C00894224 /* MapButtonsViewModel.swift in Sources */,
+				3B56DADA280D772900161355 /* PageViewController.swift in Sources */,
 				0E9464DE26B18E0600F5E790 /* InformersAndToastsSwiftUIView.swift in Sources */,
 				0EA9F52626285034009F4B5A /* SwiftUIItem.swift in Sources */,
 				0EADAA09268AFE62003FF903 /* TextBaseCellSwiftUIView.swift in Sources */,
