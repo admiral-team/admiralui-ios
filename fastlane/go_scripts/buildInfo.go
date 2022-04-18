@@ -10,6 +10,7 @@ type BuildInfo struct {
 	Build_id         string `json:"BuildID,omitempty"`
 	Version          string `json:"Version,omitempty"`
 	Internal_version string `json:"InternalVersion,omitempty"`
+	External_version string `json:"ExternalVersion,omitempty"`
 	Short_version    string `json:"ShortVersion,omitempty"`
 	Download_url     string `json:"download_url,omitempty"`
 	Install_url      string `json:"InstallURL,omitempty"`
