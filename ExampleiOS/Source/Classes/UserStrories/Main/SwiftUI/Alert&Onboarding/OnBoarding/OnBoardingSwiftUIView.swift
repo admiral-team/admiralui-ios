@@ -4,6 +4,7 @@
 //
 //  Created by Алмазов Иван Александрович on 08.04.2022.
 //
+// swiftlint:disable all
 
 import SwiftUI
 import AdmiralTheme
@@ -12,40 +13,35 @@ import AdmiralSwiftUI
 @available(iOS 14.0.0, *)
 struct OnBoardingSwiftUIView: View {
     
+    var onBoardingModels = [UIHostingController(rootView: OnBoardingPageUIView(
+                                    title: "Добро\nпожаловать!",
+                                    subtitle: "Приветствуем вас в нашем мобильном приложении.  Это приложение служит удобным инструментом для всех участников команд!",
+                                    imageName: Asset.Onboarding.one.name)),
+                                    UIHostingController(rootView: OnBoardingPageUIView(
+                                    title: "Что внутри приложения",
+                                    subtitle: "В приложении есть набор всех стилей и компонентов UI kit 3.0 Mobile, который вы сможете протестировать в реальном времени.",
+                                    imageName: Asset.Onboarding.two.name)),
+                                    UIHostingController(rootView: OnBoardingPageUIView(
+                                    title: "Ждем ваших\n👍🏽",
+                                    subtitle: "Мы рады любому фидбеку и активно ведем непрерывную работу над дизайн-системой.\nВсе наши контакты находятся в разделе “Инфо”.",
+                                    imageName: Asset.Onboarding.three.name))]
+    
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<OnBoardingCustomScheme>()
-    @State private var steps: Int = 1
+    @State private var currentPageIndex: Int = 1
     
     var body: some View {
         let scheme = schemeProvider.scheme
         NavigationContentView(navigationTitle: "Onboarding") {
             VStack(spacing: 0) {
-                Spacer()
-                    .frame(height: LayoutGrid.module * 4)
-                Image(Asset.Onboarding.one.name)
-                    .frame(width: LayoutGrid.halfModule * 50, height: LayoutGrid.halfModule * 50)
-                    .background(schemeProvider.scheme.imageBackground.swiftUIColor)
-                    .cornerRadius(LayoutGrid.halfModule * 25)
-                
-                Spacer()
-                    .frame(height: LayoutGrid.module * 5)
-                
-                Text("Header")
-                    .font(schemeProvider.scheme.titleLabelFont.swiftUIFont)
-                    .foregroundColor(schemeProvider.scheme.titleLabelColor.swiftUIColor)
-                
-                Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
-                    .font(scheme.descriptionLabelTextFont.swiftUIFont)
-                    .foregroundColor(scheme.descriptionLabelTextColor.swiftUIColor)
-                    .multilineTextAlignment(.center)
-                    .padding()
+                PageViewController(currentPageIndex: $currentPageIndex, viewControllers: onBoardingModels)
                 
                 Spacer()
                 
                 SwiftUI.Button(action: {}, label: {})
                     .buttonStyle(
                         CirclePageControlStyle(
-                            step: $steps,
-                            totalPages: 1,
+                            step: $currentPageIndex,
+                            totalPages: onBoardingModels.count,
                             style: .default
                         )
                     )
