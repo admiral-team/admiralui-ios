@@ -27,7 +27,8 @@ struct OnBoardingSwiftUIView: View {
                                     imageName: Asset.Onboarding.three.name))]
     
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<OnBoardingCustomScheme>()
-    @State private var currentPageIndex: Int = 1
+    @State private var currentPageIndex: Int = 0
+    @State private var circlePageIndex: Int = 1
     
     var body: some View {
         let scheme = schemeProvider.scheme
@@ -40,7 +41,7 @@ struct OnBoardingSwiftUIView: View {
                 SwiftUI.Button(action: {}, label: {})
                     .buttonStyle(
                         CirclePageControlStyle(
-                            step: $currentPageIndex,
+                            step: $circlePageIndex,
                             totalPages: onBoardingModels.count,
                             style: .default
                         )
@@ -51,6 +52,12 @@ struct OnBoardingSwiftUIView: View {
             .frame(minWidth: 0,
                    maxWidth: .infinity)
             .background(scheme.backgroundColor.swiftUIColor)
+            .onChange(of: currentPageIndex) { newValue in
+                circlePageIndex = newValue + 1
+            }
+            .onChange(of: circlePageIndex) { newValue in
+                currentPageIndex = newValue - 1
+            }
         }
     }
 }
