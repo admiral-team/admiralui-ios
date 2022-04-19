@@ -173,6 +173,14 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 
 
+### build_git_packages
+
+```sh
+[bundle exec] fastlane build_git_packages
+```
+
+
+
 ----
 
 This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.
