@@ -291,7 +291,8 @@ final class TextInputDecorationView: UIView, AnyAppThemable, AccessibilitySuppor
         let leading = textInput.leadingAnchor.constraint(equalTo: textBoxLayoutGuide.leadingAnchor)
         let trailing = textInput.trailingAnchor.constraint(equalTo: textBoxLayoutGuide.trailingAnchor)
         let height = textInput.heightAnchor.constraint(equalToConstant: 0)
-            
+        height.priority = UILayoutPriority(UILayoutPriority.defaultHigh.rawValue + 1)
+        
         textInputTopConstraint = top
         textInputHeightConstraint = height
         
