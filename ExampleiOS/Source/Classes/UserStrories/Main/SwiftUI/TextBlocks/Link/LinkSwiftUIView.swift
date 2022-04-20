@@ -20,7 +20,7 @@ struct LinkSwiftUIView: View {
         NavigationContentView(navigationTitle: "Link") {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 VStack(spacing: 0.0) {
                     LinkView(
                         buttonTitle: "Подробнее на сайте банка",

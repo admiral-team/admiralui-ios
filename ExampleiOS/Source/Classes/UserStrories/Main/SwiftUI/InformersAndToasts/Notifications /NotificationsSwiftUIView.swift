@@ -20,7 +20,7 @@ struct NotificationsSwiftUIView: View {
         NavigationContentView(navigationTitle: "Informers & Notifications") {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 LazyVStack(alignment: .leading) {
                     ForEach(NotificationsSwiftUIItem.allCases, id: \.self) { item in
                         // WORKAROUND: https://developer.apple.com/forums/thread/677333

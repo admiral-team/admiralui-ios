@@ -24,7 +24,7 @@ struct ImageLableComponentsSwiftUIView: View {
             VStack(alignment: .leading, spacing: 0.0) {
                 StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
                     .padding()
-                ScrollView {
+                ScrollView(showsIndicators: false) {
                     ListCell(
                         leadingView: { ImageCardListView(cardImage: Image(uiImage: Asset.Card.visa.image)) },
                         centerView: { TitleListView(title: "Card Place") },

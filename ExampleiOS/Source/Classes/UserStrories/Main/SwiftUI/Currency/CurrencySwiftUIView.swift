@@ -20,7 +20,7 @@ struct CurrencySwiftUIView: View {
         NavigationContentView(navigationTitle: "Currency") {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 LazyVStack(alignment: .leading) {
                     ForEach(CurrencySwiftUIViewItem.allCases, id: \.self) { item in
                         // WORKAROUND: https://developer.apple.com/forums/thread/677333

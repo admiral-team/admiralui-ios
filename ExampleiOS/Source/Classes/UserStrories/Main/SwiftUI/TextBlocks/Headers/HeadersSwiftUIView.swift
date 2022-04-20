@@ -20,7 +20,7 @@ struct HeadersSwiftUIView: View {
         NavigationContentView(navigationTitle: "Header") {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 VStack(spacing: 0.0) {
                     HStack(spacing: LayoutGrid.doubleModule) {
                         Text("Title 1")
