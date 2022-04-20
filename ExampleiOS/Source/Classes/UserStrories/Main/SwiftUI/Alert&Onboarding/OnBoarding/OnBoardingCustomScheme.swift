@@ -2,7 +2,7 @@
 //  OnBoardingCustomScheme.swift
 //  ExampleiOS
 //
-//  Created by Алмазов Иван Александрович on 08.04.2022.
+//  Created on 08.04.2022.
 //
 
 import AdmiralTheme

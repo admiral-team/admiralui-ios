@@ -2,7 +2,7 @@
 //  PageViewController.swift
 //  ExampleiOS
 //
-//  Created by Алмазов Иван Александрович on 18.04.2022.
+//  Created on 18.04.2022.
 //
 // swiftlint:disable all
 
