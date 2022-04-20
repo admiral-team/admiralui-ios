@@ -47,7 +47,7 @@ struct OnBoardingSwiftUIView: View {
                         )
                     )
                 Spacer()
-                    .frame(height: LayoutGrid.module * 11)
+                    .frame(height: LayoutGrid.module * 4)
             }
             .frame(minWidth: 0,
                    maxWidth: .infinity)

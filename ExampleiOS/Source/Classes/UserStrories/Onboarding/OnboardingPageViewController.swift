@@ -168,7 +168,7 @@ class OnboardingPageViewController: UIViewController, AnyAppThemable {
         ])
         
         NSLayoutConstraint.activate([
-            view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: circlePageControl.bottomAnchor, constant: LayoutGrid.module * 11)
+            view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: circlePageControl.bottomAnchor, constant: LayoutGrid.module * 4)
         ])
     }
     

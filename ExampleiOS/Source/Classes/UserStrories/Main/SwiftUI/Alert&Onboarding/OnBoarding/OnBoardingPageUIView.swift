@@ -21,7 +21,7 @@ struct OnBoardingPageUIView: View {
         let scheme = schemeProvider.scheme
         VStack(spacing: 0) {
             Spacer()
-                .frame(height: LayoutGrid.module * 4)
+                .frame(height: LayoutGrid.module)
             Image(imageName)
                 .frame(width: LayoutGrid.halfModule * 50, height: LayoutGrid.halfModule * 50)
                 .background(schemeProvider.scheme.imageBackground.swiftUIColor)
