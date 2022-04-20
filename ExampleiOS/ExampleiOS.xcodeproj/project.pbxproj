@@ -385,7 +385,6 @@
 		E95DC44727A12DDA00532BDC /* Publishers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95DC44627A12DDA00532BDC /* Publishers+Extensions.swift */; };
 		E97CAD5D27206BF7001283A1 /* AdmiralSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97CAD5C27206BF7001283A1 /* AdmiralSwiftUITests.swift */; };
 		E97CAD5F27206BF7001283A1 /* AdmiralSwiftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97CAD5E27206BF7001283A1 /* AdmiralSwiftUITestsLaunchTests.swift */; };
-		E9A18D7F27393ED900668C03 /* SwiftUIChatItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A18D7E27393ED900668C03 /* SwiftUIChatItem.swift */; };
 		E9A18D87273946BD00668C03 /* SwiftUIChatInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A18D86273946BD00668C03 /* SwiftUIChatInputView.swift */; };
 		E9A18D8B2739523300668C03 /* SwiftUITextMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A18D8A2739523300668C03 /* SwiftUITextMessageView.swift */; };
 		E9A18D8D2739563B00668C03 /* SwiftUIUploadingFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A18D8C2739563B00668C03 /* SwiftUIUploadingFileView.swift */; };
@@ -399,6 +398,13 @@
 		E9A755D327451AC2005024B3 /* IconTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A755D227451AC2005024B3 /* IconTabs.swift */; };
 		E9A75608274E6AB9005024B3 /* InputChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A75607274E6AB9005024B3 /* InputChatViewController.swift */; };
 		E9A8E5F82805CC23002786F0 /* SpinnerSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A8E5F72805CC23002786F0 /* SpinnerSwiftUIView.swift */; };
+		E9AAA863280F094C00497968 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AAA862280F094C00497968 /* SettingsViewModel.swift */; };
+		E9AAA865280FFF3B00497968 /* SwiftUIChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AAA864280FFF3B00497968 /* SwiftUIChatViewModel.swift */; };
+		E9AAA86728100EF400497968 /* SpinnerSwiftUIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AAA86628100EF400497968 /* SpinnerSwiftUIViewModel.swift */; };
+		E9AAA869281049EC00497968 /* ZeroScreenSwiftUIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AAA868281049EC00497968 /* ZeroScreenSwiftUIViewModel.swift */; };
+		E9AAA86B28104C2800497968 /* ErrorSwiftUIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AAA86A28104C2800497968 /* ErrorSwiftUIViewModel.swift */; };
+		E9AAA86D28104CF900497968 /* AlertSwiftUIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AAA86C28104CF900497968 /* AlertSwiftUIViewModel.swift */; };
+		E9AAA86F28104F1000497968 /* AlertOnBoardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AAA86E28104F1000497968 /* AlertOnBoardingViewModel.swift */; };
 		E9B4554727708D8800EA17FC /* TextMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4554627708D8800EA17FC /* TextMessageViewController.swift */; };
 		E9B82B8627B521BF00FC7BB9 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B82B8527B521BF00FC7BB9 /* View+Extensions.swift */; };
 		E9B82B8C27B521D100FC7BB9 /* SizePreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B82B8927B521D100FC7BB9 /* SizePreferenceKey.swift */; };
@@ -425,7 +431,6 @@
 		E9C79CBD27BD1C360002EC49 /* AlertOnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C79CBC27BD1C360002EC49 /* AlertOnboardingViewModel.swift */; };
 		E9C79CBF27BD1E730002EC49 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C79CBE27BD1E730002EC49 /* ErrorViewController.swift */; };
 		E9C79CC527BD22AE0002EC49 /* AlertOnboardingSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C79CC427BD22AE0002EC49 /* AlertOnboardingSwiftUIView.swift */; };
-		E9C79CC727BD23500002EC49 /* AlertOnboardingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C79CC627BD23500002EC49 /* AlertOnboardingItem.swift */; };
 		E9C79CC927BD245C0002EC49 /* ErrorSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C79CC827BD245C0002EC49 /* ErrorSwiftUIView.swift */; };
 		E9DAC2E127FB3A2F00842ACB /* SmallBadgesSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DAC2E027FB3A2F00842ACB /* SmallBadgesSwiftUIView.swift */; };
 		E9DAC2E327FB3A4100842ACB /* NormalBadgesSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DAC2E227FB3A4100842ACB /* NormalBadgesSwiftUIView.swift */; };
@@ -843,7 +848,6 @@
 		E97CAD5A27206BF7001283A1 /* AdmiralSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdmiralSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E97CAD5C27206BF7001283A1 /* AdmiralSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralSwiftUITests.swift; sourceTree = "<group>"; };
 		E97CAD5E27206BF7001283A1 /* AdmiralSwiftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralSwiftUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		E9A18D7E27393ED900668C03 /* SwiftUIChatItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIChatItem.swift; sourceTree = "<group>"; };
 		E9A18D86273946BD00668C03 /* SwiftUIChatInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIChatInputView.swift; sourceTree = "<group>"; };
 		E9A18D8A2739523300668C03 /* SwiftUITextMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITextMessageView.swift; sourceTree = "<group>"; };
 		E9A18D8C2739563B00668C03 /* SwiftUIUploadingFileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIUploadingFileView.swift; sourceTree = "<group>"; };
@@ -857,6 +861,13 @@
 		E9A755D227451AC2005024B3 /* IconTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTabs.swift; sourceTree = "<group>"; };
 		E9A75607274E6AB9005024B3 /* InputChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputChatViewController.swift; sourceTree = "<group>"; };
 		E9A8E5F72805CC23002786F0 /* SpinnerSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerSwiftUIView.swift; sourceTree = "<group>"; };
+		E9AAA862280F094C00497968 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		E9AAA864280FFF3B00497968 /* SwiftUIChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIChatViewModel.swift; sourceTree = "<group>"; };
+		E9AAA86628100EF400497968 /* SpinnerSwiftUIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerSwiftUIViewModel.swift; sourceTree = "<group>"; };
+		E9AAA868281049EC00497968 /* ZeroScreenSwiftUIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroScreenSwiftUIViewModel.swift; sourceTree = "<group>"; };
+		E9AAA86A28104C2800497968 /* ErrorSwiftUIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorSwiftUIViewModel.swift; sourceTree = "<group>"; };
+		E9AAA86C28104CF900497968 /* AlertSwiftUIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSwiftUIViewModel.swift; sourceTree = "<group>"; };
+		E9AAA86E28104F1000497968 /* AlertOnBoardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertOnBoardingViewModel.swift; sourceTree = "<group>"; };
 		E9B4554627708D8800EA17FC /* TextMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextMessageViewController.swift; sourceTree = "<group>"; };
 		E9B82B8527B521BF00FC7BB9 /* View+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		E9B82B8927B521D100FC7BB9 /* SizePreferenceKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizePreferenceKey.swift; sourceTree = "<group>"; };
@@ -883,7 +894,6 @@
 		E9C79CBC27BD1C360002EC49 /* AlertOnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertOnboardingViewModel.swift; sourceTree = "<group>"; };
 		E9C79CBE27BD1E730002EC49 /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
 		E9C79CC427BD22AE0002EC49 /* AlertOnboardingSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertOnboardingSwiftUIView.swift; sourceTree = "<group>"; };
-		E9C79CC627BD23500002EC49 /* AlertOnboardingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertOnboardingItem.swift; sourceTree = "<group>"; };
 		E9C79CC827BD245C0002EC49 /* ErrorSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorSwiftUIView.swift; sourceTree = "<group>"; };
 		E9DAC2E027FB3A2F00842ACB /* SmallBadgesSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallBadgesSwiftUIView.swift; sourceTree = "<group>"; };
 		E9DAC2E227FB3A4100842ACB /* NormalBadgesSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalBadgesSwiftUIView.swift; sourceTree = "<group>"; };
@@ -1798,7 +1808,6 @@
 				E9A18D832739466A00668C03 /* UploadingPhoto */,
 				E9A18D822739465500668C03 /* TextMessage */,
 				E9A18D802739464500668C03 /* Input */,
-				E9ECF2002729AB3D00363E5E /* Pickers */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -1911,7 +1920,7 @@
 				E9C79CC327BD221F0002EC49 /* Error */,
 				E9C79CC227BD22140002EC49 /* Alert */,
 				E9C79CC427BD22AE0002EC49 /* AlertOnboardingSwiftUIView.swift */,
-				E9C79CC627BD23500002EC49 /* AlertOnboardingItem.swift */,
+				E9AAA86E28104F1000497968 /* AlertOnBoardingViewModel.swift */,
 			);
 			path = "Alert&Onboarding";
 			sourceTree = "<group>";
@@ -1920,6 +1929,7 @@
 			isa = PBXGroup;
 			children = (
 				3BA8350828059BE500D54318 /* ZeroScreenSwiftUIView.swift */,
+				E9AAA868281049EC00497968 /* ZeroScreenSwiftUIViewModel.swift */,
 			);
 			path = ZeroScreen;
 			sourceTree = "<group>";
@@ -2235,6 +2245,7 @@
 			children = (
 				C6B2A6A1264D640D00D43FB2 /* Cells */,
 				C686568B255937FE00B885B8 /* SettingsViewController.swift */,
+				E9AAA862280F094C00497968 /* SettingsViewModel.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -3177,6 +3188,7 @@
 		E9A18D802739464500668C03 /* Input */ = {
 			isa = PBXGroup;
 			children = (
+				E9ECF2002729AB3D00363E5E /* Pickers */,
 				E9A18D86273946BD00668C03 /* SwiftUIChatInputView.swift */,
 				E9A18D9B273ACD5000668C03 /* SwiftUIChatInputViewModel.swift */,
 			);
@@ -3214,7 +3226,7 @@
 			isa = PBXGroup;
 			children = (
 				0ED0837526CA6B46000BE955 /* SwiftUIChatViewController.swift */,
-				E9A18D7E27393ED900668C03 /* SwiftUIChatItem.swift */,
+				E9AAA864280FFF3B00497968 /* SwiftUIChatViewModel.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -3258,6 +3270,7 @@
 			isa = PBXGroup;
 			children = (
 				E9A8E5F72805CC23002786F0 /* SpinnerSwiftUIView.swift */,
+				E9AAA86628100EF400497968 /* SpinnerSwiftUIViewModel.swift */,
 			);
 			path = Spinner;
 			sourceTree = "<group>";
@@ -3413,6 +3426,7 @@
 			isa = PBXGroup;
 			children = (
 				3B59203E278D9A5700706DA6 /* AlertSwiftUIView.swift */,
+				E9AAA86C28104CF900497968 /* AlertSwiftUIViewModel.swift */,
 				3B592040278DC75400706DA6 /* AlertCustomScheme.swift */,
 			);
 			path = Alert;
@@ -3422,6 +3436,7 @@
 			isa = PBXGroup;
 			children = (
 				E9C79CC827BD245C0002EC49 /* ErrorSwiftUIView.swift */,
+				E9AAA86A28104C2800497968 /* ErrorSwiftUIViewModel.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -3642,6 +3657,7 @@
 				C6260AB1255B0748007175C2 /* SMSCodeViewController.swift in Sources */,
 				E945187A27D36AAD0048B133 /* ToolBarElementDTO.swift in Sources */,
 				C6260AB5255B086F007175C2 /* StandardVSIconMenuViewController.swift in Sources */,
+				E9AAA863280F094C00497968 /* SettingsViewModel.swift in Sources */,
 				0E73863227764959003892C7 /* ToastNotificationsViewScheme.swift in Sources */,
 				C6E04A86256C256600C32381 /* SmallInformersViewController.swift in Sources */,
 				E63B50DE25DD2B1800993D21 /* ThemesRepostory.swift in Sources */,
@@ -3662,6 +3678,8 @@
 				E9A18D9C273ACD5000668C03 /* SwiftUIChatInputViewModel.swift in Sources */,
 				C6865683255936DB00B885B8 /* RootRouter.swift in Sources */,
 				E6529CC92534F809009D8DE9 /* MainViewController.swift in Sources */,
+				E9AAA869281049EC00497968 /* ZeroScreenSwiftUIViewModel.swift in Sources */,
+				E9AAA86D28104CF900497968 /* AlertSwiftUIViewModel.swift in Sources */,
 				C674990425D3FB8200232C5F /* StandardTabsViewController.swift in Sources */,
 				E95553CD27A2C84000A14BCA /* ChatViewModel.swift in Sources */,
 				C670866C25B9DD12003F361C /* BottomSheetBottomView.swift in Sources */,
@@ -3798,7 +3816,6 @@
 				E9BE41D827C8D87600894224 /* MapButtonCellView.swift in Sources */,
 				0E853D002593EC850033F17C /* HeadersViewController.swift in Sources */,
 				E9DAC2E327FB3A4100842ACB /* NormalBadgesSwiftUIView.swift in Sources */,
-				E9C79CC727BD23500002EC49 /* AlertOnboardingItem.swift in Sources */,
 				C68656902559629F00B885B8 /* MainTableViewCell.swift in Sources */,
 				0E03D90626C4294C00AD5D82 /* ToastNotificationsManager.swift in Sources */,
 				0ED0837626CA6B46000BE955 /* SwiftUIChatViewController.swift in Sources */,
@@ -3836,7 +3853,6 @@
 				C6BA9C0E25DC0A0C000D741F /* BigButtonContainerView.swift in Sources */,
 				0EC13744266E1A9100F4EB7E /* BaseCellSwiftUIView.swift in Sources */,
 				E63B50E125DD3BCC00993D21 /* ColorToken.swift in Sources */,
-				E9A18D7F27393ED900668C03 /* SwiftUIChatItem.swift in Sources */,
 				E6C2B23D25DC1172007D332A /* BrightnessSlider.swift in Sources */,
 				0EFCDB5826B880EF006207B1 /* IconsCurrencySwiftUIView.swift in Sources */,
 				E640F65825E117BB0036E24E /* ThemeInfoHeaderView.swift in Sources */,
@@ -3887,6 +3903,7 @@
 				C6BA67EF2632E2AE001A7EB6 /* TextFieldsTextViewCustomScheme.swift in Sources */,
 				0EFCDB5E26B88409006207B1 /* IconsFlagsCurrencySwiftUIView.swift in Sources */,
 				C6BA67E92632DFF3001A7EB6 /* BigTabsViewCustomScheme.swift in Sources */,
+				E9AAA865280FFF3B00497968 /* SwiftUIChatViewModel.swift in Sources */,
 				C6C1750C25F7A2CC00DC052F /* ContactsViewController.swift in Sources */,
 				C6BA67ED2632E1D5001A7EB6 /* TextBaseCellCustomScheme.swift in Sources */,
 				E9A709862758E5F0003233DF /* ChatMessageCell.swift in Sources */,
@@ -3905,6 +3922,7 @@
 				C6260AAA255B0536007175C2 /* SliderViewController.swift in Sources */,
 				C620B7F5256560F300CB1B29 /* VerticalCalendarViewController.swift in Sources */,
 				3BA8350928059BE500D54318 /* ZeroScreenSwiftUIView.swift in Sources */,
+				E9AAA86B28104C2800497968 /* ErrorSwiftUIViewModel.swift in Sources */,
 				C6A7F2EC265401A000105F2D /* InformersSwiftUIItem.swift in Sources */,
 				0E4BC83A2681D062000FC891 /* ImageBaseCellSwiftUIItem.swift in Sources */,
 				C6BA9C0C25DC0A01000D741F /* MediumButtonContainerView.swift in Sources */,
@@ -3926,6 +3944,7 @@
 				C6A13807260A2CAE001F04E5 /* ThemeSwitchComponentView.swift in Sources */,
 				0E4BC89F2681E959000FC891 /* ImageLeadingLableComponentsSwiftUIView.swift in Sources */,
 				C6723C7F25D28FF500226ED9 /* LinksViewController.swift in Sources */,
+				E9AAA86728100EF400497968 /* SpinnerSwiftUIViewModel.swift in Sources */,
 				E63B50FC25DD676900993D21 /* ModallyPresentedNavigationControllerDelegate.swift in Sources */,
 				3B574A9F27C7DA13006FEF9A /* ZeroScreenViewControllerScheme.swift in Sources */,
 				E94518A627D386BE0048B133 /* GunItemId.swift in Sources */,
@@ -4004,6 +4023,7 @@
 				C6DD6BAE260B97E0009799CB /* ThemeSwitchViewCoordinator.swift in Sources */,
 				E945189027D36CAA0048B133 /* AdmiralGunEndPoint.swift in Sources */,
 				0E4BC8A12681E96C000FC891 /* ImageTrailingLableComponentsSwiftUIView.swift in Sources */,
+				E9AAA86F28104F1000497968 /* AlertOnBoardingViewModel.swift in Sources */,
 				0E4BC72B267CF02A000FC891 /* TralingComponentsSwiftUIView.swift in Sources */,
 				E9BE41D427C8D83C00894224 /* MapButtonsViewModel.swift in Sources */,
 				0E9464DE26B18E0600F5E790 /* InformersAndToastsSwiftUIView.swift in Sources */,

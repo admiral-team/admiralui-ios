@@ -87,6 +87,16 @@ final class SwiftUIChatInputViewModel: ObservableObject {
     /// The style of attachmentView. Showing documentPicker or imageGalleryPicker
     var attachmentsStyle: AtttachmentsViewStyle = .images
 
+    /// Navigation title
+    var navigationTitle: String {
+        "Input"
+    }
+
+    /// StandartTab Items
+    var tabItems: [String] {
+        ["Default", "Disabled"]
+    }
+
     /// Dispose bag
     private var cancellables = Set<AnyCancellable>()
 

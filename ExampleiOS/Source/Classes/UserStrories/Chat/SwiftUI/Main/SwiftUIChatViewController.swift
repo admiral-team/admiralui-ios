@@ -6,28 +6,16 @@
 //
 
 import SwiftUI
-import UniformTypeIdentifiers
 import AdmiralTheme
 import AdmiralSwiftUI
 
 @available(iOS 14.0.0, *)
 struct ChatSwiftUIView: View {
 
-    enum NavigationBarStyle {
-        case singlePage
-        case fromMainPage
-    }
-
     // MARK: - Properties
 
+    @StateObject var viewModel: SwiftUIChatViewModel
     @ObservedObject private var manager = SwiftUIThemeManager.shared
-    private let navigationStyle: NavigationBarStyle
-
-    // MARK: - Initializer
-
-    init(navigationStyle: NavigationBarStyle) {
-        self.navigationStyle = navigationStyle
-    }
 
     // MARK: - Layout
     
@@ -43,8 +31,9 @@ struct ChatSwiftUIView: View {
 
     // MARK: - Private methods
 
-    @ViewBuilder private func contentView(scheme: SwiftUIContentViewScheme) -> some View {
-        switch navigationStyle {
+    @ViewBuilder
+    private func contentView(scheme: SwiftUIContentViewScheme) -> some View {
+        switch viewModel.navigationStyle {
         case .singlePage:
             NavigationView {
                 navigationView(scheme: scheme)
@@ -57,7 +46,7 @@ struct ChatSwiftUIView: View {
 
     private func navigationView(scheme: SwiftUIContentViewScheme) -> some View {
         NavigationContentView(
-            navigationTitle: "Чат",
+            navigationTitle: viewModel.title,
             isShowBackButton: true,
             isShowThemeSwitchSwiftUIView: true,
             navigationBarDisplayMode: .large
@@ -73,7 +62,7 @@ struct ChatSwiftUIView: View {
     private var scrollView: some View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVStack {
-                ForEach(SwiftUIChatItem.allCases, id: \.self) { item in
+                ForEach(SwiftUIChatViewModel.SwiftUIChatItem.allCases, id: \.self) { item in
                     NavigationLink(destination: view(for: item)) {
                         ListCell(
                             centerView: { TitleListView(title: item.title) },
@@ -86,7 +75,7 @@ struct ChatSwiftUIView: View {
     }
 
     @ViewBuilder
-    private func view(for type: SwiftUIChatItem) -> some View {
+    private func view(for type: SwiftUIChatViewModel.SwiftUIChatItem) -> some View {
         switch type {
         case .input:
             SwiftUIChatInputView()
@@ -107,7 +96,7 @@ struct ChatSwiftUIView: View {
 class SwiftUIChatViewController: UIHostingController<ChatSwiftUIView> {
     
     init() {
-        let chatSwiftUIView = ChatSwiftUIView(navigationStyle: .singlePage)
+        let chatSwiftUIView = ChatSwiftUIView(viewModel: SwiftUIChatViewModel(navigationStyle: .singlePage))
         super.init(rootView: chatSwiftUIView)
     }
 

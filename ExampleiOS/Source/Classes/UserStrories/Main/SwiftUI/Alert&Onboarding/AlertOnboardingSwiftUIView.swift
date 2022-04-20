@@ -14,6 +14,7 @@ struct AlertOnboardingSwiftUIView: View {
 
     // MARK: - Properties
 
+    @StateObject private var viewModel = AlertOnBoardingViewModel()
     @ObservedObject private var manager = SwiftUIThemeManager.shared
 
     // MARK: - Layout
@@ -32,7 +33,7 @@ struct AlertOnboardingSwiftUIView: View {
 
     private func navigationView(scheme: SwiftUIContentViewScheme) -> some View {
         NavigationContentView(
-            navigationTitle: "Alert&Onboarding",
+            navigationTitle: viewModel.title,
             isShowBackButton: true,
             isShowThemeSwitchSwiftUIView: true,
             navigationBarDisplayMode: .large
@@ -48,7 +49,7 @@ struct AlertOnboardingSwiftUIView: View {
     private var scrollView: some View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVStack {
-                ForEach(AlertOnboardingItem.allCases, id: \.self) { item in
+                ForEach(AlertOnBoardingViewModel.AlertOnboardingItem.allCases, id: \.self) { item in
                     NavigationLink(destination: view(for: item)) {
                         ListCell(
                             centerView: { TitleListView(title: item.title) },
@@ -61,7 +62,7 @@ struct AlertOnboardingSwiftUIView: View {
     }
 
     @ViewBuilder
-    private func view(for type: AlertOnboardingItem) -> some View {
+    private func view(for type: AlertOnBoardingViewModel.AlertOnboardingItem) -> some View {
         switch type {
         case .alert:
             AlertSwiftUIView()

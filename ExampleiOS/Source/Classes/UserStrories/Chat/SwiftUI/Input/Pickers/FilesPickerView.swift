@@ -16,14 +16,17 @@ struct FilesPickerView: UIViewControllerRepresentable {
     final class Coordinator: NSObject, UIDocumentPickerDelegate {
 
         // MARK: - Properties
+
         let parent: FilesPickerView
 
         // MARK: - Init/Deinit
+
         init(parent: FilesPickerView) {
             self.parent = parent
         }
 
         // MARK: - Internal methods
+        
         func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
             parent.completion(urls)
         }

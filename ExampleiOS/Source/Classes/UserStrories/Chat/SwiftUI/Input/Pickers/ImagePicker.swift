@@ -11,6 +11,8 @@ import SwiftUI
 @available(iOS 14.0.0, *)
 struct ImagePicker: UIViewControllerRepresentable {
 
+    // MARK: - Internal Properties
+
     let completion: (UIImage) -> Void
 
     // MARK: - Coordinator

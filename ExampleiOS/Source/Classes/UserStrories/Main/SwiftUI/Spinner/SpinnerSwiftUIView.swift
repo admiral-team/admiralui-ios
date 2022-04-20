@@ -15,22 +15,24 @@ struct SpinnerSwiftUIView: View {
 
     // MARK: - Private properties
 
-    @State private var isEnabledControlsState: Int = 0
+    @StateObject private var viewModel = SpinnerSwiftUIViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
+
+    // MARK: - Layout
 
     public var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Spinner") {
+        NavigationContentView(navigationTitle: viewModel.title) {
             scheme.backgroundColor.swiftUIColor
             VStack(alignment: .leading, spacing: LayoutGrid.tripleModule) {
-                StandardTab(items: ["Small", "Medium", "Big"], selection: $isEnabledControlsState)
+                StandardTab(items: viewModel.tabItems, selection: $viewModel.isEnabledControlsState)
                 Spacer()
                     .frame(height: LayoutGrid.halfModule)
                 HStack {
                     Spacer()
                     ActivityIndicator(
                         style: .contrast,
-                        size: ActivityIndicator.Size(rawValue: isEnabledControlsState) ?? .medium
+                        size: ActivityIndicator.Size(rawValue: viewModel.isEnabledControlsState) ?? .medium
                     )
                     Spacer()
                 }
