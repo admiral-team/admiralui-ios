@@ -13,9 +13,12 @@ import SwiftUI
 @available(iOS 14.0.0, *)
 struct PageViewController: UIViewControllerRepresentable {
     
-    @Binding var currentPageIndex: Int
+    // MARK: - Properties
     
+    @Binding var currentPageIndex: Int
     var viewControllers: [UIViewController]
+    
+    // MARK: - Internal Methods
     
     func makeCoordinator() -> Coordinator {
         Coordinator(self, pageIndex: currentPageIndex)
@@ -53,56 +56,58 @@ struct PageViewController: UIViewControllerRepresentable {
         guard let index = viewControllers.firstIndex(of: nextViewController) else { return }
         currentPageIndex = index
     }
-
-}
-
-@available(iOS 14.0.0, *)
-class Coordinator: NSObject, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
-
-    var parent: PageViewController
     
-    private(set) var pageIndex: Int
+    // MARK: - Coordinator
+    
+    class Coordinator: NSObject, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
 
-    init(_ pageViewController: PageViewController,
-         pageIndex: Int) {
-        self.parent = pageViewController
-        self.pageIndex = pageIndex
-    }
+        // MARK: - Properties
+        
+        var parent: PageViewController
+        private(set) var pageIndex: Int
 
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        // retrieves the index of the currently displayed view controller
-        guard let index = parent.viewControllers.firstIndex(of: viewController) else {
-             return nil
-         }
-
-        // show the view controller before the currently displayed view controller
-        if index - 1 >= 0 {
-            return parent.viewControllers[index - 1]
+        // MARK: - Initializer
+        
+        init(_ pageViewController: PageViewController,
+             pageIndex: Int) {
+            self.parent = pageViewController
+            self.pageIndex = pageIndex
         }
-        return nil
 
-    }
+        func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+            // retrieves the index of the currently displayed view controller
+            guard let index = parent.viewControllers.firstIndex(of: viewController) else {
+                 return nil
+             }
 
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        // retrieves the index of the currently displayed view controller
-        guard let index = parent.viewControllers.firstIndex(of: viewController) else {
+            // show the view controller before the currently displayed view controller
+            if index - 1 >= 0 {
+                return parent.viewControllers[index - 1]
+            }
+            return nil
+
+        }
+
+        func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+            // retrieves the index of the currently displayed view controller
+            guard let index = parent.viewControllers.firstIndex(of: viewController) else {
+                return nil
+            }
+
+            // show the view controller after the currently displayed view controller
+            if index + 1 < parent.viewControllers.count {
+                return parent.viewControllers[index + 1]
+            }
             return nil
         }
-
-        // show the view controller after the currently displayed view controller
-        if index + 1 < parent.viewControllers.count {
-            return parent.viewControllers[index + 1]
-        }
-        return nil
-    }
-    
-    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        guard let currentViewController = pageViewController.viewControllers?.first,
-              let index = parent.viewControllers.firstIndex(of: currentViewController)
-              else { return }
         
-        pageIndex = index
-        parent.currentPageIndex = index
+        func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+            guard let currentViewController = pageViewController.viewControllers?.first,
+                  let index = parent.viewControllers.firstIndex(of: currentViewController) else { return }
+            pageIndex = index
+            parent.currentPageIndex = index
+        }
+        
     }
-    
+
 }

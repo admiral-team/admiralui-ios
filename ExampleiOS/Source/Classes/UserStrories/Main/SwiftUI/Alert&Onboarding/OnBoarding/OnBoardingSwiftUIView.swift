@@ -13,6 +13,8 @@ import AdmiralSwiftUI
 @available(iOS 14.0.0, *)
 struct OnBoardingSwiftUIView: View {
     
+    // MARK: - Properties
+    
     var onBoardingModels = [UIHostingController(rootView: OnBoardingPageUIView(
                                     title: "Добро\nпожаловать!",
                                     subtitle: "Приветствуем вас в нашем мобильном приложении.  Это приложение служит удобным инструментом для всех участников команд!",
@@ -30,14 +32,15 @@ struct OnBoardingSwiftUIView: View {
     @State private var currentPageIndex: Int = 0
     @State private var circlePageIndex: Int = 1
     
+    // MARK: - Layout
+    
     var body: some View {
         let scheme = schemeProvider.scheme
         NavigationContentView(navigationTitle: "Onboarding") {
             VStack(spacing: 0) {
                 PageViewController(currentPageIndex: $currentPageIndex, viewControllers: onBoardingModels)
-                
+                    .frame(height: 450)
                 Spacer()
-                
                 SwiftUI.Button(action: {}, label: {})
                     .buttonStyle(
                         CirclePageControlStyle(
