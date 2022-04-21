@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CustomWindowDelegate {
         
         configureTheme()
         configureRootViewController()
-        configureScrollBars()
+        
         return true
     }
     
@@ -40,10 +40,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CustomWindowDelegate {
                 
         let router = RootRouter()
         router.setRoot()
-    }
-    
-    private func configureScrollBars() {
-        UITableView.appearance().showsVerticalScrollIndicator = false
     }
     
     @available(iOS 12.0, *)

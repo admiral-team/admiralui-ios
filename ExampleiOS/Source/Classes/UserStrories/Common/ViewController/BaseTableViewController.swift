@@ -22,6 +22,7 @@ class BaseTableViewController: UIViewController, UITableViewDelegate, AnyAppThem
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.estimatedRowHeight = 44
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.showsVerticalScrollIndicator = false
         return tableView
     }()
     

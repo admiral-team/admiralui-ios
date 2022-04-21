@@ -15,6 +15,7 @@ class MenuListViewController: UIViewController, UITableViewDelegate, AnyAppThema
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.estimatedRowHeight = 44
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.showsVerticalScrollIndicator = false
         return tableView
     }()
     
