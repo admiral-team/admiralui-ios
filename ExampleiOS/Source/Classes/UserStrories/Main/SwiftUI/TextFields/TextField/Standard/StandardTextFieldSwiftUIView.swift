@@ -35,7 +35,7 @@ struct StandardTextFieldSwiftUIView: View {
         NavigationContentView(navigationTitle: "Standard") {
             scheme.backgroundColor.swiftUIColor
             ScrollViewReader { scrollView in
-                ScrollView(.vertical) {
+                ScrollView(showsIndicators: false) {
                     LazyVStack(alignment: .leading) {
                         OutlineSliderTab(
                             items: ["Default", "Error", "Disabled", "Read Only"],
