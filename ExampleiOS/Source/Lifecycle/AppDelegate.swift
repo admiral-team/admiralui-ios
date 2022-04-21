@@ -44,7 +44,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CustomWindowDelegate {
     
     private func configureScrollBars() {
         UITableView.appearance().showsVerticalScrollIndicator = false
-        UIScrollView.appearance().showsVerticalScrollIndicator = false
     }
     
     @available(iOS 12.0, *)
