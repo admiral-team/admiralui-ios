@@ -106,6 +106,9 @@ public struct OTPTextField: TextFieldInput, AccessabilitySupportUIKit, Identifia
     /// Constants that identify the semantic meaning for a text-entry area.
     private let textContentType: UITextContentType?
     
+    // Flag is disable pasting. If flasg is true pasting is enabled.
+    private let canPerformActionPaste: Bool
+    
     @State private var scheme: OTPTextFieldScheme? = nil
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<OTPTextFieldScheme>()
     private var accessibilityIdentifier: String?
@@ -121,6 +124,7 @@ public struct OTPTextField: TextFieldInput, AccessabilitySupportUIKit, Identifia
     ///   - returnKeyType: The visible title of the Return key.
     ///   - autocapitalizationType: The autocapitalization style for the text object.
     ///   - autocorrectionType: The autocorrection style for the text object.
+    ///   - canPerformActionPaste: Flag is disable pasting.
     ///   - placeholder: The string that displays when there is no other text in the text field.
     ///   - state: The textfield state.
     ///   - info: The string that displays some additional info. If nil, no line limit applies.
@@ -135,6 +139,7 @@ public struct OTPTextField: TextFieldInput, AccessabilitySupportUIKit, Identifia
         autocapitalizationType: UITextAutocapitalizationType = .none,
         autocorrectionType: UITextAutocorrectionType = .yes,
         textContentType: UITextContentType? = .oneTimeCode,
+        canPerformActionPaste: Bool = true,
         placeholder: String = "",
         state: Binding<TextInputState> = .constant(.normal),
         info: Binding<String> = .constant(""),
@@ -163,6 +168,7 @@ public struct OTPTextField: TextFieldInput, AccessabilitySupportUIKit, Identifia
         self.infoNumberOfLines = infoNumberOfLines
         self.isResponder = isResponder
         self.returnKeyType = returnKeyType
+        self.canPerformActionPaste = canPerformActionPaste
         self.autocapitalizationType = autocapitalizationType
         self.autocorrectionType = autocorrectionType
         self.textContentType = textContentType
@@ -180,6 +186,7 @@ public struct OTPTextField: TextFieldInput, AccessabilitySupportUIKit, Identifia
     ///   - returnKeyType: The visible title of the Return key.
     ///   - autocapitalizationType: The autocapitalization style for the text object.
     ///   - autocorrectionType: The autocorrection style for the text object.
+    ///   - canPerformActionPaste: Flag is disable pasting.
     ///   - placeholder: The string that displays when there is no other text in the text field.
     ///   - state: The textfield state.
     ///   - info: The string that displays some additional info. If nil, no line limit applies.
@@ -194,6 +201,7 @@ public struct OTPTextField: TextFieldInput, AccessabilitySupportUIKit, Identifia
         autocapitalizationType: UITextAutocapitalizationType = .none,
         autocorrectionType: UITextAutocorrectionType = .yes,
         textContentType: UITextContentType? = .oneTimeCode,
+        canPerformActionPaste: Bool = true,
         placeholder: String = "",
         state: Binding<TextInputState> = .constant(.normal),
         info: Binding<String> = .constant(""),
@@ -210,6 +218,7 @@ public struct OTPTextField: TextFieldInput, AccessabilitySupportUIKit, Identifia
             autocapitalizationType: autocapitalizationType,
             autocorrectionType: autocorrectionType,
             textContentType: textContentType,
+            canPerformActionPaste: canPerformActionPaste,
             placeholder: placeholder,
             state: state,
             info: info,
@@ -336,6 +345,7 @@ public struct OTPTextField: TextFieldInput, AccessabilitySupportUIKit, Identifia
                         keyboard: .numberPad,
                         returnKeyType: .default,
                         textContentType: textContentType,
+                        canPerformActionPaste: canPerformActionPaste,
                         textColor: textColor.uiColor,
                         placeholderColor: placeholderColor.uiColor,
                         tintColor: tintColor.uiColor,

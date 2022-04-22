@@ -20,7 +20,7 @@ struct SeparatorSwiftUIView: View {
         NavigationContentView(navigationTitle: "Padding") {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 VStack(spacing: LayoutGrid.tripleModule) {
                     HStack(spacing: 0.0) {
                         Text("Long")

@@ -94,6 +94,7 @@ struct UIKitTextField: UIViewRepresentable {
     var autocapitalizationType: UITextAutocapitalizationType = .none
     var autocorrectionType: UITextAutocorrectionType = .no
     var textContentType: UITextContentType? = nil
+    var canPerformActionPaste: Bool = true
 
     var font: UIFont?
     var textColor: UIColor = .black
@@ -119,6 +120,7 @@ struct UIKitTextField: UIViewRepresentable {
         autocapitalizationType: UITextAutocapitalizationType = .none,
         autocorrectionType: UITextAutocorrectionType = .no,
         textContentType: UITextContentType? = nil,
+        canPerformActionPaste: Bool = true,
         textColor: UIColor = .black,
         placeholderColor: UIColor = .gray,
         tintColor: UIColor = .blue,
@@ -138,6 +140,7 @@ struct UIKitTextField: UIViewRepresentable {
         self.autocapitalizationType = autocapitalizationType
         self.autocorrectionType = autocorrectionType
         self.textContentType = textContentType
+        self.canPerformActionPaste = canPerformActionPaste
         self.textColor = textColor
         self.placeholderColor = placeholderColor
         self.tintColor = tintColor
@@ -219,6 +222,7 @@ struct UIKitTextField: UIViewRepresentable {
         textFieldView.isAccessibilityElement = accessibilityIdentifier != nil ? true : false
         textFieldView.accessibilityIdentifier = accessibilityIdentifier
         textFieldView.textContentType = textContentType
+        (textFieldView as? ResponderUITextField)?.canPerformActionPaste = canPerformActionPaste
         if placeholder != nil {
             textFieldView.attributedPlaceholder = NSAttributedString(
                 string: placeholder!,

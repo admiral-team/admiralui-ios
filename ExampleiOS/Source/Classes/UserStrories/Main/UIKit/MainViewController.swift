@@ -21,6 +21,7 @@ class MainViewController: UIViewController, AnyAppThemable {
         tableView.estimatedRowHeight = 44
         tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .none
+        tableView.showsVerticalScrollIndicator = false
         return tableView
     }()
     private lazy var tableViewManager: TableViewListItemManager = {
