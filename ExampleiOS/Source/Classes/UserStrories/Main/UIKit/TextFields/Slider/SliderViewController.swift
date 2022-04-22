@@ -44,7 +44,6 @@ final class SliderViewController: ScrollViewController {
         let textFieldSix = createInputRangeTextFieldView(
             name: "Optional label",
             text: "Text",
-            placeholder: "Placeholder",
             info: "Additional text",
             changeStateAction: { textField, state in
                 textField.state = state
@@ -53,8 +52,6 @@ final class SliderViewController: ScrollViewController {
         let doubleFieldSix = createDoubleInputRangeTextFieldView(
             name: "Optional label",
             text: "Text",
-            minTextPlaceholder: "placeholder",
-            maxTextPlaceholder: "placeholder",
             info: "Additional text",
             changeStateAction: { textField, state in
                 textField.state = state
@@ -76,10 +73,10 @@ final class SliderViewController: ScrollViewController {
         
         let inputRangeTextField = InputRangeTextField()
         inputRangeTextField.name = name
-        inputRangeTextField.placeholder = placeholder
         inputRangeTextField.info = info
         inputRangeTextField.minimumValue = 10
         inputRangeTextField.maximumValue = 1000
+        inputRangeTextField.placeholder = placeholder ?? "10"
         inputRangeTextField.text = String(Int(inputRangeTextField.value))
         inputRangeTextField.keyboardType = .numberPad
         
@@ -110,6 +107,8 @@ final class SliderViewController: ScrollViewController {
         doubleInputRangeTextField.maximumValue = 1000
         doubleInputRangeTextField.lowerValue = 100
         doubleInputRangeTextField.upperValue = 500
+        doubleInputRangeTextField.minTextPlaceholder = minTextPlaceholder ?? "10"
+        doubleInputRangeTextField.maxTextPlaceholder = maxTextPlaceholder ?? "1000"
         doubleInputRangeTextField.minValueText = String(Int(doubleInputRangeTextField.lowerValue))
         doubleInputRangeTextField.maxValueText = String(Int(doubleInputRangeTextField.upperValue))
         doubleInputRangeTextField.keyboardType = .numberPad

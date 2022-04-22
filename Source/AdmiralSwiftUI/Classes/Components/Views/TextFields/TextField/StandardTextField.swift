@@ -152,6 +152,9 @@ public struct StandardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
     /// Constants that identify the semantic meaning for a text-entry area.
     private var textContentType: UITextContentType? = nil
     
+    // Flag is disable pasting. If flasg is true pasting is enabled.
+    private let canPerformActionPaste: Bool
+    
     /// Adds an action to perform change cursor position. On enter 3 parameters - startCursor, currentCursor, text. Return cursor position.
     private let onCursorPosition: ((Int, Int, String) -> (Int))?
 
@@ -173,6 +176,7 @@ public struct StandardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
     ///   - returnKeyType: The visible title of the Return key.
     ///   - autocapitalizationType: The autocapitalization style for the text object.
     ///   - autocorrectionType: The autocorrection style for the text object.
+    ///   - canPerformActionPaste: Flag is disable pasting.
     ///   - placeholder: The string that displays when there is no other text in the text field.
     ///   - name: The text field’s name.
     ///   - icon: The text field’s traling image view.
@@ -190,6 +194,7 @@ public struct StandardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
         autocapitalizationType: UITextAutocapitalizationType = .none,
         autocorrectionType: UITextAutocorrectionType = .yes,
         textContentType: UITextContentType? = nil,
+        canPerformActionPaste: Bool = true,
         placeholder: String = "",
         name: String = "",
         state: Binding<TextInputState> = .constant(.normal),
@@ -214,6 +219,7 @@ public struct StandardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
         self.contentType = contentType
         self.placeholder = placeholder
         self.name = name
+        self.canPerformActionPaste = canPerformActionPaste
         self._state = state
         self._info = info
         self.onSubmit = onSubmit
@@ -238,6 +244,7 @@ public struct StandardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
     ///   - returnKeyType: The visible title of the Return key.
     ///   - autocapitalizationType: The autocapitalization style for the text object.
     ///   - autocorrectionType: The autocorrection style for the text object.
+    ///   - canPerformActionPaste: Flag is disable pasting.
     ///   - placeholder: The string that displays when there is no other text in the text field.
     ///   - name: The text field’s name.
     ///   - icon: The text field’s traling image view.
@@ -254,6 +261,7 @@ public struct StandardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
         autocapitalizationType: UITextAutocapitalizationType = .none,
         autocorrectionType: UITextAutocorrectionType = .yes,
         textContentType: UITextContentType? = nil,
+        canPerformActionPaste: Bool = true,
         placeholder: String = "",
         name: String = "",
         state: Binding<TextInputState> = .constant(.normal),
@@ -272,6 +280,7 @@ public struct StandardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
             autocapitalizationType: autocapitalizationType,
             autocorrectionType: autocorrectionType,
             textContentType: textContentType,
+            canPerformActionPaste: canPerformActionPaste,
             placeholder: placeholder,
             name: name,
             state: state,
@@ -400,6 +409,7 @@ public struct StandardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
                         autocapitalizationType: autocapitalizationType,
                         autocorrectionType: autocorrectionType,
                         textContentType: textContentType,
+                        canPerformActionPaste: canPerformActionPaste,
                         textColor: textColor.uiColor,
                         placeholderColor: placeholderColor?.uiColor ?? .clear,
                         tintColor: tintColor.uiColor,
@@ -459,6 +469,7 @@ extension StandardTextField where T == EmptyView {
     ///   - returnKeyType: The visible title of the Return key.
     ///   - autocapitalizationType: The autocapitalization style for the text object.
     ///   - autocorrectionType: The autocorrection style for the text object.
+    ///   - canPerformActionPaste: Flag is disable pasting.
     ///   - placeholder: The string that displays when there is no other text in the text field.
     ///   - name: The text field’s name.
     ///   - icon: The text field’s traling image view.
@@ -475,6 +486,7 @@ extension StandardTextField where T == EmptyView {
         autocapitalizationType: UITextAutocapitalizationType = .none,
         autocorrectionType: UITextAutocorrectionType = .yes,
         textContentType: UITextContentType? = nil,
+        canPerformActionPaste: Bool = true,
         placeholder: String = "",
         name: String = "",
         state: Binding<TextInputState> = .constant(.normal),
@@ -508,6 +520,7 @@ extension StandardTextField where T == EmptyView {
         self.autocapitalizationType = autocapitalizationType
         self.autocorrectionType = autocorrectionType
         self.textContentType = textContentType
+        self.canPerformActionPaste = canPerformActionPaste
         self.isResponder = isResponder
         self.formatter = formatter
         self.onCursorPosition = onCursorPosition
@@ -523,6 +536,7 @@ extension StandardTextField where T == EmptyView {
     ///   - returnKeyType: The visible title of the Return key.
     ///   - autocapitalizationType: The autocapitalization style for the text object.
     ///   - autocorrectionType: The autocorrection style for the text object.
+    ///   - canPerformActionPaste: Flag is disable pasting.
     ///   - placeholder: The string that displays when there is no other text in the text field.
     ///   - name: The text field’s name.
     ///   - icon: The text field’s traling image view.
@@ -538,6 +552,7 @@ extension StandardTextField where T == EmptyView {
         autocapitalizationType: UITextAutocapitalizationType = .none,
         autocorrectionType: UITextAutocorrectionType = .yes,
         textContentType: UITextContentType? = nil,
+        canPerformActionPaste: Bool = true,
         placeholder: String = "",
         name: String = "",
         state: Binding<TextInputState> = .constant(.normal),
@@ -554,6 +569,7 @@ extension StandardTextField where T == EmptyView {
                       autocapitalizationType: autocapitalizationType,
                       autocorrectionType: autocorrectionType,
                       textContentType: textContentType,
+                      canPerformActionPaste: canPerformActionPaste,
                       placeholder: placeholder,
                       name: name,
                       state: state,

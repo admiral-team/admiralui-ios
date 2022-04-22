@@ -272,7 +272,7 @@ extension TextField {
     }
 
     private var isPlaceholderLabelNeedOffset: Bool {
-        return (name?.nilIfEmpty == nil && isEditing) || (name?.nilIfEmpty != nil && (isEditing || !forceOpened))
+        return (text?.nilIfEmpty == nil) || (name?.nilIfEmpty != nil && (isEditing || !forceOpened))
     }
 
     private var isTextFieldHidden: Bool {
