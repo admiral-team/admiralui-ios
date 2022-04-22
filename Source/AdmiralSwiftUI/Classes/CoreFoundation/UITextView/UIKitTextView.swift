@@ -125,6 +125,7 @@ struct UIKitTextView: UIViewRepresentable {
     var returnKeyType: UIReturnKeyType = .default
     var autocapitalizationType: UITextAutocapitalizationType = .none
     var autocorrectionType: UITextAutocorrectionType = .yes
+    var canPerformActionPaste: Bool = true
 
     var font: UIFont?
     var textColor: UIColor = .black
@@ -163,6 +164,7 @@ struct UIKitTextView: UIViewRepresentable {
         returnKeyType: UIReturnKeyType = .default,
         autocapitalizationType: UITextAutocapitalizationType = .none,
         autocorrectionType: UITextAutocorrectionType = .yes,
+        canPerformActionPaste: Bool = true,
         textColor: UIColor = .black,
         tintColor: UIColor = .blue,
         font: UIFont? = nil,
@@ -187,6 +189,7 @@ struct UIKitTextView: UIViewRepresentable {
         self.returnKeyType = returnKeyType
         self.autocapitalizationType = autocapitalizationType
         self.autocorrectionType = autocorrectionType
+        self.canPerformActionPaste = canPerformActionPaste
         self.textColor = textColor
         self.tintColor = tintColor
         self.textAlignment = textAlignment
@@ -212,6 +215,7 @@ struct UIKitTextView: UIViewRepresentable {
         returnKeyType: UIReturnKeyType = .default,
         autocapitalizationType: UITextAutocapitalizationType = .none,
         autocorrectionType: UITextAutocorrectionType = .yes,
+        canPerformActionPaste: Bool = true,
         textColor: UIColor = .black,
         tintColor: UIColor = .blue,
         font: UIFont? = nil,
@@ -236,6 +240,7 @@ struct UIKitTextView: UIViewRepresentable {
         self.returnKeyType = returnKeyType
         self.autocapitalizationType = autocapitalizationType
         self.autocorrectionType = autocorrectionType
+        self.canPerformActionPaste = canPerformActionPaste
         self.textColor = textColor
         self.tintColor = tintColor
         self.font = font
@@ -320,6 +325,7 @@ struct UIKitTextView: UIViewRepresentable {
             textView.accessibilityIdentifier = accessibilityIdentifier
             textView.textAlignment = textAlignment
             textView.backgroundColor = .clear
+            (textView as? ResponderUITextView)?.canPerformActionPaste = canPerformActionPaste
             if isUpdateSelectedTextRange, textView.isFirstResponder {
                 textView.selectedTextRange = selectedRange
             }

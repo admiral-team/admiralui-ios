@@ -58,6 +58,7 @@ struct StandardTextFieldSwiftUIView: View {
                                     return text?.replacingOccurrences(of: "=)", with: "🙂")
                                 }),
                                 contentType: .default,
+                                canPerformActionPaste: false,
                                 placeholder: "Placeholder",
                                 name: "Optional label",
                                 state: $state,
@@ -112,6 +113,7 @@ struct StandardTextFieldSwiftUIView: View {
                                     return text?.replacingOccurrences(of: "=)", with: "🙂")
                                 }),
                                 contentType: .default,
+                                canPerformActionPaste: false,
                                 placeholder: "Placeholder",
                                 name: "Optional label",
                                 state: $state,

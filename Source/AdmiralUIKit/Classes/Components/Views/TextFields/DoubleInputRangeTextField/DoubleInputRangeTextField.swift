@@ -26,7 +26,7 @@ import AdmiralTheme
 public class DoubleInputRangeTextField: UIView, AnyAppThemable, AccessibilitySupport {
     
     private enum Constants {
-        static let leadingLabelFrame = CGRect(x: .zero, y: .zero, width: LayoutGrid.quadrupleModule, height: LayoutGrid.halfModule * 5)
+        static let leadingLabelFrame = CGRect(x: .zero, y: .zero, width: LayoutGrid.tripleModule, height: LayoutGrid.halfModule * 5)
         static let fromLabelText = "От"
         static let toLabelText = "До"
     }
@@ -232,14 +232,13 @@ public class DoubleInputRangeTextField: UIView, AnyAppThemable, AccessibilitySup
     private func configureLayout() {
         NSLayoutConstraint.activate([
             leftTextField.leadingAnchor.constraint(equalTo: leadingAnchor),
-            leftTextField.trailingAnchor.constraint(equalTo: trailingAnchor),
             leftTextField.topAnchor.constraint(equalTo: topAnchor),
 
             slider.leadingAnchor.constraint(equalTo: leftTextField.leadingAnchor),
-            leftTextField.trailingAnchor.constraint(equalTo: slider.trailingAnchor),
+            slider.trailingAnchor.constraint(equalTo: trailingAnchor),
             slider.topAnchor.constraint(equalTo: leftTextField.bottomAnchor),
 
-            minValueLabel.leadingAnchor.constraint(equalTo: leftTextField.leadingAnchor),
+            minValueLabel.leadingAnchor.constraint(equalTo: leftTextField.trailingAnchor),
             minValueLabel.topAnchor.constraint(equalTo: slider.bottomAnchor),
             minValueLabel.widthAnchor.constraint(equalTo: maxValueLabel.widthAnchor, multiplier: 1.0),
 
@@ -253,13 +252,15 @@ public class DoubleInputRangeTextField: UIView, AnyAppThemable, AccessibilitySup
             informerLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
 
             rightTextField.trailingAnchor.constraint(equalTo: trailingAnchor),
-            rightTextField.topAnchor.constraint(equalTo: topAnchor)
+            rightTextField.topAnchor.constraint(equalTo: topAnchor),
+            rightTextField.leadingAnchor.constraint(greaterThanOrEqualTo: leftTextField.trailingAnchor, constant: LayoutGrid.module)
         ])
     }
 
     public override func layoutSubviews() {
         super.layoutSubviews()
         leftTextField.leftLabelWidth = fromLabel.frame.width
+        rightTextField.leftLabelWidth = fromLabel.frame.width
     }
 
     private func configureUI() {
