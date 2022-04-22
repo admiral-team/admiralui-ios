@@ -153,6 +153,8 @@
 		3B0268B627A85F7700B03E6F /* SwiftUITextMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0268B527A85F7700B03E6F /* SwiftUITextMessageViewModel.swift */; };
 		3B0268B827AAA8D900B03E6F /* SwiftUITextOperationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0268B727AAA8D900B03E6F /* SwiftUITextOperationViewModel.swift */; };
 		3B500E2827297F2500A860F0 /* UIApplication+EndEditing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B500E2727297F2500A860F0 /* UIApplication+EndEditing.swift */; };
+		3B56DAD8280D70F900161355 /* OnBoardingPageUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B56DAD7280D70F900161355 /* OnBoardingPageUIView.swift */; };
+		3B56DADA280D772900161355 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B56DAD9280D772900161355 /* PageViewController.swift */; };
 		3B574A9D27C7D9E2006FEF9A /* ZeroScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B574A9C27C7D9E2006FEF9A /* ZeroScreenViewController.swift */; };
 		3B574A9F27C7DA13006FEF9A /* ZeroScreenViewControllerScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B574A9E27C7DA13006FEF9A /* ZeroScreenViewControllerScheme.swift */; };
 		3B574AAA27D290F8006FEF9A /* AdmiralGunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B574AA927D290F8006FEF9A /* AdmiralGunView.swift */; };
@@ -160,6 +162,8 @@
 		3B59203F278D9A5700706DA6 /* AlertSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B59203E278D9A5700706DA6 /* AlertSwiftUIView.swift */; };
 		3B592041278DC75400706DA6 /* AlertCustomScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B592040278DC75400706DA6 /* AlertCustomScheme.swift */; };
 		3BA8350928059BE500D54318 /* ZeroScreenSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8350828059BE500D54318 /* ZeroScreenSwiftUIView.swift */; };
+		3BA83504280462AE00D54318 /* OnBoardingSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA83503280462AE00D54318 /* OnBoardingSwiftUIView.swift */; };
+		3BA835062804638400D54318 /* OnBoardingCustomScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA835052804638400D54318 /* OnBoardingCustomScheme.swift */; };
 		C61C26F7261BB99300D01ED9 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61C26F6261BB99300D01ED9 /* BaseViewController.swift */; };
 		C620B7F5256560F300CB1B29 /* VerticalCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C620B7F4256560F300CB1B29 /* VerticalCalendarViewController.swift */; };
 		C6260A99255A88BA007175C2 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6260A98255A88BA007175C2 /* BaseRouter.swift */; };
@@ -608,6 +612,8 @@
 		3B0268B527A85F7700B03E6F /* SwiftUITextMessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITextMessageViewModel.swift; sourceTree = "<group>"; };
 		3B0268B727AAA8D900B03E6F /* SwiftUITextOperationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITextOperationViewModel.swift; sourceTree = "<group>"; };
 		3B500E2727297F2500A860F0 /* UIApplication+EndEditing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+EndEditing.swift"; sourceTree = "<group>"; };
+		3B56DAD7280D70F900161355 /* OnBoardingPageUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingPageUIView.swift; sourceTree = "<group>"; };
+		3B56DAD9280D772900161355 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		3B574A9C27C7D9E2006FEF9A /* ZeroScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroScreenViewController.swift; sourceTree = "<group>"; };
 		3B574A9E27C7DA13006FEF9A /* ZeroScreenViewControllerScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroScreenViewControllerScheme.swift; sourceTree = "<group>"; };
 		3B574AA927D290F8006FEF9A /* AdmiralGunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralGunView.swift; sourceTree = "<group>"; };
@@ -615,6 +621,8 @@
 		3B59203E278D9A5700706DA6 /* AlertSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSwiftUIView.swift; sourceTree = "<group>"; };
 		3B592040278DC75400706DA6 /* AlertCustomScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCustomScheme.swift; sourceTree = "<group>"; };
 		3BA8350828059BE500D54318 /* ZeroScreenSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroScreenSwiftUIView.swift; sourceTree = "<group>"; };
+		3BA83503280462AE00D54318 /* OnBoardingSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingSwiftUIView.swift; sourceTree = "<group>"; };
+		3BA835052804638400D54318 /* OnBoardingCustomScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingCustomScheme.swift; sourceTree = "<group>"; };
 		C61C26F6261BB99300D01ED9 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		C620B7F4256560F300CB1B29 /* VerticalCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalCalendarViewController.swift; sourceTree = "<group>"; };
 		C6260A98255A88BA007175C2 /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
@@ -1908,6 +1916,7 @@
 			isa = PBXGroup;
 			children = (
 				3BA8350728059BC600D54318 /* ZeroScreen */,
+				3BA83502280362C000D54318 /* OnBoarding */,
 				E9C79CC327BD221F0002EC49 /* Error */,
 				E9C79CC227BD22140002EC49 /* Alert */,
 				E9C79CC427BD22AE0002EC49 /* AlertOnboardingSwiftUIView.swift */,
@@ -1922,6 +1931,17 @@
 				3BA8350828059BE500D54318 /* ZeroScreenSwiftUIView.swift */,
 			);
 			path = ZeroScreen;
+            sourceTree = "<group>";
+        };
+		3BA83502280362C000D54318 /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				3BA83503280462AE00D54318 /* OnBoardingSwiftUIView.swift */,
+				3B56DAD7280D70F900161355 /* OnBoardingPageUIView.swift */,
+				3BA835052804638400D54318 /* OnBoardingCustomScheme.swift */,
+				3B56DAD9280D772900161355 /* PageViewController.swift */,
+			);
+			path = OnBoarding;
 			sourceTree = "<group>";
 		};
 		C620B7F3256560E100CB1B29 /* Calendar */ = {
@@ -3640,6 +3660,7 @@
 				E6903D8525DFE41E00245403 /* ThemeColorsViewController.swift in Sources */,
 				0EAF71B72638750B0041CA08 /* InformerTabSwiftUIView.swift in Sources */,
 				C6260AB1255B0748007175C2 /* SMSCodeViewController.swift in Sources */,
+				3BA83504280462AE00D54318 /* OnBoardingSwiftUIView.swift in Sources */,
 				E945187A27D36AAD0048B133 /* ToolBarElementDTO.swift in Sources */,
 				C6260AB5255B086F007175C2 /* StandardVSIconMenuViewController.swift in Sources */,
 				0E73863227764959003892C7 /* ToastNotificationsViewScheme.swift in Sources */,
@@ -3756,6 +3777,7 @@
 				0E0A3F0626121F38007C4CA8 /* UserSettingService.swift in Sources */,
 				E9A18D8F2739786500668C03 /* SwiftUIUploadFileViewModel.swift in Sources */,
 				E92DC2F527FC60DF00CB789E /* BadgesNormalViewModel.swift in Sources */,
+				3B56DAD8280D70F900161355 /* OnBoardingPageUIView.swift in Sources */,
 				C6D5BD692665598800437808 /* ToolBarSwiftUIView.swift in Sources */,
 				E6117EF625F9754300214949 /* CardTextField.swift in Sources */,
 				0E76FB43253EDB94001B1F3D /* SwitcherCellView.swift in Sources */,
@@ -3785,6 +3807,7 @@
 				E9A18D8D2739563B00668C03 /* SwiftUIUploadingFileView.swift in Sources */,
 				E9C79CC927BD245C0002EC49 /* ErrorSwiftUIView.swift in Sources */,
 				E640F65625E1138C0036E24E /* SelectThemeTemplateViewController.swift in Sources */,
+				3BA835062804638400D54318 /* OnBoardingCustomScheme.swift in Sources */,
 				E6D5710825DE6CCA00D3304F /* UIView+Autolayout.swift in Sources */,
 				E945189D27D36D360048B133 /* AdmiralGunAPIFacadeProtocol.swift in Sources */,
 				C6DCBFF52631AABD00754365 /* BottomSheetViewControllerCustomTheme.swift in Sources */,
@@ -4006,6 +4029,7 @@
 				0E4BC8A12681E96C000FC891 /* ImageTrailingLableComponentsSwiftUIView.swift in Sources */,
 				0E4BC72B267CF02A000FC891 /* TralingComponentsSwiftUIView.swift in Sources */,
 				E9BE41D427C8D83C00894224 /* MapButtonsViewModel.swift in Sources */,
+				3B56DADA280D772900161355 /* PageViewController.swift in Sources */,
 				0E9464DE26B18E0600F5E790 /* InformersAndToastsSwiftUIView.swift in Sources */,
 				0EA9F52626285034009F4B5A /* SwiftUIItem.swift in Sources */,
 				0EADAA09268AFE62003FF903 /* TextBaseCellSwiftUIView.swift in Sources */,
