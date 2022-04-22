@@ -64,7 +64,10 @@ final class TextInputDecorationView: UIView, AnyAppThemable, AccessibilitySuppor
     }
 
     var isOpened: Bool = false {
-        didSet { updateState() }
+        didSet {
+            updateState()
+            updateScheme()
+        }
     }
 
     var enablePlaceholderOffset: Bool = true {
@@ -147,7 +150,7 @@ final class TextInputDecorationView: UIView, AnyAppThemable, AccessibilitySuppor
     
     private func updateScheme() {
         nameLabel.setDynamicFont(
-            font: scheme.nameFont.uiFont,
+            font: isOpened ? scheme.nameFont.uiFont : scheme.nameEnableFont.uiFont,
             textStyle: scheme.nameFont.textStyle,
             adjustsFontForContentSize: adjustsFontForContentSizeCategory)
         placeholderLabel.setDynamicFont(
