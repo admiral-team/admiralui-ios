@@ -63,7 +63,8 @@ final class HorizontalViewController: UIViewController, AnyAppThemable, Calendar
         NSLayoutConstraint.activate([
             calendarView.topAnchor.constraint(equalTo: view.topAnchor),
             calendarView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            calendarView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            calendarView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            calendarView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
     
