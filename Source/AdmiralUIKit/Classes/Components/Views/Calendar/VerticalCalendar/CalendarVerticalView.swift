@@ -120,6 +120,8 @@ class CalendarVerticalView: UIView, AnyAppThemable {
         collectionView.keyboardDismissMode = .onDrag
         collectionView.allowsMultipleSelection = true
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false
         collectionView.register(
             CalendarDayCell.self, forCellWithReuseIdentifier: Constants.cellIdentifier)
         collectionView.register(
