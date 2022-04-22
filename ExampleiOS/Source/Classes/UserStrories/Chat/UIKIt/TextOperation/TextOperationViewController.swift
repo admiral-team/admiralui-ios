@@ -22,6 +22,7 @@ import UIKit
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 200
         tableView.separatorStyle = .none
+        tableView.showsVerticalScrollIndicator = false
         tableView.registerCell(TextOperationCell.self, reuseIdentifier: "TextOperationCell")
         return tableView
     }()

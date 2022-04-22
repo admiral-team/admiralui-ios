@@ -29,7 +29,7 @@ struct SmallInformersSwiftUIView: View {
         let scheme = schemeProvider.scheme
         NavigationContentView(navigationTitle: "Small Informers") {
             scheme.backgroundColor.swiftUIColor
-            ScrollView(.vertical) {
+            ScrollView(.vertical, showsIndicators: false) {
                 StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
                     .padding()
                 Spacer()

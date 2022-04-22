@@ -18,7 +18,7 @@ struct ShimmersSwiftUIView: View {
         let scheme = schemeProvider.scheme
         NavigationContentView(navigationTitle: "Shimmers") {
             scheme.backgroundColor.swiftUIColor
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 LazyVStack(alignment: .leading) {
                     ListCell(leadingView: {
                         ImageCardListView(cardImage: Image(uiImage: Asset.Card.visa.image))

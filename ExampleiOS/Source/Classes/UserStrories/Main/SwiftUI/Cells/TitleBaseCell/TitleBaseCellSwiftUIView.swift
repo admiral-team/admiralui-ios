@@ -20,7 +20,7 @@ struct TitleBaseCellSwiftUIView: View {
         NavigationContentView(navigationTitle: "Title Cells") {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 LazyVStack(alignment: .leading) {
                     ForEach(TitleBaseCellSwiftUIItem.allCases, id: \.self) { item in
                         // WORKAROUND: https://developer.apple.com/forums/thread/677333

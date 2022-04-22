@@ -86,6 +86,7 @@ class CalendarHorizontalView: UIView, AnyAppThemable {
         collectionView.keyboardDismissMode = .onDrag
         collectionView.allowsMultipleSelection = true
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(
             CalendarHorizontalViewCell.self, forCellWithReuseIdentifier: Constants.cellIdentifier)

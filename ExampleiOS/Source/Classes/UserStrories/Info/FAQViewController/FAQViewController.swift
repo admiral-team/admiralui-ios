@@ -17,6 +17,7 @@ final class FAQViewController: UIViewController, AnyAppThemable {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 88.0
+        tableView.showsVerticalScrollIndicator = false
         return tableView
     }()
     private lazy var tableViewManager: TableViewListItemManager = {

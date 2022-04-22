@@ -26,7 +26,7 @@ struct ActionNotificationSwiftUIView: View {
                 .edgesIgnoringSafeArea(.all)
             
             // swiftlint:disable line_length
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 LazyVStack(alignment: .center) {
                     Spacer()
                         .frame(height: LayoutGrid.quadrupleModule)

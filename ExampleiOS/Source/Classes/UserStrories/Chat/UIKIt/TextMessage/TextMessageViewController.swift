@@ -20,6 +20,7 @@ final class TextMessageViewController: UIViewController, AnyAppThemable {
         let tableView = UITableView(frame: .zero)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.showsVerticalScrollIndicator = false
         return tableView
     }()
 

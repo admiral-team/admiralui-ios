@@ -20,7 +20,7 @@ struct TagsChipsSwiftUIView: View {
         let scheme = schemeProvider.scheme
         NavigationContentView(navigationTitle: "Tags & Chips") {
             scheme.backgroundColor.swiftUIColor
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
                     .padding()
                 LazyVStack(alignment: .leading, spacing: LayoutGrid.tripleModule) {

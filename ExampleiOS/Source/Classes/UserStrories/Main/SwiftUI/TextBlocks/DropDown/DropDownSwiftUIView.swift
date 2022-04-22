@@ -20,7 +20,7 @@ struct DropDownSwiftUIView: View {
         NavigationContentView(navigationTitle: "Accordion") {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 VStack(spacing: 0.0) {
                     TitleButtonDropDown(
                         title: "Title",

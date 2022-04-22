@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CustomWindowDelegate {
         
         configureTheme()
         configureRootViewController()
-                
+        
         return true
     }
     
