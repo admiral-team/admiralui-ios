@@ -64,7 +64,10 @@ final class TextInputDecorationView: UIView, AnyAppThemable, AccessibilitySuppor
     }
 
     var isOpened: Bool = false {
-        didSet { updateState() }
+        didSet {
+            updateState()
+            updateScheme()
+        }
     }
 
     var enablePlaceholderOffset: Bool = true {
