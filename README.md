@@ -28,7 +28,10 @@ dependencies: [
 ### CocoaPods
 1. Добавить в Podfile:
 ```
-pod ‘AdmiralUI’, :git => ‘repo_path’, :branch => ‘branch_name’`
+pod 'AdmiralTheme', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'branch_name'
+pod 'AdmiralUIResources', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'branch_name'
+pod 'AdmiralSwiftUI', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'branch_name'
+pod 'AdmiralUIKit', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'branch_name'
 ```
 2. Выполнить в терминале команду:
 ```
