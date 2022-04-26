@@ -49,4 +49,11 @@ Pod::Spec.new do |spec|
   spec.swift_version = "5.3"
   
   spec.source_files          = "Source/AdmiralTheme/**/*.{h,m,swift}"
+  spec.dependency "AdmiralUIResources"
+
+  spec.dependency = 'AdmiralUIResources', :git => 'https://github.com/admiral-team/admiralui-ios'
+  spec.dependency = 'AdmiralUIResources', :local => 'Source/AdmiralUIResources/**/*.{h,m,swift}'
+  spec.dependency = 'AdmiralUIResources', :path => 'Source/AdmiralUIResources/**/*.{h,m,swift}'
+  spec.dependency = 'AdmiralUIResources', :podspec => 'AdmiralUIResources.podspec'
+
 end
