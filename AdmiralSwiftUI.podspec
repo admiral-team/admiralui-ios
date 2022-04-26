@@ -17,7 +17,7 @@ Pod::Spec.new do |spec|
   UI components library.
                    DESC
 
-  spec.homepage     = ""
+  spec.homepage     = "https://github.com/admiral-team/admiralui-ios"
 
   spec.license      = { :type => 'MIT License', :text => <<-LICENSE
     Copyright (c) 2020 OOO
@@ -43,7 +43,7 @@ Pod::Spec.new do |spec|
   }
 
   spec.author             = { "" => "" }
-  spec.source       = { :git => "", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/admiral-team/admiralui-ios.git", :tag => "#{spec.version}" }
 
   spec.ios.deployment_target = "14.0"
   spec.swift_version = "5.3"
