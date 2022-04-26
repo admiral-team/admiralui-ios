@@ -126,7 +126,7 @@ struct CustomSwiftUIView: View {
     }
 
     private var scrollView: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             LazyVStack(alignment: .leading) {
                 ForEach(viewModel.filteredItems, id: \.self) { item in
                     NavigationLink(destination: view(for: item)) {

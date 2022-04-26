@@ -16,6 +16,7 @@ final class ContactsViewController: UIViewController, AnyAppThemable {
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.showsVerticalScrollIndicator = false
         return tableView
     }()
     

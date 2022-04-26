@@ -20,7 +20,7 @@ struct TextFieldsSwiftUIView: View {
         let scheme = schemeProvider.scheme
         NavigationContentView(navigationTitle: "Text Fields") {
             scheme.backgroundColor.swiftUIColor.edgesIgnoringSafeArea(.all)
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 LazyVStack(alignment: .leading) {
                     ForEach(TextFieldsSwiftUIItem.allCases, id: \.self) { item in
                         NavigationLink(destination: view(for: item), tag: item.rawValue, selection: self.$selection) {

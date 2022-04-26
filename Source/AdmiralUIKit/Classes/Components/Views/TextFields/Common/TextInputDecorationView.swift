@@ -21,7 +21,7 @@ final class TextInputDecorationView: UIView, AnyAppThemable, AccessibilitySuppor
         var nameLabelHeight: CGFloat = LayoutGrid.doubleModule
         var textInputSpacingTop: CGFloat = LayoutGrid.module
         var textInputMinHeight: CGFloat = 5 * LayoutGrid.halfModule
-        var placeholderSpacingLeading: CGFloat = LayoutGrid.halfModule
+        var placeholderSpacingLeading: CGFloat = LayoutGrid.halfModule - 2
         var separatorSpacingTop: CGFloat = LayoutGrid.halfModule
         var separtorBoxHeight: CGFloat = LayoutGrid.halfModule
         var infoLabelSpacingTop: CGFloat = LayoutGrid.module
@@ -64,7 +64,10 @@ final class TextInputDecorationView: UIView, AnyAppThemable, AccessibilitySuppor
     }
 
     var isOpened: Bool = false {
-        didSet { updateState() }
+        didSet {
+            updateState()
+            updateScheme()
+        }
     }
 
     var enablePlaceholderOffset: Bool = true {
@@ -147,7 +150,7 @@ final class TextInputDecorationView: UIView, AnyAppThemable, AccessibilitySuppor
     
     private func updateScheme() {
         nameLabel.setDynamicFont(
-            font: scheme.nameFont.uiFont,
+            font: isOpened ? scheme.nameFont.uiFont : scheme.nameEnableFont.uiFont,
             textStyle: scheme.nameFont.textStyle,
             adjustsFontForContentSize: adjustsFontForContentSizeCategory)
         placeholderLabel.setDynamicFont(
@@ -292,7 +295,7 @@ final class TextInputDecorationView: UIView, AnyAppThemable, AccessibilitySuppor
         let trailing = textInput.trailingAnchor.constraint(equalTo: textBoxLayoutGuide.trailingAnchor)
         let height = textInput.heightAnchor.constraint(equalToConstant: 0)
         height.priority = UILayoutPriority(UILayoutPriority.defaultHigh.rawValue + 1)
-            
+        
         textInputTopConstraint = top
         textInputHeightConstraint = height
         

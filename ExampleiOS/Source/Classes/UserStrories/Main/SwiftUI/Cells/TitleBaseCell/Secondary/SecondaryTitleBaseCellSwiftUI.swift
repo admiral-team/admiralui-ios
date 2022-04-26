@@ -21,7 +21,7 @@ struct SecondaryTitleBaseCellSwiftUI: View {
         NavigationContentView(navigationTitle: "Secondary") {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
                     .padding()
                 LazyVStack(alignment: .leading) {

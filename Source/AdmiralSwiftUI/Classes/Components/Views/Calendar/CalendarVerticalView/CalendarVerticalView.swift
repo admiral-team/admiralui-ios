@@ -101,7 +101,7 @@ struct CalendarVerticalView: View {
         return ZStack {
             scheme.backgroundColor.swiftUIColor
             ScrollViewReader { scrollView in
-                ScrollView {
+                ScrollView(showsIndicators: false) {
                     LazyVStack(spacing: 0.0) {
                         contentListCell(scheme: scheme, scrollView: scrollView)
                     }

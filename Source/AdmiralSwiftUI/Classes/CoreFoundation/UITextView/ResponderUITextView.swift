@@ -13,8 +13,8 @@ final class ResponderUITextView: UITextView {
     
     var isFirstResponderBinding: Binding<Bool>?
     var textBinding: Binding<String?>?
-
     var onDeleteBackward: () -> Void = { }
+    var canPerformActionPaste: Bool = true
     
     @discardableResult
     override func becomeFirstResponder() -> Bool {
@@ -36,6 +36,15 @@ final class ResponderUITextView: UITextView {
         }
         
        return super.resignFirstResponder()
+    }
+    
+    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+        if !canPerformActionPaste {
+            if action == #selector(UIResponderStandardEditActions.paste(_:)) {
+                return false
+            }
+        }
+        return super.canPerformAction(action, withSender: sender)
     }
     
     override func deleteBackward() {

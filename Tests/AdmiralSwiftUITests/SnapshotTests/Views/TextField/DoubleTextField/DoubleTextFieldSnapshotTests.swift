@@ -54,7 +54,7 @@ final class DoubleTextFieldSnapshotTests: XCTestCase {
         let view = DoubleTextField(
             firstTextField: StandardTextField($text, placeholder: "P1", name: "Optional Label", state: .constant(.normal)),
             secondTextField: StandardTextField($textSecond, placeholder: "P2", name: "Optional Label", state: .constant(.normal)),
-            alignment: .ratio(ration: 0.7),
+            alignment: .fixedSecond(second: 120.0),
             info: "Info",
             infoNumberOfLines: 1,
             state: .constant(.normal))

@@ -21,7 +21,7 @@ struct TextBaseCellSwiftUIView: View {
         NavigationContentView(navigationTitle: "Text Cells") {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
                     .padding(LayoutGrid.doubleModule)
                 LazyVStack(alignment: .leading) {

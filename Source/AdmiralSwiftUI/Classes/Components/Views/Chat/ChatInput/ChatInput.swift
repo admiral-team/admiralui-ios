@@ -96,6 +96,9 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
     /// Adds an action to perform change cursor position. On enter 3 parameters - startCursor, currentCursor, text. Return cursor position.
     private let onCursorPosition: ((Int, Int, String) -> (Int))?
     
+    // Flag is disable pasting. If flasg is true pasting is enabled.
+    private let canPerformActionPaste: Bool
+    
     @Environment(\.isEnabled) private var isEnabled
     
     @State private var isScrollEnabled: Bool = false
@@ -126,6 +129,7 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
         returnKeyType: UIReturnKeyType = .search,
         autocapitalizationType: UITextAutocapitalizationType = .none,
         autocorrectionType: UITextAutocorrectionType = .no,
+        canPerformActionPaste: Bool = false,
         isResponder: Binding<Bool>? = nil,
         placeholder: String = "",
         tapSendButton: @escaping () -> (Bool) = { return false },
@@ -162,6 +166,7 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
         self.formatter = formatter
         self.isSendButtonDisabled = isSendButtonDisabled
         self.onCursorPosition = onCursorPosition
+        self.canPerformActionPaste = canPerformActionPaste
 
         updateMaxHeight(maxNumberOfLines: maxNumberOfLines, maxHeight: maxHeight)
     }
@@ -173,6 +178,7 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
         returnKeyType: UIReturnKeyType = .search,
         autocapitalizationType: UITextAutocapitalizationType = .none,
         autocorrectionType: UITextAutocorrectionType = .no,
+        canPerformActionPaste: Bool = false,
         isResponder: Binding<Bool>? = nil,
         placeholder: String = "",
         tapSendButton: @escaping () -> (Bool) = { return false },
@@ -191,6 +197,7 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
             returnKeyType: returnKeyType,
             autocapitalizationType: autocapitalizationType,
             autocorrectionType: autocorrectionType,
+            canPerformActionPaste: canPerformActionPaste,
             isResponder: isResponder,
             placeholder: placeholder,
             tapSendButton: tapSendButton,
@@ -302,6 +309,7 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
                     isScrollEnabled: isScrollEnabled,
                     autocapitalizationType: autocapitalizationType,
                     autocorrectionType: autocorrectionType,
+                    canPerformActionPaste: canPerformActionPaste,
                     textColor: scheme.textColor.uiColor,
                     tintColor: scheme.tintColor.uiColor,
                     font: scheme.textFont.uiFont,

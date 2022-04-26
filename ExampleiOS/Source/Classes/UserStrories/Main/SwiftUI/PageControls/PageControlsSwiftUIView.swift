@@ -20,7 +20,7 @@ struct PageControlsSwiftUIView: View {
         NavigationContentView(navigationTitle: "Page Controls") {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 LazyVStack(alignment: .leading) {
                     ForEach(PageControlsSwiftUIItem.allCases, id: \.self) { item in
                         NavigationLink(destination: EmptyView()) {
