@@ -39,6 +39,13 @@ pod 'AdmiralTheme', :git => 'https://github.com/admiral-team/admiralui-ios.git',
 pod 'AdmiralUIResources', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'branch_name'
 pod 'AdmiralSwiftUI', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'branch_name'
 ```
+* Для SwiftUI и UIKit:
+```
+pod 'AdmiralTheme', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'branch_name'
+pod 'AdmiralUIResources', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'branch_name'
+pod 'AdmiralSwiftUI', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'branch_name'
+pod 'AdmiralSwiftUI', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'branch_name'
+```
 2. Выполнить в терминале команду:
 ```
 pod install
