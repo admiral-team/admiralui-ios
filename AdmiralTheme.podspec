@@ -54,7 +54,6 @@ Pod::Spec.new do |spec|
   spec.subspec "AdmiralUIResources" do |ss|
     ss.source_files  = "Source/AdmiralUIResources/**/*.{h,m,swift}"
     ss.resources = "Source/AdmiralUIResources/Resources/**/*.{storyboard,xib,xcassets,ttf,otf}"
-    ss.dependency "AdmiralTheme"
   end
 
 end
