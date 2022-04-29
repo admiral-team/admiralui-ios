@@ -123,7 +123,6 @@ public class BaseUnderlineSegmentedControl: UIControl, BaseUnderlineSegmentedCon
     ///   - index: Selected segment index.
     ///   - animated: true if the set of the select segment should be animated, otherwise false.
     public func setSelectedSegmentIndex(_ index: Int, animated: Bool) {
-        guard isScrollEnabled else { return }
         selectedIndex = index
         setSelectView(index, animated: true)
     }

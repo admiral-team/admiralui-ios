@@ -48,6 +48,7 @@ final class UnderlineSliderTabsViewController: ScrollViewController {
     private func configureSegmentControlls() {
         let segmentControlFirst = UnderlineSegmentedControl(items: ["One", "Two", "Three"])
         segmentControlFirst.selectedSegmentIndex = 0
+        segmentControlFirst.isScrollEnabled = false
         segmentControlFirst.contentInset = UIEdgeInsets(
             top: 0.0,
             left: LayoutGrid.doubleModule,
