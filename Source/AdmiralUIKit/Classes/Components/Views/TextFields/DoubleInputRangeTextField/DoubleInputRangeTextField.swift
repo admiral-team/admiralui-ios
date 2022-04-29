@@ -232,13 +232,14 @@ public class DoubleInputRangeTextField: UIView, AnyAppThemable, AccessibilitySup
     private func configureLayout() {
         NSLayoutConstraint.activate([
             leftTextField.leadingAnchor.constraint(equalTo: leadingAnchor),
+            leftTextField.trailingAnchor.constraint(equalTo: trailingAnchor),
             leftTextField.topAnchor.constraint(equalTo: topAnchor),
 
             slider.leadingAnchor.constraint(equalTo: leftTextField.leadingAnchor),
-            slider.trailingAnchor.constraint(equalTo: trailingAnchor),
+            leftTextField.trailingAnchor.constraint(equalTo: slider.trailingAnchor),
             slider.topAnchor.constraint(equalTo: leftTextField.bottomAnchor),
 
-            minValueLabel.leadingAnchor.constraint(equalTo: leftTextField.trailingAnchor),
+            minValueLabel.leadingAnchor.constraint(equalTo: leftTextField.leadingAnchor),
             minValueLabel.topAnchor.constraint(equalTo: slider.bottomAnchor),
             minValueLabel.widthAnchor.constraint(equalTo: maxValueLabel.widthAnchor, multiplier: 1.0),
 
@@ -253,7 +254,6 @@ public class DoubleInputRangeTextField: UIView, AnyAppThemable, AccessibilitySup
 
             rightTextField.trailingAnchor.constraint(equalTo: trailingAnchor),
             rightTextField.topAnchor.constraint(equalTo: topAnchor),
-            rightTextField.leadingAnchor.constraint(greaterThanOrEqualTo: leftTextField.trailingAnchor, constant: LayoutGrid.module)
         ])
     }
 
