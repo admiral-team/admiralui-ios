@@ -754,6 +754,7 @@
 		E9AA277727637C62007389CA /* ChatBubbleStatusViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AA277127637C62007389CA /* ChatBubbleStatusViewScheme.swift */; };
 		E9AA277B27637C78007389CA /* ChatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AA277927637C78007389CA /* ChatButton.swift */; };
 		E9AA277C27637C78007389CA /* ChatButtonCustomScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AA277A27637C78007389CA /* ChatButtonCustomScheme.swift */; };
+		E9B4103828228FB4004DAC6E /* SpinnerAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4103628228FB1004DAC6E /* SpinnerAnimator.swift */; };
 		E9B4D813272FE1DB00B4DA98 /* UploadDocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4D811272FE1CA00B4DA98 /* UploadDocumentView.swift */; };
 		E9B4D816272FFF6200B4DA98 /* UploadDocumentViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4D814272FFF2400B4DA98 /* UploadDocumentViewScheme.swift */; };
 		E9B4D81A27303A5C00B4DA98 /* UploadDocumentGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4D8182730398000B4DA98 /* UploadDocumentGrid.swift */; };
@@ -1659,6 +1660,7 @@
 		E9AA277127637C62007389CA /* ChatBubbleStatusViewScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatBubbleStatusViewScheme.swift; sourceTree = "<group>"; };
 		E9AA277927637C78007389CA /* ChatButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatButton.swift; sourceTree = "<group>"; };
 		E9AA277A27637C78007389CA /* ChatButtonCustomScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatButtonCustomScheme.swift; sourceTree = "<group>"; };
+		E9B4103628228FB1004DAC6E /* SpinnerAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerAnimator.swift; sourceTree = "<group>"; };
 		E9B4D811272FE1CA00B4DA98 /* UploadDocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDocumentView.swift; sourceTree = "<group>"; };
 		E9B4D814272FFF2400B4DA98 /* UploadDocumentViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDocumentViewScheme.swift; sourceTree = "<group>"; };
 		E9B4D8182730398000B4DA98 /* UploadDocumentGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDocumentGrid.swift; sourceTree = "<group>"; };
@@ -5956,9 +5958,9 @@
 		E6FB3126253DC2FA00314E00 /* ActivityIndicator */ = {
 			isa = PBXGroup;
 			children = (
+				E9B410392822B63A004DAC6E /* Animators */,
 				0E89DA9E25ADF7B5004E2583 /* ActivityIndicator.swift */,
 				E6F2D13B256DAE1400EF9281 /* ActivityIndicatorScheme.swift */,
-				E6FB3127253DC2FA00314E00 /* ActivityIndicatorAnimator.swift */,
 			);
 			path = ActivityIndicator;
 			sourceTree = "<group>";
@@ -6379,6 +6381,15 @@
 				E9AA277A27637C78007389CA /* ChatButtonCustomScheme.swift */,
 			);
 			path = ChatButton;
+			sourceTree = "<group>";
+		};
+		E9B410392822B63A004DAC6E /* Animators */ = {
+			isa = PBXGroup;
+			children = (
+				E6FB3127253DC2FA00314E00 /* ActivityIndicatorAnimator.swift */,
+				E9B4103628228FB1004DAC6E /* SpinnerAnimator.swift */,
+			);
+			path = Animators;
 			sourceTree = "<group>";
 		};
 		E9B4D80F272FE19600B4DA98 /* Document */ = {
@@ -7554,6 +7565,7 @@
 				E916F9FE27688E6500628C96 /* TextOperationViewScheme.swift in Sources */,
 				0EB7572B2600D625009BFC21 /* BottomSheetPresenter.swift in Sources */,
 				E95DC43927A0262300532BDC /* UploadImageGridScheme.swift in Sources */,
+				E9B4103828228FB4004DAC6E /* SpinnerAnimator.swift in Sources */,
 				0EB7579D2600D625009BFC21 /* IconTabsItem.swift in Sources */,
 				0EB757882600D625009BFC21 /* AlertViewController.swift in Sources */,
 				0EB7578A2600D625009BFC21 /* TagControl.swift in Sources */,
