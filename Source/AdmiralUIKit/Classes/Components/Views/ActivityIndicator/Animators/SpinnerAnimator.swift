@@ -33,8 +33,8 @@ final class SpinnerAnimator {
     private var start: CGFloat = 0
 
     /// The KeyFrame values
-    private var rotations = [CGFloat]()
-    private var strokeEnds = [CGFloat]()
+    private var rotationsPoints = [CGFloat]()
+    private var endPoints = [CGFloat]()
 
     /// Animation time total count.
     private var totalSeconds: Double {
@@ -65,27 +65,27 @@ final class SpinnerAnimator {
             time += step.seconds
             times.append(time / totalSeconds)
             start = step.start
-            rotations.append(start * 2 * .pi)
-            strokeEnds.append(step.end)
+            rotationsPoints.append(start * 2 * .pi)
+            endPoints.append(step.end)
         }
 
         guard let lastTime = times.last,
-              let firstRotation = rotations.first,
-              let firstStroke = strokeEnds.first
+              let firstRotation = rotationsPoints.first,
+              let firstEndPoint = endPoints.first
         else {
             return
         }
 
         times.append(lastTime)
-        rotations.append(firstRotation)
-        strokeEnds.append(firstStroke)
+        rotationsPoints.append(firstRotation)
+        endPoints.append(firstEndPoint)
     }
 
     // MARK: - Internal Methods
 
     func addAnimation(to layer: CALayer) {
-        let startAnimation = animateKeyPath(keyPath: Animation.strokeEnd.rawValue, values: strokeEnds)
-        let rorationAnimation = animateKeyPath(keyPath: Animation.rotation.rawValue, values: rotations)
+        let startAnimation = animateKeyPath(keyPath: Animation.strokeEnd.rawValue, values: endPoints)
+        let rorationAnimation = animateKeyPath(keyPath: Animation.rotation.rawValue, values: rotationsPoints)
 
         layer.add(startAnimation, forKey: startAnimation.keyPath)
         layer.add(rorationAnimation, forKey: rorationAnimation.keyPath)
