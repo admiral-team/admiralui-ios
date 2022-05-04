@@ -53,7 +53,7 @@ public class ActivityIndicator: UIView, AnyAppThemable {
     // MARK: - Private Properties
 
     private let indicator = CAShapeLayer()
-    private let animator = ActivityIndicatorAnimator()
+    private let animator = SpinnerAnimator()
 
     private var lineWidth: CGFloat = 2.0 {
         didSet {
