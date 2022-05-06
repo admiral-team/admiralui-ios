@@ -63,8 +63,7 @@ public class BaseUnderlineSegmentedControl: UIControl, BaseUnderlineSegmentedCon
     
     // The static mode of BaseUnderlineSegmentedControl
     public var isStaticTabs: Bool = false {
-        didSet {
-            isScrollEnabled = !isStaticTabs }
+        didSet { isScrollEnabled = !isStaticTabs }
     }
     
     // MARK: - Internal Properties
