@@ -18,12 +18,19 @@ struct SwiftUIChatInputView: View {
 
     @State private var isEnabledControlsState: Int = 0
     @State private var viewSize: CGSize = .zero
-    @State private var messageSended = false
+
+    // MARK: - NameSpace
+
+    @Namespace var bottomID
+
+    // MARK: - Private Properties
 
     @StateObject private var viewModel = SwiftUIChatInputViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
-    
-    public var body: some View {
+
+    // MARK: - Layout
+
+    var body: some View {
         let scheme = schemeProvider.scheme
         NavigationContentView(
             navigationTitle: "Input",
@@ -34,8 +41,10 @@ struct SwiftUIChatInputView: View {
                 StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
                     .padding(.horizontal, LayoutGrid.doubleModule)
                 VStack(spacing: LayoutGrid.module) {
-                    messagesScrollView
-                    chatInput
+                    ScrollViewReader { proxy in
+                        messagesScrollView(proxy: proxy)
+                        chatInput(proxy: proxy)
+                    }
                 }
                 .padding(.top, LayoutGrid.doubleModule)
                 Spacer()
@@ -45,57 +54,42 @@ struct SwiftUIChatInputView: View {
         }
     }
 
-    @ViewBuilder
-    private var messagesScrollView: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            ScrollViewReader { reader in
-                LazyVStack {
-                    ForEach(viewModel.messages, id: \.id) { message in
-                        switch message.state {
-                        case .image(let model):
-                            HStack {
-                                Spacer()
-                                UploadingImageGrid(model: model, direction: .right)
-                            }
-                        case .document(let model):
-                            HStack {
-                                Spacer()
-                                UploadDocumentGrid(model: model, direction: .right)
-                            }
-                        case .message(let direction):
-                            ChatBubbleView(
-                                text: message.text,
-                                direction: direction,
-                                time: message.time,
-                                status: message.status
-                            )
-                        }
-                    }
-                }
-                .onChange(of: viewModel.messages) { _ in
-                    DispatchQueue.main.async {
-                        withAnimation { reader.scrollTo(viewModel.messages.last?.id) }
-                    }
-                }
-                .onChange(of: viewSize) { _ in
-                    DispatchQueue.main.async {
-                        withAnimation { reader.scrollTo(viewModel.messages.last?.id) }
-                    }
-                }
-                .onChange(of: messageSended) { value in
-                    guard value == true else { return }
+    // MARK: - Private Methods
 
-                    DispatchQueue.main.async {
-                        withAnimation { reader.scrollTo(viewModel.messages.last?.id) }
+    @ViewBuilder
+    private func messagesScrollView(proxy: ScrollViewProxy) -> some View {
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack {
+                ForEach(viewModel.messages, id: \.id) { message in
+                    if message.id == viewModel.messages.last?.id {
+                        ChatBubbleView(
+                            text: message.text,
+                            direction: message.direction,
+                            time: message.time,
+                            status: message.status
+                        )
+                        .id(bottomID)
+                    } else {
+                        ChatBubbleView(
+                            text: message.text,
+                            direction: message.direction,
+                            time: message.time,
+                            status: message.status
+                        )
                     }
-                    messageSended = false
                 }
             }
+        }
+        .onChange(of: viewSize) { _ in
+            proxy.scrollTo(bottomID)
+        }
+        .onChange(of: viewModel.messages) { _ in
+            proxy.scrollTo(bottomID)
         }
         .padding(.horizontal, LayoutGrid.doubleModule)
     }
 
-    private var chatInput: some View {
+    private func chatInput(proxy: ScrollViewProxy) -> some View {
         ChatInput(
             value: $viewModel.text,
             contentType: .default,
@@ -104,12 +98,12 @@ struct SwiftUIChatInputView: View {
             autocorrectionType: .default,
             isResponder: $viewModel.isResponder,
             placeholder: "Введите сообщение",
-            tapSendButton: {
-                viewModel.addMessageseSubject.send(())
-                messageSended = true
+            tapSendButton: { [weak viewModel] in
+                viewModel?.addMessageseSubject.send(())
+                proxy.scrollTo(bottomID)
                 return true
             },
-            tapFileButton: { viewModel.showingActionSheet = true },
+            tapFileButton: { [weak viewModel] in viewModel?.showingActionSheet = true },
             isShowFileButton: true,
             formatter: BlocFormatter(format: { text in
                 return text?.replacingOccurrences(of: "=)", with: "🙂")
@@ -119,4 +113,5 @@ struct SwiftUIChatInputView: View {
         .disabled(isEnabledControlsState != 0)
         .padding(.horizontal, LayoutGrid.doubleModule)
     }
+
 }
