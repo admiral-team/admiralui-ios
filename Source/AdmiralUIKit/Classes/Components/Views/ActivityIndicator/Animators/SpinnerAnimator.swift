@@ -45,14 +45,10 @@ final class SpinnerAnimator {
 
     init() {
         steps = [
-            AnimationStep(seconds: 0.0, start: 0.0, end: 0.15),
-            AnimationStep(seconds: 0.6, start: 0.15, end: 0.9),
-            AnimationStep(seconds: 0.6, start: 1.0, end: 0.3),
-            AnimationStep(seconds: 0.6, start: 1.5, end: 0.1),
-            AnimationStep(seconds: 0.2, start: 1.8, end: 0.1),
-            AnimationStep(seconds: 0.2, start: 2.2, end: 0.3),
-            AnimationStep(seconds: 0.2, start: 2.6, end: 0.5),
-            AnimationStep(seconds: 0.2, start: 3.0, end: 0.15),
+            AnimationStep(seconds: 0.0, start: 0.0, end: 0.0),
+            AnimationStep(seconds: 1.2, start: 0.15, end: 0.9),
+            AnimationStep(seconds: 0.4, start: 0.8, end: 0.9),
+            AnimationStep(seconds: 0.4, start: 2.0, end: 0.0),
         ]
         setup()
     }
