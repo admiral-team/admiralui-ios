@@ -58,7 +58,12 @@ public class BaseUnderlineSegmentedControl: UIControl, BaseUnderlineSegmentedCon
     
     /// The custom distance that the content view is inset from the safe area or scroll view edges.
     public var contentInset : UIEdgeInsets = .zero {
-        didSet { collectionView.contentInset = contentInset }
+        didSet { collectionView.contentInset = isStaticTabs ? .zero : contentInset}
+    }
+    
+    // The static mode of BaseUnderlineSegmentedControl
+    public var isStaticTabs: Bool = false {
+        didSet { isScrollEnabled = !isStaticTabs }
     }
     
     // MARK: - Internal Properties
@@ -71,7 +76,8 @@ public class BaseUnderlineSegmentedControl: UIControl, BaseUnderlineSegmentedCon
     
     lazy var collectionView: UICollectionView = {
         let collectionViewLayout = UICollectionViewFlowLayout()
-        collectionViewLayout.minimumInteritemSpacing = interItemSpacing
+        collectionViewLayout.minimumInteritemSpacing = isStaticTabs ? .zero : interItemSpacing
+        collectionViewLayout.minimumLineSpacing = 0
         collectionViewLayout.sectionInset = .zero
         collectionViewLayout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
@@ -218,7 +224,7 @@ public class BaseUnderlineSegmentedControl: UIControl, BaseUnderlineSegmentedCon
         for i in 0..<index {
             widthX += sizeItem(for: i).width
         }
-        widthX += CGFloat(index) * interItemSpacing
+        widthX += CGFloat(index) * (isStaticTabs ? .zero : interItemSpacing)
         let origin = CGPoint(x: widthX, y: height - thumbHeight)
         
         if animated {
@@ -261,7 +267,7 @@ extension BaseUnderlineSegmentedControl: UICollectionViewDataSource, UICollectio
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return interItemSpacing
+        return isStaticTabs ? .zero : interItemSpacing
     }
     
 }

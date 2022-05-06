@@ -53,19 +53,19 @@ public class ActivityIndicator: UIView, AnyAppThemable {
     // MARK: - Private Properties
 
     private let indicator = CAShapeLayer()
-    private let animator = ActivityIndicatorAnimator()
-    
+    private let animator = SpinnerAnimator()
+
     private var lineWidth: CGFloat = 2.0 {
         didSet {
-            self.indicator.lineWidth = self.lineWidth
-            self.setNeedsLayout()
+            indicator.lineWidth = self.lineWidth
+            setNeedsLayout()
         }
     }
 
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     convenience init() {
         self.init(frame: .zero)
-        self.commonInit()
+        commonInit()
     }
 
     /// Initializes and returns a newly allocated view object with the specified frame rectangle.
@@ -83,7 +83,7 @@ public class ActivityIndicator: UIView, AnyAppThemable {
     // MARK: - AppTheamable
     
     public func apply(theme: AppTheme) {
-        self.scheme = ActivityIndicatorScheme(theme: theme)
+        scheme = ActivityIndicatorScheme(theme: theme)
     }
     
     // MARK: - Private methods
@@ -119,11 +119,11 @@ public class ActivityIndicator: UIView, AnyAppThemable {
     private func updateLineWidth() {
         switch size {
         case .large:
-            self.indicator.lineWidth = LayoutGrid.module / 2
+            indicator.lineWidth = LayoutGrid.module / 2
         case .medium:
-            self.indicator.lineWidth = LayoutGrid.tripleModule / 8
+            indicator.lineWidth = LayoutGrid.tripleModule / 8
         case .small:
-            self.indicator.lineWidth = LayoutGrid.doubleModule / 8
+            indicator.lineWidth = LayoutGrid.doubleModule / 8
         }
     }
     
@@ -137,15 +137,18 @@ extension ActivityIndicator {
         case .small:
             return CGSize(
                 width: LayoutGrid.doubleModule,
-                height: LayoutGrid.doubleModule)
+                height: LayoutGrid.doubleModule
+            )
         case .medium:
             return CGSize(
                 width: LayoutGrid.tripleModule,
-                height: LayoutGrid.tripleModule)
+                height: LayoutGrid.tripleModule
+            )
         case .large:
             return CGSize(
                 width: LayoutGrid.doubleModule * 3,
-                height: LayoutGrid.doubleModule * 3)
+                height: LayoutGrid.doubleModule * 3
+            )
         }
     }
 
@@ -153,12 +156,12 @@ extension ActivityIndicator {
     override public func layoutSubviews() {
         super.layoutSubviews()
 
-        self.indicator.frame = bounds
+        indicator.frame = bounds
 
         let diameter = min(bounds.size.width, bounds.size.height) - indicator.lineWidth
         let path = UIBezierPath(center: CGPoint(x: bounds.midX, y: bounds.midY), radius: diameter / 2)
         
-        self.indicator.path = path.cgPath
+        indicator.path = path.cgPath
     }
 
 }
@@ -169,21 +172,21 @@ extension ActivityIndicator {
     public func startAnimating() {
         guard !isAnimating else { return }
 
-        self.animator.addAnimation(to: indicator)
-        self.isAnimating = true
+        animator.addAnimation(to: indicator)
+        isAnimating = true
     }
 
     /// Stop activity indicator animation.
     public func stopAnimating() {
-        guard self.isAnimating else { return }
+        guard isAnimating else { return }
 
-        self.animator.removeAnimation(from: indicator)
-        self.isAnimating = false
+        animator.removeAnimation(from: indicator)
+        isAnimating = false
     }
 
 }
 
-fileprivate extension UIBezierPath {
+private extension UIBezierPath {
 
     convenience init(center: CGPoint, radius: CGFloat) {
         self.init(arcCenter: center, radius: radius, startAngle: 0, endAngle: CGFloat(.pi * 2.0), clockwise: true)

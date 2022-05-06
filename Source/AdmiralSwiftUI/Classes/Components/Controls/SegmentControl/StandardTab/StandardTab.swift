@@ -180,3 +180,10 @@ public struct StandardTab: View {
     }
     
 }
+
+@available(iOS 14.0, *)
+struct StandardTabPreviews: PreviewProvider {
+    static var previews: some View {
+        StandardTab(items: ["First", "Second"], selection: .constant(0))
+    }
+}
