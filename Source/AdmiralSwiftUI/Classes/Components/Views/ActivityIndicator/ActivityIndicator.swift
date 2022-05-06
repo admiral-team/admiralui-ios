@@ -30,7 +30,6 @@ import SwiftUI
 public struct ActivityIndicator: View {
     
     enum Constants {
-        static let lineWidth: CGFloat = 3.0
         static let duration = 2.0
     }
     
@@ -81,26 +80,30 @@ public struct ActivityIndicator: View {
             .repeatForever(autoreverses: false)
         let scheme = self.scheme ?? schemeProvider.scheme
         var backroundColor: Color
+        var sizeItem: CGSize
+        var lineWidth: CGFloat
+        
         switch style {
         case .default:
             backroundColor = scheme.backgroundDefaultColor.parameter(for: isEnabled ? .normal : .disabled)?.swiftUIColor ?? .clear
         case .contrast:
             backroundColor = scheme.backgroundConstrastColor.parameter(for: isEnabled ? .normal : .disabled)?.swiftUIColor ?? .clear
         }
-        
-        var sizeItem: CGSize
-        
+
         switch size {
         case .small:
             sizeItem = CGSize(width: LayoutGrid.doubleModule, height: LayoutGrid.doubleModule)
+            lineWidth = LayoutGrid.doubleModule / 8
         case .medium:
             sizeItem = CGSize(width: LayoutGrid.tripleModule, height: LayoutGrid.tripleModule)
+            lineWidth = LayoutGrid.tripleModule / 8
         case .large:
-            sizeItem = CGSize(width: LayoutGrid.quadrupleModule, height: LayoutGrid.quadrupleModule)
+            sizeItem = CGSize(width: LayoutGrid.doubleModule * 3, height:LayoutGrid.doubleModule * 3)
+            lineWidth = LayoutGrid.module / 2
         }
-        
+
         return GrowingActivityIndicator(p: animatableParameter)
-            .stroke(backroundColor, lineWidth: Constants.lineWidth)
+            .stroke(backroundColor, lineWidth: lineWidth)
             .frame(width: sizeItem.width, height: sizeItem.height)
             .onAppear {
                 self.animatableParameter = 0
@@ -111,6 +114,7 @@ public struct ActivityIndicator: View {
                 }
             }
     }
+
 }
 
 @available(iOS 14.0, *)
