@@ -20,15 +20,12 @@ final class SwiftUIChatInputViewModel: ObservableObject {
     }
     
     struct ChatMessage: Identifiable, Equatable {
-        static func == (lhs: SwiftUIChatInputViewModel.ChatMessage, rhs: SwiftUIChatInputViewModel.ChatMessage) -> Bool {
-            lhs.id == rhs.id
-        }
 
-        enum State {
-            case message(direction: ChatDirection)
-            case image(model: UploadImageModel)
-            case document(model: UploadDocument)
-        }
+        let id = UUID().uuidString
+        let text: String
+        let direction: ChatDirection
+        let time: String
+        let status: ChatStatus?
 
         let dateTime: String = {
             let formatter = DateFormatter()
@@ -36,18 +33,17 @@ final class SwiftUIChatInputViewModel: ObservableObject {
             return formatter.string(from: Date())
         }()
 
-        let id = UUID().uuidString
-        let state: State
-        let text: String
-        let time: String
-        let status: ChatStatus?
-
-        init(text: String, state: State, status: ChatStatus? = nil) {
+        init(text: String, status: ChatStatus? = nil, direction: ChatDirection = .right) {
             self.text = text
-            self.state = state
             self.status = status
+            self.direction = direction
             time = dateTime
         }
+
+        static func == (lhs: SwiftUIChatInputViewModel.ChatMessage, rhs: SwiftUIChatInputViewModel.ChatMessage) -> Bool {
+            lhs.id == rhs.id
+        }
+
     }
 
     // MARK: - Properties
@@ -62,7 +58,7 @@ final class SwiftUIChatInputViewModel: ObservableObject {
     @Published var messages = [
         ChatMessage(
             text: "Привет, какой у Вас вопрос?",
-            state: .message(direction: .left)
+            direction: .left
         )
     ]
 
@@ -106,47 +102,8 @@ final class SwiftUIChatInputViewModel: ObservableObject {
                 else {
                     return
                 }
-                self?.messages.append(
-                    ChatMessage(
-                        text: text,
-                        state: .message(direction: .right),
-                        status: .read
-                    )
-                )
+                self?.messages.append(ChatMessage(text: text, status: .read))
                 self?.text = ""
-            }
-            .store(in: &cancellables)
-
-        $handleImage
-            .dropFirst()
-            .sink { [weak self] image in
-                guard let image = image else { return }
-                self?.messages.append(
-                    ChatMessage(
-                        text: self?.text ?? "",
-                        state: .image(
-                            model: UploadImageModel(
-                                isLoading: true,
-                                time: "12:53",
-                                backgroundImage: Image(uiImage: image),
-                                uploadStatus: .receive
-                            )
-                        )
-                    )
-                )
-            }
-            .store(in: &cancellables)
-
-        $handleFileUrl
-            .dropFirst()
-            .sink { [weak self] _ in
-                let testModel = UploadDocument(
-                    state: .loading,
-                    fileName: "At breakpoint boundaries",
-                    fileSize: "65,6 МБ",
-                    time: "14:52"
-                )
-                self?.messages.append(ChatMessage(text: self?.text ?? "", state: .document(model: testModel)))
             }
             .store(in: &cancellables)
 
