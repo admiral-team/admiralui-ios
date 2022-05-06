@@ -116,7 +116,7 @@ class MainViewController: UIViewController, AnyAppThemable {
             
             MainTableViewCellViewModel(
                 title: "Icons",
-                subtitle: "Subtitle",
+                subtitle: "Иконки",
                 image: Asset.Main.gem.image,
                 didSelect: { [weak self] in self?.presentIcons() }),
             
@@ -164,7 +164,7 @@ class MainViewController: UIViewController, AnyAppThemable {
             
             MainTableViewCellViewModel(
                 title: "Badges",
-                subtitle: "Количественные зачения",
+                subtitle: "Количественные значения",
                 image: Asset.Main.badges.image,
                 didSelect: { [weak self] in self?.presentBadges() }),
             
