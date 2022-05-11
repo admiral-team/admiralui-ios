@@ -26,6 +26,7 @@ final class SwiftUIChatInputViewModel: ObservableObject {
         let direction: ChatDirection
         let time: String
         let status: ChatStatus?
+        let name: String?
 
         let dateTime: String = {
             let formatter = DateFormatter()
@@ -33,10 +34,11 @@ final class SwiftUIChatInputViewModel: ObservableObject {
             return formatter.string(from: Date())
         }()
 
-        init(text: String, status: ChatStatus? = nil, direction: ChatDirection = .right) {
+        init(text: String, status: ChatStatus? = nil, direction: ChatDirection = .right, name: String? = nil) {
             self.text = text
             self.status = status
             self.direction = direction
+            self.name = name
             time = dateTime
         }
 
@@ -58,7 +60,8 @@ final class SwiftUIChatInputViewModel: ObservableObject {
     @Published var messages = [
         ChatMessage(
             text: "Привет, какой у Вас вопрос?",
-            direction: .left
+            direction: .left,
+            name: "Антон"
         )
     ]
 
