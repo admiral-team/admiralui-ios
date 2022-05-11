@@ -120,6 +120,7 @@ public final class ChatBubbleView: UIView, AnyAppThemable {
     private var nameLabel = UILabel()
     private let messageView = UIView()
 
+    private var nameTopAnchor = NSLayoutConstraint()
     private var messageViewWidthConstraint = NSLayoutConstraint()
     private var messageViewStaticWidthConstraint = NSLayoutConstraint()
     private var trailingConstraint = NSLayoutConstraint()
@@ -160,9 +161,11 @@ public final class ChatBubbleView: UIView, AnyAppThemable {
         messageViewStaticWidthConstraint = messageView.widthAnchor.constraint(equalToConstant: 77)
         trailingConstraint = trailingAnchor.constraint(equalTo: messageView.trailingAnchor, constant: LayoutGrid.doubleModule)
         errorTrailingConstraint = errorView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: .zero)
+        nameTopAnchor = nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: LayoutGrid.module)
+
         NSLayoutConstraint.activate([
             nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: LayoutGrid.module),
+            nameTopAnchor,
 
             bottomAnchor.constraint(equalTo: errorView.bottomAnchor, constant: LayoutGrid.module),
             messageView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: LayoutGrid.module),
@@ -220,6 +223,8 @@ public final class ChatBubbleView: UIView, AnyAppThemable {
         messageView.layer.maskedCorners = maskedCorner
         errorView.isHidden = !(state == .error && chatDirection == .right)
         updateTrailingConstraints()
+        nameLabel.isHidden = !(chatDirection == .left)
+        nameTopAnchor.constant = chatDirection == .left ? LayoutGrid.module : .zero
     }
 
     private func updateColors() {

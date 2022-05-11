@@ -96,14 +96,14 @@ final class InputChatViewController: UIViewController, AnyAppThemable {
     }
 
     private func configureManager() {
-        tableViewManager.tableView = tableView
-        tableView.dataSource = tableViewManager
+        // tableViewManager.tableView = tableView
+        tableView.dataSource = self
         tableView.delegate = self
-        tableViewManager.sections = viewModel.sections
+        // tableViewManager.sections = viewModel.sections
     }
 
     private func updateTable() {
-        tableViewManager.sections = viewModel.sections
+        // tableViewManager.sections = viewModel.sections
         tableView.reloadData()
     }
 
@@ -174,10 +174,22 @@ extension InputChatViewController: KeyboardBindable {
 }
 
 
-extension InputChatViewController: UITableViewDelegate {
+extension InputChatViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        viewModel.messages.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ChatMessageCell", for: indexPath) as? ChatMessageCell else {
+            return UITableViewCell()
+        }
+        cell.configure(for: viewModel.messages[indexPath.row])
+        return cell
     }
 
 }
