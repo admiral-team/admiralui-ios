@@ -130,7 +130,7 @@ final class InputChatViewController: UIViewController, AnyAppThemable {
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             segmentControl.bottomAnchor.constraint(equalTo: tableView.topAnchor, constant: 10),
-            chatInputView.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: LayoutGrid.tripleModule)
+            chatInputView.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: LayoutGrid.module)
         ])
     }
 

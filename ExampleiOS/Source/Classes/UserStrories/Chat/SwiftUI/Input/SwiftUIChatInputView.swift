@@ -66,7 +66,8 @@ struct SwiftUIChatInputView: View {
                             text: message.text,
                             direction: message.direction,
                             time: message.time,
-                            status: message.status
+                            status: message.status,
+                            name: message.name
                         )
                         .id(bottomID)
                     } else {
@@ -74,7 +75,8 @@ struct SwiftUIChatInputView: View {
                             text: message.text,
                             direction: message.direction,
                             time: message.time,
-                            status: message.status
+                            status: message.status,
+                            name: message.name
                         )
                     }
                 }
