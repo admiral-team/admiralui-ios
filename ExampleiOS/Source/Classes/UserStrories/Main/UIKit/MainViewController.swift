@@ -354,7 +354,7 @@ extension MainViewController {
     
     private func presentActivityIndicator() {
         let viewController = SpinnerViewController()
-        viewController.title = "Spinner"
+        viewController.title = "Spiner"
         navigationController?.pushViewController(viewController, animated: true)
     }
     
