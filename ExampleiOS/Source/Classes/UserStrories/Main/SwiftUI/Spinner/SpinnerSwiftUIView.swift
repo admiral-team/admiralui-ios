@@ -20,7 +20,7 @@ struct SpinnerSwiftUIView: View {
 
     public var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Spinner") {
+        NavigationContentView(navigationTitle: "Spiner") {
             scheme.backgroundColor.swiftUIColor
             VStack(alignment: .leading, spacing: LayoutGrid.tripleModule) {
                 StandardTab(items: ["Small", "Medium", "Big"], selection: $isEnabledControlsState)
