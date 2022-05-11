@@ -140,7 +140,7 @@ final class MenuListCell: UITableViewCell, AnyAppThemable, TableViewListItemConf
         
         addLayoutGuide(containerTextLayoutGuide)
         
-        let imageHorizontalSpacing = containerTextLayoutGuide.trailingAnchor.constraint(greaterThanOrEqualTo: arrowImageView.trailingAnchor)
+        let imageHorizontalSpacing = containerTextLayoutGuide.trailingAnchor.constraint(equalTo: arrowImageView.leadingAnchor)
         let textVerticalSpacing = subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor)
         
         NSLayoutConstraint.activate([
