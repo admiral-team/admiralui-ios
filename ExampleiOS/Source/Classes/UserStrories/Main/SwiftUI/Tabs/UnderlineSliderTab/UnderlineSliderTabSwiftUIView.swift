@@ -15,9 +15,10 @@ struct UnderlineSliderTabSwiftUIView: View {
     @State private var isEnabledControlsState: Int = 0
     @State private var isTwoItemControlsState: Int = 0
     @State private var isThreeItemControlsState: Int = 0
+    @State private var isStaticControlsState: Int = 0
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
     
-    private let underlineTabItems = [UnderlineTabItem(title: "One", badgeStyle: .default),
+    private let underlineTabItems = [UnderlineTabItem(title: "One", badgeStyle: nil),
                                      UnderlineTabItem(title: "Two", badgeStyle: nil),
                                      UnderlineTabItem(title: "Three", badgeStyle: .default)]
     
@@ -62,6 +63,24 @@ struct UnderlineSliderTabSwiftUIView: View {
                                 items: ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven"],
                                 selection: $isThreeItemControlsState,
                                 offset: .constant(16.0)
+                            )
+                            .disabled(isEnabledControlsState != 0)
+                            Spacer()
+                        }
+                    }
+                    Spacer()
+                        .frame(height: 24.0)
+                    
+                    VStack(alignment: .leading, spacing: 16.0) {
+                        Text("Static Controls")
+                            .font(scheme.textFont.swiftUIFont)
+                            .foregroundColor(scheme.textColor.swiftUIColor)
+                            .padding()
+                        VStack(alignment: .leading) {
+                            UnderlineTab(
+                                items: ["One", "Two", "Three", "Four"],
+                                selection: $isStaticControlsState,
+                                isStaticTabs: .constant(true)
                             )
                             .disabled(isEnabledControlsState != 0)
                             Spacer()

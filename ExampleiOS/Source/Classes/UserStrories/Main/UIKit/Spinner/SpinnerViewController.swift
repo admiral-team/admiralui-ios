@@ -55,10 +55,7 @@ final class SpinnerViewController: BaseViewController {
     }
     
     private func addSubviews() {
-        [activityIndicatorView, segmentControl].forEach {
-            view.addSubview($0)
-            $0.translatesAutoresizingMaskIntoConstraints = false
-        }
+        [activityIndicatorView, segmentControl].addToSuperview(view)
     }
     
     private func configureConstraints() {
@@ -77,18 +74,18 @@ final class SpinnerViewController: BaseViewController {
     
     @objc private func segmentedValueChanged(_ control: StandardSegmentedControl) {
         guard let size = ActivityIndicator.Size(rawValue: control.selectedSegmentIndex) else { return }
-        
+
         dismissIndicator()
         activityIndicatorView.size = size
         presentIndicator()
     }
     
     @objc private func presentIndicator() {
-        self.activityIndicatorView.startAnimating()
+        activityIndicatorView.startAnimating()
     }
     
     @objc private func dismissIndicator() {
-        self.activityIndicatorView.stopAnimating()
+        activityIndicatorView.stopAnimating()
     }
 
 }
