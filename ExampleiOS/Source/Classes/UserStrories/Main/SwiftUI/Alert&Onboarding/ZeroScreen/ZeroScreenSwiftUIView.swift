@@ -11,17 +11,10 @@ import AdmiralSwiftUI
 
 @available(iOS 14.0.0, *)
 struct ZeroScreenSwiftUIView: View {
-    
-    // MARK: - Constants
-    
-    private enum Constants {
-        static let title = "Title Center"
-        static let subTitle = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        static let buttonTitle = "Хорошо"
-    }
-    
+
     // MARK: - Private properties
-    
+
+    @StateObject private var viewModel = ZeroScreenSwiftUIViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
     
     // MARK: - Layout
@@ -29,17 +22,19 @@ struct ZeroScreenSwiftUIView: View {
     var body: some View {
         let scheme = schemeProvider.scheme
         NavigationContentView(
-            navigationTitle: "ZeroScreen",
+            navigationTitle: viewModel.navigationTitle,
             isShowThemeSwitchSwiftUIView: true
         ) {
             scheme.backgroundColor.swiftUIColor
             ZStack {
-                ZeroScreenView(image: Image(Asset.Onboarding.one.name),
-                               title: Constants.title,
-                               subtitle: Constants.subTitle,
-                               buttonTitle: Constants.buttonTitle,
-                               isLoadingButton: .constant(false),
-                               buttonAction: {})
+                ZeroScreenView(
+                    image: Image(Asset.Onboarding.one.name),
+                    title: viewModel.title,
+                    subtitle: viewModel.subTitle,
+                    buttonTitle: viewModel.buttonTitle,
+                    isLoadingButton: $viewModel.isLoadingButton,
+                    buttonAction: {}
+                )
             }
             .background(scheme.backgroundColor.swiftUIColor)
         }

@@ -12,7 +12,10 @@ import UIKit
 
 final class ActionBarViewControllerSecondary: ScrollViewController {
 
-    var cells: [ActionCellView<ListCell<ImageCardListView, TitleLargeSubtitleListView, SubtitleWithImageListView>>] = []
+    // MARK: - Private Properties
+
+    private let viewModel = ActionBarViewModelSecondary()
+    private var cells: [ActionCellView<ListCell<ImageCardListView, TitleLargeSubtitleListView, SubtitleWithImageListView>>] = []
 
     // MARK: - Initializers
 
@@ -31,7 +34,7 @@ final class ActionBarViewControllerSecondary: ScrollViewController {
     private func configureUI() {
         hideSegmentView(false)
 
-        navigationItem.title = "ActionBar - Type secondary"
+        navigationItem.title = viewModel.title
 
         configureCells()
 
@@ -39,7 +42,7 @@ final class ActionBarViewControllerSecondary: ScrollViewController {
             $0.translatesAutoresizingMaskIntoConstraints = false
             stackView.addArrangedSubview($0)
         }
-        segmentControl.setTitles(["Default", "Disabled"])
+        segmentControl.setTitles(viewModel.tabs)
         segmentControl.selectedSegmentIndex = 0
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
     }
@@ -64,43 +67,8 @@ final class ActionBarViewControllerSecondary: ScrollViewController {
             centerView: titleListView,
             tralingView: swipeView)
         let actionCellView = ActionCellView(cellView: listCell, style: .secondary)
-
-        let actionOne = createActionWithCustomColors(
-            Asset.ActionBar.closeOutline.image,
-            style: .secondary,
-            backGroundColor: .red,
-            imageTintColor: .white
-        )
-        actionCellView.appendAction(actionOne)
-
-        let actionSecond = createAction(Asset.ActionBar.union.image, imageStyle: .success, style: .secondary)
-        actionCellView.appendAction(actionSecond)
-
-        let actionThrid = createAction(Asset.ActionBar.arrowDownOutline.image, imageStyle: .accent, style: .secondary)
-        actionCellView.appendAction(actionThrid)
-
+        viewModel.actions.forEach { actionCellView.appendAction($0) }
         return actionCellView
-    }
-
-    private func createAction(_ image: UIImage, imageStyle: ActionBarItemImageStyle, style: ActionBarItemStyle = .default) -> ActionItemBarAction {
-        return ActionItemBarAction(
-            image: image,
-            imageStyle: imageStyle,
-            style: style,
-            text: "Text",
-            handler: {}
-        )
-    }
-
-    private func createActionWithCustomColors(_ image: UIImage, style: ActionBarItemStyle = .default, backGroundColor: UIColor, imageTintColor: UIColor) -> ActionItemBarAction {
-        return ActionItemBarAction(
-            image: image,
-            imageTintColor: imageTintColor,
-            backgroundColor: backGroundColor,
-            style: style,
-            text: "Text",
-            handler: {}
-        )
     }
 
     @objc private func segmentedValueChanged(_ control: StandardSegmentedControl) {

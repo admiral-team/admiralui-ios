@@ -13,13 +13,17 @@ import AdmiralUIResources
 @available(iOS 14.0.0, *)
 struct SwiftUITextMessageView: View {
 
+    // MARK: - Properties
+
     @StateObject private var viewModel = SwiftUITextMessageViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
-    
+
+    // MARK: - Layout
+
     public var body: some View {
         let scheme = schemeProvider.scheme
         NavigationContentView(
-            navigationTitle: "Text Messages",
+            navigationTitle: viewModel.navigationTitle,
             isShowThemeSwitchSwiftUIView: false,
             navigationBarDisplayMode: .large
         ) {
@@ -44,7 +48,9 @@ struct SwiftUITextMessageView: View {
             }
         }
     }
-    
+
+    // MARK: - Private Methods
+
     private func getActionSheet() -> ActionSheet {
         let scheme = schemeProvider.scheme
         

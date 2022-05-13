@@ -183,7 +183,7 @@ struct CustomSwiftUIView: View {
         case .links:
             LinksSwiftUIView()
         case .chat:
-            ChatSwiftUIView(navigationStyle: .fromMainPage)
+            ChatSwiftUIView(viewModel: SwiftUIChatViewModel(navigationStyle: .fromMainPage))
         case .pageControls:
             PageControlsSwiftUIView()
         case .admiralGun:

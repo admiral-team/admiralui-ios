@@ -11,12 +11,17 @@ import AdmiralSwiftUI
 
 @available(iOS 14.0.0, *)
 struct IconsCurrencySwiftUIView: View {
-    
+
+    // MARK: - Private Properties
+
+    @StateObject private var viewModel = IconsCurrencySwiftUIViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
-    
-    public var body: some View {
+
+    // MARK: - Layout
+
+    var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Icons") {
+        NavigationContentView(navigationTitle: viewModel.navigationTitle) {
             scheme.backgroundColor.swiftUIColor
             VStack(alignment: .leading) {
                 Spacer()
@@ -31,20 +36,22 @@ struct IconsCurrencySwiftUIView: View {
                     .frame(height: LayoutGrid.doubleModule)
                 VStack(alignment: .leading, spacing: 0.0, content: {
                     CurrencyHeaderView(
-                        currencyText: "Валюта",
-                        buyText: "Купить",
-                        sellText: "Продать",
-                        isTextSpacingEnabled: true
+                        currencyText: viewModel.header.currencyText,
+                        buyText: viewModel.header.buyText,
+                        sellText: viewModel.header.sellText,
+                        isTextSpacingEnabled: viewModel.header.isTextSpacingEnabled
                     )
                     .frame(height: LayoutGrid.halfModule * 14)
-                    CurrencyView(currencyText: "USD", buyText: "8,65", sellText: "8,88", firstCellType: .arrowUp, secondCellType: .arrowUp)
+                    ForEach(viewModel.items, id: \.id) { item in
+                        CurrencyView(
+                            currencyText: item.currencyText,
+                            buyText: item.buyText,
+                            sellText: item.sellText,
+                            firstCellType: item.firstCellType,
+                            secondCellType: item.secondCellType
+                        )
                         .frame(height: LayoutGrid.halfModule * 10)
-                    CurrencyView(currencyText: "EUR", buyText: "168,65", sellText: "167,88", firstCellType: .arrowUp, secondCellType: .arrowUp)
-                        .frame(height: LayoutGrid.halfModule * 10)
-                    CurrencyView(currencyText: "GBP", buyText: "18,65", sellText: "18,88", firstCellType: .arrowUp, secondCellType: .arrowUp)
-                        .frame(height: LayoutGrid.halfModule * 10)
-                    CurrencyView(currencyText: "CNY", buyText: "0,65", sellText: "0,88", firstCellType: .arrowUp, secondCellType: .arrowUp)
-                        .frame(height: LayoutGrid.halfModule * 10)
+                    }
                 })
                 .padding(LayoutGrid.doubleModule)
                 Spacer()

@@ -79,6 +79,14 @@ final class SwiftUIUploadFileViewModel: ObservableObject {
     // MARK: - Internal properties
     
     var errorGridIndex: Int = 0
+
+    var navigationTitle: String {
+        "Uploading Files"
+    }
+
+    var tabItems: [String] {
+        ["Default", "Loading"]
+    }
     
     // MARK: - Private properties
     

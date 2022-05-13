@@ -13,13 +13,18 @@ import AdmiralSwiftUI
 @available(iOS 14.0.0, *)
 struct ActionBarSwiftUI: View {
 
+    // MARK: - Type Alias
+
+    typealias CellItems = ActionBarSwiftUIViewModel.ActionBarSwiftUIItem
+
     // MARK: - Private properties
 
+    @StateObject private var viewModel = ActionBarSwiftUIViewModel()
     @ObservedObject private var manager = SwiftUIThemeManager.shared
 
     // MARK: - Layout
 
-    public var body: some View {
+    var body: some View {
         let scheme = SwiftUIContentViewScheme(theme: manager.theme)
         navigationView(scheme: scheme)
             .navigationBarColor(
@@ -33,7 +38,7 @@ struct ActionBarSwiftUI: View {
 
     private func navigationView(scheme: SwiftUIContentViewScheme) -> some View {
         NavigationContentView(
-            navigationTitle: "ActionBar",
+            navigationTitle: viewModel.title,
             isShowBackButton: true,
             isShowThemeSwitchSwiftUIView: true,
             navigationBarDisplayMode: .large
@@ -49,7 +54,7 @@ struct ActionBarSwiftUI: View {
     private var scrollView: some View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVStack {
-                ForEach(ActionBarSwiftUIItem.allCases, id: \.self) { item in
+                ForEach(CellItems.allCases, id: \.self) { item in
                     NavigationLink(destination: view(for: item)) {
                         ListCell(
                             centerView: { TitleListView(title: item.title) },
@@ -62,7 +67,7 @@ struct ActionBarSwiftUI: View {
     }
 
     @ViewBuilder
-    private func view(for type: ActionBarSwiftUIItem) -> some View {
+    private func view(for type: CellItems) -> some View {
         switch type {
         case .default:
             ActionBarSwiftUIViewDefault()

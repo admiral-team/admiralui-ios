@@ -19,6 +19,7 @@ final class TagsChipsViewController: ScrollViewController {
             width: LayoutGrid.halfModule * 6,
             height: LayoutGrid.halfModule * 6)
     }
+
     private var views = [TagCellView]()
     
     // MARK: - Initializers

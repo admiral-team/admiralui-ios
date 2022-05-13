@@ -11,52 +11,42 @@ import AdmiralSwiftUI
 
 @available(iOS 14.0.0, *)
 struct LogoTabSwiftUIView: View {
-    
-    @State private var isEnabledControlsState: Int = 0
-    @State private var isTwoItemControlsState: Int = 0
-    @State private var isThreeItemControlsState: Int = 0
+
+    // MARK: - Private Properties
+
+    @StateObject private var viewModel = LogoTabsSwiftUIViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
-    
-    public var body: some View {
+
+    // MARK: - Layout
+
+    var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Logo Tabs") {
+        NavigationContentView(navigationTitle: viewModel.title) {
             scheme.backgroundColor.swiftUIColor
             ScrollView(.vertical) {
                 HStack {
                   Spacer()
                 }
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: viewModel.tabs, selection: $viewModel.isEnabledControlsState)
                 Spacer()
-                    .frame(height: 16.0)
+                    .frame(height: LayoutGrid.doubleModule)
                 VStack(alignment: .leading) {
-                    VStack(alignment: .leading, spacing: 16.0) {
-                        Text("Two Controls")
-                            .foregroundColor(scheme.textColor.swiftUIColor)
-                            .font(scheme.textFont.swiftUIFont)
-                        VStack(alignment: .leading) {
-                            LogoTab(images: [Image(Asset.Tabs.visaLogo.name), Image(Asset.Tabs.masterCardLogo.name)],
-                                    selection: $isTwoItemControlsState)
-                                .disabled(isEnabledControlsState != 0)
-                            Spacer()
-                        }
-                    }
-                    Spacer()
-                        .frame(height: 24.0)
-                    
-                    
-                    VStack(alignment: .leading, spacing: 16.0) {
-                        Text("Three Controls")
-                            .font(scheme.textFont.swiftUIFont)
-                            .foregroundColor(scheme.textColor.swiftUIColor)
-                        VStack(alignment: .leading) {
-                            LogoTab(images: [Image(Asset.Tabs.visaLogo.name), Image(Asset.Tabs.masterCardLogo.name), Image(Asset.Tabs.mirLogo.name)],
-                                                 selection: $isThreeItemControlsState)
-                                .disabled(isEnabledControlsState != 0)
-                            Spacer()
+                    ForEach(0..<viewModel.items.count, id: \.self) { index in
+                        VStack(alignment: .leading, spacing: LayoutGrid.halfModule * 6) {
+                            Text(viewModel.items[index].title)
+                                .foregroundColor(scheme.textColor.swiftUIColor)
+                                .font(scheme.textFont.swiftUIFont)
+                            VStack(alignment: .leading) {
+                                LogoTab(
+                                    images: viewModel.items[index].items,
+                                    selection: $viewModel.items[index].selection
+                                )
+                                .disabled(viewModel.isEnabledControlsState != 0)
+                                Spacer()
+                            }
                         }
                     }
                 }
-                Spacer()
             }
             .padding()
         }

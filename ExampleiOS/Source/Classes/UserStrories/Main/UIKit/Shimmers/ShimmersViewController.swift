@@ -44,12 +44,11 @@ final class ShimmersViewController: ScrollViewController {
     }
     
     private func configureCells() {
-        let view1 = ShimmerCellView(state: .rightImageShimmering)
-        let view2 = ShimmerCellView(state: .leftImageShimmering)
-        let view3 = ShimmerCellView(state: .subtitleShimmering)
-        let view4 = ShimmerCellView(state: .wholeViewShimmering)
-        
-        cells.append(contentsOf: [view1, view2, view3, view4])
+        var views: [ShimmerCellView] = []
+        ShimmerCellViewState.allCases.forEach {
+            views.append(ShimmerCellView(state: $0))
+        }
+        cells.append(contentsOf: views)
     }
     
 }

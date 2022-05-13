@@ -18,7 +18,7 @@ final class BottomSheetExampleViewController: UIViewController, BottomSheetPrese
     }
     
     var cornerRadius: CGFloat {
-        return 24.0
+        return LayoutGrid.module * 3
     }
     
     var shortFormHeight: BottomSheetHeight {
@@ -42,7 +42,7 @@ final class BottomSheetExampleViewController: UIViewController, BottomSheetPrese
     private let tableView = UITableView()
     private let headerView = BottomSheetHeaderTitleView()
     private var bottomView = BottomSheetBottomView()
-    private var models = [BottomSheetTableViewCellViewModel]()
+    private let viewModel = BottomSheetViewModel()
     
     // MARK: - Initializers
     
@@ -66,9 +66,6 @@ final class BottomSheetExampleViewController: UIViewController, BottomSheetPrese
     
     private func commonInit() {
         autoManage()
-        
-        models = prepareData()
-        
         addSubviews()
         configureTableView()
         setupConstraints()
@@ -102,48 +99,6 @@ final class BottomSheetExampleViewController: UIViewController, BottomSheetPrese
         ])
     }
     
-    private func prepareData() -> [BottomSheetTableViewCellViewModel] {
-        var models = [BottomSheetTableViewCellViewModel]()
-        let model = BottomSheetTableViewCellViewModel(
-            title: "Зарплатная карта",
-            isSelected: false,
-            subtitle: "56 000.00 ₽",
-            additionalTitle: nil,
-            image: Asset.Card.visa.image)
-        let model1 = BottomSheetTableViewCellViewModel(
-            title: "Карта",
-            isSelected: false,
-            subtitle: "5 000.00 ₽",
-            additionalTitle: nil,
-            image: Asset.Card.visa.image)
-        let model2 = BottomSheetTableViewCellViewModel(
-            title: "Новая карта",
-            isSelected: false,
-            subtitle: "200 000.00 ₽ ",
-            additionalTitle: nil,
-            image: Asset.Card.visa.image)
-        let model3 = BottomSheetTableViewCellViewModel(
-            title: "Мультикарта",
-            isSelected: false,
-            subtitle: "2 000 000.00 ₽ ",
-            additionalTitle: "• 6554",
-            image: Asset.Card.visa.image)
-        let model4 = BottomSheetTableViewCellViewModel(
-            title: "Мультикарта",
-            isSelected: false,
-            subtitle: "11 000.00 ₽ ",
-            additionalTitle: "• 5544",
-            image: Asset.Card.visa.image)
-        let model5 = BottomSheetTableViewCellViewModel(
-            title: "Карта",
-            isSelected: false,
-            subtitle: "1000.00 ₽ ",
-            additionalTitle: nil,
-            image: Asset.Card.visa.image)
-        models.append(contentsOf: [model, model1, model2, model3, model4, model5])
-        return models
-    }
-    
 }
 
 // MARK: - BottomSheetNavigationViewDelegate
@@ -161,7 +116,7 @@ extension BottomSheetExampleViewController: BottomSheetHeaderDelegate {
 extension BottomSheetExampleViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return models.count
+        return viewModel.models.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -171,7 +126,7 @@ extension BottomSheetExampleViewController: UITableViewDataSource {
             return UITableViewCell()
         }
    
-        cell.configureWith(model: models[indexPath.row])
+        cell.configureWith(model: viewModel.models[indexPath.row])
         return cell
     }
 
@@ -205,7 +160,7 @@ extension BottomSheetExampleViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let model = models[indexPath.row]
+        let model = viewModel.models[indexPath.row]
         model.isSelected = !model.isSelected
         tableView.beginUpdates()
         tableView.reloadRows(at: [indexPath], with: .automatic)
@@ -223,7 +178,7 @@ extension BottomSheetExampleViewController: BottomSheetBottomViewDelegate {
     }
     
     func didTapLeftButton() {
-        models.forEach({ $0.isSelected = true })
+        viewModel.models.forEach({ $0.isSelected = true })
         tableView.reloadData()
     }
     

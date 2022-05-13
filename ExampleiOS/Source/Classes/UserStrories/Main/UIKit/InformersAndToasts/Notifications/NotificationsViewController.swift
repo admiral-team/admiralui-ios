@@ -9,9 +9,13 @@ import AdmiralUIKit
 import UIKit
 
 final class NotificationsViewController: BaseTableViewController {
-    
-    // MARK: - Life Cycle
-    
+
+    // MARK: - Private properties
+
+    private let viewModel = NotificationViewModel()
+
+    // MARK: - Initializer
+
     override func viewDidLoad() {
         setSegmentControl(hidden: true)
 
@@ -19,43 +23,36 @@ final class NotificationsViewController: BaseTableViewController {
         tableView.separatorStyle = .none
         tableViewManager.sections = createSections()
     }
-    
+
     // MARK: - Private Methods
-    
+
     private func createSections() -> [MainSectionViewModel] {
-        let items: [TableViewListItem] = [
-            MainTitleTableViewCellViewModel(
-                title: "Toast",
-                didSelect: { [weak self] in self?.presentToast() }),
-            
-            MainTitleTableViewCellViewModel(
-                title: "Notifications",
-                didSelect: { [weak self] in self?.presentNotifications() }),
-            
-            MainTitleTableViewCellViewModel(
-                title: "Action",
-                didSelect: { [weak self] in self?.presentAction() })
-        ]
-        
+        let items = viewModel.items.map { item -> MainTitleTableViewCellViewModel in
+            let title = item.getTitle()
+            return MainTitleTableViewCellViewModel(
+                title: title,
+                didSelect: { [weak self] in self?.presentVC(item: item, title: title) }
+            )
+        }
         return [MainSectionViewModel(items: items)]
     }
-    
-    private func presentToast() {
-        let viewController = ToastNotificationsViewController()
-        viewController.title = "Toast"
-        navigationController?.pushViewController(viewController, animated: true)
-    }
-    
-    private func presentNotifications() {
-        let viewController = StaticNotificationsViewController()
-        viewController.title = "Notifications"
-        navigationController?.pushViewController(viewController, animated: true)
-    }
-    
-    private func presentAction() {
-        let viewController = ActionNotificationViewController()
-        viewController.title = "Action"
-        navigationController?.pushViewController(viewController, animated: true)
+
+}
+
+private extension NotificationsViewController {
+
+    func presentVC(item: NotificationViewModel.Items, title: String) {
+        var vc: UIViewController
+        switch item {
+        case .action:
+            vc = ActionNotificationViewController()
+        case .notifications:
+            vc = StaticNotificationsViewController()
+        case .toast:
+            vc = ToastNotificationsViewController()
+        }
+        vc.title = title
+        navigationController?.pushViewController(vc, animated: true)
     }
 
 }

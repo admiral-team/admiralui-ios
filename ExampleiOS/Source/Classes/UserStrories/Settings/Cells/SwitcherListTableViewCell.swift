@@ -22,15 +22,15 @@ class SwitcherListTableViewCellViewModel: TableViewListItem {
     }
     
     var isEnabled: Bool = true
-    
     var didSelect: (() -> Void)?
 
-    init(title: String, image: UIImage, isOn: Bool, didSelect: (() -> Void)? = nil, key: String) {
+    init(title: String, image: UIImage, isOn: Bool, didSelect: (() -> Void)? = nil, key: String, isEnabled: Bool) {
         self.title = title
         self.image = image
         self.isOn = isOn
         self.didSelect = didSelect
         self.key = key
+        self.isEnabled = isEnabled
     }
 }
 

@@ -9,7 +9,9 @@ import AdmiralUIKit
 import AdmiralTheme
 import UIKit
 
-struct MessageInformerViewViewModel {
+protocol InformerModel {}
+
+struct MessageInformerViewViewModel: InformerModel {
     
     let headLine: String
     let title: String
@@ -101,9 +103,9 @@ final class MessageInformerView: UIView, Informer, AnyAppThemable, Accessibility
             trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: LayoutGrid.doubleModule),
             titleLabel.heightAnchor.constraint(equalToConstant: 20.0),
             
-            informerView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            informerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: LayoutGrid.doubleModule),
             informerView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: LayoutGrid.halfModule * 6),
-            informerView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            trailingAnchor.constraint(equalTo: informerView.trailingAnchor, constant: LayoutGrid.doubleModule),
             bottomAnchor.constraint(equalTo: informerView.bottomAnchor, constant: LayoutGrid.doubleModule)
         ])
     }

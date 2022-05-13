@@ -10,7 +10,13 @@ import AdmiralUIKit
 import AdmiralTheme
 
 final class LinksHeaderViewController: ScrollViewController {
-    
+
+    // MARK: - Private Properties
+
+    private let viewModel = LinksHeaderViewModel()
+
+    // MARK: - Internal Properties
+
     var headers: [UIView] = []
     
     // MARK: - Initializers
@@ -29,8 +35,10 @@ final class LinksHeaderViewController: ScrollViewController {
     
     private func configureUI() {
         stackView.spacing = LayoutGrid.halfModule * 3
-        
-        headers.append(LinkViewHeader(title: "Подробнее на сайте банка"))
+
+        viewModel.titles.forEach {
+            headers.append(LinkViewHeader(title: $0))
+        }
         
         headers.forEach() {
             $0.translatesAutoresizingMaskIntoConstraints = false

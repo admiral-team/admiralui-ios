@@ -11,30 +11,25 @@ import AdmiralSwiftUI
 
 @available(iOS 14.0.0, *)
 struct InputRangeTextFieldSwiftUIView: View {
-    
-    @State private var text: String? = "100"
-    
-    @State private var contentFrom: String? = "100"
-    @State private var contentTo: String? = "300"
-    
-    @State private var controlsState: Int = 0
-    @State private var state: TextInputState = .normal
-    @State private var isResponder = false
-    @State private var isResponderTo = false
-    @State private var isResponderFrom = false
+
+    // MARK: - Private Properties
+
+    @StateObject private var viewModel = InputRangeTextFieldSwiftUIViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
-    
-    public var body: some View {
+
+    // MARK: - Layout
+
+    var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Slider") {
+        NavigationContentView(navigationTitle: viewModel.title) {
             scheme.backgroundColor.swiftUIColor
             ScrollView(.vertical) {
                 StandardTab(
-                    items: ["Default", "Error", "Disabled"],
-                    selection: $controlsState)
-                    .onChange(of: controlsState, perform: { value in
-                    self.state = TextInputState(rawValue: value) ?? .normal
-                })
+                    items: viewModel.tabItems,
+                    selection: $viewModel.controlsState)
+                    .onChange(of: viewModel.controlsState, perform: { [weak viewModel] value in
+                        viewModel?.state = TextInputState(rawValue: value) ?? .normal
+                    })
                 Spacer()
                     .frame(height: LayoutGrid.quadrupleModule)
                 HStack {
@@ -46,15 +41,15 @@ struct InputRangeTextFieldSwiftUIView: View {
                 Spacer()
                     .frame(height: LayoutGrid.quadrupleModule)
                 InputRangeTextField(
-                    $text,
+                    $viewModel.text,
                     placeholder: "Placeholder",
                     name: "Optional label",
-                    state: $state,
+                    state: $viewModel.state,
                     info: .constant("Additional text"),
                     sliderValue: 100,
                     minValue: 100,
                     maxValue: 1000,
-                    isResponder: $isResponder
+                    isResponder: $viewModel.isResponder
                 )
                 Spacer()
                     .frame(height: LayoutGrid.quadrupleModule)
@@ -67,12 +62,12 @@ struct InputRangeTextFieldSwiftUIView: View {
                 Spacer()
                     .frame(height: LayoutGrid.quadrupleModule)
                 DoubleInputRangeTextField(
-                    $contentFrom,
-                    contentTo: $contentTo,
+                    $viewModel.contentFrom,
+                    contentTo: $viewModel.contentTo,
                     placeholderFrom: "PlaceholderFrom",
                     placeholderTo: "PlaceholderTo",
                     name: "Optional label",
-                    state: $state,
+                    state: $viewModel.state,
                     info: .constant("Additional text"),
                     sliderValueFrom: 100,
                     sliderValueTo: 300,
@@ -80,19 +75,18 @@ struct InputRangeTextFieldSwiftUIView: View {
                     maxValue: 1000,
                     leadingText: .constant("₽"),
                     trailingText: .constant("₽"),
-                    isResponderFrom: $isResponderFrom,
-                    isResponderTo: $isResponderTo
+                    isResponderFrom: $viewModel.isResponderFrom,
+                    isResponderTo: $viewModel.isResponderTo
                 )
                 Spacer()
             }
             .padding()
             .onTapGesture {
-                isResponder = false
-                isResponderFrom = false
-                isResponderTo = false
+                viewModel.isResponder = false
+                viewModel.isResponderFrom = false
+                viewModel.isResponderTo = false
             }
         }
-
     }
     
 }

@@ -12,35 +12,44 @@ import AdmiralSwiftUI
 @available(iOS 14.0.0, *)
 
 struct AlertSwiftUIView: View {
-    // swiftlint:disable all
-    @State private var show = false
+
+    // MARK: - Properties
+
+    @StateObject private var viewModel = AlertSwiftUIViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<AlertCustomScheme>()
+
+    // MARK: - Layout
 
     var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Alert", isShowThemeSwitchSwiftUIView: !show) {
+        NavigationContentView(
+            navigationTitle: viewModel.navigationTitle,
+            isShowThemeSwitchSwiftUIView: !viewModel.show
+        ) {
             scheme.backgroundColor.swiftUIColor
             ZStack {
                 infoView
                 alertView
             }
-            .background(show ? Color(scheme.backBackgroundColor.uiColor) : Color(scheme.backgroundColor.uiColor))
+            .background(viewModel.show ? Color(scheme.backBackgroundColor.uiColor) : Color(scheme.backgroundColor.uiColor))
             .animation(.easeInOut(duration: Durations.Default.double))
         }
     }
+
+    // MARK: - Private Properties
     
     private var infoView: some View {
         let scheme = schemeProvider.scheme
         return VStack {
-            Text("Всплывающие окна поверх контента, часто содержат короткое информирующее сообщение, иллюстрацию и кнопки основгого или альтернативного действия. Для вызова Alert, нажмите кнопку")
+            Text(viewModel.description)
                 .multilineTextAlignment(.leading)
                 .font(scheme.descriptionLabelFont.swiftUIFont)
                 .foregroundColor(scheme.descriptionLabelTextColor.swiftUIColor)
             
-            SwiftUI.Button("Показать Alert", action: {
-                self.show.toggle()
+            SwiftUI.Button("Показать Alert", action: { [weak viewModel] in
+                viewModel?.show.toggle()
             })
-            .buttonStyle(GhostButtonStyle())
+                .buttonStyle(GhostButtonStyle())
             Spacer()
         }
         .padding(.top)
@@ -48,15 +57,17 @@ struct AlertSwiftUIView: View {
     }
     
     private var alertView: some View {
-        AlertView(image: Image(Asset.PopUp.popUpImage.name),
-                  title: "Заголовок в одну \nили две строки",
-                  message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                  buttonTitle: "Действие",
-                  buttonAction: {
-                    self.show.toggle()
-                })
-            .padding()
-            .opacity(show ? 1 : 0)
+        AlertView(
+            image: Image(Asset.PopUp.popUpImage.name),
+            title: viewModel.alertTitle,
+            message: viewModel.alertMessage,
+            buttonTitle: viewModel.alertButtonTitle,
+            buttonAction: { [weak viewModel] in
+                viewModel?.show.toggle()
+            }
+        )
+        .padding()
+        .opacity(viewModel.show ? 1 : 0)
     }
 }
 

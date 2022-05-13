@@ -11,15 +11,9 @@ import UIKit
 
 final class ErrorViewController: UIViewController, AnyAppThemable {
 
-    // MARK: - Constants
-
-    private enum Constants {
-        static let text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        static let buttonTitle = "Хорошо"
-    }
-
     // MARK: - Private Properties
 
+    private let viewModel = ErrorViewModel()
     private let themeSwitchView = ThemeSwitchView(frame: .zero)
     private let errorView = ErrorView()
 
@@ -59,8 +53,8 @@ final class ErrorViewController: UIViewController, AnyAppThemable {
 
     private func setupUI() {
         isThemeSwitchViewHidden = false
-        errorView.text = Constants.text
-        errorView.buttonTitle = Constants.buttonTitle
+        errorView.text = viewModel.text
+        errorView.buttonTitle = viewModel.buttonTitle
         errorView.delegate = self
     }
 

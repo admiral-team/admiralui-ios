@@ -12,7 +12,8 @@ import UIKit
 final class InformerTabViewController: ScrollViewController {
     
     // MARK: - Private Properties
-    
+
+    private let viewModel = InformerTabViewModel()
     private var views = [BigTabsView<InformerTabSegmentedControl>]()
     
     // MARK: - Initializers
@@ -40,30 +41,18 @@ final class InformerTabViewController: ScrollViewController {
         views.forEach() {
             stackView.addArrangedSubview($0)
         }
-        segmentControl.setTitles(["Default", "Disabled"])
+        segmentControl.setTitles(viewModel.tabs)
         segmentControl.selectedSegmentIndex = 0
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
     }
     
     private func configureSegmentControlls() {
-        let segmentConstol1 = InformerTabSegmentedControl(items:
-                                                            [InformerTab(title: "2 900 ₽", subtitle: "в месяц"),
-                                                             InformerTab(title: "2 900 ₽", subtitle: "в месяц")])
-        segmentConstol1.selectedSegmentIndex = 0
-        
-        let view1 = BigTabsView<InformerTabSegmentedControl>(segmentView: segmentConstol1, title: "Two controls")
-        
-        views.append(view1)
-        
-        let segmentConstol2 = InformerTabSegmentedControl(items:
-                                                            [InformerTab(title: "2 900 ₽", subtitle: "в месяц"),
-                                                             InformerTab(title: "2 900 ₽", subtitle: "в месяц"),
-                                                             InformerTab(title: "2 900 ₽", subtitle: "в месяц")])
-        segmentConstol2.selectedSegmentIndex = 0
-        
-        let view2 = BigTabsView<InformerTabSegmentedControl>(segmentView: segmentConstol2, title: "Three controls")
-        
-        views.append(view2)
+        viewModel.items.forEach {
+            let control = InformerTabSegmentedControl(items: $0.items)
+            control.selectedSegmentIndex = $0.selection
+            let view = BigTabsView<InformerTabSegmentedControl>(segmentView: control, title: $0.text)
+            views.append(view)
+        }
     }
     
     @objc private func segmentedValueChanged(_ control: StandardSegmentedControl) {

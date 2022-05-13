@@ -26,7 +26,8 @@ final class ActionNotificationViewController: BaseViewController, AccessibilityS
     
     private let stackPresenter = BannerNotification.defaultStackBanner()
     private let switchPresenter = BannerNotification.defaultSwitchBanner()
-    
+    private let viewModel = ActionNotificationViewModel()
+
     private let textLabel = UILabel()
     private let linkControl = PrimaryLinkControl()
     
@@ -72,12 +73,11 @@ final class ActionNotificationViewController: BaseViewController, AccessibilityS
     private func setLabel() {
         textLabel.numberOfLines = 0
         textLabel.textAlignment = .left
-        // swiftlint:disable line_length
-        textLabel.text = "Компонент используется для отмены совершенного действия, появляется внизу экрана поверх контента с обратным отсчетом времени в 5 секунд сразу после совершения какого-либо действия."
+        textLabel.text = viewModel.text
     }
     
     private func setLinkControl() {
-        linkControl.title = "Показать Action"
+        linkControl.title = viewModel.title
         linkControl.fontStyle = .body
         linkControl.style = .none
         linkControl.addTarget(self, action: #selector(tapLink), for: .touchUpInside)
@@ -85,10 +85,10 @@ final class ActionNotificationViewController: BaseViewController, AccessibilityS
     
     @objc private func tapLink() {
         let view = ToastView()
-        view.title = "Сообщение будет удалено"
+        view.title = viewModel.toastTitle
         view.type = .default
         view.closeAction = {}
-        view.closeTitle = "Отмена"
+        view.closeTitle = viewModel.closeTitle
         view.timerDuration = 5
       
         var config = BannerNotification.Config.default

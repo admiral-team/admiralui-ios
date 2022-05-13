@@ -18,15 +18,17 @@ struct SwiftUIUploadingPhotoView: View {
     @StateObject private var viewModel = SwiftUIUploadingPhotoViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
 
+    // MARK: - Layout
+
     var body: some View {
         let scheme = schemeProvider.scheme
         NavigationContentView(
-            navigationTitle: "Uploading Photo",
+            navigationTitle: viewModel.navigationTitle,
             navigationBarDisplayMode: .large
         ) {
             scheme.backgroundColor.swiftUIColor
             ScrollView(.vertical, showsIndicators: false) {
-                StandardTab(items: ["Default", "Loading"], selection: $viewModel.isEnabledControlsState)
+                StandardTab(items: viewModel.tabItems, selection: $viewModel.isEnabledControlsState)
                 VStack(alignment: .leading, spacing: LayoutGrid.quadrupleModule) {
                     ForEach(0..<viewModel.gridItems.count, id: \.self) { index in
                         VStack(alignment: .leading, spacing: LayoutGrid.halfModule * 5) {
@@ -54,6 +56,8 @@ struct SwiftUIUploadingPhotoView: View {
         }
         .onDisappear { viewModel.action = .stopTimer }
     }
+
+    // MARK: - Private Methods
     
     private func getActionSheet() -> ActionSheet {
         let scheme = schemeProvider.scheme

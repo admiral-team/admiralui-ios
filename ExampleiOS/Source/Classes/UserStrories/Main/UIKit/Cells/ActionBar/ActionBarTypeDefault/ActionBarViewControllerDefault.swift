@@ -11,8 +11,11 @@ import AdmiralTheme
 import UIKit
 
 final class ActionBarViewControllerDefault: ScrollViewController {
-    
-    var cells: [ActionCellView<ListCell<ImageCardListView, TitleLargeSubtitleListView, SubtitleWithImageListView>>] = []
+
+    // MARK: - Private Properties
+
+    private let viewModel = ActionBarViewModel()
+    private var cells: [ActionCellView<ListCell<ImageCardListView, TitleLargeSubtitleListView, SubtitleWithImageListView>>] = []
     
     // MARK: - Initializers
 
@@ -31,7 +34,7 @@ final class ActionBarViewControllerDefault: ScrollViewController {
     private func configureUI() {
         hideSegmentView(false)
         
-        navigationItem.title = "ActionBar - Type default"
+        navigationItem.title = viewModel.title
         
         configureCells()
         
@@ -39,7 +42,7 @@ final class ActionBarViewControllerDefault: ScrollViewController {
             $0.translatesAutoresizingMaskIntoConstraints = false
             stackView.addArrangedSubview($0)
         }
-        segmentControl.setTitles(["Default", "Disabled"])
+        segmentControl.setTitles(viewModel.tabs)
         segmentControl.selectedSegmentIndex = 0
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
     }
@@ -64,32 +67,8 @@ final class ActionBarViewControllerDefault: ScrollViewController {
             centerView: titleListView,
             tralingView: swipeView)
         let actionCellView = ActionCellView(cellView: listCell, style: .default)
-        
-        let actionOne = createAction(Asset.ActionBar.closeOutline.image, imageStyle: .error)
-        actionCellView.appendAction(actionOne)
-        
-        let actionSecond = createAction(Asset.ActionBar.union.image, imageStyle: .accent)
-        actionCellView.appendAction(actionSecond)
-        
-        let actionThrid = createAction(Asset.ActionBar.arrowDownOutline.image, imageStyle: .primary)
-        actionCellView.appendAction(actionThrid)
-        
-        let actionFour = createAction(Asset.ActionBar.arrowUpOutline.image, imageStyle: .primary)
-        actionCellView.appendAction(actionFour)
-
-        let actionFive = createAction(Asset.ActionBar.moreOutline.image, imageStyle: .accent)
-        actionCellView.appendAction(actionFive)
-        
+        viewModel.actions.forEach { actionCellView.appendAction($0) }
         return actionCellView
-    }
-    
-    private func createAction(_ image: UIImage, imageStyle: ActionBarItemImageStyle, style: ActionBarItemStyle = .default) -> ActionItemBarAction {
-        return ActionItemBarAction(
-            image: image,
-            imageStyle: imageStyle,
-            style: style,
-            handler: { print("Tap") }
-        )
     }
     
     @objc private func segmentedValueChanged(_ control: StandardSegmentedControl) {

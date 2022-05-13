@@ -17,9 +17,7 @@ final class LinerPageControl: BaseViewController {
     private let pageControl = ScrollablePageControl()
     private var segmentControl = OutlineSliderTabSegmentedControl()
     private let nextButton = PrimaryButton()
-    private let items = ["One", "Two", "Three",
-                         "Four", "Five", "Six",
-                         "Seven", "Eight", "Nine"]
+    private let viewModel = LinearPageControlViewModel()
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,13 +46,13 @@ final class LinerPageControl: BaseViewController {
     }
     
     private func configurePageControl() {
-        pageControl.numberOfPages = items.count
-        pageControl.setCurrentPage(at: 0)
+        pageControl.numberOfPages = viewModel.items.count
+        pageControl.setCurrentPage(at: viewModel.currentIndex)
     }
     
     private func configureSegment() {
-        segmentControl.setTitles(items)
-        segmentControl.selectedSegmentIndex = 0
+        segmentControl.setTitles(viewModel.items)
+        segmentControl.selectedSegmentIndex = viewModel.currentIndex
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged(_:)), for: .valueChanged)
     }
     
@@ -98,7 +96,7 @@ final class LinerPageControl: BaseViewController {
     }
     
     @objc private func tapNexButton() {
-        guard segmentControl.selectedSegmentIndex < items.count - 1 else { return }
+        guard segmentControl.selectedSegmentIndex < viewModel.items.count - 1 else { return }
         
         segmentControl.selectedSegmentIndex += 1
         pageControl.setCurrentPage(at: segmentControl.selectedSegmentIndex, animated: true)

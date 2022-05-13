@@ -12,27 +12,30 @@ import AdmiralSwiftUI
 @available(iOS 14.0.0, *)
 struct InputNumberSwiftUIView: View {
     
-    @State private var isEnabledControlsState: Int = 0
-    @State private var startValue: Double = 0
+    // MARK: - Private Properties
+
+    @StateObject private var viewModel = InputNumberSwiftUIViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
-    
-    public var body: some View {
+
+    // MARK: - Layout
+
+    var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Number") {
+        NavigationContentView(navigationTitle: viewModel.title) {
             scheme.backgroundColor.swiftUIColor
             ScrollView(.vertical) {
                 HStack {
                   Spacer()
                 }
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: viewModel.tabItems, selection: $viewModel.isEnabledControlsState)
                 Spacer()
                     .frame(height: LayoutGrid.doubleModule)
                 InputNumber(
                     titleText: .constant("Optional value"),
-                    value: $startValue,
+                    value: $viewModel.startValue,
                     minimumValue: .constant(0.0),
                     maximumValue: .constant(20000))
-                    .disabled(isEnabledControlsState != 0)
+                    .disabled(viewModel.isEnabledControlsState != 0)
                 Spacer()
             }
             .padding()

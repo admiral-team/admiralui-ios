@@ -71,7 +71,13 @@ final class SwiftUITextMessageViewModel: ObservableObject {
             name: "Пользователь"
         )
     ]
-    
+
+    // MARK: - Internal Properties
+
+    var navigationTitle: String {
+        "Text Messages"
+    }
+
     // MARK: - Private properties
 
     private var cancellables = Set<AnyCancellable>()

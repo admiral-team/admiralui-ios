@@ -12,16 +12,9 @@ import AdmiralSwiftUI
 @available(iOS 14.0.0, *)
 struct ErrorSwiftUIView: View {
 
-    // MARK: - Constants
-
-    private enum Constants {
-        static let text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        static let buttonTitle = "Хорошо"
-    }
-
     // MARK: - Private properties
 
-    @State private var isLoading = false
+    @StateObject private var viewModel = ErrorSwiftUIViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
 
     // MARK: - Layout
@@ -29,7 +22,7 @@ struct ErrorSwiftUIView: View {
     var body: some View {
         let scheme = schemeProvider.scheme
         NavigationContentView(
-            navigationTitle: "Error View",
+            navigationTitle: viewModel.navigationTitle,
             isShowThemeSwitchSwiftUIView: true
         ) {
             scheme.backgroundColor.swiftUIColor
@@ -44,10 +37,10 @@ struct ErrorSwiftUIView: View {
 
     private var errorView: some View {
         ErrorView(
-            text: Constants.text,
-            buttonTitle: Constants.buttonTitle,
-            isLoadingButton: $isLoading,
-            buttonAction: { isLoading.toggle() }
+            text: viewModel.text,
+            buttonTitle: viewModel.buttonTitle,
+            isLoadingButton: $viewModel.isLoading,
+            buttonAction: { viewModel.isLoading.toggle() }
         )
         .padding()
     }

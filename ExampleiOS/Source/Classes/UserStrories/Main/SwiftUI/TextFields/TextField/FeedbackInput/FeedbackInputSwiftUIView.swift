@@ -11,24 +11,27 @@ import AdmiralSwiftUI
 
 @available(iOS 14.0.0, *)
 struct FeedbackInputSwiftUIView: View {
-    
-    @State private var cursorPosition: Int = 0
-    @State private var isEnabledControlsState: Int = 0
+
+    // MARK: - Private Properties
+
+    @StateObject private var viewModel = FeedbackInputSwiftUIViewViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
-    
-    public var body: some View {
+
+    // MARK: - Layout
+
+    var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Feedback") {
+        NavigationContentView(navigationTitle: viewModel.title) {
             scheme.backgroundColor.swiftUIColor
             ScrollView(.vertical) {
                 HStack {
                   Spacer()
                 }
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: viewModel.tabItems, selection: $viewModel.isEnabledControlsState)
                 Spacer()
-                    .frame(height: 32.0)
-                FeedbackInputControl(cursorPosition: $cursorPosition)
-                    .disabled(isEnabledControlsState != 0)
+                    .frame(height: LayoutGrid.module * 4)
+                FeedbackInputControl(cursorPosition: $viewModel.cursorPosition)
+                    .disabled(viewModel.isEnabledControlsState != 0)
                 Spacer()
             }
             .padding()

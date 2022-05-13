@@ -13,8 +13,13 @@ import AdmiralUIResources
 @available(iOS 14.0.0, *)
 struct BadgesSwiftUIView: View {
 
+    // MARK: - Type Alias
+
+    typealias BadgesItem = BadgesSwiftUIViewModel.BadgesItem
+
     // MARK: - Properties
 
+    @StateObject private var viewModel = BadgesSwiftUIViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
 
     // MARK: - Layout
@@ -33,7 +38,7 @@ struct BadgesSwiftUIView: View {
 
     private func navigationView(scheme: SwiftUIContentViewScheme) -> some View {
         NavigationContentView(
-            navigationTitle: "Badges",
+            navigationTitle: viewModel.title,
             isShowBackButton: true,
             isShowThemeSwitchSwiftUIView: true,
             navigationBarDisplayMode: .large

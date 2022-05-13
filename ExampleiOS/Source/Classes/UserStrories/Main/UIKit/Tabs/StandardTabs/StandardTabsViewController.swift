@@ -12,7 +12,8 @@ import UIKit
 final class StandardTabsViewController: ScrollViewController {
     
     // MARK: - Private Properties
-    
+
+    private let viewModel = StandartTabViewModel()
     private var views = [TabsView<StandardSegmentedControl>]()
     
     // MARK: - Initializers
@@ -40,23 +41,18 @@ final class StandardTabsViewController: ScrollViewController {
         views.forEach() {
             stackView.addArrangedSubview($0)
         }
-        segmentControl.setTitles(["Default", "Disabled"])
+        segmentControl.setTitles(viewModel.tabs)
         segmentControl.selectedSegmentIndex = 0
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
     }
 
     private func configureSegmentControlls() {
-        let segmentControl1 = StandardSegmentedControl(titles: ["One", "Two"])
-        segmentControl.selectedSegmentIndex = 0
-
-        let view1 = TabsView<StandardSegmentedControl>(segmentView: segmentControl1, title: "Two controls")
-        views.append(view1)
-        
-        let segmentControl2 = StandardSegmentedControl(titles: ["One", "Two", "Three"])
-        segmentControl.selectedSegmentIndex = 0
-
-        let view2 = TabsView<StandardSegmentedControl>(segmentView: segmentControl2, title: "Three controls")
-        views.append(view2)
+        viewModel.items.forEach {
+            let control = StandardSegmentedControl(titles: $0.items)
+            control.selectedSegmentIndex = $0.selection
+            let view = TabsView<StandardSegmentedControl>(segmentView: control, title: $0.text)
+            views.append(view)
+        }
     }
     
     @objc private func segmentedValueChanged(_ control: StandardSegmentedControl) {

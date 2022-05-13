@@ -88,6 +88,10 @@ final class SwiftUITextOperationViewModel: ObservableObject {
 
     var selectedIndex: Int?
 
+    var title: String {
+        "Text Operation"
+    }
+
     // MARK: - Private properties
 
     private var cancellables = Set<AnyCancellable>()

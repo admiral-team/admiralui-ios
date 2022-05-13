@@ -26,7 +26,8 @@ final class ToastNotificationsViewController: BaseViewController, AccessibilityS
     
     private let stackPresenter = BannerNotification.defaultStackBanner()
     private let switchPresenter = BannerNotification.defaultSwitchBanner()
-    
+    private let viewModel = ToastNotificationsUIKitViewModel()
+
     private let textLabel = UILabel()
     private let linkControl = PrimaryLinkControl()
     private var isDefaultToast = true
@@ -74,11 +75,11 @@ final class ToastNotificationsViewController: BaseViewController, AccessibilityS
         textLabel.numberOfLines = 0
         textLabel.textAlignment = .left
         // swiftlint:disable line_length
-        textLabel.text = "Компонент появляется в верхней части страницы на мобильных девайсах и справа в верхней части страницы на планшетах только внутри приложения, автоматически исчезает по таймауту, по свайпу вверх или по нажатию на иконку закрытия если она присутствует.\n\nКомпонентов на странице может быть несколько, если они приходят одновременно наслаиваясь друг на друга и исчезают по собственному таймауту. При тапу на группу таких уведомлений они раскрываются в список."
+        textLabel.text = viewModel.text
     }
     
     private func setLinkControl() {
-        linkControl.title = "Показать Toast"
+        linkControl.title = viewModel.title
         linkControl.fontStyle = .body
         linkControl.style = .none
         linkControl.addTarget(self, action: #selector(tapLink), for: .touchUpInside)
@@ -86,8 +87,8 @@ final class ToastNotificationsViewController: BaseViewController, AccessibilityS
     
     @objc private func tapLink() {
         let view = ToastView()
-        view.title = "At breakpoint boundaries, mini units divide the screen into a fixed master grid."
-        view.linkText = "Link text"
+        view.title = viewModel.toastTitle
+        view.linkText = viewModel.linkText
         view.type = isDefaultToast ? .default : .error
         view.imageType = isDefaultToast ? .info : .error
         view.linkAction = {}

@@ -23,12 +23,12 @@ struct SwiftUIUploadingFileView: View {
     public var body: some View {
         let scheme = schemeProvider.scheme
         NavigationContentView(
-            navigationTitle: "Uploading Files",
+            navigationTitle: viewModel.navigationTitle,
             navigationBarDisplayMode: .large
         ) {
             scheme.backgroundColor.swiftUIColor
             ScrollView(.vertical, showsIndicators: false) {
-                StandardTab(items: ["Default", "Loading"], selection: $viewModel.isEnabledControlsState)
+                StandardTab(items: viewModel.tabItems, selection: $viewModel.isEnabledControlsState)
                 
                 documentsView()
                     .padding(.top, LayoutGrid.tripleModule)
@@ -63,18 +63,20 @@ struct SwiftUIUploadingFileView: View {
     private func getActionSheet() -> ActionSheet {
         let scheme = schemeProvider.scheme
         
-        let repeatSent: ActionSheet.Button = .default(Text("Повторить отправку")
-                                                        .font(scheme.textFont.swiftUIFont),
-                                                      action: {
-                                                        viewModel.action = .reloadGrid
-                                                      })
-        let remove: ActionSheet.Button = .default(Text("Удалить")
-                                                    .font(scheme.textFont.swiftUIFont),
-                                                  action: {
-                                                    viewModel.action = .remove
-                                                  })
-        let cancel: ActionSheet.Button = .cancel(Text("Отмена")
-                                                    .font(scheme.textFont.swiftUIFont))
+        let repeatSent: ActionSheet.Button = .default(
+            Text("Повторить отправку")
+                .font(scheme.textFont.swiftUIFont),
+            action: { viewModel.action = .reloadGrid }
+        )
+        let remove: ActionSheet.Button = .default(
+            Text("Удалить")
+                .font(scheme.textFont.swiftUIFont),
+            action: { viewModel.action = .remove }
+        )
+        let cancel: ActionSheet.Button = .cancel(
+            Text("Отмена")
+                .font(scheme.textFont.swiftUIFont)
+        )
         
         return ActionSheet(title: Text(""), buttons: [repeatSent, remove, cancel])
     }

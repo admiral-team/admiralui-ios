@@ -12,73 +12,69 @@ import AdmiralSwiftUI
 @available(iOS 14.0.0, *)
 struct CheckBoxSwiftUIView: View {
 
-    @State private var isDefaultCheckBoxSelected: Bool = false
-    @State private var isDefaultCheckBoxTextSelected: Bool = false
-    
-    @State private var isSelectedCheckBoxSelected: Bool = true
-    @State private var isSelectedCheckBoxTextSelected: Bool = true
-    
-    @State private var isErrorCheckBoxSelected: Bool = false
-    @State private var isErrorCheckBoxTextSelected: Bool = false
-    
-    @State private var isEnabledControlsState: Int = 0
+    // MARK: - Private Properties
+
+    @StateObject private var viewModel = CheckBoxSwiftUIViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
-    
+
+    // MARK: - Layout
+
     public var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Checkbox") {
+        NavigationContentView(navigationTitle: viewModel.navigationTitle) {
             scheme.backgroundColor.swiftUIColor
             ScrollView(.vertical) {
                 VStack(alignment: .leading) {
                     HStack {
                       Spacer()
                     }
-                    StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                    StandardTab(items: viewModel.tabsItems, selection: $viewModel.isEnabledControlsState)
                     Spacer()
-                        .frame(height: 16.0)
-                    VStack(alignment: .leading, spacing: 16.0) {
-                        Text("Default")
-                            .font(scheme.textFont.swiftUIFont)
-                            .foregroundColor(scheme.textColor.swiftUIColor)
-                        CheckBox(isSelected: $isDefaultCheckBoxSelected, text: "", checkState: .normal)
-                            .disabled(isEnabledControlsState != 0)
-                        CheckBox(isSelected: $isDefaultCheckBoxTextSelected, text: "Text", checkState: .normal)
-                            .disabled(isEnabledControlsState != 0)
-                        Spacer()
+                        .frame(height: LayoutGrid.doubleModule)
+                    ForEach(0..<viewModel.items.count, id: \.self) { sectionIndex in
+                        checkBoxSection(
+                            sectionIndex: sectionIndex,
+                            checkBoxItem: viewModel.items[sectionIndex],
+                            scheme: scheme
+                        )
                     }
-                    Spacer()
-                        .frame(height: 24.0)
-                    
-                    VStack(alignment: .leading, spacing: 16.0) {
-                        Text("Selected")
-                            .font(scheme.textFont.swiftUIFont)
-                            .foregroundColor(scheme.textColor.swiftUIColor)
-                        CheckBox(isSelected: $isSelectedCheckBoxSelected, text: "", checkState: .normal)
-                            .disabled(isEnabledControlsState != 0)
-                        CheckBox(isSelected: $isSelectedCheckBoxTextSelected, text: "Text", checkState: .normal)
-                            .disabled(isEnabledControlsState != 0)
-                        Spacer()
-                    }
-                    
-                    Spacer()
-                        .frame(height: 24.0)
-                    
-                    VStack(alignment: .leading, spacing: 16.0) {
-                        Text("Error")
-                            .font(scheme.textFont.swiftUIFont)
-                            .foregroundColor(scheme.textColor.swiftUIColor)
-                        CheckBox(isSelected: $isErrorCheckBoxSelected, text: "", checkState: .error)
-                            .disabled(isEnabledControlsState != 0)
-                        CheckBox(isSelected: $isErrorCheckBoxTextSelected, text: "Text", checkState: .error)
-                            .disabled(isEnabledControlsState != 0)
-                        Spacer()
-                    }
-                    
                     Spacer()
                 }
             }
             .padding()
         }
     }
-    
+
+    // MARK: - Private Methods
+
+    @ViewBuilder
+    private func checkBoxSection(
+        sectionIndex: Int,
+        checkBoxItem: CheckBoxSwiftUIViewModel.CheckBoxSection,
+        scheme: SwiftUIContentViewScheme
+    ) -> some View {
+        VStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
+            Text(checkBoxItem.title)
+                .font(scheme.textFont.swiftUIFont)
+                .foregroundColor(scheme.textColor.swiftUIColor)
+            ForEach(0..<checkBoxItem.checkBoxs.count, id: \.self) { checkBoxIndex in
+                let item = checkBoxItem.checkBoxs[checkBoxIndex]
+                CheckBox(
+                    isSelected: Binding<Bool>(
+                        get: { item.isSelected },
+                        set: { _ in
+                            viewModel.selectedIndex = (sectionIndex, checkBoxIndex)
+                        }
+                    ),
+                    text: item.text,
+                    checkState: item.checkState
+                )
+                .disabled(viewModel.isEnabledControlsState != 0)
+            }
+            Spacer()
+        }
+        Spacer()
+            .frame(height: LayoutGrid.halfModule * 6)
+    }
+
 }

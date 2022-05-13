@@ -12,108 +12,90 @@ import AdmiralSwiftUI
 @available(iOS 14.0.0, *)
 struct ButtonsSwiftUIView: View {
     
-    @State private var isDefaultCheckBoxSelected: Bool = false
-    @State private var isEnabledControlsState: Int = 0
-    
-    @State private var isLoadingBigPrimaryButton: Bool = false
-    @State private var isLoadingMediumPrimaryButton: Bool = false
-    @State private var isLoadingSmallPrimaryButton: Bool = false
-    
-    @State private var isLoadingBigSecondaryButton: Bool = false
-    @State private var isLoadingMediumSecondaryButton: Bool = false
-    @State private var isLoadingSmallSecondaryButton: Bool = false
-    
-    @State private var isLoadingBigGhostButton: Bool = false
-    @State private var isLoadingSmallGhostButton: Bool = false
-    
-    
+    // MARK: - Private properties
+
+    @StateObject private var viewModel = ButtonsSwiftUIViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
-    
-    public var body: some View {
+
+    // MARK: - Layout
+
+    var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Buttons") {
+        NavigationContentView(navigationTitle: viewModel.title) {
             scheme.backgroundColor.swiftUIColor
             ScrollView(.vertical, showsIndicators: false) {
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: viewModel.tabs, selection: $viewModel.isEnabledControlsState)
                 Spacer()
-                    .frame(height: 16.0)
+                    .frame(height: LayoutGrid.doubleModule)
                 VStack(alignment: .leading) {
-                    VStack(alignment: .leading, spacing: 16.0) {
-                        Text("Primary")
-                            .font(scheme.textFont.swiftUIFont)
-                            .foregroundColor(scheme.textColor.swiftUIColor)
-                        TwoTitlePrimaryButton(leftText: "08.06.20 — 14.08.20", rightText: "Выбрать", action: {})
-                            .frame(height: LayoutGrid.doubleModule * 3)
-                            .disabled(isEnabledControlsState != 0)
-                        SwiftUI.Button("Big Button", action: { isLoadingBigPrimaryButton.toggle() })
-                            .buttonStyle(PrimaryButtonStyle(isLoading: $isLoadingBigPrimaryButton, sizeType: .big))
-                            .disabled(isEnabledControlsState != 0)
-                        SwiftUI.Button("Medium Button", action: { isLoadingMediumPrimaryButton.toggle() })
-                            .buttonStyle(PrimaryButtonStyle(isLoading: $isLoadingMediumPrimaryButton, sizeType: .medium))
-                            .disabled(isEnabledControlsState != 0)
-                        SwiftUI.Button("Small Button", action: { isLoadingSmallPrimaryButton.toggle() })
-                            .buttonStyle(PrimaryButtonStyle(isLoading: $isLoadingSmallPrimaryButton, sizeType: .small))
-                            .disabled(isEnabledControlsState != 0)
-                    }
-                    Spacer()
-                        .frame(height: 56.0)
-
-
-                    VStack(alignment: .leading, spacing: 16.0) {
-                        Text("Secondary")
-                            .font(scheme.textFont.swiftUIFont)
-                            .foregroundColor(scheme.textColor.swiftUIColor)
-                        SwiftUI.Button("Big Button", action: { isLoadingBigSecondaryButton.toggle() })
-                            .buttonStyle(SecondaryButtonStyle(isLoading: $isLoadingBigSecondaryButton, sizeType: .big))
-                            .disabled(isEnabledControlsState != 0)
-                        SwiftUI.Button("Medium Button", action: { isLoadingMediumSecondaryButton.toggle() })
-                            .buttonStyle(SecondaryButtonStyle(isLoading: $isLoadingMediumSecondaryButton, sizeType: .medium))
-                            .disabled(isEnabledControlsState != 0)
-                        SwiftUI.Button("Small Button", action: { isLoadingSmallSecondaryButton.toggle() })
-                            .buttonStyle(SecondaryButtonStyle(isLoading: $isLoadingSmallSecondaryButton, sizeType: .small))
-                            .disabled(isEnabledControlsState != 0)
-                    }
-
-                    Spacer()
-                        .frame(height: 56.0)
-
-                    VStack(alignment: .leading, spacing: 16.0) {
-                        Text("Ghost")
-                            .font(scheme.textFont.swiftUIFont)
-                            .foregroundColor(scheme.textColor.swiftUIColor)
-                        TwoTitleGhostButton(
-                            leftText: "Выбрать все карты",
-                            rightText: "Готово",
-                            leftAction: {},
-                            rightAction: {})
-                            .frame(height: LayoutGrid.doubleModule * 3)
-                            .disabled(isEnabledControlsState != 0)
-                        SwiftUI.Button("Big Button", action: { isLoadingBigGhostButton.toggle() })
-                            .buttonStyle(GhostButtonStyle(isLoading: $isLoadingBigGhostButton, sizeType: .big))
-                            .disabled(isEnabledControlsState != 0)
-                        SwiftUI.Button("Small Button", action: { isLoadingSmallGhostButton.toggle() })
-                            .buttonStyle(GhostButtonStyle(isLoading: $isLoadingSmallGhostButton, sizeType: .small))
-                            .disabled(isEnabledControlsState != 0)
-                    }
-                    
-                    Spacer()
-                        .frame(height: 32.0)
-                    
-                    VStack(alignment: .leading, spacing: 32.0) {
-                        Text("Rules")
-                            .font(scheme.textFont.swiftUIFont)
-                            .foregroundColor(scheme.textColor.swiftUIColor)
-                        CheckboxTextbuttonView(
-                            title: "Я согласен с условиями договора и подтверждаю свое согласие на обработку персональных данных",
-                            isSelected: $isDefaultCheckBoxSelected,
-                            subtitleButtonTitle: "Открыть список документов",
-                            subtitleButtonAction: {})
-                            .disabled(isEnabledControlsState != 0)
+                    ForEach(0..<viewModel.items.count, id: \.self) { index in
+                        buildItem(scheme: scheme, item: viewModel.items[index], sectionIndex: index)
                     }
                 }
                 .padding(.bottom, LayoutGrid.doubleModule * 4)
             }
             .padding()
+        }
+    }
+
+    // MARK: - Private Methods
+
+    @ViewBuilder
+    private func buildItem(
+        scheme: SwiftUIContentViewScheme,
+        item: ButtonsSwiftUIViewModel.ButtonsStorage,
+        sectionIndex: Int
+    ) -> some View {
+        VStack(alignment: .leading, spacing: item.type == .ghost ? 32.0 : LayoutGrid.doubleModule) {
+            Text(item.title)
+                .font(scheme.textFont.swiftUIFont)
+                .foregroundColor(scheme.textColor.swiftUIColor)
+            switch item.type {
+            case .primary:
+                TwoTitlePrimaryButton(leftText: "08.06.20 — 14.08.20", rightText: "Выбрать", action: {})
+                    .frame(height: LayoutGrid.doubleModule * 3)
+                    .disabled(viewModel.isEnabledControlsState != 0)
+                ForEach(0..<item.items.count, id: \.self) { index in
+                    SwiftUI.Button(item.items[index].title, action: {
+                        viewModel.items[sectionIndex].items[index].isLoading.toggle()
+                    })
+                        .buttonStyle(PrimaryButtonStyle(isLoading: $viewModel.items[sectionIndex].items[index].isLoading, sizeType: item.items[index].size))
+                        .disabled(viewModel.isEnabledControlsState != 0)
+                }
+            case .secondary:
+                ForEach(0..<item.items.count, id: \.self) { index in
+                    SwiftUI.Button(item.items[index].title, action: {
+                        viewModel.items[sectionIndex].items[index].isLoading.toggle()
+                    })
+                        .buttonStyle(SecondaryButtonStyle(isLoading: $viewModel.items[sectionIndex].items[index].isLoading, sizeType: item.items[index].size))
+                        .disabled(viewModel.isEnabledControlsState != 0)
+                }
+            case .ghost:
+                TwoTitleGhostButton(
+                    leftText: "Выбрать все карты",
+                    rightText: "Готово",
+                    leftAction: {},
+                    rightAction: {})
+                    .frame(height: LayoutGrid.doubleModule * 3)
+                    .disabled(viewModel.isEnabledControlsState != 0)
+                ForEach(0..<item.items.count, id: \.self) { index in
+                    SwiftUI.Button(item.items[index].title, action: {
+                        viewModel.items[sectionIndex].items[index].isLoading.toggle()
+                    })
+                        .buttonStyle(GhostButtonStyle(isLoading: $viewModel.items[sectionIndex].items[index].isLoading, sizeType: item.items[index].size))
+                        .disabled(viewModel.isEnabledControlsState != 0)
+                }
+            case .rules:
+                CheckboxTextbuttonView(
+                    title: "Я согласен с условиями договора и подтверждаю свое согласие на обработку персональных данных",
+                    isSelected: $viewModel.items[sectionIndex].isSelected,
+                    subtitleButtonTitle: "Открыть список документов",
+                    subtitleButtonAction: {}
+                )
+                .disabled(viewModel.isEnabledControlsState != 0)
+            }
+            Spacer()
+                .frame(height: 56.0)
         }
     }
     

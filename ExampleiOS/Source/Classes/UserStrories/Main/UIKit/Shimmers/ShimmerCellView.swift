@@ -9,7 +9,7 @@ import AdmiralUIKit
 import AdmiralTheme
 import UIKit
 
-enum ShimmerCellViewState {
+enum ShimmerCellViewState: CaseIterable {
     case leftImageShimmering
     case rightImageShimmering
     case subtitleShimmering

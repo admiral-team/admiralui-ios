@@ -12,7 +12,8 @@ import UIKit
 final class UnderlineSliderTabsViewController: ScrollViewController {
     
     // MARK: - Private Properties
-    
+
+    private let viewModel = UnderlineSliderTabsViewModel()
     private var views = [TabsView<UnderlineSegmentedControl>]()
     
     // MARK: - Initializers
@@ -40,42 +41,26 @@ final class UnderlineSliderTabsViewController: ScrollViewController {
         views.forEach() {
             stackView.addArrangedSubview($0)
         }
-        segmentControl.setTitles(["Default", "Disabled"])
+        segmentControl.setTitles(viewModel.tabs)
         segmentControl.selectedSegmentIndex = 0
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
     }
     
     private func configureSegmentControlls() {
-        let segmentControlFirst = UnderlineSegmentedControl(items: ["One", "Two", "Three"])
-        segmentControlFirst.selectedSegmentIndex = 0
-        segmentControlFirst.isScrollEnabled = false
-        segmentControlFirst.contentInset = UIEdgeInsets(
-            top: 0.0,
-            left: LayoutGrid.doubleModule,
-            bottom: 0.0,
-            right: LayoutGrid.doubleModule)
-        
-        let view1 = TabsView<UnderlineSegmentedControl>(segmentView: segmentControlFirst, title: "Three controls", segmentOffset: 0.0)
-        
-        views.append(view1)
-        
-        let segmentControlSecond = UnderlineSegmentedControl(items:
-                                                            ["One", "Two", "Three",
-                                                             "Four", "Five", "Six",
-                                                             "Seven", "Eight", "Nine"])
-        segmentControlSecond.selectedSegmentIndex = 0
-        segmentControlSecond.isScrollEnabled = true
-        segmentControlSecond.contentInset = UIEdgeInsets(
-            top: 0.0,
-            left: LayoutGrid.doubleModule,
-            bottom: 0.0,
-            right: LayoutGrid.doubleModule)
-        
-        let view2 = TabsView<UnderlineSegmentedControl>(segmentView: segmentControlSecond, title: "Slider controls", segmentOffset: 0.0)
-        
-        views.append(view2)
-        
-        let segmentControlThird = UnderlineSegmentedControl(items: ["One", "Two", "Three", "Four"])
+        viewModel.items.forEach {
+            let control = UnderlineSegmentedControl(items: $0.items)
+            control.selectedSegmentIndex = $0.selection
+            control.contentInset = UIEdgeInsets(
+                top: 0.0,
+                left: LayoutGrid.doubleModule,
+                bottom: 0.0,
+                right: LayoutGrid.doubleModule)
+            control.isScrollEnabled = $0.isScrollEnabled
+            let view = TabsView<UnderlineSegmentedControl>(segmentView: control, title: $0.text, segmentOffset: 0.0)
+            views.append(view)
+        }
+
+        let segmentControlThird = UnderlineSegmentedControl(items: ["One", "Two", "Tshree", "Four"])
         segmentControlThird.selectedSegmentIndex = 0
         segmentControlThird.isStaticTabs = true
         segmentControlThird.contentInset = UIEdgeInsets(
@@ -83,9 +68,7 @@ final class UnderlineSliderTabsViewController: ScrollViewController {
             left: LayoutGrid.doubleModule,
             bottom: 0.0,
             right: LayoutGrid.doubleModule)
-        
         let view3 = TabsView<UnderlineSegmentedControl>(segmentView: segmentControlThird, title: "Static controls", segmentOffset: 0.0)
-        
         views.append(view3)
     }
     

@@ -12,30 +12,34 @@ import AdmiralSwiftUI
 
 @available(iOS 14.0.0, *)
 struct PrimaryTitleBaseCellSwiftUI: View {
-    
-    @State private var isEnabledControlsState: Int = 0
+
+    // MARK: - Private properties
+
+    @StateObject private var viewModel = PrimaryTitleBaseCellViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
-    
-    public var body: some View {
+
+    // MARK: - Layout
+
+    var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Primary") {
+        NavigationContentView(navigationTitle: viewModel.title) {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
-            ScrollView(showsIndicators: false) {
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
-                    .padding()
-                LazyVStack(alignment: .leading) {
-                    ListCell(
-                        centerView: { TitleWithImageListView(
-                            title: "Title",
-                            image: Image(uiImage: Asset.arrowDown.image),
-                            renderingMode: .template) 
-                        },
-                        trailingView: { ButtonListView(text: "Button", action: {}) })
-                        .disabled(isEnabledControlsState != 0)
+            ScrollView {
+                StandardTab(items: viewModel.tabs, selection: $viewModel.isEnabledControlsState)
+                ScrollView(showsIndicators: false) {
+                    LazyVStack(alignment: .leading) {
+                        ListCell(
+                            centerView: { TitleWithImageListView(
+                                title: "Title",
+                                image: Image(uiImage: Asset.arrowDown.image),
+                                renderingMode: .template)
+                            },
+                            trailingView: { ButtonListView(text: "Button", action: {}) })
+                            .disabled(viewModel.isEnabledControlsState != 0)
+                    }
                 }
             }
         }
     }
-    
 }

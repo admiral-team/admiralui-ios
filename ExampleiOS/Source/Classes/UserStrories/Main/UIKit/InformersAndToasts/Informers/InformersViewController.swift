@@ -9,9 +9,13 @@ import AdmiralUIKit
 import UIKit
 
 final class InformersViewController: BaseTableViewController {
-    
-    // MARK: - Life Cycle
-    
+
+    // MARK: - Private properties
+
+    private let viewModel = InformersViewModel()
+
+    // MARK: - Initializer
+
     override func viewDidLoad() {
         setSegmentControl(hidden: true)
 
@@ -19,33 +23,34 @@ final class InformersViewController: BaseTableViewController {
         tableView.separatorStyle = .none
         tableViewManager.sections = createSections()
     }
-    
+
     // MARK: - Private Methods
-    
+
     private func createSections() -> [MainSectionViewModel] {
-        let items: [TableViewListItem] = [
-            MainTitleTableViewCellViewModel(
-                title: "Big Informers",
-                didSelect: { [weak self] in self?.presentBigInformers() }),
-            
-            MainTitleTableViewCellViewModel(
-                title: "Small Informers",
-                didSelect: { [weak self] in self?.presentSmallInformers() })
-        ]
-        
+        let items = viewModel.items.map { item -> MainTitleTableViewCellViewModel in
+            let title = item.getTitle()
+            return MainTitleTableViewCellViewModel(
+                title: title,
+                didSelect: { [weak self] in self?.presentVC(item: item, title: title) }
+            )
+        }
         return [MainSectionViewModel(items: items)]
     }
-    
-    private func presentBigInformers() {
-        let viewController = BigInformersController()
-        viewController.title = "Big Informers"
-        navigationController?.pushViewController(viewController, animated: true)
-    }
-    
-    private func presentSmallInformers() {
-        let viewController = SmallInformersViewController()
-        viewController.title = "Small Informers"
-        navigationController?.pushViewController(viewController, animated: true)
+
+}
+
+private extension InformersViewController {
+
+    func presentVC(item: InformersViewModel.Items, title: String) {
+        var vc: UIViewController
+        switch item {
+        case .big:
+            vc = BigInformersController()
+        case .small:
+            vc = SmallInformersViewController()
+        }
+        vc.title = title
+        navigationController?.pushViewController(vc, animated: true)
     }
 
 }

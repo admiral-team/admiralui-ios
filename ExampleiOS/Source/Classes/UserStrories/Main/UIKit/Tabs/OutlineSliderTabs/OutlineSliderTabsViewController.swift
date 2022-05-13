@@ -12,7 +12,8 @@ import UIKit
 final class OutlineSliderTabsViewController: ScrollViewController {
     
     // MARK: - Private Properties
-    
+
+    private let viewModel = OutlineSliderTabsViewModel()
     private var views = [TabsView<OutlineSliderTabSegmentedControl>]()
     
     // MARK: - Initializers
@@ -40,39 +41,24 @@ final class OutlineSliderTabsViewController: ScrollViewController {
         views.forEach() {
             stackView.addArrangedSubview($0)
         }
-        segmentControl.setTitles(["Default", "Disabled"])
+        segmentControl.setTitles(viewModel.tabs)
         segmentControl.selectedSegmentIndex = 0
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
     }
 
     private func configureSegmentControlls() {
-        let segmentControlFirst = OutlineSliderTabSegmentedControl(titles: ["One", "Two", "Three"])
-        segmentControlFirst.selectedSegmentIndex = 0
-        segmentControlFirst.contentInset = UIEdgeInsets(
-            top: 0.0,
-            left: LayoutGrid.doubleModule,
-            bottom: 0.0,
-            right: LayoutGrid.doubleModule)
-        
-        let viewFirst = TabsView<OutlineSliderTabSegmentedControl>(segmentView: segmentControlFirst, title: "Three controls", segmentOffset: 0.0)
-        
-        views.append(viewFirst)
-        
-        let segmentControlSecond = OutlineSliderTabSegmentedControl(titles:
-                                                                ["One", "Two", "Three",
-                                                                 "Four", "Five", "Six",
-                                                                 "Seven", "Eight", "Nine"])
-        segmentControlSecond.selectedSegmentIndex = 0
-        segmentControlSecond.isScrollEnabled = true
-        segmentControlSecond.contentInset = UIEdgeInsets(
-            top: 0.0,
-            left: LayoutGrid.doubleModule,
-            bottom: 0.0,
-            right: LayoutGrid.doubleModule)
-        
-        let viewSecond = TabsView<OutlineSliderTabSegmentedControl>(segmentView: segmentControlSecond, title: "Slider controls", segmentOffset: 0.0)
-        
-        views.append(viewSecond)
+        viewModel.items.forEach {
+            let control = OutlineSliderTabSegmentedControl(titles: $0.items)
+            control.selectedSegmentIndex = $0.selection
+            control.contentInset = UIEdgeInsets(
+                top: 0.0,
+                left: LayoutGrid.doubleModule,
+                bottom: 0.0,
+                right: LayoutGrid.doubleModule)
+            control.isScrollEnabled = true
+            let view = TabsView<OutlineSliderTabSegmentedControl>(segmentView: control, title: $0.text, segmentOffset: 0.0)
+            views.append(view)
+        }
     }
     
     @objc private func segmentedValueChanged(_ control: StandardSegmentedControl) {

@@ -12,7 +12,8 @@ import UIKit
 final class IconTabsViewController: ScrollViewController {
     
     // MARK: - Private Properties
-    
+
+    private let viewModel = IconTabsViewModel()
     private var views = [TabsView<IconTabsSegmentControl>]()
     
     // MARK: - Initializers
@@ -40,28 +41,18 @@ final class IconTabsViewController: ScrollViewController {
         views.forEach() {
             stackView.addArrangedSubview($0)
         }
-        segmentControl.setTitles(["Default", "Disabled"])
+        segmentControl.setTitles(viewModel.tabs)
         segmentControl.selectedSegmentIndex = 0
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
     }
     
     private func configureSegmentControlls() {
-        let segmentControl1 = IconTabsSegmentControl(items:
-                                                        [IconTab(title: "One", image: Asset.IconTabs.mobile.image),
-                                                         IconTab(title: "Two", image: Asset.IconTabs.card.image)])
-        segmentControl1.selectedSegmentIndex = 0
-        
-        let view1 = TabsView<IconTabsSegmentControl>(segmentView: segmentControl1, title: "Two controls")
-        views.append(view1)
-        
-        let segmentControl2 = IconTabsSegmentControl(items:
-                                                        [IconTab(title: "One", image: Asset.IconTabs.mobile.image),
-                                                         IconTab(title: "Two", image: Asset.IconTabs.card.image),
-                                                         IconTab(title: "Three", image: Asset.IconTabs.account.image)])
-        segmentControl2.selectedSegmentIndex = 0
-        
-        let view2 = TabsView<IconTabsSegmentControl>(segmentView: segmentControl2, title: "Three controls")
-        views.append(view2)
+        viewModel.items.forEach {
+            let control = IconTabsSegmentControl(items: $0.items)
+            control.selectedSegmentIndex = $0.selection
+            let view = TabsView<IconTabsSegmentControl>(segmentView: control, title: $0.text)
+            views.append(view)
+        }
     }
     
     @objc private func segmentedValueChanged(_ control: StandardSegmentedControl) {

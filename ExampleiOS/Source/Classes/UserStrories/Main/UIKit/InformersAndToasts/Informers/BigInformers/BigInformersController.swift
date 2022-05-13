@@ -12,20 +12,8 @@ import UIKit
 final class BigInformersController: ScrollViewController {
     
     // MARK: - Private Properties
-    
-    private enum InformerState: Int {
-        case enabled
-        case disabled
-    }
-    
-    private struct Constants {
-        static let title: String = "Headline"
-        // swiftlint:disable all
-        static let description: String = "At breakpoint boundaries, mini units divide the screen into a fixed master grid, and multiples of mini units map to fluid grid column widths and row heights."
-        // swiftlint:enable all
-        static let linkText: String = "Link text"
-    }
-    
+
+    private let viewModel = BigInformersViewModel()
     private var views = [UIView]()
     
     // MARK: - Initializers
@@ -65,62 +53,21 @@ final class BigInformersController: ScrollViewController {
         views.forEach() {
             stackView.addArrangedSubview($0)
         }
-        stackView.distribution = .fillEqually
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
     }
     
     private func configureBadgeViews() {
-        let defaultInformer = BigInformerView()
-        defaultInformer.configureWith(
-            model: .init(
-                headLine: "Default",
-                title: Constants.title,
-                description: Constants.description,
-                linkLabel: Constants.linkText,
-                style: .default))
-        views.append(defaultInformer)
-        
-        let succesInformer = BigInformerView()
-        succesInformer.configureWith(
-            model: .init(
-                headLine: "Success",
-                title: Constants.title,
-                description: Constants.description,
-                linkLabel: Constants.linkText,
-                style: .success))
-        
-        views.append(succesInformer)
-        
-        let attentionInformer = BigInformerView()
-        attentionInformer.configureWith(
-            model: .init(
-                headLine: "Attention",
-                title: Constants.title,
-                description: Constants.description,
-                linkLabel: Constants.linkText,
-                style: .attention))
-        
-        views.append(attentionInformer)
-        
-        let errorInformer = BigInformerView()
-        errorInformer.configureWith(
-            model: .init(
-                headLine: "Error",
-                title: Constants.title,
-                description: Constants.description,
-                linkLabel: Constants.linkText,
-                style: .error))
-        
-        views.append(errorInformer)
-        
-        let messageInformer = MessageInformerView()
-        messageInformer.configureWith(
-            model: .init(
-                headLine: "Message view",
-                title: "то получу в страховом случае",
-                description: "до 1 500 000 Р",
-                subtitle: "Выгодный вариант для двухкомнатной квартиры или дачного дома"))
-        views.append(messageInformer)
+        viewModel.items.forEach {
+            if let item = $0 as? BigInformerViewViewModel {
+                let defaultInformer = BigInformerView()
+                defaultInformer.configureWith(model: item)
+                views.append(defaultInformer)
+            } else if let item = $0 as? MessageInformerViewViewModel {
+                let messageInformer = MessageInformerView()
+                messageInformer.configureWith(model: item)
+                views.append(messageInformer)
+            }
+        }
     }
     
     @objc private func segmentedValueChanged(_ control: StandardSegmentedControl) {

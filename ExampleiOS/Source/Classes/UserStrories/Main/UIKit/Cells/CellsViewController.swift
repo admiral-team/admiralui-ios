@@ -10,8 +10,11 @@ import AdmiralTheme
 import UIKit
 
 final class CellsViewController: ScrollViewController {
-    
-    var cells: [ListViewCell] = []
+
+    // MARK: - Private Properties
+
+    private let viewModel = CellsViewModel()
+    private var cells: [ListViewCell] = []
     
     // MARK: - Initializers
 
@@ -28,7 +31,7 @@ final class CellsViewController: ScrollViewController {
     // MARK: - Private Methods
     
     private func configureUI() {
-        navigationItem.title = "Cells"
+        navigationItem.title = viewModel.title
         
         configureCells()
         
@@ -39,12 +42,9 @@ final class CellsViewController: ScrollViewController {
     }
     
     private func configureCells() {
-        cells.append(configureTitleCell("Base Cells"))
-        cells.append(configureTitleCell("Base Cells vs Image"))
-        cells.append(configureTitleCell("Text Cells"))
-        cells.append(configureTitleCell("Title Cells"))
-        cells.append(configureTitleCell("ActionBar"))
-        
+        viewModel.cells.forEach {
+            cells.append(configureTitleCell($0))
+        }
         for index in 0..<cells.count {
             let gesture = UITapGestureRecognizer(target: self, action: #selector(tapCell(_:)))
             cells[index].isUserInteractionEnabled = true

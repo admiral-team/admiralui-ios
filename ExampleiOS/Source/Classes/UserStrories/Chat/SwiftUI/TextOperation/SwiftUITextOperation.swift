@@ -23,7 +23,7 @@ struct SwiftUITextOperationView: View {
     public var body: some View {
         let scheme = schemeProvider.scheme
         NavigationContentView(
-            navigationTitle: "Text Operation",
+            navigationTitle: viewModel.title,
             navigationBarDisplayMode: .large
         ) {
             scheme.backgroundColor.swiftUIColor

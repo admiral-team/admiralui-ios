@@ -12,26 +12,24 @@ import AdmiralSwiftUI
 @available(iOS 14.0.0, *)
 struct DoubleTextFieldSwiftUIView: View {
     
-    @State private var controlsState: Int = 0
-    @State private var firstText: String? = "Text"
-    @State private var secondText: String? = "Text"
-    
-    @State private var thirdText: String? = "Text"
-    @State private var fourText: String? = "Text"
-    @State private var state: TextInputState = .normal
+    // MARK: - Private Properties
+
+    @StateObject private var viewModel = DoubleTextFieldSwiftUIViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
-    
-    public var body: some View {
+
+    // MARK: - Layout
+
+    var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Double") {
+        NavigationContentView(navigationTitle: viewModel.title) {
             scheme.backgroundColor.swiftUIColor
             ScrollView(.vertical) {
                 HStack {
                     Spacer()
                 }
-                OutlineSliderTab(items: ["Default", "Error", "Disabled", "Read Only"], selection: $controlsState)
-                    .onChange(of: controlsState, perform: { value in
-                        self.state = TextInputState(rawValue: value) ?? .normal
+                OutlineSliderTab(items: viewModel.tabItems, selection: $viewModel.controlsState)
+                    .onChange(of: viewModel.controlsState, perform: { [weak viewModel] value in
+                        viewModel?.state = TextInputState(rawValue: value) ?? .normal
                     })
                 Spacer()
                     .frame(height: LayoutGrid.tripleModule)
@@ -46,12 +44,12 @@ struct DoubleTextFieldSwiftUIView: View {
                     Spacer()
                         .frame(height: LayoutGrid.tripleModule)
                     DoubleTextField(
-                        firstTextField: StandardTextField($firstText, placeholder: "Placeholder", name: "Optional Label", state: $state),
-                        secondTextField: StandardTextField($secondText, placeholder: "Placeholder", name: "Optional Label", state: $state),
+                        firstTextField: StandardTextField($viewModel.firstText, placeholder: "Placeholder", name: "Optional Label", state: $viewModel.state),
+                        secondTextField: StandardTextField($viewModel.secondText, placeholder: "Placeholder", name: "Optional Label", state: $viewModel.state),
                         alignment: .ratio(ration: 0.5),
                         info: "Info",
                         infoNumberOfLines: 1,
-                        state: $state)
+                        state: $viewModel.state)
                     Spacer()
                         .frame(height: 80.0)
                 }
@@ -66,21 +64,21 @@ struct DoubleTextFieldSwiftUIView: View {
                     .frame(height: LayoutGrid.tripleModule)
                 DoubleTextField(
                     firstTextField: StandardTextField(
-                        $thirdText,
+                        $viewModel.thirdText,
                         placeholder: "Placeholder",
                         name: "Optional Label",
-                        state: $state,
+                        state: $viewModel.state,
                         info: .constant("Info"),
                         infoNumberOfLines: 3),
                     secondTextField: StandardTextField(
-                        $fourText,
+                        $viewModel.fourText,
                         placeholder: "Placeholder",
                         name: "Optional Label",
-                        state: $state,
+                        state: $viewModel.state,
                         info: .constant("Info"),
                         infoNumberOfLines: 3),
                     alignment: .ratio(ration: 0.7),
-                    state: $state)
+                    state: $viewModel.state)
                 Spacer()
             }
             .onTapGesture {
@@ -88,14 +86,6 @@ struct DoubleTextFieldSwiftUIView: View {
             }
             .padding()
         }
-    }
-    
-    private func someText() -> String {
-        var text = ""
-        for index in 0..<1000 {
-            text += "\(index)"
-        }
-        return text
     }
     
 }

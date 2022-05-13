@@ -114,6 +114,14 @@ final class SwiftUIUploadingPhotoViewModel: ObservableObject {
     // MARK: - Internal properties
     
     var errorGridIndex: Int = 0
+
+    var navigationTitle: String {
+        "Uploading Photo"
+    }
+
+    var tabItems: [String] {
+        ["Default", "Loading"]
+    }
     
     // MARK: - Private properties
     

@@ -11,15 +11,20 @@ import AdmiralUIResources
 import UIKit
 
 final class StatusHistoryStandardViewController: UIViewController, AnyAppThemable {
-    
+
+    // MARK: - Type alias
+
+    typealias Items = StatusHistoryStandartViewModel.StatusHistory
+
     // MARK: - Private Properties
     
     private lazy var segmentedControl: OutlineSliderTabSegmentedControl = {
-        let segment = OutlineSliderTabSegmentedControl(titles: StatusHistory.allCases.map({ $0.rawValue }))
+        let segment = OutlineSliderTabSegmentedControl(titles: Items.allCases.map({ $0.rawValue }))
         segment.addTarget(self, action: #selector(changeChangeSegment(_:)), for: .valueChanged)
         return segment
     }()
-    
+
+    private let viewModel = StatusHistoryStandartViewModel()
     private let inputNumber = InputNumber()
     private let statusView = StatusHistoryView(type: .standard)
     
@@ -45,7 +50,7 @@ final class StatusHistoryStandardViewController: UIViewController, AnyAppThemabl
         
         navigationItem.title = "Standard"
         
-        inputNumber.text = "Image Count"
+        inputNumber.text = viewModel.text
         inputNumber.minimumValue = 1
         inputNumber.value = 1
         inputNumber.maximumValue = 4
@@ -53,18 +58,18 @@ final class StatusHistoryStandardViewController: UIViewController, AnyAppThemabl
         
         segmentedControl.selectedSegmentIndex = 0
         
-        statusView.date = "10 Июля 2020, 20:31"
+        statusView.date = viewModel.date
         statusView.images = [UIImage()]
         
         statusView.delegate = self
-        statusView.sum = "+ 200 000 000 000 ₽"
-        statusView.crossOutSum = "5 000 000 000 000 ₽"
+        statusView.sum = viewModel.sum
+        statusView.crossOutSum = viewModel.crossOutSum
         statusView.statusHistorySumType = .increase
         
-        statusView.title = "Константин Н."
-        statusView.subtitle = "Входящие переводы"
+        statusView.title = viewModel.title
+        statusView.subtitle = viewModel.subtitle
         
-        statusView.statusText = "В обработке"
+        statusView.statusText = viewModel.statusText
         statusView.statusImage = AdmiralUIResources.Asset.System.Solid.timeSolid.image
         statusView.status = .hold
         
@@ -81,7 +86,7 @@ final class StatusHistoryStandardViewController: UIViewController, AnyAppThemabl
     }
     
     @objc private func changeChangeSegment(_ segment: OutlineSliderTabSegmentedControl) {
-        let status = StatusHistory.allCases[segment.selectedSegmentIndex]
+        let status = Items.allCases[segment.selectedSegmentIndex]
         
         switch status {
         case .hold:

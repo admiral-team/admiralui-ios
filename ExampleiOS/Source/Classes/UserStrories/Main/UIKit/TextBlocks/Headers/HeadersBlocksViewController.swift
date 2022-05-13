@@ -10,7 +10,13 @@ import AdmiralUIKit
 import AdmiralTheme
 
 final class HeadersBlocksViewController: ScrollViewController {
-    
+
+    // MARK: - Private Properties
+
+    private let viewModel = HeadersBlockViewModel()
+
+    // MARK: - Internal Properties
+
     var headers: [UIView] = []
     
     // MARK: - Initializers
@@ -29,12 +35,11 @@ final class HeadersBlocksViewController: ScrollViewController {
     
     private func configureUI() {
         stackView.spacing = LayoutGrid.halfModule * 3
-        
-        configureHeaderViews(title: "Title 1", headerStyle: .title)
-        configureHeaderViews(title: "Subtitle 2", headerStyle: .body)
-        configureHeaderViews(title: "Headline", headerStyle: .headline)
-        configureHeaderViews(title: "Headline Secondary", headerStyle: .headlineSecondary)
-        
+
+        viewModel.items.forEach {
+            configureHeaderViews(title: $0.title, headerStyle: $0.headerStyle)
+        }
+
         headers.forEach() {
             $0.translatesAutoresizingMaskIntoConstraints = false
             stackView.addArrangedSubview($0)

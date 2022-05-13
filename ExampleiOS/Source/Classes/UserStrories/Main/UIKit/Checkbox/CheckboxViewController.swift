@@ -10,14 +10,8 @@ import AdmiralTheme
 import UIKit
 
 final class CheckboxViewController: ScrollViewController {
-    
-    // MARK: - Private Properties
-    
-    private enum BadgeState: Int {
-        case enabled
-        case disabled
-    }
 
+    private let viewModel = CheckBoxViewModel()
     private var views = [CheckBoxesCellView]()
     
     // MARK: - Initializers
@@ -40,37 +34,23 @@ final class CheckboxViewController: ScrollViewController {
     // MARK: - Private Methods
     
     private func configureUI() {
-        configureCheckBoxViews()
-        
+        viewModel.items.forEach {
+            views.append(
+                CheckBoxesCellView(
+                    textCheckboxTitle: $0.textCheckboxTitle ,
+                    checkBoxesControlState: $0.checkBoxesControlState,
+                    isSelected: $0.isSelected,
+                    titleText: $0.titleText
+                )
+            )
+        }
+
         views.forEach() {
             stackView.addArrangedSubview($0)
         }
         segmentControl.setTitles(["Default", "Disabled"])
         segmentControl.selectedSegmentIndex = 0
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
-    }
-
-    private func configureCheckBoxViews() {
-        let defaultCheckBox = CheckBoxesCellView(
-            textCheckboxTitle: "Text",
-            checkBoxesControlState: .normal,
-            isSelected: false,
-            titleText: "Default")
-        views.append(defaultCheckBox)
-        
-        let selectedCheckBox = CheckBoxesCellView(
-            textCheckboxTitle: "Text",
-            checkBoxesControlState: .normal,
-            isSelected: true,
-            titleText: "Selected")
-        views.append(selectedCheckBox)
-        
-        let errorCheckBox = CheckBoxesCellView(
-            textCheckboxTitle: "Text",
-            checkBoxesControlState: .error,
-            isSelected: false,
-            titleText: "Error")
-        views.append(errorCheckBox)
     }
     
     @objc private func segmentedValueChanged(_ control: StandardSegmentedControl) {

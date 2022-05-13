@@ -29,16 +29,16 @@ struct SwiftUIChatInputView: View {
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
 
     // MARK: - Layout
-
+    
     var body: some View {
         let scheme = schemeProvider.scheme
         NavigationContentView(
-            navigationTitle: "Input",
+            navigationTitle: viewModel.navigationTitle,
             isShowThemeSwitchSwiftUIView: false
         ) {
             scheme.backgroundColor.swiftUIColor
             VStack {
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: viewModel.tabItems, selection: $isEnabledControlsState)
                     .padding(.horizontal, LayoutGrid.doubleModule)
                 VStack(spacing: LayoutGrid.module) {
                     ScrollViewReader { proxy in
