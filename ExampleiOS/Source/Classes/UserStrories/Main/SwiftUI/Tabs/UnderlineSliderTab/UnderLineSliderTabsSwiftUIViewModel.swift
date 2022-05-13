@@ -52,6 +52,7 @@ final class UnderLineSliderTabsSwiftUIViewModel: ObservableObject {
     // MARK: - Published Properties
 
     @Published var isEnabledControlsState: Int = 0
+    @Published var isStaticControlsState: Int = 0
     @Published var items: [TabItem]
 
     // MARK: - Internal Properties

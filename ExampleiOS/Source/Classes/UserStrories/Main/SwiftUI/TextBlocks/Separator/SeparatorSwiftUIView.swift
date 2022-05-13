@@ -25,7 +25,7 @@ struct SeparatorSwiftUIView: View {
         NavigationContentView(navigationTitle: viewModel.title) {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 VStack(spacing: LayoutGrid.tripleModule) {
                     ForEach(viewModel.items, id: \.id) { item in
                         HStack(spacing: 0.0) {

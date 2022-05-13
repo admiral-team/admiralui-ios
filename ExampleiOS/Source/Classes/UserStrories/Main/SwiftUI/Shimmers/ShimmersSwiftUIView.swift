@@ -16,7 +16,7 @@ struct ShimmersSwiftUIView: View {
         let scheme = schemeProvider.scheme
         NavigationContentView(navigationTitle: viewModel.title) {
             scheme.backgroundColor.swiftUIColor
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 LazyVStack(alignment: .leading) {
                     ForEach(viewModel.items, id: \.id) { item in
                         shimmerItem(item: item)

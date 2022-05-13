@@ -126,6 +126,9 @@ public struct SecurityTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
     /// Adds an action to perform change cursor position. On enter 3 parameters - startCursor, currentCursor, text. Return cursor position.
     private let onCursorPosition: ((Int, Int, String) -> (Int))?
     
+    // Flag is disable pasting. If flasg is true pasting is enabled.
+    private let canPerformActionPaste: Bool
+    
     // MARK: - Private Properties
     
     @State private var segmentSize: CGSize = .zero
@@ -149,6 +152,7 @@ public struct SecurityTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
     ///   - returnKeyType: The visible title of the Return key.
     ///   - autocapitalizationType: The autocapitalization style for the text object.
     ///   - autocorrectionType: The autocorrection style for the text object.
+    ///   - canPerformActionPaste: Flag is disable pasting.
     ///   - placeholder: The string that displays when there is no other text in the text field.
     ///   - name: The text field’s name.
     ///   - iconOn: The text field’s traling image view with state "on".
@@ -167,6 +171,7 @@ public struct SecurityTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
         returnKeyType: UIReturnKeyType = .default,
         autocapitalizationType: UITextAutocapitalizationType = .none,
         autocorrectionType: UITextAutocorrectionType = .no,
+        canPerformActionPaste: Bool = false,
         placeholder: String = "",
         name: String = "",
         state: Binding<TextInputState> = .constant(.normal),
@@ -200,6 +205,7 @@ public struct SecurityTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
         self.returnKeyType = returnKeyType
         self.autocapitalizationType = autocapitalizationType
         self.autocorrectionType = autocorrectionType
+        self.canPerformActionPaste = canPerformActionPaste
         self.isResponder = isResponder
         self.onCursorPosition = onCursorPosition
         self._isFocused = .init(initialValue: isResponder?.wrappedValue ?? false)
@@ -217,6 +223,7 @@ public struct SecurityTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
     ///   - returnKeyType: The visible title of the Return key.
     ///   - autocapitalizationType: The autocapitalization style for the text object.
     ///   - autocorrectionType: The autocorrection style for the text object.
+    ///   - canPerformActionPaste: Flag is disable pasting.
     ///   - placeholder: The string that displays when there is no other text in the text field.
     ///   - name: The text field’s name.
     ///   - iconOn: The text field’s traling image view with state "on".
@@ -234,6 +241,7 @@ public struct SecurityTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
         returnKeyType: UIReturnKeyType = .default,
         autocapitalizationType: UITextAutocapitalizationType = .none,
         autocorrectionType: UITextAutocorrectionType = .no,
+        canPerformActionPaste: Bool = false,
         placeholder: String = "",
         name: String = "",
         state: Binding<TextInputState> = .constant(.normal),
@@ -252,6 +260,7 @@ public struct SecurityTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
             returnKeyType: returnKeyType,
             autocapitalizationType: autocapitalizationType,
             autocorrectionType: autocorrectionType,
+            canPerformActionPaste: canPerformActionPaste,
             placeholder: placeholder,
             name: name,
             state: state,
@@ -376,6 +385,7 @@ public struct SecurityTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
                         returnKeyType: returnKeyType,
                         autocapitalizationType: autocapitalizationType,
                         autocorrectionType: autocorrectionType,
+                        canPerformActionPaste: canPerformActionPaste,
                         textColor: textColor?.uiColor ?? .clear,
                         placeholderColor: placeholderColor,
                         tintColor: tintColor?.uiColor ?? .clear,
@@ -454,6 +464,7 @@ extension SecurityTextField where T == EmptyView {
     ///   - returnKeyType: The visible title of the Return key.
     ///   - autocapitalizationType: The autocapitalization style for the text object.
     ///   - autocorrectionType: The autocorrection style for the text object.
+    ///   - canPerformActionPaste: Flag is disable pasting.
     ///   - placeholder: The string that displays when there is no other text in the text field.
     ///   - name: The text field’s name.
     ///   - iconOn: The text field’s traling image view with state "on".
@@ -471,6 +482,7 @@ extension SecurityTextField where T == EmptyView {
         returnKeyType: UIReturnKeyType = .default,
         autocapitalizationType: UITextAutocapitalizationType = .none,
         autocorrectionType: UITextAutocorrectionType = .no,
+        canPerformActionPaste: Bool = true,
         placeholder: String = "",
         name: String = "",
         state: Binding<TextInputState> = .constant(.normal),
@@ -503,6 +515,7 @@ extension SecurityTextField where T == EmptyView {
         self.returnKeyType = returnKeyType
         self.autocapitalizationType = autocapitalizationType
         self.autocorrectionType = autocorrectionType
+        self.canPerformActionPaste = canPerformActionPaste
         self.isResponder = isResponder
         self.onCursorPosition = onCursorPosition
         self._isFocused = .init(initialValue: isResponder?.wrappedValue ?? false)
@@ -520,6 +533,7 @@ extension SecurityTextField where T == EmptyView {
     ///   - returnKeyType: The visible title of the Return key.
     ///   - autocapitalizationType: The autocapitalization style for the text object.
     ///   - autocorrectionType: The autocorrection style for the text object.
+    ///   - canPerformActionPaste: Flag is disable pasting.
     ///   - placeholder: The string that displays when there is no other text in the text field.
     ///   - name: The text field’s name.
     ///   - iconOn: The text field’s traling image view with state "on".
@@ -536,6 +550,7 @@ extension SecurityTextField where T == EmptyView {
         returnKeyType: UIReturnKeyType = .default,
         autocapitalizationType: UITextAutocapitalizationType = .none,
         autocorrectionType: UITextAutocorrectionType = .no,
+        canPerformActionPaste: Bool = true,
         placeholder: String = "",
         name: String = "",
         state: Binding<TextInputState> = .constant(.normal),
@@ -553,6 +568,7 @@ extension SecurityTextField where T == EmptyView {
             returnKeyType: returnKeyType,
             autocapitalizationType: autocapitalizationType,
             autocorrectionType: autocorrectionType,
+            canPerformActionPaste: canPerformActionPaste,
             placeholder: placeholder,
             name: name,
             state: state,

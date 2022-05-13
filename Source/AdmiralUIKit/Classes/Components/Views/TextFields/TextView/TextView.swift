@@ -271,7 +271,7 @@ extension TextView {
     }
 
     private var isPlaceholderLabelNeedOffset: Bool {
-        return (name?.nilIfEmpty == nil && isEditing) || (name?.nilIfEmpty != nil && (isEditing || !forceOpened))
+        return text?.nilIfEmpty == nil
     }
 
     private var isTextFieldHidden: Bool {

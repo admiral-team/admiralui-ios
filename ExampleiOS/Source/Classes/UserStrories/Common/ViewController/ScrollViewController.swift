@@ -20,6 +20,7 @@ class ScrollViewController: UIViewController, AnyAppThemable {
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.contentInset.bottom = LayoutGrid.module * 9
+        scrollView.showsVerticalScrollIndicator = false
         return scrollView
     }()
     

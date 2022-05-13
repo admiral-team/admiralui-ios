@@ -32,7 +32,7 @@ struct BigInformersSwiftUIView: View {
         let scheme = schemeProvider.scheme
         NavigationContentView(navigationTitle: viewModel.title) {
             scheme.backgroundColor.swiftUIColor
-            ScrollView(.vertical) {
+            ScrollView(.vertical, showsIndicators: false) {
                 StandardTab(items: viewModel.tabs, selection: $viewModel.isEnabledControlsState)
                     .padding()
                 Spacer()

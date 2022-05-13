@@ -24,7 +24,7 @@ struct TagsChipsSwiftUIView: View {
         let scheme = schemeProvider.scheme
         NavigationContentView(navigationTitle: viewModel.title) {
             scheme.backgroundColor.swiftUIColor
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 StandardTab(items: viewModel.tabItems, selection: $viewModel.isEnabledControlsState)
                     .padding()
                 LazyVStack(alignment: .leading, spacing: LayoutGrid.tripleModule) {

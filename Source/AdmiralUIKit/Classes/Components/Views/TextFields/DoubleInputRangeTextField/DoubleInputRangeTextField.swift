@@ -26,7 +26,7 @@ import AdmiralTheme
 public class DoubleInputRangeTextField: UIView, AnyAppThemable, AccessibilitySupport {
     
     private enum Constants {
-        static let leadingLabelFrame = CGRect(x: .zero, y: .zero, width: LayoutGrid.quadrupleModule, height: LayoutGrid.halfModule * 5)
+        static let leadingLabelFrame = CGRect(x: .zero, y: .zero, width: LayoutGrid.tripleModule, height: LayoutGrid.halfModule * 5)
         static let fromLabelText = "От"
         static let toLabelText = "До"
     }
@@ -253,13 +253,14 @@ public class DoubleInputRangeTextField: UIView, AnyAppThemable, AccessibilitySup
             informerLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
 
             rightTextField.trailingAnchor.constraint(equalTo: trailingAnchor),
-            rightTextField.topAnchor.constraint(equalTo: topAnchor)
+            rightTextField.topAnchor.constraint(equalTo: topAnchor),
         ])
     }
 
     public override func layoutSubviews() {
         super.layoutSubviews()
         leftTextField.leftLabelWidth = fromLabel.frame.width
+        rightTextField.leftLabelWidth = fromLabel.frame.width
     }
 
     private func configureUI() {

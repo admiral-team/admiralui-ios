@@ -127,7 +127,7 @@ public struct UploadingImageGrid: View {
     
     private func uploadImageViews() -> some View {
         VStack(spacing: LayoutGrid.module) {
-            ForEach(rows.indices) { index in
+            ForEach(rows.indices, id: \.self) { index in
                 if let cornerList = grid[String(gridCount)] {
                     HStack(spacing: LayoutGrid.module) {
                         ForEach(0..<rows[index].count, id:\.self) { modelIndex in

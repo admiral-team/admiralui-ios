@@ -106,7 +106,7 @@ enum SwiftUIItem: String, CaseIterable {
         case .tags:
             return "Тэги и чипсы"
         case .badges:
-            return "Количественные зачения"
+            return "Количественные значения"
         case .radioButton:
             return "Радио кнопка"
         case .checkbox:
@@ -130,7 +130,7 @@ enum SwiftUIItem: String, CaseIterable {
         case .toolBar:
             return "Панель инструментов"
         case .bottomSheets:
-            return "Информационная панел"
+            return "Информационная панель"
         case .currency:
             return "Таблица курсов валют"
         case .chat:

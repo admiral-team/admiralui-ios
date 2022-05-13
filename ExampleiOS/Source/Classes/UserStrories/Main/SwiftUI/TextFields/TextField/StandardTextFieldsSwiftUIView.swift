@@ -28,7 +28,7 @@ struct StandardTextFieldsSwiftUIView: View {
         NavigationContentView(navigationTitle: viewModel.title) {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 LazyVStack(alignment: .leading) {
                     ForEach(TextFieldItem.allCases, id: \.self) { item in
                         NavigationLink(destination: view(for: item), tag: item.rawValue, selection: $viewModel.selection) {

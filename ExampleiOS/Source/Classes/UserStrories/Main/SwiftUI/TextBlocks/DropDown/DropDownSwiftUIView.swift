@@ -25,7 +25,7 @@ struct DropDownSwiftUIView: View {
         NavigationContentView(navigationTitle: viewModel.title) {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 VStack(spacing: 0.0) {
                     ForEach(viewModel.items, id: \.self) { item in
                         switch item {

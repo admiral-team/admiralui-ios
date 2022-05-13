@@ -518,10 +518,10 @@ public struct DoubleInputRangeTextField: AccessabilitySupportUIKit, Identifiable
                                 accessibilityIdentifier: accessibilityIdentifierSecond
                             )
                                 .zIndex(10)
-                                .frame(width: textWidth, height: textHeight)
+                                .fixedSize()
                                 .onChange(of: contentTo) { value in
                                     guard !finishAfterChangeSlider else { return }
-                                    
+
                                     if(contentTo == "") {
                                         withAnimation(.easeInOut) {
                                             isFilledTo = false
@@ -531,10 +531,10 @@ public struct DoubleInputRangeTextField: AccessabilitySupportUIKit, Identifiable
                                             isFilledTo = true
                                         }
                                     }
-                                    
+
                                     let text = (value ?? "").replacingOccurrences(of: ",", with: ".")
                                     guard let val = Double(text) else { return }
-                                    
+
                                     withAnimation(.easeInOut) {
                                         sliderValueTo = val
                                     }

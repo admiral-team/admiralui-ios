@@ -32,7 +32,7 @@ struct CalendarsSwiftUIView: View {
         NavigationContentView(navigationTitle: viewModel.title) {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 LazyVStack(alignment: .leading) {
                     ForEach(CalendarItems.allCases, id: \.self) { item in
                         // WORKAROUND: FOR NAVIGATION AFTER IOS 14.5

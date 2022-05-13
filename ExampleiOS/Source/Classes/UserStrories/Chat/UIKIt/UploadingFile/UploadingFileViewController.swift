@@ -28,6 +28,7 @@ final class UploadingFileViewController: UIViewController, AnyAppThemable {
         let tableView = UITableView(frame: .zero)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.showsVerticalScrollIndicator = false
         tableView.registerCell(UploadingFileCell.self, reuseIdentifier: "UploadingFileCell")
         return tableView
     }()

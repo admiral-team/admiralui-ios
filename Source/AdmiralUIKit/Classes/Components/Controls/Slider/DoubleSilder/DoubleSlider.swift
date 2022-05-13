@@ -202,13 +202,22 @@ public final class DoubleSlider: UIControl, AnyAppThemable {
         progressView.lowerProgress = lowerProgress
         progressView.upperProgress = upperProgress
 
-        lowerThumbImageView.frame.size = thumbSize
-        lowerThumbImageView.frame.origin.x = ceil(CGFloat(lowerProgress) * (rect.width - thumbSize.width))
-        lowerThumbImageView.frame.origin.y = ceil(rect.midY - lowerThumbImageView.frame.height / 2)
-
-        upperThumbImageView.frame.size = thumbSize
-        upperThumbImageView.frame.origin.x = ceil(CGFloat(upperProgress) * (rect.width - thumbSize.width))
-        upperThumbImageView.frame.origin.y = ceil(rect.midY - upperThumbImageView.frame.height / 2)
+        if lowerThumbImageView.isHighlighted {
+            lowerThumbImageView.calculateFrameForSlider(rect,thumbSize, progress: lowerProgress)
+            DispatchQueue.main.async {
+                self.lowerThumbImageView.layer.zPosition = 1
+                self.upperThumbImageView.layer.zPosition = 0
+            }
+        } else if upperThumbImageView.isHighlighted {
+            upperThumbImageView.calculateFrameForSlider(rect, thumbSize, progress: upperProgress)
+            DispatchQueue.main.async {
+                self.lowerThumbImageView.layer.zPosition = 0
+                self.upperThumbImageView.layer.zPosition = 1
+            }
+        } else if !upperThumbImageView.isHighlighted && !lowerThumbImageView.isHighlighted {
+            lowerThumbImageView.calculateFrameForSlider(rect, thumbSize, progress: lowerProgress)
+            upperThumbImageView.calculateFrameForSlider(rect, thumbSize, progress: upperProgress)
+        }
     }
 
     func positionForValue(value: Double) -> CGFloat {
@@ -225,6 +234,17 @@ public final class DoubleSlider: UIControl, AnyAppThemable {
 
 
 // MARK: - Calculating
+
+private extension SliderThumbView {
+
+    func calculateFrameForSlider(_ rect: CGRect, _ thumbSize: CGSize, progress: Float) {
+        frame.size = thumbSize
+        frame.origin.x = ceil(CGFloat(progress) * (rect.width - thumbSize.width))
+        frame.origin.y = ceil(rect.midY - frame.height / 2)
+    }
+
+}
+
 
 private extension DoubleSlider {
 
@@ -248,7 +268,6 @@ private extension DoubleSlider {
 
 public extension DoubleSlider {
 
-
     override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
         let location = touch.location(in: self)
         previousLocation = location
@@ -267,11 +286,26 @@ public extension DoubleSlider {
             height: Constants.thumbTapSize.height
         )
 
-        if upperThumbFrame.contains(location) {
-            upperThumbImageView.isHighlighted = true
-        } else if lowerThumbFrame.contains(location) {
-            lowerThumbImageView.isHighlighted = true
+        if lowerThumbImageView.layer.zPosition > upperThumbImageView.layer.zPosition {
+            if lowerThumbFrame.contains(location) {
+                lowerThumbImageView.isHighlighted = true
+            } else if upperThumbFrame.contains(location) {
+                upperThumbImageView.isHighlighted = true
+            }
+        } else if lowerThumbImageView.layer.zPosition < upperThumbImageView.layer.zPosition {
+            if upperThumbFrame.contains(location) {
+                upperThumbImageView.isHighlighted = true
+            } else if lowerThumbFrame.contains(location) {
+                lowerThumbImageView.isHighlighted = true
+            }
+        } else {
+            if upperThumbFrame.contains(location) {
+                upperThumbImageView.isHighlighted = true
+            } else if lowerThumbFrame.contains(location) {
+                lowerThumbImageView.isHighlighted = true
+            }
         }
+
         return upperThumbImageView.isHighlighted || lowerThumbImageView.isHighlighted
     }
 
@@ -314,4 +348,3 @@ public extension DoubleSlider {
     }
 
 }
-

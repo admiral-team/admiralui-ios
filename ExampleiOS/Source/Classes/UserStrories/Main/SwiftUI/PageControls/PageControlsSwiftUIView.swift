@@ -24,7 +24,7 @@ struct PageControlsSwiftUIView: View {
         NavigationContentView(navigationTitle: viewModel.navigationTitle) {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 LazyVStack(alignment: .leading) {
                     ForEach(viewModel.pageItems, id: \.self) { item in
                         NavigationLink(destination: EmptyView()) {

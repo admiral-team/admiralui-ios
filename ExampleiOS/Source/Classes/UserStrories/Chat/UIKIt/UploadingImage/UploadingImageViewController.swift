@@ -27,6 +27,7 @@ final class UploadingImageViewController: UIViewController, AnyAppThemable {
         let tableView = UITableView(frame: .zero)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.showsVerticalScrollIndicator = false
         tableView.registerCell(UploadingImageCell.self, reuseIdentifier: "UploadingImageCell")
         return tableView
     }()

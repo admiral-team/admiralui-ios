@@ -21,6 +21,7 @@ class MainViewController: UIViewController, AnyAppThemable {
         tableView.estimatedRowHeight = 44
         tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .none
+        tableView.showsVerticalScrollIndicator = false
         return tableView
     }()
     private lazy var tableViewManager: TableViewListItemManager = {
@@ -115,7 +116,7 @@ class MainViewController: UIViewController, AnyAppThemable {
             
             MainTableViewCellViewModel(
                 title: "Icons",
-                subtitle: "Subtitle",
+                subtitle: "Иконки",
                 image: Asset.Main.gem.image,
                 didSelect: { [weak self] in self?.presentIcons() }),
             
@@ -163,7 +164,7 @@ class MainViewController: UIViewController, AnyAppThemable {
             
             MainTableViewCellViewModel(
                 title: "Badges",
-                subtitle: "Количественные зачения",
+                subtitle: "Количественные значения",
                 image: Asset.Main.badges.image,
                 didSelect: { [weak self] in self?.presentBadges() }),
             
@@ -353,7 +354,7 @@ extension MainViewController {
     
     private func presentActivityIndicator() {
         let viewController = SpinnerViewController()
-        viewController.title = "Spinner"
+        viewController.title = "Spiner"
         navigationController?.pushViewController(viewController, animated: true)
     }
     

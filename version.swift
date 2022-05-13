@@ -23,7 +23,6 @@ public struct Version: Codable {
 
 }
 
-
 public final class LibraryInfo {
 
     public static var version: Version? {

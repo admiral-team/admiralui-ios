@@ -23,7 +23,7 @@ struct InformerTabSwiftUIView: View {
         let scheme = schemeProvider.scheme
         NavigationContentView(navigationTitle: viewModel.title) {
             scheme.backgroundColor.swiftUIColor
-            ScrollView(.vertical) {
+            ScrollView(.vertical, showsIndicators: false) {
                 HStack {
                     Spacer()
                 }

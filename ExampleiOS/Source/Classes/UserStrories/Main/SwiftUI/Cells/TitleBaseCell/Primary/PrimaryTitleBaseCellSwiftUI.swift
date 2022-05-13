@@ -27,19 +27,19 @@ struct PrimaryTitleBaseCellSwiftUI: View {
                 .edgesIgnoringSafeArea(.all)
             ScrollView {
                 StandardTab(items: viewModel.tabs, selection: $viewModel.isEnabledControlsState)
-                    .padding()
-                LazyVStack(alignment: .leading) {
-                    ListCell(
-                        centerView: { TitleWithImageListView(
-                            title: "Title",
-                            image: Image(uiImage: Asset.arrowDown.image),
-                            renderingMode: .template) 
-                        },
-                        trailingView: { ButtonListView(text: "Button", action: {}) })
-                        .disabled(viewModel.isEnabledControlsState != 0)
+                ScrollView(showsIndicators: false) {
+                    LazyVStack(alignment: .leading) {
+                        ListCell(
+                            centerView: { TitleWithImageListView(
+                                title: "Title",
+                                image: Image(uiImage: Asset.arrowDown.image),
+                                renderingMode: .template)
+                            },
+                            trailingView: { ButtonListView(text: "Button", action: {}) })
+                            .disabled(viewModel.isEnabledControlsState != 0)
+                    }
                 }
             }
         }
     }
-    
 }

@@ -29,7 +29,7 @@ struct StandardTextFieldSwiftUIView: View {
         NavigationContentView(navigationTitle: viewModel.title) {
             scheme.backgroundColor.swiftUIColor
             ScrollViewReader { scrollView in
-                ScrollView(.vertical) {
+                ScrollView(showsIndicators: false) {
                     LazyVStack(alignment: .leading) {
                         OutlineSliderTab(
                             items: viewModel.tabItems,
@@ -52,6 +52,7 @@ struct StandardTextFieldSwiftUIView: View {
                                     return text?.replacingOccurrences(of: "=)", with: "🙂")
                                 }),
                                 contentType: .default,
+                                canPerformActionPaste: false,
                                 placeholder: "Placeholder",
                                 name: "Optional label",
                                 state: $viewModel.state,
@@ -106,6 +107,7 @@ struct StandardTextFieldSwiftUIView: View {
                                     return text?.replacingOccurrences(of: "=)", with: "🙂")
                                 }),
                                 contentType: .default,
+                                canPerformActionPaste: false,
                                 placeholder: "Placeholder",
                                 name: "Optional label",
                                 state: $viewModel.state,

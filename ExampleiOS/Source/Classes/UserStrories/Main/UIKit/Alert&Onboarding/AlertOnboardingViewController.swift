@@ -11,9 +11,9 @@ import UIKit
 final class AlertOnboardingViewController: BaseTableViewController {
 
     // MARK: - Private properties
-
+    
     private let viewModel = AlertOnboardingViewModel()
-
+    
     // MARK: - Initializer
 
     override func viewDidLoad() {
@@ -49,7 +49,10 @@ private extension AlertOnboardingViewController {
         case .error:
             vc = ErrorViewController()
         case .onboarding:
-            vc = UIViewController()
+            let onboarding = OnboardingPageViewController()
+            onboarding.onboardingPageModels = viewModel.onBoardingModel
+            onboarding.isOnboardingRoot = false
+            vc = onboarding
         case .zeroScreen:
             vc = ZeroScreenViewController()
         }

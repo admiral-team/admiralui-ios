@@ -49,6 +49,24 @@ struct UnderlineSliderTabSwiftUIView: View {
                             }
                         }
                     }
+                    Spacer()
+                        .frame(height: 24.0)
+                    
+                    VStack(alignment: .leading, spacing: 16.0) {
+                        Text("Static Controls")
+                            .font(scheme.textFont.swiftUIFont)
+                            .foregroundColor(scheme.textColor.swiftUIColor)
+                            .padding()
+                        VStack(alignment: .leading) {
+                            UnderlineTab(
+                                items: ["One", "Two", "Three", "Four"],
+                                selection: $viewModel.isStaticControlsState,
+                                isStaticTabs: .constant(true)
+                            )
+                            .disabled(viewModel.isEnabledControlsState != 0)
+                            Spacer()
+                        }
+                    }
                 }
                 Spacer()
             }

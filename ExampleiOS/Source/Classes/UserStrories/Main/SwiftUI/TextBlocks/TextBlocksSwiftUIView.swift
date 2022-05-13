@@ -20,7 +20,7 @@ struct TextBlocksSwiftUIView: View {
         NavigationContentView(navigationTitle: "Text Blocks") {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 LazyVStack(alignment: .leading) {
                     ForEach(TextBlocksSwiftUIItem.allCases, id: \.self) { item in
                         // WORKAROUND: https://developer.apple.com/forums/thread/677333

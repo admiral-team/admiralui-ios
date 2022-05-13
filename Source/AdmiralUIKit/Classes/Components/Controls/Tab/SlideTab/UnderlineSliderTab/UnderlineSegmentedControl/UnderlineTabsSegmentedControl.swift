@@ -140,7 +140,15 @@ public class UnderlineSegmentedControl: BaseUnderlineSegmentedControl, AnyAppThe
     override func sizeItem(for index: Int) -> CGSize {
         let cell = UnderlineSliderViewCell(frame: .zero)
         cell.configure(item: items[index])
-        return CGSize(width: cell.intrinsicContentSize.width, height: height)
+        let widthItem: CGFloat = isStaticTabs ? (collectionView.frame.width / CGFloat(items.count)) : cell.intrinsicContentSize.width
+        return CGSize(width: widthItem, height: height)
+    }
+    
+    // MARK: - Layout Subviews
+    
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        setSelectedSegmentIndex(selectedSegmentIndex, animated: true)
     }
     
     // MARK: - Private Methods

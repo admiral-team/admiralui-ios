@@ -25,7 +25,7 @@ struct StaticNotificationsSwiftUIView: View {
         NavigationContentView(navigationTitle: viewModel.title) {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 LazyVStack(alignment: .leading) {
                     Spacer()
                         .frame(height: LayoutGrid.doubleModule * 3)
