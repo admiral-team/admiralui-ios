@@ -15,10 +15,8 @@ final class CircularPageControlViewController: BaseViewController {
     
     private let pageControl = CirclePageControl()
     private var segmentControl = OutlineSliderTabSegmentedControl()
-    private let items = ["One", "Two", "Three",
-                         "Four", "Five", "Six",
-                         "Seven", "Eight", "Nine"]
-        
+    private let viewModel = CirclePageViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -47,12 +45,12 @@ final class CircularPageControlViewController: BaseViewController {
         pageControl.delegate = self
         pageControl.duration = 0.3
         pageControl.totalPages = segmentControl.selectedSegmentIndex + 1
-        pageControl.currentPage = 0
+        pageControl.currentPage = viewModel.currentIndex
     }
     
     private func configureSegment() {
-        segmentControl.setTitles(items)
-        segmentControl.setSelectedSegmentIndex(0, animated: false)
+        segmentControl.setTitles(viewModel.items)
+        segmentControl.setSelectedSegmentIndex(viewModel.currentIndex, animated: false)
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged(_:)), for: .valueChanged)
     }
     
@@ -81,7 +79,7 @@ final class CircularPageControlViewController: BaseViewController {
     
     @objc private func segmentedValueChanged(_ control: OutlineSliderTabSegmentedControl) {
         pageControl.totalPages = control.selectedSegmentIndex + 1
-        pageControl.setPage(0, animated: false)
+        pageControl.setPage(viewModel.currentIndex, animated: false)
     }
 
 }
@@ -94,7 +92,7 @@ extension CircularPageControlViewController: CirclePageControlDelegate {
         if pageControl.currentPage < segmentControl.selectedSegmentIndex + 1 {
             pageControl.setPage(pageControl.currentPage + 1, animated: true)
         } else {
-            if segmentControl.selectedSegmentIndex == items.count - 1 {
+            if segmentControl.selectedSegmentIndex == viewModel.items.count - 1 {
                 segmentControl.setSelectedSegmentIndex(0, animated: true)
             } else {
                 segmentControl.selectedSegmentIndex += 1

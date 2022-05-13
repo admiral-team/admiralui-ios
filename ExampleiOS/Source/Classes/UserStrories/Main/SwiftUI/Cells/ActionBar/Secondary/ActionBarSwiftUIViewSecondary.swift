@@ -15,19 +15,18 @@ struct ActionBarSwiftUIViewSecondary: View {
 
     // MARK: - Private properties
 
-    @State private var selectedIndex: Int?
-    @State private var isEnabledControlsState: Int = 0
+    @StateObject private var viewModel = ActionBarSwiftUISecondaryViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
 
     // MARK: - Layout
 
-    public var body: some View {
+    var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Actionbar - Type secondary") {
+        NavigationContentView(navigationTitle: viewModel.title) {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
             ScrollView {
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: viewModel.tabs, selection: $viewModel.isEnabledControlsState)
                     .padding()
                 LazyVStack(alignment: .leading) {
                     ActionCellView(
@@ -41,37 +40,14 @@ struct ActionBarSwiftUIViewSecondary: View {
                             },
                             isSelected:
                                 Binding(
-                                    get: { self.selectedIndex == 0 },
-                                    set: { _, _ in self.selectedIndex = selectedIndex == 0 ? nil : 0 }
+                                    get: { viewModel.selectedIndex == 0 },
+                                    set: { _, _ in viewModel.selectedIndex = viewModel.selectedIndex == 0 ? nil : 0 }
                                 )
                         ),
-                        actions: [
-                            ActionItemBarAction(
-                                image: Image(uiImage: Asset.ActionBar.moreOutline.image),
-                                imageTintColor: .white,
-                                backgroundColor: .red,
-                                style: .secondary,
-                                text: "Text",
-                                handler: {}
-                            ),
-                            ActionItemBarAction(
-                                image: Image(uiImage: Asset.ActionBar.arrowUpOutline.image),
-                                imageStyle: .success,
-                                style: .secondary,
-                                text: "Text",
-                                handler: {}
-                            ),
-                            ActionItemBarAction(
-                                image: Image(uiImage: Asset.ActionBar.arrowDownOutline.image),
-                                imageStyle: .accent,
-                                style: .secondary,
-                                text: "Text",
-                                handler: {}
-                            )
-                        ],
+                        actions: viewModel.actions,
                         style: .secondary
                     )
-                    .disabled(isEnabledControlsState != 0)
+                    .disabled(viewModel.isEnabledControlsState != 0)
                 }
             }
         }

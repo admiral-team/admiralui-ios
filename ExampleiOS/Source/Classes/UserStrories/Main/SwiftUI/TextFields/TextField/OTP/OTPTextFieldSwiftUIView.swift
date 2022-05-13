@@ -11,46 +11,49 @@ import AdmiralSwiftUI
 
 @available(iOS 14.0.0, *)
 struct OTPTextFieldSwiftUIView: View {
-    
+
+    // MARK: - Constants
+
     enum Constant {
         static let maxSymbols = 20
     }
-    
-    @State private var text: String? = ""
-    @State private var controlsState: Int = 0
-    @State private var isResponder = true
-    @State private var state: TextInputState = .normal
+
+    // MARK: - Private Properties
+
+    @StateObject private var viewModel = OTPTextFieldSwiftUIViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
-    
-    public var body: some View {
+
+    // MARK: - Layout
+
+    var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "SMS Code") {
+        NavigationContentView(navigationTitle: viewModel.title) {
             scheme.backgroundColor.swiftUIColor
             ScrollView(.vertical) {
                 HStack {
-                  Spacer()
+                    Spacer()
                 }
                 StandardTab(
-                    items: ["Default", "Error", "Disabled"],
-                    selection: $controlsState)
-                    .onChange(of: controlsState, perform: { value in
-                    self.state = TextInputState(rawValue: value) ?? .normal
-                })
+                    items: viewModel.tabItems,
+                    selection: $viewModel.controlsState)
+                    .onChange(of: viewModel.controlsState, perform: { [weak viewModel] value in
+                        viewModel?.state = TextInputState(rawValue: value) ?? .normal
+                    })
                 Spacer()
                     .frame(height: LayoutGrid.doubleModule)
                 OTPTextField(
-                    value: $text,
-                    formatter: BlocFormatter(format: { text in
+                    value: $viewModel.text,
+                    formatter: BlocFormatter(format: { [weak viewModel] text in
                         if let text = text, text.count > Constant.maxSymbols {
-                            return self.text
+                            return viewModel?.text
                         }
                         return text
                     }),
                     contentType: .numberPad,
                     placeholder: "СМС-код",
-                    state: $state,
+                    state: $viewModel.state,
                     info: .constant("Additional text"),
-                    isResponder: $isResponder,
+                    isResponder: $viewModel.isResponder,
                     onCursorPosition: { startIndex, currentIndex, text in
                         guard text.count <= Constant.maxSymbols else { return startIndex }
                         return currentIndex
@@ -58,7 +61,7 @@ struct OTPTextFieldSwiftUIView: View {
                     .frame(width: LayoutGrid.module * 35)
                 Spacer()
             }
-            .onTapGesture { isResponder = false }
+            .onTapGesture { viewModel.isResponder = false }
             .padding()
         }
     }

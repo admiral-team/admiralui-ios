@@ -12,128 +12,92 @@ import AdmiralSwiftUI
 @available(iOS 14.0.0, *)
 struct TralingComponentsSwiftUIView: View {
     
-    @State var isRadioButtonListViewControlSelected = true
-    @State var isCheckBoxViewControlSelected = true
-    @State var isSwitchSelected = true
+    // MARK: - Type Alias
 
-    @State private var selectedIndex: Int?
-    @State private var isEnabledControlsState: Int = 0
+    typealias TextBaseCellItem = TrailingComponentsSwiftUIViewModel.TrailingComponentItem
+
+    // MARK: - Private Properties
+
+    @StateObject private var viewModel = TrailingComponentsSwiftUIViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
-    
-    public var body: some View {
+
+    // MARK: - Layout
+
+    var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Trailing elements") {
+        NavigationContentView(navigationTitle: viewModel.navigationTitle) {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
             ScrollView {
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: viewModel.tabsItems, selection: $viewModel.isEnabledControlsState)
                     .padding()
                 LazyVStack(alignment: .leading) {
-                    LazyVStack {
-                        ListCell(
-                            centerView: { TitleListView(title: "Title") },
-                            trailingView: { ArrowListView() },
-                            isSelected:
-                                Binding(
-                                    get: { self.selectedIndex == 0 },
-                                    set: { _, _ in self.selectedIndex = self.selectedIndex == 0 ? nil : 0 }
-                                ))
-                        ListCell(
-                            centerView: { TitleListView(title: "Title") },
-                            trailingView: { RadioButtonListView(isControlSelected: $isRadioButtonListViewControlSelected) },
-                            isSelected:
-                                Binding(
-                                    get: { self.selectedIndex == 1 },
-                                    set: { _, _ in self.selectedIndex = self.selectedIndex == 1 ? nil : 1 }
-                                ))
-                        ListCell(
-                            centerView: { TitleListView(title: "Title") },
-                            trailingView: { CheckBoxListView(isControlSelected: $isCheckBoxViewControlSelected) },
-                            isSelected:
-                                Binding(
-                                    get: { self.selectedIndex == 2 },
-                                    set: { _, _ in self.selectedIndex = self.selectedIndex == 2 ? nil : 2 }
-                                ))
-                        ListCell(
-                            centerView: { TitleListView(title: "Title") },
-                            trailingView: { SwitchListView(isSwitchSelected: $isSwitchSelected) })
-                    }
-                    LazyVStack {
-                        ListCell(
-                            centerView: { TitleListView(title: "Title") },
-                            trailingView: { IconListView(image: Image(uiImage: Asset.Card.imageCard.image)) },
-                            isSelected:
-                                Binding(
-                                    get: { self.selectedIndex == 4 },
-                                    set: { _, _ in self.selectedIndex = self.selectedIndex == 4 ? nil : 4 }
-                                ))
-                        ListCell(
-                            centerView: { TitleListView(title: "Title") },
-                            trailingView: { CardListView(image: Image(uiImage: Asset.Card.visa.image)) },
-                            isSelected:
-                                Binding(
-                                    get: { self.selectedIndex == 5 },
-                                    set: { _, _ in self.selectedIndex = self.selectedIndex == 5 ? nil : 5 }
-                                ))
-                        ListCell(
-                            centerView: { TitleListView(title: "Title") },
-                            trailingView: { DatePercentListView(date: "Date", percent: "Text") },
-                            isSelected:
-                                Binding(
-                                    get: { self.selectedIndex == 6 },
-                                    set: { _, _ in self.selectedIndex = self.selectedIndex == 6 ? nil : 6 }
-                                ))
-                        ListCell(
-                            centerView: { TitleListView(title: "Title") },
-                            trailingView: { ImageWithSubtitleListView(subtitle: "Subtitle", image: Image(uiImage: Asset.Tabs.mirLogo.image)) },
-                            isSelected:
-                                Binding(
-                                    get: { self.selectedIndex == 7 },
-                                    set: { _, _ in self.selectedIndex = self.selectedIndex == 7 ? nil : 7 }
-                                ))
-                        ListCell(
-                            centerView: { TitleListView(title: "Title") },
-                            trailingView: { SubtitleWithImageListView(subtitle: "Subtitle", image: Image(uiImage: Asset.Tabs.mirLogo.image)) },
-                            isSelected:
-                                Binding(
-                                    get: { self.selectedIndex == 8 },
-                                    set: { _, _ in self.selectedIndex = self.selectedIndex == 8 ? nil : 8 }
-                                ))
-                        ListCell(
-                            centerView: { TitleListView(title: "Title") },
-                            trailingView: { BadgeArrowListView(badgeStyle: .default, text: "99+") },
-                            isSelected:
-                                Binding(
-                                    get: { self.selectedIndex == 9 },
-                                    set: { _, _ in self.selectedIndex = self.selectedIndex == 9 ? nil : 9 }
-                                ))
-                        ListCell(
-                            centerView: { TitleListView(title: "Title") },
-                            trailingView: { SubtitleImageArrowListView(subtitle: "19.01.2010", image: Image(uiImage: Asset.Tabs.mirLogo.image)) },
-                            isSelected:
-                                Binding(
-                                    get: { self.selectedIndex == 10 },
-                                    set: { _, _ in self.selectedIndex = self.selectedIndex == 10 ? nil : 10 }
-                                ))
-                        ListCell(
-                            centerView: { TitleListView(title: "Title").fixedSize() },
-                            trailingView: { TagControl(
-                                title: "Text text text text text",
-                                tagStyle: .default,
-                                tapTagControl: {})
-                            },
-                            isSelected:
-                                Binding(
-                                    get: { self.selectedIndex == 11 },
-                                    set: { _, _ in self.selectedIndex = self.selectedIndex == 11 ? nil : 11 }
-                                ),
-                            centerLayoutPriority: 0.0,
-                            trailingLayoutPriority: 1.0)
+                    ForEach(0..<viewModel.items.count, id: \.self) { index in
+                        buildItem(item: viewModel.items[index], scheme: scheme, index: index)
                     }
                 }
-                .disabled(isEnabledControlsState != 0)
+                .disabled(viewModel.isEnabledControlsState != 0)
                 .padding(.bottom, LayoutGrid.doubleModule * 4)
             }
+        }
+    }
+
+    // MARK: - Private Methods
+
+    @ViewBuilder
+    private func buildItem(item: TextBaseCellItem, scheme: SwiftUIContentViewScheme, index: Int) -> some View {
+        ListCell(
+            centerView: {
+                switch item.type {
+                case .tagControl:
+                    TitleListView(title: "Title").fixedSize()
+                default:
+                    TitleListView(title: "Title")
+                }
+            },
+            trailingView: { buildTrailingView(item: item.type) },
+            isSelected:
+                Binding(
+                    get: { viewModel.selectedIndex == index },
+                    set: { _, _ in viewModel.selectedIndex = viewModel.selectedIndex == index ? nil : index }
+                ),
+            centerLayoutPriority: item.type == .tagControl ? 0.0 : 1.0,
+            trailingLayoutPriority: item.type == .tagControl ? 1.0 : 0.0
+        )
+        .disabled(viewModel.isEnabledControlsState != 0)
+    }
+
+    @ViewBuilder
+    private func buildTrailingView(item: TextBaseCellItem.CellTypeList) -> some View {
+        switch item {
+        case .title:
+            ArrowListView()
+        case .radioButton:
+            RadioButtonListView(isControlSelected: $viewModel.isRadioButtonListViewControlSelected)
+        case .checkBoxListView:
+            CheckBoxListView(isControlSelected: $viewModel.isCheckBoxViewControlSelected)
+        case .switchListView:
+            SwitchListView(isSwitchSelected: $viewModel.isSwitchSelected)
+        case .iconListView:
+            IconListView(image: Image(uiImage: Asset.Card.imageCard.image))
+        case .cardListView:
+            CardListView(image: Image(uiImage: Asset.Card.visa.image))
+        case .datePercentListView:
+            DatePercentListView(date: "Date", percent: "Text")
+        case .imageWithSubtitleListView:
+            ImageWithSubtitleListView(subtitle: "Subtitle", image: Image(uiImage: Asset.Tabs.mirLogo.image))
+        case .subtitleWithImageListView:
+            SubtitleWithImageListView(subtitle: "Subtitle", image: Image(uiImage: Asset.Tabs.mirLogo.image))
+        case .badgeArrowListView:
+            BadgeArrowListView(badgeStyle: .default, text: "99+")
+        case .subtitleImageArrowListView:
+            SubtitleImageArrowListView(subtitle: "19.01.2010", image: Image(uiImage: Asset.Tabs.mirLogo.image))
+        case .tagControl:
+            TagControl(
+                title: "Text text text text text",
+                tagStyle: .default,
+                tapTagControl: {}
+            )
         }
     }
     

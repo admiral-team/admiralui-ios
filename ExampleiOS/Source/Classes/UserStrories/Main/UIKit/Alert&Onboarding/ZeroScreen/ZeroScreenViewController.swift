@@ -11,24 +11,18 @@ import UIKit
 
 final class ZeroScreenViewController: BaseViewController {
 
-    // MARK: - Constants
-
-    private enum Constants {
-        static let title = "Title Center"
-        static let subTitle = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        static let buttonTitle = "Хорошо"
-    }
-
     // MARK: - Private Properties
 
     private var scheme = ZeroScreenControllerScheme() {
         didSet { updateScheme() }
     }
 
-    private let zeroScreen = ZeroScreenView(image: Asset.Onboarding.one.image,
-                                            title: Constants.title,
-                                            subTitle: Constants.subTitle,
-                                            buttonTitle: Constants.buttonTitle)
+    private lazy var zeroScreen = ZeroScreenView(image: Asset.Onboarding.one.image,
+                                            title: viewModel.title,
+                                            subTitle: viewModel.subTitle,
+                                            buttonTitle: viewModel.buttonTitle)
+
+    private let viewModel = ZeroScreenViewModel()
 
     // MARK: - LifeCycle
 

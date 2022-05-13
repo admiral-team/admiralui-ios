@@ -21,91 +21,60 @@ struct SmallInformersSwiftUIView: View {
     }
     
     // MARK: - Private Properties
-    
-    @State private var isEnabledControlsState: Int = 0
+
+    @StateObject private var viewModel = SmallInformersSwiftUIViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
-    
-    public var body: some View {
+
+    // MARK: - Layout
+
+    var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Small Informers") {
+        NavigationContentView(navigationTitle: viewModel.title) {
             scheme.backgroundColor.swiftUIColor
             ScrollView(.vertical) {
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: viewModel.tabs, selection: $viewModel.isEnabledControlsState)
                     .padding()
                 Spacer()
                     .frame(height: 36.0)
                 VStack(alignment: .leading) {
-                    VStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
-                        Text("Default")
-                            .foregroundColor(scheme.textColor.swiftUIColor)
-                            .font(scheme.textFont.swiftUIFont)
-                            .padding(.horizontal, Constants.labelHorizontalPadding)
-                        SmallInformerStack {
-                            SmallInformer(
-                                title: Constants.description,
-                                informerStyle: .default,
-                                arrowDirection: .top)
-                                .disabled(isEnabledControlsState != 0)
-                        }
-                    }
-                    Spacer()
-                        .frame(height: LayoutGrid.quadrupleModule)
-                    VStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
-                        Text("Success")
-                            .foregroundColor(scheme.textColor.swiftUIColor)
-                            .font(scheme.textFont.swiftUIFont)
-                            .padding(.horizontal, Constants.labelHorizontalPadding)
-                        SmallInformerStack {
-                            SmallInformer(
-                                title: Constants.titleText,
-                                informerStyle: .success,
-                                arrowDirection: .top)
-                                .disabled(isEnabledControlsState != 0)
-                        }
-                    }
-                    Spacer()
-                        .frame(height: LayoutGrid.quadrupleModule)
-                    VStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
-                        Text("Attention")
-                            .foregroundColor(scheme.textColor.swiftUIColor)
-                            .font(scheme.textFont.swiftUIFont)
-                            .padding(.horizontal, Constants.labelHorizontalPadding)
-                        SmallInformerStack {
-                            SmallInformer(
-                                title: Constants.titleText,
-                                informerStyle: .attention,
-                                arrowDirection: .bottom
-                            )
-                            .disabled(isEnabledControlsState != 0)
-                        }
-                    }
-                    Spacer()
-                        .frame(height: LayoutGrid.quadrupleModule)
-                    VStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
-                        Text("Error")
-                            .foregroundColor(scheme.textColor.swiftUIColor)
-                            .font(scheme.textFont.swiftUIFont)
-                            .padding(.horizontal, Constants.labelHorizontalPadding)
-                        SmallInformerStack {
-                            SmallInformer(
-                                title: Constants.titleText,
-                                informerStyle: .error,
-                                arrowDirection: .bottom
-                            )
-                            .disabled(isEnabledControlsState != 0)
-                        }
+                    ForEach(viewModel.items, id: \.id) { item in
+                        buildItem(scheme: scheme, item: item)
                     }
                 }
                 Spacer()
             }
         }
     }
+
+    // MARK: - Private Methods
+
+    @ViewBuilder
+    private func buildItem(scheme: SwiftUIContentViewScheme, item: SmallInformersSwiftUIViewModel.SmallInformerItem) -> some View {
+        VStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
+            Text(item.title)
+                .foregroundColor(scheme.textColor.swiftUIColor)
+                .font(scheme.textFont.swiftUIFont)
+                .padding(.horizontal, Constants.labelHorizontalPadding)
+            SmallInformerStack {
+                SmallInformer(
+                    title: item.style == .default ? Constants.description : Constants.titleText,
+                    informerStyle: item.style,
+                    arrowDirection: item.arrowDirection
+                )
+                .disabled(viewModel.isEnabledControlsState != 0)
+            }
+        }
+        Spacer()
+            .frame(height: LayoutGrid.quadrupleModule)
+    }
     
 }
 
 @available(iOS 14.0.0, *)
-struct SmallInformerStack<Content: View>: View {
+private struct SmallInformerStack<Content: View>: View {
+
     let content: () -> Content
+
     init(@ViewBuilder content: @escaping () -> Content) {
         self.content = content
     }

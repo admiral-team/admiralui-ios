@@ -10,7 +10,9 @@ import AdmiralTheme
 import UIKit
 
 final class TextBlocksViewController: ScrollViewController {
-    
+
+    private let viewModel = TextBlockViewModel()
+
     var cells: [ListViewCell] = []
     
     // MARK: - Initializers
@@ -37,12 +39,7 @@ final class TextBlocksViewController: ScrollViewController {
     }
     
     private func configureCells() {
-        cells.append(configureTitleCell("Header"))
-        cells.append(configureTitleCell("Accordion"))
-        cells.append(configureTitleCell("Paragraph"))
-        cells.append(configureTitleCell("Link"))
-        cells.append(configureTitleCell("Padding"))
-        
+        viewModel.titleCells.forEach { cells.append(configureTitleCell($0)) }
         for index in 0..<cells.count {
             let gesture = UITapGestureRecognizer(target: self, action: #selector(tapCell(_:)))
             cells[index].isUserInteractionEnabled = true

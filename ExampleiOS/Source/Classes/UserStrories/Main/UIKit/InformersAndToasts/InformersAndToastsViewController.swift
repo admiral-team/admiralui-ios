@@ -9,9 +9,13 @@ import AdmiralUIKit
 import UIKit
 
 final class InformersAndToastsViewController: BaseTableViewController {
-    
-    // MARK: - Life Cycle
-    
+
+    // MARK: - Private properties
+
+    private let viewModel = InformersAndToastViewModel()
+
+    // MARK: - Initializer
+
     override func viewDidLoad() {
         setSegmentControl(hidden: true)
 
@@ -19,33 +23,34 @@ final class InformersAndToastsViewController: BaseTableViewController {
         tableView.separatorStyle = .none
         tableViewManager.sections = createSections()
     }
-    
+
     // MARK: - Private Methods
-    
+
     private func createSections() -> [MainSectionViewModel] {
-        let items: [TableViewListItem] = [
-            MainTitleTableViewCellViewModel(
-                title: "Informers",
-                didSelect: { [weak self] in self?.presentInformers() }),
-            
-            MainTitleTableViewCellViewModel(
-                title: "Notifications",
-                didSelect: { [weak self] in self?.presentNotifications() })
-        ]
-        
+        let items = viewModel.items.map { item -> MainTitleTableViewCellViewModel in
+            let title = item.getTitle()
+            return MainTitleTableViewCellViewModel(
+                title: title,
+                didSelect: { [weak self] in self?.presentVC(item: item, title: title) }
+            )
+        }
         return [MainSectionViewModel(items: items)]
     }
-    
-    private func presentInformers() {
-        let viewController = InformersViewController()
-        viewController.title = "Informers"
-        navigationController?.pushViewController(viewController, animated: true)
-    }
-    
-    private func presentNotifications() {
-        let viewController = NotificationsViewController()
-        viewController.title = "Notifications"
-        navigationController?.pushViewController(viewController, animated: true)
+
+}
+
+private extension InformersAndToastsViewController {
+
+    func presentVC(item: InformersAndToastViewModel.Items, title: String) {
+        var vc: UIViewController
+        switch item {
+        case .informers:
+            vc = InformersViewController()
+        case .notifications:
+            vc = NotificationsViewController()
+        }
+        vc.title = title
+        navigationController?.pushViewController(vc, animated: true)
     }
 
 }

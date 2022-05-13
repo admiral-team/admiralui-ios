@@ -15,85 +15,56 @@ struct LinksSwiftUIView: View {
 
     // MARK: - Private properties
 
-    @State private var isEnabledControlsState: Int = 0
+    @StateObject private var viewModel = LinksSwiftUIViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
-    
+
+    // MARK: - Layout
+
     public var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Links") {
+        NavigationContentView(navigationTitle: viewModel.navigationTitle) {
             scheme.backgroundColor.swiftUIColor
             VStack(alignment: .leading, spacing: LayoutGrid.tripleModule) {
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: viewModel.tabsItems, selection: $viewModel.isEnabledControlsState)
                 Spacer()
                     .frame(height: LayoutGrid.halfModule)
-                VStack(alignment: .leading, spacing: LayoutGrid.tripleModule) {
-                    Text("24 Link")
-                        .font(scheme.textFont.swiftUIFont)
-                        .foregroundColor(scheme.textColor.swiftUIColor)
-                    HStack(spacing: LayoutGrid.tripleModule) {
-                        SwiftUI.Button("Small Button", action: {})
-                            .buttonStyle(PrimaryLinkControlStyle(
-                                image: Image(uiImage: Asset.Links.arrowLeftBig.image),
-                                text: "Link",
-                                direction: .left,
-                                style: .default
-                            ))
-                            .disabled(isEnabledControlsState != 0)
-                        SwiftUI.Button("Small Button", action: {})
-                            .buttonStyle(PrimaryLinkControlStyle(
-                                image: Image(uiImage: Asset.Links.arrowRightBig.image),
-                                text: "Link",
-                                direction: .right,
-                                style: .default
-                            ))
-                            .disabled(isEnabledControlsState != 0)
-                        SwiftUI.Button("Small Button", action: {})
-                            .buttonStyle(PrimaryLinkControlStyle(
-                                image: nil,
-                                text: "Link",
-                                direction: .left,
-                                style: .default
-                            ))
-                            .disabled(isEnabledControlsState != 0)
-                    }
-                }
-                VStack(alignment: .leading, spacing: LayoutGrid.tripleModule) {
-                    Spacer()
-                        .frame(height: LayoutGrid.module)
-                    Text("18 Link")
-                        .font(scheme.textFont.swiftUIFont)
-                        .foregroundColor(scheme.textColor.swiftUIColor)
-                    HStack(spacing: LayoutGrid.tripleModule) {
-                        SwiftUI.Button("Small Button", action: {})
-                            .buttonStyle(PrimaryLinkControlStyle(
-                                image: Image(uiImage: Asset.Links.arrowLeftSmall.image),
-                                text: "Link",
-                                direction: .left,
-                                style: .medium
-                            ))
-                            .disabled(isEnabledControlsState != 0)
-                        SwiftUI.Button("Small Button", action: {})
-                            .buttonStyle(PrimaryLinkControlStyle(
-                                image: Image(uiImage: Asset.Links.arrowRightSmall.image),
-                                text: "Link",
-                                direction: .right,
-                                style: .medium
-                            ))
-                            .disabled(isEnabledControlsState != 0)
-                        SwiftUI.Button("Small Button", action: {})
-                            .buttonStyle(PrimaryLinkControlStyle(
-                                image: nil,
-                                text: "Link",
-                                direction: .left,
-                                style: .medium
-                            ))
-                            .disabled(isEnabledControlsState != 0)
-                    }
-
+                ForEach(0..<viewModel.links.count, id: \.self) { index in
+                    linkItem(link: viewModel.links[index], scheme: scheme)
                 }
                 Spacer()
             }
             .padding()
+        }
+    }
+
+    // MARK: - Private Methods
+
+    private func linkItem(link: LinksSwiftUIViewModel.LinksSection, scheme: SwiftUIContentViewScheme) -> some View {
+        VStack(alignment: .leading, spacing: LayoutGrid.tripleModule) {
+            switch link.type {
+            case .small(let title):
+                Spacer()
+                    .frame(height: LayoutGrid.module)
+                Text(title)
+                    .font(scheme.textFont.swiftUIFont)
+                    .foregroundColor(scheme.textColor.swiftUIColor)
+            case .medium(let title):
+                Text(title)
+                    .font(scheme.textFont.swiftUIFont)
+                    .foregroundColor(scheme.textColor.swiftUIColor)
+            }
+            HStack(spacing: LayoutGrid.tripleModule) {
+                ForEach(link.links, id: \.id) { item in
+                    SwiftUI.Button(item.title, action: {})
+                        .buttonStyle(PrimaryLinkControlStyle(
+                            image: item.image,
+                            text: item.text,
+                            direction: item.direction,
+                            style: item.style
+                        ))
+                        .disabled(viewModel.isEnabledControlsState != 0)
+                }
+            }
         }
     }
 

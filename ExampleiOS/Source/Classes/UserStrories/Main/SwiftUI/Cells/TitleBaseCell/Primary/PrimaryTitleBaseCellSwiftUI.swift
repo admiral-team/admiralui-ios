@@ -12,17 +12,21 @@ import AdmiralSwiftUI
 
 @available(iOS 14.0.0, *)
 struct PrimaryTitleBaseCellSwiftUI: View {
-    
-    @State private var isEnabledControlsState: Int = 0
+
+    // MARK: - Private properties
+
+    @StateObject private var viewModel = PrimaryTitleBaseCellViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
-    
-    public var body: some View {
+
+    // MARK: - Layout
+
+    var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Primary") {
+        NavigationContentView(navigationTitle: viewModel.title) {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
             ScrollView {
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: viewModel.tabs, selection: $viewModel.isEnabledControlsState)
                     .padding()
                 LazyVStack(alignment: .leading) {
                     ListCell(
@@ -32,7 +36,7 @@ struct PrimaryTitleBaseCellSwiftUI: View {
                             renderingMode: .template) 
                         },
                         trailingView: { ButtonListView(text: "Button", action: {}) })
-                        .disabled(isEnabledControlsState != 0)
+                        .disabled(viewModel.isEnabledControlsState != 0)
                 }
             }
         }

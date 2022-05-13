@@ -12,85 +12,79 @@ import AdmiralSwiftUI
 
 @available(iOS 14.0.0, *)
 struct LeadingComponentsSwiftUIView: View {
-    
-    @State private var selectedIndex: Int?
-    @State private var isEnabledControlsState: Int = 0
+
+    // MARK: - Type Alias
+
+    typealias TextBaseCellItem = LeadinComponentsSwiftUIViewModel.LeadinComponentItem
+
+    // MARK: - Private Properties
+
+    @StateObject private var viewModel = LeadinComponentsSwiftUIViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
-    
-    public var body: some View {
+
+    // MARK: - Layout
+
+    var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Leading elements") {
+        NavigationContentView(navigationTitle: viewModel.navigationTitle) {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
             ScrollView {
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: viewModel.tabsItems, selection: $viewModel.isEnabledControlsState)
                     .padding()
                 LazyVStack(alignment: .leading) {
-                    ListCell(
-                        centerView: { TitleListView(title: "Title") },
-                        trailingView: { ArrowListView() },
-                        isSelected:
-                            Binding(
-                                get: { self.selectedIndex == 0 },
-                                set: { _, _ in self.selectedIndex = self.selectedIndex == 0 ? nil : 0 }
-                            ))
-                        .disabled(isEnabledControlsState != 0)
-                    ListCell(
-                        centerView: { TitleSubtitleListView(title: "Title", subtitle: "Subtitle") },
-                        trailingView: { ArrowListView() },
-                        isSelected:
-                            Binding(
-                                get: { self.selectedIndex == 1 },
-                                set: { _, _ in self.selectedIndex = self.selectedIndex == 1 ? nil : 1 }
-                            ))
-                        .disabled(isEnabledControlsState != 0)
-                    ListCell(
-                        centerView: { SubtitleTitleListView(title: "Title", subtitle: "Subtitle") },
-                        trailingView: { ArrowListView() },
-                        isSelected:
-                            Binding(
-                                get: { self.selectedIndex == 2 },
-                                set: { _, _ in self.selectedIndex = self.selectedIndex == 2 ? nil : 2 }
-                            ))
-                        .disabled(isEnabledControlsState != 0)
-                    ListCell(
-                        centerView: { TitleMoreDetailTextMessageListView(
-                            title: "Title",
-                            more: "More",
-                            detaile: "Detail",
-                            detaileMore: "More",
-                            subtitle: "Subtitle",
-                            tagText: "Percent",
-                            messageText: "Text message",
-                            infoImage: AdmiralUIResources.AssetSymbol.Service.Outline.info.image)
-                        },
-                        trailingView: { ArrowListView() },
-                        isSelected:
-                            Binding(
-                                get: { self.selectedIndex == 3 },
-                                set: { _, _ in self.selectedIndex = self.selectedIndex == 3 ? nil : 3 }
-                            ))
-                        .disabled(isEnabledControlsState != 0)
-                    ListCell(
-                        centerView: { TitleSubtitleButtonListView(
-                            title: "Title",
-                            tagSubtitle: "Subtitle",
-                            tagText: "Percent",
-                            subtitle: "Subtitle 2",
-                            buttonTitle: "Button",
-                            buttonAction: {})
-                        },
-                        trailingView: { ArrowListView() },
-                        isSelected:
-                            Binding(
-                                get: { self.selectedIndex == 4 },
-                                set: { _, _ in self.selectedIndex = self.selectedIndex == 4 ? nil : 4 }
-                            ))
-                        .disabled(isEnabledControlsState != 0)
+                    ForEach(0..<viewModel.items.count, id: \.self) { index in
+                        buildItem(item: viewModel.items[index], scheme: scheme, index: index)
+                    }
                 }
                 .padding(.bottom, LayoutGrid.doubleModule * 4)
             }
         }
     }
-    
+
+    // MARK: - Private Methods
+
+    @ViewBuilder
+    private func buildItem(item: TextBaseCellItem, scheme: SwiftUIContentViewScheme, index: Int) -> some View {
+        ListCell(
+            centerView: { buildCenterView(item: item.type) },
+            trailingView: { ArrowListView() },
+            isSelected:
+                Binding(
+                    get: { viewModel.selectedIndex == index },
+                    set: { _, _ in viewModel.selectedIndex = viewModel.selectedIndex == index ? nil : index }
+                ))
+            .disabled(viewModel.isEnabledControlsState != 0)
+    }
+
+    @ViewBuilder
+    private func buildCenterView(item: TextBaseCellItem.CellTypeList) -> some View {
+        switch item {
+        case .title:
+            TitleListView(title: "Title")
+        case .titleSubtitle(let subTitle):
+            TitleSubtitleListView(title: "Title", subtitle: subTitle)
+        case .subtitle(let subTitle):
+            SubtitleTitleListView(title: "Title", subtitle: subTitle)
+        case .titleMoreDetail:
+            TitleMoreDetailTextMessageListView(
+                title: "Title",
+                more: "More",
+                detaile: "Detail",
+                detaileMore: "More",
+                subtitle: "Subtitle",
+                tagText: "Percent",
+                messageText: "Text message",
+                infoImage: AdmiralUIResources.AssetSymbol.Service.Outline.info.image)
+        case .titleSubtitleButton:
+            TitleSubtitleButtonListView(
+                title: "Title",
+                tagSubtitle: "Subtitle",
+                tagText: "Percent",
+                subtitle: "Subtitle 2",
+                buttonTitle: "Button",
+                buttonAction: {})
+        }
+    }
+
 }

@@ -9,9 +9,13 @@ import AdmiralUIKit
 import UIKit
 
 final class CalendarsViewController: BaseTableViewController {
-    
-    // MARK: - Life Cycle
-    
+
+    // MARK: - Private properties
+
+    private let viewModel = CalendarsViewModel()
+
+    // MARK: - Initializer
+
     override func viewDidLoad() {
         setSegmentControl(hidden: true)
 
@@ -19,33 +23,34 @@ final class CalendarsViewController: BaseTableViewController {
         tableView.separatorStyle = .none
         tableViewManager.sections = createSections()
     }
-    
+
     // MARK: - Private Methods
-    
+
     private func createSections() -> [MainSectionViewModel] {
-        let items: [TableViewListItem] = [
-            MainTitleTableViewCellViewModel(
-                title: "Horizontal",
-                didSelect: { [weak self] in self?.presentHorizontalCalendar() }),
-            
-            MainTitleTableViewCellViewModel(
-                title: "Vertical",
-                didSelect: { [weak self] in self?.presentVericalCalendar() })
-        ]
-        
+        let items = CalendarsViewModel.CalendarsItem.allCases.map { item -> MainTitleTableViewCellViewModel in
+            let title = item.title
+            return MainTitleTableViewCellViewModel(
+                title: title,
+                didSelect: { [weak self] in self?.presentVC(item: item, title: title) }
+            )
+        }
         return [MainSectionViewModel(items: items)]
     }
-    
-    private func presentHorizontalCalendar() {
-        let viewController = HorizontalViewController()
-        viewController.title = "Horizontal"
-        navigationController?.pushViewController(viewController, animated: true)
-    }
-    
-    private func presentVericalCalendar() {
-        let viewController = VerticalCalendarViewController()
-        viewController.title = "Vertical"
-        navigationController?.pushViewController(viewController, animated: true)
+
+}
+
+private extension CalendarsViewController {
+
+    func presentVC(item: CalendarsViewModel.CalendarsItem, title: String) {
+        var vc: UIViewController
+        switch item {
+        case .horizontal:
+            vc = HorizontalViewController()
+        case .vertical:
+            vc = VerticalCalendarViewController()
+        }
+        vc.title = title
+        navigationController?.pushViewController(vc, animated: true)
     }
 
 }

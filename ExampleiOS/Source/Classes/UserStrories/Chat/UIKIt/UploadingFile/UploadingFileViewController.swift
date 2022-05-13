@@ -20,6 +20,7 @@ final class UploadingFileViewController: UIViewController, AnyAppThemable {
     // MARK: - Private Properties
 
     private let themeSwitchView = ThemeSwitchView(frame: .zero)
+    private let viewModel = UploadingFileViewModel()
 
     private lazy var segmentControl = StandardSegmentedControl(frame: .zero)
 
@@ -35,106 +36,7 @@ final class UploadingFileViewController: UIViewController, AnyAppThemable {
         get { return themeSwitchView.isHidden }
         set { themeSwitchView.isHidden = newValue }
     }
-
-    private var uploadFiles = [
-        UploadingFileCellItem(
-            state: .download,
-            direction: .left,
-            fileName: "File 1.pdf",
-            fileSize: "65.6 МБ",
-            chatTime: "14:52",
-            progressCircleStyle: .accent,
-            trackProgressStyle: .default
-        ),
-        UploadingFileCellItem(
-            state: .download,
-            direction: .right,
-            fileName: "File 2.pdf",
-            fileSize: "65.6 МБ",
-            chatTime: "14:52",
-            chatStatus: .receive,
-            progressCircleStyle: .default,
-            trackProgressStyle: .accent
-        ),
-        UploadingFileCellItem(
-            state: .download,
-            direction: .right,
-            fileName: "File 4.pdf",
-            fileSize: "65.6 МБ",
-            chatTime: "14:52",
-            chatStatus: .receive,
-            progressCircleStyle: .default,
-            trackProgressStyle: .accent
-        ),
-        UploadingFileCellItem(
-            state: .download,
-            direction: .left,
-            fileName: "File 5.pdf",
-            fileSize: "65.6 МБ",
-            chatTime: "14:52",
-            progressCircleStyle: .accent,
-            trackProgressStyle: .default
-        ),
-        UploadingFileCellItem(
-            state: .download,
-            direction: .right,
-            fileName: "File 7.pdf",
-            fileSize: "65.6 МБ",
-            chatTime: "14:52",
-            chatStatus: .receive,
-            progressCircleStyle: .default,
-            trackProgressStyle: .accent
-        ),
-        UploadingFileCellItem(
-            state: .download,
-            direction: .right,
-            fileName: "File 8.pdf",
-            fileSize: "65.6 МБ",
-            chatTime: "14:52",
-            chatStatus: .receive,
-            progressCircleStyle: .default,
-            trackProgressStyle: .accent
-        ),
-        UploadingFileCellItem(
-            state: .download,
-            direction: .right,
-            fileName: "File 9.pdf",
-            fileSize: "65.6 МБ",
-            chatTime: "14:52",
-            chatStatus: .receive,
-            progressCircleStyle: .default,
-            trackProgressStyle: .accent
-        ),
-        UploadingFileCellItem(
-            state: .download,
-            direction: .right,
-            fileName: "File 10.pdf",
-            fileSize: "65.6 МБ",
-            chatTime: "14:52",
-            chatStatus: .receive,
-            progressCircleStyle: .default,
-            trackProgressStyle: .accent
-        ),
-        UploadingFileCellItem(
-            state: .download,
-            direction: .left,
-            fileName: "File 11.pdf",
-            fileSize: "65.6 МБ",
-            chatTime: "14:52",
-            progressCircleStyle: .accent,
-            trackProgressStyle: .default
-        ),
-        UploadingFileCellItem(
-            state: .download,
-            direction: .left,
-            fileName: "File 12.pdf",
-            fileSize: "65.6 МБ",
-            chatTime: "14:52",
-            progressCircleStyle: .accent,
-            trackProgressStyle: .default
-        )
-    ]
-
+    
     // MARK: - Initializer
 
     override func viewDidLoad() {
@@ -215,9 +117,7 @@ final class UploadingFileViewController: UIViewController, AnyAppThemable {
     }
 
     @objc private func segmentedValueChanged(_ control: StandardSegmentedControl) {
-        uploadFiles.enumerated().forEach { index, _ in
-            uploadFiles[index].state = control.selectedSegmentIndex == 1 ? .loading : .download
-        }
+        viewModel.changeState(by: control.selectedSegmentIndex)
         updateTable()
     }
 
@@ -230,14 +130,14 @@ extension UploadingFileViewController: UITableViewDelegate, UITableViewDataSourc
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        uploadFiles.count
+        viewModel.uploadFiles.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "UploadingFileCell", for: indexPath) as? UploadingFileCell else {
             return UITableViewCell()
         }
-        cell.configure(for: uploadFiles[indexPath.row])
+        cell.configure(for: viewModel.uploadFiles[indexPath.row])
         return cell
     }
 

@@ -19,6 +19,7 @@ final class UploadingImageViewController: UIViewController, AnyAppThemable {
 
     // MARK: - Private Properties
 
+    private let viewModel = UploadingImageViewModel()
     private let themeSwitchView = ThemeSwitchView(frame: .zero)
     private lazy var segmentControl = StandardSegmentedControl(frame: .zero)
 
@@ -34,90 +35,7 @@ final class UploadingImageViewController: UIViewController, AnyAppThemable {
         get { return themeSwitchView.isHidden }
         set { themeSwitchView.isHidden = newValue }
     }
-
-    private var uploadImages: [UploadingGridItem] = [
-        UploadingGridItem(
-            models: [
-                UploadImageItem(
-                    image: Asset.Chat.photo.image,
-                    style: .default
-                )
-            ],
-            titleLabelText: "One file",
-            chatTime: "21:21",
-            chatDirection: .left
-        ),
-        UploadingGridItem(
-            models: Array(repeating: UploadImageItem(
-                image: Asset.Chat.photo.image,
-                style: .default
-            ), count: 2),
-            titleLabelText: "Two files",
-            chatTime: "21:22",
-            chatDirection: .left
-        ),
-        UploadingGridItem(
-            models: Array(repeating: UploadImageItem(
-                image: Asset.Chat.photo.image,
-                style: .default
-            ), count: 3),
-            titleLabelText: "Three files",
-            chatTime: "21:23",
-            chatDirection: .left
-        ),
-        UploadingGridItem(
-            models: Array(repeating: UploadImageItem(
-                image: Asset.Chat.photo.image,
-                style: .default
-            ), count: 4),
-            titleLabelText: "Four files",
-            chatTime: "21:24",
-            chatDirection: .left
-        ),
-        UploadingGridItem(
-            models: Array(repeating: UploadImageItem(
-                image: Asset.Chat.photo.image,
-                style: .default
-            ), count: 5),
-            titleLabelText: "Five files",
-            chatTime: "21:24",
-            chatDirection: .left
-        ),
-        UploadingGridItem(
-            models: Array(repeating: UploadImageItem(
-                image: Asset.Chat.photo.image,
-                style: .default
-            ), count: 6),
-            titleLabelText: "Six files",
-            chatTime: "21:24",
-            chatDirection: .left
-        ),
-        UploadingGridItem(
-            models: Array(repeating: UploadImageItem(
-                image: Asset.Chat.photo.image,
-                style: .default
-            ), count: 4),
-            titleLabelText: "Sent with error",
-            chatTime: "21:24",
-            chatDirection: .right,
-            state: .error
-        ),
-        UploadingGridItem(
-            models: [],
-            titleLabelText: "",
-            chatTime: "",
-            chatDirection: .left,
-            state: .default
-        ),
-        UploadingGridItem(
-            models: [],
-            titleLabelText: "",
-            chatTime: "",
-            chatDirection: .left,
-            state: .default
-        )
-    ]
-
+    
     // MARK: - Initializer
 
     override func viewDidLoad() {
@@ -200,11 +118,7 @@ final class UploadingImageViewController: UIViewController, AnyAppThemable {
     }
 
     @objc private func segmentedValueChanged(_ control: StandardSegmentedControl) {
-        uploadImages.enumerated().forEach { index, _ in
-            _ = uploadImages[index].models.enumerated().map { modelIndex, _ in
-                uploadImages[index].models[modelIndex].state = control.selectedSegmentIndex == 1 ? .loading : .default
-            }
-        }
+        viewModel.changeState(by: control.selectedSegmentIndex)
         updateTable()
     }
 
@@ -225,11 +139,11 @@ extension UploadingImageViewController: UITableViewDelegate, UITableViewDataSour
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        uploadImages.count
+        viewModel.uploadImages.count
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let model = uploadImages[indexPath.row]
+        let model = viewModel.uploadImages[indexPath.row]
         if model.state == .error {
             showAlert()
         }
@@ -239,7 +153,7 @@ extension UploadingImageViewController: UITableViewDelegate, UITableViewDataSour
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "UploadingImageCell", for: indexPath) as? UploadingImageCell else {
             return UITableViewCell()
         }
-       cell.configure(for: uploadImages[indexPath.row])
+       cell.configure(for: viewModel.uploadImages[indexPath.row])
        return cell
     }
 

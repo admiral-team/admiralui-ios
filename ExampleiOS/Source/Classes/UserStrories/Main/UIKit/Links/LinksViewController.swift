@@ -11,7 +11,8 @@ import AdmiralUIKit
 final class LinksViewController: ScrollViewController {
     
     // MARK: - Private Properties
-    
+
+    private let viewModel = LinksViewModel()
     private var views = [LinksCellView]()
     
     // MARK: - Initializers
@@ -26,58 +27,37 @@ final class LinksViewController: ScrollViewController {
     // MARK: - Private Methods
     
     private func configureUI() {
-        configureBigLinks()
-        configureSmallLinks()
+        configureLinks()
         
         views.forEach() {
             stackView.addArrangedSubview($0)
         }
         
-        segmentControl.setTitles(["Default", "Disabled"])
+        segmentControl.setTitles(viewModel.tabsItems)
         segmentControl.selectedSegmentIndex = 0
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
     }
-    
-    private func configureBigLinks() {
-        let view1 = PrimaryLinkControl()
-        view1.title = "Link"
-        view1.style = .none
-        view1.fontStyle = .body
-        view1.leadingView = UIImageView(image: UIImage(asset: Asset.Links.arrowLeftBig))
-        
-        let view2 = PrimaryLinkControl()
-        view2.style = .none
-        view2.fontStyle = .body
-        view2.trailingView = UIImageView(image: UIImage(asset: Asset.Links.arrowRightBig))
-        view2.title = "Link"
-        
-        let view3 = PrimaryLinkControl()
-        view3.fontStyle = .body
-        view3.style = .none
-        view3.title = "Link"
-        
-        addTags(views: [view1, view2, view3], titleText: "24 Link")
-    }
-    
-    private func configureSmallLinks() {
-        let view1 = PrimaryLinkControl()
-        view1.title = "Link"
-        view1.style = .none
-        view1.fontStyle = .subhead
-        view1.leadingView = UIImageView(image: UIImage(asset: Asset.Links.arrowLeftSmall))
-        
-        let view2 = PrimaryLinkControl()
-        view2.style = .none
-        view2.fontStyle = .subhead
-        view2.trailingView = UIImageView(image: UIImage(asset: Asset.Links.arrowRightSmall))
-        view2.title = "Link"
-        
-        let view3 = PrimaryLinkControl()
-        view3.fontStyle = .subhead
-        view3.style = .none
-        view3.title = "Link"
-        
-        addTags(views: [view1, view2, view3], titleText: "18 Link")
+
+    private func configureLinks() {
+        viewModel.links.forEach { link in
+            var links: [PrimaryLinkControl] = []
+            link.links.forEach {
+                let view = PrimaryLinkControl()
+                view.title = $0.text
+                view.style = $0.style
+                view.fontStyle = $0.fontStyle
+                switch $0.position {
+                case .trailing:
+                    view.trailingView = UIImageView(image: $0.image)
+                case .leading:
+                    view.leadingView = UIImageView(image: $0.image)
+                default:
+                    break
+                }
+                links.append(view)
+            }
+            addTags(views: links, titleText: link.type)
+        }
     }
     
     private func addTags(views: [PrimaryLinkControl], titleText: String) {

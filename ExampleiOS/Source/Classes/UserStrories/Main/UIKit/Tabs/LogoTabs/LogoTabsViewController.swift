@@ -12,7 +12,8 @@ import UIKit
 final class LogoTabsViewController: ScrollViewController {
     
     // MARK: - Private Properties
-    
+
+    private let viewModel = LogoTabsViewModel()
     private var views = [TabsView<LogoTab>]()
     
     // MARK: - Initializers
@@ -40,28 +41,18 @@ final class LogoTabsViewController: ScrollViewController {
         views.forEach() {
             stackView.addArrangedSubview($0)
         }
-        segmentControl.setTitles(["Default", "Disabled"])
+        segmentControl.setTitles(viewModel.tabs)
         segmentControl.selectedSegmentIndex = 0
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
     }
 
     private func configureSegmentControlls() {
-        let segmentControl1 = LogoTab(
-            images: [Asset.Tabs.visaLogo.image,
-                     Asset.Tabs.masterCardLogo.image])
-        segmentControl1.selectedSegmentIndex = 0
-
-        let view1 = TabsView<LogoTab>(segmentView: segmentControl1, title: "Two controls")
-        views.append(view1)
-        
-        let segmentControl2 = LogoTab(
-            images: [Asset.Tabs.visaLogo.image,
-                     Asset.Tabs.masterCardLogo.image,
-                     Asset.Tabs.mirLogo.image])
-        segmentControl2.selectedSegmentIndex = 0
-
-        let view2 = TabsView<LogoTab>(segmentView: segmentControl2, title: "Three controls")
-        views.append(view2)
+        viewModel.items.forEach {
+            let control = LogoTab(images: $0.images)
+            control.selectedSegmentIndex = $0.selection
+            let view = TabsView<LogoTab>(segmentView: control, title: $0.text)
+            views.append(view)
+        }
     }
     
     @objc private func segmentedValueChanged(_ control: StandardSegmentedControl) {

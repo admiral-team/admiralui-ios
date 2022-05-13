@@ -12,27 +12,35 @@ import AdmiralSwiftUI
 @available(iOS 14.0.0, *)
 struct StandardTextFieldsSwiftUIView: View {
     
-    @State private var selection: Int?
+    // MARK: - Type Alias
+
+    typealias TextFieldItem = StandardTextFieldsSwiftUIViewModel.StandardTextFieldsSwiftUIItem
+
+    // MARK: - Private Properties
+
+    @StateObject private var viewModel = StandardTextFieldsSwiftUIViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
-    
-    public var body: some View {
+
+    // MARK: - Layout
+
+    var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Standard") {
+        NavigationContentView(navigationTitle: viewModel.title) {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
             ScrollView {
                 LazyVStack(alignment: .leading) {
-                    ForEach(StandardTextFieldsSwiftUIItem.allCases, id: \.self) { item in
-                        NavigationLink(destination: view(for: item), tag: item.rawValue, selection: self.$selection) {
+                    ForEach(TextFieldItem.allCases, id: \.self) { item in
+                        NavigationLink(destination: view(for: item), tag: item.rawValue, selection: $viewModel.selection) {
                             ListCell(
                                 centerView: { TitleListView(title: item.title) },
                                 trailingView: { ArrowListView() },
-                                isHighlighted: Binding(get: { return self.selection == item.rawValue }, set: { _ in }))
+                                isHighlighted: Binding(get: { viewModel.selection == item.rawValue }, set: { _ in }))
                                 .frame(height: 68)
                         }
                         .onTapGesture {
                             withAnimation {
-                                self.selection = item.rawValue
+                                viewModel.selection = item.rawValue
                             }
                         }
                     }
@@ -40,9 +48,11 @@ struct StandardTextFieldsSwiftUIView: View {
             }
         }
     }
-    
+
+    // MARK: - Private Methods
+
     @ViewBuilder
-    func view(for type: StandardTextFieldsSwiftUIItem) -> some View {
+    private func view(for type: TextFieldItem) -> some View {
         switch type {
         case .standard:
             StandardTextFieldSwiftUIView()

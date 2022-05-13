@@ -12,31 +12,39 @@ import AdmiralSwiftUI
 @available(iOS 14.0.0, *)
 struct InformersSwiftUIView: View {
  
-    @State private var selection: Int?
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
+    // MARK: - Type Alias
     
-    public var body: some View {
+    typealias InformersItem = InformersSwiftUIViewModel.InformersSwiftUIItem
+
+    // MARK: - Private Properties
+
+    @StateObject private var viewModel = InformersSwiftUIViewModel()
+    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
+
+    // MARK: - Layout
+
+    var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Informers") {
+        NavigationContentView(navigationTitle: viewModel.title) {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
             ScrollView {
                 LazyVStack(alignment: .leading) {
-                    ForEach(InformersSwiftUIItem.allCases, id: \.self) { item in
+                    ForEach(InformersItem.allCases, id: \.self) { item in
                         // WORKAROUND: https://developer.apple.com/forums/thread/677333
                         NavigationLink(destination: EmptyView()) {
                             EmptyView()
                         }
-                        NavigationLink(destination: view(for: item), tag: item.rawValue, selection: self.$selection) {
+                        NavigationLink(destination: view(for: item), tag: item.rawValue, selection: $viewModel.selection) {
                             ListCell(
                                 centerView: { TitleListView(title: item.title) },
                                 trailingView: { ArrowListView() },
-                                isHighlighted: Binding(get: { return self.selection == item.rawValue }, set: { _ in }))
+                                isHighlighted: Binding(get: { viewModel.selection == item.rawValue }, set: { _ in }))
                                 .frame(height: 68)
                         }
                         .onTapGesture {
                             withAnimation {
-                                self.selection = item.rawValue
+                                viewModel.selection = item.rawValue
                             }
                         }
                     }
@@ -44,9 +52,11 @@ struct InformersSwiftUIView: View {
             }
         }
     }
-    
+
+    // MARK: - Layout
+
     @ViewBuilder
-    func view(for type: InformersSwiftUIItem) -> some View {
+    private func view(for type: InformersItem) -> some View {
         switch type {
         case .bigInformers:
             BigInformersSwiftUIView()

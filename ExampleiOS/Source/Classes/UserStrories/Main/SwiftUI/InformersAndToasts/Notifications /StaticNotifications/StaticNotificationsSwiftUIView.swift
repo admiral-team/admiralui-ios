@@ -12,147 +12,67 @@ import AdmiralSwiftUI
 
 @available(iOS 14.0.0, *)
 struct StaticNotificationsSwiftUIView: View {
-    
+
+    // MARK: - Private Properties
+
+    @StateObject private var viewModel = StaticNotificationsSwiftUIViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
-    
-    public var body: some View {
+
+    // MARK: - Layout
+
+    var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Static") {
+        NavigationContentView(navigationTitle: viewModel.title) {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
             ScrollView {
                 LazyVStack(alignment: .leading) {
                     Spacer()
                         .frame(height: LayoutGrid.doubleModule * 3)
-                    VStack {
-                        HStack {
-                            Text("Default")
-                                .foregroundColor(scheme.textColor.swiftUIColor)
-                                .font(scheme.textFont.swiftUIFont)
-                            Spacer()
-                        }
-                        Spacer()
-                            .frame(height: LayoutGrid.doubleModule)
-                        ToastView(
-                            title: "At breakpoint boundaries, mini units divide the screen into a fixed master grid.",
-                            linkText: "Link Text",
-                            linkAction: {
-                            },
-                            imageType: .info,
-                            imageColorType: .info,
-                            closeAction: {},
-                            type: .default)
-                        ToastView(
-                            title: "At breakpoint boundaries, mini units divide the screen into a fixed master grid.",
-                            linkText: "Link Text",
-                            linkAction: {
-                            },
-                            imageType: .info,
-                            imageColorType: .info,
-                            closeAction: {},
-                            type: .additional)
+                    ForEach(viewModel.items, id: \.id) { item in
+                        buildItem(scheme: scheme, item: item)
                     }
-                    Spacer()
-                        .frame(height: LayoutGrid.doubleModule * 2)
-                    
-                    VStack {
-                        HStack {
-                            Text("Success")
-                                .foregroundColor(scheme.textColor.swiftUIColor)
-                                .font(scheme.textFont.swiftUIFont)
-                            Spacer()
-                        }
-                        Spacer()
-                            .frame(height: LayoutGrid.doubleModule)
-                        ToastView(
-                            title: "At breakpoint boundaries, mini units divide the screen into a fixed master grid.",
-                            linkText: "Link Text",
-                            linkAction: {
-                            },
-                            imageType: .success,
-                            imageColorType: .success,
-                            closeAction: {},
-                            type: .default)
-                        ToastView(
-                            title: "At breakpoint boundaries, mini units divide the screen into a fixed master grid.",
-                            linkText: "Link Text",
-                            linkAction: {
-                            },
-                            imageType: .success,
-                            imageColorType: .success,
-                            closeAction: {},
-                            type: .success)
-                    }
-                    
-                    Spacer()
-                        .frame(height: LayoutGrid.doubleModule * 2)
-                    
-                    VStack {
-                        HStack {
-                            Text("Attention")
-                                .foregroundColor(scheme.textColor.swiftUIColor)
-                                .font(scheme.textFont.swiftUIFont)
-                            Spacer()
-                        }
-                        Spacer()
-                            .frame(height: LayoutGrid.doubleModule)
-                        ToastView(
-                            title: "At breakpoint boundaries, mini units divide the screen into a fixed master grid.",
-                            linkText: "Link Text",
-                            linkAction: {
-                            },
-                            imageType: .attention,
-                            imageColorType: .attention,
-                            closeAction: {},
-                            type: .default)
-                        ToastView(
-                            title: "At breakpoint boundaries, mini units divide the screen into a fixed master grid.",
-                            linkText: "Link Text",
-                            linkAction: {
-                            },
-                            imageType: .attention,
-                            imageColorType: .attention,
-                            closeAction: {},
-                            type: .attention)
-                    }
-                    
-                    Spacer()
-                        .frame(height: LayoutGrid.doubleModule * 2)
-                    
-                    VStack {
-                        HStack {
-                            Text("Error")
-                                .foregroundColor(scheme.textColor.swiftUIColor)
-                                .font(scheme.textFont.swiftUIFont)
-                            Spacer()
-                        }
-                        Spacer()
-                            .frame(height: LayoutGrid.doubleModule)
-                        ToastView(
-                            title: "At breakpoint boundaries, mini units divide the screen into a fixed master grid.",
-                            linkText: "Link Text",
-                            linkAction: {
-                            },
-                            imageType: .error,
-                            imageColorType: .error,
-                            closeAction: {},
-                            type: .default)
-                        ToastView(
-                            title: "At breakpoint boundaries, mini units divide the screen into a fixed master grid.",
-                            linkText: "Link Text",
-                            linkAction: {
-                            },
-                            imageType: .error,
-                            imageColorType: .error,
-                            closeAction: {},
-                            type: .error)
-                    }
-                    
                 }
                 .padding(.horizontal, LayoutGrid.doubleModule)
                 .padding(.bottom, LayoutGrid.doubleModule * 6)
             }
         }
+    }
+
+    // MARK: - Private Methods
+
+    @ViewBuilder
+    private func buildItem(
+        scheme: SwiftUIContentViewScheme,
+        item: StaticNotificationsSwiftUIViewModel.NotificationItem
+    ) -> some View {
+        HStack {
+            Text(item.title)
+                .foregroundColor(scheme.textColor.swiftUIColor)
+                .font(scheme.textFont.swiftUIFont)
+            Spacer()
+        }
+        Spacer()
+            .frame(height: LayoutGrid.doubleModule)
+        ToastView(
+            title: item.text,
+            linkText: item.linkText,
+            linkAction: {},
+            imageType: item.imageType,
+            imageColorType: item.imageType,
+            closeAction: {},
+            type: .default)
+        ToastView(
+            title: item.text,
+            linkText: item.linkText,
+            linkAction: {},
+            imageType: item.imageType,
+            imageColorType: item.imageType,
+            closeAction: {},
+            type: item.type
+        )
+        Spacer()
+            .frame(height: LayoutGrid.doubleModule * 2)
     }
     
 }

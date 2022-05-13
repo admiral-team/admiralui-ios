@@ -11,12 +11,17 @@ import AdmiralSwiftUI
 
 @available(iOS 14.0.0, *)
 struct FlagsCurrencySwiftUIView: View {
-    
+
+    // MARK: - Private Properties
+
+    @StateObject private var viewModel = FlagsCurrencySwiftUIViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
-    
-    public var body: some View {
+
+    // MARK: - Layout
+
+    var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Flags") {
+        NavigationContentView(navigationTitle: viewModel.navigationTitle) {
             scheme.backgroundColor.swiftUIColor
             VStack(alignment: .leading) {
                 Spacer()
@@ -31,18 +36,20 @@ struct FlagsCurrencySwiftUIView: View {
                     .frame(height: LayoutGrid.doubleModule)
                 VStack(alignment: .leading, spacing: 0.0, content: {
                     CurrencyHeaderView(
-                        currencyText: "Валюта",
-                        buyText: "Купить",
-                        sellText: "Продать")
-                        .frame(height: LayoutGrid.halfModule * 14)
-                    CurrencyView(currencyText: "USD", buyText: "68,65", sellText: "67,88", image: Image(uiImage: Asset.Currency.usa.image))
+                        currencyText: viewModel.header.currencyText,
+                        buyText: viewModel.header.buyText,
+                        sellText: viewModel.header.sellText
+                    )
+                    .frame(height: LayoutGrid.halfModule * 14)
+                    ForEach(viewModel.items, id: \.id) { item in
+                        CurrencyView(
+                            currencyText: item.currencyText,
+                            buyText: item.buyText,
+                            sellText: item.sellText,
+                            image: item.image
+                        )
                         .frame(height: LayoutGrid.halfModule * 10)
-                    CurrencyView(currencyText: "EUR", buyText: "68,65", sellText: "67,88", image: Image(uiImage: Asset.Currency.european.image))
-                        .frame(height: LayoutGrid.halfModule * 10)
-                    CurrencyView(currencyText: "GBP", buyText: "68,65", sellText: "67,88", image: Image(uiImage: Asset.Currency.britain.image))
-                        .frame(height: LayoutGrid.halfModule * 10)
-                    CurrencyView(currencyText: "CNY", buyText: "68,65", sellText: "67,88", image: Image(uiImage: Asset.Currency.china.image))
-                        .frame(height: LayoutGrid.halfModule * 10)
+                    }
                 })
                 .padding(LayoutGrid.doubleModule)
                 Spacer()

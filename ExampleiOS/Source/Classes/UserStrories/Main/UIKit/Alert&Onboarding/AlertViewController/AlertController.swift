@@ -22,6 +22,7 @@ final class AlertController: BaseViewController, AccessibilitySupport {
     private let vc = AlertViewController()
     private let showButton = GhostButton()
     private let descriptionLabel = UILabel()
+    private let viewModel = AlertViewModel()
     private var scheme = AlertControllerCustomScheme() {
         didSet { updateScheme() }
     }
@@ -58,14 +59,12 @@ final class AlertController: BaseViewController, AccessibilitySupport {
     
     private func setupLabels() {
         descriptionLabel.numberOfLines = 0
-        // swiftlint:disable all
-        descriptionLabel.text = "Всплывающие окна поверх контента, часто содержат короткое информирующее сообщение, иллюстрацию и кнопки основгого или альтернативного действия.\n\nДля вызова Alert, нажмите кнопку "
-        // swiftlint:enable all
+        descriptionLabel.text = viewModel.description
     }
     
     private func configureAlertController() {
-        vc.title = "Заголовок в одну или две строки"
-        vc.message = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        vc.title = viewModel.alertTitle
+        vc.message = viewModel.alertMessage
         vc.image = Asset.PopUp.popUpImage.image
 
         vc.modalPresentationStyle = .custom

@@ -12,21 +12,20 @@ import UIKit
 
 final class ToolbarViewController: BaseTableViewController, CodeInputControlDelegate, ToolbarDelegate {
 
-    // MARK: - Private Properties
-    
-    private let toolbar = Toolbar()
-    private let stepper = InputNumber()
-    private var items = [ToolbarItem]()
-    private let item1 = ToolbarItem(title: "Оплатить", image: Asset.Toolbar.card.image)
-    private let item2 = ToolbarItem(title: "Пополнить", image: Asset.Toolbar.getCash.image)
-    private let item3 = ToolbarItem(title: "Подробнее", image: Asset.Toolbar.info.image)
-    private let item4 = ToolbarItem(title: "Настройки", image: Asset.Toolbar.settings.image)
+    // MARK: - Constants
 
     private enum Constants {
         static let selectedItem: Int = 1
         static let toolbarSpacing: CGFloat = LayoutGrid.halfModule * 7
         static let enabledItemIndex: Int = 2
     }
+
+    // MARK: - Private Properties
+
+    private let viewModel = ToolBarViewModel()
+    private let toolbar = Toolbar()
+    private let stepper = InputNumber()
+    private var items = [ToolbarItem]()
 
     // MARK: - Life Cycle
     
@@ -59,7 +58,7 @@ final class ToolbarViewController: BaseTableViewController, CodeInputControlDele
     }
 
     private func setupToolbar() {
-        items.append(contentsOf: [item1, item2, item3, item4])
+        items.append(contentsOf: viewModel.sliceItemArray)
         toolbar.setItems(items: items)
         toolbar.style = .vertical
         toolbar.delegate = self

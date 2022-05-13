@@ -12,27 +12,35 @@ import AdmiralSwiftUI
 @available(iOS 14.0.0, *)
 struct ImageBaseCellSwiftUIView: View {
     
-    @State private var selection: Int?
+    // MARK: - Type Alias
+
+    typealias CellItems = ImageBaseCellSwiftUIViewModel.ImageBaseCellSwiftUIItem
+
+    // MARK: - Private properties
+
+    @StateObject private var viewModel = ImageBaseCellSwiftUIViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
-    
-    public var body: some View {
+
+    // MARK: - Layout
+
+    var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Base Cells vs Image") {
+        NavigationContentView(navigationTitle: viewModel.title) {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
             ScrollView(showsIndicators: false) {
                 LazyVStack(alignment: .leading) {
-                    ForEach(ImageBaseCellSwiftUIItem.allCases, id: \.self) { item in
-                        NavigationLink(destination: view(for: item), tag: item.rawValue, selection: self.$selection) {
+                    ForEach(CellItems.allCases, id: \.self) { item in
+                        NavigationLink(destination: view(for: item), tag: item.rawValue, selection: $viewModel.selection) {
                             ListCell(
                                 centerView: { TitleListView(title: item.title) },
                                 trailingView: { ArrowListView() },
-                                isHighlighted: Binding(get: { return self.selection == item.rawValue }, set: { _ in }))
+                                isHighlighted: Binding(get: { viewModel.selection == item.rawValue }, set: { _ in }))
                                 .frame(height: 68)
                         }
                         .onTapGesture {
-                            withAnimation {
-                                self.selection = item.rawValue
+                            withAnimation { [weak viewModel] in
+                                viewModel?.selection = item.rawValue
                             }
                         }
                     }
@@ -40,9 +48,11 @@ struct ImageBaseCellSwiftUIView: View {
             }
         }
     }
-    
+
+    // MARK: - Private Methods
+
     @ViewBuilder
-    func view(for type: ImageBaseCellSwiftUIItem) -> some View {
+    private func view(for type: CellItems) -> some View {
         switch type {
         case .lable:
             ImageLableComponentsSwiftUIView()

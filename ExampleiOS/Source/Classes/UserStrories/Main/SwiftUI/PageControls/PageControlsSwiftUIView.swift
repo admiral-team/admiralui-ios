@@ -12,30 +12,34 @@ import AdmiralSwiftUI
 @available(iOS 14.0.0, *)
 struct PageControlsSwiftUIView: View {
 
-    @State private var selection: Int?
+    // MARK: - Private Properties
+
+    @StateObject private var viewModel = PageControlsSwiftUIViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
+
+    // MARK: - Layout
 
     public var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Page Controls") {
+        NavigationContentView(navigationTitle: viewModel.navigationTitle) {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
             ScrollView {
                 LazyVStack(alignment: .leading) {
-                    ForEach(PageControlsSwiftUIItem.allCases, id: \.self) { item in
+                    ForEach(viewModel.pageItems, id: \.self) { item in
                         NavigationLink(destination: EmptyView()) {
                             EmptyView()
                         }
-                        NavigationLink(destination: view(for: item), tag: item.rawValue, selection: self.$selection) {
+                        NavigationLink(destination: view(for: item), tag: item.rawValue, selection: $viewModel.selection) {
                             ListCell(
                                 centerView: { TitleListView(title: item.title) },
                                 trailingView: { ArrowListView() },
-                                isHighlighted: Binding(get: { return self.selection == item.rawValue }, set: { _ in }))
+                                isHighlighted: Binding(get: { viewModel.selection == item.rawValue }, set: { _ in }))
                                 .frame(height: 68)
                         }
                         .onTapGesture {
                             withAnimation {
-                                self.selection = item.rawValue
+                                viewModel.selection = item.rawValue
                             }
                         }
                     }
@@ -44,8 +48,10 @@ struct PageControlsSwiftUIView: View {
         }
     }
 
+    // MARK: - Private Methods
+
     @ViewBuilder
-    func view(for type: PageControlsSwiftUIItem) -> some View {
+    private func view(for type: PageControlsSwiftUIViewModel.PageControlsSwiftUIItem) -> some View {
         switch type {
         case .circular:
             CircularPageCOntrolSwiftUI()

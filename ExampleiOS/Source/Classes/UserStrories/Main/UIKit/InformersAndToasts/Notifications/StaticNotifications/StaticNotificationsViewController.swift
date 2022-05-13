@@ -10,14 +10,10 @@ import AdmiralTheme
 import UIKit
 
 final class StaticNotificationsViewController: ScrollViewController {
-    
-    enum Constants {
-        static let text = "At breakpoint boundaries, mini units divide the screen into a fixed master grid."
-        static let linkText = "Link text"
-    }
-    
+
     // MARK: - Private Properties
-    
+
+    private let viewModel = StaticNotificationsViewModel()
     private var views = [StaticNotificationView]()
     
     // MARK: - Initializers
@@ -48,41 +44,11 @@ final class StaticNotificationsViewController: ScrollViewController {
     }
     
     private func configureBadgeViews() {
-        let firstToastView = StaticNotificationView()
-        firstToastView.configureWith(
-            model: StaticNotificationViewModel(title: "Default",
-                                               text: Constants.text,
-                                               linkText: Constants.linkText,
-                                               type: .additional,
-                                               imageType: .info))
-        views.append(firstToastView)
-        
-        let secondToastView = StaticNotificationView()
-        secondToastView.configureWith(
-            model: StaticNotificationViewModel(title: "Success",
-                                               text: Constants.text,
-                                               linkText: Constants.linkText,
-                                               type: .success,
-                                               imageType: .success))
-        views.append(secondToastView)
-        
-        let thirdToastView = StaticNotificationView()
-        thirdToastView.configureWith(
-            model: StaticNotificationViewModel(title: "Attention",
-                                               text: Constants.text,
-                                               linkText: Constants.linkText,
-                                               type: .attention,
-                                               imageType: .attention))
-        views.append(thirdToastView)
-        
-        let fourToastView = StaticNotificationView()
-        fourToastView.configureWith(
-            model: StaticNotificationViewModel(title: "Error",
-                                               text: Constants.text,
-                                               linkText: Constants.linkText,
-                                               type: .error,
-                                               imageType: .error))
-        views.append(fourToastView)
+        viewModel.items.forEach {
+            let view = StaticNotificationView()
+            view.configureWith(model: $0)
+            views.append(view)
+        }
     }
     
 }

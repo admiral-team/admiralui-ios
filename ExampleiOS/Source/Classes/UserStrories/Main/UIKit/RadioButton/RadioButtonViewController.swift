@@ -18,6 +18,7 @@ final class RadioButtonViewController: ScrollViewController {
         case disabled
     }
 
+    private let viewModel = RadioButtonViewModel()
     private var views = [RadioControlsCellView]()
     
     // MARK: - Initializers
@@ -41,7 +42,14 @@ final class RadioButtonViewController: ScrollViewController {
     // MARK: - Private Methods
     
     private func configureUI() {
-        configureCheckBoxViews()
+        viewModel.items.forEach {
+            views.append(RadioControlsCellView(
+                textCheckboxTitle: $0.textCheckboxTitle ,
+                checkBoxesControlState: $0.checkBoxesControlState,
+                isSelected: $0.isSelected,
+                titleText: $0.titleText
+            ))
+        }
         
         views.forEach() {
             stackView.addArrangedSubview($0)
@@ -51,28 +59,6 @@ final class RadioButtonViewController: ScrollViewController {
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
     }
 
-    private func configureCheckBoxViews() {
-        let defaultRadioButtonView = RadioControlsCellView(
-            textCheckboxTitle: "Text",
-            checkBoxesControlState: .normal,
-            isSelected: false,
-            titleText: "Default")
-        views.append(defaultRadioButtonView)
-        
-        let selectedRadioButtonView = RadioControlsCellView(
-            textCheckboxTitle: "Text",
-            checkBoxesControlState: .normal,
-            isSelected: true,
-            titleText: "Selected")
-        views.append(selectedRadioButtonView)
-        
-        let errorRadioButtonView = RadioControlsCellView(
-            textCheckboxTitle: "Text",
-            checkBoxesControlState: .error,
-            isSelected: false,
-            titleText: "Error")
-        views.append(errorRadioButtonView)
-    }
     
     @objc private func segmentedValueChanged(_ control: StandardSegmentedControl) {
         views.forEach({ $0.isEnabled = control.selectedSegmentIndex == 1 ? false : true })

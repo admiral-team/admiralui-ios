@@ -11,46 +11,39 @@ import AdmiralSwiftUI
 
 @available(iOS 14.0.0, *)
 struct StandardTabSwiftUIView: View {
-    
-    @State private var isEnabledControlsState: Int = 0
-    @State private var isTwoItemControlsState: Int = 0
-    @State private var isThreeItemControlsState: Int = 0
+
+    // MARK: - Private Properties
+
+    @StateObject private var viewModel = StandartTabSwiftUIViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
-    
-    public var body: some View {
+
+    // MARK: - Layout
+
+    var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Standard Tabs") {
+        NavigationContentView(navigationTitle: viewModel.title) {
             scheme.backgroundColor.swiftUIColor
             ScrollView(.vertical) {
                 HStack {
                   Spacer()
                 }
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: viewModel.tabs, selection: $viewModel.isEnabledControlsState)
                 Spacer()
                     .frame(height: 54.0)
-                VStack(alignment: .leading) {
-                    VStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
-                        Text("Two Controls")
-                            .foregroundColor(scheme.textColor.swiftUIColor)
-                            .font(scheme.textFont.swiftUIFont)
-                        VStack(alignment: .leading) {
-                            StandardTab(items: ["One", "Two"], selection: $isTwoItemControlsState)
-                                .disabled(isEnabledControlsState != 0)
-                            Spacer()
-                        }
-                    }
-                    Spacer()
-                        .frame(height: 54.0)
-                    
-                    
-                    VStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
-                        Text("Three Controls")
-                            .font(scheme.textFont.swiftUIFont)
-                            .foregroundColor(scheme.textColor.swiftUIColor)
-                        VStack(alignment: .leading) {
-                            StandardTab(items: ["One", "Two", "Three"], selection: $isThreeItemControlsState)
-                                .disabled(isEnabledControlsState != 0)
-                            Spacer()
+                VStack(alignment: .leading, spacing: 54.0) {
+                    ForEach(0..<viewModel.items.count, id: \.self) { index in
+                        VStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
+                            Text(viewModel.items[index].title)
+                                .foregroundColor(scheme.textColor.swiftUIColor)
+                                .font(scheme.textFont.swiftUIFont)
+                            VStack(alignment: .leading) {
+                                StandardTab(items: viewModel.items[index].items, selection: Binding<Int>(
+                                    get: { 0 },
+                                    set: { viewModel.items[index].selection = $0 }
+                                ))
+                                .disabled(viewModel.isEnabledControlsState != 0)
+                                Spacer()
+                            }
                         }
                     }
                 }

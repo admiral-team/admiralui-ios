@@ -1,56 +1,26 @@
-//
-//  ShimmersSwiftUIView.swift
-//  ExampleiOS
-//
-//  Created on 25.06.2021.
-//
-
 import SwiftUI
 import AdmiralTheme
 import AdmiralSwiftUI
 
 @available(iOS 14.0.0, *)
 struct ShimmersSwiftUIView: View {
-    
+
+    // MARK: - Private Methods
+
+    @StateObject private var viewModel = ShimmersSwiftUIViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ShimmersSwiftUIViewScheme>()
-    
-    public var body: some View {
+
+    // MARK: - Layout
+
+    var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Shimmers") {
+        NavigationContentView(navigationTitle: viewModel.title) {
             scheme.backgroundColor.swiftUIColor
             ScrollView {
                 LazyVStack(alignment: .leading) {
-                    ListCell(leadingView: {
-                        ImageCardListView(cardImage: Image(uiImage: Asset.Card.visa.image))
-                            .shimmer(isActive: true)
-                    }, centerView: {
-                        TitleMoreDetailTextMessageListView(
-                            title: "Card",
-                            detaile: "50 000.00 ₽")
-                    }, trailingView: {
-                        IconListView(image: Image(uiImage: Asset.Card.visaLabel.image))
-                    })
-                    ListCell(leadingView: {
-                        ImageCardListView(cardImage: Image(uiImage: Asset.Card.visa.image))
-                    }, centerView: {
-                        TitleMoreDetailTextMessageListView(
-                            title: "Card",
-                            detaile: "50 000.00 ₽")
-                            .shimmer(isActive: true)
-                    }, trailingView: {
-                        IconListView(image: Image(uiImage: Asset.Card.visaLabel.image))
-                    })
-                    ListCell(leadingView: {
-                        ImageCardListView(cardImage: Image(uiImage: Asset.Card.visa.image))
-                    }, centerView: {
-                        TitleMoreDetailTextMessageListView(
-                            title: "Card",
-                            detaile: "50 000.00 ₽")
-                    }, trailingView: {
-                        IconListView(image: Image(uiImage: Asset.Card.visaLabel.image))
-                            .cornerRadius(LayoutGrid.halfModule)
-                            .shimmer(isActive: true)
-                    })
+                    ForEach(viewModel.items, id: \.id) { item in
+                        shimmerItem(item: item)
+                    }
                     Rectangle()
                         .cornerRadius(LayoutGrid.halfModule)
                         .shimmer(isActive: true)
@@ -60,8 +30,36 @@ struct ShimmersSwiftUIView: View {
                 }
             }
         }
-        .environmentObject(ShimmerConfig(
-                            bgColor: scheme.backgroundShimmerColor.swiftUIColor,
-                            shimmerColor: scheme.shimmerColor.swiftUIColor))
+        .environmentObject(
+            ShimmerConfig(
+                bgColor: scheme.backgroundShimmerColor.swiftUIColor,
+                shimmerColor: scheme.shimmerColor.swiftUIColor
+            )
+        )
+    }
+
+    // MARK: - Private Methods
+
+    @ViewBuilder
+    private func shimmerItem(item: ShimmersSwiftUIViewModel.ShimmerItem) -> some View {
+        ListCell(leadingView: {
+            ImageCardListView(cardImage: item.image)
+                .if(item.isActive == .imageCardList) { view in
+                    view.shimmer(isActive: true)
+                }
+        }, centerView: {
+            TitleMoreDetailTextMessageListView(
+                title: item.title,
+                detaile: item.detail
+            )
+                .if(item.isActive == .titleMore) { view in
+                    view.shimmer(isActive: true)
+                }
+        }, trailingView: {
+            IconListView(image: Image(uiImage: Asset.Card.visaLabel.image))
+                .if(item.isActive == .iconList) { view in
+                    view.shimmer(isActive: true)
+                }
+        })
     }
 }

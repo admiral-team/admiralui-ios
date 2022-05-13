@@ -14,17 +14,20 @@ struct SmallInformerViewItem {
     let title: String
     let style: InformerStyle
     let cornerRadius: CornerRadius
+    let direction: SmallInformerArrowDirection?
 
     init(
         headLine: String,
         title: String,
         style: InformerStyle,
-        cornerRadius: CornerRadius = .module
+        cornerRadius: CornerRadius = .module,
+        direction: SmallInformerArrowDirection? = nil
     ) {
         self.headLine = headLine
         self.title = title
         self.style = style
         self.cornerRadius = cornerRadius
+        self.direction = direction
     }
 }
 

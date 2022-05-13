@@ -10,22 +10,16 @@ import AdmiralTheme
 import UIKit
 
 final class SmallInformersViewController: ScrollViewController {
-    
-    // MARK: - Private Properties
-    
+
     private enum InformerState: Int {
         case enabled
         case disabled
     }
-    
-    private struct Constants {
-        static let title: String = "Text Informer"
-        // swiftlint:disable all
-        static let description: String = "At breakpoint boundaries, mini units divide the screen into a fixed master grid, and multiples of mini units map to fluid grid column widths and row heights.divide the screen into a fixed master grid, and multiples of mini units map to fluid grid column widths and row heights."
-        // swiftlint:enable all
-    }
+
+    // MARK: - Private Properties
 
     private var views = [SmallInformerView]()
+    private let viewModel = SmallInformersViewModel()
     
     // MARK: - Initializers
     
@@ -63,22 +57,14 @@ final class SmallInformersViewController: ScrollViewController {
     }
     
     private func configureBadgeViews() {
-        let defaultInformer = SmallInformerView()
-        defaultInformer.configureWith(model: .init(headLine: "Default", title: Constants.description, style: .default))
-        views.append(defaultInformer)
-        
-        let succesInformer = SmallInformerView()
-        succesInformer.configureWith(model: .init(headLine: "Success", title: Constants.title, style: .success))
-        views.append(succesInformer)
-        
-        let attentionInformer = SmallInformerView()
-        attentionInformer.configureWith(model: .init(headLine: "Attention", title: Constants.title, style: .attention))
-        attentionInformer.setInformerArrowDirecdtion(direction: .down)
-        views.append(attentionInformer)
-        
-        let errorInformer = SmallInformerView()
-        errorInformer.configureWith(model: .init(headLine: "Error", title: Constants.title, style: .error))
-        views.append(errorInformer)
+        viewModel.items.forEach {
+            let informer = SmallInformerView()
+            informer.configureWith(model: $0)
+            if let direction = $0.direction {
+                informer.setInformerArrowDirecdtion(direction: direction)
+            }
+            views.append(informer)
+        }
     }
     
     @objc private func segmentedValueChanged(_ control: StandardSegmentedControl) {

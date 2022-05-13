@@ -12,7 +12,8 @@ final class SwitcherViewController: ScrollViewController {
     
     // MARK: - Private Properties
     
-    var views = [SwitcherCellView]()
+    private var views = [SwitcherCellView]()
+    private let viewModel = SwitcherViewModel()
     
     // MARK: - Initializers
 
@@ -31,17 +32,15 @@ final class SwitcherViewController: ScrollViewController {
         views.forEach() {
             stackView.addArrangedSubview($0)
         }
-        segmentControl.setTitles(["Default", "Disabled"])
+        segmentControl.setTitles(viewModel.tabItems)
         segmentControl.selectedSegmentIndex = 0
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
     }
     
     private func configureSwithes() {
-        let onSwitch = SwitcherCellView(isOn: true, title: "On")
-        views.append(onSwitch)
-        
-        let offSwitch = SwitcherCellView(isOn: false, title: "Off")
-        views.append(offSwitch)
+        viewModel.items.forEach {
+            views.append(SwitcherCellView(isOn: $0.isEnabled, title: $0.text))
+        }
     }
     
     @objc private func segmentedValueChanged(_ control: StandardSegmentedControl) {

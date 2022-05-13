@@ -12,45 +12,56 @@ import AdmiralSwiftUI
 
 @available(iOS 14.0.0, *)
 struct TextBaseCellSwiftUIView: View {
-    
-    @State private var isEnabledControlsState: Int = 0
+
+    // MARK: - Type Alias
+
+    typealias TextBaseCellItem = TextBaseCellSwiftUIViewModel.TextBaseCellItem
+
+    // MARK: - Private Properties
+
+    @StateObject private var viewModel = TextBaseCellSwiftUIViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
-    
-    public var body: some View {
+
+    // MARK: - Layout
+
+    var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Text Cells") {
+        NavigationContentView(navigationTitle: viewModel.navigationTitle) {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
             ScrollView {
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: viewModel.tabsItems, selection: $viewModel.isEnabledControlsState)
                     .padding(LayoutGrid.doubleModule)
-                LazyVStack(alignment: .leading) {
-                    Text("Text Cell")
-                        .font(scheme.textFont.swiftUIFont)
-                        .foregroundColor(scheme.textColor.swiftUIColor)
-                        .padding(LayoutGrid.doubleModule)
-                    Spacer()
-                        .frame(height: LayoutGrid.doubleModule)
-                    ListCell(
-                        // swiftlint:disable line_length
-                        centerView: { TitleListView(title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.") })
-                        .disabled(isEnabledControlsState != 0)
-                    Spacer()
-                        .frame(height: 36.0)
-                    Text("Text Cell vs Icon")
-                        .font(scheme.textFont.swiftUIFont)
-                        .foregroundColor(scheme.textColor.swiftUIColor)
-                        .padding(LayoutGrid.doubleModule)
-                    Spacer()
-                        .frame(height: LayoutGrid.doubleModule)
-                    ListCell(
-                        // swiftlint:disable line_length
-                        centerView: { TitleListView(title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.") },
-                        trailingView: { IconListView(image: Image(uiImage: Asset.Card.info.image), renderingMode: .original) })
-                        .disabled(isEnabledControlsState != 0)
+                LazyVStack(alignment: .leading, spacing: LayoutGrid.halfModule * 9) {
+                    ForEach(viewModel.items, id: \.id) { item in
+                        buildItem(item: item, scheme: scheme)
+                    }
                 }
             }
         }
     }
-    
+
+    // MARK: - Private Methods
+
+    @ViewBuilder
+    private func buildItem(item: TextBaseCellItem, scheme: SwiftUIContentViewScheme) -> some View {
+        VStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
+            Text(item.title)
+                .font(scheme.textFont.swiftUIFont)
+                .foregroundColor(scheme.textColor.swiftUIColor)
+                .padding(LayoutGrid.doubleModule)
+            switch item.type {
+            case .icon(let image):
+                ListCell(
+                    centerView: { TitleListView(title: item.text) },
+                    trailingView: { IconListView(image: image, renderingMode: .original) })
+                    .disabled(viewModel.isEnabledControlsState != 0)
+            case .text:
+                ListCell(
+                    centerView: { TitleListView(title: item.text) })
+                    .disabled(viewModel.isEnabledControlsState != 0)
+            }
+        }
+    }
+
 }

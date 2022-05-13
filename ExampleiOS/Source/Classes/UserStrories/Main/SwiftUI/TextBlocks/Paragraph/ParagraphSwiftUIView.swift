@@ -12,100 +12,58 @@ import AdmiralSwiftUI
 
 @available(iOS 14.0.0, *)
 struct ParagraphSwiftUIView: View {
-    
-    @State private var isEnabledControlsState: Int = 0
+
+    // MARK: - Private Properties
+
+    @StateObject private var viewModel = ParagraphSwiftUIViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
-    
-    public var body: some View {
+
+    // MARK: - Layout
+
+    var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Paragraph") {
+        NavigationContentView(navigationTitle: viewModel.title) {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
             ScrollView {
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: viewModel.tabs, selection: $viewModel.isEnabledControlsState)
                     .padding()
-                
                 VStack(spacing: LayoutGrid.quadrupleModule) {
-                    HStack(spacing: LayoutGrid.tripleModule) {
-                        Text("Primary")
-                            .font(scheme.textFont.swiftUIFont)
-                            .foregroundColor(scheme.textColor.swiftUIColor)
-                        Spacer()
-                    }
-                    .padding()
-                    
-                    VStack(spacing: LayoutGrid.doubleModule) {
-                        ParagraphView(
-                            title: "Lorem ipsum dolor sit amet",
-                            paragraphImageType: .point,
-                            textAligment: .leading,
-                            paragraphStyle: .primary)
-                        
-                        ParagraphView(
-                            title: "Lorem ipsum dolor sit amet",
-                            paragraphImageType: .check,
-                            textAligment: .leading,
-                            paragraphStyle: .primary)
-                        
-                        ParagraphView(
-                            title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-                            textAligment: .leading,
-                            paragraphStyle: .primary)
-                        
-                        ParagraphView(
-                            title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-                            trailingImage: AdmiralUIResources.AssetSymbol.Service.Outline.info.image,
-                            textAligment: .leading,
-                            paragraphStyle: .primary)
-                        
-                        ParagraphView(
-                            title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-                            textAligment: .center,
-                            paragraphStyle: .primary)
-                    }
-                    
-                    HStack(spacing: LayoutGrid.quadrupleModule) {
-                        Text("Secondary")
-                            .font(scheme.textFont.swiftUIFont)
-                            .foregroundColor(scheme.textColor.swiftUIColor)
-                        Spacer()
-                    }
-                    .padding()
-                    
-                    VStack(spacing: LayoutGrid.doubleModule) {
-                        ParagraphView(
-                            title: "Lorem ipsum dolor sit amet",
-                            paragraphImageType: .point,
-                            textAligment: .leading,
-                            paragraphStyle: .secondary)
-                        
-                        ParagraphView(
-                            title: "Lorem ipsum dolor sit amet",
-                            paragraphImageType: .check,
-                            textAligment: .leading,
-                            paragraphStyle: .secondary)
-                        
-                        ParagraphView(
-                            title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-                            textAligment: .leading,
-                            paragraphStyle: .secondary)
-                        
-                        ParagraphView(
-                            title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-                            trailingImage: AdmiralUIResources.AssetSymbol.Service.Outline.info.image,
-                            textAligment: .leading,
-                            paragraphStyle: .secondary)
-                        
-                        ParagraphView(
-                            title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-                            textAligment: .center,
-                            paragraphStyle: .secondary)
+                    ForEach(0..<viewModel.items.count, id: \.self) { index in
+                        buildItem(scheme: scheme, item: viewModel.items[index])
                     }
                 }
-                .disabled(isEnabledControlsState != 0)
+                .disabled(viewModel.isEnabledControlsState != 0)
                 .padding(.bottom, LayoutGrid.doubleModule * 4)
             }
             
+        }
+    }
+
+    // MARK: - Private Methods
+
+    @ViewBuilder
+    private func buildItem(
+        scheme: SwiftUIContentViewScheme,
+        item: ParagraphSwiftUIViewModel.ParagraphStorage
+    ) -> some View {
+        HStack(spacing: LayoutGrid.quadrupleModule) {
+            Text(item.title)
+                .font(scheme.textFont.swiftUIFont)
+                .foregroundColor(scheme.textColor.swiftUIColor)
+            Spacer()
+        }
+        .padding()
+        VStack(spacing: LayoutGrid.doubleModule) {
+            ForEach(item.items, id: \.self) { paragraph in
+                ParagraphView(
+                    title: paragraph.title,
+                    paragraphImageType: paragraph.paragraphImageType,
+                    trailingImage: paragraph.trailingImage,
+                    textAligment: paragraph.textAligment,
+                    paragraphStyle: paragraph.paragraphStyle
+                )
+            }
         }
     }
     

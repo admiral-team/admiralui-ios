@@ -15,19 +15,18 @@ struct ActionBarSwiftUIViewDefault: View {
 
     // MARK: - Private properties
 
-    @State private var selectedIndex: Int?
-    @State private var isEnabledControlsState: Int = 0
+    @StateObject private var viewModel = ActionBarSwiftUIDefaultViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
 
     // MARK: - Layout
 
-    public var body: some View {
+    var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Actionbar - Type default") {
+        NavigationContentView(navigationTitle: viewModel.title) {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
             ScrollView {
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: viewModel.tabs, selection: $viewModel.isEnabledControlsState)
                     .padding()
                 LazyVStack(alignment: .leading) {
                     ActionCellView(
@@ -45,35 +44,14 @@ struct ActionBarSwiftUIViewDefault: View {
                             },
                             isSelected:
                                 Binding(
-                                    get: { self.selectedIndex == 0 },
-                                    set: { _, _ in self.selectedIndex = selectedIndex == 0 ? nil : 0 }
+                                    get: { viewModel.selectedIndex == 0 },
+                                    set: { _, _ in viewModel.selectedIndex = viewModel.selectedIndex == 0 ? nil : 0 }
                                 )
                         ),
-                        actions: [
-                            ActionItemBarAction(
-                                image: Image(uiImage: Asset.ActionBar.moreOutline.image),
-                                imageStyle: .accent,
-                                handler: {}),
-                            ActionItemBarAction(
-                                image: Image(uiImage: Asset.ActionBar.arrowUpOutline.image),
-                                imageStyle: .primary,
-                                handler: {}),
-                            ActionItemBarAction(
-                                image: Image(uiImage: Asset.ActionBar.arrowDownOutline.image),
-                                imageStyle: .primary,
-                                handler: {}),
-                            ActionItemBarAction(
-                                image: Image(uiImage: Asset.ActionBar.union.image),
-                                imageStyle: .accent,
-                                handler: {}),
-                            ActionItemBarAction(
-                                image: Image(uiImage: Asset.ActionBar.closeOutline.image),
-                                imageStyle: .error,
-                                handler: {})
-                        ],
+                        actions: viewModel.actions,
                         style: .default
                     )
-                    .disabled(isEnabledControlsState != 0)
+                        .disabled(viewModel.isEnabledControlsState != 0)
                 }
             }
         }

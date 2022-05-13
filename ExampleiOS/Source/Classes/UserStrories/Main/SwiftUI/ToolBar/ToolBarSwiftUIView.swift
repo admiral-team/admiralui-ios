@@ -13,47 +13,31 @@ import AdmiralSwiftUI
 struct ToolBarSwiftUIView: View {
     
     // MARK: - Private Properties
-    
-    @State private var startValue: Double = 4.0
-    @State private var sliceItemArray = [
-        ToolBarItem(title: "Оплатить", image: Image(uiImage: Asset.Toolbar.card.image)),
-        ToolBarItem(title: "Пополнить", image: Image(uiImage: Asset.Toolbar.getCash.image)),
-        ToolBarItem(title: "Подробнее", image: Image(uiImage: Asset.Toolbar.info.image)),
-        ToolBarItem(title: "Настройки", image: Image(uiImage: Asset.Toolbar.settings.image))
-    ]
-    @State private var toolbarType: ToolBarType = .vertical
-    @State private var selectedIndex: Int = 1
-    private var items = [ToolBarItem]()
-    
+
+    @StateObject private var viewModel = ToolBarSwiftUIViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
-    
-    // MARK: - Initielizers
-    
-    init() {
-        items = sliceItemArray
-    }
-    
-    public var body: some View {
+
+    var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Toolbar") {
+        NavigationContentView(navigationTitle: viewModel.navigationTitle) {
             scheme.backgroundColor.swiftUIColor
             VStack {
                 InputNumber(
                     titleText: .constant("Количество пунктов"),
-                    value: $startValue,
+                    value: $viewModel.startValue,
                     minimumValue: .constant(1.0),
                     maximumValue: .constant(4.0))
-                    .onChange(of: startValue, perform: { value in
-                        let sliceItems = Array(items[0...(Int(value) - 1)])
-                        sliceItemArray = sliceItems
-                        toolbarType = sliceItemArray.count > 1 ? .vertical : .horizontal
+                    .onChange(of: viewModel.startValue, perform: { value in
+                        let sliceItems = Array(viewModel.items[0...(Int(value) - 1)])
+                        viewModel.sliceItemArray = sliceItems
+                        viewModel.toolbarType = viewModel.sliceItemArray.count > 1 ? .vertical : .horizontal
                     })
                     .padding(LayoutGrid.doubleModule)
                 Spacer().frame(height: 16.0)
                 ToolBar(
-                    items: $sliceItemArray,
-                    type: $toolbarType,
-                    selectedIndex: $selectedIndex,
+                    items: $viewModel.sliceItemArray,
+                    type: $viewModel.toolbarType,
+                    selectedIndex: $viewModel.selectedIndex,
                     onTap: { index in
                         print(index)
                     })

@@ -12,24 +12,36 @@ import AdmiralSwiftUI
 
 @available(iOS 14.0.0, *)
 struct DropDownSwiftUIView: View {
-    
+
+    // MARK: - Private Properties
+
+    @StateObject private var viewModel = DropDownSwiftUIViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
-    
-    public var body: some View {
+
+    // MARK: - Layout
+
+    var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Accordion") {
+        NavigationContentView(navigationTitle: viewModel.title) {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
             ScrollView {
                 VStack(spacing: 0.0) {
-                    TitleButtonDropDown(
-                        title: "Title",
-                        buttonTitle: "Button",
-                        buttonAction: {})
-                    ButtonDropDown(
-                        buttonTitle: "Button",
-                                dropDownHeaderType: .down,
-                        buttonAction: {})
+                    ForEach(viewModel.items, id: \.self) { item in
+                        switch item {
+                        case .titleButtonDropDown(let title, let buttonTitle):
+                            TitleButtonDropDown(
+                                title: title,
+                                buttonTitle: buttonTitle,
+                                buttonAction: {})
+                        case .buttonDropDown(let buttonTitle, let headerType):
+                            ButtonDropDown(
+                                buttonTitle: buttonTitle,
+                                dropDownHeaderType: headerType,
+                                buttonAction: {}
+                            )
+                        }
+                    }
                 }
                 .padding(.bottom, LayoutGrid.doubleModule * 4)
             }

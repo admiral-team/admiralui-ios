@@ -16,32 +16,26 @@ struct StandardTextFieldSwiftUIView: View {
     enum Constants {
         static let textViewId = "textView"
     }
-    
-    @State private var formatText: String? = "Text"
-    @State private var text: String? = "Text"
-    @State private var secureText: String? = "Text"
-    @State private var viewText: String? = "Text"
-    @State private var controlsState: Int = 0
-    @State private var state: TextInputState = .normal
-    
-    @State private var isResponderTextField: Bool = false
-    @State private var isResponderSecureTextField: Bool = false
-    @State private var isResponderTextView: Bool = false
-    
+
+    // MARK: - Private Properties
+
+    @StateObject private var viewModel = StandardTextFieldSwiftUIViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
-    
-    public var body: some View {
+
+    // MARK: - Layout
+
+    var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Standard") {
+        NavigationContentView(navigationTitle: viewModel.title) {
             scheme.backgroundColor.swiftUIColor
             ScrollViewReader { scrollView in
                 ScrollView(.vertical) {
                     LazyVStack(alignment: .leading) {
                         OutlineSliderTab(
-                            items: ["Default", "Error", "Disabled", "Read Only"],
-                            selection: $controlsState)
-                            .onChange(of: controlsState, perform: { value in
-                                self.state = TextInputState(rawValue: value) ?? .normal
+                            items: viewModel.tabItems,
+                            selection: $viewModel.controlsState)
+                            .onChange(of: viewModel.controlsState, perform: { [weak viewModel] value in
+                                viewModel?.state = TextInputState(rawValue: value) ?? .normal
                             })
                         VStack(alignment: .leading, spacing: 0.0) {
                             Spacer()
@@ -52,7 +46,7 @@ struct StandardTextFieldSwiftUIView: View {
                             Spacer()
                                 .frame(height: LayoutGrid.doubleModule)
                             StandardTextField(
-                                value: $formatText,
+                                value: $viewModel.formatText,
                                 accessibilityIdentifier: "testTextField",
                                 formatter: BlocFormatter(format: { text in
                                     return text?.replacingOccurrences(of: "=)", with: "🙂")
@@ -60,12 +54,12 @@ struct StandardTextFieldSwiftUIView: View {
                                 contentType: .default,
                                 placeholder: "Placeholder",
                                 name: "Optional label",
-                                state: $state,
+                                state: $viewModel.state,
                                 info: .constant("Additional text"),
                                 infoNumberOfLines: nil,
-                                isResponder: $isResponderTextField,
+                                isResponder: $viewModel.isResponderTextField,
                                 onSubmit: {
-                                    isResponderSecureTextField = true
+                                    viewModel.isResponderSecureTextField = true
                                 })
                                 .id("standartTextField")
                             Spacer()
@@ -81,17 +75,17 @@ struct StandardTextFieldSwiftUIView: View {
                                 .frame(height: LayoutGrid.doubleModule)
                             SwiftUI.Button("", action: {})
                             SecurityTextField(
-                                $secureText,
+                                $viewModel.secureText,
                                 contentType: .default,
                                 placeholder: "Placeholder",
                                 name: "Optional label",
-                                state: $state,
+                                state: $viewModel.state,
                                 info: .constant("Additional text"),
-                                isResponder: $isResponderSecureTextField,
+                                isResponder: $viewModel.isResponderSecureTextField,
                                 onSubmit: {
                                     scrollView.scrollTo("textView")
                                     DispatchQueue.main.async {
-                                        self.isResponderTextView = true
+                                        viewModel.isResponderTextView = true
                                     }
                                 })
                                 .id("securityTextField")
@@ -107,19 +101,19 @@ struct StandardTextFieldSwiftUIView: View {
                             Spacer()
                                 .frame(height: LayoutGrid.quadrupleModule)
                             TextView(
-                                value: $viewText,
+                                value: $viewModel.viewText,
                                 formatter: BlocFormatter(format: { text in
                                     return text?.replacingOccurrences(of: "=)", with: "🙂")
                                 }),
                                 contentType: .default,
                                 placeholder: "Placeholder",
                                 name: "Optional label",
-                                state: $state,
+                                state: $viewModel.state,
                                 info: .constant("Additional text"),
                                 infoNumberOfLines: 3,
-                                isResponder: $isResponderTextView,
+                                isResponder: $viewModel.isResponderTextView,
                                 onSubmit: {
-                                    isResponderTextView = false
+                                    viewModel.isResponderTextView = false
                                 })
                         }
                         .id(Constants.textViewId)

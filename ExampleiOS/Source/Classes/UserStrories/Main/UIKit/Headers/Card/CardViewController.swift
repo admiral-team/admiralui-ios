@@ -14,6 +14,7 @@ final class CardViewController: UIViewController, AnyAppThemable {
     // MARK: - Private Properties
     
     private let cardView = CardView()
+    private let viewModel = CardViewModel()
     private let segmentControl = StandardSegmentedControl(frame: .zero)
     
     override func viewDidLoad() {
@@ -48,14 +49,14 @@ final class CardViewController: UIViewController, AnyAppThemable {
     }
     
     private func configureViews() {
-        cardView.topLabelText = "Кредитная • 2056"
-        cardView.nameLabelText = "Привелегия Мультикарта"
-        cardView.amountLabelText = "1 200 800,50 ₽"
+        cardView.topLabelText = viewModel.topLabelText
+        cardView.nameLabelText = viewModel.nameLabelText
+        cardView.amountLabelText = viewModel.amountLabelText
         cardView.backgroundImage = Asset.Headers.cardSample.image
         cardView.cardPaymenSystemFirstImage = Asset.Headers.visaSample.image
         cardView.cardPaymentSystemSecondImage = Asset.Headers.maserCardSample.image
-        cardView.statusLabelText = "Карта заблокирована"
-        cardView.subtitleLabelText = "75 783 $ / 75 783 €"
+        cardView.statusLabelText = viewModel.statusLabelText
+        cardView.subtitleLabelText = viewModel.subtitleLabelText
         cardView.statusImage = Asset.Headers.lock.image
     }
     

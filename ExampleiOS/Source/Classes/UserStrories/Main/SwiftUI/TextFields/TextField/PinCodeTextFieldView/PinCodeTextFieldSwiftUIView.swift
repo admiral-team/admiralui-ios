@@ -14,60 +14,57 @@ import AdmiralSwiftUI
 struct PinCodeTextFieldView: View {
     
     // MARK: - Private Properties
-    
-    @State private var leftButtonTitle: String = "Не могу войти"
-    @State private var rightButtonImage: Image = AdmiralUIResources.AssetSymbol.Security.Outline.faceID.image
-    @State private var selectedNumber: String = ""
-    @State private var controlsState: Int = 0
-    @State private var maxCountNumbers: Double = 4
-    @State private var status: CodeInputControl.Status = .normal
+
+    @StateObject private var viewModel = PinCodeTextFieldSwiftUIViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
-    
-    public var body: some View {
+
+    // MARK: - Layout
+
+    var body: some View {
         let scheme = schemeProvider.scheme
-        let rightImage = selectedNumber.isEmpty ? rightButtonImage : Image(uiImage: Asset.PinCode.deleteButton.image)
-        NavigationContentView(navigationTitle: "Pincode", isShowThemeSwitchSwiftUIView: false) {
+        let rightImage = viewModel.selectedNumber.isEmpty ? viewModel.rightButtonImage : Image(uiImage: Asset.PinCode.deleteButton.image)
+        NavigationContentView(navigationTitle: viewModel.title, isShowThemeSwitchSwiftUIView: false) {
             scheme.backgroundColor.swiftUIColor
             VStack {
                 HStack {
                   Spacer()
                 }
                 StandardTab(
-                    items: ["Default", "Positive", "Error"],
-                    selection: $controlsState)
-                    .onChange(of: controlsState, perform: { value in
-                    self.status = CodeInputControl.Status(rawValue: value) ?? .normal
+                    items: viewModel.tabItems,
+                    selection: $viewModel.controlsState)
+                    .onChange(of: viewModel.controlsState, perform: { [weak viewModel] value in
+                    viewModel?.status = CodeInputControl.Status(rawValue: value) ?? .normal
                 })
                     .padding(LayoutGrid.doubleModule)
                 Spacer()
                     .frame(height: LayoutGrid.doubleModule)
                 InputNumber(
                     titleText: .constant("Количество знаков"),
-                    value: $maxCountNumbers,
+                    value: $viewModel.maxCountNumbers,
                     minimumValue: .constant(1.0),
                     maximumValue: .constant(10.0))
                     .padding(LayoutGrid.doubleModule)
                 Spacer()
-                CodeInputControl(text: $selectedNumber, itemsCount: Int(maxCountNumbers), status: status)
+                CodeInputControl(text: $viewModel.selectedNumber, itemsCount: Int(viewModel.maxCountNumbers), status: viewModel.status)
                 Spacer(minLength: 100.0)
                 PinCodeKeyboard(
-                    leftButtonTitle: leftButtonTitle,
+                    leftButtonTitle: viewModel.leftButtonTitle,
                     rightButtonImage: rightImage,
                     didTapNumber: { number in
-                        guard selectedNumber.count < Int(maxCountNumbers) else { return }
-                        selectedNumber += String(number)
+                        guard viewModel.selectedNumber.count < Int(viewModel.maxCountNumbers) else { return }
+                        viewModel.selectedNumber += String(number)
                     },
                     didTapLeftButton: {
                         print("Tap on left button")
                     },
                     didTapRightButton: {
-                        guard !selectedNumber.isEmpty else { return }
-                        if selectedNumber.count > Int(maxCountNumbers) {
-                            for _ in Int(maxCountNumbers) ..< selectedNumber.count {
-                                selectedNumber.removeLast()
+                        guard !viewModel.selectedNumber.isEmpty else { return }
+                        if viewModel.selectedNumber.count > Int(viewModel.maxCountNumbers) {
+                            for _ in Int(viewModel.maxCountNumbers) ..< viewModel.selectedNumber.count {
+                                viewModel.selectedNumber.removeLast()
                             }
                         }
-                        selectedNumber.removeLast()
+                        viewModel.selectedNumber.removeLast()
                     })
             }
         }

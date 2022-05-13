@@ -12,101 +12,46 @@ import AdmiralSwiftUI
 @available(iOS 14.0.0, *)
 struct IconTabsSwiftUI: View {
 
-    @State private var isEnabledControlsState: Int = 0
-    @State private var isTwoItemControlsState: Int = 0
-    @State private var isThreeItemControlsState: Int = 0
-    @State private var isFourItemControlsState: Int = 0
+    // MARK: - Private Properties
+
+    @StateObject private var viewModel = IconTabsSwiftUIViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
 
-    public var body: some View {
+    // MARK: - Layout
+
+    var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Icon Tabs") {
+        NavigationContentView(navigationTitle: viewModel.title) {
             scheme.backgroundColor.swiftUIColor
-            ScrollView(.vertical) {
+            ScrollView(.vertical, showsIndicators: false) {
                 HStack {
                   Spacer()
                 }
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: viewModel.tabs, selection: $viewModel.isEnabledControlsState)
                 Spacer()
-                    .frame(height: 16.0)
-                VStack(alignment: .leading) {
-                    VStack(alignment: .leading, spacing: 16.0) {
-                        Text("Two Controls")
-                            .foregroundColor(scheme.textColor.swiftUIColor)
-                            .font(scheme.textFont.swiftUIFont)
-                        IconTab(
-                            models: [
-                                IconTabModel(
-                                    image: Image(uiImage: Asset.IconTabs.mobile.image),
-                                    text: "One"
-                                ),
-                                IconTabModel(
-                                    image: Image(uiImage: Asset.IconTabs.card.image),
-                                    text: "Two"
+                    .frame(height: LayoutGrid.tripleModule)
+                VStack(alignment: .leading, spacing: LayoutGrid.module * 3) {
+                    ForEach(0..<viewModel.items.count, id: \.self) { index in
+                        VStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
+                            Text(viewModel.items[index].title)
+                                .foregroundColor(scheme.textColor.swiftUIColor)
+                                .font(scheme.textFont.swiftUIFont)
+                            switch viewModel.items[index].type {
+                            case .default:
+                                IconTab(
+                                    models: viewModel.items[index].items,
+                                    selection: $viewModel.items[index].selection
                                 )
-                            ],
-                            selection: $isTwoItemControlsState
-                        )
-                        .disabled(isEnabledControlsState != 0)
-                    }
-                    Spacer()
-                        .frame(height: 24.0)
-                    VStack(alignment: .leading, spacing: 16.0) {
-                        Text("Three Controls")
-                            .font(scheme.textFont.swiftUIFont)
-                            .foregroundColor(scheme.textColor.swiftUIColor)
-                            IconTab(
-                                models: [
-                                    IconTabModel(
-                                        image: Image(uiImage: Asset.IconTabs.mobile.image),
-                                        text: "One"
-                                    ),
-                                    IconTabModel(
-                                        image: Image(uiImage: Asset.IconTabs.card.image),
-                                        text: "Two"
-                                    ),
-                                    IconTabModel(
-                                        image: Image(uiImage: Asset.IconTabs.account.image),
-                                        text: "Three"
+                                .disabled(viewModel.isEnabledControlsState != 0)
+                            case .scroll:
+                                ScrollView(.horizontal, showsIndicators: false) {
+                                    IconTab(
+                                        models: viewModel.items[index].items,
+                                        selection: $viewModel.items[index].selection
                                     )
-                                ],
-                                selection: $isThreeItemControlsState
-                            )
-                            .disabled(isEnabledControlsState != 0)
-                    }
-                    Spacer()
-                        .frame(height: 24.0)
-                    VStack(alignment: .leading, spacing: 16.0) {
-                        Text("Embedded in ScrollView")
-                            .font(scheme.textFont.swiftUIFont)
-                            .foregroundColor(scheme.textColor.swiftUIColor)
-                        ScrollView(.horizontal) {
-                            IconTab(
-                                models: [
-                                    IconTabModel(
-                                        image: Image(uiImage: Asset.IconTabs.mobile.image),
-                                        text: "One"
-                                    ),
-                                    IconTabModel(
-                                        image: Image(uiImage: Asset.IconTabs.card.image),
-                                        text: "Two"
-                                    ),
-                                    IconTabModel(
-                                        image: Image(uiImage: Asset.IconTabs.account.image),
-                                        text: "Three"
-                                    ),
-                                    IconTabModel(
-                                        image: Image(uiImage: Asset.IconTabs.account.image),
-                                        text: "Four"
-                                    ),
-                                    IconTabModel(
-                                        image: Image(uiImage: Asset.IconTabs.account.image),
-                                        text: "Five"
-                                    )
-                                ],
-                                selection: $isFourItemControlsState
-                            )
-                            .disabled(isEnabledControlsState != 0)
+                                    .disabled(viewModel.isEnabledControlsState != 0)
+                                }
+                            }
                         }
                     }
                 }

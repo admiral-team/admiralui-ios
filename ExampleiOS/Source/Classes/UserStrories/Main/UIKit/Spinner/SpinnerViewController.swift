@@ -14,6 +14,7 @@ final class SpinnerViewController: BaseViewController {
     // MARK: - Private Properties
     
     private let activityIndicatorView = ActivityIndicator()
+    private let viewModel = SpinnerViewModel()
     private let segmentControl = StandardSegmentedControl(frame: .zero)
     
     override func viewDidLoad() {
@@ -48,9 +49,9 @@ final class SpinnerViewController: BaseViewController {
     
     private func configureSegment() {
         segmentControl.selectedSegmentIndex = 0
-        segmentControl.insertTitle("Small", forSegmentAt: 0)
-        segmentControl.insertTitle("Medium", forSegmentAt: 1)
-        segmentControl.insertTitle("Big", forSegmentAt: 2)
+        viewModel.tabItems.enumerated().forEach { index, value in
+            segmentControl.insertTitle(value, forSegmentAt: index)
+        }
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged(_:)), for: .valueChanged)
     }
     
@@ -84,11 +85,11 @@ final class SpinnerViewController: BaseViewController {
     }
     
     @objc private func presentIndicator() {
-        self.activityIndicatorView.startAnimating()
+        activityIndicatorView.startAnimating()
     }
     
     @objc private func dismissIndicator() {
-        self.activityIndicatorView.stopAnimating()
+        activityIndicatorView.stopAnimating()
     }
 
 }

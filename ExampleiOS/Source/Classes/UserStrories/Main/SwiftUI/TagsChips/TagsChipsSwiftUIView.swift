@@ -12,67 +12,56 @@ import AdmiralUIResources
 
 @available(iOS 14.0.0, *)
 struct TagsChipsSwiftUIView: View {
-    
-    @State private var isEnabledControlsState: Int = 0
+
+    // MARK: - Private Properties
+
+    @StateObject private var viewModel = TagsChipsViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
-    
-    public var body: some View {
+
+    // MARK: - Layout
+
+    var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Tags & Chips") {
+        NavigationContentView(navigationTitle: viewModel.title) {
             scheme.backgroundColor.swiftUIColor
             ScrollView {
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: viewModel.tabItems, selection: $viewModel.isEnabledControlsState)
                     .padding()
                 LazyVStack(alignment: .leading, spacing: LayoutGrid.tripleModule) {
-                    VStack(alignment: .leading) {
-                        Text("Default")
-                            .foregroundColor(scheme.textColor.swiftUIColor)
-                            .font(scheme.textFont.swiftUIFont)
-                        defaultTags()
-                        Spacer()
-                            .frame(height: LayoutGrid.doubleModule)
-                    }
-                    VStack(alignment: .leading) {
-                        Text("Additional")
-                            .foregroundColor(scheme.textColor.swiftUIColor)
-                            .font(scheme.textFont.swiftUIFont)
-                        defaultAdditional()
-                        Spacer()
-                            .frame(height: LayoutGrid.doubleModule)
-                    }
-                    VStack(alignment: .leading) {
-                        Text("Success")
-                            .foregroundColor(scheme.textColor.swiftUIColor)
-                            .font(scheme.textFont.swiftUIFont)
-                        defaultSuccess()
-                        Spacer()
-                            .frame(height: LayoutGrid.doubleModule)
-                    }
-                    VStack(alignment: .leading) {
-                        Text("Error")
-                            .foregroundColor(scheme.textColor.swiftUIColor)
-                            .font(scheme.textFont.swiftUIFont)
-                        defaultError()
-                        Spacer()
-                            .frame(height: LayoutGrid.doubleModule)
-                    }
-                    VStack(alignment: .leading) {
-                        Text("Attention")
-                            .foregroundColor(scheme.textColor.swiftUIColor)
-                            .font(scheme.textFont.swiftUIFont)
-                        defaultAttention()
-                        Spacer()
-                            .frame(height: LayoutGrid.doubleModule)
+                    ForEach(TagsChipsViewModel.TagChipiItem.allCases, id: \.self) { item in
+                        buildItem(item: item, scheme: scheme)
                     }
                 }
-                .disabled(isEnabledControlsState != 0)
+                .disabled(viewModel.isEnabledControlsState != 0)
                 .padding()
             }
         }
     }
-    
+
     // MARK: - Private Methods
-    
+
+    private func buildItem(item: TagsChipsViewModel.TagChipiItem, scheme: SwiftUIContentViewScheme) -> some View {
+        VStack(alignment: .leading) {
+            Text(item.rawValue)
+                .foregroundColor(scheme.textColor.swiftUIColor)
+                .font(scheme.textFont.swiftUIFont)
+            switch item {
+            case .default:
+                defaultTags()
+            case .additional:
+                defaultAdditional()
+            case .success:
+                defaultSuccess()
+            case .erro:
+                defaultError()
+            case .attention:
+                defaultAttention()
+            }
+            Spacer()
+                .frame(height: LayoutGrid.doubleModule)
+        }
+    }
+
     private func defaultTags() -> some View {
         ScrollView(.horizontal, showsIndicators: false, content: {
             HStack(alignment: .center, spacing: LayoutGrid.module, content: {
