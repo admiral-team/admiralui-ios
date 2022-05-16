@@ -14,7 +14,7 @@ final class TextOperationViewModel {
 
     var textOperations: [TextOperationCellViewModel] = [
         TextOperationCellViewModel(
-            title: "+ 35 000 ₽",
+            title: "- 35 000 ₽",
             description: "НПО «Ромашка»",
             time: "13 мая 14:15",
             didSelect: nil,
