@@ -235,7 +235,7 @@ class MainViewController: UIViewController, AnyAppThemable {
                 didSelect: { [weak self] in self?.presentToolbar() }),
 
             MainTableViewCellViewModel(
-                title: "Bottom-sheets",
+                title: "Bottom-sheet",
                 subtitle: "Информационная панель",
                 image: Asset.Main.bottomSheets.image,
                 didSelect: { [weak self] in self?.presentBottomSheets() }),
@@ -372,7 +372,7 @@ extension MainViewController {
     
     private func presentRadioAndSwitcher() {
         let viewController = RadioButtonViewController()
-        viewController.title = "RadioButton"
+        viewController.title = "Radiobutton"
         navigationController?.pushViewController(viewController, animated: true)
     }
     
@@ -426,7 +426,7 @@ extension MainViewController {
 
     private func presentBottomSheets() {
         let viewController = BottomSheetViewController()
-        viewController.title = "Bottom-Sheets"
+        viewController.title = "Bottom-Sheet"
         navigationController?.pushViewController(viewController, animated: true)
     }
     
