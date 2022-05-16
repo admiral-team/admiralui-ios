@@ -22,7 +22,7 @@ final class TextOperationViewModel {
             chatStatus: .none,
             style: .default,
             titleLabelText: "Default",
-            chatBubbleTime: "21:21"
+            chatBubbleTime: "14:52"
         ),
         TextOperationCellViewModel(
             title: "+ 35 000 ₽",
@@ -33,18 +33,18 @@ final class TextOperationViewModel {
             chatStatus: .none,
             style: .success,
             titleLabelText: "Success",
-            chatBubbleTime: "21:21"
+            chatBubbleTime: "14:52"
         ),
         TextOperationCellViewModel(
-            title: "+ 35 000 ₽",
-            description: "НПО «Ромашка»",
+            title: "Счёт ***6789 заблокирован",
+            description: "Оплатите задолженность»",
             time: "13 мая 14:15",
             didSelect: nil,
             direction: .left,
             chatStatus: .none,
             style: .error,
             titleLabelText: "Error",
-            chatBubbleTime: "21:21"
+            chatBubbleTime: "14:52"
         )
     ]
 
