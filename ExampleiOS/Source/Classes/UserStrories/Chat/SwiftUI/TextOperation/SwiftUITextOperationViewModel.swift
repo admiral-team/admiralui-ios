@@ -60,7 +60,7 @@ final class SwiftUITextOperationViewModel: ObservableObject {
             chatStatus: nil,
             direction: .left,
             time: "14:52",
-            title: "+ 35 000 ₽",
+            title: "- 35 000 ₽",
             description: "НПО «Ромашка»",
             rowTitle: "Default"
         ),
