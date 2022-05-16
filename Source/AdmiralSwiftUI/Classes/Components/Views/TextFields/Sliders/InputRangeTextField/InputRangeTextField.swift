@@ -81,6 +81,9 @@ public struct InputRangeTextField<T>: TextFieldInput, AccessabilitySupportUIKit,
     
     // MARK: - Private Properties
     
+    /// Leading text.
+    @Binding private var leadingText: String?
+    
     /// The semantic meaning for a text input area.
     private let contentType: UIKeyboardType
     
@@ -145,6 +148,7 @@ public struct InputRangeTextField<T>: TextFieldInput, AccessabilitySupportUIKit,
         name: String = "",
         state: Binding<TextInputState> = .constant(.normal),
         info: Binding<String> = .constant(""),
+        leadingText: Binding<String?> = .constant(nil),
         infoNumberOfLines: Int? = nil,
         sliderValue: Double = 0,
         minValue: Double = 0,
@@ -173,6 +177,7 @@ public struct InputRangeTextField<T>: TextFieldInput, AccessabilitySupportUIKit,
         self._state = state
         self._info = info
         self.onSubmit = onSubmit
+        self._leadingText = leadingText
         self.infoNumberOfLines = infoNumberOfLines
         self._sliderValue = .init(initialValue: sliderValue)
         self._maxValue = .init(initialValue: maxValue)
@@ -208,6 +213,7 @@ public struct InputRangeTextField<T>: TextFieldInput, AccessabilitySupportUIKit,
         name: String = "",
         state: Binding<TextInputState> = .constant(.normal),
         info: Binding<String> = .constant(""),
+        leadingText: Binding<String?> = .constant(nil),
         infoNumberOfLines: Int? = nil,
         sliderValue: Double = 0,
         minValue: Double = 0,
@@ -227,6 +233,7 @@ public struct InputRangeTextField<T>: TextFieldInput, AccessabilitySupportUIKit,
             name: name,
             state: state,
             info: info,
+            leadingText: leadingText,
             infoNumberOfLines: infoNumberOfLines,
             sliderValue: sliderValue,
             minValue: minValue,
@@ -384,62 +391,72 @@ public struct InputRangeTextField<T>: TextFieldInput, AccessabilitySupportUIKit,
         trailingViewTintColor: Color,
         textFieldFont: AFont?,
         isTextFieldDisabled: Bool) -> some View {
-        HStack {
-            ZStack {
-                if isTextFieldDisabled {
-                    Text(content ?? "")
-                        .foregroundColor(textColor.swiftUIColor)
-                        .font(textFieldFont?.swiftUIFont)
-                        .frame(height: 24.0)
-                        .accessibilityIdentifier(accessibilityIdentifier ?? "")
-                        .disabled(isTextFieldDisabled)
-                        .onAppear {
-                            self.isFocused = false
-                            self.isTextFieldResponder = false
-                        }
-                } else {
-                    UIKitTextField(
-                        text: $content,
-                        isResponder: isResponder == nil ? $isTextFieldResponder : isResponder,
-                        formatter: formatter,
-                        keyboard: contentType,
-                        returnKeyType: returnKeyType,
-                        autocapitalizationType: autocapitalizationType,
-                        autocorrectionType: autocorrectionType,
-                        textColor: textColor.uiColor,
-                        placeholderColor: placeholderColor?.uiColor ?? .clear,
-                        tintColor: tintColor.uiColor,
-                        font: textFieldFont?.uiFont,
-                        onSubmit: onSubmit,
-                        accessibilityIdentifier: accessibilityIdentifier
-                    )
-                        .frame(height: 24.0)
-                        .onChange(of: content) { value in
-                            guard !finishAfterChangeSlider else { return }
-                            
-                            if(content == "") {
-                                withAnimation(.easeInOut) {
-                                    isFilled = false
+            HStack {
+                ZStack {
+                    if isTextFieldDisabled {
+                        Text(content ?? "")
+                            .foregroundColor(textColor.swiftUIColor)
+                            .font(textFieldFont?.swiftUIFont)
+                            .frame(height: 24.0)
+                            .accessibilityIdentifier(accessibilityIdentifier ?? "")
+                            .disabled(isTextFieldDisabled)
+                            .onAppear {
+                                self.isFocused = false
+                                self.isTextFieldResponder = false
+                            }
+                    } else {
+                        HStack(spacing: LayoutGrid.halfModule) {
+                            UIKitTextField(
+                                text: $content,
+                                isResponder: isResponder == nil ? $isTextFieldResponder : isResponder,
+                                formatter: formatter,
+                                keyboard: contentType,
+                                returnKeyType: returnKeyType,
+                                autocapitalizationType: autocapitalizationType,
+                                autocorrectionType: autocorrectionType,
+                                textColor: textColor.uiColor,
+                                placeholderColor: placeholderColor?.uiColor ?? .clear,
+                                tintColor: tintColor.uiColor,
+                                font: textFieldFont?.uiFont,
+                                onSubmit: onSubmit,
+                                accessibilityIdentifier: accessibilityIdentifier
+                            )
+                                .fixedSize()
+                                .frame(height: 24.0)
+                                .onChange(of: content) { value in
+                                    guard !finishAfterChangeSlider else { return }
+
+                                    if(content == "") {
+                                        withAnimation(.easeInOut) {
+                                            isFilled = false
+                                        }
+                                    } else {
+                                        withAnimation(.easeInOut) {
+                                            isFilled = true
+                                        }
+                                    }
+                                    withAnimation(.easeInOut) {
+                                        let text = (value ?? "").replacingOccurrences(of: ",", with: ".")
+                                        guard let val = Double(text) else { return }
+
+                                        self.sliderValue = val
+                                    }
                                 }
-                            } else {
-                                withAnimation(.easeInOut) {
-                                    isFilled = true
+                                .onChange(of: isResponder?.wrappedValue ?? false, perform: { value in
+                                    changeResponder(value: value)
+                                })
+                                .onChange(of: isTextFieldResponder) { value in
+                                    changeResponder(value: value)
+                                }
+                            if let leadingText = leadingText {
+                                if isFilled {
+                                    Text(leadingText)
+                                        .font(textFieldFont?.swiftUIFont)
+                                        .foregroundColor(textColor.swiftUIColor)
                                 }
                             }
-                            withAnimation(.easeInOut) {
-                                let text = (value ?? "").replacingOccurrences(of: ",", with: ".")
-                                guard let val = Double(text) else { return }
-                                
-                                self.sliderValue = val
-                            }
                         }
-                        .onChange(of: isResponder?.wrappedValue ?? false, perform: { value in
-                            changeResponder(value: value)
-                        })
-                        .onChange(of: isTextFieldResponder) { value in
-                            changeResponder(value: value)
-                        }
-                }
+                    }
             }
             Spacer(minLength: trailingView() is EmptyView ? 0.0 : LayoutGrid.module)
             if !(trailingView() is EmptyView) {
@@ -516,6 +533,7 @@ extension InputRangeTextField where T == EmptyView {
         name: String = "",
         state: Binding<TextInputState> = .constant(.normal),
         info: Binding<String> = .constant(""),
+        leadingText: Binding<String?> = .constant(nil),
         infoNumberOfLines: Int? = nil,
         sliderValue: Double = 0,
         minValue: Double = 0,
@@ -542,6 +560,7 @@ extension InputRangeTextField where T == EmptyView {
         self.name = name
         self._state = state
         self._info = info
+        self._leadingText = leadingText
         self.onSubmit = onSubmit
         self.infoNumberOfLines = infoNumberOfLines
         self._sliderValue = .init(initialValue: sliderValue)
@@ -578,6 +597,7 @@ extension InputRangeTextField where T == EmptyView {
         name: String = "",
         state: Binding<TextInputState> = .constant(.normal),
         info: Binding<String> = .constant(""),
+        leadingText: Binding<String?> = .constant(nil),
         infoNumberOfLines: Int? = nil,
         sliderValue: Double = 0,
         minValue: Double = 0,
@@ -596,6 +616,7 @@ extension InputRangeTextField where T == EmptyView {
                 name: name,
                 state: state,
                 info: info,
+                leadingText: leadingText,
                 infoNumberOfLines: infoNumberOfLines,
                 sliderValue: sliderValue,
                 minValue: minValue,

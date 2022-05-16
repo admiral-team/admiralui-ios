@@ -37,21 +37,21 @@ import SwiftUI
  # Code
  ```
  DoubleInputRangeTextField(
-     .constant("Binding simple text"),
-     contentTo: .constant("Binding content"),
-     placeholderFrom: "PlaceholderFrom",
-     placeholderTo: "PlaceholderTo",
-     name: "Optional label",
-     state: $state,
-     info: .constant("Additional text"),
-     sliderValueFrom: 100,
-     sliderValueTo: 300,
-     minValue: 100,
-     maxValue: 1000,
-     leadingText: .constant("₽"),
-     trailingText: .constant("₽")
+ .constant("Binding simple text"),
+ contentTo: .constant("Binding content"),
+ placeholderFrom: "PlaceholderFrom",
+ placeholderTo: "PlaceholderTo",
+ name: "Optional label",
+ state: $state,
+ info: .constant("Additional text"),
+ sliderValueFrom: 100,
+ sliderValueTo: 300,
+ minValue: 100,
+ maxValue: 1000,
+ leadingText: .constant("₽"),
+ trailingText: .constant("₽")
  )
-```
+ ```
  
  Also DoubleInputRangeTextField has public func to sets the state text field:
  
@@ -160,6 +160,7 @@ public struct DoubleInputRangeTextField: AccessabilitySupportUIKit, Identifiable
     @State private var textViewFromWidth: CGFloat = LayoutGrid.tripleModule
     @State private var textViewWidth: CGFloat = LayoutGrid.tripleModule
     @State private var sizeModifier: CGSize = .zero
+    @State private var sizeModifierFrom: CGSize = .zero
     
     @State private var finishAfterChangeSlider: Bool = false
     
@@ -204,35 +205,35 @@ public struct DoubleInputRangeTextField: AccessabilitySupportUIKit, Identifiable
         autocapitalizationType: UITextAutocapitalizationType = .none,
         autocorrectionType: UITextAutocorrectionType = .no,
         onSubmit: (() -> Void)? = nil) {
-        self._contentFrom = contentFrom
-        self._contentTo = contentTo
-        self.placeholderFrom = placeholderFrom
-        self.placeholderTo = placeholderTo
-        self.name = name
-        self.formatter = formatter
-        self._state = state
-        self._info = info
-        self._leadingText = leadingText
-        self._trailingText = trailingText
-        self.onSubmit = onSubmit
-        self.infoNumberOfLines = infoNumberOfLines
-        self._sliderValueFrom = .init(initialValue: sliderValueFrom)
-        self._sliderValueTo = .init(initialValue: sliderValueTo)
-        self._maxValue = .init(initialValue: maxValue)
-        self._minValue = .init(initialValue: minValue)
-        self._isFilledFrom = .init(initialValue: !(contentFrom.wrappedValue ?? "").isEmpty)
-        self._isFilledTo = .init(initialValue: !(contentTo.wrappedValue ?? "").isEmpty)
-        self.contentType = contentType
-        self.returnKeyType = returnKeyType
-        self.autocapitalizationType = autocapitalizationType
-        self.autocorrectionType = autocorrectionType
-        self.isResponderFrom = isResponderFrom
-        self.isResponderTo = isResponderTo
-        self._isFocusedFrom = .init(initialValue: isResponderFrom?.wrappedValue ?? false)
-        self._isFocusedTo = .init(initialValue: isResponderTo?.wrappedValue ?? false)
-        self.accessibilityIdentifierFirst = accessibilityIdentifierFirst
-        self.accessibilityIdentifierSecond = accessibilityIdentifierSecond
-    }
+            self._contentFrom = contentFrom
+            self._contentTo = contentTo
+            self.placeholderFrom = placeholderFrom
+            self.placeholderTo = placeholderTo
+            self.name = name
+            self.formatter = formatter
+            self._state = state
+            self._info = info
+            self._leadingText = leadingText
+            self._trailingText = trailingText
+            self.onSubmit = onSubmit
+            self.infoNumberOfLines = infoNumberOfLines
+            self._sliderValueFrom = .init(initialValue: sliderValueFrom)
+            self._sliderValueTo = .init(initialValue: sliderValueTo)
+            self._maxValue = .init(initialValue: maxValue)
+            self._minValue = .init(initialValue: minValue)
+            self._isFilledFrom = .init(initialValue: !(contentFrom.wrappedValue ?? "").isEmpty)
+            self._isFilledTo = .init(initialValue: !(contentTo.wrappedValue ?? "").isEmpty)
+            self.contentType = contentType
+            self.returnKeyType = returnKeyType
+            self.autocapitalizationType = autocapitalizationType
+            self.autocorrectionType = autocorrectionType
+            self.isResponderFrom = isResponderFrom
+            self.isResponderTo = isResponderTo
+            self._isFocusedFrom = .init(initialValue: isResponderFrom?.wrappedValue ?? false)
+            self._isFocusedTo = .init(initialValue: isResponderTo?.wrappedValue ?? false)
+            self.accessibilityIdentifierFirst = accessibilityIdentifierFirst
+            self.accessibilityIdentifierSecond = accessibilityIdentifierSecond
+        }
 
     
     public var body: some View {
@@ -273,7 +274,8 @@ public struct DoubleInputRangeTextField: AccessabilitySupportUIKit, Identifiable
                     tintColor: tintColor.swiftUIColor,
                     nameColor: nameColor,
                     textFieldFont: style.textFieldFont.swiftUIFont,
-                    informerFont: style.informerFont.swiftUIFont)
+                    informerFont: style.informerFont.swiftUIFont
+                )
                 textFieldView(
                     placeholderColor: placeholderColor,
                     tintColor: tintColor,
@@ -282,7 +284,8 @@ public struct DoubleInputRangeTextField: AccessabilitySupportUIKit, Identifiable
                     textFieldFont: style.textFieldFont,
                     textFromToFont: globalScheme.textFont,
                     textFromToColor: placeholderColor,
-                    isTextFieldDisabled: isTextFieldDisabled)
+                    isTextFieldDisabled: isTextFieldDisabled
+                )
                 Spacer()
                     .frame(height: LayoutGrid.halfModule)
                 DoubleSliderView(
@@ -367,16 +370,16 @@ public struct DoubleInputRangeTextField: AccessabilitySupportUIKit, Identifiable
         nameColor: Color?,
         textFieldFont: SwiftUI.Font?,
         informerFont: SwiftUI.Font?) -> some View {
-        HStack(spacing: 0.0) {
-            ZStack {
-                Text("\(name)")
-                    .offset(x: 0.0)
-                    .foregroundColor((isFocusedFrom || isFocusedTo) ? tintColor : nameColor)
-                    .font(informerFont)
+            HStack(spacing: 0.0) {
+                ZStack {
+                    Text("\(name)")
+                        .offset(x: 0.0)
+                        .foregroundColor((isFocusedFrom || isFocusedTo) ? tintColor : nameColor)
+                        .font(informerFont)
+                }
+                Spacer()
             }
-            Spacer()
         }
-    }
     
     private func textFieldView(
         placeholderColor: AColor?,
@@ -386,169 +389,42 @@ public struct DoubleInputRangeTextField: AccessabilitySupportUIKit, Identifiable
         textFieldFont: AFont?,
         textFromToFont: AFont?,
         textFromToColor: AColor?,
-        isTextFieldDisabled: Bool) -> some View {
-        // TODO: - Separate logic to different functions
+        isTextFieldDisabled: Bool
+    ) -> some View {
         let textHeight = LayoutGrid.quadrupleModule
         let textWidth = round(min(sizeModifier.width / 2 - LayoutGrid.tripleModule, textViewWidth), toNearest: LayoutGrid.halfModule * 3)
-        
-        return HStack(spacing: LayoutGrid.halfModule) {
-            HStack {
+        return HStack(spacing: .zero) {
+            HStack(spacing: LayoutGrid.halfModule) {
                 Text(Constants.textFrom)
                     .multilineTextAlignment(.leading)
                     .font(textFromToFont?.swiftUIFont)
                     .foregroundColor(textFromToColor?.swiftUIColor)
-                ZStack {
-                    if isTextFieldDisabled {
-                        HStack {
-                            Text(contentFrom ?? "")
-                                .foregroundColor(textColor.swiftUIColor)
-                                .font(textFieldFont?.swiftUIFont)
-                                .frame(width: textWidth, height: textHeight)
-                                .offset(x: -LayoutGrid.halfModule)
-                                .disabled(isTextFieldDisabled)
-                                .onAppear {
-                                    self.isFocusedFrom = false
-                                    self.isTextFieldResponderFrom = false
-                                }
-                            Spacer()
-                        }
-                    } else {
-                        UIKitTextField(
-                            text: $contentFrom,
-                            isResponder: isResponderFrom == nil ? $isTextFieldResponderFrom : isResponderFrom,
-                            placeholder: placeholderFrom,
-                            formatter: formatter ?? BlocFormatter(format: { text in
-                                if let text = text, text.count > Constants.maxSymbols {
-                                    let substring = text.prefix(Constants.maxSymbols)
-                                    contentFrom = String(substring)
-                                    return String(substring)
-                                } else {
-                                    contentFrom = text ?? ""
-                                    return contentFrom
-                                }
-                            }),
-                            keyboard: contentType,
-                            returnKeyType: returnKeyType,
-                            autocapitalizationType: autocapitalizationType,
-                            autocorrectionType: autocorrectionType,
-                            textColor: textColor.uiColor,
-                            placeholderColor: placeholderColor?.uiColor ?? .clear,
-                            tintColor: tintColor.uiColor,
-                            font: textFieldFont?.uiFont,
-                            onSubmit: onSubmit ?? {
-                                // TODO: - Close keyboard by flag
-                                UIApplication.shared.keyWindow?.endEditing(true)
-                            },
-                            accessibilityIdentifier: accessibilityIdentifierFirst
-                        )
-                            .frame(height: 24.0)
-                            .onChange(of: contentFrom) { value in
-                                guard !finishAfterChangeSlider else { return }
-                                
-                                if(contentFrom == "") {
-                                    withAnimation(.easeInOut) {
-                                        isFilledFrom = false
-                                    }
-                                } else {
-                                    withAnimation(.easeInOut) {
-                                        isFilledFrom = true
-                                    }
-                                }
-                                withAnimation(.easeInOut) {
-                                    let text = (value ?? "").replacingOccurrences(of: ",", with: ".")
-                                    guard let val = Double(text) else { return }
-                                    
-                                    sliderValueFrom = val
-                                }
-                            }
-                            .onChange(of: isTextFieldResponderFrom) { value in
-                                responderFromChange(value: value)
-                            }
-                            .onChange(of: isResponderFrom?.wrappedValue ?? false, perform: { value in
-                                responderFromChange(value: value)
-                            })
-                    }
-                }
+                textFieldFrom(
+                    placeholderColor: placeholderColor,
+                    tintColor: tintColor,
+                    textColor: textColor,
+                    trailingViewTintColor: trailingViewTintColor,
+                    textFieldFont: textFieldFont,
+                    isTextFieldDisabled: isTextFieldDisabled,
+                    textWidth: textWidth,
+                    textHeight: textHeight
+                )
             }
-            
-            HStack {
-                Spacer()
-                Text(Constants.textTo)
-                    .multilineTextAlignment(.trailing)
-                    .font(textFromToFont?.swiftUIFont)
-                    .foregroundColor(textFromToColor?.swiftUIColor)
-                ZStack {
-                    if isTextFieldDisabled {
-                        Text(contentTo ?? "")
-                            .foregroundColor(textColor.swiftUIColor)
-                            .font(textFieldFont?.swiftUIFont)
-                            .frame(width: textWidth, height: textHeight)
-                            .disabled(isTextFieldDisabled)
-                            .onAppear {
-                                isFocusedTo = false
-                                isTextFieldResponderTo = false
-                            }
-                    } else {
-                        if sizeModifier != .zero {
-                            // FIXME: - Move duplicate logic to separate function
-                            UIKitTextView(
-                                text: $contentTo,
-                                isResponder: isResponderTo == nil ? $isTextFieldResponderTo : isResponderTo,
-                                shouldChangeText: { text in
-                                    if let text = text, text.count > Constants.maxSymbols {
-                                        return false
-                                    }
-                                    return true
-                                },
-                                fixHeight: LayoutGrid.quadrupleModule,
-                                maxWidth: sizeModifier.width / 2 - LayoutGrid.tripleModule,
-                                updateWidth: $textViewWidth,
-                                isEnabled: !isTextFieldDisabled,
-                                keyboard: contentType,
-                                returnKeyType: returnKeyType,
-                                autocapitalizationType: autocapitalizationType,
-                                autocorrectionType: autocorrectionType,
-                                textColor: textColor.uiColor,
-                                tintColor: tintColor.uiColor,
-                                font: textFieldFont?.uiFont,
-                                onSubmit: onSubmit ?? {
-                                    // TODO: - Close keyboard by flag
-                                    UIApplication.shared.keyWindow?.endEditing(true)
-                                },
-                                accessibilityIdentifier: accessibilityIdentifierSecond
-                            )
-                                .zIndex(10)
-                                .fixedSize()
-                                .onChange(of: contentTo) { value in
-                                    guard !finishAfterChangeSlider else { return }
-
-                                    if(contentTo == "") {
-                                        withAnimation(.easeInOut) {
-                                            isFilledTo = false
-                                        }
-                                    } else {
-                                        withAnimation(.easeInOut) {
-                                            isFilledTo = true
-                                        }
-                                    }
-
-                                    let text = (value ?? "").replacingOccurrences(of: ",", with: ".")
-                                    guard let val = Double(text) else { return }
-
-                                    withAnimation(.easeInOut) {
-                                        sliderValueTo = val
-                                    }
-                                }
-                                .onChange(of: isTextFieldResponderTo) { value in
-                                    responderToChange(value: value)
-                                }
-                                .onChange(of: isResponderTo?.wrappedValue ?? false, perform: { value in
-                                    responderToChange(value: value)
-                                })
-                        }
-                    }
-                }
-            }
+            Spacer(minLength: .zero)
+            Text(Constants.textTo)
+                .multilineTextAlignment(.trailing)
+                .font(textFromToFont?.swiftUIFont)
+                .foregroundColor(textFromToColor?.swiftUIColor)
+            textFieldTo(
+                placeholderColor: placeholderColor,
+                tintColor: tintColor,
+                textColor: textColor,
+                trailingViewTintColor: trailingViewTintColor,
+                textFieldFont: textFieldFont,
+                isTextFieldDisabled: isTextFieldDisabled,
+                textWidth: textWidth,
+                textHeight: textHeight
+            )
             if let trailingText = trailingText {
                 Text(trailingText)
                     .font(textFieldFont?.swiftUIFont)
@@ -556,7 +432,7 @@ public struct DoubleInputRangeTextField: AccessabilitySupportUIKit, Identifiable
             }
         }
     }
-    
+
     private func responderFromChange(value: Bool) {
         withAnimation() {
             isFocusedFrom = value
@@ -606,13 +482,14 @@ public struct DoubleInputRangeTextField: AccessabilitySupportUIKit, Identifiable
     
     private func minMaxView(
         placeholderColor: Color?,
-        valueFont: SwiftUI.Font?) -> some View {
+        valueFont: SwiftUI.Font?
+    ) -> some View {
         let formatter = NumberFormatter()
         formatter.minimumFractionDigits = 0
         formatter.maximumFractionDigits = 1
 
         formatter.numberStyle = .decimal
-        
+
         return HStack {
             Text(formatter.string(from: minValue as NSNumber) ?? "")
                 .multilineTextAlignment(.leading)
@@ -623,6 +500,177 @@ public struct DoubleInputRangeTextField: AccessabilitySupportUIKit, Identifiable
                 .multilineTextAlignment(.trailing)
                 .font(valueFont)
                 .foregroundColor(placeholderColor)
+        }
+    }
+
+    private func textFieldTo(
+        placeholderColor: AColor?,
+        tintColor: AColor,
+        textColor: AColor,
+        trailingViewTintColor: Color,
+        textFieldFont: AFont?,
+        isTextFieldDisabled: Bool,
+        textWidth: CGFloat,
+        textHeight: CGFloat
+    ) -> some View {
+        ZStack {
+            if isTextFieldDisabled {
+                Text(contentTo ?? "")
+                    .foregroundColor(textColor.swiftUIColor)
+                    .font(textFieldFont?.swiftUIFont)
+                    .frame(width: textWidth, height: textHeight)
+                    .disabled(isTextFieldDisabled)
+                    .onAppear {
+                        isFocusedTo = false
+                        isTextFieldResponderTo = false
+                    }
+            } else {
+                if sizeModifier != .zero {
+                    UIKitTextView(
+                        text: $contentTo,
+                        isResponder: isResponderTo == nil ? $isTextFieldResponderTo : isResponderTo,
+                        shouldChangeText: { text in
+                            if let text = text, text.count > Constants.maxSymbols {
+                                return false
+                            }
+                            return true
+                        },
+                        fixHeight: LayoutGrid.quadrupleModule,
+                        maxWidth: sizeModifier.width / 2 - LayoutGrid.tripleModule,
+                        updateWidth: $textViewWidth,
+                        isEnabled: !isTextFieldDisabled,
+                        keyboard: contentType,
+                        returnKeyType: returnKeyType,
+                        autocapitalizationType: autocapitalizationType,
+                        autocorrectionType: autocorrectionType,
+                        textColor: textColor.uiColor,
+                        tintColor: tintColor.uiColor,
+                        font: textFieldFont?.uiFont,
+                        onSubmit: onSubmit ?? {
+                            // TODO: - Close keyboard by flag
+                            UIApplication.shared.keyWindow?.endEditing(true)
+                        },
+                        accessibilityIdentifier: accessibilityIdentifierSecond
+                    )
+                        .zIndex(10)
+                        .fixedSize()
+                        .onChange(of: contentTo) { value in
+                            guard !finishAfterChangeSlider else { return }
+
+                            if(contentTo == "") {
+                                withAnimation(.easeInOut) {
+                                    isFilledTo = false
+                                }
+                            } else {
+                                withAnimation(.easeInOut) {
+                                    isFilledTo = true
+                                }
+                            }
+
+                            let text = (value ?? "").replacingOccurrences(of: ",", with: ".")
+                            guard let val = Double(text) else { return }
+
+                            withAnimation(.easeInOut) {
+                                sliderValueTo = val
+                            }
+                        }
+                        .onChange(of: isTextFieldResponderTo) { value in
+                            responderToChange(value: value)
+                        }
+                        .onChange(of: isResponderTo?.wrappedValue ?? false, perform: { value in
+                            responderToChange(value: value)
+                        })
+                }
+            }
+        }
+    }
+
+    private func textFieldFrom(
+        placeholderColor: AColor?,
+        tintColor: AColor,
+        textColor: AColor,
+        trailingViewTintColor: Color,
+        textFieldFont: AFont?,
+        isTextFieldDisabled: Bool,
+        textWidth: CGFloat,
+        textHeight: CGFloat
+    ) -> some View {
+        HStack(spacing: LayoutGrid.module) {
+            if isTextFieldDisabled {
+                HStack {
+                    Text(contentFrom ?? "")
+                        .foregroundColor(textColor.swiftUIColor)
+                        .font(textFieldFont?.swiftUIFont)
+                        .frame(width: textWidth, height: textHeight)
+                        .disabled(isTextFieldDisabled)
+                        .onAppear {
+                            self.isFocusedFrom = false
+                            self.isTextFieldResponderFrom = false
+                        }
+                    Spacer()
+                }
+            } else {
+                HStack(spacing: LayoutGrid.halfModule) {
+                    UIKitTextField(
+                        text: $contentFrom,
+                        isResponder: isResponderFrom == nil ? $isTextFieldResponderFrom : isResponderFrom,
+                        formatter: formatter ?? BlocFormatter(format: { text in
+                            if let text = text, text.count > Constants.maxSymbols {
+                                let substring = text.prefix(Constants.maxSymbols)
+                                contentFrom = String(substring)
+                                return String(substring)
+                            } else {
+                                contentFrom = text ?? ""
+                                return contentFrom
+                            }
+                        }),
+                        keyboard: contentType,
+                        returnKeyType: returnKeyType,
+                        autocapitalizationType: autocapitalizationType,
+                        autocorrectionType: autocorrectionType,
+                        textColor: textColor.uiColor,
+                        placeholderColor: placeholderColor?.uiColor ?? .clear,
+                        tintColor: tintColor.uiColor,
+                        font: textFieldFont?.uiFont,
+                        onSubmit: onSubmit ?? {
+                            // TODO: - Close keyboard by flag
+                            UIApplication.shared.keyWindow?.endEditing(true)
+                        },
+                        accessibilityIdentifier: accessibilityIdentifierFirst
+                    )
+                        .fixedSize()
+                        .onChange(of: contentFrom) { value in
+                            guard !finishAfterChangeSlider else { return }
+
+                            if(contentFrom == "") {
+                                withAnimation(.easeInOut) {
+                                    isFilledFrom = false
+                                }
+                            } else {
+                                withAnimation(.easeInOut) {
+                                    isFilledFrom = true
+                                }
+                            }
+                            withAnimation(.easeInOut) {
+                                let text = (value ?? "").replacingOccurrences(of: ",", with: ".")
+                                guard let val = Double(text) else { return }
+
+                                sliderValueFrom = val
+                            }
+                        }
+                        .onChange(of: isTextFieldResponderFrom) { value in
+                            responderFromChange(value: value)
+                        }
+                        .onChange(of: isResponderFrom?.wrappedValue ?? false, perform: { value in
+                            responderFromChange(value: value)
+                        })
+                    if let leadingText = leadingText {
+                        Text(leadingText)
+                            .font(textFieldFont?.swiftUIFont)
+                            .foregroundColor(textColor.swiftUIColor)
+                    }
+                }
+            }
         }
     }
     

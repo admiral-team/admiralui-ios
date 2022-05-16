@@ -189,7 +189,7 @@ public class InputRangeTextField: UIView, AnyAppThemable, AccessibilitySupport {
             textField.leadingAnchor.constraint(equalTo: leadingAnchor),
             trailingAnchor.constraint(equalTo: textField.trailingAnchor),
             textField.topAnchor.constraint(equalTo: topAnchor),
-            
+
             slider.leadingAnchor.constraint(equalTo: textField.leadingAnchor),
             textField.trailingAnchor.constraint(equalTo: slider.trailingAnchor),
             slider.topAnchor.constraint(equalTo: textField.bottomAnchor),
