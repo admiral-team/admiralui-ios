@@ -80,6 +80,12 @@ public struct SmallInformer: View {
     private let arrowDirection: SmallInformerArrowDirection
     private let arrowOffset: CGFloat
     private let cornerRadius: CGFloat
+    private var arrowImage: Image {
+        return Image(uiImage: arrowDirection == .top || arrowDirection == .topRight ? Constants.topArrowImage : Constants.bottomArrowImage)
+    }
+    private var arrowHorizontalOffcet: CGFloat {
+        return arrowDirection == .top || arrowDirection == .topRight ? -LayoutGrid.module : LayoutGrid.module
+    }
     
     @State private var scheme: SmallInformerScheme? = nil
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SmallInformerScheme>()
@@ -130,13 +136,15 @@ public struct SmallInformer: View {
                 .background(wrapViewColor)
                 .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
                 .overlay(
-                    Image(uiImage: arrowDirection == .top || arrowDirection == .topRight ? Constants.topArrowImage : Constants.bottomArrowImage)
-                        .offset(y: arrowDirection == .top || arrowDirection == .topRight ? -LayoutGrid.module : LayoutGrid.module)
+                    arrowImage
+                        .offset(y: arrowHorizontalOffcet)
                         .padding(arrowDirection == .top || arrowDirection == .bottom ? .leading : .trailing, arrowOffset)
                         .foregroundColor(wrapViewColor),
                     alignment: arrowAlignment())
                 .frame(width: Constants.informerMaxWidth, alignment: .leading)
     }
+    
+    // MARK: - Private Methods
     
     private func arrowAlignment() -> Alignment {
         switch arrowDirection {
