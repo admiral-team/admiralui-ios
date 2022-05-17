@@ -16,14 +16,17 @@ struct OutlineSliderScheme {
     }
     
     var itemScheme = ItemScheme()
+    var badgeScheme: BadgeScheme
+    var badgeBorderColor: AColor
     var borderColor = ControlParameter<AColor>()
-    
+
     init() {
         self.init(theme: AppTheme.default)
     }
     
     init(theme: AppTheme) {
         let alpha = theme.colors.disabledAlpha
+        badgeBorderColor = theme.colors.backgroundBasic
 
         itemScheme.titleFont.set(parameter: theme.fonts.subhead3, for: .normal)
         itemScheme.titleColor.set(parameter: theme.colors.textPrimary, for: .normal)
@@ -43,6 +46,8 @@ struct OutlineSliderScheme {
         itemScheme.titleColor.set(parameter: theme.colors.textSecondary, for: [.selected, .disabled])
         
         itemScheme.titleColor.set(parameter: theme.colors.textSecondary, for: .disabled)
+
+        badgeScheme = BadgeScheme(theme: theme)
     }
     
 }
