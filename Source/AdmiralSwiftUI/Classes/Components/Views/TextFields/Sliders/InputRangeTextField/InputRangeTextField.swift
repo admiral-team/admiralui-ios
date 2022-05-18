@@ -82,7 +82,7 @@ public struct InputRangeTextField<T>: TextFieldInput, AccessabilitySupportUIKit,
     // MARK: - Private Properties
     
     /// Leading text.
-    @Binding private var leadingText: String?
+    private var leadingText: String?
     
     /// The semantic meaning for a text input area.
     private let contentType: UIKeyboardType
@@ -148,7 +148,7 @@ public struct InputRangeTextField<T>: TextFieldInput, AccessabilitySupportUIKit,
         name: String = "",
         state: Binding<TextInputState> = .constant(.normal),
         info: Binding<String> = .constant(""),
-        leadingText: Binding<String?> = .constant(nil),
+        leadingText: String? = nil,
         infoNumberOfLines: Int? = nil,
         sliderValue: Double = 0,
         minValue: Double = 0,
@@ -177,7 +177,7 @@ public struct InputRangeTextField<T>: TextFieldInput, AccessabilitySupportUIKit,
         self._state = state
         self._info = info
         self.onSubmit = onSubmit
-        self._leadingText = leadingText
+        self.leadingText = leadingText
         self.infoNumberOfLines = infoNumberOfLines
         self._sliderValue = .init(initialValue: sliderValue)
         self._maxValue = .init(initialValue: maxValue)
@@ -213,7 +213,7 @@ public struct InputRangeTextField<T>: TextFieldInput, AccessabilitySupportUIKit,
         name: String = "",
         state: Binding<TextInputState> = .constant(.normal),
         info: Binding<String> = .constant(""),
-        leadingText: Binding<String?> = .constant(nil),
+        leadingText: String? = nil,
         infoNumberOfLines: Int? = nil,
         sliderValue: Double = 0,
         minValue: Double = 0,
@@ -533,7 +533,7 @@ extension InputRangeTextField where T == EmptyView {
         name: String = "",
         state: Binding<TextInputState> = .constant(.normal),
         info: Binding<String> = .constant(""),
-        leadingText: Binding<String?> = .constant(nil),
+        leadingText: String? = nil,
         infoNumberOfLines: Int? = nil,
         sliderValue: Double = 0,
         minValue: Double = 0,
@@ -560,7 +560,7 @@ extension InputRangeTextField where T == EmptyView {
         self.name = name
         self._state = state
         self._info = info
-        self._leadingText = leadingText
+        self.leadingText = leadingText
         self.onSubmit = onSubmit
         self.infoNumberOfLines = infoNumberOfLines
         self._sliderValue = .init(initialValue: sliderValue)
@@ -597,7 +597,7 @@ extension InputRangeTextField where T == EmptyView {
         name: String = "",
         state: Binding<TextInputState> = .constant(.normal),
         info: Binding<String> = .constant(""),
-        leadingText: Binding<String?> = .constant(nil),
+        leadingText: String? = nil,
         infoNumberOfLines: Int? = nil,
         sliderValue: Double = 0,
         minValue: Double = 0,
