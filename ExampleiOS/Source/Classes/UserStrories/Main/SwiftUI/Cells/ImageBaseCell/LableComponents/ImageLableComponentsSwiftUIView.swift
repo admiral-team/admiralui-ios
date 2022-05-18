@@ -36,16 +36,6 @@ struct ImageLableComponentsSwiftUIView: View {
                             ))
                         .disabled(isEnabledControlsState != 0)
                     ListCell(
-                        leadingView: { ImageListView(image: Image(uiImage: Asset.Card.imageCard.image)) },
-                        centerView: { TitleListView(title: "Lable Place") },
-                        trailingView: { ArrowListView() },
-                        isSelected:
-                            Binding(
-                                get: { self.selectedIndex == 1 },
-                                set: { _, _ in self.selectedIndex = self.selectedIndex == 1 ? nil : 1 }
-                            ))
-                        .disabled(isEnabledControlsState != 0)
-                    ListCell(
                         leadingView: { ImageNameListView(text: "IN") },
                         centerView: { TitleListView(title: "Icon Name") },
                         trailingView: { ArrowListView() },

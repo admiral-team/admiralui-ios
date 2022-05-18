@@ -58,8 +58,6 @@ final class TralingComponentsViewController: ScrollViewController {
         cells.append(configureIconListViewCell())
         cells.append(configureDatePercentListViewCell())
         cells.append(configureImageWithSubtitleListViewCell())
-        cells.append(configureSubtitleWithImageListViewCell())
-        cells.append(configureCurcleIconListViewCell())
         for index in 0..<cells.count {
             let gesture = UITapGestureRecognizer(target: self, action: #selector(tapCell(_:)))
             cells[index].isUserInteractionEnabled = true
@@ -152,14 +150,6 @@ final class TralingComponentsViewController: ScrollViewController {
         let titleListView = TitleListView()
         titleListView.title = "Title"
         return ListCell(centerView: titleListView, tralingView: imageWithSubtitleListView)
-    }
-    
-    private func configureCurcleIconListViewCell() -> ListCell<ListCellEmpty, TitleListView, CurcleIconListView> {
-        let curcleIconListView = CurcleIconListView()
-        curcleIconListView.image = Asset.Card.imageCard.image
-        let titleListView = TitleListView()
-        titleListView.title = "Title"
-        return ListCell(centerView: titleListView, tralingView: curcleIconListView)
     }
     
 }
