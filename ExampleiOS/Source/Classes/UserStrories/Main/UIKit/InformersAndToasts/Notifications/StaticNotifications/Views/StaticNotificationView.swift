@@ -25,6 +25,13 @@ final class StaticNotificationView: UIView, AnyAppThemable, AccessibilitySupport
         didSet { updateScheme() }
     }
     
+    var isEnabled: Bool = true {
+        didSet {
+            toastView.isEnabled = isEnabled
+            defaultToastView.isEnabled = isEnabled
+        }
+    }
+    
     // MARK: - AccessibilitySupport
     
     var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {

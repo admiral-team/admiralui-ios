@@ -93,6 +93,11 @@ open class ToastView: UIView, AnyAppThemable {
         }
     }
     
+    /// A Boolean value indicating whether the control is in the enabled state.
+    open var isEnabled: Bool = true {
+        didSet { configure() }
+    }
+    
     /// Toast image type.
     open var imageType: ToastImageType? {
         didSet {
@@ -218,17 +223,15 @@ open class ToastView: UIView, AnyAppThemable {
     
     private func configure() {
         titleLabel.font = scheme.titleTextFont.uiFont
-        titleLabel.textColor = scheme.titleTextColor.uiColor
-        
-        backgroundColor = scheme.backgroundColor.parameter(type: type)?.uiColor
-        
-        if let type = imageColorType ?? imageType {
-            iconImageView.tintColor = scheme.imageTintColor.parameter(type: type)?.uiColor
-        }
-        
-        closeButton.setTitleColor(scheme.closeTitleColor.uiColor, for: .normal)
         closeButton.titleLabel?.font = scheme.closeTitleFont.uiFont
-        closeButton.tintColor = scheme.closeTintColor.uiColor
+        
+        titleLabel.textColor = scheme.titleTextColor.parameter(isEnabled: isEnabled, type: type)?.uiColor
+        backgroundColor = scheme.backgroundColor.parameter(isEnabled: isEnabled, type: type)?.uiColor
+        closeButton.setTitleColor(scheme.closeTitleColor.parameter(isEnabled: isEnabled, type: type)?.uiColor, for: .normal)
+        closeButton.tintColor = scheme.closeTintColor.parameter(isEnabled: isEnabled, type: type)?.uiColor
+        if let type = imageColorType ?? imageType {
+            iconImageView.tintColor = scheme.imageTintColor.parameter(isEnabled: isEnabled, type: type)?.uiColor
+        }
         
         countDownTimer.scheme = scheme.countDownTimerViewScheme
         linkControl.scheme = scheme.primaryLinkScheme
