@@ -25,7 +25,7 @@ struct LogoTabSwiftUIView: View {
             scheme.backgroundColor.swiftUIColor
             ScrollView(.vertical) {
                 HStack {
-                  Spacer()
+                    Spacer()
                 }
                 StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
                 Spacer()
@@ -38,6 +38,23 @@ struct LogoTabSwiftUIView: View {
                         VStack(alignment: .leading) {
                             LogoTab(images: [Image(Asset.Tabs.visaLogo.name), Image(Asset.Tabs.masterCardLogo.name)],
                                     selection: $isTwoItemControlsState)
+                                .disabled(isEnabledControlsState != 0)
+                            Spacer()
+                        }
+                    }
+                    Spacer()
+                        .frame(height: 24.0)
+                    VStack(alignment: .leading, spacing: 16.0) {
+                        Text("Three Controls")
+                            .font(scheme.textFont.swiftUIFont)
+                            .foregroundColor(scheme.textColor.swiftUIColor)
+                        VStack(alignment: .leading) {
+                            LogoTab(images: [
+                                Image(Asset.Tabs.visaLogo.name),
+                                Image(Asset.Tabs.masterCardLogo.name),
+                                Image(Asset.Tabs.mirLogo.name)
+                            ],
+                                    selection: $isThreeItemControlsState)
                                 .disabled(isEnabledControlsState != 0)
                             Spacer()
                         }
