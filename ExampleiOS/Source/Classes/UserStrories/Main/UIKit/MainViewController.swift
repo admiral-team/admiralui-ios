@@ -426,7 +426,7 @@ extension MainViewController {
 
     private func presentBottomSheets() {
         let viewController = BottomSheetViewController()
-        viewController.title = "Bottom-Sheet"
+        viewController.title = "Bottom-sheet"
         navigationController?.pushViewController(viewController, animated: true)
     }
     
