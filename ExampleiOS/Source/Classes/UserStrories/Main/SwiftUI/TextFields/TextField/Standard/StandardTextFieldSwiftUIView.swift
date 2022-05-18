@@ -38,10 +38,21 @@ struct StandardTextFieldSwiftUIView: View {
                 ScrollView(showsIndicators: false) {
                     LazyVStack(alignment: .leading) {
                         OutlineSliderTab(
-                            items: ["Default", "Error", "Disabled", "Read Only"],
+                            items: ["Default", "Read Only", "Error", "Disabled"],
                             selection: $controlsState)
                             .onChange(of: controlsState, perform: { value in
-                                self.state = TextInputState(rawValue: value) ?? .normal
+                                switch value {
+                                case 0:
+                                    self.state = .normal
+                                case 1:
+                                    self.state = .readOnly
+                                case 2:
+                                    self.state = .error
+                                case 3:
+                                    self.state = .disabled
+                                default:
+                                    break
+                                }
                             })
                         VStack(alignment: .leading, spacing: 0.0) {
                             Spacer()
