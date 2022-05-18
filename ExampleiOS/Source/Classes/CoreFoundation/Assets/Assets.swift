@@ -33,8 +33,6 @@ public enum Asset {
     public static let bonus = ImageAsset(name: "Badges/Bonus")
   }
   public enum Card {
-    public static let imageCard = ImageAsset(name: "Card/ImageCard")
-    public static let imageCardSmall = ImageAsset(name: "Card/ImageCardSmall")
     public static let mir = ImageAsset(name: "Card/Mir")
     public static let visa = ImageAsset(name: "Card/Visa")
     public static let info = ImageAsset(name: "Card/info")
@@ -169,8 +167,6 @@ public enum Asset {
     ActionBar.moreOutline,
     ActionBar.union,
     Badges.bonus,
-    Card.imageCard,
-    Card.imageCardSmall,
     Card.mir,
     Card.visa,
     Card.info,
