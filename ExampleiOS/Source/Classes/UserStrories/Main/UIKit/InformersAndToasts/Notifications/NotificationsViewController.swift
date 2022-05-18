@@ -29,7 +29,7 @@ final class NotificationsViewController: BaseTableViewController {
                 didSelect: { [weak self] in self?.presentToast() }),
             
             MainTitleTableViewCellViewModel(
-                title: "Notifications",
+                title: "Static",
                 didSelect: { [weak self] in self?.presentNotifications() }),
             
             MainTitleTableViewCellViewModel(
@@ -48,7 +48,7 @@ final class NotificationsViewController: BaseTableViewController {
     
     private func presentNotifications() {
         let viewController = StaticNotificationsViewController()
-        viewController.title = "Notifications"
+        viewController.title = "Static"
         navigationController?.pushViewController(viewController, animated: true)
     }
     

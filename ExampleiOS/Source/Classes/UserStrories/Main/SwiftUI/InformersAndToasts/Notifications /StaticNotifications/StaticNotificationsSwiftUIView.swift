@@ -13,6 +13,7 @@ import AdmiralSwiftUI
 @available(iOS 14.0.0, *)
 struct StaticNotificationsSwiftUIView: View {
     
+    @State private var isEnabledControlsState: Int = 0
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
     
     public var body: some View {
@@ -21,9 +22,9 @@ struct StaticNotificationsSwiftUIView: View {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
             ScrollView(showsIndicators: false) {
+                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                    .padding()
                 LazyVStack(alignment: .leading) {
-                    Spacer()
-                        .frame(height: LayoutGrid.doubleModule * 3)
                     VStack {
                         HStack {
                             Text("Default")
@@ -42,6 +43,7 @@ struct StaticNotificationsSwiftUIView: View {
                             imageColorType: .info,
                             closeAction: {},
                             type: .default)
+                            .disabled(isEnabledControlsState != 0)
                         ToastView(
                             title: "At breakpoint boundaries, mini units divide the screen into a fixed master grid.",
                             linkText: "Link Text",
@@ -51,6 +53,7 @@ struct StaticNotificationsSwiftUIView: View {
                             imageColorType: .info,
                             closeAction: {},
                             type: .additional)
+                            .disabled(isEnabledControlsState != 0)
                     }
                     Spacer()
                         .frame(height: LayoutGrid.doubleModule * 2)
@@ -73,6 +76,7 @@ struct StaticNotificationsSwiftUIView: View {
                             imageColorType: .success,
                             closeAction: {},
                             type: .default)
+                            .disabled(isEnabledControlsState != 0)
                         ToastView(
                             title: "At breakpoint boundaries, mini units divide the screen into a fixed master grid.",
                             linkText: "Link Text",
@@ -82,6 +86,7 @@ struct StaticNotificationsSwiftUIView: View {
                             imageColorType: .success,
                             closeAction: {},
                             type: .success)
+                            .disabled(isEnabledControlsState != 0)
                     }
                     
                     Spacer()
@@ -105,6 +110,7 @@ struct StaticNotificationsSwiftUIView: View {
                             imageColorType: .attention,
                             closeAction: {},
                             type: .default)
+                            .disabled(isEnabledControlsState != 0)
                         ToastView(
                             title: "At breakpoint boundaries, mini units divide the screen into a fixed master grid.",
                             linkText: "Link Text",
@@ -114,6 +120,7 @@ struct StaticNotificationsSwiftUIView: View {
                             imageColorType: .attention,
                             closeAction: {},
                             type: .attention)
+                            .disabled(isEnabledControlsState != 0)
                     }
                     
                     Spacer()
@@ -137,6 +144,7 @@ struct StaticNotificationsSwiftUIView: View {
                             imageColorType: .error,
                             closeAction: {},
                             type: .default)
+                            .disabled(isEnabledControlsState != 0)
                         ToastView(
                             title: "At breakpoint boundaries, mini units divide the screen into a fixed master grid.",
                             linkText: "Link Text",
@@ -146,6 +154,7 @@ struct StaticNotificationsSwiftUIView: View {
                             imageColorType: .error,
                             closeAction: {},
                             type: .error)
+                            .disabled(isEnabledControlsState != 0)
                     }
                     
                 }
