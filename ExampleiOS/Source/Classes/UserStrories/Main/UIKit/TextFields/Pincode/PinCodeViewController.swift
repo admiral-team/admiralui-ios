@@ -44,7 +44,7 @@ final class PinCodeViewController: UIViewController, CodeInputControlDelegate, A
         stepper.addTarget(self, action: #selector(stepperValueChanged(_:)), for: .valueChanged)
         
         segmentControl.insertTitle("Default", forSegmentAt: 0)
-        segmentControl.insertTitle("Positive", forSegmentAt: 1)
+        segmentControl.insertTitle("Success", forSegmentAt: 1)
         segmentControl.insertTitle("Error", forSegmentAt: 2)
         segmentControl.selectedSegmentIndex = 0
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged(_:)), for: .valueChanged)
