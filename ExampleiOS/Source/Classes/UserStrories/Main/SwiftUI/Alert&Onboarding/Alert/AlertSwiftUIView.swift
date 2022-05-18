@@ -49,12 +49,16 @@ struct AlertSwiftUIView: View {
     
     private var alertView: some View {
         AlertView(image: Image(Asset.PopUp.popUpImage.name),
-                  title: "Заголовок в одну \nили две строки",
+                  title: "Header",
                   message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                  buttonTitle: "Действие",
+                  buttonTitle: "Хорошо",
                   buttonAction: {
                     self.show.toggle()
-                })
+                },
+                  additionalButtonTitle: "Отмена",
+                  additionalButtonAction: {
+                    self.show.toggle()
+                  })
             .padding()
             .opacity(show ? 1 : 0)
     }

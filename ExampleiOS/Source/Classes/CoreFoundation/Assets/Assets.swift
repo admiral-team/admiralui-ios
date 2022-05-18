@@ -151,6 +151,9 @@ public enum Asset {
     public static let info = ImageAsset(name: "Toolbar/Info")
     public static let settings = ImageAsset(name: "Toolbar/Settings")
   }
+  public enum Zeroscreen {
+    public static let success = ImageAsset(name: "Zeroscreen/Success")
+  }
   public static let arrowDown = ImageAsset(name: "arrowDown")
   public static let disclosure = ImageAsset(name: "disclosure")
   public static let disclosureDown = ImageAsset(name: "disclosureDown")
@@ -246,6 +249,7 @@ public enum Asset {
     Toolbar.getCash,
     Toolbar.info,
     Toolbar.settings,
+    Zeroscreen.success,
     arrowDown,
     disclosure,
     disclosureDown,

@@ -15,7 +15,7 @@ struct ZeroScreenSwiftUIView: View {
     // MARK: - Constants
     
     private enum Constants {
-        static let title = "Title Center"
+        static let title = "Header"
         static let subTitle = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         static let buttonTitle = "Хорошо"
     }
@@ -34,7 +34,7 @@ struct ZeroScreenSwiftUIView: View {
         ) {
             scheme.backgroundColor.swiftUIColor
             ZStack {
-                ZeroScreenView(image: Image(Asset.Onboarding.one.name),
+                ZeroScreenView(image: Image(Asset.Zeroscreen.success.name),
                                title: Constants.title,
                                subtitle: Constants.subTitle,
                                buttonTitle: Constants.buttonTitle,
