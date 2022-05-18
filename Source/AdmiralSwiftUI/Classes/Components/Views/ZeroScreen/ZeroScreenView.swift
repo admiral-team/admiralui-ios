@@ -38,7 +38,7 @@ import AdmiralUIResources
 public struct ZeroScreenView: View {
     
     private enum Constants {
-        static let imageSize = CGSize(width: 54.0, height: 54.0)
+        static let imageSize = CGFloat(54.0)
     }
 
     // MARK: - Public Properties
@@ -93,8 +93,8 @@ public struct ZeroScreenView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(
-                        width: LayoutGrid.module * 9,
-                        height: LayoutGrid.module * 9)
+                        width: Constants.imageSize,
+                        height: Constants.imageSize)
             }
             Spacer()
                 .frame(height: LayoutGrid.doubleModule * 2)
