@@ -15,6 +15,10 @@ public enum SmallInformerArrowDirection {
     case up
     /// The arrow is at the bottom
     case down
+    /// The arrow is at the top right
+    case upRight
+    /// The arrow is at the bottom right
+    case downRight
 }
 
 /// The corner radius of SmallInformer.
@@ -94,6 +98,8 @@ open class SmallInformer: UIView, AnyAppThemable, AccessibilitySupport {
     private let titleLabel = UILabel()
     private let topArrowImageView = UIImageView()
     private let bottomArrowImageView = UIImageView()
+    private let topRightArrowImageView = UIImageView()
+    private let bottomRightArrowImageView = UIImageView()
     private var titleLabelTextColors = InformerParameters<UIColor>()
     private var wrapViewBackgroundColors = InformerParameters<UIColor>()
     private var backgroundColors = InformerParameters<UIColor>()
@@ -104,6 +110,14 @@ open class SmallInformer: UIView, AnyAppThemable, AccessibilitySupport {
     
     private lazy var bottomArrowImageViewLeadingConstraint: NSLayoutConstraint = {
         return bottomArrowImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: LayoutGrid.halfModule * 5)
+    }()
+    
+    private lazy var topRightArrowImageViewTrailingConstraint: NSLayoutConstraint = {
+        return trailingAnchor.constraint(equalTo: topRightArrowImageView.trailingAnchor, constant: LayoutGrid.halfModule * 5)
+    }()
+    
+    private lazy var bottomRightArrowImageTrailingConstraint: NSLayoutConstraint = {
+        return trailingAnchor.constraint(equalTo: bottomRightArrowImageView.trailingAnchor, constant: LayoutGrid.halfModule * 5)
     }()
 
     // MARK: - Initializer
@@ -130,6 +144,9 @@ open class SmallInformer: UIView, AnyAppThemable, AccessibilitySupport {
     open func setArrowPivotLeadingAnchorPoint(constant: CGFloat) {
         topArrowImageViewLeadingConstraint.constant = constant
         bottomArrowImageViewLeadingConstraint.constant = constant
+        topRightArrowImageViewTrailingConstraint.constant = constant
+        bottomRightArrowImageTrailingConstraint.constant = constant
+        
         setNeedsLayout()
     }
     
@@ -137,7 +154,9 @@ open class SmallInformer: UIView, AnyAppThemable, AccessibilitySupport {
     /// - Parameter constant: The constant of leading anchor of arrow pivot.
     open func setArrowDirection(direction: SmallInformerArrowDirection) {
         topArrowImageView.isHidden = direction == .up ? false : true
-        bottomArrowImageView.isHidden  = !topArrowImageView.isHidden
+        bottomArrowImageView.isHidden  = direction == .down ? false : true
+        topRightArrowImageView.isHidden = direction == .upRight ? false : true
+        bottomRightArrowImageView.isHidden = direction == .downRight ? false : true
     }
     
     // MARK: - AnyAppTheamable
@@ -158,6 +177,8 @@ open class SmallInformer: UIView, AnyAppThemable, AccessibilitySupport {
         wrapView.backgroundColor = scheme.wrapViewBackgroundColors.parameter(isEnabled: isEnabled, style: style)?.uiColor
         topArrowImageView.tintColor = scheme.wrapViewBackgroundColors.parameter(isEnabled: isEnabled, style: style)?.uiColor
         bottomArrowImageView.tintColor = scheme.wrapViewBackgroundColors.parameter(isEnabled: isEnabled, style: style)?.uiColor
+        topRightArrowImageView.tintColor = scheme.wrapViewBackgroundColors.parameter(isEnabled: isEnabled, style: style)?.uiColor
+        bottomRightArrowImageView.tintColor = scheme.wrapViewBackgroundColors.parameter(isEnabled: isEnabled, style: style)?.uiColor
         backgroundColor = scheme.backgroundColors.parameter(isEnabled: isEnabled, style: style)?.uiColor
     }
     
@@ -188,6 +209,8 @@ open class SmallInformer: UIView, AnyAppThemable, AccessibilitySupport {
     private func setupArrowView() {
         topArrowImageView.image = Constants.topArrowImage
         bottomArrowImageView.image = Constants.bottomArrowImage
+        topRightArrowImageView.image = Constants.topArrowImage
+        bottomRightArrowImageView.image = Constants.bottomArrowImage
         setArrowDirection(direction: .up)
     }
     
@@ -197,7 +220,7 @@ open class SmallInformer: UIView, AnyAppThemable, AccessibilitySupport {
     }
     
     private func addSubviews() {
-        [wrapView, topArrowImageView, bottomArrowImageView].addToSuperview(self)
+        [wrapView, topArrowImageView, bottomArrowImageView, topRightArrowImageView, bottomRightArrowImageView].addToSuperview(self)
         [titleLabel].addToSuperview(wrapView)
     }
     
@@ -218,6 +241,16 @@ open class SmallInformer: UIView, AnyAppThemable, AccessibilitySupport {
             bottomArrowImageView.widthAnchor.constraint(equalToConstant: Constants.widthImageView),
             bottomArrowImageView.heightAnchor.constraint(equalToConstant: Constants.heightImageView),
             bottomArrowImageView.topAnchor.constraint(equalTo: wrapView.bottomAnchor),
+            
+            topRightArrowImageViewTrailingConstraint,
+            topRightArrowImageView.widthAnchor.constraint(equalToConstant: Constants.widthImageView),
+            topRightArrowImageView.heightAnchor.constraint(equalToConstant: Constants.heightImageView),
+            wrapView.topAnchor.constraint(equalTo: topRightArrowImageView.bottomAnchor),
+
+            bottomRightArrowImageTrailingConstraint,
+            bottomRightArrowImageView.widthAnchor.constraint(equalToConstant: Constants.widthImageView),
+            bottomRightArrowImageView.heightAnchor.constraint(equalToConstant: Constants.heightImageView),
+            bottomRightArrowImageView.topAnchor.constraint(equalTo: wrapView.bottomAnchor),
             
             titleLabel.leadingAnchor.constraint(equalTo: wrapView.leadingAnchor, constant: LayoutGrid.halfModule * 3),
             titleLabel.trailingAnchor.constraint(equalTo: wrapView.trailingAnchor, constant: -LayoutGrid.halfModule * 3),

@@ -51,7 +51,7 @@ final class ImageBaseCellDetailViewController: ScrollViewController {
     
     private func configureCells() {
         cells.append(configureCardCell())
-        cells.append(configureLargeImageCell())
+//        cells.append(configureLargeImageCell())
         cells.append(configureImageNameListViewCell())
         cells.append(configureImageBackgroundListViewCell())
         cells.append(configureImageCell())
@@ -84,13 +84,13 @@ final class ImageBaseCellDetailViewController: ScrollViewController {
         return ListCell(leadingView: cardListView, centerView: titleListView, tralingView: ArrowListView())
     }
     
-    private func configureLargeImageCell() -> ListCell<ImageListView, TitleListView, ArrowListView> {
-        let titleListView = TitleListView()
-        titleListView.title = "Lable Place"
-        let iconListView = ImageListView()
-        iconListView.image = Asset.Card.imageCard.image
-        return ListCell(leadingView: iconListView, centerView: titleListView, tralingView: ArrowListView())
-    }
+//    private func configureLargeImageCell() -> ListCell<ImageListView, TitleListView, ArrowListView> {
+//        let titleListView = TitleListView()
+//        titleListView.title = "Lable Place"
+//        let iconListView = ImageListView()
+//        iconListView.image = Asset.Card.imageCard.image
+//        return ListCell(leadingView: iconListView, centerView: titleListView, tralingView: ArrowListView())
+//    }
     
     private func configureImageCell() -> ListCell<ImageListView, TitleListView, ArrowListView> {
         let titleListView = TitleListView()

@@ -65,19 +65,22 @@ final class SmallInformersViewController: ScrollViewController {
     private func configureBadgeViews() {
         let defaultInformer = SmallInformerView()
         defaultInformer.configureWith(model: .init(headLine: "Default", title: Constants.description, style: .default))
+        defaultInformer.setInformerArrowDirecdtion(direction: .upRight)
         views.append(defaultInformer)
         
         let succesInformer = SmallInformerView()
         succesInformer.configureWith(model: .init(headLine: "Success", title: Constants.title, style: .success))
+        succesInformer.setInformerArrowDirecdtion(direction: .upRight)
         views.append(succesInformer)
         
         let attentionInformer = SmallInformerView()
         attentionInformer.configureWith(model: .init(headLine: "Attention", title: Constants.title, style: .attention))
-        attentionInformer.setInformerArrowDirecdtion(direction: .down)
+        attentionInformer.setInformerArrowDirecdtion(direction: .upRight)
         views.append(attentionInformer)
         
         let errorInformer = SmallInformerView()
         errorInformer.configureWith(model: .init(headLine: "Error", title: Constants.title, style: .error))
+        errorInformer.setInformerArrowDirecdtion(direction: .upRight)
         views.append(errorInformer)
     }
     

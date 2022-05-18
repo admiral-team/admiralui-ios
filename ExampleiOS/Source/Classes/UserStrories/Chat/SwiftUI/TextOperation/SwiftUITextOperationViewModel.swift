@@ -59,8 +59,8 @@ final class SwiftUITextOperationViewModel: ObservableObject {
             style: .default,
             chatStatus: nil,
             direction: .left,
-            time: "21:21",
-            title: "+ 35 000 ₽",
+            time: "14:52",
+            title: "- 35 000 ₽",
             description: "НПО «Ромашка»",
             rowTitle: "Default"
         ),
@@ -68,7 +68,7 @@ final class SwiftUITextOperationViewModel: ObservableObject {
             style: .success,
             chatStatus: nil,
             direction: .left,
-            time: "21:21",
+            time: "14:52",
             title: "+ 35 000 ₽",
             description: "НПО «Ромашка»",
             rowTitle: "Success"
@@ -77,9 +77,9 @@ final class SwiftUITextOperationViewModel: ObservableObject {
             style: .error,
             chatStatus: .error,
             direction: .left,
-            time: "21:21",
-            title: "+ 35 000 ₽",
-            description: "НПО «Ромашка»",
+            time: "14:52",
+            title: "Счёт ***6789 заблокирован",
+            description: "Оплатите задолженность»",
             rowTitle: "Error"
         )
     ]
