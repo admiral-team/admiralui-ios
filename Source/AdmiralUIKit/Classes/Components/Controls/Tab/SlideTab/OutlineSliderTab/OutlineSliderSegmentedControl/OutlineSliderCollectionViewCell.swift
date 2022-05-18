@@ -13,16 +13,24 @@ class OutlineSliderItem: BaseOutlineSliderItem {
     var isSelected: Bool
     var title: String?
     var scheme: OutlineSliderScheme
+    var badgeStyle: BadgeStyle?
     
-    init(isEnabled: Bool, isSelected: Bool, title: String?, scheme: OutlineSliderScheme) {
+    init(isEnabled: Bool, isSelected: Bool, title: String?, scheme: OutlineSliderScheme, badgeStyle: BadgeStyle? = nil) {
         self.isEnabled = isEnabled
         self.isSelected = isSelected
         self.title = title
         self.scheme = scheme
+        self.badgeStyle = badgeStyle
     }
 }
 
-class OutlineSliderCollectionViewCell: UICollectionViewCell, AccessibilitySupport {
+class OutlineSliderCollectionViewCell: UICollectionViewCell, AnyAppThemable, AccessibilitySupport {
+
+    // MARK: - Constants
+
+    private enum Constants {
+        static let resizedSpacing: CGFloat = 48
+    }
     
     // MARK: - Internal Properties
     
@@ -39,6 +47,14 @@ class OutlineSliderCollectionViewCell: UICollectionViewCell, AccessibilitySuppor
     var title: String? {
         didSet { titleLabel.text = title }
     }
+
+    var style: BadgeStyle? {
+        didSet {
+            guard let style = style else { return }
+            badge.style = style
+            updateScheme()
+        }
+    }
     
     var scheme = OutlineSliderScheme() {
         didSet { updateScheme() }
@@ -49,10 +65,18 @@ class OutlineSliderCollectionViewCell: UICollectionViewCell, AccessibilitySuppor
     var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
         didSet { updateSchemeFonts() }
     }
-    
+
+    // MARK: - AnyAppTheamable
+
+    open func apply(theme: AppTheme) {
+        badge.apply(theme: theme)
+        scheme = OutlineSliderScheme(theme: theme)
+    }
+
     // MARK: - Private Properties
     
     private let titleLabel = UILabel()
+    private let badge = Badge()
     
     // MARK: - Initializer
     
@@ -68,11 +92,14 @@ class OutlineSliderCollectionViewCell: UICollectionViewCell, AccessibilitySuppor
     
     override var intrinsicContentSize: CGSize {
         let titleLabelWidth = titleLabel.intrinsicContentSize.width
-        let width = titleLabelWidth + 2 * LayoutGrid.module
-        return CGSize(width: width,
-                      height: LayoutGrid.quadrupleModule)
+        
+        guard let _ = style else {
+            return CGSize(width: titleLabelWidth + 2 * LayoutGrid.module, height: LayoutGrid.quadrupleModule)
+        }
+
+        return CGSize(width: titleLabelWidth + Constants.resizedSpacing, height: LayoutGrid.quadrupleModule)
     }
-    
+
     // MARK: - Internal Methods
     
     func configure(model: BaseOutlineSliderItem) {
@@ -82,11 +109,13 @@ class OutlineSliderCollectionViewCell: UICollectionViewCell, AccessibilitySuppor
         isEnabled = outlineSliderModel.isEnabled
         setSelected(isSelected: outlineSliderModel.isSelected)
         scheme = outlineSliderModel.scheme
+        style = outlineSliderModel.badgeStyle
     }
     
     // MARK: - Private Methods
 
     private func commonInit() {
+        apply(theme: defaultTheme)
         configureUI()
         addSubviews()
         configureLayout()
@@ -101,23 +130,34 @@ class OutlineSliderCollectionViewCell: UICollectionViewCell, AccessibilitySuppor
     }
     
     private func addSubviews() {
-        [titleLabel].addToSuperview(self)
+        [titleLabel, badge].addToSuperview(self)
     }
     
     private func configureLayout() {
         NSLayoutConstraint.activate(titleLabel.fillView(view: self))
+        NSLayoutConstraint.activate([
+            badge.topAnchor.constraint(equalTo: topAnchor, constant: LayoutGrid.module),
+            trailingAnchor.constraint(equalTo: badge.trailingAnchor, constant: LayoutGrid.module)
+        ])
     }
     
     private func configureUI() {
-        layer.borderWidth = 2
+        layer.borderWidth = LayoutGrid.halfModule / 2
         layer.cornerRadius = LayoutGrid.module
+        badge.text = nil
         titleLabel.textAlignment = .center
         updateScheme()
+    }
+
+    private func updateUI() {
+        badge.isHidden = style == nil
+        badge.isEnabled = state != .disabled
     }
 
     private func updateScheme() {
         updateSchemeFonts()
         updateSchemeColors()
+        updateUI()
     }
     
     private func updateSchemeFonts() {
@@ -132,6 +172,7 @@ class OutlineSliderCollectionViewCell: UICollectionViewCell, AccessibilitySuppor
     private func updateSchemeColors() {
         titleLabel.textColor = scheme.itemScheme.titleColor.parameter(for: state)?.uiColor
         layer.borderColor = scheme.borderColor.parameter(for: state)?.cgColor
+        badge.scheme = scheme.badgeScheme
     }
     
 }

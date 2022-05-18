@@ -57,6 +57,18 @@ final class StandardTabsViewController: ScrollViewController {
 
         let view2 = TabsView<StandardSegmentedControl>(segmentView: segmentControl2, title: "Three controls")
         views.append(view2)
+
+        let segmentControl3 = StandardSegmentedControl(titles: ["One", "Two", "Three", "Four"])
+        segmentControl.selectedSegmentIndex = 0
+
+        let view3 = TabsView<StandardSegmentedControl>(segmentView: segmentControl3, title: "Four controls")
+        views.append(view3)
+
+        let segmentControl4 = StandardSegmentedControl(titles: ["One", "Two", "Three", "Four", "Five"])
+        segmentControl.selectedSegmentIndex = 0
+
+        let view4 = TabsView<StandardSegmentedControl>(segmentView: segmentControl4, title: "Five controls")
+        views.append(view4)
     }
     
     @objc private func segmentedValueChanged(_ control: StandardSegmentedControl) {

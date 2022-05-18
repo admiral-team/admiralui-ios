@@ -36,10 +36,7 @@ final class OutlineSliderTabsViewController: ScrollViewController {
     
     private func configureUI() {
         configureSegmentControlls()
-        
-        views.forEach() {
-            stackView.addArrangedSubview($0)
-        }
+        views.forEach() { stackView.addArrangedSubview($0) }
         segmentControl.setTitles(["Default", "Disabled"])
         segmentControl.selectedSegmentIndex = 0
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
@@ -55,7 +52,6 @@ final class OutlineSliderTabsViewController: ScrollViewController {
             right: LayoutGrid.doubleModule)
         
         let viewFirst = TabsView<OutlineSliderTabSegmentedControl>(segmentView: segmentControlFirst, title: "Three controls", segmentOffset: 0.0)
-        
         views.append(viewFirst)
         
         let segmentControlSecond = OutlineSliderTabSegmentedControl(titles:
@@ -69,10 +65,24 @@ final class OutlineSliderTabsViewController: ScrollViewController {
             left: LayoutGrid.doubleModule,
             bottom: 0.0,
             right: LayoutGrid.doubleModule)
-        
         let viewSecond = TabsView<OutlineSliderTabSegmentedControl>(segmentView: segmentControlSecond, title: "Slider controls", segmentOffset: 0.0)
-        
         views.append(viewSecond)
+
+        let segmentControlThird = OutlineSliderTabSegmentedControl(items: [
+            OutlineSliderTabItem(title: "One", badgeStyle: .default),
+            OutlineSliderTabItem(title: "Two", badgeStyle: .default),
+            OutlineSliderTabItem(title: "Three", badgeStyle: .natural),
+            OutlineSliderTabItem(title: "Four", badgeStyle: .clear)
+        ])
+        segmentControlThird.selectedSegmentIndex = 0
+        segmentControlThird.isScrollEnabled = true
+        segmentControlThird.contentInset = UIEdgeInsets(
+            top: 0.0,
+            left: LayoutGrid.doubleModule,
+            bottom: 0.0,
+            right: LayoutGrid.doubleModule)
+        let viewThird = TabsView<OutlineSliderTabSegmentedControl>(segmentView: segmentControlThird, title: "Notifications", segmentOffset: 0.0)
+        views.append(viewThird)
     }
     
     @objc private func segmentedValueChanged(_ control: StandardSegmentedControl) {
