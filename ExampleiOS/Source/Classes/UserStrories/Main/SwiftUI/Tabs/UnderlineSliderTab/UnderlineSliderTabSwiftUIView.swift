@@ -72,7 +72,7 @@ struct UnderlineSliderTabSwiftUIView: View {
                         .frame(height: 24.0)
                     
                     VStack(alignment: .leading, spacing: 16.0) {
-                        Text("Static Controls")
+                        Text("Notifications")
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)
                             .padding()

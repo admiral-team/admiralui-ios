@@ -62,6 +62,29 @@ final class LogoTabsViewController: ScrollViewController {
 
         let view2 = TabsView<LogoTab>(segmentView: segmentControl2, title: "Three controls")
         views.append(view2)
+
+        let segmentControl3 = LogoTab(
+            images: [Asset.Tabs.visaLogo.image,
+                     Asset.Tabs.masterCardLogo.image,
+                     Asset.Tabs.mirLogo.image,
+                     Asset.Card.applePay.image
+        ])
+        segmentControl3.selectedSegmentIndex = 0
+
+        let view3 = TabsView<LogoTab>(segmentView: segmentControl3, title: "Four controls")
+        views.append(view3)
+
+        let segmentControl4 = LogoTab(
+            images: [Asset.Tabs.visaLogo.image,
+                     Asset.Tabs.masterCardLogo.image,
+                     Asset.Tabs.mirLogo.image,
+                     Asset.Card.applePay.image,
+                     Asset.Card.googlePay.image
+        ])
+        segmentControl4.selectedSegmentIndex = 0
+
+        let view4 = TabsView<LogoTab>(segmentView: segmentControl4, title: "Five controls")
+        views.append(view4)
     }
     
     @objc private func segmentedValueChanged(_ control: StandardSegmentedControl) {
