@@ -307,7 +307,7 @@ public struct ToastView: View {
                 Button(action: closeAction, label: {
                     if closeView() == nil {
                         Constants.closeImage
-                            .frame(width: 24.0, height: 24.0)
+                            .frame(width: LayoutGrid.module * 3, height: LayoutGrid.module * 3)
                             .foregroundColor(scheme.closeTintColor.parameter(isEnabled: isEnabled, type: type)?.swiftUIColor)
                     } else {
                         closeView()
