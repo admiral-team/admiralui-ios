@@ -44,7 +44,8 @@ struct SmallInformersSwiftUIView: View {
                             SmallInformer(
                                 title: Constants.description,
                                 informerStyle: .default,
-                                arrowDirection: .top)
+                                arrowDirection: .topRight
+                                )
                                 .disabled(isEnabledControlsState != 0)
                         }
                     }
@@ -59,7 +60,8 @@ struct SmallInformersSwiftUIView: View {
                             SmallInformer(
                                 title: Constants.titleText,
                                 informerStyle: .success,
-                                arrowDirection: .top)
+                                arrowDirection: .topRight
+                                )
                                 .disabled(isEnabledControlsState != 0)
                         }
                     }
@@ -74,7 +76,7 @@ struct SmallInformersSwiftUIView: View {
                             SmallInformer(
                                 title: Constants.titleText,
                                 informerStyle: .attention,
-                                arrowDirection: .bottom
+                                arrowDirection: .topRight
                             )
                             .disabled(isEnabledControlsState != 0)
                         }
@@ -90,7 +92,7 @@ struct SmallInformersSwiftUIView: View {
                             SmallInformer(
                                 title: Constants.titleText,
                                 informerStyle: .error,
-                                arrowDirection: .bottom
+                                arrowDirection: .topRight
                             )
                             .disabled(isEnabledControlsState != 0)
                         }
@@ -111,12 +113,12 @@ struct SmallInformerStack<Content: View>: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading) {
+//        VStack(alignment: .leading) {
             HStack {
                 Spacer().frame(width: 16.0)
                 content()
                 Spacer()
             }
-        }
+//        }
     }
 }
