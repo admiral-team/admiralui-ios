@@ -60,7 +60,7 @@ final class StandardVSIconMenuViewController: ScrollViewController {
             stackView.addArrangedSubview($0)
         }
         
-        outlineSegmentControl.setTitles(["Default", "Error", "Disabled", "Read Only"])
+        outlineSegmentControl.setTitles(["Default", "Read Only", "Error", "Disabled"])
         outlineSegmentControl.selectedSegmentIndex = 0
         outlineSegmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
     }
@@ -123,10 +123,19 @@ final class StandardVSIconMenuViewController: ScrollViewController {
     }
     
     @objc private func segmentedValueChanged(_ control: OutlineSliderTabSegmentedControl) {
-        guard let state = TextInputState(rawValue: control.selectedSegmentIndex) else {
-             return
-         }
-        
+        var state: TextInputState = .normal
+        switch control.selectedSegmentIndex {
+        case 0:
+            state = .normal
+        case 1:
+            state = .readOnly
+        case 2:
+            state = .error
+        case 3:
+            state = .disabled
+        default:
+            break
+        }
         textFields.forEach({ ($0 as? TextFieldTextView)?.state = state })
     }
     

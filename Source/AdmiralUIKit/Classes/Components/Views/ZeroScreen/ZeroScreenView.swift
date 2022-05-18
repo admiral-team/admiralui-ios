@@ -39,6 +39,12 @@ public protocol ZeroScreenViewDelegate: AnyObject {
  */
 open class ZeroScreenView: UIView, AnyAppThemable {
     
+    // MARK: - Constants
+    
+    private enum Constants {
+        static let imageSize = CGFloat(54.0)
+    }
+    
     // MARK: - Public Properties
     
     public var scheme = ZeroScreenScheme() {
@@ -140,8 +146,8 @@ open class ZeroScreenView: UIView, AnyAppThemable {
         
         if image != nil {
             viewsConstraints.append(contentsOf: [
-                imageView.heightAnchor.constraint(equalToConstant: LayoutGrid.module * 9),
-                imageView.widthAnchor.constraint(equalToConstant: LayoutGrid.module * 9),
+                imageView.heightAnchor.constraint(equalToConstant: Constants.imageSize),
+                imageView.widthAnchor.constraint(equalToConstant: Constants.imageSize),
                 imageView.centerXAnchor.constraint(equalTo: centerXAnchor)
             ])
         }
