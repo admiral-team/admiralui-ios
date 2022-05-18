@@ -51,7 +51,7 @@ struct InputRangeTextFieldSwiftUIView: View {
                     name: "Optional label",
                     state: $state,
                     info: .constant("Additional text"),
-                    leadingText: "$",
+                    leadingText: "₽",
                     sliderValue: 100,
                     minValue: 100,
                     maxValue: 1000,
