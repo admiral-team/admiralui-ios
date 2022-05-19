@@ -6,8 +6,10 @@ import (
 	"log"
 	"main/auth"
 	"main/issues"
+	"main/pullRequests"
 	"main/release"
 	"os"
+	"strconv"
 
 	"github.com/joho/godotenv"
 )
@@ -20,14 +22,16 @@ func main() {
 	}
 
 	ctx := context.Background()
-	client := auth.GithubClient(os.Args[3], ctx)
 
 	switch os.Args[1] {
 	case "createComment":
+		client := auth.GithubClient(os.Args[3], ctx)
 		buildInfo := configureBuildInfo(os.Args[2])
 		formatedBuildInfo := buildInfo.formatted_build_info_git()
 		issues.CreateComment(ctx, os.Getenv("OWNER"), os.Getenv("REPO"), buildInfo.PullNumber, formatedBuildInfo, *client)
+		pullRequests.LinkPullRequest(ctx, os.Getenv("OWNER"), os.Getenv("REPO"), buildInfo.PullNumber, strconv.Itoa(buildInfo.Issue), *client)
 	case "getIssues":
+		client := auth.GithubClient(os.Args[3], ctx)
 		issues.GetIssues(ctx, os.Getenv("OWNER"), os.Getenv("REPO"), *client)
 	case "createRelease":
 		buildInfo := configureBuildInfo(os.Args[2])
