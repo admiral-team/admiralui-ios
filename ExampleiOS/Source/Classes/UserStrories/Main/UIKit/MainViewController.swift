@@ -193,7 +193,7 @@ class MainViewController: UIViewController, AnyAppThemable {
                 didSelect: { [weak self] in self?.presentLinkControl() }),
             
             MainTableViewCellViewModel(
-                title: "Spiner",
+                title: "Spinner",
                 subtitle: "Демонстрация процесса загрузки",
                 image: Asset.Main.spinner.image,
                 didSelect: { [weak self] in self?.presentActivityIndicator() }),
@@ -354,7 +354,7 @@ extension MainViewController {
     
     private func presentActivityIndicator() {
         let viewController = SpinnerViewController()
-        viewController.title = "Spiner"
+        viewController.title = "Spinner"
         navigationController?.pushViewController(viewController, animated: true)
     }
     
