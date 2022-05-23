@@ -126,10 +126,8 @@ final class ThemeViewController: BaseTableViewController {
             MenuListViewModel(
                 title: theme.displayName,
                 subtitle: "Название темы",
-                isEnabled: isEditingEnabled,
                 didSelect: { [weak self] in
                     guard let self = self else { return }
-                    guard self.isEditingEnabled else { return }
                     self.presentName()
                 }),
             
