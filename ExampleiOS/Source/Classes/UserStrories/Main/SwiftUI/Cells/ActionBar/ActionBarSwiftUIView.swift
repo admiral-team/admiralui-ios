@@ -11,7 +11,7 @@ import AdmiralUIResources
 import AdmiralSwiftUI
 
 @available(iOS 14.0.0, *)
-struct ActionBarSwiftUIViewDefault: View {
+struct ActionBarSwiftUIView: View {
 
     // MARK: - Private properties
 
@@ -23,13 +23,20 @@ struct ActionBarSwiftUIViewDefault: View {
 
     public var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Actionbar - Type default") {
+        NavigationContentView(navigationTitle: "Actionbar") {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
             ScrollView(showsIndicators: false) {
                 StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
                     .padding()
-                LazyVStack(alignment: .leading) {
+                LazyVStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
+                    HStack {
+                        Text("Default")
+                            .font(scheme.textFont.swiftUIFont)
+                            .foregroundColor(scheme.textColor.swiftUIColor)
+                        Spacer()
+                    }
+                    .padding(.horizontal, LayoutGrid.doubleModule)
                     ActionCellView(
                         cellView: ListCell(
                             leadingView: { ImageCardListView(cardImage: Image(uiImage: Asset.Card.visa.image) ) },
@@ -73,10 +80,60 @@ struct ActionBarSwiftUIViewDefault: View {
                         ],
                         style: .default
                     )
+                        .disabled(isEnabledControlsState != 0)
+                    HStack {
+                        Text("Secondary")
+                            .font(scheme.textFont.swiftUIFont)
+                            .foregroundColor(scheme.textColor.swiftUIColor)
+                        Spacer()
+                    }
+                    .padding(.horizontal, LayoutGrid.doubleModule)
+                    ActionCellView(
+                        cellView: ListCell(
+                            leadingView: { ImageCardListView(cardImage: Image(uiImage: Asset.Card.visa.image) ) },
+                            centerView: { TitleMoreDetailTextMessageListView(title: "Card", detaile: "50 000.00 ₽") },
+                            trailingView: { SubtitleWithImageListView(
+                                subtitle: "Swipe",
+                                image: AdmiralUIResources.AssetSymbol.System.Outline.arrowLeft.image,
+                                renderingMode: .template)
+                            },
+                            isSelected:
+                                Binding(
+                                    get: { self.selectedIndex == 0 },
+                                    set: { _, _ in self.selectedIndex = selectedIndex == 0 ? nil : 0 }
+                                )
+                        ),
+                        actions: [
+                            ActionItemBarAction(
+                                image: Image(uiImage: Asset.ActionBar.moreOutline.image),
+                                imageTintColor: .white,
+                                backgroundColor: .red,
+                                style: .secondary,
+                                text: "Text",
+                                handler: {}
+                            ),
+                            ActionItemBarAction(
+                                image: Image(uiImage: Asset.ActionBar.arrowUpOutline.image),
+                                imageStyle: .success,
+                                style: .secondary,
+                                text: "Text",
+                                handler: {}
+                            ),
+                            ActionItemBarAction(
+                                image: Image(uiImage: Asset.ActionBar.arrowDownOutline.image),
+                                imageStyle: .accent,
+                                style: .secondary,
+                                text: "Text",
+                                handler: {}
+                            )
+                        ],
+                        style: .secondary
+                    )
                     .disabled(isEnabledControlsState != 0)
                 }
             }
         }
     }
-    
+
+
 }

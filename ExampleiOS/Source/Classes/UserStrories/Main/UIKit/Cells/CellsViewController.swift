@@ -40,9 +40,6 @@ final class CellsViewController: ScrollViewController {
     
     private func configureCells() {
         cells.append(configureTitleCell("Base Cells"))
-        cells.append(configureTitleCell("Base Cells vs Image"))
-        cells.append(configureTitleCell("Text Cells"))
-        cells.append(configureTitleCell("Title Cells"))
         cells.append(configureTitleCell("ActionBar"))
         
         for index in 0..<cells.count {
@@ -71,15 +68,6 @@ final class CellsViewController: ScrollViewController {
             let vc = BaseCellViewController()
             navigationController?.pushViewController(vc, animated: true)
         case 1:
-            let vc = ImageBaseCellViewController()
-            navigationController?.pushViewController(vc, animated: true)
-        case 2:
-            let vc = TextBaseCellViewController()
-            navigationController?.pushViewController(vc, animated: true)
-        case 3:
-            let vc = TitleBaseCellViewController()
-            navigationController?.pushViewController(vc, animated: true)
-        case 4:
             let vc = ActionBarsViewController()
             vc.title = "Action Bars"
             navigationController?.pushViewController(vc, animated: true)

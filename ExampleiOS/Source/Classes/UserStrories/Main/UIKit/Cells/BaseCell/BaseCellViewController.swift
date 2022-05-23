@@ -39,8 +39,9 @@ final class BaseCellViewController: ScrollViewController {
     }
     
     private func configureCells() {
-        cells.append(configureTitleCell("Leading Elements"))
-        cells.append(configureTitleCell("Trailing Elements"))
+        cells.append(configureTitleCell("Leading elements"))
+        cells.append(configureTitleCell("Center elements"))
+        cells.append(configureTitleCell("Trailing elements"))
         
         
         for index in 0..<cells.count {
@@ -62,9 +63,12 @@ final class BaseCellViewController: ScrollViewController {
         
         switch view.tag {
         case 0:
-            let vc = LeadingComponentsViewController()
+            let vc = ImageBaseCellDetailViewController()
             navigationController?.pushViewController(vc, animated: true)
         case 1:
+            let vc = LeadingComponentsViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        case 2:
             let vc = TralingComponentsViewController()
             navigationController?.pushViewController(vc, animated: true)
         default:
