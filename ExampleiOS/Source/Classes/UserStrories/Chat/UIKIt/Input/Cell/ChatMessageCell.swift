@@ -105,8 +105,8 @@ final class ChatMessageCell: UITableViewCell, AnyAppThemable {
         NSLayoutConstraint.activate([
             leadingAnchorConstraint,
             trailingAnchorConstraint,
-            testChatBubble.topAnchor.constraint(equalTo: contentView.topAnchor),
-            testChatBubble.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            contentView.topAnchor.constraint(equalTo: testChatBubble.topAnchor, constant: LayoutGrid.halfModule),
+            testChatBubble.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: LayoutGrid.halfModule)
         ])
     }
 

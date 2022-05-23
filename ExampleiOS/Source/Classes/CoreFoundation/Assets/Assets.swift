@@ -33,10 +33,10 @@ public enum Asset {
     public static let bonus = ImageAsset(name: "Badges/Bonus")
   }
   public enum Card {
-    public static let imageCard = ImageAsset(name: "Card/ImageCard")
-    public static let imageCardSmall = ImageAsset(name: "Card/ImageCardSmall")
     public static let mir = ImageAsset(name: "Card/Mir")
     public static let visa = ImageAsset(name: "Card/Visa")
+    public static let applePay = ImageAsset(name: "Card/applePay")
+    public static let googlePay = ImageAsset(name: "Card/googlePay")
     public static let info = ImageAsset(name: "Card/info")
     public static let visaLabel = ImageAsset(name: "Card/visaLabel")
     public static let warning = ImageAsset(name: "Card/warning")
@@ -153,6 +153,9 @@ public enum Asset {
     public static let info = ImageAsset(name: "Toolbar/Info")
     public static let settings = ImageAsset(name: "Toolbar/Settings")
   }
+  public enum Zeroscreen {
+    public static let success = ImageAsset(name: "Zeroscreen/Success")
+  }
   public static let arrowDown = ImageAsset(name: "arrowDown")
   public static let disclosure = ImageAsset(name: "disclosure")
   public static let disclosureDown = ImageAsset(name: "disclosureDown")
@@ -169,10 +172,10 @@ public enum Asset {
     ActionBar.moreOutline,
     ActionBar.union,
     Badges.bonus,
-    Card.imageCard,
-    Card.imageCardSmall,
     Card.mir,
     Card.visa,
+    Card.applePay,
+    Card.googlePay,
     Card.info,
     Card.visaLabel,
     Card.warning,
@@ -250,6 +253,7 @@ public enum Asset {
     Toolbar.getCash,
     Toolbar.info,
     Toolbar.settings,
+    Zeroscreen.success,
     arrowDown,
     disclosure,
     disclosureDown,

@@ -93,6 +93,8 @@ public struct ToastView: View {
     
     // MARK: - Internal Properties
     
+    @Environment(\.isEnabled) private var isEnabled
+    
     /// Timer duration.
     var timerDuration: Int?
     
@@ -258,7 +260,7 @@ public struct ToastView: View {
                 Button(action: imageAction ?? {}, label: {
                     if let imageColorType = imageColorType {
                         image
-                            .foregroundColor(scheme.imageTintColor.parameter(type: imageColorType)?.swiftUIColor)
+                            .foregroundColor(scheme.imageTintColor.parameter(isEnabled: isEnabled, type: imageColorType)?.swiftUIColor)
                             .frame(
                                 width: LayoutGrid.halfModule * 7,
                                 height: LayoutGrid.halfModule * 7)
@@ -285,8 +287,8 @@ public struct ToastView: View {
 
             VStack(alignment: .leading, spacing: LayoutGrid.module) {
                 Text(title)
-                    .foregroundColor(scheme.textColor.swiftUIColor)
-                    .font(scheme.titleFont.swiftUIFont)
+                    .foregroundColor(scheme.titleTextColor.parameter(isEnabled: isEnabled, type: type)?.swiftUIColor)
+                    .font(scheme.titleTextFont.swiftUIFont)
                     .accessibilityIdentifier(accessibilityIdentifier ?? "")
                 if let linkText = linkText, let linkAction = linkAction {
                     Button(linkText, action: linkAction)
@@ -305,11 +307,11 @@ public struct ToastView: View {
                 Button(action: closeAction, label: {
                     if closeView() == nil {
                         Constants.closeImage
-                            .frame(width: 24.0, height: 24.0)
-                            .foregroundColor(scheme.closeTintColor.swiftUIColor)
+                            .frame(width: LayoutGrid.module * 3, height: LayoutGrid.module * 3)
+                            .foregroundColor(scheme.closeTintColor.parameter(isEnabled: isEnabled, type: type)?.swiftUIColor)
                     } else {
                         closeView()
-                            .foregroundColor(scheme.closeLinkColor.swiftUIColor)
+                            .foregroundColor(scheme.closeTintColor.parameter(isEnabled: isEnabled, type: type)?.swiftUIColor)
                     }
                 })
                 .padding(.top, (LayoutGrid.halfModule / 2) * 7)
@@ -317,7 +319,7 @@ public struct ToastView: View {
                 .accessibilityIdentifier(ToastViewAccessibilityIdentifiers.closeButton.accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier))
             }
         }
-        .background(scheme.backgroundColor.parameter(type: type)?.swiftUIColor)
+        .background(scheme.backgroundColor.parameter(isEnabled: isEnabled, type: type)?.swiftUIColor)
         .cornerRadius(LayoutGrid.module)
     }
     

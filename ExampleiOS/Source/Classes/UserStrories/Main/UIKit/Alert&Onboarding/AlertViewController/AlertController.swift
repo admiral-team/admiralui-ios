@@ -64,7 +64,7 @@ final class AlertController: BaseViewController, AccessibilitySupport {
     }
     
     private func configureAlertController() {
-        vc.title = "Заголовок в одну или две строки"
+        vc.title = "Header"
         vc.message = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         vc.image = Asset.PopUp.popUpImage.image
 

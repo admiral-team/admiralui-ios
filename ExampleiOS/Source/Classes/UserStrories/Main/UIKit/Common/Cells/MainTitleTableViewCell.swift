@@ -122,8 +122,8 @@ final class MainTitleTableViewCell: UITableViewCell, AnyAppThemable, Accessibili
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: LayoutGrid.doubleModule),
             titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             
-            subtitleLabel.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: LayoutGrid.module),
             disclosureImageView.leadingAnchor.constraint(equalTo: subtitleLabel.trailingAnchor, constant: LayoutGrid.doubleModule),
+            subtitleLabel.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: LayoutGrid.module),
             subtitleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
     }

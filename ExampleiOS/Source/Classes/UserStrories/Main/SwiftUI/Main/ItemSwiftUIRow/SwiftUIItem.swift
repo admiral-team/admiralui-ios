@@ -41,7 +41,7 @@ enum SwiftUIItem: String, CaseIterable {
         case .buttons:
             return "Buttons"
         case .textFields:
-            return "TextFields"
+            return "Text fields"
         case .cells:
             return "Cells"
         case .textBlocks:
@@ -55,7 +55,7 @@ enum SwiftUIItem: String, CaseIterable {
         case .badges:
             return "Badges"
         case .radioButton:
-            return "RadioButton"
+            return "Radiobutton"
         case .checkbox:
             return "Сheckbox"
         case .switcher:
@@ -77,7 +77,7 @@ enum SwiftUIItem: String, CaseIterable {
         case .toolBar:
             return "Tool bar"
         case .bottomSheets:
-            return "Bottom sheets"
+            return "Bottom-sheet"
         case .currency:
             return "Currency"
         case .chat :
