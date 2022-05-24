@@ -105,23 +105,22 @@ struct ActionBarSwiftUIView: View {
                         ),
                         actions: [
                             ActionItemBarAction(
-                                image: Image(uiImage: Asset.ActionBar.moreOutline.image),
-                                imageTintColor: .white,
-                                backgroundColor: .red,
-                                style: .secondary,
-                                text: "Text",
-                                handler: {}
-                            ),
-                            ActionItemBarAction(
-                                image: Image(uiImage: Asset.ActionBar.arrowUpOutline.image),
-                                imageStyle: .success,
-                                style: .secondary,
-                                text: "Text",
-                                handler: {}
-                            ),
-                            ActionItemBarAction(
-                                image: Image(uiImage: Asset.ActionBar.arrowDownOutline.image),
+                                image: Image(uiImage: Asset.ActionBar.mail.image),
                                 imageStyle: .accent,
+                                style: .secondary,
+                                text: "Text",
+                                handler: {}
+                            ),
+                            ActionItemBarAction(
+                                image: Image(uiImage: Asset.ActionBar.shape.image),
+                                imageStyle: .attention,
+                                style: .secondary,
+                                text: "Text",
+                                handler: {}
+                            ),
+                            ActionItemBarAction(
+                                image: Image(uiImage: Asset.ActionBar.union.image),
+                                imageStyle: .success,
                                 style: .secondary,
                                 text: "Text",
                                 handler: {}
@@ -134,6 +133,4 @@ struct ActionBarSwiftUIView: View {
             }
         }
     }
-
-
 }

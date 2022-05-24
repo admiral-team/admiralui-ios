@@ -82,9 +82,8 @@ final class ActionBarViewModel {
                 type: .secondary,
                 actions: [
                     ActionItemBarAction(
-                        image: Asset.ActionBar.closeOutline.image,
-                        imageTintColor: .white,
-                        backgroundColor: .red,
+                        image: Asset.ActionBar.shape.image,
+                        imageStyle: .attention,
                         style: .secondary,
                         text: "Text",
                         handler: {}
@@ -97,7 +96,7 @@ final class ActionBarViewModel {
                         handler: {}
                     ),
                     ActionItemBarAction(
-                        image: Asset.ActionBar.arrowDownOutline.image,
+                        image: Asset.ActionBar.mail.image,
                         imageStyle: .accent,
                         style: .secondary,
                         text: "Text",

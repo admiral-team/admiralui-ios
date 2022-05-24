@@ -51,7 +51,7 @@ struct BaseCellSwiftUIView: View {
         case .center:
             LeadingComponentsSwiftUIView()
         case .leading:
-            ImageLeadingLableComponentsSwiftUIView()
+            ImageLableComponentsSwiftUIView()
         case .traling:
             TralingComponentsSwiftUIView()
         }
