@@ -74,21 +74,21 @@ final class ActionBarViewSnapshotTests: XCTestCase {
                 image: Image(uiImage: Asset.Category.Outline.acceptOutline.image),
                 imageStyle: .attention,
                 style: .secondary,
-                text: "Text",
+                text: "Secondary",
                 handler: {}
             ),
             ActionItemBarAction(
                 image: Image(uiImage: Asset.Category.Outline.acceptOutline.image),
                 imageStyle: .accent,
                 style: .secondary,
-                text: "Text",
+                text: "Secondary",
                 handler: {}
             ),
             ActionItemBarAction(
                 image: Image(uiImage: Asset.Category.Outline.acceptOutline.image),
                 imageStyle: .error,
                 style: .secondary,
-                text: "Text",
+                text: "Secondary",
                 handler: {}
             )
         ], style: .secondary)
