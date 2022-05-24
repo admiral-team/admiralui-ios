@@ -63,7 +63,7 @@ enum SwiftUIItem: String, CaseIterable {
         case .links:
             return "Links"
         case .spiner:
-            return "Spiner"
+            return "Spinner"
         case .pageControls:
             return "Page Controls"
         case .shimmers:
