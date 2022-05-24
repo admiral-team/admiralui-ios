@@ -23,7 +23,7 @@ struct LogoTabSwiftUIView: View {
         let scheme = schemeProvider.scheme
         NavigationContentView(navigationTitle: "Logo Tabs") {
             scheme.backgroundColor.swiftUIColor
-            ScrollView(.vertical) {
+            ScrollView(.vertical, showsIndicators: false) {
                 HStack {
                     Spacer()
                 }
