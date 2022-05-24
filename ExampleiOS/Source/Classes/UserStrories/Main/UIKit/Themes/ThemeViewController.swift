@@ -26,7 +26,7 @@ final class ThemeViewController: BaseTableViewController {
     weak var delegate: ThemeViewControllerDelegete?
     
     var theme: AppTheme! {
-        didSet { reloadData() }
+        didSet { checkThemeDeleting(themeId: theme.identifier) }
     }
     
     var isEditingEnabled: Bool = true {
@@ -113,24 +113,32 @@ final class ThemeViewController: BaseTableViewController {
     
     private func updateEditingMode() {
         guard isViewLoaded else { return }
-        if isEditingEnabled {
-            navigationItem.rightBarButtonItem = deleteButton
-        } else {
-            navigationItem.rightBarButtonItem = nil
-        }
         reloadData()
     }
+
+    private func checkThemeDeleting(themeId: String) {
+        let themes = [
+            AppTheme.ThemeIdentifiers.sMELight,
+            AppTheme.ThemeIdentifiers.sMEDark,
+            AppTheme.ThemeIdentifiers.dark,
+            AppTheme.ThemeIdentifiers.light
+        ]
+        navigationItem.rightBarButtonItem = themes.contains(themeId) ? nil : deleteButton
+        reloadData()
+    }
+
     
     private func createSections() -> [MainSectionViewModel] {
         let items: [TableViewListItem] = [
             MenuListViewModel(
                 title: theme.displayName,
                 subtitle: "Название темы",
+                isEnabled: isEditingEnabled,
                 didSelect: { [weak self] in
                     guard let self = self else { return }
+                    guard self.isEditingEnabled else { return }
                     self.presentName()
                 }),
-            
             MenuListViewModel(
                 title: "Colors",
                 subtitle: "Цвета темы",
