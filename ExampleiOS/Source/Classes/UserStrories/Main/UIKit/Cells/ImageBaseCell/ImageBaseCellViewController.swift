@@ -43,7 +43,6 @@ final class ImageBaseCellViewController: ScrollViewController {
         cells.append(configureTitleCell("Leading Elements"))
         cells.append(configureTitleCell("Trailing elements"))
         
-        
         for index in 0..<cells.count {
             let gesture = UITapGestureRecognizer(target: self, action: #selector(tapCell(_:)))
             cells[index].isUserInteractionEnabled = true

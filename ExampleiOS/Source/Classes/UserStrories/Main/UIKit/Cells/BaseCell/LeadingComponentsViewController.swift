@@ -29,7 +29,7 @@ final class LeadingComponentsViewController: ScrollViewController {
     // MARK: - Private Methods
     
     private func configureUI() {
-        navigationItem.title = "Leading Cell"
+        navigationItem.title = "Center elements"
         
         configureCells()
         

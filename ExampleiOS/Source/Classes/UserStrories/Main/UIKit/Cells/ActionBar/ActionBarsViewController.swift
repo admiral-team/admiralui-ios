@@ -1,56 +1,84 @@
 //
-//  ActionBarsViewController.swift
+//  ActionBarViewControllerTwo.swift
 //  ExampleiOS
 //
 //  Created on 07.02.2022.
 //
 
 import AdmiralUIKit
+import AdmiralUIResources
+import AdmiralTheme
 import UIKit
 
-final class ActionBarsViewController: BaseTableViewController {
+final class ActionBarsViewController: ScrollViewController {
 
-    // MARK: - Private properties
+    private let viewModel = ActionBarViewModel()
+    private var cells: [ActionBarCellView] = []
 
-    private let viewModel = ActionBarsViewModel()
-
-    // MARK: - Initializer
+    // MARK: - Initializers
 
     override func viewDidLoad() {
-        setSegmentControl(hidden: true)
-
         super.viewDidLoad()
-        tableView.separatorStyle = .none
-        tableViewManager.sections = createSections()
+        configureUI()
+    }
+
+    override func apply(theme: AppTheme) {
+        super.apply(theme: theme)
+        cells.forEach({ $0.apply(theme: theme) })
     }
 
     // MARK: - Private Methods
 
-    private func createSections() -> [MainSectionViewModel] {
-        let items = viewModel.items.map { item -> MainTitleTableViewCellViewModel in
-            let title = item.getTitle()
-            return MainTitleTableViewCellViewModel(
-                title: title,
-                didSelect: { [weak self] in self?.presentVC(item: item, title: title) }
-            )
+    private func configureUI() {
+        hideSegmentView(false)
+
+        navigationItem.title = "Actionbar"
+
+        configureCells()
+
+        cells.forEach() {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            stackView.addArrangedSubview($0)
         }
-        return [MainSectionViewModel(items: items)]
+        segmentControl.setTitles(["Default", "Disabled"])
+        segmentControl.selectedSegmentIndex = 0
+        segmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
     }
 
-}
+    private func configureCells() {
+        configureTitleCell()
+    }
 
-private extension ActionBarsViewController {
-
-    func presentVC(item: ActionBarsViewModel.Items, title: String) {
-        var vc: UIViewController
-        switch item {
-        case .default:
-            vc = ActionBarViewControllerDefault()
-        case .secondary:
-            vc = ActionBarViewControllerSecondary()
+    private func configureTitleCell() {
+        viewModel.items.forEach { item in
+            let actionCellView = ActionCellView(cellView: createTitleListView(item: item), style: item.type)
+            item.actions.forEach { action in actionCellView.appendAction(action) }
+            cells.append(ActionBarCellView(actionBars: [actionCellView], titleText: item.header))
         }
-        vc.title = title
-        navigationController?.pushViewController(vc, animated: true)
+    }
+
+    private func createTitleListView(item: ActionBarViewModel.ActionBarItem) -> ListCell<ImageCardListView, TitleLargeSubtitleListView, SubtitleWithImageListView> {
+        let titleListView = TitleLargeSubtitleListView()
+        titleListView.title = item.title
+        titleListView.subtitle = item.subTitle
+        let cardListView = ImageCardListView()
+        cardListView.cardImage = item.cardImage
+
+        let swipeView = SubtitleWithImageListView()
+        swipeView.subtitle = item.swipeSubtitle
+        swipeView.image = item.swipeImage
+
+        return ListCell<ImageCardListView, TitleLargeSubtitleListView, SubtitleWithImageListView>(
+            leadingView: cardListView,
+            centerView: titleListView,
+            tralingView: swipeView
+        )
+    }
+
+    @objc private func segmentedValueChanged(_ control: StandardSegmentedControl) {
+        cells.forEach({
+            $0.isEnabled = control.selectedSegmentIndex == 1 ? false : true
+        })
     }
 
 }

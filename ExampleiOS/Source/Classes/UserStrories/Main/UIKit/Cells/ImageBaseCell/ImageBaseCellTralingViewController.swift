@@ -29,7 +29,7 @@ final class ImageBaseCellTralingViewController: ScrollViewController {
     // MARK: - Private Methods
     
     private func configureUI() {
-        navigationItem.title = "Traling Cell"
+        navigationItem.title = "Traling elements"
         
         configureCells()
         

@@ -27,7 +27,9 @@ public enum Asset {
     public static let arrowUpOutline = ImageAsset(name: "ActionBar/ArrowUpOutline")
     public static let closeOutline = ImageAsset(name: "ActionBar/CloseOutline")
     public static let moreOutline = ImageAsset(name: "ActionBar/MoreOutline")
+    public static let shape = ImageAsset(name: "ActionBar/Shape")
     public static let union = ImageAsset(name: "ActionBar/Union")
+    public static let mail = ImageAsset(name: "ActionBar/mail")
   }
   public enum Badges {
     public static let bonus = ImageAsset(name: "Badges/Bonus")
@@ -38,6 +40,7 @@ public enum Asset {
     public static let applePay = ImageAsset(name: "Card/applePay")
     public static let googlePay = ImageAsset(name: "Card/googlePay")
     public static let info = ImageAsset(name: "Card/info")
+    public static let rnb = ImageAsset(name: "Card/rnb")
     public static let visaLabel = ImageAsset(name: "Card/visaLabel")
     public static let warning = ImageAsset(name: "Card/warning")
   }
@@ -170,13 +173,16 @@ public enum Asset {
     ActionBar.arrowUpOutline,
     ActionBar.closeOutline,
     ActionBar.moreOutline,
+    ActionBar.shape,
     ActionBar.union,
+    ActionBar.mail,
     Badges.bonus,
     Card.mir,
     Card.visa,
     Card.applePay,
     Card.googlePay,
     Card.info,
+    Card.rnb,
     Card.visaLabel,
     Card.warning,
     Chat.comment,
