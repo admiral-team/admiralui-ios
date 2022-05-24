@@ -40,7 +40,7 @@ final class CellsViewController: ScrollViewController {
     
     private func configureCells() {
         cells.append(configureTitleCell("Base Cells"))
-        cells.append(configureTitleCell("ActionBar"))
+        cells.append(configureTitleCell("Actionbar"))
         
         for index in 0..<cells.count {
             let gesture = UITapGestureRecognizer(target: self, action: #selector(tapCell(_:)))

@@ -29,7 +29,7 @@ final class ImageBaseCellDetailViewController: ScrollViewController {
     // MARK: - Private Methods
     
     private func configureUI() {
-        navigationItem.title = "Image"
+        navigationItem.title = "Leading elements"
         
         segmentControl.setTitles(["Default", "Disabled"])
         segmentControl.addTarget(self, action: #selector(changeSegment(_:)), for: .valueChanged)

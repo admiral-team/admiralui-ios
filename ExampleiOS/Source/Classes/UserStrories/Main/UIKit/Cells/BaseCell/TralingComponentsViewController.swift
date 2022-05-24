@@ -29,7 +29,7 @@ final class TralingComponentsViewController: ScrollViewController {
     // MARK: - Private Methods
     
     private func configureUI() {
-        navigationItem.title = "Traling Cells"
+        navigationItem.title = "Traling elements"
         
         configureCells()
         

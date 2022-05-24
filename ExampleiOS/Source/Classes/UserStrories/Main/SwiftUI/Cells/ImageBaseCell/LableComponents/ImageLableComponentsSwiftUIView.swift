@@ -18,7 +18,7 @@ struct ImageLableComponentsSwiftUIView: View {
     
     public var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Leading Components") {
+        NavigationContentView(navigationTitle: "Leading elements") {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
             VStack(alignment: .leading, spacing: 0.0) {

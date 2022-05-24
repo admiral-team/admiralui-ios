@@ -32,7 +32,7 @@ final class ActionBarsViewController: ScrollViewController {
     private func configureUI() {
         hideSegmentView(false)
 
-        navigationItem.title = "ActionBar"
+        navigationItem.title = "Actionbar"
 
         configureCells()
 
