@@ -1,69 +1,45 @@
-# AdmiralUI
-Библиотека визуальных компонентов .<br />
-Данная библиотека разработана для ускорения процесса разработки и  соблюдения единого дизайн линейки продуктов компании<br />
+# AdmiralUI ![version](https://img.shields.io/badge/dynamic/json.svg?label=release&url=https://raw.githubusercontent.com/admiral-team/admiralui-ios/main/version.json&query=$.external_version)
+Библиотека визуальных компонентов для `iOS`<br/></br>
+<img width="1280" alt="Frame 336905" src="https://user-images.githubusercontent.com/100690555/170196915-069f01eb-f19a-443b-bdc6-4264bc6303fd.png">
+
+## Что такое AdmiralUI?
+`AdmiralUI` - это готовый набор элементов пользовательского интерфейса.
+
+## Плюсы использования библиотеки:
+- Позволяет придерживаться единого визуального стиля и интерфейсных решений
+- Ускоряет прототипирование
+- Экономит время дизайнеров и разработчиков
+
+## Почему AdmiralUI?
+- 💎 **Множество готовых компонентов** - 30+ компонентов на базе `UIKit/SwiftUI` от кнопок и текстовых полей до таймпикера и календаря.
+- 🛠 **Кастомизируемость** - компоненты имеют множество настраиваемых свойств.
+- 🎨 **Темизация** - поддержка разных цветовых палитр, возможность создания собственных и мгновенное переключение между ними.
+- 🏗 **Поддержка** - релизы выходят раз в две недели, поддержка `SwiftUI` и `UIKit`.
+- 📱 **Единый стиль на разных платформах** - есть библиотека под [Android](https://github.com/admiral-team/admiralui-android)
+
+## Настройка и подключение
+Детали подключения библиотеки в [wiki](https://github.com/admiral-team/admiralui-ios/wiki/Подключение-репозитория)
+
+## Демо приложение
+Живым примером использования библиотеки `AdmiralUI` является наше демо-приложение, которое находится в деректории `ExampleiOS`. С ним вы сможете оценить все реализованные в библиотеке компоненты в разных состояниях, с возможностью переключения встроенных цветовых тем и созданию собственных.
 
 ## Общие сведения
 * Основной язык разработки `Swift 5+`
-* Поддерживаемы менеджеры зависимостей: `SPM (основной)`, `CocoaPods`, `Carthage`
+* Поддерживаемые менеджеры зависимостей: `SPM (основной)`, `CocoaPods`, `Carthage`
 * Минимальные поддерживаемые версии: `UIKit: iOS 11.0`, `SwiftUI: iOS 14.0`
 
-## Настройка и подключение
-Примеры подключения библиотеки, используя разные менеджеры зависимостей находятся в папке:
-```
-Examples/
-```
+## Контрибьютерам
+Мы рады любой помощи, и вы можете помочь нам с развитием этого проекта. Подробности в [wiki](https://github.com/admiral-team/admiralui-ios/wiki/Контрибьютерам)
 
-### Swift Package Manager
-#### Через UI Xcode:
-```
-File -> Swift Packages -> Add Package Dependency
-```
-#### Через Package.swift:
-```
-dependencies: [
-    .package(url: “repo_path”, .upToNextMajor(from: “version”))
-]
-```  
-
-### CocoaPods
-1. Добавить в Podfile:
-* Для UIKit:
-```
-pod 'AdmiralTheme', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'branch_name'
-pod 'AdmiralUIResources', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'branch_name'
-pod 'AdmiralUIKit', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'branch_name'
-```
-* Для SwiftUI:
-```
-pod 'AdmiralTheme', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'branch_name'
-pod 'AdmiralUIResources', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'branch_name'
-pod 'AdmiralSwiftUI', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'branch_name'
-```
-* Для SwiftUI и UIKit:
-```
-pod 'AdmiralTheme', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'branch_name'
-pod 'AdmiralUIResources', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'branch_name'
-pod 'AdmiralSwiftUI', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'branch_name'
-pod 'AdmiralSwiftUI', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'branch_name'
-```
-2. Выполнить в терминале команду:
-```
-pod install
-```
-
-### Carthage
-1. Добавить в Cartfile:
-```
-git "repo_path" "branch_name"
-```
-2. Выполнить в терминале команду (обновления или сборки):
-```
-carthage update --platform iOS --use-xcframeworks
-```
-3. Вручную добавить фреймворк в проект Xcode:
-```
-Targets -> General -> Frameworks, Libraries and Embedded Content -> Carthage/Build/AdmiralUI.xcframework
-```
+## Команда проекта
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/ton252"><img src="https://avatars.githubusercontent.com/u/13065321?v=4" width="80px;" alt="" /><br/><sub><b>Поляков Антон</b></sub></a><br /><a href="https://github.com/admiral-team/admiralui-ios/commits?author=ton252" title="Code">👑</a></td>
+    <td align="center"><a href="https://github.com/KirBorisov96"><img src="https://avatars.githubusercontent.com/u/20974161?v=4" width="80px;" alt="" /><br/><sub><b>Борисов Кирилл</b></sub></a><br /><a href="https://github.com/admiral-team/admiralui-android/commits?author=KirBorisov96" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/Almazovivan"><img src="https://avatars.githubusercontent.com/u/4298267?v=4" width="80px;" alt="" /><br /><sub><b>Алмазов Иван</b></sub></a><br /><a href="https://github.com/admiral-team/admiralui-android/commits?author=Almazovivan" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/Andyatkov"><img src="https://avatars.githubusercontent.com/u/101252323?v=4" width="80px;" alt="" /><br /><sub><b>Андрей Дятков</b></sub></a><br /><a href="https://github.com/admiral-team/admiralui-android/commits?author=Andyatkov" title="Code">🛠</a></td>
+  </tr>
+</table>
 
 ### Структура проекта
 Проект разделен на 4 модуля:
