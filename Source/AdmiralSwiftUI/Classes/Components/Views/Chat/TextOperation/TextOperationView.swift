@@ -147,7 +147,7 @@ public struct TextOperationView: View {
                     HStack(spacing: .zero) {
                         Text(time)
                             .foregroundColor(scheme.timeColor.swiftUIColor)
-                            .font(scheme.titleFont.swiftUIFont)
+                            .font(scheme.timeFont.swiftUIFont)
                         Spacer()
                     }
                     HStack(spacing: .zero) {

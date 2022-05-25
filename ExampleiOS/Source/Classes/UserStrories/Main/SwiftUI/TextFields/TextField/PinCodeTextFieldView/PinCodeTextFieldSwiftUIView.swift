@@ -33,7 +33,7 @@ struct PinCodeTextFieldView: View {
                   Spacer()
                 }
                 StandardTab(
-                    items: ["Default", "Positive", "Error"],
+                    items: ["Default", "Success", "Error"],
                     selection: $controlsState)
                     .onChange(of: controlsState, perform: { value in
                     self.status = CodeInputControl.Status(rawValue: value) ?? .normal

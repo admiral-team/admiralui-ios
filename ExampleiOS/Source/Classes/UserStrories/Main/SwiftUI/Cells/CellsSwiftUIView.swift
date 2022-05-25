@@ -50,14 +50,8 @@ struct CellsSwiftUIView: View {
         switch type {
         case .baseCell:
             BaseCellSwiftUIView()
-        case .textCell:
-            TextBaseCellSwiftUIView()
-        case .titleCell:
-            TitleBaseCellSwiftUIView()
         case .actionbar:
-            ActionBarSwiftUI()
-        case .baseImageCell:
-            ImageBaseCellSwiftUIView()
+            ActionBarSwiftUIView()
         }
     }
     

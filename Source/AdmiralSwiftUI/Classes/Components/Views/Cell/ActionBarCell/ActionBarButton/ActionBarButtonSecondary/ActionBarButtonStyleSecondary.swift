@@ -91,10 +91,9 @@ private extension ActionBarButtonStyleSecondary {
             return VStack {
                 image
                     .renderingMode(.template)
-                    .resizable()
                     .scaledToFit()
-                    .frame(width: Constants.imageSize, height: Constants.imageSize)
                     .foregroundColor(colors.1)
+                    .frame(width: Constants.imageSize, height: Constants.imageSize)
                 Text(text ?? "")
                     .font(scheme.textFont.swiftUIFont)
                     .foregroundColor(scheme.textColor.swiftUIColor)

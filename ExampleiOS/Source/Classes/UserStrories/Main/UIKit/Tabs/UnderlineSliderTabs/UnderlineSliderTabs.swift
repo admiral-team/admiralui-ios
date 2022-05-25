@@ -84,7 +84,7 @@ final class UnderlineSliderTabsViewController: ScrollViewController {
             bottom: 0.0,
             right: LayoutGrid.doubleModule)
         
-        let view3 = TabsView<UnderlineSegmentedControl>(segmentView: segmentControlThird, title: "Static controls", segmentOffset: 0.0)
+        let view3 = TabsView<UnderlineSegmentedControl>(segmentView: segmentControlThird, title: "Notifications", segmentOffset: 0.0)
         
         views.append(view3)
     }

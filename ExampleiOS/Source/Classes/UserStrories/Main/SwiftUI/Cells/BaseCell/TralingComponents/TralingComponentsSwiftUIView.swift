@@ -61,6 +61,14 @@ struct TralingComponentsSwiftUIView: View {
                     LazyVStack {
                         ListCell(
                             centerView: { TitleListView(title: "Title") },
+                            trailingView: { IconListView(image: Image(uiImage: Asset.Card.rnb.image)) },
+                            isSelected:
+                                Binding(
+                                    get: { self.selectedIndex == 4 },
+                                    set: { _, _ in self.selectedIndex = self.selectedIndex == 4 ? nil : 4 }
+                                ))
+                        ListCell(
+                            centerView: { TitleListView(title: "Title") },
                             trailingView: { CardListView(image: Image(uiImage: Asset.Card.visa.image)) },
                             isSelected:
                                 Binding(

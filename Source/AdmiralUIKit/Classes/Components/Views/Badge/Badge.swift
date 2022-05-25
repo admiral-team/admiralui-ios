@@ -22,6 +22,8 @@ public enum BadgeStyle: Int {
     case error
     /// The attention state of the badge is useful to show the number of attentions
     case attention
+    /// The clear state of the badge
+    case clear
 }
 
 /// The state of badge.
@@ -168,7 +170,7 @@ open class Badge: UIView, AnyAppThemable, AccessibilitySupport {
         
     private func updateSchemeColors() {
         badgeLabel.textColor = scheme.textColor.parameter(for: state, style: style)?.uiColor
-        borderColor = scheme.borderColor.parameter(for: state, style: style)?.uiColor
+        borderColor = scheme.borderColor.uiColor
         badgeLabel.backgroundColor = scheme.backgroundColor.parameter(for: state, style: style)?.uiColor
     }
     

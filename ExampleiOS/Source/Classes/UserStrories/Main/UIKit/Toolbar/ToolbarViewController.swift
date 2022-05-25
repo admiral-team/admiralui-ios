@@ -50,7 +50,7 @@ final class ToolbarViewController: BaseTableViewController, CodeInputControlDele
         stepper.minimumValue = 1
         stepper.value = 4
         stepper.maximumValue = 4
-        stepper.text = "Количество пунктов меню"
+        stepper.text = "Количество пунктов"
         stepper.addTarget(self, action: #selector(stepperValueChanged(_:)), for: .valueChanged)
         
         addSubviews()

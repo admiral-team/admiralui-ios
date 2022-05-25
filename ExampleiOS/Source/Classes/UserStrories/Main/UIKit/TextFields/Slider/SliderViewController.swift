@@ -69,7 +69,8 @@ final class SliderViewController: ScrollViewController {
         text: String? = nil,
         placeholder: String? = nil,
         info: String? = nil,
-        changeStateAction: (( InputRangeTextField, TextInputState) -> Void)? = nil) -> ControlCellView<InputRangeTextField> {
+        changeStateAction: (( InputRangeTextField, TextInputState) -> Void)? = nil
+    ) -> ControlCellView<InputRangeTextField> {
         
         let inputRangeTextField = InputRangeTextField()
         inputRangeTextField.name = name

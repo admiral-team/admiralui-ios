@@ -29,9 +29,20 @@ struct DoubleTextFieldSwiftUIView: View {
                 HStack {
                     Spacer()
                 }
-                OutlineSliderTab(items: ["Default", "Error", "Disabled", "Read Only"], selection: $controlsState)
+                OutlineSliderTab(items: ["Default", "Read Only", "Error", "Disabled"], selection: $controlsState)
                     .onChange(of: controlsState, perform: { value in
-                        self.state = TextInputState(rawValue: value) ?? .normal
+                        switch value {
+                        case 0:
+                            self.state = .normal
+                        case 1:
+                            self.state = .readOnly
+                        case 2:
+                            self.state = .error
+                        case 3:
+                            self.state = .disabled
+                        default:
+                            break
+                        }
                     })
                 Spacer()
                     .frame(height: LayoutGrid.tripleModule)

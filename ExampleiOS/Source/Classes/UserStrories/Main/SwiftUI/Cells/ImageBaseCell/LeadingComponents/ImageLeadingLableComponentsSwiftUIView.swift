@@ -20,7 +20,7 @@ struct ImageLeadingLableComponentsSwiftUIView: View {
     
     public var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Center Components") {
+        NavigationContentView(navigationTitle: "Leading elements") {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
             ScrollView(.vertical, showsIndicators: false) {

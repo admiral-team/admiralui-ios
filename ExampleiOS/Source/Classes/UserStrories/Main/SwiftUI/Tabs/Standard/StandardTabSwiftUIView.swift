@@ -15,13 +15,15 @@ struct StandardTabSwiftUIView: View {
     @State private var isEnabledControlsState: Int = 0
     @State private var isTwoItemControlsState: Int = 0
     @State private var isThreeItemControlsState: Int = 0
+    @State private var isFourItemControlsState: Int = 0
+    @State private var isFiveItemControlsState: Int = 0
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
     
     public var body: some View {
         let scheme = schemeProvider.scheme
         NavigationContentView(navigationTitle: "Standard Tabs") {
             scheme.backgroundColor.swiftUIColor
-            ScrollView(.vertical) {
+            ScrollView(.vertical, showsIndicators: false) {
                 HStack {
                   Spacer()
                 }
@@ -41,14 +43,36 @@ struct StandardTabSwiftUIView: View {
                     }
                     Spacer()
                         .frame(height: 54.0)
-                    
-                    
                     VStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
                         Text("Three Controls")
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)
                         VStack(alignment: .leading) {
                             StandardTab(items: ["One", "Two", "Three"], selection: $isThreeItemControlsState)
+                                .disabled(isEnabledControlsState != 0)
+                            Spacer()
+                        }
+                    }
+                    Spacer()
+                        .frame(height: 54.0)
+                    VStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
+                        Text("Four Controls")
+                            .font(scheme.textFont.swiftUIFont)
+                            .foregroundColor(scheme.textColor.swiftUIColor)
+                        VStack(alignment: .leading) {
+                            StandardTab(items: ["One", "Two", "Three", "Four"], selection: $isFourItemControlsState)
+                                .disabled(isEnabledControlsState != 0)
+                            Spacer()
+                        }
+                    }
+                    Spacer()
+                        .frame(height: 54.0)
+                    VStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
+                        Text("Five Controls")
+                            .font(scheme.textFont.swiftUIFont)
+                            .foregroundColor(scheme.textColor.swiftUIColor)
+                        VStack(alignment: .leading) {
+                            StandardTab(items: ["One", "Two", "Three", "Four", "Five"], selection: $isFiveItemControlsState)
                                 .disabled(isEnabledControlsState != 0)
                             Spacer()
                         }

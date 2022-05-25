@@ -64,6 +64,16 @@ struct ImageTrailingLableComponentsSwiftUIView: View {
                         trailingView: { SwitchListView(isSwitchSelected: $isSwitchSelected) })
                         .disabled(isEnabledControlsState != 0)
                     ListCell(
+                        leadingView: { ImageCardListView(cardImage: Image(uiImage: Asset.Card.rnb.image)) },
+                        centerView: { TitleListView(title: "Title") },
+                        trailingView: { IconListView(image: Image(uiImage: Asset.Card.rnb.image)) },
+                        isSelected:
+                            Binding(
+                                get: { self.selectedIndex == 4 },
+                                set: { _, _ in self.selectedIndex = self.selectedIndex == 4 ? nil : 4 }
+                            ))
+                        .disabled(isEnabledControlsState != 0)
+                    ListCell(
                         leadingView: { ImageCardListView(cardImage: Image(uiImage: Asset.Card.visa.image)) },
                         centerView: { TitleListView(title: "Title") },
                         trailingView: { CardListView(image: Image(uiImage: Asset.Card.visa.image)) },

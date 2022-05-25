@@ -8,6 +8,26 @@
 import UIKit
 import AdmiralTheme
 
+/// Item for Outline slider tab.
+public struct OutlineSliderTabItem {
+
+    // MARK: - Public Properties
+
+    /// Title item.
+    public let title: String
+
+    /// Badge style. Default is none.
+    public var badgeStyle: BadgeStyle?
+
+    // MARK: - Initializer
+
+    public init(title: String, badgeStyle: BadgeStyle?) {
+        self.title = title
+        self.badgeStyle = badgeStyle
+    }
+
+}
+
 /// A horizontal control with scroll that consists of multiple segments, each segment functioning as a discrete text button.
 public class OutlineSliderTabSegmentedControl: BaseOutlineSliderSegmentedControl, AnyAppThemable {
     
@@ -35,7 +55,14 @@ public class OutlineSliderTabSegmentedControl: BaseOutlineSliderSegmentedControl
         commonInit()
         setTitles(titles)
     }
-    
+
+    /// Initializes and returns a newly allocated view object with titles by OutlineSliderTabItem array.
+    public init(items: [OutlineSliderTabItem]) {
+        super.init()
+        commonInit()
+        setItems(items)
+    }
+
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     public override init() {
         super.init()
@@ -60,6 +87,13 @@ public class OutlineSliderTabSegmentedControl: BaseOutlineSliderSegmentedControl
     /// - Parameter titles: A strings to display in the segments.
     public func setTitles(_ titles: [String?]) {
         let labels = titles.map() { createItem(title: $0) }
+        set(items: labels)
+    }
+
+    /// Sets titles.
+    /// - Parameter items: An array of OutlineSliderTabItem to display in the segments.
+    public func setItems(_ items: [OutlineSliderTabItem]) {
+        let labels = items.map() { createItem(title: $0.title, style: $0.badgeStyle) }
         set(items: labels)
     }
     
@@ -142,12 +176,14 @@ public class OutlineSliderTabSegmentedControl: BaseOutlineSliderSegmentedControl
         height = LayoutGrid.quadrupleModule
     }
 
-    private func createItem(title: String?) -> OutlineSliderItem {
+    private func createItem(title: String?, style: BadgeStyle? = nil) -> OutlineSliderItem {
         let item = OutlineSliderItem(
             isEnabled: isEnabled,
             isSelected: false,
             title: title,
-            scheme: scheme)
+            scheme: scheme,
+            badgeStyle: style
+        )
         return item
     }
     

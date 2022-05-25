@@ -109,6 +109,7 @@ lane :deploy_appcenter_dev do |options|
     comment_body = formatted_build_info_json(build_info: build_info)
     system("cd ./go_scripts && ./main createComment #{comment_body} #{ENV['API_GITHUB_TOKEN']}")
   end
+
 end
 
 lane :run_all_tests do |options|
@@ -329,7 +330,6 @@ lane :start_next_release_version do
   internal = "#{Integer(current_lib_internal_version) + 1}"
   set_version(external_version: external, internal_version: internal)
   increment_app_version(version_number: external)
-  add_unreleased_version
 end
 
 lane :validate_spm_example do |options|
@@ -368,25 +368,6 @@ lane :validate_carthage_example do |options|
     configuration: "Release", 
     skip_archive: true,
     project: Dir.pwd + "/../Examples/ExampleCarthage/ExampleCarthage.xcodeproj",
-  )
-end
-
-def replace_version_jira
-  jira_replace_version(
-    version_name: unreleased_version,
-    version_attrs: {
-      'name' => current_lib_version
-    }
-  )
-end
-
-def add_unreleased_version
-  jira_add_version(
-    version_attrs: {
-      'project' => ENV['JIRA_PROJECT_NAME'],
-      'name' => unreleased_version,
-      'startDate' => DateTime.current.to_date
-    }
   )
 end
 

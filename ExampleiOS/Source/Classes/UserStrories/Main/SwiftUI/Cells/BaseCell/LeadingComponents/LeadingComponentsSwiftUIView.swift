@@ -19,7 +19,7 @@ struct LeadingComponentsSwiftUIView: View {
     
     public var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Leading elements") {
+        NavigationContentView(navigationTitle: "Center elements") {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
             ScrollView(showsIndicators: false) {

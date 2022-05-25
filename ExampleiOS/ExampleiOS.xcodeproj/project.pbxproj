@@ -80,7 +80,7 @@
 		0E73864C277B14E9003892C7 /* ActionNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E73864B277B14E9003892C7 /* ActionNotificationViewController.swift */; };
 		0E73864E277B150E003892C7 /* ActionNotificationViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E73864D277B150E003892C7 /* ActionNotificationViewScheme.swift */; };
 		0E7386E5278EE1D6003892C7 /* CustomWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7386E4278EE1D6003892C7 /* CustomWindow.swift */; };
-		0E74C5842684961E00F79D10 /* ActionBarSwiftUIViewDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E74C5832684961E00F79D10 /* ActionBarSwiftUIViewDefault.swift */; };
+		0E74C5842684961E00F79D10 /* ActionBarSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E74C5832684961E00F79D10 /* ActionBarSwiftUIView.swift */; };
 		0E76FAD8253D9215001B1F3D /* BadgeCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E76FAD7253D9215001B1F3D /* BadgeCellView.swift */; };
 		0E76FB40253ED9AF001B1F3D /* RadioButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E76FB3F253ED9AF001B1F3D /* RadioButtonViewController.swift */; };
 		0E76FB43253EDB94001B1F3D /* SwitcherCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E76FB42253EDB94001B1F3D /* SwitcherCellView.swift */; };
@@ -90,7 +90,6 @@
 		0E853CC3259214DA0033F17C /* StatusHistoryStandardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E853CC2259214DA0033F17C /* StatusHistoryStandardViewController.swift */; };
 		0E853CC5259214E60033F17C /* StatusHistorySmallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E853CC4259214E60033F17C /* StatusHistorySmallViewController.swift */; };
 		0E853D002593EC850033F17C /* HeadersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E853CFF2593EC850033F17C /* HeadersViewController.swift */; };
-		0E8CC7FE2578290F008143A1 /* ActionBarViewControllerDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8CC7FD2578290F008143A1 /* ActionBarViewControllerDefault.swift */; };
 		0E9464DE26B18E0600F5E790 /* InformersAndToastsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9464DD26B18E0600F5E790 /* InformersAndToastsSwiftUIView.swift */; };
 		0E9464E026B18E1A00F5E790 /* InformersAndToastsSwiftUItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9464DF26B18E1A00F5E790 /* InformersAndToastsSwiftUItem.swift */; };
 		0E9464E326B18EC800F5E790 /* NotificationsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9464E226B18EC800F5E790 /* NotificationsSwiftUIView.swift */; };
@@ -111,13 +110,13 @@
 		0EB1AC642657EE12007D7795 /* ItemSwiftUIRowScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB1AC632657EE12007D7795 /* ItemSwiftUIRowScheme.swift */; };
 		0EB1ACAA265BE2A4007D7795 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB1ACA9265BE2A4007D7795 /* NavigationBarModifier.swift */; };
 		0EB755F52600CBC1009BFC21 /* AdmiralSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB755F42600CBC1009BFC21 /* AdmiralSwiftUI.framework */; };
-		0EB755F62600CBC1009BFC21 /* AdmiralSwiftUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB755F42600CBC1009BFC21 /* AdmiralSwiftUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0EB755F62600CBC1009BFC21 /* AdmiralSwiftUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB755F42600CBC1009BFC21 /* AdmiralSwiftUI.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0EB755F82600CBC5009BFC21 /* AdmiralTheme.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB755F72600CBC5009BFC21 /* AdmiralTheme.framework */; };
-		0EB755F92600CBC5009BFC21 /* AdmiralTheme.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB755F72600CBC5009BFC21 /* AdmiralTheme.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0EB755F92600CBC5009BFC21 /* AdmiralTheme.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB755F72600CBC5009BFC21 /* AdmiralTheme.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0EB755FB2600CBC9009BFC21 /* AdmiralUIResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB755FA2600CBC9009BFC21 /* AdmiralUIResources.framework */; };
-		0EB755FC2600CBC9009BFC21 /* AdmiralUIResources.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB755FA2600CBC9009BFC21 /* AdmiralUIResources.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0EB755FC2600CBC9009BFC21 /* AdmiralUIResources.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB755FA2600CBC9009BFC21 /* AdmiralUIResources.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0EB757DF2600D6B0009BFC21 /* AdmiralUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB757DE2600D6B0009BFC21 /* AdmiralUIKit.framework */; };
-		0EB757E02600D6B0009BFC21 /* AdmiralUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB757DE2600D6B0009BFC21 /* AdmiralUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0EB757E02600D6B0009BFC21 /* AdmiralUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB757DE2600D6B0009BFC21 /* AdmiralUIKit.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0EBC46AA269F0044003CF5FA /* CalendarsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBC46A9269F0044003CF5FA /* CalendarsSwiftUIView.swift */; };
 		0EBC46AC269F0061003CF5FA /* CalendarsSwiftUIItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBC46AB269F0061003CF5FA /* CalendarsSwiftUIItem.swift */; };
 		0EBE006C258A674B00EEDCBC /* ShimmersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBE006B258A674B00EEDCBC /* ShimmersViewController.swift */; };
@@ -341,12 +340,7 @@
 		E9332FC7277DA28000F9AF26 /* PageControlsSwiftUIItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9332FC6277DA28000F9AF26 /* PageControlsSwiftUIItem.swift */; };
 		E9332FC9277DA2F100F9AF26 /* PageControlsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9332FC8277DA2F100F9AF26 /* PageControlsSwiftUIView.swift */; };
 		E9332FCB277DAA3500F9AF26 /* CustomSwiftUIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9332FCA277DAA3500F9AF26 /* CustomSwiftUIViewModel.swift */; };
-		E934036727B123C50007B86D /* ActionBarViewControllerSecondary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E934036627B123C50007B86D /* ActionBarViewControllerSecondary.swift */; };
-		E934036927B124840007B86D /* ActionBarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E934036827B124840007B86D /* ActionBarsViewController.swift */; };
-		E934036B27B124E70007B86D /* ActionBarsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E934036A27B124E70007B86D /* ActionBarsViewModel.swift */; };
-		E934038127B289380007B86D /* ActionBarSwiftUIViewSecondary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E934038027B289380007B86D /* ActionBarSwiftUIViewSecondary.swift */; };
-		E934038327B28A3E0007B86D /* ActionBarSwiftUIItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E934038227B28A3E0007B86D /* ActionBarSwiftUIItem.swift */; };
-		E934038527B28A960007B86D /* ActionBarSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E934038427B28A960007B86D /* ActionBarSwiftUI.swift */; };
+		E934036727B123C50007B86D /* ActionBarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E934036627B123C50007B86D /* ActionBarsViewController.swift */; };
 		E945186B27D369DD0048B133 /* Publishers+Decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945186A27D369DD0048B133 /* Publishers+Decode.swift */; };
 		E945186D27D369F60048B133 /* Publishers+Sink.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945186C27D369F60048B133 /* Publishers+Sink.swift */; };
 		E945187427D36A810048B133 /* GunItemsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945187327D36A810048B133 /* GunItemsDTO.swift */; };
@@ -431,6 +425,8 @@
 		E9C79CC527BD22AE0002EC49 /* AlertOnboardingSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C79CC427BD22AE0002EC49 /* AlertOnboardingSwiftUIView.swift */; };
 		E9C79CC727BD23500002EC49 /* AlertOnboardingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C79CC627BD23500002EC49 /* AlertOnboardingItem.swift */; };
 		E9C79CC927BD245C0002EC49 /* ErrorSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C79CC827BD245C0002EC49 /* ErrorSwiftUIView.swift */; };
+		E9D5AEE8283BC31200C1486C /* ActionBarCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D5AEE7283BC31200C1486C /* ActionBarCellView.swift */; };
+		E9D5AEEA283BC71F00C1486C /* ActionBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D5AEE9283BC71F00C1486C /* ActionBarViewModel.swift */; };
 		E9DAC2E127FB3A2F00842ACB /* SmallBadgesSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DAC2E027FB3A2F00842ACB /* SmallBadgesSwiftUIView.swift */; };
 		E9DAC2E327FB3A4100842ACB /* NormalBadgesSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DAC2E227FB3A4100842ACB /* NormalBadgesSwiftUIView.swift */; };
 		E9DAC2E527FB3A8C00842ACB /* SmallBadgesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DAC2E427FB3A8C00842ACB /* SmallBadgesViewModel.swift */; };
@@ -542,7 +538,7 @@
 		0E73864B277B14E9003892C7 /* ActionNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionNotificationViewController.swift; sourceTree = "<group>"; };
 		0E73864D277B150E003892C7 /* ActionNotificationViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionNotificationViewScheme.swift; sourceTree = "<group>"; };
 		0E7386E4278EE1D6003892C7 /* CustomWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWindow.swift; sourceTree = "<group>"; };
-		0E74C5832684961E00F79D10 /* ActionBarSwiftUIViewDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionBarSwiftUIViewDefault.swift; sourceTree = "<group>"; };
+		0E74C5832684961E00F79D10 /* ActionBarSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionBarSwiftUIView.swift; sourceTree = "<group>"; };
 		0E76FAD7253D9215001B1F3D /* BadgeCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCellView.swift; sourceTree = "<group>"; };
 		0E76FB3F253ED9AF001B1F3D /* RadioButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonViewController.swift; sourceTree = "<group>"; };
 		0E76FB42253EDB94001B1F3D /* SwitcherCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitcherCellView.swift; sourceTree = "<group>"; };
@@ -552,7 +548,6 @@
 		0E853CC2259214DA0033F17C /* StatusHistoryStandardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusHistoryStandardViewController.swift; sourceTree = "<group>"; };
 		0E853CC4259214E60033F17C /* StatusHistorySmallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusHistorySmallViewController.swift; sourceTree = "<group>"; };
 		0E853CFF2593EC850033F17C /* HeadersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadersViewController.swift; sourceTree = "<group>"; };
-		0E8CC7FD2578290F008143A1 /* ActionBarViewControllerDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionBarViewControllerDefault.swift; sourceTree = "<group>"; };
 		0E9464DD26B18E0600F5E790 /* InformersAndToastsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformersAndToastsSwiftUIView.swift; sourceTree = "<group>"; };
 		0E9464DF26B18E1A00F5E790 /* InformersAndToastsSwiftUItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformersAndToastsSwiftUItem.swift; sourceTree = "<group>"; };
 		0E9464E226B18EC800F5E790 /* NotificationsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsSwiftUIView.swift; sourceTree = "<group>"; };
@@ -802,12 +797,7 @@
 		E9332FC6277DA28000F9AF26 /* PageControlsSwiftUIItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControlsSwiftUIItem.swift; sourceTree = "<group>"; };
 		E9332FC8277DA2F100F9AF26 /* PageControlsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControlsSwiftUIView.swift; sourceTree = "<group>"; };
 		E9332FCA277DAA3500F9AF26 /* CustomSwiftUIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSwiftUIViewModel.swift; sourceTree = "<group>"; };
-		E934036627B123C50007B86D /* ActionBarViewControllerSecondary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionBarViewControllerSecondary.swift; sourceTree = "<group>"; };
-		E934036827B124840007B86D /* ActionBarsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionBarsViewController.swift; sourceTree = "<group>"; };
-		E934036A27B124E70007B86D /* ActionBarsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionBarsViewModel.swift; sourceTree = "<group>"; };
-		E934038027B289380007B86D /* ActionBarSwiftUIViewSecondary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionBarSwiftUIViewSecondary.swift; sourceTree = "<group>"; };
-		E934038227B28A3E0007B86D /* ActionBarSwiftUIItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionBarSwiftUIItem.swift; sourceTree = "<group>"; };
-		E934038427B28A960007B86D /* ActionBarSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionBarSwiftUI.swift; sourceTree = "<group>"; };
+		E934036627B123C50007B86D /* ActionBarsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionBarsViewController.swift; sourceTree = "<group>"; };
 		E945186A27D369DD0048B133 /* Publishers+Decode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers+Decode.swift"; sourceTree = "<group>"; };
 		E945186C27D369F60048B133 /* Publishers+Sink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers+Sink.swift"; sourceTree = "<group>"; };
 		E945187327D36A810048B133 /* GunItemsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GunItemsDTO.swift; sourceTree = "<group>"; };
@@ -893,6 +883,8 @@
 		E9C79CC427BD22AE0002EC49 /* AlertOnboardingSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertOnboardingSwiftUIView.swift; sourceTree = "<group>"; };
 		E9C79CC627BD23500002EC49 /* AlertOnboardingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertOnboardingItem.swift; sourceTree = "<group>"; };
 		E9C79CC827BD245C0002EC49 /* ErrorSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorSwiftUIView.swift; sourceTree = "<group>"; };
+		E9D5AEE7283BC31200C1486C /* ActionBarCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionBarCellView.swift; sourceTree = "<group>"; };
+		E9D5AEE9283BC71F00C1486C /* ActionBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionBarViewModel.swift; sourceTree = "<group>"; };
 		E9DAC2E027FB3A2F00842ACB /* SmallBadgesSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallBadgesSwiftUIView.swift; sourceTree = "<group>"; };
 		E9DAC2E227FB3A4100842ACB /* NormalBadgesSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalBadgesSwiftUIView.swift; sourceTree = "<group>"; };
 		E9DAC2E427FB3A8C00842ACB /* SmallBadgesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallBadgesViewModel.swift; sourceTree = "<group>"; };
@@ -1413,10 +1405,7 @@
 		0E74C582268495EC00F79D10 /* ActionBar */ = {
 			isa = PBXGroup;
 			children = (
-				E934038727B28B2C0007B86D /* Secondary */,
-				E934038627B28B260007B86D /* Default */,
-				E934038227B28A3E0007B86D /* ActionBarSwiftUIItem.swift */,
-				E934038427B28A960007B86D /* ActionBarSwiftUI.swift */,
+				0E74C5832684961E00F79D10 /* ActionBarSwiftUIView.swift */,
 			);
 			path = ActionBar;
 			sourceTree = "<group>";
@@ -1512,10 +1501,9 @@
 		0E8CC7FC257828F9008143A1 /* ActionBar */ = {
 			isa = PBXGroup;
 			children = (
-				E934036527B1239E0007B86D /* ActionBarTypeSecondary */,
-				E934036427B123940007B86D /* ActionBarTypeDefault */,
-				E934036827B124840007B86D /* ActionBarsViewController.swift */,
-				E934036A27B124E70007B86D /* ActionBarsViewModel.swift */,
+				E9D5AEE6283BC2DC00C1486C /* ActionBarCell */,
+				E9D5AEE9283BC71F00C1486C /* ActionBarViewModel.swift */,
+				E934036627B123C50007B86D /* ActionBarsViewController.swift */,
 			);
 			path = ActionBar;
 			sourceTree = "<group>";
@@ -2981,38 +2969,6 @@
 			path = CircularPageControl;
 			sourceTree = "<group>";
 		};
-		E934036427B123940007B86D /* ActionBarTypeDefault */ = {
-			isa = PBXGroup;
-			children = (
-				0E8CC7FD2578290F008143A1 /* ActionBarViewControllerDefault.swift */,
-			);
-			path = ActionBarTypeDefault;
-			sourceTree = "<group>";
-		};
-		E934036527B1239E0007B86D /* ActionBarTypeSecondary */ = {
-			isa = PBXGroup;
-			children = (
-				E934036627B123C50007B86D /* ActionBarViewControllerSecondary.swift */,
-			);
-			path = ActionBarTypeSecondary;
-			sourceTree = "<group>";
-		};
-		E934038627B28B260007B86D /* Default */ = {
-			isa = PBXGroup;
-			children = (
-				0E74C5832684961E00F79D10 /* ActionBarSwiftUIViewDefault.swift */,
-			);
-			path = Default;
-			sourceTree = "<group>";
-		};
-		E934038727B28B2C0007B86D /* Secondary */ = {
-			isa = PBXGroup;
-			children = (
-				E934038027B289380007B86D /* ActionBarSwiftUIViewSecondary.swift */,
-			);
-			path = Secondary;
-			sourceTree = "<group>";
-		};
 		E945186E27D36A310048B133 /* AdmiralGun */ = {
 			isa = PBXGroup;
 			children = (
@@ -3446,6 +3402,14 @@
 			path = Error;
 			sourceTree = "<group>";
 		};
+		E9D5AEE6283BC2DC00C1486C /* ActionBarCell */ = {
+			isa = PBXGroup;
+			children = (
+				E9D5AEE7283BC31200C1486C /* ActionBarCellView.swift */,
+			);
+			path = ActionBarCell;
+			sourceTree = "<group>";
+		};
 		E9DAC2DE27FB39A900842ACB /* Normal */ = {
 			isa = PBXGroup;
 			children = (
@@ -3646,7 +3610,7 @@
 				0E9464E526B18EDA00F5E790 /* NotificationsSwiftUIItem.swift in Sources */,
 				C6260AA0255AE5A2007175C2 /* TextFieldsStandardViewController.swift in Sources */,
 				C6260AB7255B08C3007175C2 /* CardNumberViewController.swift in Sources */,
-				E934036727B123C50007B86D /* ActionBarViewControllerSecondary.swift in Sources */,
+				E934036727B123C50007B86D /* ActionBarsViewController.swift in Sources */,
 				C68E93232595FCB00048EC53 /* CardViewController.swift in Sources */,
 				0EC136772666492A00F4EB7E /* FeedbackInputSwiftUIView.swift in Sources */,
 				E6ABDBAD253F3B4900B90570 /* SecureTextField.swift in Sources */,
@@ -3700,12 +3664,11 @@
 				E94518BA27D4A7270048B133 /* SwitcherPlain.swift in Sources */,
 				C6B92A89258B8CE200ABF9A0 /* BottomSheetViewController.swift in Sources */,
 				E6C2B23A25DC1172007D332A /* BrightnessCursor.swift in Sources */,
-				0E8CC7FE2578290F008143A1 /* ActionBarViewControllerDefault.swift in Sources */,
 				0E5F3D372535897500E7327C /* FontsViewController.swift in Sources */,
 				C6BA67B12631CA13001A7EB6 /* InfoMainCellCustomScheme.swift in Sources */,
 				C66A0D5D26026789005B0AF7 /* TimePickerViewController.swift in Sources */,
 				C6A13803260A0D3A001F04E5 /* ThemeSwitchListView.swift in Sources */,
-				0E74C5842684961E00F79D10 /* ActionBarSwiftUIViewDefault.swift in Sources */,
+				0E74C5842684961E00F79D10 /* ActionBarSwiftUIView.swift in Sources */,
 				C6BA67B42631CA36001A7EB6 /* MenuInfoCellCustomScheme.swift in Sources */,
 				E945187827D36AA00048B133 /* UnknownParametersDTO.swift in Sources */,
 				E92DC2EF27FC55D400CB789E /* BadgesSmallViewController.swift in Sources */,
@@ -3725,7 +3688,6 @@
 				E945187627D36A8F0048B133 /* GunItemDTO.swift in Sources */,
 				0E3FB2B6255E60210015019E /* CellsViewController.swift in Sources */,
 				E9332FBD277CCC9000F9AF26 /* UploadingImageViewController.swift in Sources */,
-				E934038127B289380007B86D /* ActionBarSwiftUIViewSecondary.swift in Sources */,
 				E9BE41DA27C8D8A800894224 /* MapButtonsListViewController.swift in Sources */,
 				C6BA67C72632D36A001A7EB6 /* MenuTableViewHeaderViewCustomScheme.swift in Sources */,
 				C6C71D1C25C1D6880050FDB5 /* CircularPageControlViewController.swift in Sources */,
@@ -3753,7 +3715,6 @@
 				E6968DDF269C5FA60006F2B3 /* UIViewController+ThemeView.swift in Sources */,
 				3B592041278DC75400706DA6 /* AlertCustomScheme.swift in Sources */,
 				E945187C27D36AC20048B133 /* GunItems.swift in Sources */,
-				E934038327B28A3E0007B86D /* ActionBarSwiftUIItem.swift in Sources */,
 				E94518BE27D4A8000048B133 /* ToolBarPlain.swift in Sources */,
 				0E22C671262AFC8A00D09FC5 /* ButtonsSwiftUIView.swift in Sources */,
 				0E576D3825370C4600E223DD /* ButtonsViewController.swift in Sources */,
@@ -3784,7 +3745,6 @@
 				0E4BC92A268347A8000FC891 /* PrimaryTitleBaseCellSwiftUI.swift in Sources */,
 				E9BE41A927C7DFF400894224 /* IconsCurrencyViewController.swift in Sources */,
 				0E853CBF259213A20033F17C /* StatusHistoryViewController.swift in Sources */,
-				E934036927B124840007B86D /* ActionBarsViewController.swift in Sources */,
 				0E6EA49B27025DCA002EBBBC /* ParagraphSwiftUIView.swift in Sources */,
 				E94518A227D36D630048B133 /* AdmiralGunProviderProtocol.swift in Sources */,
 				C6BA67C52632D100001A7EB6 /* MenuListCellCustomScheme.swift in Sources */,
@@ -3802,7 +3762,6 @@
 				E9DAC2E927FB3FCA00842ACB /* BadgesItem.swift in Sources */,
 				0E45612926860A1F003F588D /* ShimmersSwiftUIView.swift in Sources */,
 				E63B50E325DD3F0100993D21 /* ColorTokenCell.swift in Sources */,
-				E934036B27B124E70007B86D /* ActionBarsViewModel.swift in Sources */,
 				E945186D27D369F60048B133 /* Publishers+Sink.swift in Sources */,
 				E9A18D8D2739563B00668C03 /* SwiftUIUploadingFileView.swift in Sources */,
 				E9C79CC927BD245C0002EC49 /* ErrorSwiftUIView.swift in Sources */,
@@ -3953,7 +3912,6 @@
 				3B574A9F27C7DA13006FEF9A /* ZeroScreenViewControllerScheme.swift in Sources */,
 				E94518A627D386BE0048B133 /* GunItemId.swift in Sources */,
 				C6723C8425D2901300226ED9 /* LinksCellView.swift in Sources */,
-				E934038527B28A960007B86D /* ActionBarSwiftUI.swift in Sources */,
 				E9178F61280424C800C49230 /* ThemeSwitchButtonStyle.swift in Sources */,
 				E945189B27D36D240048B133 /* AdmiralGunAPIFacade.swift in Sources */,
 				0EC91E6626BD3B6500636204 /* BadgesSwiftUIView.swift in Sources */,
@@ -3975,6 +3933,7 @@
 				E9DAC2E527FB3A8C00842ACB /* SmallBadgesViewModel.swift in Sources */,
 				0E110DA527C5017C00BFF58F /* HeadersBlocksViewController.swift in Sources */,
 				0E5F3D352535895F00E7327C /* TypographyCell.swift in Sources */,
+				E9D5AEE8283BC31200C1486C /* ActionBarCellView.swift in Sources */,
 				C6C7D272265BADDC006F4106 /* SmallInformersSwiftUIView.swift in Sources */,
 				0EC9CD2026E23F8900019E09 /* ToastNotificationsSwiftUIViewScheme.swift in Sources */,
 				0E264B0A264E9E2A00601790 /* TextFieldsSwiftUIItem.swift in Sources */,
@@ -4003,6 +3962,7 @@
 				E9BE41D227C8D81900894224 /* MapButtonsViewController.swift in Sources */,
 				E9BE41B127C7DFF400894224 /* IconsFlagsCurrencyViewController.swift in Sources */,
 				0EC13741266E1A5500F4EB7E /* CellsSwiftUIView.swift in Sources */,
+				E9D5AEEA283BC71F00C1486C /* ActionBarViewModel.swift in Sources */,
 				E9BE41AA27C7DFF400894224 /* IconsCurrencyViewModel.swift in Sources */,
 				E6529CC72534F41B009D8DE9 /* MenuListViewController.swift in Sources */,
 				0E73862827751A1A003892C7 /* StaticNotificationsViewController.swift in Sources */,
@@ -4194,10 +4154,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1647607851;
-				DEVELOPMENT_TEAM = 68M2DLBU7E;
+				DEVELOPMENT_TEAM = N7B9Y8WYA7;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "Source/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -4206,9 +4166,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.17.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.AndreyDyatkov.Example-Admiral";
+				PRODUCT_BUNDLE_IDENTIFIER = com.admiralteam.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "match InHouse com.admiralteam.example";
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -4221,10 +4181,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1647607851;
-				DEVELOPMENT_TEAM = 68M2DLBU7E;
+				DEVELOPMENT_TEAM = N7B9Y8WYA7;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "Source/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -4233,9 +4193,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.17.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.AndreyDyatkov.Example-Admiral";
+				PRODUCT_BUNDLE_IDENTIFIER = com.admiralteam.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "match InHouse com.admiralteam.example";
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

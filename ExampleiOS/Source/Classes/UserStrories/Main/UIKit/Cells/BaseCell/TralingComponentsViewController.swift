@@ -29,7 +29,7 @@ final class TralingComponentsViewController: ScrollViewController {
     // MARK: - Private Methods
     
     private func configureUI() {
-        navigationItem.title = "Traling Cells"
+        navigationItem.title = "Traling elements"
         
         configureCells()
         
@@ -54,10 +54,13 @@ final class TralingComponentsViewController: ScrollViewController {
         cells.append(configureRadioButtonCell())
         cells.append(configureCheckBoxCell())
         cells.append(configureSwitchListViewCell())
+        cells.append(configureCurcleIconListViewCell())
         cells.append(configureCardListViewCell())
         cells.append(configureIconListViewCell())
         cells.append(configureDatePercentListViewCell())
         cells.append(configureImageWithSubtitleListViewCell())
+        cells.append(configureSubtitleWithImageListViewCell())
+        
         for index in 0..<cells.count {
             let gesture = UITapGestureRecognizer(target: self, action: #selector(tapCell(_:)))
             cells[index].isUserInteractionEnabled = true
@@ -150,6 +153,14 @@ final class TralingComponentsViewController: ScrollViewController {
         let titleListView = TitleListView()
         titleListView.title = "Title"
         return ListCell(centerView: titleListView, tralingView: imageWithSubtitleListView)
+    }
+    
+    private func configureCurcleIconListViewCell() -> ListCell<ListCellEmpty, TitleListView, CurcleIconListView> {
+        let curcleIconListView = CurcleIconListView()
+        curcleIconListView.image = Asset.Card.rnb.image
+        let titleListView = TitleListView()
+        titleListView.title = "Title"
+        return ListCell(centerView: titleListView, tralingView: curcleIconListView)
     }
     
 }

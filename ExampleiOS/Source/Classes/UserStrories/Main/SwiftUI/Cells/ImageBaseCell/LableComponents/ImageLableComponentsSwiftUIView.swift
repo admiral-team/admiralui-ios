@@ -18,7 +18,7 @@ struct ImageLableComponentsSwiftUIView: View {
     
     public var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Leading Components") {
+        NavigationContentView(navigationTitle: "Leading elements") {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
             VStack(alignment: .leading, spacing: 0.0) {
@@ -33,6 +33,16 @@ struct ImageLableComponentsSwiftUIView: View {
                             Binding(
                                 get: { self.selectedIndex == 0 },
                                 set: { _, _ in self.selectedIndex = self.selectedIndex == 0 ? nil : 0 }
+                            ))
+                        .disabled(isEnabledControlsState != 0)
+                    ListCell(
+                        leadingView: { ImageListView(image: Image(uiImage: Asset.Card.rnb.image)) },
+                        centerView: { TitleListView(title: "Lable Place") },
+                        trailingView: { ArrowListView() },
+                        isSelected:
+                            Binding(
+                                get: { self.selectedIndex == 1 },
+                                set: { _, _ in self.selectedIndex = self.selectedIndex == 1 ? nil : 1 }
                             ))
                         .disabled(isEnabledControlsState != 0)
                     ListCell(

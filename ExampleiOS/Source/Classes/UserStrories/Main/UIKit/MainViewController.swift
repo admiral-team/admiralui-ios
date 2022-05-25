@@ -127,7 +127,7 @@ class MainViewController: UIViewController, AnyAppThemable {
                 didSelect: { [weak self] in self?.presentButtons() }),
             
             MainTableViewCellViewModel(
-                title: "TextFields",
+                title: "Text fields",
                 subtitle: "Поля ввода",
                 image: Asset.Main.draw.image,
                 didSelect: { [weak self] in self?.presentTextFields() }),
@@ -169,7 +169,7 @@ class MainViewController: UIViewController, AnyAppThemable {
                 didSelect: { [weak self] in self?.presentBadges() }),
             
             MainTableViewCellViewModel(
-                title: "RadioButton",
+                title: "Radiobutton",
                 subtitle: "Радио кнопка",
                 image: Asset.Main.radiobuttons.image,
                 didSelect: { [weak self] in self?.presentRadioAndSwitcher() }),
@@ -193,7 +193,7 @@ class MainViewController: UIViewController, AnyAppThemable {
                 didSelect: { [weak self] in self?.presentLinkControl() }),
             
             MainTableViewCellViewModel(
-                title: "Spiner",
+                title: "Spinner",
                 subtitle: "Демонстрация процесса загрузки",
                 image: Asset.Main.spinner.image,
                 didSelect: { [weak self] in self?.presentActivityIndicator() }),
@@ -235,7 +235,7 @@ class MainViewController: UIViewController, AnyAppThemable {
                 didSelect: { [weak self] in self?.presentToolbar() }),
 
             MainTableViewCellViewModel(
-                title: "Bottom sheets",
+                title: "Bottom-sheet",
                 subtitle: "Информационная панель",
                 image: Asset.Main.bottomSheets.image,
                 didSelect: { [weak self] in self?.presentBottomSheets() }),
@@ -354,7 +354,7 @@ extension MainViewController {
     
     private func presentActivityIndicator() {
         let viewController = SpinnerViewController()
-        viewController.title = "Spiner"
+        viewController.title = "Spinner"
         navigationController?.pushViewController(viewController, animated: true)
     }
     
@@ -372,7 +372,7 @@ extension MainViewController {
     
     private func presentRadioAndSwitcher() {
         let viewController = RadioButtonViewController()
-        viewController.title = "RadioButton"
+        viewController.title = "Radiobutton"
         navigationController?.pushViewController(viewController, animated: true)
     }
     
@@ -426,7 +426,7 @@ extension MainViewController {
 
     private func presentBottomSheets() {
         let viewController = BottomSheetViewController()
-        viewController.title = "Bottom-Sheets"
+        viewController.title = "Bottom-sheet"
         navigationController?.pushViewController(viewController, animated: true)
     }
     

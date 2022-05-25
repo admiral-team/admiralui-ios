@@ -18,7 +18,7 @@ enum NotificationsSwiftUIItem: Int, CaseIterable {
         case .toast:
             return "Toast"
         case .static:
-            return "Notifications"
+            return "Static"
         case .action:
             return "Action"
         }
