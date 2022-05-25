@@ -17,7 +17,7 @@
 * Минимальные поддерживаемые версии: `UIKit: iOS 11.0`, `SwiftUI: iOS 14.0`
 
 ## Настройка и подключение
-Детали подключения библиотеки в [wiki](https://github.com/admiral-team/admiralui-android/wiki/%D0%9F%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-%D1%80%D0%B5%D0%BF%D0%BE%D0%B7%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D1%8F)
+Детали подключения библиотеки в [wiki](https://github.com/admiral-team/admiralui-ios/wiki/Подключение-репозитория)
 
 ### Структура проекта
 Проект разделен на 4 модуля:
