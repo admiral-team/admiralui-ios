@@ -30,17 +30,17 @@ jobs:
           bundle exec fastlane unlock_secrets_keychain password:"$CI_PASSWORD"
           bundle exec fastlane deploy_appcenter_dev issue_name:${{ github.head_ref }} pull_request_number:${{ github.event.number }} 
       - name: Deploy AppCenter Prod
-        if: ${{ github.event_name == 'push' && github.head_ref == 'main' }}
+        if: ${{ github.head_ref == 'main' }}
         env:     
           CI_PASSWORD:  ${{ secrets.CI_PASSWORD }}
         run: |
           bundle exec fastlane unlock_secrets_keychain password:"$CI_PASSWORD"
           bundle exec fastlane deploy_appcenter_prod
       - name: Build XCFrameworks
-        if: ${{ github.event_name == 'push' && github.head_ref == 'main' }}
+        if: ${{ github.head_ref == 'main' }}
         run: bundle exec fastlane build_git_packages
       - name: Upload Artifacts
-        if: ${{ github.event_name == 'push' && github.head_ref == 'main' }}
+        if: ${{ github.head_ref == 'main' }}
         uses: actions/upload-artifact@v3
         with:
           name: Artifacts
