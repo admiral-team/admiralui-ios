@@ -111,13 +111,13 @@
 		0EB1AC642657EE12007D7795 /* ItemSwiftUIRowScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB1AC632657EE12007D7795 /* ItemSwiftUIRowScheme.swift */; };
 		0EB1ACAA265BE2A4007D7795 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB1ACA9265BE2A4007D7795 /* NavigationBarModifier.swift */; };
 		0EB755F52600CBC1009BFC21 /* AdmiralSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB755F42600CBC1009BFC21 /* AdmiralSwiftUI.framework */; };
-		0EB755F62600CBC1009BFC21 /* AdmiralSwiftUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB755F42600CBC1009BFC21 /* AdmiralSwiftUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0EB755F62600CBC1009BFC21 /* AdmiralSwiftUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB755F42600CBC1009BFC21 /* AdmiralSwiftUI.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0EB755F82600CBC5009BFC21 /* AdmiralTheme.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB755F72600CBC5009BFC21 /* AdmiralTheme.framework */; };
-		0EB755F92600CBC5009BFC21 /* AdmiralTheme.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB755F72600CBC5009BFC21 /* AdmiralTheme.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0EB755F92600CBC5009BFC21 /* AdmiralTheme.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB755F72600CBC5009BFC21 /* AdmiralTheme.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0EB755FB2600CBC9009BFC21 /* AdmiralUIResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB755FA2600CBC9009BFC21 /* AdmiralUIResources.framework */; };
-		0EB755FC2600CBC9009BFC21 /* AdmiralUIResources.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB755FA2600CBC9009BFC21 /* AdmiralUIResources.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0EB755FC2600CBC9009BFC21 /* AdmiralUIResources.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB755FA2600CBC9009BFC21 /* AdmiralUIResources.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0EB757DF2600D6B0009BFC21 /* AdmiralUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB757DE2600D6B0009BFC21 /* AdmiralUIKit.framework */; };
-		0EB757E02600D6B0009BFC21 /* AdmiralUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB757DE2600D6B0009BFC21 /* AdmiralUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0EB757E02600D6B0009BFC21 /* AdmiralUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB757DE2600D6B0009BFC21 /* AdmiralUIKit.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0EBC46AA269F0044003CF5FA /* CalendarsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBC46A9269F0044003CF5FA /* CalendarsSwiftUIView.swift */; };
 		0EBC46AC269F0061003CF5FA /* CalendarsSwiftUIItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBC46AB269F0061003CF5FA /* CalendarsSwiftUIItem.swift */; };
 		0EBE006C258A674B00EEDCBC /* ShimmersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBE006B258A674B00EEDCBC /* ShimmersViewController.swift */; };
