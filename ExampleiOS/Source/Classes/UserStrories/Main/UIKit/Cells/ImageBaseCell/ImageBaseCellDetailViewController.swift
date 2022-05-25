@@ -91,7 +91,7 @@ final class ImageBaseCellDetailViewController: ScrollViewController {
         iconListView.image = Asset.Card.rnb.image
         return ListCell(leadingView: iconListView, centerView: titleListView, tralingView: ArrowListView())
     }
-    
+
     private func configureImageCell() -> ListCell<ImageListView, TitleListView, ArrowListView> {
         let titleListView = TitleListView()
         titleListView.title = "Icon Place"

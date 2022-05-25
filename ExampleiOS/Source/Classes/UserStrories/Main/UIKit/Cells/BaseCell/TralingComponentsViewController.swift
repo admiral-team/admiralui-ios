@@ -60,6 +60,7 @@ final class TralingComponentsViewController: ScrollViewController {
         cells.append(configureDatePercentListViewCell())
         cells.append(configureImageWithSubtitleListViewCell())
         cells.append(configureSubtitleWithImageListViewCell())
+        
         for index in 0..<cells.count {
             let gesture = UITapGestureRecognizer(target: self, action: #selector(tapCell(_:)))
             cells[index].isUserInteractionEnabled = true
