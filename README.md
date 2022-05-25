@@ -1,5 +1,7 @@
 # AdmiralUI
 Библиотека визуальных компонентов для iOS.<br />
+<img width="1280" alt="Frame 336905" src="https://user-images.githubusercontent.com/100690555/170196915-069f01eb-f19a-443b-bdc6-4264bc6303fd.png">
+
 
 ## Общие сведения
 * Основной язык разработки `Swift 5+`
