@@ -28,19 +28,6 @@
 * Поддерживаемые менеджеры зависимостей: `SPM (основной)`, `CocoaPods`, `Carthage`
 * Минимальные поддерживаемые версии: `UIKit: iOS 11.0`, `SwiftUI: iOS 14.0`
 
-## Контрибьютерам
-Мы рады любой помощи, и вы можете помочь нам с развитием этого проекта. Подробности в [wiki](https://github.com/admiral-team/admiralui-ios/wiki/Контрибьютерам)
-
-## Команда проекта
-<table>
-  <tr>
-    <td align="center"><a href="https://github.com/ton252"><img src="https://avatars.githubusercontent.com/u/13065321?v=4" width="80px;" alt="" /><br/><sub><b>Поляков Антон</b></sub></a><br /><a href="https://github.com/admiral-team/admiralui-ios/commits?author=ton252" title="Code">👑</a></td>
-    <td align="center"><a href="https://github.com/KirBorisov96"><img src="https://avatars.githubusercontent.com/u/20974161?v=4" width="80px;" alt="" /><br/><sub><b>Борисов Кирилл</b></sub></a><br /><a href="https://github.com/admiral-team/admiralui-android/commits?author=KirBorisov96" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/Almazovivan"><img src="https://avatars.githubusercontent.com/u/4298267?v=4" width="80px;" alt="" /><br /><sub><b>Алмазов Иван</b></sub></a><br /><a href="https://github.com/admiral-team/admiralui-android/commits?author=Almazovivan" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/Andyatkov"><img src="https://avatars.githubusercontent.com/u/101252323?v=4" width="80px;" alt="" /><br /><sub><b>Андрей Дятков</b></sub></a><br /><a href="https://github.com/admiral-team/admiralui-android/commits?author=Andyatkov" title="Code">🛠</a></td>
-  </tr>
-</table>
-
 ### Структура проекта
 Проект разделен на 4 модуля:
 * `AdmiralUIResources` - все ресурсы (иконки / шрифты / цвета)
@@ -53,3 +40,16 @@
 
 Так же существует приложение-витрина для демонстрации функционала:
 * `ExampleiOS` - в данном приложении можно посмотреть примеры использования компонентов, как визуально, так и в коде
+
+## Контрибьютерам
+Мы рады любой помощи, и вы можете помочь нам с развитием этого проекта. Подробности в [wiki](https://github.com/admiral-team/admiralui-ios/wiki/Контрибьютерам)
+
+## Команда проекта
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/ton252"><img src="https://avatars.githubusercontent.com/u/13065321?v=4" width="80px;" alt="" /><br/><sub><b>Поляков Антон</b></sub></a><br /><a href="https://github.com/admiral-team/admiralui-ios/commits?author=ton252" title="Code">👑</a></td>
+    <td align="center"><a href="https://github.com/KirBorisov96"><img src="https://avatars.githubusercontent.com/u/100690555?s=400&u=4d8a4e4b4837e94735b1c42905691cf624501559&v=4" width="80px;" alt="" /><br/><sub><b>Борисов Кирилл</b></sub></a><br /><a href="https://github.com/admiral-team/admiralui-ios/commits?author=KirBorisov96" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/Almazovivan"><img src="https://avatars.githubusercontent.com/u/66259778?v=4" width="80px;" alt="" /><br /><sub><b>Алмазов Иван</b></sub></a><br /><a href="https://github.com/admiral-team/admiralui-ios/commits?author=Almazovivan" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/Andyatkov"><img src="https://avatars.githubusercontent.com/u/8963238?v=4" width="80px;" alt="" /><br /><sub><b>Андрей Дятков</b></sub></a><br /><a href="https://github.com/admiral-team/admiralui-ios/commits?author=Andyatkov" title="Code">💻</a></td>
+  </tr>
+</table>
