@@ -17,62 +17,7 @@
 * Минимальные поддерживаемые версии: `UIKit: iOS 11.0`, `SwiftUI: iOS 14.0`
 
 ## Настройка и подключение
-Примеры подключения библиотеки, используя разные менеджеры зависимостей находятся в папке:
-```
-Examples/
-```
-
-### Swift Package Manager
-#### Через UI Xcode:
-```
-File -> Swift Packages -> Add Package Dependency
-```
-#### Через Package.swift:
-```
-dependencies: [
-    .package(url: “repo_path”, .upToNextMajor(from: “version”))
-]
-```  
-
-### CocoaPods
-1. Добавить в Podfile:
-* Для UIKit:
-```
-pod 'AdmiralTheme', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'branch_name'
-pod 'AdmiralUIResources', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'branch_name'
-pod 'AdmiralUIKit', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'branch_name'
-```
-* Для SwiftUI:
-```
-pod 'AdmiralTheme', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'branch_name'
-pod 'AdmiralUIResources', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'branch_name'
-pod 'AdmiralSwiftUI', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'branch_name'
-```
-* Для SwiftUI и UIKit:
-```
-pod 'AdmiralTheme', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'branch_name'
-pod 'AdmiralUIResources', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'branch_name'
-pod 'AdmiralSwiftUI', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'branch_name'
-pod 'AdmiralSwiftUI', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'branch_name'
-```
-2. Выполнить в терминале команду:
-```
-pod install
-```
-
-### Carthage
-1. Добавить в Cartfile:
-```
-git "repo_path" "branch_name"
-```
-2. Выполнить в терминале команду (обновления или сборки):
-```
-carthage update --platform iOS --use-xcframeworks
-```
-3. Вручную добавить фреймворк в проект Xcode:
-```
-Targets -> General -> Frameworks, Libraries and Embedded Content -> Carthage/Build/AdmiralUI.xcframework
-```
+Детали подключения библиотеки в [wiki](https://github.com/admiral-team/admiralui-android/wiki/%D0%9F%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-%D1%80%D0%B5%D0%BF%D0%BE%D0%B7%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D1%8F)
 
 ### Структура проекта
 Проект разделен на 4 модуля:
