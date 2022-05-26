@@ -48,8 +48,10 @@ struct BaseCellSwiftUIView: View {
     @ViewBuilder
     func view(for type: BaseCellSwiftUIItem) -> some View {
         switch type {
-        case .leading:
+        case .center:
             LeadingComponentsSwiftUIView()
+        case .leading:
+            ImageLableComponentsSwiftUIView()
         case .traling:
             TralingComponentsSwiftUIView()
         }

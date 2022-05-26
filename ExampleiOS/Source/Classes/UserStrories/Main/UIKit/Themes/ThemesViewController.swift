@@ -88,10 +88,9 @@ final class ThemesViewController: BaseTableViewController {
         let viewController = ThemeViewController()
         let disableEditingThemes = [
             AppTheme.ThemeIdentifiers.dark,
-            AppTheme.ThemeIdentifiers.light,
-            AppTheme.ThemeIdentifiers.sMEDark,
-            AppTheme.ThemeIdentifiers.sMELight
+            AppTheme.ThemeIdentifiers.light
         ]
+
         viewController.delegate = self
         viewController.theme = theme
         viewController.title = "Тема"

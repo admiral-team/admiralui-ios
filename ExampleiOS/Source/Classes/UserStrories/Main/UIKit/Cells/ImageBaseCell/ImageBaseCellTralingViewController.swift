@@ -29,7 +29,7 @@ final class ImageBaseCellTralingViewController: ScrollViewController {
     // MARK: - Private Methods
     
     private func configureUI() {
-        navigationItem.title = "Traling Cell"
+        navigationItem.title = "Traling elements"
         
         configureCells()
         
@@ -58,8 +58,8 @@ final class ImageBaseCellTralingViewController: ScrollViewController {
         cells.append(configureIconListViewCell())
         cells.append(configureDatePercentListViewCell())
         cells.append(configureImageWithSubtitleListViewCell())
-//        cells.append(configureCurcleIconListViewCell())
-    
+        cells.append(configureCurcleIconListViewCell())
+
         for index in 0..<cells.count {
             let gesture = UITapGestureRecognizer(target: self, action: #selector(tapCell(_:)))
             cells[index].isUserInteractionEnabled = true
@@ -161,14 +161,14 @@ final class ImageBaseCellTralingViewController: ScrollViewController {
         return ListCell(leadingView: cardListView, centerView: titleListView, tralingView: imageWithSubtitleListView)
     }
     
-//    private func configureCurcleIconListViewCell() -> ListCell<ImageCardListView, TitleListView, CurcleIconListView> {
-//        let curcleIconListView = CurcleIconListView()
-//        curcleIconListView.image = Asset.Card.imageCardSmall.image
-//        let titleListView = TitleListView()
-//        titleListView.title = "Title"
-//        let cardListView = ImageCardListView()
-//        cardListView.cardImage = Asset.Card.visa.image
-//        return ListCell(leadingView: cardListView, centerView: titleListView, tralingView: curcleIconListView)
-//    }
-    
+    private func configureCurcleIconListViewCell() -> ListCell<ImageCardListView, TitleListView, CurcleIconListView> {
+        let curcleIconListView = CurcleIconListView()
+        curcleIconListView.image = Asset.Card.rnb.image
+        let titleListView = TitleListView()
+        titleListView.title = "Title"
+        let cardListView = ImageCardListView()
+        cardListView.cardImage = Asset.Card.visa.image
+        return ListCell(leadingView: cardListView, centerView: titleListView, tralingView: curcleIconListView)
+    }
+
 }

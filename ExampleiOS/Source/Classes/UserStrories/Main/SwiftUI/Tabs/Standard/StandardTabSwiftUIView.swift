@@ -23,7 +23,7 @@ struct StandardTabSwiftUIView: View {
         let scheme = schemeProvider.scheme
         NavigationContentView(navigationTitle: "Standard Tabs") {
             scheme.backgroundColor.swiftUIColor
-            ScrollView(.vertical) {
+            ScrollView(.vertical, showsIndicators: false) {
                 HStack {
                   Spacer()
                 }

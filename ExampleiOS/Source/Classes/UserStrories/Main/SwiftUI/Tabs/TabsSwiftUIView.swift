@@ -20,7 +20,7 @@ struct TabsSwiftUIView: View {
         NavigationContentView(navigationTitle: "Tabs") {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
-            ScrollView(showsIndicators: false) {
+            ScrollView(.vertical, showsIndicators: false) {
                 LazyVStack(alignment: .leading) {
                     ForEach(TabsSwiftUIItem.allCases, id: \.self) { item in
                         NavigationLink(destination: view(for: item), tag: item.rawValue, selection: self.$selection) {
