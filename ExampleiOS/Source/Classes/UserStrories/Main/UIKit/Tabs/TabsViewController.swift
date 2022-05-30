@@ -41,8 +41,8 @@ final class TabsViewController: BaseTableViewController {
                 didSelect: { [weak self] in self?.presentOutlineSliderTabs() }),
             
             MainTitleTableViewCellViewModel(
-                title: "Underline Slider Tabs",
-                didSelect: { [weak self] in self?.presentUnderlineSliderTabs() }),
+                title: "Underline Tabs",
+                didSelect: { [weak self] in self?.presentUnderlineTabs() }),
             
             MainTitleTableViewCellViewModel(
                 title: "Icon Tabs",
@@ -76,9 +76,9 @@ final class TabsViewController: BaseTableViewController {
         navigationController?.pushViewController(viewController, animated: true)
     }
     
-    private func presentUnderlineSliderTabs() {
-        let viewController = UnderlineSliderTabsViewController()
-        viewController.title = "Underline Slider Tabs"
+    private func presentUnderlineTabs() {
+        let viewController = UnderlineTabsViewController()
+        viewController.title = "Underline Tabs"
         navigationController?.pushViewController(viewController, animated: true)
     }
     

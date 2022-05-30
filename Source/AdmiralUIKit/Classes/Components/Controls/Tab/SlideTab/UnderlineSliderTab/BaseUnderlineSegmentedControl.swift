@@ -58,7 +58,7 @@ public class BaseUnderlineSegmentedControl: UIControl, BaseUnderlineSegmentedCon
     
     /// The custom distance that the content view is inset from the safe area or scroll view edges.
     public var contentInset : UIEdgeInsets = .zero {
-        didSet { collectionView.contentInset = isStaticTabs ? .zero : contentInset}
+        didSet { collectionView.contentInset = contentInset}
     }
     
     // The static mode of BaseUnderlineSegmentedControl
