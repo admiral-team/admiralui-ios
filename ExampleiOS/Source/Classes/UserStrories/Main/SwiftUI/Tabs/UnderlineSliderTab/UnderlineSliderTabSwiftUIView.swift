@@ -18,11 +18,12 @@ struct UnderlineSliderTabSwiftUIView: View {
     @State private var isStaticControlsState: Int = 0
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
     
-    private let underlineTabItems = [UnderlineTabItem(title: "One", badgeStyle: nil),
-                                     UnderlineTabItem(title: "Two", badgeStyle: nil),
-                                     UnderlineTabItem(title: "Three", badgeStyle: .default)]
+    private let underlineTabItems = [UnderlineTabItem(title: "One", badgeStyle: .default),
+                                     UnderlineTabItem(title: "Two", badgeStyle: .default),
+                                     UnderlineTabItem(title: "Three", badgeStyle: .additional),
+                                     UnderlineTabItem(title: "Four", badgeStyle: nil)]
     
-    public var body: some View {
+    var body: some View {
         let scheme = schemeProvider.scheme
         NavigationContentView(navigationTitle: "Underline Slider Tabs") {
             scheme.backgroundColor.swiftUIColor
@@ -42,7 +43,7 @@ struct UnderlineSliderTabSwiftUIView: View {
                             .padding()
                         VStack(alignment: .leading) {
                             UnderlineTab(
-                                items: underlineTabItems,
+                                items: ["One", "Two", "Three"],
                                 selection: $isTwoItemControlsState,
                                 offset: .constant(16.0)
                             )
@@ -52,7 +53,7 @@ struct UnderlineSliderTabSwiftUIView: View {
                     }
                     Spacer()
                         .frame(height: 24.0)
-                    
+
                     VStack(alignment: .leading, spacing: 16.0) {
                         Text("Scroll Controls")
                             .font(scheme.textFont.swiftUIFont)
@@ -70,7 +71,7 @@ struct UnderlineSliderTabSwiftUIView: View {
                     }
                     Spacer()
                         .frame(height: 24.0)
-                    
+
                     VStack(alignment: .leading, spacing: 16.0) {
                         Text("Notifications")
                             .font(scheme.textFont.swiftUIFont)
@@ -78,9 +79,9 @@ struct UnderlineSliderTabSwiftUIView: View {
                             .padding()
                         VStack(alignment: .leading) {
                             UnderlineTab(
-                                items: ["One", "Two", "Three", "Four"],
+                                items: underlineTabItems,
                                 selection: $isStaticControlsState,
-                                isStaticTabs: .constant(true)
+                                offset: .constant(16.0)
                             )
                             .disabled(isEnabledControlsState != 0)
                             Spacer()

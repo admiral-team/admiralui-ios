@@ -1,8 +1,8 @@
 //
-//  TabsSwiftUIView.swift
+//  UnderlineTabsUIView.swift
 //  ExampleiOS
 //
-//  Created on 20.04.2021.
+//  Created on 23.05.2022.
 //
 
 import SwiftUI
@@ -10,19 +10,22 @@ import AdmiralTheme
 import AdmiralSwiftUI
 
 @available(iOS 14.0.0, *)
-struct TabsSwiftUIView: View {
+struct UnderlineTabsUIView: View {
     
     @State private var selection: Int?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
     
-    public var body: some View {
+    var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Tabs") {
+        NavigationContentView(navigationTitle: "UnderlineTabs") {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
-            ScrollView(.vertical, showsIndicators: false) {
+            ScrollView(showsIndicators: false) {
                 LazyVStack(alignment: .leading) {
-                    ForEach(TabsSwiftUIItem.allCases, id: \.self) { item in
+                    ForEach(UnderlineTabsItem.allCases, id: \.self) { item in
+                        NavigationLink(destination: EmptyView()) {
+                            EmptyView()
+                        }
                         NavigationLink(destination: view(for: item), tag: item.rawValue, selection: self.$selection) {
                             ListCell(
                                 centerView: { TitleListView(title: item.title) },
@@ -42,21 +45,12 @@ struct TabsSwiftUIView: View {
     }
     
     @ViewBuilder
-    func view(for type: TabsSwiftUIItem) -> some View {
+    func view(for type: UnderlineTabsItem) -> some View {
         switch type {
-        case .standard:
-            StandardTabSwiftUIView()
-        case .underlineSlider:
-            UnderlineTabsUIView()
-        case .logo:
-            LogoTabSwiftUIView()
-        case .outlineSlider:
-            OutlineSliderTabSwiftUITab()
-        case .informer:
-            InformerTabSwiftUIView()
-        case .icon:
-            IconTabsSwiftUI()
+        case .slider:
+            UnderlineSliderTabSwiftUIView()
+        case .center:
+            UnderlineCenterTabSwiftUIView()
         }
     }
-    
 }

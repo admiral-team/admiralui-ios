@@ -233,6 +233,6 @@ public struct UnderlineTab: View {
 struct UnderlineTabPreviews: PreviewProvider {
     
     static var previews: some View {
-        UnderlineTab(items: ["First", "Second"], selection: .constant(0))
+        UnderlineTab(items: ["First", "Second"], selection: .constant(0), isStaticTabs: .constant(true))
     }
 }

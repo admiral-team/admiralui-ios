@@ -160,6 +160,9 @@
 		3B574AAC27D29344006FEF9A /* AdmiralGunViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B574AAB27D29344006FEF9A /* AdmiralGunViewModel.swift */; };
 		3B59203F278D9A5700706DA6 /* AlertSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B59203E278D9A5700706DA6 /* AlertSwiftUIView.swift */; };
 		3B592041278DC75400706DA6 /* AlertCustomScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B592040278DC75400706DA6 /* AlertCustomScheme.swift */; };
+		3B9DD043283C2927002F7706 /* UnderlineTabsUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9DD042283C2927002F7706 /* UnderlineTabsUIView.swift */; };
+		3B9DD046283C29F0002F7706 /* UnderlineCenterTabsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9DD045283C29F0002F7706 /* UnderlineCenterTabsSwiftUIView.swift */; };
+		3B9DD048283C2BCE002F7706 /* UnderlineTabsSwiftUIItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9DD047283C2BCE002F7706 /* UnderlineTabsSwiftUIItem.swift */; };
 		3BA83504280462AE00D54318 /* OnBoardingSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA83503280462AE00D54318 /* OnBoardingSwiftUIView.swift */; };
 		3BA835062804638400D54318 /* OnBoardingCustomScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA835052804638400D54318 /* OnBoardingCustomScheme.swift */; };
 		3BA8350928059BE500D54318 /* ZeroScreenSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8350828059BE500D54318 /* ZeroScreenSwiftUIView.swift */; };
@@ -615,6 +618,9 @@
 		3B574AAB27D29344006FEF9A /* AdmiralGunViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralGunViewModel.swift; sourceTree = "<group>"; };
 		3B59203E278D9A5700706DA6 /* AlertSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSwiftUIView.swift; sourceTree = "<group>"; };
 		3B592040278DC75400706DA6 /* AlertCustomScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCustomScheme.swift; sourceTree = "<group>"; };
+		3B9DD042283C2927002F7706 /* UnderlineTabsUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineTabsUIView.swift; sourceTree = "<group>"; };
+		3B9DD045283C29F0002F7706 /* UnderlineCenterTabsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineCenterTabsSwiftUIView.swift; sourceTree = "<group>"; };
+		3B9DD047283C2BCE002F7706 /* UnderlineTabsSwiftUIItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineTabsSwiftUIItem.swift; sourceTree = "<group>"; };
 		3BA83503280462AE00D54318 /* OnBoardingSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingSwiftUIView.swift; sourceTree = "<group>"; };
 		3BA835052804638400D54318 /* OnBoardingCustomScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingCustomScheme.swift; sourceTree = "<group>"; };
 		3BA8350828059BE500D54318 /* ZeroScreenSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroScreenSwiftUIView.swift; sourceTree = "<group>"; };
@@ -1279,7 +1285,10 @@
 		0E59D36C2632C23B007B5CC1 /* UnderlineSliderTab */ = {
 			isa = PBXGroup;
 			children = (
+				3B9DD042283C2927002F7706 /* UnderlineTabsUIView.swift */,
+				3B9DD047283C2BCE002F7706 /* UnderlineTabsSwiftUIItem.swift */,
 				0E59D36D2632C264007B5CC1 /* UnderlineSliderTabSwiftUIView.swift */,
+				3B9DD045283C29F0002F7706 /* UnderlineCenterTabsSwiftUIView.swift */,
 			);
 			path = UnderlineSliderTab;
 			sourceTree = "<group>";
@@ -3684,6 +3693,7 @@
 				C6D2BB532576BA870058E754 /* ToolbarViewController.swift in Sources */,
 				3B0268B627A85F7700B03E6F /* SwiftUITextMessageViewModel.swift in Sources */,
 				0E576F3125387C4800E223DD /* TagsChipsViewController.swift in Sources */,
+				3B9DD046283C29F0002F7706 /* UnderlineCenterTabsSwiftUIView.swift in Sources */,
 				C6260A99255A88BA007175C2 /* BaseRouter.swift in Sources */,
 				E945187627D36A8F0048B133 /* GunItemDTO.swift in Sources */,
 				0E3FB2B6255E60210015019E /* CellsViewController.swift in Sources */,
@@ -3842,6 +3852,7 @@
 				E9332FC7277DA28000F9AF26 /* PageControlsSwiftUIItem.swift in Sources */,
 				E9178F66280424D600C49230 /* ThemeSwitchViewScheme.swift in Sources */,
 				C686568C255937FE00B885B8 /* SettingsViewController.swift in Sources */,
+				3B9DD048283C2BCE002F7706 /* UnderlineTabsSwiftUIItem.swift in Sources */,
 				E916FA062768C31900628C96 /* TextOperationScheme.swift in Sources */,
 				E945188727D36C4A0048B133 /* APIError.swift in Sources */,
 				C6260AC6255C3230007175C2 /* NumberViewController.swift in Sources */,
@@ -3939,6 +3950,7 @@
 				0E264B0A264E9E2A00601790 /* TextFieldsSwiftUIItem.swift in Sources */,
 				E6D91C482532047C00DCE489 /* AppDelegate.swift in Sources */,
 				C6BA67BC2631DCFC001A7EB6 /* ContactsTableViewCustomTheme.swift in Sources */,
+				3B9DD043283C2927002F7706 /* UnderlineTabsUIView.swift in Sources */,
 				E945188E27D36C940048B133 /* RequestBuilder.swift in Sources */,
 				0E110DB727C6E74900BFF58F /* DropDownViewController.swift in Sources */,
 				0E264B12264EAF1700601790 /* StandardTextFieldsSwiftUIItem.swift in Sources */,
