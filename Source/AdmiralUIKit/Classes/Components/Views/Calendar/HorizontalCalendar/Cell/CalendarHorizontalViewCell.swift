@@ -9,7 +9,11 @@ import AdmiralTheme
 import UIKit
 
 protocol CalendarHorizontalViewCellDelegate: AnyObject {
-    func prepareSelectedDates(date: Date)
+    func prepareSelectedDates(date: Date, indexPath: IndexPath?)
+}
+
+extension CalendarHorizontalViewCellDelegate {
+    func prepareSelectedDates(date: Date, indexPath: IndexPath? = nil) {}
 }
 
 class CalendarHorizontalViewCell: UICollectionViewCell, AnyAppThemable {
@@ -140,33 +144,6 @@ class CalendarHorizontalViewCell: UICollectionViewCell, AnyAppThemable {
         
         return true
     }
-    
-    private func datesRange(from: Date?, to: Date?) -> [Date] {
-        guard let from = from, let to = to else {
-            if let from = from {
-                return [from]
-            } else {
-                return []
-            }
-        }
-        
-        if from > to { return [Date]() }
-        
-        var tempDate = from
-        var array = [tempDate]
-        
-        while tempDate < to {
-            guard let date = Calendar.current.date(
-                    byAdding: .day,
-                    value: 1,
-                    to: tempDate)
-            else { return array }
-            
-            tempDate = date
-            array.append(tempDate)
-        }
-        return array
-    }
 
 }
 
@@ -270,11 +247,8 @@ extension CalendarHorizontalViewCell: UICollectionViewDelegateFlowLayout {
             let day = days[safe: indexPath.row],
             day.isDisplayedInMonth,
             isActiveDay(day: day) else { return }
-        
-        calendarHorizontalViewCellDelegate?.prepareSelectedDates(date: day.date)
-        calendarDelegate?.didSelectDates?(
-            dates: datesRange(from: selectedStartDate, to: selectedEndDate),
-            itemAt: indexPath)
+
+        calendarHorizontalViewCellDelegate?.prepareSelectedDates(date: day.date, indexPath: indexPath)
     }
     
     public func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
@@ -283,10 +257,7 @@ extension CalendarHorizontalViewCell: UICollectionViewDelegateFlowLayout {
             day.isDisplayedInMonth,
             isActiveDay(day: day) else { return }
         
-        calendarHorizontalViewCellDelegate?.prepareSelectedDates(date: day.date)
-        calendarDelegate?.didDeselectDates?(
-            dates: datesRange(from: selectedStartDate, to: selectedEndDate),
-            forItemAt: indexPath)
+        calendarHorizontalViewCellDelegate?.prepareSelectedDates(date: day.date, indexPath: indexPath)
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

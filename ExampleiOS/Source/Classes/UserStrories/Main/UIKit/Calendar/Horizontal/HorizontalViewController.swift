@@ -10,39 +10,39 @@ import AdmiralTheme
 import UIKit
 
 final class HorizontalViewController: UIViewController, AnyAppThemable, CalendarDataSource, CalendarDelegate {
-    
+
     // MARK: - Private Properties
-    
+
     private var calendarView = CalendarView(type: .horizontal)
     private let themeSwitchView = ThemeSwitchView()
     private var isThemeSwitchButtonHidden = false
-    
+
     // MARK: - Life Cycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
     }
-    
+
     // MARK: - AnyAppThemable
-    
+
     func apply(theme: AppTheme) {
         view.backgroundColor = theme.colors.backgroundBasic.uiColor
         themeSwitchView.apply(theme: theme)
         calendarView.apply(theme: theme)
     }
-    
+
     // MARK: - Private Methods
-    
+
     private func configureUI() {
         autoManage()
-        
+
         setupCalendarView()
         addSubviews()
         configureConstraints()
         addThemeSwitchView(themeSwitchView)
     }
-    
+
     private func setupCalendarView() {
         calendarView.calendarDataSource = self
         calendarView.calendarDelegate = self
@@ -50,7 +50,7 @@ final class HorizontalViewController: UIViewController, AnyAppThemable, Calendar
         calendarView.pointDates = [Date()]
         calendarView.reloadData()
     }
-    
+
     private func addSubviews() {
         [themeSwitchView,
          calendarView].forEach({
@@ -58,7 +58,7 @@ final class HorizontalViewController: UIViewController, AnyAppThemable, Calendar
             view.addSubview($0)
         })
     }
-    
+
     private func configureConstraints() {
         NSLayoutConstraint.activate([
             calendarView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -67,13 +67,13 @@ final class HorizontalViewController: UIViewController, AnyAppThemable, Calendar
             calendarView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
-    
+
     @objc private func tapThemeSwitchButton(_ button: UIButton) {
         themeSwitchView.setIsHidden(!button.isSelected, animated: true)
-        
+
         if !themeSwitchView.isHidden {
             themeSwitchView.reloadData()
         }
     }
-    
+
 }

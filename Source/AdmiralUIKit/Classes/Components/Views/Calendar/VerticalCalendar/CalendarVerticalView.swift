@@ -439,11 +439,11 @@ extension CalendarVerticalView: UICollectionViewDelegateFlowLayout {
             let day = month.days[safe: indexPath.row],
             isActiveDay(day: day),
             day.isDisplayedInMonth else { return }
-        
+
         prepareSelectedDates(date: day.date)
         calendarDelegate?.didSelectDates?(dates: selectedDates, itemAt: indexPath)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         guard
             let month = months[safe: indexPath.section],
