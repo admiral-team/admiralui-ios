@@ -85,7 +85,7 @@ final class LinerPageControl: BaseViewController {
             nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             nextButton.topAnchor.constraint(equalTo: pageControl.bottomAnchor, constant: LayoutGrid.module * 6),
             nextButton.heightAnchor.constraint(equalToConstant: LayoutGrid.halfModule * 10),
-            nextButton.widthAnchor.constraint(equalToConstant: LayoutGrid.module * 14)
+            nextButton.widthAnchor.constraint(equalToConstant: LayoutGrid.module * 16)
         ])
         
         NSLayoutConstraint.activate([
