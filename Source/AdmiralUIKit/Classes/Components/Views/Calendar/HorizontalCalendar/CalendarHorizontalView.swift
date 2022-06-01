@@ -344,7 +344,7 @@ extension CalendarHorizontalView: CalendarHorizontalHeaderViewDelegate {
             animated: true)
     }
     
-    private func prepareMultipleSelectionDates(date: Date) {
+    private func prepareMultipleSelectionDates(date: Date, indexPath: IndexPath) {
         if let startDate = selectedStartDate,
            let endDate = selectedEndDate,
            startDate <= date,
@@ -372,18 +372,53 @@ extension CalendarHorizontalView: CalendarHorizontalHeaderViewDelegate {
         } else {
             selectedStartDate = date
         }
+
+        calendarDelegate?.didSelectDates?(
+            dates: datesRange(from: selectedStartDate, to: selectedEndDate),
+            itemAt: indexPath
+        )
     }
     
-    private func prepareSingleSelectionDate(date: Date) {
+    private func prepareSingleSelectionDate(date: Date, indexPath: IndexPath) {
         if
             let selectedStartDate = selectedStartDate,
             selectedStartDate == date {
             self.selectedStartDate = nil
         } else {
-            selectedStartDate = date
+            self.selectedStartDate = date
         }
+        calendarDelegate?.didSelectDates?(
+            dates: datesRange(from: selectedStartDate, to: selectedEndDate),
+            itemAt: indexPath
+        )
     }
-    
+
+    private func datesRange(from: Date?, to: Date?) -> [Date] {
+        guard let from = from, let to = to else {
+            if let from = from {
+                return [from]
+            } else {
+                return []
+            }
+        }
+
+        if from > to { return [Date]() }
+        var tempDate = from
+        var array = [tempDate]
+
+        while tempDate < to {
+            guard let date = Calendar.current.date(
+                    byAdding: .day,
+                    value: 1,
+                    to: tempDate)
+            else { return array }
+
+            tempDate = date
+            array.append(tempDate)
+        }
+        return array
+    }
+
     private func datesRange(from: Date, to: Date) -> [Date] {
         if from > to { return [Date]() }
         
@@ -470,8 +505,9 @@ extension CalendarHorizontalView: UICollectionViewDataSource {
 
 extension CalendarHorizontalView: CalendarHorizontalViewCellDelegate {
     
-    func prepareSelectedDates(date: Date) {
-        isMutlipleSelectionAllowed ? prepareMultipleSelectionDates(date: date) : prepareSingleSelectionDate(date: date)
+    func prepareSelectedDates(date: Date, indexPath: IndexPath?) {
+        guard let indexPath = indexPath else { return }
+        isMutlipleSelectionAllowed ? prepareMultipleSelectionDates(date: date, indexPath: indexPath) : prepareSingleSelectionDate(date: date, indexPath: indexPath)
         collectionView.reloadData()
     }
     
