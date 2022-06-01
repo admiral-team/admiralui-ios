@@ -152,6 +152,7 @@
 		3B0268B627A85F7700B03E6F /* SwiftUITextMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0268B527A85F7700B03E6F /* SwiftUITextMessageViewModel.swift */; };
 		3B0268B827AAA8D900B03E6F /* SwiftUITextOperationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0268B727AAA8D900B03E6F /* SwiftUITextOperationViewModel.swift */; };
 		3B500E2827297F2500A860F0 /* UIApplication+EndEditing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B500E2727297F2500A860F0 /* UIApplication+EndEditing.swift */; };
+		3B54046528466D0C00CD6C80 /* LinerSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B54046428466D0C00CD6C80 /* LinerSwiftUIView.swift */; };
 		3B56DAD8280D70F900161355 /* OnBoardingPageUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B56DAD7280D70F900161355 /* OnBoardingPageUIView.swift */; };
 		3B56DADA280D772900161355 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B56DAD9280D772900161355 /* PageViewController.swift */; };
 		3B574A9D27C7D9E2006FEF9A /* ZeroScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B574A9C27C7D9E2006FEF9A /* ZeroScreenViewController.swift */; };
@@ -607,6 +608,7 @@
 		3B0268B527A85F7700B03E6F /* SwiftUITextMessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITextMessageViewModel.swift; sourceTree = "<group>"; };
 		3B0268B727AAA8D900B03E6F /* SwiftUITextOperationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITextOperationViewModel.swift; sourceTree = "<group>"; };
 		3B500E2727297F2500A860F0 /* UIApplication+EndEditing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+EndEditing.swift"; sourceTree = "<group>"; };
+		3B54046428466D0C00CD6C80 /* LinerSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinerSwiftUIView.swift; sourceTree = "<group>"; };
 		3B56DAD7280D70F900161355 /* OnBoardingPageUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingPageUIView.swift; sourceTree = "<group>"; };
 		3B56DAD9280D772900161355 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		3B574A9C27C7D9E2006FEF9A /* ZeroScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroScreenViewController.swift; sourceTree = "<group>"; };
@@ -1882,6 +1884,14 @@
 			path = IconsFlagsCurrency;
 			sourceTree = "<group>";
 		};
+		3B54046328466CE800CD6C80 /* LinerPageControl */ = {
+			isa = PBXGroup;
+			children = (
+				3B54046428466D0C00CD6C80 /* LinerSwiftUIView.swift */,
+			);
+			path = LinerPageControl;
+			sourceTree = "<group>";
+		};
 		3B574A9227C7D894006FEF9A /* ZeroScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -2954,6 +2964,7 @@
 		E9332FC2277D958200F9AF26 /* PageControls */ = {
 			isa = PBXGroup;
 			children = (
+				3B54046328466CE800CD6C80 /* LinerPageControl */,
 				E9332FC3277D959800F9AF26 /* CircularPageControl */,
 				E9332FC6277DA28000F9AF26 /* PageControlsSwiftUIItem.swift */,
 				E9332FC8277DA2F100F9AF26 /* PageControlsSwiftUIView.swift */,
@@ -3980,6 +3991,7 @@
 				E9C79CBF27BD1E730002EC49 /* ErrorViewController.swift in Sources */,
 				C6DCBFCE26316DBC00754365 /* ButtonsViewCustomScheme.swift in Sources */,
 				C6260A9B255AAEC5007175C2 /* BaseTableViewController.swift in Sources */,
+				3B54046528466D0C00CD6C80 /* LinerSwiftUIView.swift in Sources */,
 				E6D570FA25DD95F100D3304F /* Codable+Dictionary.swift in Sources */,
 				3B574AAA27D290F8006FEF9A /* AdmiralGunView.swift in Sources */,
 				0E59D345263039C7007B5CC1 /* LogoTabSwiftUIView.swift in Sources */,
