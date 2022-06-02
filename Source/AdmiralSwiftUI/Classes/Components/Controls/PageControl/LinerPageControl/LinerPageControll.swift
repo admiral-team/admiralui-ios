@@ -68,9 +68,11 @@ public struct LinerPageControll: View {
     
     // MARK: - Initializer
     
-    public init(currentPage: Binding<Int> = .constant(0),
-                numberOfPages: Int = 6,
-                displayedItems: Int = 5) {
+    public init(
+            currentPage: Binding<Int> = .constant(0),
+            numberOfPages: Int = 6,
+            displayedItems: Int = 5
+    ) {
         self._currentPage = currentPage
         self.numberOfPages = numberOfPages
         self.displayedItems = displayedItems
@@ -125,7 +127,6 @@ public struct LinerPageControll: View {
         } else {
             return (CGFloat(numberOfPages) * Constants.widthLinerItem) + (CGFloat((numberOfPages - 1)) * Constants.leadingPaddingItem)
         }
-
     }
 }
 
