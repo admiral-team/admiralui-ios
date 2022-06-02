@@ -8,6 +8,7 @@
 import SwiftUI
 import AdmiralTheme
 import AdmiralSwiftUI
+import AdmiralUIResources
 
 @available(iOS 14.0.0, *)
 struct PageControlsSwiftUIView: View {
@@ -49,6 +50,8 @@ struct PageControlsSwiftUIView: View {
         switch type {
         case .circular:
             CircularPageCOntrolSwiftUI()
+        case .liner:
+            LinerSwiftUIView()
         }
     }
 
