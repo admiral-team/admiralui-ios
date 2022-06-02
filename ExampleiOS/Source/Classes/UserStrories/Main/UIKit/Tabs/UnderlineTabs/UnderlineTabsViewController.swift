@@ -2,7 +2,7 @@
 //  UnderlineTabs.swift
 //  ExampleiOS
 //
-//  Created by Алмазов Иван Александрович on 30.05.2022.
+//  Created on 30.05.2022.
 //
 
 import AdmiralUIKit
