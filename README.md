@@ -41,7 +41,7 @@ The project is divided into 4 modules:
 ## Contributors
 We welcome any help, and you can help us with the development of this project. Details in [wiki](https://github.com/admiral-team/admiralui-ios/wiki/Контрибьютерам)
 
-## Команда проекта
+## Project team
 <table>
   <tr>
     <td align="center"><a href="https://github.com/ton252"><img src="https://avatars.githubusercontent.com/u/13065321?v=4" width="80px;" alt="" /><br/><sub><b>Polyakov Anton</b></sub></a><br /><a href="https://github.com/admiral-team/admiralui-ios/commits?author=ton252" title="Code">👑</a></td>
