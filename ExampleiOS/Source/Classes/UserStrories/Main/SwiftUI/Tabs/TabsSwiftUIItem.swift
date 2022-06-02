@@ -27,7 +27,7 @@ enum TabsSwiftUIItem: Int, CaseIterable {
         case .outlineSlider:
             return "Outline Slider Tabs"
         case .underlineSlider:
-            return "Underline Slider Tabs"
+            return "Underline Tabs"
         case .icon:
             return "Icon Tabs"
         }
