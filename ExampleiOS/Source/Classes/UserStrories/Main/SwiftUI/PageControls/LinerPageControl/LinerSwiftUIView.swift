@@ -35,8 +35,7 @@ struct LinerSwiftUIView: View {
     
     private func getLinearPageControll() -> some View {
         VStack(alignment: .center, spacing: LayoutGrid.tripleModule * 3) {
-            LinerPageControll(currentPage: $selectionItem, displayedItems: 11)
-                .frame(width: LayoutGrid.doubleModule * 7, height: LayoutGrid.halfModule * 5)
+            LinerPageControll(currentPage: $selectionItem, numberOfPages: 11, displayedItems: 5)
             
             SwiftUI.Button {
                 selectionItem += 1
