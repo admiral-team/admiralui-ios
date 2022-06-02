@@ -2,7 +2,7 @@
 //  CirclePageControl.swift
 //  AdmiralSwiftUITests
 //
-//  Created by Алмазов Иван Александрович on 02.06.2022.
+//  Created on 02.06.2022.
 //
 
 import XCTest
