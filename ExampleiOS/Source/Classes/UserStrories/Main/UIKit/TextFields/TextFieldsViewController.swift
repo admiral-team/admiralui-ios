@@ -37,6 +37,14 @@ final class TextFieldsViewController: BaseTableViewController {
                 didSelect: { [weak self] in self?.presentSlider() }),
             
             MainTitleTableViewCellViewModel(
+                title: "Card Number",
+                didSelect: { [weak self] in self?.presentCardNumber() }),
+            
+            MainTitleTableViewCellViewModel(
+                title: "SMS Code",
+                didSelect: { [weak self] in self?.presentSMSCode() }),
+            
+            MainTitleTableViewCellViewModel(
                 title: "Number",
                 didSelect: { [weak self] in self?.presentNumber() }),
             
@@ -53,7 +61,7 @@ final class TextFieldsViewController: BaseTableViewController {
     }
     
     private func presentTextFieldsStandard() {
-        let viewController = TextFieldsStandardViewController()
+        let viewController = StandardVSIconMenuViewController()
         viewController.title = "Standard"
         navigationController?.pushViewController(viewController, animated: true)
     }
@@ -67,6 +75,18 @@ final class TextFieldsViewController: BaseTableViewController {
     private func presentSlider() {
         let viewController = SliderViewController()
         viewController.title = "Slider"
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    private func presentCardNumber() {
+        let viewController = CardNumberViewController()
+        viewController.title = "Card Number"
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    private func presentSMSCode() {
+        let viewController = SMSCodeViewController()
+        viewController.title = "SMS Code"
         navigationController?.pushViewController(viewController, animated: true)
     }
     
