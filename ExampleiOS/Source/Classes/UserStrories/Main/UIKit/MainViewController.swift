@@ -177,13 +177,13 @@ class MainViewController: UIViewController, AnyAppThemable {
             MainTableViewCellViewModel(
                 title: "Сheckbox",
                 subtitle: "Селектор",
-                image: Asset.Main.gem.image,
+                image: Asset.Main.checkboxes.image,
                 didSelect: { [weak self] in self?.presentCheckbox() }),
             
             MainTableViewCellViewModel(
                 title: "Switcher",
                 subtitle: "Переключатель",
-                image: Asset.Main.checkboxes.image,
+                image: Asset.Main.radiobuttons.image,
                 didSelect: { [weak self] in self?.presentSwitcher() }),
             
             MainTableViewCellViewModel(

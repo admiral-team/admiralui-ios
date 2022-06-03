@@ -161,9 +161,9 @@ enum SwiftUIItem: String, CaseIterable {
         case .radioButton:
             return Asset.Main.radiobuttons.name
         case .checkbox:
-            return Asset.Main.gem.name
-        case .switcher:
             return Asset.Main.checkboxes.name
+        case .switcher:
+            return Asset.Main.radiobuttons.name
         case .links:
             return Asset.Main.links.name
         case .spiner:
