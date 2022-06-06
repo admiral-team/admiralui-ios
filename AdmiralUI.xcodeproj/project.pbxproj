@@ -578,6 +578,9 @@
 		3B3669C92747C44D007F7582 /* ActionBarViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3669C82747C44D007F7582 /* ActionBarViewSnapshotTests.swift */; };
 		3B3669CB2747C6D7007F7582 /* ActionBarControlViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3669CA2747C6D7007F7582 /* ActionBarControlViewSnapshotTests.swift */; };
 		3B51C9B6273E7FB600081DB1 /* TitleArrowWithButtonHeaderSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B51C9B5273E7FB600081DB1 /* TitleArrowWithButtonHeaderSnapshotTests.swift */; };
+		3B540462284641C200CD6C80 /* LinePageControllScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B540461284641C200CD6C80 /* LinePageControllScheme.swift */; };
+		3B5404692848E0F200CD6C80 /* LinerPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5404672848E0F200CD6C80 /* LinerPageControl.swift */; };
+		3B54046B2848E3F300CD6C80 /* CirclePageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B54046A2848E3F300CD6C80 /* CirclePageControl.swift */; };
 		3B574AA227C7DB08006FEF9A /* ZeroScreenSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B574AA127C7DB08006FEF9A /* ZeroScreenSnapshotTest.swift */; };
 		3B574AA527C7DC95006FEF9A /* ZeroScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B574AA427C7DC95006FEF9A /* ZeroScreenView.swift */; };
 		3B574AA727C7DCB8006FEF9A /* ZeroScreenScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B574AA627C7DCB8006FEF9A /* ZeroScreenScheme.swift */; };
@@ -605,6 +608,7 @@
 		3B625C0B2746511D0045DC38 /* ImageCardListViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B625C0A2746511D0045DC38 /* ImageCardListViewSnapshotTests.swift */; };
 		3B9E96172746EB2B00409F83 /* PrivateImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EA2D8522541932300D7AAE2 /* PrivateImages.xcassets */; };
 		3BB18CC727B28ABA009AC37A /* PrimaryButtonAccessibilityIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB18CC627B28ABA009AC37A /* PrimaryButtonAccessibilityIdentifiers.swift */; };
+		3BB6609128452D68008322DC /* LinerPageControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B269E8F2845262300922D12 /* LinerPageControll.swift */; };
 		3BC8341D27511A5500F1B06A /* CheckboxTextbuttonViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC8341B27511A2800F1B06A /* CheckboxTextbuttonViewScheme.swift */; };
 		3BC8341F27511A6F00F1B06A /* CheckboxTextbuttonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC8341E27511A6F00F1B06A /* CheckboxTextbuttonView.swift */; };
 		3BCB3EA227425D2600ED192A /* UploadImageViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCB3EA127425D2600ED192A /* UploadImageViewSnapshotTests.swift */; };
@@ -1275,11 +1279,15 @@
 		3B1B6D18273D2BD500746283 /* BadgeViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeViewSnapshotTests.swift; sourceTree = "<group>"; };
 		3B22201B274BADAD001099DB /* InfoAgreementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoAgreementView.swift; sourceTree = "<group>"; };
 		3B22201D274C0E56001099DB /* InfoAgreementViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoAgreementViewScheme.swift; sourceTree = "<group>"; };
+		3B269E8F2845262300922D12 /* LinerPageControll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinerPageControll.swift; sourceTree = "<group>"; };
 		3B362A1827A02F4D007F08D0 /* ToastViewAccessibilityIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastViewAccessibilityIdentifiers.swift; sourceTree = "<group>"; };
 		3B3669C327479572007F7582 /* ListCellSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCellSnapshotTests.swift; sourceTree = "<group>"; };
 		3B3669C82747C44D007F7582 /* ActionBarViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionBarViewSnapshotTests.swift; sourceTree = "<group>"; };
 		3B3669CA2747C6D7007F7582 /* ActionBarControlViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionBarControlViewSnapshotTests.swift; sourceTree = "<group>"; };
 		3B51C9B5273E7FB600081DB1 /* TitleArrowWithButtonHeaderSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleArrowWithButtonHeaderSnapshotTests.swift; sourceTree = "<group>"; };
+		3B540461284641C200CD6C80 /* LinePageControllScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinePageControllScheme.swift; sourceTree = "<group>"; };
+		3B5404672848E0F200CD6C80 /* LinerPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinerPageControl.swift; sourceTree = "<group>"; };
+		3B54046A2848E3F300CD6C80 /* CirclePageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CirclePageControl.swift; sourceTree = "<group>"; };
 		3B574AA127C7DB08006FEF9A /* ZeroScreenSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZeroScreenSnapshotTest.swift; sourceTree = "<group>"; };
 		3B574AA427C7DC95006FEF9A /* ZeroScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroScreenView.swift; sourceTree = "<group>"; };
 		3B574AA627C7DCB8006FEF9A /* ZeroScreenScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroScreenScheme.swift; sourceTree = "<group>"; };
@@ -4170,6 +4178,15 @@
 			path = ButtonControl;
 			sourceTree = "<group>";
 		};
+		3B269E8E2845257D00922D12 /* LinerPageControl */ = {
+			isa = PBXGroup;
+			children = (
+				3B269E8F2845262300922D12 /* LinerPageControll.swift */,
+				3B540461284641C200CD6C80 /* LinePageControllScheme.swift */,
+			);
+			path = LinerPageControl;
+			sourceTree = "<group>";
+		};
 		3B3669C227479566007F7582 /* ListCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -4197,6 +4214,15 @@
 				3BD5ABBD273EC93F0052D8C5 /* Headers */,
 			);
 			path = TextViews;
+			sourceTree = "<group>";
+		};
+		3B5404662848E0B900CD6C80 /* PageControls */ = {
+			isa = PBXGroup;
+			children = (
+				3B5404672848E0F200CD6C80 /* LinerPageControl.swift */,
+				3B54046A2848E3F300CD6C80 /* CirclePageControl.swift */,
+			);
+			path = PageControls;
 			sourceTree = "<group>";
 		};
 		3B574AA027C7DB08006FEF9A /* ZeroScreen */ = {
@@ -5997,6 +6023,7 @@
 		E92B1FFB273E885B0086A1AC /* PageControl */ = {
 			isa = PBXGroup;
 			children = (
+				3B269E8E2845257D00922D12 /* LinerPageControl */,
 				E92B1FFC273E885B0086A1AC /* CirclePageControl */,
 			);
 			path = PageControl;
@@ -6168,6 +6195,7 @@
 		E97CAD672722A9F7001283A1 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
+				3B5404662848E0B900CD6C80 /* PageControls */,
 				E995668B2727F1AE00C5800A /* TagControl */,
 				E99566872727F04A00C5800A /* Pin */,
 				E99566832727EE1500C5800A /* SeveralPin */,
@@ -6958,6 +6986,7 @@
 				0ED08A11266F943D00389A1A /* Date+Calendar.swift in Sources */,
 				E9B82B8127B40EFD00FC7BB9 /* ActionBarView.swift in Sources */,
 				0ED08A4C2670BD8800389A1A /* CalendarWeekViewScheme.swift in Sources */,
+				3B540462284641C200CD6C80 /* LinePageControllScheme.swift in Sources */,
 				0E2A633226EA1695009CE2C0 /* CalendarHorizontalView.swift in Sources */,
 				0ED0836A26C98895000BE955 /* SeveralPinButtonStyle.swift in Sources */,
 				E92B1FFF273E885B0086A1AC /* CirclePageControlScheme.swift in Sources */,
@@ -7189,6 +7218,7 @@
 				E9B82B6627B40B9300FC7BB9 /* ActionBarItemStyle.swift in Sources */,
 				0E43A0DB272999EF0025D23A /* Calendar.swift in Sources */,
 				0ED08A01266F93DC00389A1A /* CalendarModels.swift in Sources */,
+				3BB6609128452D68008322DC /* LinerPageControll.swift in Sources */,
 				0EC4D31127074B6F0024F2F6 /* AnimatingFontSize.swift in Sources */,
 				E9ECF207272A8EB000363E5E /* UploadImageView.swift in Sources */,
 				0E16C79326AEF50900C0E808 /* ToastViewScheme.swift in Sources */,
@@ -7230,6 +7260,7 @@
 				3BD5ABB5273EB96F0052D8C5 /* TitleSubtitleHeaderSnapshotTests.swift in Sources */,
 				3BD5ABC3273ECB390052D8C5 /* ParagraphViewSnapshotTests.swift in Sources */,
 				3B606A972746973F00C76ACB /* ButtonListViewSnapshotTests.swift in Sources */,
+				3B5404692848E0F200CD6C80 /* LinerPageControl.swift in Sources */,
 				E995668E2727F1EC00C5800A /* TagControl.swift in Sources */,
 				E99566822727EC3200C5800A /* MapButton.swift in Sources */,
 				3B606A76274657E900C76ACB /* TitleListViewSnapshotTests.swift in Sources */,
@@ -7266,6 +7297,7 @@
 				3B606A8D27468ADE00C76ACB /* IconListViewSnapshotTests.swift in Sources */,
 				3B0AC5AB2743A73100BC2F8C /* CalendarViewSnapshotTests.swift in Sources */,
 				3B1B6D19273D2BD500746283 /* BadgeViewSnapshotTests.swift in Sources */,
+				3B54046B2848E3F300CD6C80 /* CirclePageControl.swift in Sources */,
 				3B0AC5BC2743C13300BC2F8C /* SecurityTextFieldSnapshotTests.swift in Sources */,
 				3B606A7A27467DA500C76ACB /* SubtitleTitleListViewSnapshotTests.swift in Sources */,
 				3B606A6C2746533000C76ACB /* ImageListViewSnapshotTests.swift in Sources */,

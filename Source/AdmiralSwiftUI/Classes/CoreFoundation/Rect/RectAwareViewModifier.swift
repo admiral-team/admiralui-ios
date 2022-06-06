@@ -7,18 +7,7 @@
 
 import SwiftUI
 
-@available(iOS 14.0.0, *)
-struct BackgroundRectGeometryReader: View {
-    var body: some View {
-        GeometryReader { geometry in
-            return Color
-                .clear
-                .preference(key: RectPreferenceKey.self, value: geometry.frame(in: .global))
-        }
-    }
-}
-
-@available(iOS 14.0.0, *)
+@available(iOS 14.0, *)
 struct RectAwareViewModifier: ViewModifier {
 
     @Binding private var viewRect: CGRect
@@ -28,19 +17,7 @@ struct RectAwareViewModifier: ViewModifier {
     }
     
     func body(content: Content) -> some View {
-        if #available(iOS 15.0, *) {
-            return content
-                .background(BackgroundRectGeometryReader())
-                .onPreferenceChange(
-                    RectPreferenceKey.self,
-                    perform: {
-                        if self.viewRect != $0 {
-                            self.viewRect = $0
-                        }
-                    }
-                )
-                .eraseToAnyView()
-        } else {
+
             return content
                 .background(
                     GeometryReader { geometry -> Color in
@@ -55,5 +32,4 @@ struct RectAwareViewModifier: ViewModifier {
                 )
                 .eraseToAnyView()
         }
-    }
 }
