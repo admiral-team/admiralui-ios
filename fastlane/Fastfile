@@ -108,8 +108,18 @@ lane :deploy_appcenter_dev do |options|
   if !skip_git_comment && !issue_name.nil?
     comment_body = formatted_build_info_json(build_info: build_info)
     system("cd ./go_scripts && ./main createComment #{comment_body} #{ENV['API_GITHUB_TOKEN']}")
+    system("cd ../../Tools/SnapShotsCoverage && swift build && swift run")
   end
 
+end
+
+lane :run_code_cov do |options|
+  xcov(
+    workspace: ENV['PROJECT_WORKSPACE_PATH'],
+    scheme: "AdmiralUIKit",
+    output_directory: "xcov_output",
+    derived_data_path: '~/Library/Developer/Xcode/DerivedData',
+  )
 end
 
 lane :run_all_tests do |options|

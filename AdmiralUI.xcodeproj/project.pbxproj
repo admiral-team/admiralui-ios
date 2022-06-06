@@ -608,10 +608,10 @@
 		3BC8341D27511A5500F1B06A /* CheckboxTextbuttonViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC8341B27511A2800F1B06A /* CheckboxTextbuttonViewScheme.swift */; };
 		3BC8341F27511A6F00F1B06A /* CheckboxTextbuttonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC8341E27511A6F00F1B06A /* CheckboxTextbuttonView.swift */; };
 		3BCB3EA227425D2600ED192A /* UploadImageViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCB3EA127425D2600ED192A /* UploadImageViewSnapshotTests.swift */; };
-		3BCB3EA4274278F200ED192A /* UploadingImageGroupViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCB3EA3274278F200ED192A /* UploadingImageGroupViewSnapshotTests.swift */; };
+		3BCB3EA4274278F200ED192A /* UploadingImageGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCB3EA3274278F200ED192A /* UploadingImageGrid.swift */; };
 		3BCB3EA7274286F800ED192A /* ChatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCB3EA6274286F800ED192A /* ChatBubbleView.swift */; };
 		3BCB3EA92742953800ED192A /* ChatBubbleStatusViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCB3EA82742953800ED192A /* ChatBubbleStatusViewSnapshotTests.swift */; };
-		3BCB3EAC27429AF000ED192A /* ChatInputSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCB3EAB27429AF000ED192A /* ChatInputSnapshotTests.swift */; };
+		3BCB3EAC27429AF000ED192A /* ChatInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCB3EAB27429AF000ED192A /* ChatInput.swift */; };
 		3BCB3EAF27429D6D00ED192A /* PinCodeKeyboardSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCB3EAE27429D6C00ED192A /* PinCodeKeyboardSnapshotTests.swift */; };
 		3BD5ABB0273E964D0052D8C5 /* SubtitleTitleHeaderSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD5ABAF273E964D0052D8C5 /* SubtitleTitleHeaderSnapshotTests.swift */; };
 		3BD5ABB5273EB96F0052D8C5 /* TitleSubtitleHeaderSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD5ABB4273EB96F0052D8C5 /* TitleSubtitleHeaderSnapshotTests.swift */; };
@@ -696,10 +696,10 @@
 		E9332FB2277CAF1400F9AF26 /* CircularTrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9332FAE277CAF1400F9AF26 /* CircularTrackView.swift */; };
 		E9332FB3277CAF1400F9AF26 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9332FAF277CAF1400F9AF26 /* ProgressView.swift */; };
 		E9332FB4277CAF1400F9AF26 /* ProgressViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9332FB0277CAF1400F9AF26 /* ProgressViewScheme.swift */; };
-		E934035C27AC0A610007B86D /* UploadImageGridViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E934035B27AC0A610007B86D /* UploadImageGridViewTest.swift */; };
-		E95553D827ABEE6F00A14BCA /* ChatBubbleViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95553D727ABEE6F00A14BCA /* ChatBubbleViewTest.swift */; };
+		E934035C27AC0A610007B86D /* UploadImageGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E934035B27AC0A610007B86D /* UploadImageGridView.swift */; };
+		E95553D827ABEE6F00A14BCA /* ChatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95553D727ABEE6F00A14BCA /* ChatBubbleView.swift */; };
 		E95553DA27ABF35500A14BCA /* ChatBubbleStatusViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95553D927ABF35500A14BCA /* ChatBubbleStatusViewTest.swift */; };
-		E95553DD27ABF7F100A14BCA /* ChatInputTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95553DC27ABF7F100A14BCA /* ChatInputTest.swift */; };
+		E95553DD27ABF7F100A14BCA /* ChatInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95553DC27ABF7F100A14BCA /* ChatInputView.swift */; };
 		E95553E127ABFFC900A14BCA /* TextOperationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95553DF27ABFFC900A14BCA /* TextOperationTest.swift */; };
 		E95553E427AC02C200A14BCA /* ProgressViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95553E327AC02C200A14BCA /* ProgressViewTest.swift */; };
 		E95553E727AC054E00A14BCA /* UploadDocumentViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95553E627AC054E00A14BCA /* UploadDocumentViewTest.swift */; };
@@ -1310,10 +1310,10 @@
 		3BC8341B27511A2800F1B06A /* CheckboxTextbuttonViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxTextbuttonViewScheme.swift; sourceTree = "<group>"; };
 		3BC8341E27511A6F00F1B06A /* CheckboxTextbuttonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxTextbuttonView.swift; sourceTree = "<group>"; };
 		3BCB3EA127425D2600ED192A /* UploadImageViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageViewSnapshotTests.swift; sourceTree = "<group>"; };
-		3BCB3EA3274278F200ED192A /* UploadingImageGroupViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingImageGroupViewSnapshotTests.swift; sourceTree = "<group>"; };
+		3BCB3EA3274278F200ED192A /* UploadingImageGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingImageGrid.swift; sourceTree = "<group>"; };
 		3BCB3EA6274286F800ED192A /* ChatBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleView.swift; sourceTree = "<group>"; };
 		3BCB3EA82742953800ED192A /* ChatBubbleStatusViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleStatusViewSnapshotTests.swift; sourceTree = "<group>"; };
-		3BCB3EAB27429AF000ED192A /* ChatInputSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInputSnapshotTests.swift; sourceTree = "<group>"; };
+		3BCB3EAB27429AF000ED192A /* ChatInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInput.swift; sourceTree = "<group>"; };
 		3BCB3EAE27429D6C00ED192A /* PinCodeKeyboardSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeKeyboardSnapshotTests.swift; sourceTree = "<group>"; };
 		3BD5ABAF273E964D0052D8C5 /* SubtitleTitleHeaderSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleTitleHeaderSnapshotTests.swift; sourceTree = "<group>"; };
 		3BD5ABB4273EB96F0052D8C5 /* TitleSubtitleHeaderSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSubtitleHeaderSnapshotTests.swift; sourceTree = "<group>"; };
@@ -1608,10 +1608,10 @@
 		E9332FAE277CAF1400F9AF26 /* CircularTrackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularTrackView.swift; sourceTree = "<group>"; };
 		E9332FAF277CAF1400F9AF26 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		E9332FB0277CAF1400F9AF26 /* ProgressViewScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressViewScheme.swift; sourceTree = "<group>"; };
-		E934035B27AC0A610007B86D /* UploadImageGridViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageGridViewTest.swift; sourceTree = "<group>"; };
-		E95553D727ABEE6F00A14BCA /* ChatBubbleViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleViewTest.swift; sourceTree = "<group>"; };
+		E934035B27AC0A610007B86D /* UploadImageGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageGridView.swift; sourceTree = "<group>"; };
+		E95553D727ABEE6F00A14BCA /* ChatBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleView.swift; sourceTree = "<group>"; };
 		E95553D927ABF35500A14BCA /* ChatBubbleStatusViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleStatusViewTest.swift; sourceTree = "<group>"; };
-		E95553DC27ABF7F100A14BCA /* ChatInputTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInputTest.swift; sourceTree = "<group>"; };
+		E95553DC27ABF7F100A14BCA /* ChatInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInputView.swift; sourceTree = "<group>"; };
 		E95553DF27ABFFC900A14BCA /* TextOperationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOperationTest.swift; sourceTree = "<group>"; };
 		E95553E327AC02C200A14BCA /* ProgressViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewTest.swift; sourceTree = "<group>"; };
 		E95553E627AC054E00A14BCA /* UploadDocumentViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDocumentViewTest.swift; sourceTree = "<group>"; };
@@ -4323,7 +4323,7 @@
 			isa = PBXGroup;
 			children = (
 				3BCB3EA127425D2600ED192A /* UploadImageViewSnapshotTests.swift */,
-				3BCB3EA3274278F200ED192A /* UploadingImageGroupViewSnapshotTests.swift */,
+				3BCB3EA3274278F200ED192A /* UploadingImageGrid.swift */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -4340,7 +4340,7 @@
 		3BCB3EAA27429AD800ED192A /* ChatInput */ = {
 			isa = PBXGroup;
 			children = (
-				3BCB3EAB27429AF000ED192A /* ChatInputSnapshotTests.swift */,
+				3BCB3EAB27429AF000ED192A /* ChatInput.swift */,
 			);
 			path = ChatInput;
 			sourceTree = "<group>";
@@ -6051,7 +6051,7 @@
 		E934035A27AC0A410007B86D /* UploadImageGridView */ = {
 			isa = PBXGroup;
 			children = (
-				E934035B27AC0A610007B86D /* UploadImageGridViewTest.swift */,
+				E934035B27AC0A610007B86D /* UploadImageGridView.swift */,
 			);
 			path = UploadImageGridView;
 			sourceTree = "<group>";
@@ -6073,7 +6073,7 @@
 		E95553D527ABEE3B00A14BCA /* ChatBubbleView */ = {
 			isa = PBXGroup;
 			children = (
-				E95553D727ABEE6F00A14BCA /* ChatBubbleViewTest.swift */,
+				E95553D727ABEE6F00A14BCA /* ChatBubbleView.swift */,
 			);
 			path = ChatBubbleView;
 			sourceTree = "<group>";
@@ -6089,7 +6089,7 @@
 		E95553DB27ABF7CF00A14BCA /* ChatInput */ = {
 			isa = PBXGroup;
 			children = (
-				E95553DC27ABF7F100A14BCA /* ChatInputTest.swift */,
+				E95553DC27ABF7F100A14BCA /* ChatInputView.swift */,
 			);
 			path = ChatInput;
 			sourceTree = "<group>";
@@ -7223,7 +7223,7 @@
 				3B0AC5CD2743FCE500BC2F8C /* LineSnapshotTests.swift in Sources */,
 				3B0AC5C52743E2AC00BC2F8C /* BankCardTextFieldSnapshotTests.swift in Sources */,
 				3B606A78274679BC00C76ACB /* TitleSubtitleListViewSnapshotTests.swift in Sources */,
-				3BCB3EAC27429AF000ED192A /* ChatInputSnapshotTests.swift in Sources */,
+				3BCB3EAC27429AF000ED192A /* ChatInput.swift in Sources */,
 				3B0AC5B92743C01F00BC2F8C /* TextViewSnapshotTests.swift in Sources */,
 				3BCB3EA7274286F800ED192A /* ChatBubbleView.swift in Sources */,
 				E9956676272716B000C5800A /* RadioControl.swift in Sources */,
@@ -7274,7 +7274,7 @@
 				3B625C0B2746511D0045DC38 /* ImageCardListViewSnapshotTests.swift in Sources */,
 				3B606A872746889100C76ACB /* RadioButtonListViewSnapshotTests.swift in Sources */,
 				3B0AC5B32743BC3D00BC2F8C /* InputRangeTextFieldSnapshotTests.swift in Sources */,
-				3BCB3EA4274278F200ED192A /* UploadingImageGroupViewSnapshotTests.swift in Sources */,
+				3BCB3EA4274278F200ED192A /* UploadingImageGrid.swift in Sources */,
 				3B606A8F2746909800C76ACB /* CardListViewSnapshotTests.swift in Sources */,
 				3B0AC5B52743BD5900BC2F8C /* DoubleInputRangeTextFieldSnapshotTests.swift in Sources */,
 				3BD5ABB9273EC0310052D8C5 /* DropDownHeaderSnapshotTests.swift in Sources */,
@@ -7674,13 +7674,13 @@
 				0EB2873A27C7BBBE005F2155 /* TextBlockHeaderLinkTest.swift in Sources */,
 				0E8E0BD32600DCCE00A813BC /* StatusHistorySnapshotTest.swift in Sources */,
 				0E8E0BC52600DCCE00A813BC /* ActivityIndicatorSnapshotTest.swift in Sources */,
-				E95553D827ABEE6F00A14BCA /* ChatBubbleViewTest.swift in Sources */,
+				E95553D827ABEE6F00A14BCA /* ChatBubbleView.swift in Sources */,
 				0E8E0BDA2600DCCE00A813BC /* CodeInputControlSnapshotTests.swift in Sources */,
 				0E8E0BD72600DCCE00A813BC /* LogoSegmentedViewSnapshotTest.swift in Sources */,
 				0E8E0BC92600DCCE00A813BC /* ButtonSnapshotTests.swift in Sources */,
 				E61048BE260112DF00FF20ED /* Snapshots.swift in Sources */,
 				0E8E0BD02600DCCE00A813BC /* ShimmeringViewSnapshotTest.swift in Sources */,
-				E934035C27AC0A610007B86D /* UploadImageGridViewTest.swift in Sources */,
+				E934035C27AC0A610007B86D /* UploadImageGridView.swift in Sources */,
 				E9BE41E527C8FD0B00894224 /* MapButtonsSnapShots.swift in Sources */,
 				E9BE41E927C8FD4500894224 /* SeveralPinSnapshots.swift in Sources */,
 				0E8E0BDB2600DCCE00A813BC /* CalendarViewSnapshotTest.swift in Sources */,
@@ -7703,7 +7703,7 @@
 				E9BE41BF27C7E05600894224 /* CurrencyViewTest.swift in Sources */,
 				0E8E0BD12600DCCE00A813BC /* UnderlineSegmentedControlSnapshotTest.swift in Sources */,
 				0E8E0BCB2600DCCE00A813BC /* SliderSnapshotTest.swift in Sources */,
-				E95553DD27ABF7F100A14BCA /* ChatInputTest.swift in Sources */,
+				E95553DD27ABF7F100A14BCA /* ChatInputView.swift in Sources */,
 				0E8E0BD52600DCCE00A813BC /* InformerTabSegmentedControlSnapshotTest.swift in Sources */,
 				0E8E0BD42600DCCE00A813BC /* FeedbackInputSnapshotTests.swift in Sources */,
 				0E8E0BD22600DCCE00A813BC /* CustomSwitchSnapshotTests.swift in Sources */,
