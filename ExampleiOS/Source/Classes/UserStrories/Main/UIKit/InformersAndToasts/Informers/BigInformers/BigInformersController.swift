@@ -112,15 +112,6 @@ final class BigInformersController: ScrollViewController {
                 style: .error))
         
         views.append(errorInformer)
-        
-        let messageInformer = MessageInformerView()
-        messageInformer.configureWith(
-            model: .init(
-                headLine: "Message view",
-                title: "то получу в страховом случае",
-                description: "до 1 500 000 Р",
-                subtitle: "Выгодный вариант для двухкомнатной квартиры или дачного дома"))
-        views.append(messageInformer)
     }
     
     @objc private func segmentedValueChanged(_ control: StandardSegmentedControl) {

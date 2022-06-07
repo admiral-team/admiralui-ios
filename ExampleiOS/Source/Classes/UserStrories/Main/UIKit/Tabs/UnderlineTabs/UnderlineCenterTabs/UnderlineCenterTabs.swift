@@ -70,7 +70,7 @@ final class UnderlineCenterTabsViewController: ScrollViewController {
         
         views.append(view3)
         
-        let segmentControlFourth = UnderlineSegmentedControl(items: ["One", "Two", "Three", "Five"])
+        let segmentControlFourth = UnderlineSegmentedControl(items: ["One", "Two", "Three", "Four", "Five"])
         segmentControlFourth.selectedSegmentIndex = 0
         segmentControlFourth.isStaticTabs = true
         

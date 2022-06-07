@@ -45,17 +45,22 @@ struct TextFieldsSwiftUIView: View {
     func view(for type: TextFieldsSwiftUIItem) -> some View {
         switch type {
         case .standard:
-            StandardTextFieldsSwiftUIView()
-        case .slider:
-            InputRangeTextFieldSwiftUIView()
-        case .number:
-            InputNumberSwiftUIView()
-        case .pincode:
-            PinCodeTextFieldView()
-        case .feedback:
-            FeedbackInputSwiftUIView()
+            StandardTextFieldSwiftUIView()
         case .double:
             DoubleTextFieldSwiftUIView()
+        case .slider:
+            InputRangeTextFieldSwiftUIView()
+        case .cardNumber:
+            BankTextFieldSwiftUIView()
+        case .smsCode:
+            OTPTextFieldSwiftUIView()
+        case .number:
+            InputNumberSwiftUIView()
+        case .feedback:
+            FeedbackInputSwiftUIView()
+        case .pincode:
+            PinCodeTextFieldView()
+
         }
     }
     

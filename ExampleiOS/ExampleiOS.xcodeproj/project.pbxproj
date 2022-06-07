@@ -32,8 +32,6 @@
 		0E264B08264E9E1E00601790 /* TextFieldsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E264B07264E9E1E00601790 /* TextFieldsSwiftUIView.swift */; };
 		0E264B0A264E9E2A00601790 /* TextFieldsSwiftUIItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E264B09264E9E2A00601790 /* TextFieldsSwiftUIItem.swift */; };
 		0E264B0D264E9ECF00601790 /* StandardTextFieldSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E264B0C264E9ECF00601790 /* StandardTextFieldSwiftUIView.swift */; };
-		0E264B0F264EAEBA00601790 /* StandardTextFieldsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E264B0E264EAEBA00601790 /* StandardTextFieldsSwiftUIView.swift */; };
-		0E264B12264EAF1700601790 /* StandardTextFieldsSwiftUIItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E264B11264EAF1700601790 /* StandardTextFieldsSwiftUIItem.swift */; };
 		0E29D281275B902200F3FC56 /* NavigationContentViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E29D280275B902200F3FC56 /* NavigationContentViewScheme.swift */; };
 		0E3DB3C8265D253A00CA2F2A /* OTPTextFieldSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3DB3C7265D253A00CA2F2A /* OTPTextFieldSwiftUIView.swift */; };
 		0E3DB3FA265D3F3500CA2F2A /* BankTextFieldSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3DB3F9265D3F3500CA2F2A /* BankTextFieldSwiftUIView.swift */; };
@@ -173,7 +171,6 @@
 		C620B7F5256560F300CB1B29 /* VerticalCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C620B7F4256560F300CB1B29 /* VerticalCalendarViewController.swift */; };
 		C6260A99255A88BA007175C2 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6260A98255A88BA007175C2 /* BaseRouter.swift */; };
 		C6260A9B255AAEC5007175C2 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6260A9A255AAEC5007175C2 /* BaseTableViewController.swift */; };
-		C6260AA0255AE5A2007175C2 /* TextFieldsStandardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6260A9F255AE5A2007175C2 /* TextFieldsStandardViewController.swift */; };
 		C6260AA3255AE5C3007175C2 /* MainTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6260AA2255AE5C3007175C2 /* MainTitleTableViewCell.swift */; };
 		C6260AAA255B0536007175C2 /* SliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6260AA9255B0536007175C2 /* SliderViewController.swift */; };
 		C6260AAD255B0619007175C2 /* DoubleTextFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6260AAC255B0619007175C2 /* DoubleTextFieldViewController.swift */; };
@@ -496,8 +493,6 @@
 		0E264B07264E9E1E00601790 /* TextFieldsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldsSwiftUIView.swift; sourceTree = "<group>"; };
 		0E264B09264E9E2A00601790 /* TextFieldsSwiftUIItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldsSwiftUIItem.swift; sourceTree = "<group>"; };
 		0E264B0C264E9ECF00601790 /* StandardTextFieldSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTextFieldSwiftUIView.swift; sourceTree = "<group>"; };
-		0E264B0E264EAEBA00601790 /* StandardTextFieldsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTextFieldsSwiftUIView.swift; sourceTree = "<group>"; };
-		0E264B11264EAF1700601790 /* StandardTextFieldsSwiftUIItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTextFieldsSwiftUIItem.swift; sourceTree = "<group>"; };
 		0E29D280275B902200F3FC56 /* NavigationContentViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationContentViewScheme.swift; sourceTree = "<group>"; };
 		0E3DB3C7265D253A00CA2F2A /* OTPTextFieldSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPTextFieldSwiftUIView.swift; sourceTree = "<group>"; };
 		0E3DB3F9265D3F3500CA2F2A /* BankTextFieldSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankTextFieldSwiftUIView.swift; sourceTree = "<group>"; };
@@ -634,7 +629,6 @@
 		C620B7F4256560F300CB1B29 /* VerticalCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalCalendarViewController.swift; sourceTree = "<group>"; };
 		C6260A98255A88BA007175C2 /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
 		C6260A9A255AAEC5007175C2 /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
-		C6260A9F255AE5A2007175C2 /* TextFieldsStandardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldsStandardViewController.swift; sourceTree = "<group>"; };
 		C6260AA2255AE5C3007175C2 /* MainTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTitleTableViewCell.swift; sourceTree = "<group>"; };
 		C6260AA9255B0536007175C2 /* SliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderViewController.swift; sourceTree = "<group>"; };
 		C6260AAC255B0619007175C2 /* DoubleTextFieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleTextFieldViewController.swift; sourceTree = "<group>"; };
@@ -1060,8 +1054,6 @@
 		0E264B0B264E9E3200601790 /* TextField */ = {
 			isa = PBXGroup;
 			children = (
-				0E264B0E264EAEBA00601790 /* StandardTextFieldsSwiftUIView.swift */,
-				0E264B11264EAF1700601790 /* StandardTextFieldsSwiftUIItem.swift */,
 				0EC13675266648FB00F4EB7E /* FeedbackInput */,
 				0E3DB3C6265D251A00CA2F2A /* OTP */,
 				0E64999A264D010900D03D5A /* Number */,
@@ -1897,16 +1889,6 @@
 			path = IconsFlagsCurrency;
 			sourceTree = "<group>";
 		};
-
-		3B54046328466CE800CD6C80 /* LinerPageControl */ = {
-			isa = PBXGroup;
-			children = (
-				3B54046428466D0C00CD6C80 /* LinerSwiftUIView.swift */,
-			);
-			path = LinerPageControl;
-               sourceTree = "<group>";
-        };
-
 		3B269E8A2844E66600922D12 /* UnderlineSliderTabs */ = {
 			isa = PBXGroup;
 			children = (
@@ -1915,7 +1897,6 @@
 			path = UnderlineSliderTabs;
 			sourceTree = "<group>";
 		};
-        
 		3B269E8B2844E68300922D12 /* UnderlineCenterTabs */ = {
 			isa = PBXGroup;
 			children = (
@@ -1924,7 +1905,14 @@
 			path = UnderlineCenterTabs;
 			sourceTree = "<group>";
 		};
-        
+		3B54046328466CE800CD6C80 /* LinerPageControl */ = {
+			isa = PBXGroup;
+			children = (
+				3B54046428466D0C00CD6C80 /* LinerSwiftUIView.swift */,
+			);
+			path = LinerPageControl;
+			sourceTree = "<group>";
+		};
 		3B574A9227C7D894006FEF9A /* ZeroScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -2006,12 +1994,11 @@
 		C6260A9E255AE578007175C2 /* Standard */ = {
 			isa = PBXGroup;
 			children = (
-				C6260AB3255B0854007175C2 /* StandardVSIcon */,
-				C6260AB2255B07CD007175C2 /* CardNumber */,
 				C6260AAF255B0732007175C2 /* SMSCode */,
+				C6260AB2255B07CD007175C2 /* CardNumber */,
+				C6260AB3255B0854007175C2 /* StandardVSIcon */,
 				E6117EF525F9754300214949 /* CardTextField.swift */,
 				E6ABDBAA253F3B4900B90570 /* SecureTextField.swift */,
-				C6260A9F255AE5A2007175C2 /* TextFieldsStandardViewController.swift */,
 				C69DD96925DFD57000D08BE8 /* TextFieldTextView.swift */,
 				C6BA67EE2632E2AE001A7EB6 /* TextFieldsTextViewCustomScheme.swift */,
 			);
@@ -3636,7 +3623,6 @@
 				E6ABDBAC253F3B4900B90570 /* TextFieldsViewController.swift in Sources */,
 				E9BE41AD27C7DFF400894224 /* FlagsCurrencyViewController.swift in Sources */,
 				0EF8F7172535D964002F9CF4 /* IconsViewController.swift in Sources */,
-				0E264B0F264EAEBA00601790 /* StandardTextFieldsSwiftUIView.swift in Sources */,
 				E9B4554727708D8800EA17FC /* TextMessageViewController.swift in Sources */,
 				C6BA67B82631D9B4001A7EB6 /* FAQTableViewCellCustomScheme.swift in Sources */,
 				E9BE41A827C7DFF400894224 /* DefaultCurrencyViewController.swift in Sources */,
@@ -3655,7 +3641,6 @@
 				E94518B627D4A57F0048B133 /* TabPlain.swift in Sources */,
 				E95553CB27A2C7BB00A14BCA /* InputChatViewModel.swift in Sources */,
 				0E9464E526B18EDA00F5E790 /* NotificationsSwiftUIItem.swift in Sources */,
-				C6260AA0255AE5A2007175C2 /* TextFieldsStandardViewController.swift in Sources */,
 				C6260AB7255B08C3007175C2 /* CardNumberViewController.swift in Sources */,
 				E934036727B123C50007B86D /* ActionBarsViewController.swift in Sources */,
 				C68E93232595FCB00048EC53 /* CardViewController.swift in Sources */,
@@ -3763,7 +3748,6 @@
 				E6968DDF269C5FA60006F2B3 /* UIViewController+ThemeView.swift in Sources */,
 				3B592041278DC75400706DA6 /* AlertCustomScheme.swift in Sources */,
 				E945187C27D36AC20048B133 /* GunItems.swift in Sources */,
-				E934038327B28A3E0007B86D /* ActionBarSwiftUIItem.swift in Sources */,
 				3B269E8D2844E9AC00922D12 /* UnderlineCenterTabs.swift in Sources */,
 				E94518BE27D4A8000048B133 /* ToolBarPlain.swift in Sources */,
 				0E22C671262AFC8A00D09FC5 /* ButtonsSwiftUIView.swift in Sources */,
@@ -3993,7 +3977,6 @@
 				3B9DD043283C2927002F7706 /* UnderlineTabsUIView.swift in Sources */,
 				E945188E27D36C940048B133 /* RequestBuilder.swift in Sources */,
 				0E110DB727C6E74900BFF58F /* DropDownViewController.swift in Sources */,
-				0E264B12264EAF1700601790 /* StandardTextFieldsSwiftUIItem.swift in Sources */,
 				0E73862627740BCF003892C7 /* NotificationsViewController.swift in Sources */,
 				0ECF1AF4265F952B0068F591 /* InputRangeTextFieldSwiftUIView.swift in Sources */,
 				E9BE41B227C7DFF400894224 /* CurrencyViewModel.swift in Sources */,
