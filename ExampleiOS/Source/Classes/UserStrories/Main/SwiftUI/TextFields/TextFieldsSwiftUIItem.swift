@@ -12,6 +12,8 @@ enum TextFieldsSwiftUIItem: Int, CaseIterable {
     case standard
     case double
     case slider
+    case cardNumber
+    case smsCode
     case number
     case feedback
     case pincode
@@ -24,6 +26,10 @@ enum TextFieldsSwiftUIItem: Int, CaseIterable {
             return "Double"
         case .slider:
             return "Slider"
+        case .cardNumber:
+            return "Card Number"
+        case .smsCode:
+            return "SMS Code"
         case .number:
             return "Number"
         case .feedback:

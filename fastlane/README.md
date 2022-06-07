@@ -29,6 +29,14 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 
 
+### run_code_cov
+
+```sh
+[bundle exec] fastlane run_code_cov
+```
+
+
+
 ### run_all_tests
 
 ```sh
