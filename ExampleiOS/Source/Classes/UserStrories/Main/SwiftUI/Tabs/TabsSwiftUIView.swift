@@ -47,7 +47,7 @@ struct TabsSwiftUIView: View {
         case .standard:
             StandardTabSwiftUIView()
         case .underlineSlider:
-            UnderlineSliderTabSwiftUIView()
+            UnderlineTabsUIView()
         case .logo:
             LogoTabSwiftUIView()
         case .outlineSlider:

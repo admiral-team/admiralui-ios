@@ -1,8 +1,8 @@
 //
-//  StandardTextFieldsSwiftUIView.swift
+//  UnderlineTabsUIView.swift
 //  ExampleiOS
 //
-//  Created on 14.05.2021.
+//  Created on 23.05.2022.
 //
 
 import SwiftUI
@@ -10,19 +10,22 @@ import AdmiralTheme
 import AdmiralSwiftUI
 
 @available(iOS 14.0.0, *)
-struct StandardTextFieldsSwiftUIView: View {
+struct UnderlineTabsUIView: View {
     
     @State private var selection: Int?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
     
-    public var body: some View {
+    var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Standard") {
+        NavigationContentView(navigationTitle: "UnderlineTabs") {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
             ScrollView(showsIndicators: false) {
                 LazyVStack(alignment: .leading) {
-                    ForEach(StandardTextFieldsSwiftUIItem.allCases, id: \.self) { item in
+                    ForEach(UnderlineTabsItem.allCases, id: \.self) { item in
+                        NavigationLink(destination: EmptyView()) {
+                            EmptyView()
+                        }
                         NavigationLink(destination: view(for: item), tag: item.rawValue, selection: self.$selection) {
                             ListCell(
                                 centerView: { TitleListView(title: item.title) },
@@ -42,22 +45,12 @@ struct StandardTextFieldsSwiftUIView: View {
     }
     
     @ViewBuilder
-    func view(for type: StandardTextFieldsSwiftUIItem) -> some View {
+    func view(for type: UnderlineTabsItem) -> some View {
         switch type {
-        case .standard:
-            StandardTextFieldSwiftUIView()
-        case .cardNumber:
-            BankTextFieldSwiftUIView()
-        case .smsCode:
-            OTPTextFieldSwiftUIView()
+        case .slider:
+            UnderlineSliderTabSwiftUIView()
+        case .center:
+            UnderlineCenterTabSwiftUIView()
         }
-    }
-    
-}
-
-@available(iOS 14.0.0, *)
-struct StandardTextFieldsSwiftUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        StandardTextFieldsSwiftUIView()
     }
 }

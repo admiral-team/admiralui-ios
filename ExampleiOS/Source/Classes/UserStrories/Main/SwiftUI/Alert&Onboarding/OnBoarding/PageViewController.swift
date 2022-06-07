@@ -31,6 +31,7 @@ struct PageViewController: UIViewControllerRepresentable {
         
         pageViewController.dataSource = context.coordinator
         pageViewController.delegate = context.coordinator
+        viewControllers.forEach { $0.view.backgroundColor = .clear }
         pageViewController.setViewControllers(
             [viewControllers[currentPageIndex]], direction: .forward, animated: false)
         

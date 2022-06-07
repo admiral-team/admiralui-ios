@@ -32,8 +32,6 @@
 		0E264B08264E9E1E00601790 /* TextFieldsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E264B07264E9E1E00601790 /* TextFieldsSwiftUIView.swift */; };
 		0E264B0A264E9E2A00601790 /* TextFieldsSwiftUIItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E264B09264E9E2A00601790 /* TextFieldsSwiftUIItem.swift */; };
 		0E264B0D264E9ECF00601790 /* StandardTextFieldSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E264B0C264E9ECF00601790 /* StandardTextFieldSwiftUIView.swift */; };
-		0E264B0F264EAEBA00601790 /* StandardTextFieldsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E264B0E264EAEBA00601790 /* StandardTextFieldsSwiftUIView.swift */; };
-		0E264B12264EAF1700601790 /* StandardTextFieldsSwiftUIItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E264B11264EAF1700601790 /* StandardTextFieldsSwiftUIItem.swift */; };
 		0E29D281275B902200F3FC56 /* NavigationContentViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E29D280275B902200F3FC56 /* NavigationContentViewScheme.swift */; };
 		0E3DB3C8265D253A00CA2F2A /* OTPTextFieldSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3DB3C7265D253A00CA2F2A /* OTPTextFieldSwiftUIView.swift */; };
 		0E3DB3FA265D3F3500CA2F2A /* BankTextFieldSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3DB3F9265D3F3500CA2F2A /* BankTextFieldSwiftUIView.swift */; };
@@ -151,7 +149,10 @@
 		0EFCDB5E26B88409006207B1 /* IconsFlagsCurrencySwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFCDB5D26B88409006207B1 /* IconsFlagsCurrencySwiftUIView.swift */; };
 		3B0268B627A85F7700B03E6F /* SwiftUITextMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0268B527A85F7700B03E6F /* SwiftUITextMessageViewModel.swift */; };
 		3B0268B827AAA8D900B03E6F /* SwiftUITextOperationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0268B727AAA8D900B03E6F /* SwiftUITextOperationViewModel.swift */; };
+		3B269E892844E50900922D12 /* UnderlineTabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B269E882844E50900922D12 /* UnderlineTabsViewController.swift */; };
+		3B269E8D2844E9AC00922D12 /* UnderlineCenterTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B269E8C2844E9AC00922D12 /* UnderlineCenterTabs.swift */; };
 		3B500E2827297F2500A860F0 /* UIApplication+EndEditing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B500E2727297F2500A860F0 /* UIApplication+EndEditing.swift */; };
+		3B54046528466D0C00CD6C80 /* LinerSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B54046428466D0C00CD6C80 /* LinerSwiftUIView.swift */; };
 		3B56DAD8280D70F900161355 /* OnBoardingPageUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B56DAD7280D70F900161355 /* OnBoardingPageUIView.swift */; };
 		3B56DADA280D772900161355 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B56DAD9280D772900161355 /* PageViewController.swift */; };
 		3B574A9D27C7D9E2006FEF9A /* ZeroScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B574A9C27C7D9E2006FEF9A /* ZeroScreenViewController.swift */; };
@@ -160,6 +161,9 @@
 		3B574AAC27D29344006FEF9A /* AdmiralGunViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B574AAB27D29344006FEF9A /* AdmiralGunViewModel.swift */; };
 		3B59203F278D9A5700706DA6 /* AlertSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B59203E278D9A5700706DA6 /* AlertSwiftUIView.swift */; };
 		3B592041278DC75400706DA6 /* AlertCustomScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B592040278DC75400706DA6 /* AlertCustomScheme.swift */; };
+		3B9DD043283C2927002F7706 /* UnderlineTabsUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9DD042283C2927002F7706 /* UnderlineTabsUIView.swift */; };
+		3B9DD046283C29F0002F7706 /* UnderlineCenterTabsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9DD045283C29F0002F7706 /* UnderlineCenterTabsSwiftUIView.swift */; };
+		3B9DD048283C2BCE002F7706 /* UnderlineTabsSwiftUIItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9DD047283C2BCE002F7706 /* UnderlineTabsSwiftUIItem.swift */; };
 		3BA83504280462AE00D54318 /* OnBoardingSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA83503280462AE00D54318 /* OnBoardingSwiftUIView.swift */; };
 		3BA835062804638400D54318 /* OnBoardingCustomScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA835052804638400D54318 /* OnBoardingCustomScheme.swift */; };
 		3BA8350928059BE500D54318 /* ZeroScreenSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8350828059BE500D54318 /* ZeroScreenSwiftUIView.swift */; };
@@ -167,7 +171,6 @@
 		C620B7F5256560F300CB1B29 /* VerticalCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C620B7F4256560F300CB1B29 /* VerticalCalendarViewController.swift */; };
 		C6260A99255A88BA007175C2 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6260A98255A88BA007175C2 /* BaseRouter.swift */; };
 		C6260A9B255AAEC5007175C2 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6260A9A255AAEC5007175C2 /* BaseTableViewController.swift */; };
-		C6260AA0255AE5A2007175C2 /* TextFieldsStandardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6260A9F255AE5A2007175C2 /* TextFieldsStandardViewController.swift */; };
 		C6260AA3255AE5C3007175C2 /* MainTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6260AA2255AE5C3007175C2 /* MainTitleTableViewCell.swift */; };
 		C6260AAA255B0536007175C2 /* SliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6260AA9255B0536007175C2 /* SliderViewController.swift */; };
 		C6260AAD255B0619007175C2 /* DoubleTextFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6260AAC255B0619007175C2 /* DoubleTextFieldViewController.swift */; };
@@ -490,8 +493,6 @@
 		0E264B07264E9E1E00601790 /* TextFieldsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldsSwiftUIView.swift; sourceTree = "<group>"; };
 		0E264B09264E9E2A00601790 /* TextFieldsSwiftUIItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldsSwiftUIItem.swift; sourceTree = "<group>"; };
 		0E264B0C264E9ECF00601790 /* StandardTextFieldSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTextFieldSwiftUIView.swift; sourceTree = "<group>"; };
-		0E264B0E264EAEBA00601790 /* StandardTextFieldsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTextFieldsSwiftUIView.swift; sourceTree = "<group>"; };
-		0E264B11264EAF1700601790 /* StandardTextFieldsSwiftUIItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTextFieldsSwiftUIItem.swift; sourceTree = "<group>"; };
 		0E29D280275B902200F3FC56 /* NavigationContentViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationContentViewScheme.swift; sourceTree = "<group>"; };
 		0E3DB3C7265D253A00CA2F2A /* OTPTextFieldSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPTextFieldSwiftUIView.swift; sourceTree = "<group>"; };
 		0E3DB3F9265D3F3500CA2F2A /* BankTextFieldSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankTextFieldSwiftUIView.swift; sourceTree = "<group>"; };
@@ -606,7 +607,10 @@
 		0EFCDB5D26B88409006207B1 /* IconsFlagsCurrencySwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsFlagsCurrencySwiftUIView.swift; sourceTree = "<group>"; };
 		3B0268B527A85F7700B03E6F /* SwiftUITextMessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITextMessageViewModel.swift; sourceTree = "<group>"; };
 		3B0268B727AAA8D900B03E6F /* SwiftUITextOperationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITextOperationViewModel.swift; sourceTree = "<group>"; };
+		3B269E882844E50900922D12 /* UnderlineTabsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineTabsViewController.swift; sourceTree = "<group>"; };
+		3B269E8C2844E9AC00922D12 /* UnderlineCenterTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineCenterTabs.swift; sourceTree = "<group>"; };
 		3B500E2727297F2500A860F0 /* UIApplication+EndEditing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+EndEditing.swift"; sourceTree = "<group>"; };
+		3B54046428466D0C00CD6C80 /* LinerSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinerSwiftUIView.swift; sourceTree = "<group>"; };
 		3B56DAD7280D70F900161355 /* OnBoardingPageUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingPageUIView.swift; sourceTree = "<group>"; };
 		3B56DAD9280D772900161355 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		3B574A9C27C7D9E2006FEF9A /* ZeroScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroScreenViewController.swift; sourceTree = "<group>"; };
@@ -615,6 +619,9 @@
 		3B574AAB27D29344006FEF9A /* AdmiralGunViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralGunViewModel.swift; sourceTree = "<group>"; };
 		3B59203E278D9A5700706DA6 /* AlertSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSwiftUIView.swift; sourceTree = "<group>"; };
 		3B592040278DC75400706DA6 /* AlertCustomScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCustomScheme.swift; sourceTree = "<group>"; };
+		3B9DD042283C2927002F7706 /* UnderlineTabsUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineTabsUIView.swift; sourceTree = "<group>"; };
+		3B9DD045283C29F0002F7706 /* UnderlineCenterTabsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineCenterTabsSwiftUIView.swift; sourceTree = "<group>"; };
+		3B9DD047283C2BCE002F7706 /* UnderlineTabsSwiftUIItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineTabsSwiftUIItem.swift; sourceTree = "<group>"; };
 		3BA83503280462AE00D54318 /* OnBoardingSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingSwiftUIView.swift; sourceTree = "<group>"; };
 		3BA835052804638400D54318 /* OnBoardingCustomScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingCustomScheme.swift; sourceTree = "<group>"; };
 		3BA8350828059BE500D54318 /* ZeroScreenSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroScreenSwiftUIView.swift; sourceTree = "<group>"; };
@@ -622,7 +629,6 @@
 		C620B7F4256560F300CB1B29 /* VerticalCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalCalendarViewController.swift; sourceTree = "<group>"; };
 		C6260A98255A88BA007175C2 /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
 		C6260A9A255AAEC5007175C2 /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
-		C6260A9F255AE5A2007175C2 /* TextFieldsStandardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldsStandardViewController.swift; sourceTree = "<group>"; };
 		C6260AA2255AE5C3007175C2 /* MainTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTitleTableViewCell.swift; sourceTree = "<group>"; };
 		C6260AA9255B0536007175C2 /* SliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderViewController.swift; sourceTree = "<group>"; };
 		C6260AAC255B0619007175C2 /* DoubleTextFieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleTextFieldViewController.swift; sourceTree = "<group>"; };
@@ -1048,8 +1054,6 @@
 		0E264B0B264E9E3200601790 /* TextField */ = {
 			isa = PBXGroup;
 			children = (
-				0E264B0E264EAEBA00601790 /* StandardTextFieldsSwiftUIView.swift */,
-				0E264B11264EAF1700601790 /* StandardTextFieldsSwiftUIItem.swift */,
 				0EC13675266648FB00F4EB7E /* FeedbackInput */,
 				0E3DB3C6265D251A00CA2F2A /* OTP */,
 				0E64999A264D010900D03D5A /* Number */,
@@ -1279,7 +1283,10 @@
 		0E59D36C2632C23B007B5CC1 /* UnderlineSliderTab */ = {
 			isa = PBXGroup;
 			children = (
+				3B9DD042283C2927002F7706 /* UnderlineTabsUIView.swift */,
+				3B9DD047283C2BCE002F7706 /* UnderlineTabsSwiftUIItem.swift */,
 				0E59D36D2632C264007B5CC1 /* UnderlineSliderTabSwiftUIView.swift */,
+				3B9DD045283C29F0002F7706 /* UnderlineCenterTabsSwiftUIView.swift */,
 			);
 			path = UnderlineSliderTab;
 			sourceTree = "<group>";
@@ -1557,7 +1564,7 @@
 				C67498FE25D3FB2500232C5F /* LogoTabs */,
 				C685A92625D6A40900D3FC21 /* IconTabs */,
 				C674990025D3FB3500232C5F /* OutlineSliderTabs */,
-				C674990125D3FB3D00232C5F /* UnderlineSliderTabs */,
+				C674990125D3FB3D00232C5F /* UnderlineTabs */,
 				C67498FF25D3FB2B00232C5F /* InformerTabs */,
 				0EA2D89B25470CF400D7AAE2 /* Views */,
 				C67498FB25D3FAB800232C5F /* TabsViewController.swift */,
@@ -1882,6 +1889,30 @@
 			path = IconsFlagsCurrency;
 			sourceTree = "<group>";
 		};
+		3B269E8A2844E66600922D12 /* UnderlineSliderTabs */ = {
+			isa = PBXGroup;
+			children = (
+				C674990B25D3FBB600232C5F /* UnderlineSliderTabs.swift */,
+			);
+			path = UnderlineSliderTabs;
+			sourceTree = "<group>";
+		};
+		3B269E8B2844E68300922D12 /* UnderlineCenterTabs */ = {
+			isa = PBXGroup;
+			children = (
+				3B269E8C2844E9AC00922D12 /* UnderlineCenterTabs.swift */,
+			);
+			path = UnderlineCenterTabs;
+			sourceTree = "<group>";
+		};
+		3B54046328466CE800CD6C80 /* LinerPageControl */ = {
+			isa = PBXGroup;
+			children = (
+				3B54046428466D0C00CD6C80 /* LinerSwiftUIView.swift */,
+			);
+			path = LinerPageControl;
+			sourceTree = "<group>";
+		};
 		3B574A9227C7D894006FEF9A /* ZeroScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -1963,12 +1994,11 @@
 		C6260A9E255AE578007175C2 /* Standard */ = {
 			isa = PBXGroup;
 			children = (
-				C6260AB3255B0854007175C2 /* StandardVSIcon */,
-				C6260AB2255B07CD007175C2 /* CardNumber */,
 				C6260AAF255B0732007175C2 /* SMSCode */,
+				C6260AB2255B07CD007175C2 /* CardNumber */,
+				C6260AB3255B0854007175C2 /* StandardVSIcon */,
 				E6117EF525F9754300214949 /* CardTextField.swift */,
 				E6ABDBAA253F3B4900B90570 /* SecureTextField.swift */,
-				C6260A9F255AE5A2007175C2 /* TextFieldsStandardViewController.swift */,
 				C69DD96925DFD57000D08BE8 /* TextFieldTextView.swift */,
 				C6BA67EE2632E2AE001A7EB6 /* TextFieldsTextViewCustomScheme.swift */,
 			);
@@ -2181,12 +2211,14 @@
 			path = OutlineSliderTabs;
 			sourceTree = "<group>";
 		};
-		C674990125D3FB3D00232C5F /* UnderlineSliderTabs */ = {
+		C674990125D3FB3D00232C5F /* UnderlineTabs */ = {
 			isa = PBXGroup;
 			children = (
-				C674990B25D3FBB600232C5F /* UnderlineSliderTabs.swift */,
+				3B269E882844E50900922D12 /* UnderlineTabsViewController.swift */,
+				3B269E8A2844E66600922D12 /* UnderlineSliderTabs */,
+				3B269E8B2844E68300922D12 /* UnderlineCenterTabs */,
 			);
-			path = UnderlineSliderTabs;
+			path = UnderlineTabs;
 			sourceTree = "<group>";
 		};
 		C67593AF2616171B004AD348 /* ThemeSwitchListView */ = {
@@ -2954,6 +2986,7 @@
 		E9332FC2277D958200F9AF26 /* PageControls */ = {
 			isa = PBXGroup;
 			children = (
+				3B54046328466CE800CD6C80 /* LinerPageControl */,
 				E9332FC3277D959800F9AF26 /* CircularPageControl */,
 				E9332FC6277DA28000F9AF26 /* PageControlsSwiftUIItem.swift */,
 				E9332FC8277DA2F100F9AF26 /* PageControlsSwiftUIView.swift */,
@@ -3590,7 +3623,6 @@
 				E6ABDBAC253F3B4900B90570 /* TextFieldsViewController.swift in Sources */,
 				E9BE41AD27C7DFF400894224 /* FlagsCurrencyViewController.swift in Sources */,
 				0EF8F7172535D964002F9CF4 /* IconsViewController.swift in Sources */,
-				0E264B0F264EAEBA00601790 /* StandardTextFieldsSwiftUIView.swift in Sources */,
 				E9B4554727708D8800EA17FC /* TextMessageViewController.swift in Sources */,
 				C6BA67B82631D9B4001A7EB6 /* FAQTableViewCellCustomScheme.swift in Sources */,
 				E9BE41A827C7DFF400894224 /* DefaultCurrencyViewController.swift in Sources */,
@@ -3601,6 +3633,7 @@
 				0EC1374A266E1B9500F4EB7E /* BaseCellSwiftUIItem.swift in Sources */,
 				0EFCDB4E26B879C5006207B1 /* CurrencySwiftUIView.swift in Sources */,
 				0E576F6D2539D5FE00E223DD /* SpinnerViewController.swift in Sources */,
+				3B269E892844E50900922D12 /* UnderlineTabsViewController.swift in Sources */,
 				E94518B427D4A3F80048B133 /* StandartTextFieldDTO.swift in Sources */,
 				E916F9F927677B8200628C96 /* SwiftUITextOperation.swift in Sources */,
 				0E195EA1256CEDED0096780B /* SecondaryTitleCelViewController.swift in Sources */,
@@ -3608,7 +3641,6 @@
 				E94518B627D4A57F0048B133 /* TabPlain.swift in Sources */,
 				E95553CB27A2C7BB00A14BCA /* InputChatViewModel.swift in Sources */,
 				0E9464E526B18EDA00F5E790 /* NotificationsSwiftUIItem.swift in Sources */,
-				C6260AA0255AE5A2007175C2 /* TextFieldsStandardViewController.swift in Sources */,
 				C6260AB7255B08C3007175C2 /* CardNumberViewController.swift in Sources */,
 				E934036727B123C50007B86D /* ActionBarsViewController.swift in Sources */,
 				C68E93232595FCB00048EC53 /* CardViewController.swift in Sources */,
@@ -3684,6 +3716,7 @@
 				C6D2BB532576BA870058E754 /* ToolbarViewController.swift in Sources */,
 				3B0268B627A85F7700B03E6F /* SwiftUITextMessageViewModel.swift in Sources */,
 				0E576F3125387C4800E223DD /* TagsChipsViewController.swift in Sources */,
+				3B9DD046283C29F0002F7706 /* UnderlineCenterTabsSwiftUIView.swift in Sources */,
 				C6260A99255A88BA007175C2 /* BaseRouter.swift in Sources */,
 				E945187627D36A8F0048B133 /* GunItemDTO.swift in Sources */,
 				0E3FB2B6255E60210015019E /* CellsViewController.swift in Sources */,
@@ -3715,6 +3748,7 @@
 				E6968DDF269C5FA60006F2B3 /* UIViewController+ThemeView.swift in Sources */,
 				3B592041278DC75400706DA6 /* AlertCustomScheme.swift in Sources */,
 				E945187C27D36AC20048B133 /* GunItems.swift in Sources */,
+				3B269E8D2844E9AC00922D12 /* UnderlineCenterTabs.swift in Sources */,
 				E94518BE27D4A8000048B133 /* ToolBarPlain.swift in Sources */,
 				0E22C671262AFC8A00D09FC5 /* ButtonsSwiftUIView.swift in Sources */,
 				0E576D3825370C4600E223DD /* ButtonsViewController.swift in Sources */,
@@ -3842,6 +3876,7 @@
 				E9332FC7277DA28000F9AF26 /* PageControlsSwiftUIItem.swift in Sources */,
 				E9178F66280424D600C49230 /* ThemeSwitchViewScheme.swift in Sources */,
 				C686568C255937FE00B885B8 /* SettingsViewController.swift in Sources */,
+				3B9DD048283C2BCE002F7706 /* UnderlineTabsSwiftUIItem.swift in Sources */,
 				E916FA062768C31900628C96 /* TextOperationScheme.swift in Sources */,
 				E945188727D36C4A0048B133 /* APIError.swift in Sources */,
 				C6260AC6255C3230007175C2 /* NumberViewController.swift in Sources */,
@@ -3939,9 +3974,9 @@
 				0E264B0A264E9E2A00601790 /* TextFieldsSwiftUIItem.swift in Sources */,
 				E6D91C482532047C00DCE489 /* AppDelegate.swift in Sources */,
 				C6BA67BC2631DCFC001A7EB6 /* ContactsTableViewCustomTheme.swift in Sources */,
+				3B9DD043283C2927002F7706 /* UnderlineTabsUIView.swift in Sources */,
 				E945188E27D36C940048B133 /* RequestBuilder.swift in Sources */,
 				0E110DB727C6E74900BFF58F /* DropDownViewController.swift in Sources */,
-				0E264B12264EAF1700601790 /* StandardTextFieldsSwiftUIItem.swift in Sources */,
 				0E73862627740BCF003892C7 /* NotificationsViewController.swift in Sources */,
 				0ECF1AF4265F952B0068F591 /* InputRangeTextFieldSwiftUIView.swift in Sources */,
 				E9BE41B227C7DFF400894224 /* CurrencyViewModel.swift in Sources */,
@@ -3980,6 +4015,7 @@
 				E9C79CBF27BD1E730002EC49 /* ErrorViewController.swift in Sources */,
 				C6DCBFCE26316DBC00754365 /* ButtonsViewCustomScheme.swift in Sources */,
 				C6260A9B255AAEC5007175C2 /* BaseTableViewController.swift in Sources */,
+				3B54046528466D0C00CD6C80 /* LinerSwiftUIView.swift in Sources */,
 				E6D570FA25DD95F100D3304F /* Codable+Dictionary.swift in Sources */,
 				3B574AAA27D290F8006FEF9A /* AdmiralGunView.swift in Sources */,
 				0E59D345263039C7007B5CC1 /* LogoTabSwiftUIView.swift in Sources */,
