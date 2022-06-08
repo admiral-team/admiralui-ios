@@ -15,10 +15,9 @@ func SendTextToTelegramChat(chatId int, text string, token string, installUrl st
 	response, err := http.PostForm(
 		telegramApi,
 		url.Values{
-			"chat_id":     {strconv.Itoa(chatId)},
-			"parse_mode":  {parseMode},
-			"text":        {text},
-			"url_buttons": {installUrl},
+			"chat_id":    {strconv.Itoa(chatId)},
+			"parse_mode": {parseMode},
+			"text":       {text},
 		})
 
 	if err != nil {
