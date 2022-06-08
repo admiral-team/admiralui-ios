@@ -57,6 +57,8 @@ lane :deploy_appcenter_dev do |options|
   skip_archive = options[:skip_archive] || false
   skip_git_comment = options[:skip_git_comment] || false
   issue_name = options[:issue_name]
+  telegram_token = options[:telegram_token]
+  telegram_chat_id = options[:telegram_chat_id]
   pull_request_number = options[:pull_request_number]
   build_number = generate_random_build_number()
   previous_build_number = current_app_build_number
@@ -107,7 +109,7 @@ lane :deploy_appcenter_dev do |options|
 
   if !skip_git_comment && !issue_name.nil?
     comment_body = formatted_build_info_json(build_info: build_info)
-    system("cd ./go_scripts && ./main createComment #{comment_body} #{ENV['API_GITHUB_TOKEN']} #{ENV['TELEGRAM_DEV_CHAT_ID']} #{ENV['TELEGRAM_API_TOKEN']}")
+    system("cd ./go_scripts && ./main createComment #{comment_body} #{ENV['API_GITHUB_TOKEN']} #{telegram_chat_id} #{telegram_token}")
   end
 
 end

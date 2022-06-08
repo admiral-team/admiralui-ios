@@ -26,9 +26,11 @@ jobs:
         if: ${{ github.event_name == 'pull_request' }}
         env:     
           CI_PASSWORD:  ${{ secrets.CI_PASSWORD }}
+          TELEGRAM_API_TOKEN: ${{ secrets.TELEGRAM_API_TOKEN }}
+          TELEGRAM_DEV_CHAT_ID: ${{ secrets.TELEGRAM_DEV_CHAT_ID }}
         run: |
           bundle exec fastlane unlock_secrets_keychain password:"$CI_PASSWORD"
-          bundle exec fastlane deploy_appcenter_dev issue_name:${{ github.head_ref }} pull_request_number:${{ github.event.number }} 
+          bundle exec fastlane deploy_appcenter_dev issue_name:${{ github.head_ref }} pull_request_number:${{ github.event.number }} telegram_token:"$TELEGRAM_API_TOKEN" telegram_chat_id:"$TELEGRAM_DEV_CHAT_ID"
       - name: Deploy AppCenter Prod
         if: ${{ github.event_name == 'push' && github.head_ref == 'main' }}
         env:     
