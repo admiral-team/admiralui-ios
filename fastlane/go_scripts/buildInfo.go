@@ -51,22 +51,22 @@ func (buildInfo BuildInfo) formatted_build_info_telegram() string {
 	var resultString string
 
 	if buildInfo.Platform != "" {
-		resultString += "<strong>Platform:</strong>" + buildInfo.Platform + "\n"
+		resultString += "<strong>Platform: </strong>" + buildInfo.Platform + "\n"
 	}
 	if buildInfo.Build_id != "" {
-		resultString += "<strong>Build ID:</strong>" + buildInfo.Build_id + "\n"
+		resultString += "<strong>Build ID: </strong>" + buildInfo.Build_id + "\n"
 	}
 	if buildInfo.Version != "" {
-		resultString += "<strong>Version:</strong>" + buildInfo.Version + "\n"
+		resultString += "<strong>Version: </strong>" + buildInfo.Version + "\n"
 	}
 	if buildInfo.Internal_version != "" {
-		resultString += "<strong>Internal Version:</strong>" + buildInfo.Internal_version + "\n"
+		resultString += "<strong>Internal Version: </strong>" + buildInfo.Internal_version + "\n"
 	}
 	if buildInfo.Short_version != "" {
-		resultString += "<strong>Short Version:</strong>" + buildInfo.Short_version + "\n"
+		resultString += "<strong>Short Version: </strong>" + buildInfo.Short_version + "\n"
 	}
 	if buildInfo.Branch_name != "" {
-		resultString += "<strong>Branch Name:</strong>" + buildInfo.Branch_name + "\n"
+		resultString += "<strong>Branch Name: </strong>" + buildInfo.Branch_name + "\n"
 	}
 	return resultString
 }

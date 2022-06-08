@@ -62,7 +62,7 @@ lane :deploy_appcenter_dev do |options|
   pull_request_number = options[:pull_request_number]
   build_number = generate_random_build_number()
   previous_build_number = current_app_build_number
-  branch_name = git_branch()
+  branch_name = issue_name
 
   if issue_name.nil? || issue_name == ""
     issue_name = extract_issue_name(branch_name: branch_name)
