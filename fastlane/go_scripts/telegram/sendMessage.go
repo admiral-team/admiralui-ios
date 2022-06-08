@@ -1,15 +1,15 @@
 package telegram
 
 import (
+	"fmt"
 	"io/ioutil"
-	"log"
 	"net/http"
 	"net/url"
 	"strconv"
 )
 
 func SendTextToTelegramChat(chatId int, text string, token string) {
-	log.Printf("Sending %s to chat_id: %d", text, chatId)
+	fmt.Println("Sending to chat_id:", token, chatId, text)
 	var telegramApi string = "https://api.telegram.org/bot" + token + "/sendMessage"
 	response, err := http.PostForm(
 		telegramApi,
@@ -19,15 +19,15 @@ func SendTextToTelegramChat(chatId int, text string, token string) {
 		})
 
 	if err != nil {
-		log.Printf("error when posting text to the chat: %s", err.Error())
+		fmt.Println("error when posting text to the chat:", err.Error())
 	}
 
 	defer response.Body.Close()
 
 	var bodyBytes, errRead = ioutil.ReadAll(response.Body)
 	if errRead != nil {
-		log.Printf("error in parsing telegram answer %s", errRead.Error())
+		fmt.Println("error in parsing telegram answer", errRead.Error())
 	}
 	bodyString := string(bodyBytes)
-	log.Printf("Body of Telegram Response: %s", bodyString)
+	fmt.Println("Body of Telegram Response:", bodyString)
 }
