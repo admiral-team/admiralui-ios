@@ -47,6 +47,33 @@ func (buildInfo BuildInfo) formatted_build_info_git() string {
 	return resultString
 }
 
+func (buildInfo BuildInfo) formatted_build_info_telegram() string {
+	var resultString string
+
+	if buildInfo.Platform != "" {
+		resultString += "<strong>Platform:</strong>" + buildInfo.Platform + "\n"
+	}
+	if buildInfo.Build_id != "" {
+		resultString += "<strong>Build ID:</strong>" + buildInfo.Build_id + "\n"
+	}
+	if buildInfo.Version != "" {
+		resultString += "<strong>Version:</strong>" + buildInfo.Version + "\n"
+	}
+	if buildInfo.Internal_version != "" {
+		resultString += "<strong>Internal Version:</strong>" + buildInfo.Internal_version + "\n"
+	}
+	if buildInfo.Short_version != "" {
+		resultString += "<strong>Short Version:</strong>" + buildInfo.Short_version + "\n"
+	}
+	if buildInfo.Branch_name != "" {
+		resultString += "<strong>Branch Name:</strong>" + buildInfo.Branch_name + "\n"
+	}
+	if buildInfo.Build_url != "" {
+		resultString += "<strong>Install URL:</strong>" + buildInfo.Build_url + "\n"
+	}
+	return resultString
+}
+
 func configureBuildInfo(byString string) BuildInfo {
 	buildInfo := BuildInfo{}
 	err := json.Unmarshal([]byte(byString), &buildInfo)
