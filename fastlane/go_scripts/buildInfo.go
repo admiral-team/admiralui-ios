@@ -69,7 +69,7 @@ func (buildInfo BuildInfo) formatted_build_info_telegram() string {
 		resultString += "<strong>Branch Name: </strong>" + buildInfo.Branch_name + "\n"
 	}
 	if buildInfo.Build_url != "" {
-		resultString += "<strong>Install URL: </strong>" + "<a href = '" + buildInfo.Build_url + "'></a>" + "\n"
+		resultString += "<strong>Install URL: </strong>" + buildInfo.Build_url + "\n"
 	}
 	return resultString
 }
