@@ -408,7 +408,7 @@ lane :unlock_secrets_keychain do |options|
   )
 end
 
-lane: send_build_failed_info do |options|
+lane :send_build_failed_info do |options|
   build_info_hash = lane_context[SharedValues::APPCENTER_BUILD_INFORMATION]
   build_info = BuildInfo.from_hash(build_info_hash)
   build_info.branch_name = options[:issue_name]
