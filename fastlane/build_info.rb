@@ -13,6 +13,9 @@ class BuildInfo
   attr_accessor :build_url
   attr_accessor :branch_name
   attr_accessor :issue
+  attr_accessor :telegram_chat_id
+  attr_accessor :telegram_token
+  attr_accessor :action_id
   attr_accessor :pull_request_number
   
   def initialize()
@@ -95,6 +98,9 @@ def formatted_build_info_json(build_info:)
   str += '\"build_url\"' + ':"\"' + "#{build_info.build_url}" + '"\"' + '","' unless build_info.build_url.nil?
   str += '\"BranchName\"' + ':"\"' + "#{build_info.branch_name}" + '"\"' + '","' unless build_info.branch_name.nil?
   str += '\"PullNumber\"' + ':"\"' + "#{build_info.pull_request_number}" + '"\"' + '","' unless build_info.pull_request_number.nil?
+  str += '\"TelegramChatId\"' + ':"\"' + "#{build_info.telegram_chat_id}" + '"\"' + '","' unless build_info.telegram_chat_id.nil?
+  str += '\"TelegramToken\"' + ':"\"' + "#{build_info.telegram_token}" + '"\"' + '","' unless build_info.telegram_token.nil?
+  str += '\"ActionId\"' + ':"\"' + "#{build_info.action_id}" + '"\"' + '","' unless build_info.action_id.nil?
   str += '\"Issue\"' + ':"\"' + "#{build_info.issue}" + '"\"' unless build_info.issue.nil?
   str += '}'
   str

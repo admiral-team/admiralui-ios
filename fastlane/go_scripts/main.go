@@ -40,6 +40,11 @@ func main() {
 	case "createRelease":
 		buildInfo := configureBuildInfo(os.Args[2])
 		release.CreateRelease(ctx, os.Getenv("OWNER"), os.Getenv("REPO"), buildInfo.External_version, os.Args[3])
+	case "build_failed":
+		buildInfo := configureBuildInfo(os.Args[2])
+		formatedBuildInfoFailed := buildInfo.build_failed_info()
+		telegramChatId, _ := strconv.Atoi(buildInfo.TelegramChatId)
+		telegram.SendTextToTelegramChat(telegramChatId, formatedBuildInfoFailed, buildInfo.TelegramToken, "")
 	default:
 		fmt.Println("Unknown command")
 	}

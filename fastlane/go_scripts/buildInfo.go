@@ -17,6 +17,9 @@ type BuildInfo struct {
 	Build_url        string `json:"build_url,omitempty"`
 	Branch_name      string `json:"BranchName,omitempty"`
 	Issue            int    `json:"Issue,string,omitempty"`
+	TelegramChatId   string `json:"TelegramChatId,string,omitempty"`
+	TelegramToken    string `json:"TelegramToken,string,omitempty"`
+	ActionId         string `json:"ActionId,string,omitempty"`
 	PullNumber       int    `json:"PullNumber,string,omitempty"`
 }
 
@@ -47,8 +50,21 @@ func (buildInfo BuildInfo) formatted_build_info_git() string {
 	return resultString
 }
 
+func (buildInfo BuildInfo) build_failed_info() string {
+	var resultString string
+	resultString += "🆘<strong>Build failed</strong>🆘\n"
+	if buildInfo.Branch_name != "" {
+		resultString += "<strong>Branch name: </strong>" + buildInfo.Branch_name + "\n"
+	}
+	if buildInfo.ActionId != "" {
+		resultString += "<strong>Build Url: </strong>" + "https://github.com/admiralui-ios/actions/runs/" + buildInfo.ActionId + "\n"
+	}
+	return resultString
+}
+
 func (buildInfo BuildInfo) formatted_build_info_telegram() string {
 	var resultString string
+	resultString += "<strong>Platform: </strong>" + buildInfo.Platform + "\n"
 
 	if buildInfo.Platform != "" {
 		resultString += "<strong>Platform: </strong>" + buildInfo.Platform + "\n"

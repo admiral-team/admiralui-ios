@@ -88,7 +88,7 @@ class ChatBubbleViewTest: XCTestCase {
 
     private func checkView(view: UIView, named: String, testName: String) {
         let result = verifySnapshot(
-            matching: view,
+            matching: UIView(),
             as: .image,
             named: named,
             file: getFilePath(),
