@@ -413,11 +413,11 @@ lane :send_build_failed_info do |options|
   build_info = BuildInfo.from_hash(build_info_hash)
   build_info.branch_name = options[:issue_name]
   build_info.issue = options[:issue_name]
-  build_info.telegram_chat_id = options[:telegram_chat_id]
-  build_info.telegram_token = options[:telegram_token]
-  build_info.action_id = options[:build_url]
+  telegram_chat_id = options[:telegram_chat_id]
+  telegram_token = options[:telegram_token]
+  action_id = options[:build_url]
   info_body = formatted_build_info_json(build_info: build_info)
-  system("cd ./go_scripts && ./main build_failed #{info_body}")
+  system("cd ./go_scripts && ./main build_failed #{info_body} #{telegram_chat_id} #{telegram_token} #{action_id}")
 end
   
 lane :build_git_packages do |options|
