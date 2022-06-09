@@ -56,7 +56,7 @@ func (buildInfo BuildInfo) build_failed_info(actionId string) string {
 	if buildInfo.Branch_name != "" {
 		resultString += "<strong>Branch name: </strong>" + buildInfo.Branch_name + "\n"
 	}
-	resultString += "<strong>Build Url: </strong>" + "https://github.com/admiralui-ios/actions/runs/" + actionId + "\n"
+	resultString += "<strong>Build Url: </strong>" + "https://github.com/admiral-team/admiralui-ios/actions/runs/" + actionId + "\n"
 	return resultString
 }
 
