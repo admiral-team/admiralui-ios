@@ -33,6 +33,11 @@ public class TitleButtonDropDown: UIView, AnyAppThemable, AccessibilitySupport {
     
     public weak var delegate: TitleButtonDropDownDelegate?
     
+    /// A Boolean value indicating whether the control is in the enabled state.
+    open var isEnabled: Bool = true {
+        didSet { updateScheme()  }
+    }
+    
     /// The text that the label displays.
     public var title: String? {
         get { return textLabel.text }
@@ -134,8 +139,9 @@ public class TitleButtonDropDown: UIView, AnyAppThemable, AccessibilitySupport {
     
     private func configure() {
         backgroundColor = scheme.backgroundColor.uiColor
-        textLabel.textColor = scheme.textColor.parameter(for: .normal)?.uiColor
+        textLabel.textColor = scheme.textColor.parameter(for: isEnabled ? .normal : .disabled)?.uiColor
         ghostButton.scheme = scheme.ghostButtonScheme
+        ghostButton.isEnabled = isEnabled
     }
     
     private func configureUI() {

@@ -17,6 +17,7 @@ final class LinksHeaderViewController: ScrollViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideSegmentView(false)
         configureUI()
     }
 
@@ -36,6 +37,18 @@ final class LinksHeaderViewController: ScrollViewController {
             $0.translatesAutoresizingMaskIntoConstraints = false
             stackView.addArrangedSubview($0)
         }
+        
+        segmentControl.setTitles(["Default", "Disabled"])
+        segmentControl.selectedSegmentIndex = 0
+        segmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
+    }
+    
+    @objc private func segmentedValueChanged(_ control: StandardSegmentedControl) {
+        headers.forEach({
+            if  let link = $0 as? LinkViewHeader {
+                link.isEnabled = control.selectedSegmentIndex == 1 ? false : true
+            }
+        })
     }
     
 }

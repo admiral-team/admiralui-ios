@@ -13,6 +13,8 @@ import AdmiralSwiftUI
 @available(iOS 14.0.0, *)
 struct LinkSwiftUIView: View {
     
+    @State private var isEnabledControlsState: Int = 0
+    
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
     
     public var body: some View {
@@ -21,14 +23,19 @@ struct LinkSwiftUIView: View {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
             ScrollView(showsIndicators: false) {
-                VStack(spacing: 0.0) {
-                    LinkView(
-                        buttonTitle: "Подробнее на сайте банка",
-                        buttonAction: {})
+                ScrollView(showsIndicators: false) {
+                    StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                    Spacer()
+                        .frame(height: 16.0)
+                    VStack(spacing: 0.0) {
+                        LinkView(
+                            buttonTitle: "Подробнее на сайте банка",
+                            buttonAction: {})
+                            .disabled(isEnabledControlsState != 0)
+                    }
+                    .padding(.bottom, LayoutGrid.doubleModule * 4)
                 }
-                .padding(.bottom, LayoutGrid.doubleModule * 4)
             }
         }
     }
-    
 }
