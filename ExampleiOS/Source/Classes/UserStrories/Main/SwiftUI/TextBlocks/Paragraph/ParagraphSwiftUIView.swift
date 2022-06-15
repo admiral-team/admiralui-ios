@@ -23,7 +23,8 @@ struct ParagraphSwiftUIView: View {
                 .edgesIgnoringSafeArea(.all)
             ScrollView(showsIndicators: false) {
                 StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
-                    .padding()
+                Spacer()
+                    .frame(height: 16.0)
                 
                 VStack(spacing: LayoutGrid.quadrupleModule) {
                     HStack(spacing: LayoutGrid.tripleModule) {

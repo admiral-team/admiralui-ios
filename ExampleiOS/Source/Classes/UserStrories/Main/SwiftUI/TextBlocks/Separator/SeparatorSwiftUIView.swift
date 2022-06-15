@@ -13,6 +13,8 @@ import AdmiralSwiftUI
 @available(iOS 14.0.0, *)
 struct SeparatorSwiftUIView: View {
     
+    @State private var isEnabledControlsState: Int = 0
+    
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
     
     public var body: some View {
@@ -21,11 +23,15 @@ struct SeparatorSwiftUIView: View {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
             ScrollView(showsIndicators: false) {
+                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                Spacer()
+                    .frame(height: 16.0)
                 VStack(spacing: LayoutGrid.tripleModule) {
                     HStack(spacing: 0.0) {
                         Text("Long")
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)
+                            .disabled(isEnabledControlsState != 0)
                         Spacer()
                     }
                     .padding()
@@ -36,6 +42,7 @@ struct SeparatorSwiftUIView: View {
                         Text("Short")
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)
+                            .disabled(isEnabledControlsState != 0)
                         Spacer()
                     }
                     .padding()
