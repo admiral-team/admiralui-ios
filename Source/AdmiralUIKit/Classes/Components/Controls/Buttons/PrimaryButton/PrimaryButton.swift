@@ -69,6 +69,8 @@ open class PrimaryButton: CustomButton, AnyAppThemable, AccessibilitySupport {
         setBackgroundColor(scheme.backgroundNormalColor.uiColor, for: .normal)
         setBackgroundColor(scheme.backgroundHightlightedColor.uiColor, for: .highlighted)
         setBackgroundColor(scheme.backgroundDisabledColor.uiColor, for: .disabled)
+        
+        tintColor = scheme.normalTextColor.uiColor
     }
     
     private func updateSchemeFonts() {
