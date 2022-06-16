@@ -72,7 +72,7 @@ class ChatBubbleViewTest: XCTestCase {
         timeTitle: String = "21:22",
         name: String = "",
         direction: ChatDirection = .right,
-        frame: CGSize = CGSize(width: 509, height: 72)
+        frame: CGSize = CGSize(width: 139, height: 72)
     ) -> ChatBubbleView {
         let chatBubble = ChatBubbleView()
         chatBubble.chatStatus = status
