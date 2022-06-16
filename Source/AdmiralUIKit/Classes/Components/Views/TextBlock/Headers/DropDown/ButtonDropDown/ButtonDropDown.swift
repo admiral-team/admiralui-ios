@@ -33,6 +33,11 @@ public class ButtonDropDown: UIView, AnyAppThemable {
     
     public weak var delegate: TitleButtonDropDownDelegate?
     
+    /// A Boolean value indicating whether the control is in the enabled state.
+    open var isEnabled: Bool = true {
+        didSet { updateScheme()  }
+    }
+    
     /// The text that the button displays.
     public var buttonTitle: String? {
         didSet { updateButtonTitle() }
@@ -116,6 +121,7 @@ public class ButtonDropDown: UIView, AnyAppThemable {
     private func configure() {
         backgroundColor = scheme.backgroundColor.uiColor
         ghostButton.scheme = scheme.ghostButtonScheme
+        ghostButton.isEnabled = isEnabled
     }
     
     private func configureUI() {
