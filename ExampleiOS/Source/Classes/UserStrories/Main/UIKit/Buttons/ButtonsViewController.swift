@@ -1,157 +1,74 @@
 //
 //  ButtonsViewController.swift
-//  Example iOS
+//  ExampleiOS
 //
-//  Created on 14.10.2020.
+//  Created on 14.06.2022.
 //
 
 import AdmiralUIKit
-import AdmiralTheme
 import UIKit
 
-final class ButtonsViewController: ScrollViewController {
+final class ButtonsViewController: BaseTableViewController {
     
-    // MARK: - Initializers
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
+        setSegmentControl(hidden: true)
+
         super.viewDidLoad()
-        hideSegmentView(false)
-        configureUI()
-        apply(theme: Appearance.shared.theme)
-    }
-    
-    // MARK: - Internal Methods
-    
-    override func apply(theme: AppTheme) {
-        super.apply(theme: theme)
-        view.backgroundColor = theme.colors.backgroundBasic.uiColor
-        stackView.arrangedSubviews.forEach({
-            ($0 as? AppThemeCompatible)?.apply(theme: theme)
-        })
+        tableView.separatorStyle = .none
+        tableViewManager.sections = createSections()
     }
     
     // MARK: - Private Methods
     
-    private func configureUI() {
-        configurePrimaryButtonSections()
-        configurSecondaryButtonSections()
-        configurGhostButtonSections()
-        configureRulesView()
+    private func createSections() -> [MainSectionViewModel] {
+        let items: [TableViewListItem] = [
+            MainTitleTableViewCellViewModel(
+                title: "Primary buttons",
+                didSelect: { [weak self] in self?.presentPrimaryButtons() }),
+            
+            MainTitleTableViewCellViewModel(
+                title: "Secondary buttons",
+                didSelect: { [weak self] in self?.presentSecondaryButtons() }),
+            
+            MainTitleTableViewCellViewModel(
+                title: "Ghost buttons",
+                didSelect: { [weak self] in self?.presentGhostButtons() }),
+            
+            MainTitleTableViewCellViewModel(
+                title: "Rules",
+                didSelect: { [weak self] in self?.presentRules() }),
+            
+            MainTitleTableViewCellViewModel(
+                title: "Other buttons",
+                didSelect: {})
+        ]
         
-        segmentControl.setTitles(["Default", "Disabled"])
-        segmentControl.selectedSegmentIndex = 0
-        segmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
+        return [MainSectionViewModel(items: items)]
     }
     
-    private func configurePrimaryButtonSections() {
-        let primaryTwoTitle = TwoTitleButton()
-        primaryTwoTitle.leftButtonTitle = "08.06.20 - 14.08.20"
-        primaryTwoTitle.rightButtonTitle = "Выбрать"
-        let twoTitleContainer = BigButtonContainerView(button: primaryTwoTitle)
-
-        let primaryButtonBig = PrimaryButton()
-        primaryButtonBig.setTitle("Big Button", for: .normal)
-        let bigContainer = BigButtonContainerView(button: primaryButtonBig)
-        
-        let primaryButtonMedium = PrimaryButton()
-        primaryButtonMedium.setTitle("Medium Button", for: .normal)
-        let mediumContainer = MediumButtonContainerView(button: primaryButtonMedium)
-        
-        let primaryButtonSmall = PrimaryButton()
-        primaryButtonSmall.setTitle("Small Button", for: .normal)
-        let smallContainer = SmallButtonContainerView(button: primaryButtonSmall)
-        
-        let buttonsContainer = ButtonsView(
-            buttonViews:
-                [twoTitleContainer,
-                 bigContainer,
-                 mediumContainer,
-                 smallContainer],
-            title: "Primary")
-        stackView.addArrangedSubview(buttonsContainer)
+    private func presentPrimaryButtons() {
+        let viewController = PrimaryButtonsViewController()
+        viewController.title = "Primary buttons"
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
-    private func configurSecondaryButtonSections() {
-        let secondaryButtonBig = SecondaryButton()
-        secondaryButtonBig.setTitle("Big Button", for: .normal)
-        let bigContainer = BigButtonContainerView(button: secondaryButtonBig)
-        
-        let secondaryButtonMedium = SecondaryButton()
-        secondaryButtonMedium.setTitle("Medium Button", for: .normal)
-        let mediumContainer = MediumButtonContainerView(button: secondaryButtonMedium)
-        
-        let secondaryButtonSmall = SecondaryButton()
-        secondaryButtonSmall.setTitle("Small Button", for: .normal)
-        let smallContainer = SmallButtonContainerView(button: secondaryButtonSmall)
-        
-        let buttonsContainer = ButtonsView(
-            buttonViews:
-                [bigContainer,
-                 mediumContainer,
-                 smallContainer],
-            title: "Secondary")
-        
-        stackView.addArrangedSubview(buttonsContainer)
+    private func presentSecondaryButtons() {
+        let viewController = SecondaryButtonsViewController()
+        viewController.title = "Secondary buttons"
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
-    private func configurGhostButtonSections() {
-        let ghostTwoTitle = TwoTitleGhostButton()
-        ghostTwoTitle.leftButtonTitle = "08.06.20 - 14.08.20"
-        ghostTwoTitle.rightButtonTitle = "Выбрать"
-        let ghostTwoTitleContainer = BigButtonContainerView(button: ghostTwoTitle)
-        
-        let ghostButtonBig = GhostButton()
-        ghostButtonBig.setTitle("Big Button", for: .normal)
-        let ghostBigContainer = BigButtonContainerView(button: ghostButtonBig)
-        
-        let ghostButtonSmall = GhostButton()
-        ghostButtonSmall.setTitle("Small Button", for: .normal)
-        let ghostSmallContainer = SmallButtonContainerView(button: ghostButtonSmall)
-
-        let buttonsContainer = ButtonsView(
-            buttonViews:
-                [ghostTwoTitleContainer,
-                 ghostBigContainer,
-                 ghostSmallContainer],
-            title: "Ghost")
-        stackView.addArrangedSubview(buttonsContainer)
+    private func presentGhostButtons() {
+        let viewController = GhostButtonViewController()
+        viewController.title = "Ghost buttons"
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
-    private func configureRulesView() {
-        let infoAgreementView = InfoAgreementView()
-        infoAgreementView.actionText = "Действие"
-        infoAgreementView.alternativeText = "Альтернативное действие"
-        infoAgreementView.cheboxText = "Я согласен с условиями договора и подтверждаю свое согласие на обработку персональных данных"
-        infoAgreementView.checkboxButtonText = "Открыть список документов"
-        infoAgreementView.delegate = self
-        
-        let buttonsContainer = ButtonsView(
-            buttonViews:
-                [infoAgreementView],
-            title: "Rules")
-        stackView.addArrangedSubview(buttonsContainer)
+    private func presentRules() {
+        let viewController = RulesViewController()
+        viewController.title = "Rules"
+        navigationController?.pushViewController(viewController, animated: true)
     }
-    
-    @objc private func segmentedValueChanged(_ control: StandardSegmentedControl) {
-        stackView.arrangedSubviews.forEach({
-            let isEnabled = control.selectedSegmentIndex == 1 ? false : true
-            ($0 as? ButtonsView)?.buttonViews.forEach({
-                ($0 as? SmallButtonContainerView)?.isEnabled = isEnabled
-                ($0 as? MediumButtonContainerView)?.isEnabled = isEnabled
-                ($0 as? BigButtonContainerView)?.isEnabled = isEnabled
-                ($0 as? InfoAgreementView)?.isEnabled = isEnabled
-            })
-        })
-    }
-    
-}
-
-// MARK: - InfoAgreementViewDelegate
-
-extension ButtonsViewController: InfoAgreementViewDelegate {
-    
-    func checkBoxShouldSelected(_ checkBox: CheckBox) -> Bool {
-        return !checkBox.isSelected
-    }
-    
 }

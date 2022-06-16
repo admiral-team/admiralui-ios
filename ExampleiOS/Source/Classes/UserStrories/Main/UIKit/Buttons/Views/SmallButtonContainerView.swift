@@ -9,8 +9,6 @@ import AdmiralUIKit
 import AdmiralTheme
 import UIKit
  
-typealias Button = AppThemeCompatible & UIControl
-
 final class SmallButtonContainerView<T>: UIView, AnyAppThemable where T: UIControl {
     
     // MARK: - Public Properties
@@ -23,11 +21,11 @@ final class SmallButtonContainerView<T>: UIView, AnyAppThemable where T: UIContr
     
     // MARK: - Private Properties
 
-    private var button: Button
+    private var button: UIButton
     
     // MARK: - Initializer
 
-    init(button: Button) {
+    init(button: UIButton) {
         self.button = button
         super.init(frame: .zero)
         
@@ -42,7 +40,9 @@ final class SmallButtonContainerView<T>: UIView, AnyAppThemable where T: UIContr
     
     func apply(theme: AppTheme) {
         backgroundColor = theme.colors.backgroundBasic.uiColor
-        button.apply(theme: theme)
+        if let button = button as? AppThemeCompatible {
+            button.apply(theme: theme)
+        }
     }
 
     // MARK: - Private Methods
@@ -62,7 +62,7 @@ final class SmallButtonContainerView<T>: UIView, AnyAppThemable where T: UIContr
     private func setupConstraits() {
         NSLayoutConstraint.activate([
             button.leadingAnchor.constraint(equalTo: leadingAnchor, constant: LayoutGrid.doubleModule),
-            button.widthAnchor.constraint(equalToConstant: LayoutGrid.module * 16),
+            button.widthAnchor.constraint(equalToConstant: button.image(for: .normal) == nil ? LayoutGrid.module * 16 : LayoutGrid.module * 21),
             button.topAnchor.constraint(equalTo: topAnchor),
             button.bottomAnchor.constraint(equalTo: bottomAnchor),
             button.heightAnchor.constraint(equalToConstant: LayoutGrid.module * 5)

@@ -68,6 +68,8 @@ open class SecondaryButton: CustomButton, AnyAppThemable, AccessibilitySupport {
         setBorderColor(scheme.borderNormalColor.uiColor, for: .normal)
         setBorderColor(scheme.borderHightlightedColor.uiColor, for: .highlighted)
         setBorderColor(scheme.borderDisabledColor.uiColor, for: .disabled)
+        
+        imageView?.tintColor = scheme.normalTextColor.uiColor
     }
     
     private func updateSchemeFonts() {

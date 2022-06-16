@@ -149,6 +149,7 @@ private extension PrimaryButtonStyle {
         func lable() -> some View {
             configuration.label.accessibilityIdentifier(PrimaryButtonAccessibilityIdentifiers.lable
                                                             .accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier))
+                .foregroundColor(scheme.textColor.parameter(for: .normal)?.swiftUIColor)
         }
         
         func contentButton(
