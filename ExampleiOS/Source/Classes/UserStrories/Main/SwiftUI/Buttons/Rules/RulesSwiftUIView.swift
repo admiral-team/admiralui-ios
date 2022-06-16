@@ -13,12 +13,17 @@ import AdmiralUIResources
 
 @available(iOS 14.0.0, *)
 struct RulesSwiftUIView: View {
+    
+    // MARK: - Internal Properties
+
     @State private var isDefaultCheckBoxSelected: Bool = false
     @State private var isEnabledControlsState: Int = 0
     
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
     
-    public var body: some View {
+    //MARK: - Layout
+    
+    var body: some View {
         let scheme = schemeProvider.scheme
         NavigationContentView(navigationTitle: "Rules") {
             scheme.backgroundColor.swiftUIColor
@@ -37,7 +42,6 @@ struct RulesSwiftUIView: View {
                         subtitleButtonTitle: "Открыть список документов",
                         subtitleButtonAction: {})
                         .disabled(isEnabledControlsState != 0)
-                    
                 }
                 .padding(.bottom, LayoutGrid.doubleModule * 4)
             }

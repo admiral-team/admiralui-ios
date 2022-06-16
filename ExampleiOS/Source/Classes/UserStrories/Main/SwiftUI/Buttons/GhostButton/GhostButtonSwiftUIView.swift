@@ -13,15 +13,20 @@ import AdmiralUIResources
 @available(iOS 14.0.0, *)
 struct GhostButtonSwiftUIView: View {
     
+    // MARK: - Image Direction
+    
     enum ImageDirection {
         case left
         case right
     }
     
+    // MARK: - Internal Properties
+    
     @State private var isDefaultCheckBoxSelected: Bool = false
     @State private var isEnabledControlsState: Int = 0
-    
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
+    
+    // MARK: - Layout
     
     public var body: some View {
         let scheme = schemeProvider.scheme

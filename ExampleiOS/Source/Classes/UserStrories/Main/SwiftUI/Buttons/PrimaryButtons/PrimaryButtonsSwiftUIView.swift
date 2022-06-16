@@ -13,16 +13,21 @@ import AdmiralUIResources
 @available(iOS 14.0.0, *)
 struct PrimaryButtonsSwiftUIView: View {
     
+    // MARK: - Image Direction
+    
     enum ImageDirection {
         case left
         case right
     }
     
-    @State private var isEnabledControlsState: Int = 0
+    // MARK: - Internal Properties
     
+    @State private var isEnabledControlsState: Int = 0
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
     
-    public var body: some View {
+    // MARK: - Layout
+    
+    var body: some View {
         let scheme = schemeProvider.scheme
         NavigationContentView(navigationTitle: "Primary Buttons") {
             scheme.backgroundColor.swiftUIColor

@@ -70,7 +70,7 @@ open class PrimaryButton: CustomButton, AnyAppThemable, AccessibilitySupport {
         setBackgroundColor(scheme.backgroundHightlightedColor.uiColor, for: .highlighted)
         setBackgroundColor(scheme.backgroundDisabledColor.uiColor, for: .disabled)
         
-        tintColor = scheme.normalTextColor.uiColor
+        imageView?.tintColor = scheme.normalTextColor.uiColor
     }
     
     private func updateSchemeFonts() {

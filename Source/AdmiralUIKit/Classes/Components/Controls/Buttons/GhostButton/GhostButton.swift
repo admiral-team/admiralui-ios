@@ -123,7 +123,7 @@ open class GhostButton: CustomButton, AnyAppThemable, AccessibilitySupport {
         setTintColor(scheme.highlightedTextColor.uiColor, for: .highlighted)
         setTintColor(scheme.disabledTextColor.uiColor, for: .disabled)
         
-        tintColor = scheme.normalTextColor.uiColor
+        imageView?.tintColor = scheme.normalTextColor.uiColor
 
         activityIndicator.scheme = scheme.activityIndicatorScheme
     }

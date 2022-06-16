@@ -13,17 +13,21 @@ import AdmiralUIResources
 @available(iOS 14.0.0, *)
 struct SecondaryButtonsSwiftUIView: View {
     
+    // MARK: - Image Direction
+    
     enum ImageDirection {
         case left
         case right
     }
     
+    // MARK: - Internal Properties
     
     @State private var isEnabledControlsState: Int = 0
-    
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
     
-    public var body: some View {
+    // MARK: - Layout
+    
+    var body: some View {
         let scheme = schemeProvider.scheme
         NavigationContentView(navigationTitle: "Secondary Buttons") {
             scheme.backgroundColor.swiftUIColor
