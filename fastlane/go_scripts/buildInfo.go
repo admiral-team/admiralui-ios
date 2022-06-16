@@ -50,13 +50,13 @@ func (buildInfo BuildInfo) formatted_build_info_git() string {
 	return resultString
 }
 
-func (buildInfo BuildInfo) build_failed_info(actionId string) string {
+func (buildInfo BuildInfo) build_failed_info(pullNumber string) string {
 	var resultString string
 	resultString += "🆘<strong>Build failed</strong>🆘" + "\n"
 	if buildInfo.Branch_name != "" {
 		resultString += "<strong>Branch name: </strong>" + buildInfo.Branch_name + "\n"
 	}
-	resultString += "<strong>Build Url: </strong>" + "https://github.com/admiral-team/admiralui-ios/actions/runs/" + actionId + "\n"
+	resultString += "<strong>Build Url: </strong>" + "https://github.com/admiral-team/admiralui-ios/pull/" + pullNumber + "/checks" + "\n"
 	return resultString
 }
 
