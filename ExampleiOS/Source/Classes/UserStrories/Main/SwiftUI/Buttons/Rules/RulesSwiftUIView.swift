@@ -21,7 +21,7 @@ struct RulesSwiftUIView: View {
     
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
     
-    //MARK: - Layout
+    // MARK: - Layout
     
     var body: some View {
         let scheme = schemeProvider.scheme

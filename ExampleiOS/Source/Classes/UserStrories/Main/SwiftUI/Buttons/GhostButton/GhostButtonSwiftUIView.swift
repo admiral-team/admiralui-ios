@@ -50,10 +50,11 @@ struct GhostButtonSwiftUIView: View {
     
     private func createBigButton() -> some View {
         VStack(alignment: .center, spacing: 16.0) {
-            createButton(name: "Big Button", image: AdmiralUIResources.Asset.Category.Outline.heartOutline.image, direction: .right)
+            createButton(name: "Big Button", image: AdmiralUIResources.Asset.Category.Outline.heartOutline.image, direction: .left
+            )
                 .buttonStyle(GhostButtonStyle(sizeType: .big))
                 .disabled(isEnabledControlsState != 0)
-            createButton(name: "Big Button", image: AdmiralUIResources.Asset.Category.Solid.maintenanceSolid.image, direction: .left)
+            createButton(name: "Big Button", image: AdmiralUIResources.Asset.Category.Solid.maintenanceSolid.image, direction: .right)
                 .buttonStyle(GhostButtonStyle(sizeType: .big))
                 .disabled(isEnabledControlsState != 0)
             SwiftUI.Button("Big Button", action: {})
@@ -64,10 +65,10 @@ struct GhostButtonSwiftUIView: View {
     
     private func createMediumButton() -> some View {
         VStack(alignment: .center, spacing: 16.0) {
-            createButton(name: "Medium Button", image: AdmiralUIResources.Asset.Category.Outline.heartOutline.image, direction: .right)
+            createButton(name: "Medium Button", image: AdmiralUIResources.Asset.Category.Outline.heartOutline.image, direction: .left)
                 .buttonStyle(GhostButtonStyle(sizeType: .medium))
                 .disabled(isEnabledControlsState != 0)
-            createButton(name: "Medium Button", image: AdmiralUIResources.Asset.Category.Solid.maintenanceSolid.image, direction: .left)
+            createButton(name: "Medium Button", image: AdmiralUIResources.Asset.Category.Solid.maintenanceSolid.image, direction: .right)
                 .buttonStyle(GhostButtonStyle(sizeType: .medium))
                 .disabled(isEnabledControlsState != 0)
             SwiftUI.Button("Medium Button", action: {})
@@ -78,11 +79,11 @@ struct GhostButtonSwiftUIView: View {
     
     private func createSmallButton() -> some View {
         VStack(alignment: .leading, spacing: 16.0) {
-            createButton(name: "Small Button", image: AdmiralUIResources.Asset.Category.Outline.heartOutline.image, direction: .right)
+            createButton(name: "Small Button", image: AdmiralUIResources.Asset.Category.Outline.heartOutline.image, direction: .left)
                 .buttonStyle(GhostButtonStyle(sizeType: .none))
                 .frame(width: 164)
                 .disabled(isEnabledControlsState != 0)
-            createButton(name: "Small Button", image: AdmiralUIResources.Asset.Category.Solid.maintenanceSolid.image, direction: .left)
+            createButton(name: "Small Button", image: AdmiralUIResources.Asset.Category.Solid.maintenanceSolid.image, direction: .right)
                 .buttonStyle(GhostButtonStyle(sizeType: .none))
                 .frame(width: 164)
                 .disabled(isEnabledControlsState != 0)

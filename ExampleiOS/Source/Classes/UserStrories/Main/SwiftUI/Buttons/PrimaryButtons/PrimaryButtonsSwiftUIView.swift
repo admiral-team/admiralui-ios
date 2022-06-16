@@ -56,12 +56,12 @@ struct PrimaryButtonsSwiftUIView: View {
         VStack(alignment: .leading, spacing: 16.0) {
             createButton(name: "Big Button",
                          image: AdmiralUIResources.Asset.Category.Outline.heartOutline.image,
-                         direction: .right)
+                         direction: .left)
                 .buttonStyle(PrimaryButtonStyle(sizeType: .big))
                 .disabled(isEnabledControlsState != 0)
             createButton(name: "Big Button",
                          image: AdmiralUIResources.Asset.Category.Solid.maintenanceSolid.image,
-                         direction: .left)
+                         direction: .right)
                 .buttonStyle(PrimaryButtonStyle(sizeType: .big))
                 .disabled(isEnabledControlsState != 0)
             SwiftUI.Button("Big Button", action: {})
@@ -72,10 +72,10 @@ struct PrimaryButtonsSwiftUIView: View {
     
     private func createMediumButton() -> some View {
         VStack(alignment: .leading, spacing: 16.0) {
-            createButton(name: "Medium Button", image: AdmiralUIResources.Asset.Category.Outline.heartOutline.image, direction: .right)
+            createButton(name: "Medium Button", image: AdmiralUIResources.Asset.Category.Outline.heartOutline.image, direction: .left)
                 .buttonStyle(PrimaryButtonStyle(sizeType: .medium))
                 .disabled(isEnabledControlsState != 0)
-            createButton(name: "Medium Button", image: AdmiralUIResources.Asset.Category.Solid.maintenanceSolid.image, direction: .left)
+            createButton(name: "Medium Button", image: AdmiralUIResources.Asset.Category.Solid.maintenanceSolid.image, direction: .right)
                 .buttonStyle(PrimaryButtonStyle(sizeType: .medium))
                 .disabled(isEnabledControlsState != 0)
             SwiftUI.Button("Medium Button", action: {})
@@ -86,11 +86,11 @@ struct PrimaryButtonsSwiftUIView: View {
     
     private func createSmallButton() -> some View {
         VStack(alignment: .leading, spacing: 16.0) {
-            createButton(name: "Small Button", image: AdmiralUIResources.Asset.Category.Outline.heartOutline.image, direction: .right)
+            createButton(name: "Small Button", image: AdmiralUIResources.Asset.Category.Outline.heartOutline.image, direction: .left)
                 .buttonStyle(PrimaryButtonStyle(sizeType: .none))
                 .frame(width: 164)
                 .disabled(isEnabledControlsState != 0)
-            createButton(name: "Small Button", image: AdmiralUIResources.Asset.Category.Solid.maintenanceSolid.image, direction: .left)
+            createButton(name: "Small Button", image: AdmiralUIResources.Asset.Category.Solid.maintenanceSolid.image, direction: .right)
                 .buttonStyle(PrimaryButtonStyle(sizeType: .none))
                 .frame(width: 164)
                 .disabled(isEnabledControlsState != 0)
