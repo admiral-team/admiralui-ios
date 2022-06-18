@@ -85,7 +85,7 @@ public struct LinerPageControll: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 ScrollViewReader { value in
                     HStack(spacing: 0) {
-                        ForEach(0..<numberOfPages) { index in
+                        ForEach(0..<numberOfPages, id: \.self) { index in
                             getlinerItemView(for: index)
                                 .id(index)
                         }

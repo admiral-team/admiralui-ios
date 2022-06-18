@@ -77,6 +77,7 @@ final class SliderViewController: ScrollViewController {
         inputRangeTextField.info = info
         inputRangeTextField.minimumValue = 10
         inputRangeTextField.maximumValue = 1000
+        inputRangeTextField.leadingText = "₽"
         inputRangeTextField.placeholder = placeholder ?? "10"
         inputRangeTextField.text = String(Int(inputRangeTextField.value))
         inputRangeTextField.keyboardType = .numberPad
@@ -108,6 +109,8 @@ final class SliderViewController: ScrollViewController {
         doubleInputRangeTextField.maximumValue = 1000
         doubleInputRangeTextField.lowerValue = 100
         doubleInputRangeTextField.upperValue = 500
+        doubleInputRangeTextField.leadingText = "₽"
+        doubleInputRangeTextField.trailingText = "₽"
         doubleInputRangeTextField.minTextPlaceholder = minTextPlaceholder ?? "10"
         doubleInputRangeTextField.maxTextPlaceholder = maxTextPlaceholder ?? "1000"
         doubleInputRangeTextField.minValueText = String(Int(doubleInputRangeTextField.lowerValue))
