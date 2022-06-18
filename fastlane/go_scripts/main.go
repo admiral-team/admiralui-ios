@@ -12,6 +12,7 @@ import (
 	"os"
 	"strconv"
 
+	"github.com/admiral-team/admiral-tools/figma"
 	"github.com/joho/godotenv"
 )
 
@@ -45,6 +46,11 @@ func main() {
 		formatedBuildInfoFailed := buildInfo.build_failed_info(os.Args[5])
 		telegramChatId, _ := strconv.Atoi(os.Args[3])
 		telegram.SendTextToTelegramChat(telegramChatId, formatedBuildInfoFailed, os.Args[4], "")
+	case "uploadFigmaPdf":
+		token := os.Args[2]
+		id := os.Args[3]
+		path := os.Args[4]
+		figma.LoadDocumentation(token, id, path)
 	default:
 		fmt.Println("Unknown command")
 	}
