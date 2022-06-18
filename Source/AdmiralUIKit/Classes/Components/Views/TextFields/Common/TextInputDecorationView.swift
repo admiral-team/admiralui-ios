@@ -28,6 +28,7 @@ final class TextInputDecorationView: UIView, AnyAppThemable, AccessibilitySuppor
         var trailingViewAlignmentStyle: TrailingViewAlignmentStyle = .centerText(offset: 0)
         var trailingViewSpacingLeading: CGFloat = LayoutGrid.module
         var trailingViewSize: CGSize = CGSize(width: 3 * LayoutGrid.module, height: 3 * LayoutGrid.module)
+        var leadingTextSpacing: CGFloat = LayoutGrid.module
 
         fileprivate var textInputTopOffset: CGFloat {
             return nameLabelHeight + textInputSpacingTop
@@ -58,7 +59,12 @@ final class TextInputDecorationView: UIView, AnyAppThemable, AccessibilitySuppor
         get { return placeholderLabel.text }
         set { placeholderLabel.text = newValue }
     }
-        
+
+    var leadingText: String? {
+        get { return leadingTextLabel.text }
+        set { leadingTextLabel.text = newValue }
+    }
+
     var trailingView: UIView? {
         didSet { updateTrailingView(oldView: oldValue) }
     }
@@ -90,11 +96,18 @@ final class TextInputDecorationView: UIView, AnyAppThemable, AccessibilitySuppor
         didSet { updateLayoutConstraints() }
     }
 
+    var leadingLabelSpacing: CGFloat = LayoutGrid.module {
+        didSet {
+            textLabelLeadingConstraint.constant = leadingLabelSpacing + LayoutGrid.module
+        }
+    }
+
     let textInput: UIView
     
     let nameLabel = UILabel()
     let placeholderLabel = UILabel()
     let informerLabel = UILabel()
+    let leadingTextLabel = UILabel()
     let separatorView = SeparatorView()
     let tapAreaView = UIView()
     
@@ -114,7 +127,10 @@ final class TextInputDecorationView: UIView, AnyAppThemable, AccessibilitySuppor
     
     private var placeholderHeightConstraint: NSLayoutConstraint?
     private var placeholderSpacingLeadingConstraint: NSLayoutConstraint?
-    
+
+    private var textLabelTopConstraint: NSLayoutConstraint?
+    private var textLabelLeadingConstraint = NSLayoutConstraint()
+
     private var separatorSpacingTopConstraint: NSLayoutConstraint?
     private var separtorBoxHeightConstraint: NSLayoutConstraint?
     
@@ -194,6 +210,10 @@ final class TextInputDecorationView: UIView, AnyAppThemable, AccessibilitySuppor
         informerLabel.isUserInteractionEnabled = false
         informerLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(informerLabel)
+
+        leadingTextLabel.isUserInteractionEnabled = false
+        leadingTextLabel.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(leadingTextLabel)
     }
     
     private func configureUI() {
@@ -226,6 +246,7 @@ final class TextInputDecorationView: UIView, AnyAppThemable, AccessibilitySuppor
         configureInformerLabelLayout()
         configureTrailingViewLayoutGuide()
         configureTapAreaViewLayout()
+        configureLeadingTextLabelLayout()
         updateLayoutConstraints()
     }
     
@@ -347,7 +368,14 @@ final class TextInputDecorationView: UIView, AnyAppThemable, AccessibilitySuppor
         
         NSLayoutConstraint.activate([top, leading, trailing, height])
     }
-    
+
+    private func configureLeadingTextLabelLayout() {
+        let top = leadingTextLabel.topAnchor.constraint(equalTo: textInput.topAnchor)
+        textLabelLeadingConstraint = leadingTextLabel.leadingAnchor.constraint(equalTo: textInput.leadingAnchor)
+        textLabelLeadingConstraint.constant = layoutParameters.leadingTextSpacing
+        NSLayoutConstraint.activate([top, textLabelLeadingConstraint])
+    }
+
     private func configureInformerLabelLayout() {
         let top = informerLabel.topAnchor.constraint(equalTo: separatorView.bottomAnchor)
         let leading = informerLabel.leadingAnchor.constraint(equalTo: leadingAnchor)
