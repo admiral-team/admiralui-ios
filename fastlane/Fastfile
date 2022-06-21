@@ -145,6 +145,7 @@ lane :create_release do |options|
   response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
     http.request(request)
   end
+  puts response
 end
 
 lane :run_code_cov do |options|
