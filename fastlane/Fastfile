@@ -61,6 +61,7 @@ lane :deploy_appcenter_dev do |options|
   telegram_token = options[:telegram_token]
   telegram_chat_id = options[:telegram_chat_id]
   pull_request_number = options[:pull_request_number]
+  test_token = options[:test_token]
   build_number = generate_random_build_number()
   previous_build_number = current_app_build_number
   branch_name = issue_name
@@ -71,22 +72,22 @@ lane :deploy_appcenter_dev do |options|
     issue_name = extract_issue_name(branch_name: issue_name)
   end
 
-  if !skip_archive
-    increment_app_build(build_number: build_number)
+  # if !skip_archive
+  #   increment_app_build(build_number: build_number)
     
-    build_app(
-      workspace: ENV['PROJECT_WORKSPACE_PATH'],
-      configuration: "Release",
-      scheme: "ExampleiOS",
-      silent: true,
-      clean: true,
-      output_directory: "Release/AdmiralUI-Example/Dev",
-      export_method: "enterprise",
-      output_name: "admiralui-example.ipa",
-    )
+  #   build_app(
+  #     workspace: ENV['PROJECT_WORKSPACE_PATH'],
+  #     configuration: "Release",
+  #     scheme: "ExampleiOS",
+  #     silent: true,
+  #     clean: true,
+  #     output_directory: "Release/AdmiralUI-Example/Dev",
+  #     export_method: "enterprise",
+  #     output_name: "admiralui-example.ipa",
+  #   )
 
-    increment_app_build(build_number: previous_build_number)
-  end
+  #   increment_app_build(build_number: previous_build_number)
+  # end
 
   # appcenter_upload(
   #   api_token: ENV['APPCENTER_API_TOKEN'],
@@ -110,7 +111,7 @@ lane :deploy_appcenter_dev do |options|
 
   if !skip_git_comment && !issue_name.nil?
     #comment_body = formatted_build_info_json(build_info: build_info)
-    system("cd ./go_scripts && ./main createRelease test10 #{ENV['API_GITHUB_TOKEN']} #{telegram_chat_id} #{telegram_token}")
+    system("cd ./go_scripts && ./main createRelease test10 #{test_token} #{telegram_chat_id} #{telegram_token}")
     #system("cd ./go_scripts && ./main createComment #{comment_body} #{ENV['API_GITHUB_TOKEN']} #{telegram_chat_id} #{telegram_token}")
   end
 
