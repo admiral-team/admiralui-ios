@@ -48,9 +48,10 @@ lane :deploy_appcenter_prod do |options|
   build_info = BuildInfo.from_hash(build_info_hash)
   build_info.build_url = appcenter_build_dev_url(build_id: build_info.build_id)
   build_info.external_version = current_lib_external_version
+  build_info.internal_version = current_lib_internal_version
 
   comment_body = formatted_build_info_json(build_info: build_info)
-  system("cd ./go_scripts && ./main createRelease #{comment_body} #{ENV['API_GITHUB_TOKEN']}")
+  system("cd ./go_scripts && ./main createRelease #{current_lib_external_version} #{ENV['API_GITHUB_TOKEN']}")
 end
 
 lane :deploy_appcenter_dev do |options|
@@ -110,6 +111,7 @@ lane :deploy_appcenter_dev do |options|
   if !skip_git_comment && !issue_name.nil?
     comment_body = formatted_build_info_json(build_info: build_info)
     system("cd ./go_scripts && ./main createComment #{comment_body} #{ENV['API_GITHUB_TOKEN']} #{telegram_chat_id} #{telegram_token}")
+    system("cd ./go_scripts && ./main createRelease test10 #{ENV['API_GITHUB_TOKEN']} #{telegram_chat_id} #{telegram_token}")
   end
 
 end

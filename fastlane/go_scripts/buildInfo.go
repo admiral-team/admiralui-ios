@@ -60,6 +60,14 @@ func (buildInfo BuildInfo) build_failed_info(pullNumber string) string {
 	return resultString
 }
 
+func build_info_prod_telegram(external_version string) string {
+	var resultString string
+	resultString += "<strong>test release! </strong>" + "✨" + "\n"
+	resultString += "<strong>Platform: </strong>" + "iOS" + "\n"
+	resultString += "<strong>Link: </strong>" + "https://github.com/admiral-team/admiralui-ios/releases/tag/" + external_version + "\n"
+	return resultString
+}
+
 func (buildInfo BuildInfo) formatted_build_info_telegram() string {
 	var resultString string
 	resultString += "<strong>Platform: </strong>" + buildInfo.Platform + "\n"
