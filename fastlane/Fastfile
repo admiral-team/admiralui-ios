@@ -120,7 +120,7 @@ lane :deploy_appcenter_dev do |options|
 
 end
 
-lane :create_release do |options|
+lane :create_release do
   token = options[:telegram_token]
   telegram_chat_id = options[:telegram_chat_id]
   pull_request_number = options[:pull_request_number]
