@@ -181,6 +181,14 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 
 
+### send_build_failed_info
+
+```sh
+[bundle exec] fastlane send_build_failed_info
+```
+
+
+
 ### build_git_packages
 
 ```sh
