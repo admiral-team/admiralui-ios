@@ -53,6 +53,7 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
     @State private var toastNextOffset: CGFloat = 0.0
     @State private var topOffset: CGFloat = UIApplication.shared.statusBarFrame.height
     @State private var bottomOffset: CGFloat = 0.0
+    private var toastsDidDisappear: () -> () = {}
     
     private var defaultToastYOffset: CGFloat {
         return UIScreen.main.bounds.height - ToastView.Constants.maxHeight - bottomOffset
@@ -72,12 +73,14 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
         isAfterTouchUpdateTimer: Bool = true,
         topOffset: CGFloat = UIApplication.shared.statusBarFrame.height,
         bottomOffset: CGFloat = 0.0,
+        toastsDidDisappear: @escaping  ()->() = {},
         @ViewBuilder content: @escaping (ToastPresenter) -> (Content)) {
         self.content = content
         self.direction = direction
         self._topOffset = .init(initialValue: topOffset)
         self.isAfterTouchUpdateTimer = isAfterTouchUpdateTimer
         self._bottomOffset = .init(initialValue: bottomOffset)
+        self.toastsDidDisappear = toastsDidDisappear
         
         self._toastPresenter = StateObject<ToastPresenter>(
             wrappedValue: ToastPresenter(
@@ -99,6 +102,7 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
                         }
                         .onDisappear {
                             toastPresenter.isToastDisappear = true
+                            removeTostsFromModel()
                         }
                     toastNextView()
                         .onAppear {
@@ -106,6 +110,7 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
                         }
                         .onDisappear {
                             toastPresenter.isNextToastDisappear = true
+                            removeTostsFromModel()
                         }
                 case .down:
                     toastDownView()
@@ -114,6 +119,7 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
                         }
                         .onDisappear {
                             toastPresenter.isToastDisappear = true
+                            removeTostsFromModel()
                         }
                     toastDownNextView()
                         .onAppear {
@@ -121,6 +127,7 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
                         }
                         .onDisappear {
                             toastPresenter.isNextToastDisappear = true
+                            removeTostsFromModel()
                         }
                 }
                 Spacer()
@@ -266,6 +273,12 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
                         }))
             .offset(x: 0.0, y: toastNextOffset)
             .animation(.easeInOut(duration: toastPresenter.animationDuration))
+    }
+    
+    private func removeTostsFromModel() {
+        if toastPresenter.isToastDisappear, toastPresenter.isNextToastDisappear {
+            toastsDidDisappear()
+        }
     }
     
 }

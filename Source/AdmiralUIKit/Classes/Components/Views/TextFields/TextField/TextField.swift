@@ -75,6 +75,20 @@ open class TextField: TextFieldInput, AnyAppThemable, AccessibilitySupport {
         }
     }
 
+    public var contentWidth: CGFloat {
+        get {
+            inputTextField.invalidateIntrinsicContentSize()
+            return inputTextField.intrinsicContentSize.width
+        } set {
+            decorationView.leadingLabelSpacing = newValue
+        }
+    }
+
+    public var leadingText: String? {
+        get { return decorationView.leadingTextLabel.text }
+        set { decorationView.leadingText = newValue }
+    }
+
     /// The  type of texfield trailing view.
     public var trailingViewStyle: TextInputTrailingViewStyle = .default {
         didSet { updateTrailingView() }

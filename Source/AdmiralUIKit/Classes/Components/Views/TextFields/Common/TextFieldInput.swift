@@ -81,6 +81,7 @@ open class TextFieldInput: UIView {
         set {
             inputTextField.text = newValue
             textFieldStateNeedUpdate()
+            calculateContentSize()
         }
     }
     
@@ -106,11 +107,19 @@ open class TextFieldInput: UIView {
         }
     }
 
+    var onChangeContentSize: ((CGFloat) -> ())?
+
     let inputTextField = UITextField()
-    
+
     override public init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
+    }
+
+    override open func layoutSubviews() {
+        super.layoutSubviews()
+        inputTextField.invalidateIntrinsicContentSize()
+        onChangeContentSize?(inputTextField.intrinsicContentSize.width)
     }
     
     public required init?(coder: NSCoder) {
@@ -122,9 +131,14 @@ open class TextFieldInput: UIView {
         inputTextField.delegate = self
         inputTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
-    
+
+    private func calculateContentSize() {
+        inputTextField.invalidateIntrinsicContentSize()
+        onChangeContentSize?(inputTextField.intrinsicContentSize.width)
+    }
+
     func textFieldStateNeedUpdate() {}
-    
+
 }
 
 

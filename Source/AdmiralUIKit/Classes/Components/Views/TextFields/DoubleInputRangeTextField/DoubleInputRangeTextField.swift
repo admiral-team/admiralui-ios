@@ -73,6 +73,21 @@ public class DoubleInputRangeTextField: UIView, AnyAppThemable, AccessibilitySup
         }
     }
 
+    public var leadingText: String? {
+        get { return leftTextField.leadingText }
+        set {
+            leftTextField.leadingText = newValue
+        }
+    }
+
+    public var trailingText: String? {
+        get { return trailingLabel.text }
+        set {
+            trailingLabel.text = newValue
+            updateLayoutConstraints()
+        }
+    }
+
     /// The keyboardType of textField
     public var keyboardType: UIKeyboardType {
         get { return leftTextField.keyboardType }
@@ -149,7 +164,13 @@ public class DoubleInputRangeTextField: UIView, AnyAppThemable, AccessibilitySup
     let maxValueLabel = UILabel()
     let informerLabel = UILabel()
     let fromLabel = UILabel()
+    let trailingLabel = UILabel()
     let destinationLabel = UILabel()
+
+    // MARK: - Private Properties
+
+    private var trailingLabelConstraint = NSLayoutConstraint()
+    private var rightTextFieldTrailingConstraints = NSLayoutConstraint()
 
     var scheme = InputRangeTextFieldScheme() {
         didSet { updateScheme() }
@@ -226,10 +247,14 @@ public class DoubleInputRangeTextField: UIView, AnyAppThemable, AccessibilitySup
         leadingDestinationView.addSubview(destinationLabel)
         leftTextField.leadingView = leadingFromView
         rightTextField.leadingView = leadingDestinationView
-        [leftTextField, minValueLabel, maxValueLabel, informerLabel, slider, rightTextField].addToSuperview(self)
+        [leftTextField, minValueLabel, maxValueLabel, informerLabel, slider, rightTextField, trailingLabel].addToSuperview(self)
     }
 
     private func configureLayout() {
+        trailingLabelConstraint = trailingLabel.leadingAnchor.constraint(equalTo: rightTextField.trailingAnchor, constant: LayoutGrid.doubleModule)
+        rightTextFieldTrailingConstraints = rightTextField.trailingAnchor.constraint(equalTo: trailingAnchor)
+
+
         NSLayoutConstraint.activate([
             leftTextField.leadingAnchor.constraint(equalTo: leadingAnchor),
             leftTextField.trailingAnchor.constraint(equalTo: trailingAnchor),
@@ -252,8 +277,12 @@ public class DoubleInputRangeTextField: UIView, AnyAppThemable, AccessibilitySup
             informerLabel.topAnchor.constraint(equalTo: minValueLabel.bottomAnchor),
             informerLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
 
-            rightTextField.trailingAnchor.constraint(equalTo: trailingAnchor),
+            rightTextField.bottomAnchor.constraint(equalTo: trailingLabel.bottomAnchor, constant: LayoutGrid.module),
             rightTextField.topAnchor.constraint(equalTo: topAnchor),
+            
+            trailingLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            trailingLabelConstraint,
+            rightTextFieldTrailingConstraints,
         ])
     }
 
@@ -261,6 +290,16 @@ public class DoubleInputRangeTextField: UIView, AnyAppThemable, AccessibilitySup
         super.layoutSubviews()
         leftTextField.leftLabelWidth = fromLabel.frame.width
         rightTextField.leftLabelWidth = fromLabel.frame.width
+    }
+
+    private func updateLayoutConstraints() {
+        guard trailingText != nil else {
+            trailingLabelConstraint.constant = .zero
+            rightTextFieldTrailingConstraints.isActive = true
+            return
+        }
+        rightTextFieldTrailingConstraints.isActive = false
+        trailingLabelConstraint.constant = LayoutGrid.module
     }
 
     private func configureUI() {
@@ -301,6 +340,10 @@ public class DoubleInputRangeTextField: UIView, AnyAppThemable, AccessibilitySup
 
         leftTextField.inputTextField.delegate = self
         leftTextField.inputTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+
+        leftTextField.onChangeContentSize = { [weak self] size in
+            self?.leftTextField.contentWidth = size
+        }
 
         setState(state, animated: false)
     }
@@ -355,6 +398,10 @@ public class DoubleInputRangeTextField: UIView, AnyAppThemable, AccessibilitySup
             font: scheme.valueFont.uiFont,
             textStyle: scheme.valueFont.textStyle,
             adjustsFontForContentSize: adjustsFontForContentSizeCategory)
+        trailingLabel.setDynamicFont(
+            font: scheme.textField.textFieldFont.uiFont,
+            textStyle: scheme.textField.textFieldFont.textStyle,
+            adjustsFontForContentSize: adjustsFontForContentSizeCategory)
         informerLabel.setDynamicFont(
             font: scheme.textField.informerFont.uiFont,
             textStyle: scheme.textField.informerFont.textStyle,
@@ -387,6 +434,8 @@ extension DoubleInputRangeTextField: UITextFieldDelegate {
         } else {
             slider.setValue(minimumValue, animated: true)
         }
+        textField.invalidateIntrinsicContentSize()
+        self.leftTextField.contentWidth = textField.intrinsicContentSize.width
     }
 
     @objc public func rightFieldDidChange(_ textField: TextField) {
