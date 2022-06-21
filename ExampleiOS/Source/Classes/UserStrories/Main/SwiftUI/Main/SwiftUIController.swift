@@ -58,8 +58,12 @@ struct CustomSwiftUIView: View {
         ZToastNotificationsView(
             direction: viewModel.toastDirection,
             isAfterTouchUpdateTimer: viewModel.toastDirection == .up,
-            bottomOffset: 64.0
-        ) { presenter in
+            bottomOffset: 64.0,
+            toastsDidDisappear: {
+                toastManager.model = nil
+                toastManager.toastDirection = nil
+            },
+            content: { presenter in
             NavigationView {
                 NavigationContentView(
                     navigationTitle: "Дизайн-система  «Адмирал»",
@@ -115,7 +119,7 @@ struct CustomSwiftUIView: View {
                     }
                 })
             }
-        }
+            })
         .navigationBarColor(
             backgroundColor: scheme.backgroundColor.swiftUIColor,
             titleColor: scheme.titleNavigationColor.swiftUIColor

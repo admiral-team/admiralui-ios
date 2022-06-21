@@ -170,16 +170,12 @@ extension ActivityIndicator {
 
     /// Start activity indicator animation.
     public func startAnimating() {
-        guard !isAnimating else { return }
-
         animator.addAnimation(to: indicator)
         isAnimating = true
     }
 
     /// Stop activity indicator animation.
     public func stopAnimating() {
-        guard isAnimating else { return }
-
         animator.removeAnimation(from: indicator)
         isAnimating = false
     }

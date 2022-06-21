@@ -165,6 +165,7 @@ public class ActionCellView<T>: UIView, AnyAppThemable, UIGestureRecognizerDeleg
     }
     
     @objc private func tapCell() {
+        guard state != .disabled else { return }
         hide()
     }
     

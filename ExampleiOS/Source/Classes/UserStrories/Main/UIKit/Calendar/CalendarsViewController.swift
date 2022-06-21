@@ -39,11 +39,13 @@ final class CalendarsViewController: BaseTableViewController {
     private func presentHorizontalCalendar() {
         let viewController = HorizontalViewController()
         viewController.title = "Horizontal"
+        viewController.loadViewIfNeeded()
         navigationController?.pushViewController(viewController, animated: true)
     }
     
     private func presentVericalCalendar() {
         let viewController = VerticalCalendarViewController()
+        viewController.loadViewIfNeeded()
         viewController.title = "Vertical"
         navigationController?.pushViewController(viewController, animated: true)
     }
