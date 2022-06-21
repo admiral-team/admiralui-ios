@@ -12,7 +12,7 @@ import SwiftUI
 public class ToastPresenter: ObservableObject {
     
     public enum Constants {
-        public static let hideAnimationDuration: Double = 7.0
+        public static let hideAnimationDuration: Double = 5.0
     }
     
     // MARK: - Internal Properties
