@@ -9,7 +9,7 @@ import (
 	"golang.org/x/oauth2"
 )
 
-func CreateRelease(ctx context.Context, owner, repo string, tag string, token string) bool {
+func CreateRelease(ctx context.Context, owner, repo string, tag string, token string) {
 	ts := oauth2.StaticTokenSource(&oauth2.Token{AccessToken: token})
 	tc := oauth2.NewClient(ctx, ts)
 	client := github.NewClient(tc)
@@ -25,12 +25,12 @@ func CreateRelease(ctx context.Context, owner, repo string, tag string, token st
 	release.Name = &tag
 	release.GenerateReleaseNotes = &autoGenerateNotes
 
-	_, _, error := client.Repositories.CreateRelease(ctx, owner, repo, &release)
+	release_, _, error := client.Repositories.CreateRelease(ctx, owner, repo, &release)
 
 	if error != nil {
 		log.Fatal("error", error)
-		return false
-	} else {
-		return true
+		return
 	}
+
+	fmt.Println("release created", release_)
 }
