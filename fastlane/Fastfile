@@ -3,6 +3,9 @@ require_relative 'build_info'
 require_relative 'version'
 require_relative 'utils'
 require_relative 'templates_generator'
+require 'net/http'
+require 'uri'
+require 'json'
 
 before_all do
   Dotenv.overload('.env', '.env.secret')
@@ -110,14 +113,37 @@ lane :deploy_appcenter_dev do |options|
 
   if !skip_git_comment && !issue_name.nil?
     #comment_body = formatted_build_info_json(build_info: build_info)
-    puts `curl -v -i -X POST -H "Content-Type:application/json" -H "Authorization: token #{ENV['API_GITHUB_TOKEN']}" https://api.github.com/repos/admiral-team/admiralui-ios/releases - d "{"tag_name":#{current_lib_external_version}, "target_commitish": "main", "name": #{current_lib_external_version}, "body": "Release #{current_lib_external_version}", "draft": false, "prerelease": false, "generate_release_notes" : true}'`
     system("cd ./go_scripts && ./main createRelease 17.0.0 #{ENV['API_GITHUB_TOKEN']}")
-  
-
     #system("cd ./go_scripts && ./main createRelease 16.0.0 #{ENV['API_GITHUB_TOKEN']} #{telegram_chat_id} #{telegram_token}")
     #system("cd ./go_scripts && ./main createComment #{comment_body} #{ENV['API_GITHUB_TOKEN']} #{telegram_chat_id} #{telegram_token}")
   end
 
+end
+
+lane :create_release do |options|
+  token = options[:telegram_token]
+  telegram_chat_id = options[:telegram_chat_id]
+  pull_request_number = options[:pull_request_number]
+  uri = URI.parse("https://api.github.com/repos/admiral-team/admiralui-ios/releases")
+  request = Net::HTTP::Post.new(uri)
+  request.content_type = "application/json"
+  request["Authorization"] = "token #{ENV['API_GITHUB_TOKEN']}"
+  request.body = JSON.dump({
+    "tag_name" => "#{current_lib_external_version}",
+    "target_commitish" => "main",
+    "name" => "#{current_lib_external_version}",
+    "body" => "Release #{current_lib_external_version}",
+    "draft" => false,
+    "prerelease" => false,
+    "generate_release_notes" => true
+  })
+
+  req_options = {
+    use_ssl: uri.scheme == "https",
+  }
+
+  response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+    http.request(request)
 end
 
 lane :run_code_cov do |options|
