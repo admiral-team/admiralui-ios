@@ -70,7 +70,6 @@ func build_info_prod_telegram(external_version string) string {
 
 func (buildInfo BuildInfo) formatted_build_info_telegram() string {
 	var resultString string
-	resultString += "<strong>Platform: </strong>" + buildInfo.Platform + "\n"
 
 	if buildInfo.Platform != "" {
 		resultString += "<strong>Platform: </strong>" + buildInfo.Platform + "\n"
