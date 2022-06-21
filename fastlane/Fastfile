@@ -110,8 +110,12 @@ lane :deploy_appcenter_dev do |options|
 
   if !skip_git_comment && !issue_name.nil?
     #comment_body = formatted_build_info_json(build_info: build_info)
+    puts `curl -u #{usrname}:#{pwd} -X POST --data "del=#{del}&val=#{va}" #{http_path}`
+
+    puts `curl -v -i -X POST -H "Content-Type:application/json" -H "Authorization: token #{ENV['API_GITHUB_TOKEN']} https://api.github.com/repos/admiral-team/admiralui-ios/releases - d '{"tag_name":#{current_lib_external_version}, "target_commitish": "main", "name": #{current_lib_external_version}, "body": "Release #{current_lib_external_version}", "draft": false, "prerelease": false, "generate_release_notes" : true}'`
     system("cd ./go_scripts && ./main createRelease 17.0.0 #{ENV['API_GITHUB_TOKEN']}")
-    system("curl -v -i -X POST -H 'Content-Type:application/json' -H 'Authorization: token #{ENV['API_GITHUB_TOKEN']}' https://api.github.com/repos/admiral-team/admiralui-ios/releases -d '{'tag_name': #{current_lib_internal_version}, 'target_commitish': 'main', 'name': #{current_lib_internal_version}, 'body': 'Release #{current_lib_internal_version}, 'draft': false, 'prerelease: false, 'generate_release_notes' : true}'")
+  
+
     #system("cd ./go_scripts && ./main createRelease 16.0.0 #{ENV['API_GITHUB_TOKEN']} #{telegram_chat_id} #{telegram_token}")
     #system("cd ./go_scripts && ./main createComment #{comment_body} #{ENV['API_GITHUB_TOKEN']} #{telegram_chat_id} #{telegram_token}")
   end
