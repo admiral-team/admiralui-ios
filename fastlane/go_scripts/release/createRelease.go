@@ -2,6 +2,7 @@ package release
 
 import (
 	"context"
+	"fmt"
 	"log"
 
 	"github.com/google/go-github/v43/github"
@@ -16,6 +17,8 @@ func CreateRelease(ctx context.Context, owner, repo string, tag string, token st
 	targetCommit := "main"
 	autoGenerateNotes := true
 
+	fmt.Println("tag", tag)
+
 	release := github.RepositoryRelease{}
 	release.TagName = &tag
 	release.TargetCommitish = &targetCommit
@@ -25,7 +28,7 @@ func CreateRelease(ctx context.Context, owner, repo string, tag string, token st
 	_, _, error := client.Repositories.CreateRelease(ctx, owner, repo, &release)
 
 	if error != nil {
-		log.Fatal(error)
+		log.Fatal("error", error)
 		return
 	}
 }

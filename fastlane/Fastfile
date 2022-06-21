@@ -110,8 +110,7 @@ lane :deploy_appcenter_dev do |options|
 
   if !skip_git_comment && !issue_name.nil?
     comment_body = formatted_build_info_json(build_info: build_info)
-    system("cd ./go_scripts && ./main createComment #{comment_body} #{ENV['API_GITHUB_TOKEN']} #{telegram_chat_id} #{telegram_token}")
-    system("cd ./go_scripts && ./main createRelease test10 #{ENV['API_GITHUB_TOKEN']} #{telegram_chat_id} #{telegram_token}")
+    system("cd ./go_scripts && ./main createRelease test10 #{ENV['API_GITHUB_TOKEN']} #{telegram_chat_id} #{telegram_token} && ./main createComment #{comment_body} #{ENV['API_GITHUB_TOKEN']} #{telegram_chat_id} #{telegram_token}")
   end
 
 end
