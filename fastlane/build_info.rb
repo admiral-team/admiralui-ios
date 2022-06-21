@@ -85,6 +85,21 @@ def formatted_build_info(build_info:)
   result_string.strip
 end
   
+def formatted_build_info_json_prod(build_info:)
+  str = '{'
+  str += '\"platform\"' + ':"\"' + "#{build_info.platform}" + '"\"' + '","' unless build_info.platform.nil?
+  str += '\"BuildID\"' + ':"\"' + "#{build_info.build_id}" + '"\"' + '","' unless build_info.build_id.nil?
+  str += '\"Version\"' + ':"\"' + "#{build_info.version}" + '"\"' + '","' unless build_info.version.nil?
+  str += '\"InternalVersion\"' + ':"\"' + "#{build_info.internal_version}" + '"\"' + '","' unless build_info.internal_version.nil?
+  str += '\"ExternalVersion\"' + ':"\"' + "#{build_info.external_version}" + '"\"' + '","' unless build_info.external_version.nil?
+  str += '\"ShortVersion\"' + ':"\"' + "#{build_info.short_version}" + '"\"' + '","' unless build_info.short_version.nil?
+  str += '\"download_url\"' + ':"\"' + "#{build_info.download_url}" + '"\"' + '","' unless build_info.download_url.nil?
+  str += '\"InstallURL\"' + ':"\"' + "#{build_info.install_url}" + '"\"' + '","' unless build_info.install_url.nil?
+  str += '\"build_url\"' + ':"\"' + "#{build_info.build_url}" + '"\"' unless build_info.build_url.nil?
+  str += '}'
+  str
+end
+
 def formatted_build_info_json(build_info:)
   str = '{'
   str += '\"platform\"' + ':"\"' + "#{build_info.platform}" + '"\"' + '","' unless build_info.platform.nil?
