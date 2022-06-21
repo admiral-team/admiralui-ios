@@ -36,10 +36,24 @@ public protocol LinkViewHeaderDelegate: AnyObject {
     title: "Button")
  ```
 */
+
+/// The state of LinkViewHeader.
+enum LinkViewHeaderState: Int {
+    /// The normal state of the LinkViewHeader
+    case normal
+    /// The disabled state of the LinkViewHeader
+    case disabled
+}
+
 /// A header with header title.
 public class LinkViewHeader: UIView, AnyAppThemable {
     
     weak var delegate: LinkViewHeaderDelegate?
+    
+    /// A Boolean value indicating whether the control is in the enabled state.
+    open var isEnabled: Bool = true {
+        didSet { updateScheme()  }
+    }
     
     /// The text that the label displays.
     public var title: String? {
@@ -57,6 +71,10 @@ public class LinkViewHeader: UIView, AnyAppThemable {
     
     private let ghostButton = GhostButton()
     public let headerStyle: HeaderStyle = .link
+    
+    private var state: BadgeState {
+        return isEnabled ? .normal : .disabled
+    }
     
     private lazy var heightConstraint: NSLayoutConstraint = {
         return heightAnchor.constraint(greaterThanOrEqualToConstant: headerStyle.height)
@@ -128,6 +146,7 @@ public class LinkViewHeader: UIView, AnyAppThemable {
     private func configure() {
         backgroundColor = scheme.backgroundColor.uiColor
         ghostButton.scheme = scheme.ghostScheme
+        ghostButton.isEnabled = isEnabled
     }
     
     private func configureUI() {

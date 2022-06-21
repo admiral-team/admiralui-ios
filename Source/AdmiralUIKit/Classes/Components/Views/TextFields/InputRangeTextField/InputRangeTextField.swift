@@ -106,6 +106,13 @@ public class InputRangeTextField: UIView, AnyAppThemable, AccessibilitySupport {
         get { return textField.trailingView }
         set { textField.trailingView = newValue }
     }
+
+    public var leadingText: String? {
+        get { return textField.leadingText }
+        set {
+            textField.leadingText = newValue
+        }
+    }
     
     // MARK: - Internal Properties
     
@@ -118,7 +125,7 @@ public class InputRangeTextField: UIView, AnyAppThemable, AccessibilitySupport {
     var scheme = InputRangeTextFieldScheme() {
         didSet { updateScheme() }
     }
-    
+
     // MARK: - AccessibilitySupport
     
     public var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
@@ -233,6 +240,10 @@ public class InputRangeTextField: UIView, AnyAppThemable, AccessibilitySupport {
         textField.inputTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         
         setState(state, animated: false)
+
+        textField.onChangeContentSize = { [weak self] size in
+            self?.textField.contentWidth = size
+        }
     }
     
     private func updateMinValue(_ value: Float) {
@@ -318,8 +329,11 @@ extension InputRangeTextField: UITextFieldDelegate {
         } else {
             slider.setValue(minimumValue, animated: true)
         }
+
+        textField.invalidateIntrinsicContentSize()
+        self.textField.contentWidth = textField.intrinsicContentSize.width
     }
-    
+
     public func textFieldDidBeginEditing(_ textField: UITextField) {
         configure(for: state)
     }

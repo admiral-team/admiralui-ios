@@ -13,6 +13,8 @@ import AdmiralSwiftUI
 @available(iOS 14.0.0, *)
 struct DropDownSwiftUIView: View {
     
+    @State private var isEnabledControlsState: Int = 0
+    
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
     
     public var body: some View {
@@ -21,15 +23,20 @@ struct DropDownSwiftUIView: View {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
             ScrollView(showsIndicators: false) {
+                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                Spacer()
+                    .frame(height: 16.0)
                 VStack(spacing: 0.0) {
                     TitleButtonDropDown(
                         title: "Title",
                         buttonTitle: "Button",
                         buttonAction: {})
+                        .disabled(isEnabledControlsState != 0)
                     ButtonDropDown(
                         buttonTitle: "Button",
                                 dropDownHeaderType: .down,
                         buttonAction: {})
+                        .disabled(isEnabledControlsState != 0)
                 }
                 .padding(.bottom, LayoutGrid.doubleModule * 4)
             }
