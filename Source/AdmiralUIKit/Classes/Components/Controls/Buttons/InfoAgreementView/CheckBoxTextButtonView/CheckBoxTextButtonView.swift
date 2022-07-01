@@ -103,10 +103,8 @@ class CheckBoxTextButtonView: UIView, AnyAppThemable {
             сheckTextControl.leadingAnchor.constraint(equalTo: leadingAnchor),
             сheckTextControl.topAnchor.constraint(equalTo: topAnchor, constant: LayoutGrid.tripleModule),
             trailingAnchor.constraint(equalTo: сheckTextControl.trailingAnchor),
-            
-            linkButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: LayoutGrid.module * 3),
+            linkButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: LayoutGrid.halfModule * 5),
             linkButton.topAnchor.constraint(equalTo: сheckTextControl.bottomAnchor, constant: LayoutGrid.halfModule * 3),
-            trailingAnchor.constraint(equalTo: linkButton.trailingAnchor),
             bottomAnchor.constraint(equalTo: linkButton.bottomAnchor, constant: LayoutGrid.tripleModule)
         ])
     }
