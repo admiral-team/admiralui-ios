@@ -8,8 +8,7 @@ import (
 	"strconv"
 )
 
-func SendTextToTelegramChat(chatId int, text string, token string, installUrl string) {
-	fmt.Println("Sending to chat_id:", token, chatId, text)
+func SendTextToTelegramChat(chatId int, text string, token string) {
 	var telegramApi string = "https://api.telegram.org/bot" + token + "/sendMessage"
 	parseMode := "HTML"
 	response, err := http.PostForm(
