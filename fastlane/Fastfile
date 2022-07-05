@@ -409,7 +409,7 @@ lane :unlock_secrets_keychain do |options|
 end
 
 lane :create_release do
-  system("cd ./go_scripts && ./main createRelease #{ENV['API_GITHUB_TOKEN']}")
+  system("cd ./go_scripts && ./main createRelease #{ENV['RELEASE_TOKEN']}")
 end
 
 lane :send_build_failed_info do |options|

@@ -18,6 +18,7 @@ jobs:
       TELEGRAM_API_TOKEN: ${{ secrets.TELEGRAM_API_TOKEN }}
       TELEGRAM_DEV_CHAT_ID: ${{ secrets.TELEGRAM_DEV_CHAT_ID }}
       PUll_NUMBER: ${{ github.event.number }}
+      RELEASE_TOKEN: ${{ secrets.RELEASE_TOKEN }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
