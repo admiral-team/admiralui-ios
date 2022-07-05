@@ -18,6 +18,8 @@ jobs:
       TELEGRAM_API_TOKEN: ${{ secrets.TELEGRAM_API_TOKEN }}
       TELEGRAM_DEV_CHAT_ID: ${{ secrets.TELEGRAM_DEV_CHAT_ID }}
       PUll_NUMBER: ${{ github.event.number }}
+      RELEASE_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+      TELEGRAM_PROD_CHAT_ID: ${{ secrets.TELEGRAM_PROD_CHAT_ID }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -44,7 +46,7 @@ jobs:
           CI_PASSWORD:  ${{ secrets.CI_PASSWORD }}
         run: |
           bundle exec fastlane unlock_secrets_keychain password:"$CI_PASSWORD"
-          bundle exec fastlane deploy_appcenter_prod
+          bundle exec fastlane deploy_appcenter_prod telegram_token:"$TELEGRAM_API_TOKEN"
       - name: Check If Failed
         if: ${{ failure() }}
         run:  bundle exec fastlane send_build_failed_info issue_name:${{ github.head_ref }} telegram_token:"$TELEGRAM_API_TOKEN" telegram_chat_id:"$TELEGRAM_DEV_CHAT_ID" build_url:"$PUll_NUMBER"

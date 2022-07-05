@@ -112,15 +112,15 @@ struct ActionBarSwiftUIView: View {
                                 handler: {}
                             ),
                             ActionItemBarAction(
-                                image: Image(uiImage: Asset.ActionBar.shape.image),
-                                imageStyle: .attention,
+                                image: Image(uiImage: Asset.ActionBar.union.image),
+                                imageStyle: .success,
                                 style: .secondary,
                                 text: "Text",
                                 handler: {}
                             ),
                             ActionItemBarAction(
-                                image: Image(uiImage: Asset.ActionBar.union.image),
-                                imageStyle: .success,
+                                image: Image(uiImage: Asset.ActionBar.shape.image),
+                                imageStyle: .attention,
                                 style: .secondary,
                                 text: "Text",
                                 handler: {}
