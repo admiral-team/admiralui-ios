@@ -18,7 +18,7 @@ public struct PlatformButtonScheme: AppThemeScheme {
     
     public init(theme: AppTheme) {
         let alpha = theme.colors.disabledAlpha
-        let highlightedOpacity = 0.8
+        let highlightedOpacity: CGFloat = 0.8
         
         font = theme.fonts.body1
         

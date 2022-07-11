@@ -5,6 +5,7 @@
 //  Created on 05.07.2022.
 //
 
+import UIKit
 import AdmiralTheme
 import AdmiralUIResources
 
@@ -21,7 +22,7 @@ public struct PlatformButtonCustomScheme {
     
     public init(theme: AppTheme) {
         let alpha = theme.colors.disabledAlpha
-        let highlightedOpacity = 0.8
+        let highlightedOpacity: CGFloat = 0.8
         
         titleLabelFont = theme.fonts.body1
         
