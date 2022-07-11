@@ -14,7 +14,7 @@ import AdmiralSwiftUI
 struct ToastNotificationsSwiftUIView: View {
 
     @State var isShow: Bool = false
-    @State var toastView: ToastView?
+    // @State var toastView: ToastView?
     
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ToastNotificationsSwiftUIViewScheme>()
     private let toastManager = ToastNotificationsManager.shared

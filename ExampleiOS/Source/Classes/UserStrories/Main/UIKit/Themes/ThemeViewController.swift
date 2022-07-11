@@ -206,9 +206,21 @@ extension ThemeViewController: EditSingleTextViewControllerDelegate {
     }
     
     func enableAction(_ viewController: EditSingleTextViewController) -> Bool {
-        return viewController.text?.nilIfEmpty != nil
+        guard let text = viewController.text else {
+            return false
+        }
+        return !text.isEmptyOrWhitespace()
     }
     
+}
+
+// MARK: - Extensions
+
+private extension String {
+    func isEmptyOrWhitespace() -> Bool {
+        guard !self.isEmpty else { return true }
+        return (self.trimmingCharacters(in: .whitespaces) == "")
+    }
 }
 
 extension ThemeViewController: ThemeColorsViewControllerDelegate {
