@@ -71,7 +71,7 @@ class ButtonSnapshotTests: XCTestCase {
         checkButton(button: button, named: "Highlighted", testName: "GhostButton")
     }
     
-    // Two Title
+    // MARK: - Two Title
     
     func testTwoTitleButtonDefaultState() {
         let button = createTwoTitleButton()
@@ -88,6 +88,25 @@ class ButtonSnapshotTests: XCTestCase {
         let button = createTwoTitleButton()
         button.isHighlighted = true
         checkButton(button: button, named: "Highlighted", testName: "TwoTitle")
+    }
+    
+    // MARK: - Platform
+    
+    func testPlatformButtonDefaultState() {
+        let button = createPlatformButton()
+        checkButton(button: button, named: "Default", testName: "PlatformButton")
+    }
+    
+    func testPlatformButtonDisabledState() {
+        let button = createPlatformButton()
+        button.isEnabled = false
+        checkButton(button: button, named: "Disabled", testName: "PlatformButton")
+    }
+    
+    func testPlatformButtonHiglitedState() {
+        let button = createPlatformButton()
+        button.isHighlighted = true
+        checkButton(button: button, named: "Highlighted", testName: "PlatformButton")
     }
     
     // MARK: - Private Methods
@@ -130,6 +149,16 @@ class ButtonSnapshotTests: XCTestCase {
         button.apply(theme: theme)
         button.leftButtonTitle = "Left Title"
         button.rightButtonTitle = "Right Title"
+        return button
+    }
+    
+    private func createPlatformButton() -> UIButton {
+        let button = PlatformButton(
+            frame: CGRect(
+                origin: .zero,
+                size: CGSize(width: 300, height: 48.0)))
+        button.apply(theme: theme)
+        button.setTitle("Platform", for: .normal)
         return button
     }
     

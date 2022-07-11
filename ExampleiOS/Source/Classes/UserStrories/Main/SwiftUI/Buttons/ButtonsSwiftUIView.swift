@@ -53,7 +53,7 @@ struct ButtonsSwiftUIView: View {
         case .rules:
             RulesSwiftUIView()
         case .otherButtons:
-            PrimaryButtonsSwiftUIView()
+            OtherButtonsSwiftUIView()
 
         }
     }

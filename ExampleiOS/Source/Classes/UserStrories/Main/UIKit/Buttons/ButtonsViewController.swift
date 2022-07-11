@@ -42,7 +42,7 @@ final class ButtonsViewController: BaseTableViewController {
             
             MainTitleTableViewCellViewModel(
                 title: "Other buttons",
-                didSelect: {})
+                didSelect: { [weak self] in self?.presentOtherButton() })
         ]
         
         return [MainSectionViewModel(items: items)]
@@ -69,6 +69,12 @@ final class ButtonsViewController: BaseTableViewController {
     private func presentRules() {
         let viewController = RulesViewController()
         viewController.title = "Rules"
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    private func presentOtherButton() {
+        let viewController = OtherButtonsViewController()
+        viewController.title = "Other Buttos"
         navigationController?.pushViewController(viewController, animated: true)
     }
 }
