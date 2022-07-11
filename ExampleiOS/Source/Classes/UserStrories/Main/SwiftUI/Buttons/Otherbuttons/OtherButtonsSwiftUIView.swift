@@ -29,7 +29,7 @@ struct OtherButtonsSwiftUIView: View {
     
     var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Other Buttons") {
+        NavigationContentView(navigationTitle: "Other buttons") {
             scheme.backgroundColor.swiftUIColor
             ScrollView(.vertical, showsIndicators: false) {
                 StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
@@ -40,11 +40,6 @@ struct OtherButtonsSwiftUIView: View {
                     createButton(name: "Добавить в Apple Wallet",
                                  image: Asset.Card.appleWallet.image,
                                  direction: .left)
-                        .buttonStyle(PlatformButtonStyle())
-                        .disabled(isEnabledControlsState != 0)
-                    createButton(name: "Добавить в",
-                                 image: Asset.Card.googlePay.image,
-                                 direction: .right)
                         .buttonStyle(PlatformButtonStyle())
                         .disabled(isEnabledControlsState != 0)
                 }

@@ -60,11 +60,6 @@ final class OtherButtonsViewController: ScrollViewController {
         let primaryButtonBig = createPrimaryButton(name: "Добавить в Apple Wallet", image: Asset.Card.appleWallet.image, direction: .left)
         let bigContainer = BigButtonContainerView(button: primaryButtonBig)
         buttonsContainer.buttonViews.append(bigContainer)
-        
-        let secondPrimaryButtonBig = createPrimaryButton(name: "Добавить в", image: Asset.Card.googlePay.image, direction: .right)
-        let secondBigContainer = BigButtonContainerView(button: secondPrimaryButtonBig)
-        buttonsContainer.buttonViews.append(secondBigContainer)
-        
     }
     
     // MARK: Create Button

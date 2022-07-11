@@ -74,7 +74,7 @@ final class ButtonsViewController: BaseTableViewController {
     
     private func presentOtherButton() {
         let viewController = OtherButtonsViewController()
-        viewController.title = "Other Buttos"
+        viewController.title = "Other buttons"
         navigationController?.pushViewController(viewController, animated: true)
     }
 }
