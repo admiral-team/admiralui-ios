@@ -9,7 +9,23 @@ import UIKit
 import AdmiralTheme
 import AdmiralUIResources
 
-/// Main button. Used for the most important actions. It is advisable to use one such button on the screen.
+/**
+ Main button. Used for the most important actions. It is advisable to use one such button on the screen.
+ 
+ You can create a button with an activity indicator instead of text. In this case, the text that you pass to the Button will not be shown, but the activity indicator will be shown instead:
+ 
+ You can add accessibilityIdentifier (a string that identifies the element) in PlatformButton
+ 
+ # Code PlatformButton width image
+ ```
+ let button = PlatformButton()
+     button.setTitle(name, for: .normal)
+     button.setImage(image, for: .normal)
+     button.setImage(image, for: .highlighted)
+     button.semanticContentAttribute = .forceLeftToRight
+     button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: LayoutGrid.doubleModule)
+ ```
+*/
 open class PlatformButton: CustomButton, AnyAppThemable, AccessibilitySupport {
    
     // MARK: - Public Properties

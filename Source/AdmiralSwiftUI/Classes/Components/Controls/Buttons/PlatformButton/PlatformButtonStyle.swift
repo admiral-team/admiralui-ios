@@ -102,13 +102,13 @@ private extension PlatformButtonStyle {
                 }
         }
         
-        func lable() -> some View {
+        private func lable() -> some View {
             configuration.label.accessibilityIdentifier(PlatformButtonAccessibilityIdentifiers.lable
                                                             .accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier))
                 .foregroundColor(scheme.textColor.parameter(for: .normal)?.swiftUIColor)
         }
         
-        func contentButton(
+        private func contentButton(
             scheme: PlatformButtonScheme,
             content: AnyView) -> some View {
             let textNormal = scheme.textColor.parameter(for: .normal)?.swiftUIColor
