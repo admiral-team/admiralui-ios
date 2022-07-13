@@ -38,6 +38,7 @@ public enum Asset {
     public static let mir = ImageAsset(name: "Card/Mir")
     public static let visa = ImageAsset(name: "Card/Visa")
     public static let applePay = ImageAsset(name: "Card/applePay")
+    public static let appleWallet = ImageAsset(name: "Card/appleWallet")
     public static let googlePay = ImageAsset(name: "Card/googlePay")
     public static let info = ImageAsset(name: "Card/info")
     public static let rnb = ImageAsset(name: "Card/rnb")
@@ -180,6 +181,7 @@ public enum Asset {
     Card.mir,
     Card.visa,
     Card.applePay,
+    Card.appleWallet,
     Card.googlePay,
     Card.info,
     Card.rnb,

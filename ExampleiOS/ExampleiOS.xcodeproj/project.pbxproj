@@ -179,6 +179,8 @@
 		3BB8D1D72859FAF7004A656D /* SecondaryButtonsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8D1D62859FAF7004A656D /* SecondaryButtonsSwiftUIView.swift */; };
 		3BB8D1DA285A0ACA004A656D /* GhostButtonSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8D1D9285A0ACA004A656D /* GhostButtonSwiftUIView.swift */; };
 		3BB8D1DD285A0B6E004A656D /* RulesSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8D1DC285A0B6E004A656D /* RulesSwiftUIView.swift */; };
+		3BEDB3C42874555E00E2AD34 /* OtherButtonsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BEDB3C32874555E00E2AD34 /* OtherButtonsSwiftUIView.swift */; };
+		3BEDB3CE2874660600E2AD34 /* OtherButtonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BEDB3CD2874660600E2AD34 /* OtherButtonsViewController.swift */; };
 		C61C26F7261BB99300D01ED9 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61C26F6261BB99300D01ED9 /* BaseViewController.swift */; };
 		C620B7F5256560F300CB1B29 /* VerticalCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C620B7F4256560F300CB1B29 /* VerticalCalendarViewController.swift */; };
 		C6260A99255A88BA007175C2 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6260A98255A88BA007175C2 /* BaseRouter.swift */; };
@@ -649,6 +651,8 @@
 		3BB8D1D62859FAF7004A656D /* SecondaryButtonsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButtonsSwiftUIView.swift; sourceTree = "<group>"; };
 		3BB8D1D9285A0ACA004A656D /* GhostButtonSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostButtonSwiftUIView.swift; sourceTree = "<group>"; };
 		3BB8D1DC285A0B6E004A656D /* RulesSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesSwiftUIView.swift; sourceTree = "<group>"; };
+		3BEDB3C32874555E00E2AD34 /* OtherButtonsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherButtonsSwiftUIView.swift; sourceTree = "<group>"; };
+		3BEDB3CD2874660600E2AD34 /* OtherButtonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherButtonsViewController.swift; sourceTree = "<group>"; };
 		C61C26F6261BB99300D01ED9 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		C620B7F4256560F300CB1B29 /* VerticalCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalCalendarViewController.swift; sourceTree = "<group>"; };
 		C6260A98255A88BA007175C2 /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
@@ -1037,12 +1041,13 @@
 		0E22C66F262AFC5A00D09FC5 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				3BEDB3B62874427000E2AD34 /* Otherbuttons */,
 				3BB8D1D42859FAB6004A656D /* PrimaryButtons */,
 				3BB8D1D52859FACF004A656D /* SecondaryButtons */,
 				3BB8D1D8285A0AAC004A656D /* GhostButton */,
 				3BB8D1DB285A0B61004A656D /* Rules */,
-				3BB8D1D02859F53B004A656D /* ButtonsSwiftUIView.swift */,
 				3BB8D1D22859F58D004A656D /* ButtonsSwiftUIItem.swift */,
+				3BB8D1D02859F53B004A656D /* ButtonsSwiftUIView.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -1237,6 +1242,7 @@
 		0E576D3625370C2D00E223DD /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				3BEDB3CC287465E400E2AD34 /* OtherButtons */,
 				3BB8D1C328592297004A656D /* PrimaryButton */,
 				3BB8D1C4285922B2004A656D /* SecondaryButton */,
 				3BB8D1C928592CFA004A656D /* GhostButtons */,
@@ -2077,6 +2083,22 @@
 				3BB8D1DC285A0B6E004A656D /* RulesSwiftUIView.swift */,
 			);
 			path = Rules;
+			sourceTree = "<group>";
+		};
+		3BEDB3B62874427000E2AD34 /* Otherbuttons */ = {
+			isa = PBXGroup;
+			children = (
+				3BEDB3C32874555E00E2AD34 /* OtherButtonsSwiftUIView.swift */,
+			);
+			path = Otherbuttons;
+			sourceTree = "<group>";
+		};
+		3BEDB3CC287465E400E2AD34 /* OtherButtons */ = {
+			isa = PBXGroup;
+			children = (
+				3BEDB3CD2874660600E2AD34 /* OtherButtonsViewController.swift */,
+			);
+			path = OtherButtons;
 			sourceTree = "<group>";
 		};
 		C620B7F3256560E100CB1B29 /* Calendar */ = {
@@ -3895,6 +3917,7 @@
 				0E76FB43253EDB94001B1F3D /* SwitcherCellView.swift in Sources */,
 				0E4BC92A268347A8000FC891 /* PrimaryTitleBaseCellSwiftUI.swift in Sources */,
 				E9BE41A927C7DFF400894224 /* IconsCurrencyViewController.swift in Sources */,
+				3BEDB3CE2874660600E2AD34 /* OtherButtonsViewController.swift in Sources */,
 				0E853CBF259213A20033F17C /* StatusHistoryViewController.swift in Sources */,
 				0E6EA49B27025DCA002EBBBC /* ParagraphSwiftUIView.swift in Sources */,
 				E94518A227D36D630048B133 /* AdmiralGunProviderProtocol.swift in Sources */,
@@ -4154,6 +4177,7 @@
 				3BB8D1CB28592D53004A656D /* GhostButtonViewController.swift in Sources */,
 				E9BE41D427C8D83C00894224 /* MapButtonsViewModel.swift in Sources */,
 				3B56DADA280D772900161355 /* PageViewController.swift in Sources */,
+				3BEDB3C42874555E00E2AD34 /* OtherButtonsSwiftUIView.swift in Sources */,
 				0E9464DE26B18E0600F5E790 /* InformersAndToastsSwiftUIView.swift in Sources */,
 				0EA9F52626285034009F4B5A /* SwiftUIItem.swift in Sources */,
 				0EADAA09268AFE62003FF903 /* TextBaseCellSwiftUIView.swift in Sources */,
