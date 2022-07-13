@@ -38,7 +38,7 @@ final class UnderlineTabsViewController: BaseTableViewController {
     
     private func presentSliderTabs() {
         let viewController = UnderlineSliderTabsViewController()
-        viewController.title = "Underline Standard Tabs"
+        viewController.title = "Underline Slider Tabs"
         navigationController?.pushViewController(viewController, animated: true)
     }
     
