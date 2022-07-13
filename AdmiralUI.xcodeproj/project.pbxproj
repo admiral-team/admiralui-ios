@@ -567,6 +567,7 @@
 		3B0AC5C82743F5CE00BC2F8C /* OTPTextFieldSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0AC5C72743F5CE00BC2F8C /* OTPTextFieldSnapshotTests.swift */; };
 		3B0AC5CB2743FA6300BC2F8C /* StandardTextFieldSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0AC5CA2743FA6300BC2F8C /* StandardTextFieldSnapshotTests.swift */; };
 		3B0AC5CD2743FCE500BC2F8C /* LineSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0AC5CC2743FCE500BC2F8C /* LineSnapshotTests.swift */; };
+		3B0BCDF7287ED92100CF7394 /* SeparatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0BCDF6287ED92100CF7394 /* SeparatorTest.swift */; };
 		3B17B539273BCC6600847601 /* ErrorViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B84D5EE273AB16C00B52EC9 /* ErrorViewSnapshotTests.swift */; };
 		3B1B6D13273BECFC00746283 /* ZeroScreenSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1B6D12273BECFC00746283 /* ZeroScreenSnapshotTests.swift */; };
 		3B1B6D16273BF8FE00746283 /* BigInformerSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1B6D15273BF8FE00746283 /* BigInformerSnapshotTests.swift */; };
@@ -607,6 +608,8 @@
 		3B606A99274697E100C76ACB /* ButtonWithArrowListViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B606A98274697E100C76ACB /* ButtonWithArrowListViewSnapshotTests.swift */; };
 		3B625C0B2746511D0045DC38 /* ImageCardListViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B625C0A2746511D0045DC38 /* ImageCardListViewSnapshotTests.swift */; };
 		3B9E96172746EB2B00409F83 /* PrivateImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EA2D8522541932300D7AAE2 /* PrivateImages.xcassets */; };
+		3BAE3C63287D976400E8605F /* Separator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAE3C62287D976400E8605F /* Separator.swift */; };
+		3BAE3C65287D977200E8605F /* SeparatorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAE3C64287D977200E8605F /* SeparatorScheme.swift */; };
 		3BB18CC727B28ABA009AC37A /* PrimaryButtonAccessibilityIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB18CC627B28ABA009AC37A /* PrimaryButtonAccessibilityIdentifiers.swift */; };
 		3BB6609128452D68008322DC /* LinerPageControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B269E8F2845262300922D12 /* LinerPageControll.swift */; };
 		3BC8341D27511A5500F1B06A /* CheckboxTextbuttonViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC8341B27511A2800F1B06A /* CheckboxTextbuttonViewScheme.swift */; };
@@ -1274,6 +1277,7 @@
 		3B0AC5C72743F5CE00BC2F8C /* OTPTextFieldSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPTextFieldSnapshotTests.swift; sourceTree = "<group>"; };
 		3B0AC5CA2743FA6300BC2F8C /* StandardTextFieldSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTextFieldSnapshotTests.swift; sourceTree = "<group>"; };
 		3B0AC5CC2743FCE500BC2F8C /* LineSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineSnapshotTests.swift; sourceTree = "<group>"; };
+		3B0BCDF6287ED92100CF7394 /* SeparatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorTest.swift; sourceTree = "<group>"; };
 		3B1B6D12273BECFC00746283 /* ZeroScreenSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroScreenSnapshotTests.swift; sourceTree = "<group>"; };
 		3B1B6D15273BF8FE00746283 /* BigInformerSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigInformerSnapshotTests.swift; sourceTree = "<group>"; };
 		3B1B6D18273D2BD500746283 /* BadgeViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeViewSnapshotTests.swift; sourceTree = "<group>"; };
@@ -1314,6 +1318,8 @@
 		3B606A98274697E100C76ACB /* ButtonWithArrowListViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithArrowListViewSnapshotTests.swift; sourceTree = "<group>"; };
 		3B625C0A2746511D0045DC38 /* ImageCardListViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCardListViewSnapshotTests.swift; sourceTree = "<group>"; };
 		3B84D5EE273AB16C00B52EC9 /* ErrorViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewSnapshotTests.swift; sourceTree = "<group>"; };
+		3BAE3C62287D976400E8605F /* Separator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Separator.swift; sourceTree = "<group>"; };
+		3BAE3C64287D977200E8605F /* SeparatorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorScheme.swift; sourceTree = "<group>"; };
 		3BB18CC627B28ABA009AC37A /* PrimaryButtonAccessibilityIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonAccessibilityIdentifiers.swift; sourceTree = "<group>"; };
 		3BC8341B27511A2800F1B06A /* CheckboxTextbuttonViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxTextbuttonViewScheme.swift; sourceTree = "<group>"; };
 		3BC8341E27511A6F00F1B06A /* CheckboxTextbuttonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxTextbuttonView.swift; sourceTree = "<group>"; };
@@ -1921,6 +1927,7 @@
 		0E110D8D27C3DCCD00BFF58F /* TextBlock */ = {
 			isa = PBXGroup;
 			children = (
+				3B8A8912287D96DD003174B7 /* Separator */,
 				0E110D8E27C3DCD900BFF58F /* Headers */,
 			);
 			path = TextBlock;
@@ -2047,6 +2054,7 @@
 				0E110DD127C7AA1D00BFF58F /* TextBlockHeaderTest.swift */,
 				0EB2873927C7BBBE005F2155 /* TextBlockHeaderLinkTest.swift */,
 				0EB2873B27C7BF26005F2155 /* TextBlockDropDownTest.swift */,
+				3B0BCDF6287ED92100CF7394 /* SeparatorTest.swift */,
 			);
 			path = TextBlock;
 			sourceTree = "<group>";
@@ -4315,6 +4323,15 @@
 				3B1B6D0E273BEC7400746283 /* ErrorView */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		3B8A8912287D96DD003174B7 /* Separator */ = {
+			isa = PBXGroup;
+			children = (
+				3BAE3C62287D976400E8605F /* Separator.swift */,
+				3BAE3C64287D977200E8605F /* SeparatorScheme.swift */,
+			);
+			path = Separator;
 			sourceTree = "<group>";
 		};
 		3BC83419275119D500F1B06A /* InfoAgreementView */ = {
@@ -7479,6 +7496,7 @@
 				0EB7575A2600D625009BFC21 /* SecondaryTitleListViewScheme.swift in Sources */,
 				E9BE41CA27C8D6AA00894224 /* MapButtonScheme.swift in Sources */,
 				0EB756E52600D624009BFC21 /* TitleWithArrowListViewScheme.swift in Sources */,
+				3BAE3C63287D976400E8605F /* Separator.swift in Sources */,
 				0E89C537273BD1BC00476216 /* ButtonWithArrowScheme.swift in Sources */,
 				E610495526014D3F00FF20ED /* BankCardTextField.swift in Sources */,
 				0EB757002600D624009BFC21 /* ActivityIndicatorAnimator.swift in Sources */,
@@ -7500,6 +7518,7 @@
 				C66A0D5426026751005B0AF7 /* String+TimePicker.swift in Sources */,
 				0EA26049274D43F900D6699E /* WeekView.swift in Sources */,
 				E95DC43B27A0269C00532BDC /* Array+Extensions.swift in Sources */,
+				3BAE3C65287D977200E8605F /* SeparatorScheme.swift in Sources */,
 				0EB757A72600D625009BFC21 /* SearchBarColorScheme.swift in Sources */,
 				0EB757702600D625009BFC21 /* StatusHistoryStatusView.swift in Sources */,
 				0EB757312600D625009BFC21 /* MessageInformerScheme.swift in Sources */,
@@ -7737,6 +7756,7 @@
 				0E8E0BCB2600DCCE00A813BC /* SliderSnapshotTest.swift in Sources */,
 				E95553DD27ABF7F100A14BCA /* ChatInputView.swift in Sources */,
 				0E8E0BD52600DCCE00A813BC /* InformerTabSegmentedControlSnapshotTest.swift in Sources */,
+				3B0BCDF7287ED92100CF7394 /* SeparatorTest.swift in Sources */,
 				0E8E0BD42600DCCE00A813BC /* FeedbackInputSnapshotTests.swift in Sources */,
 				0E8E0BD22600DCCE00A813BC /* CustomSwitchSnapshotTests.swift in Sources */,
 				0EB2873C27C7BF26005F2155 /* TextBlockDropDownTest.swift in Sources */,
