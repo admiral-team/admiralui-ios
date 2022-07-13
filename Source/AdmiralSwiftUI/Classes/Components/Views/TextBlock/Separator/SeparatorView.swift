@@ -10,13 +10,15 @@ import AdmiralTheme
 import AdmiralUIResources
 
 /**
- SeparatorView - A padding view.
-
- You can create a SeparatorView by specifying the following parameters in the initializer
  
+ Separator - separator element with height equal 16 points, exist in three different variants.
+ - long - separator whole width
+ - short - separator width padding 8 points
+ - empty - empty line width height
+ 
+ You can create a Separator by specifying the following parameters in the initializer
  ## Initializer parameters:
- 
- - textBlockStyle: TextBlockStyle - A style of separator view. Can be: title, body, headline, headlineSecondary, dropDown, paragraph, paragraphSecondary, link, separator, separatorShort, separatorEmpty
+ - textBlockStyle: TextBlockStyle - style of separator
  
  ## Example to create SeparatorView with different parameters:
  # Code
