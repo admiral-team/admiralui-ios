@@ -19,11 +19,11 @@ final class ThemesRepostory {
     private let storage = AppThemeUserDefaultsStorage()
     
     var selectedTheme: AppTheme? {
-        return storage.selectedTheme
+        storage.selectedTheme
     }
     
     var themes: [AppTheme] {
-        return storage.themes
+        storage.themes
     }
     
     func save(theme: AppTheme, autoChangeDuplicateName: Bool = true) {

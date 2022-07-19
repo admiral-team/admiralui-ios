@@ -109,7 +109,7 @@ final class ImageBaseCellTralingViewController: ScrollViewController {
     
     private func configureSwitchListViewCell() -> ListCell<ImageCardListView, TitleListView, SwitchListView> {
         let switchListView = SwitchListView()
-        switchListView.didSelect = { (isOn) in
+        switchListView.didSelect = { isOn in
             print(isOn)
         }
         let titleListView = TitleListView()

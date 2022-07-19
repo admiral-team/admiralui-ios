@@ -300,11 +300,11 @@ extension MainViewController: SearchBarDelegate {
 extension MainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return tableViewManager.tableView(tableView, viewForHeaderInSection: section)
+        tableViewManager.tableView(tableView, viewForHeaderInSection: section)
     }
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return tableViewManager.tableView(tableView, viewForFooterInSection: section)
+        tableViewManager.tableView(tableView, viewForFooterInSection: section)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -313,7 +313,7 @@ extension MainViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return LayoutGrid.halfModule * 17
+        LayoutGrid.halfModule * 17
     }
     
 }

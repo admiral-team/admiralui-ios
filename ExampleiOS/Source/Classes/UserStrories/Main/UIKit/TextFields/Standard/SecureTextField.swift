@@ -19,7 +19,7 @@ final class SecureTextField: UIView, AnyAppThemable {
     let secureButton = UIButton()
     
     var state: TextInputState {
-        get { return textField.state }
+        get { textField.state }
         set {
             textField.state = newValue
             updateState()

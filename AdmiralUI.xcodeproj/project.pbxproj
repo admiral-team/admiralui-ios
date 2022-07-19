@@ -567,6 +567,7 @@
 		3B0AC5C82743F5CE00BC2F8C /* OTPTextFieldSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0AC5C72743F5CE00BC2F8C /* OTPTextFieldSnapshotTests.swift */; };
 		3B0AC5CB2743FA6300BC2F8C /* StandardTextFieldSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0AC5CA2743FA6300BC2F8C /* StandardTextFieldSnapshotTests.swift */; };
 		3B0AC5CD2743FCE500BC2F8C /* LineSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0AC5CC2743FCE500BC2F8C /* LineSnapshotTests.swift */; };
+		3B0BCDF7287ED92100CF7394 /* SeparatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0BCDF6287ED92100CF7394 /* SeparatorTest.swift */; };
 		3B17B539273BCC6600847601 /* ErrorViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B84D5EE273AB16C00B52EC9 /* ErrorViewSnapshotTests.swift */; };
 		3B1B6D13273BECFC00746283 /* ZeroScreenSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1B6D12273BECFC00746283 /* ZeroScreenSnapshotTests.swift */; };
 		3B1B6D16273BF8FE00746283 /* BigInformerSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1B6D15273BF8FE00746283 /* BigInformerSnapshotTests.swift */; };
@@ -607,6 +608,8 @@
 		3B606A99274697E100C76ACB /* ButtonWithArrowListViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B606A98274697E100C76ACB /* ButtonWithArrowListViewSnapshotTests.swift */; };
 		3B625C0B2746511D0045DC38 /* ImageCardListViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B625C0A2746511D0045DC38 /* ImageCardListViewSnapshotTests.swift */; };
 		3B9E96172746EB2B00409F83 /* PrivateImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EA2D8522541932300D7AAE2 /* PrivateImages.xcassets */; };
+		3BAE3C63287D976400E8605F /* Separator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAE3C62287D976400E8605F /* Separator.swift */; };
+		3BAE3C65287D977200E8605F /* SeparatorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAE3C64287D977200E8605F /* SeparatorScheme.swift */; };
 		3BB18CC727B28ABA009AC37A /* PrimaryButtonAccessibilityIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB18CC627B28ABA009AC37A /* PrimaryButtonAccessibilityIdentifiers.swift */; };
 		3BB6609128452D68008322DC /* LinerPageControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B269E8F2845262300922D12 /* LinerPageControll.swift */; };
 		3BC8341D27511A5500F1B06A /* CheckboxTextbuttonViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC8341B27511A2800F1B06A /* CheckboxTextbuttonViewScheme.swift */; };
@@ -625,6 +628,11 @@
 		3BD5ABC3273ECB390052D8C5 /* ParagraphViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD5ABC2273ECB390052D8C5 /* ParagraphViewSnapshotTests.swift */; };
 		3BD5ABC6273ED0690052D8C5 /* LinkViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD5ABC5273ED0690052D8C5 /* LinkViewSnapshotTests.swift */; };
 		3BD5ABC9273ED9EA0052D8C5 /* SeparatorViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD5ABC8273ED9EA0052D8C5 /* SeparatorViewSnapshotTests.swift */; };
+		3BEDB3BC28744B5100E2AD34 /* PlatformButtonScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BEDB3BA28744B4900E2AD34 /* PlatformButtonScheme.swift */; };
+		3BEDB3BF28744C3A00E2AD34 /* PlatformButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BEDB3BD28744C3800E2AD34 /* PlatformButtonStyle.swift */; };
+		3BEDB3CA287462EB00E2AD34 /* PlatformButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BEDB3C6287462B400E2AD34 /* PlatformButton.swift */; };
+		3BEDB3CB287462EE00E2AD34 /* PlatformButtonCustomScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BEDB3C8287462E400E2AD34 /* PlatformButtonCustomScheme.swift */; };
+		3BEDB3D028746EB900E2AD34 /* PlatformButtonAccessibilityIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BEDB3CF28746EB900E2AD34 /* PlatformButtonAccessibilityIdentifiers.swift */; };
 		3BFE8374278C482D0094A451 /* AlertViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE8373278C482D0094A451 /* AlertViewScheme.swift */; };
 		3BFE8376278C486F0094A451 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE8375278C486F0094A451 /* AlertView.swift */; };
 		868DDBC12746EF9600956AD3 /* BadgeArrowListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868DDBBF2746EF8D00956AD3 /* BadgeArrowListView.swift */; };
@@ -1274,6 +1282,7 @@
 		3B0AC5C72743F5CE00BC2F8C /* OTPTextFieldSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPTextFieldSnapshotTests.swift; sourceTree = "<group>"; };
 		3B0AC5CA2743FA6300BC2F8C /* StandardTextFieldSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTextFieldSnapshotTests.swift; sourceTree = "<group>"; };
 		3B0AC5CC2743FCE500BC2F8C /* LineSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineSnapshotTests.swift; sourceTree = "<group>"; };
+		3B0BCDF6287ED92100CF7394 /* SeparatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorTest.swift; sourceTree = "<group>"; };
 		3B1B6D12273BECFC00746283 /* ZeroScreenSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroScreenSnapshotTests.swift; sourceTree = "<group>"; };
 		3B1B6D15273BF8FE00746283 /* BigInformerSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigInformerSnapshotTests.swift; sourceTree = "<group>"; };
 		3B1B6D18273D2BD500746283 /* BadgeViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeViewSnapshotTests.swift; sourceTree = "<group>"; };
@@ -1314,6 +1323,8 @@
 		3B606A98274697E100C76ACB /* ButtonWithArrowListViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithArrowListViewSnapshotTests.swift; sourceTree = "<group>"; };
 		3B625C0A2746511D0045DC38 /* ImageCardListViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCardListViewSnapshotTests.swift; sourceTree = "<group>"; };
 		3B84D5EE273AB16C00B52EC9 /* ErrorViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewSnapshotTests.swift; sourceTree = "<group>"; };
+		3BAE3C62287D976400E8605F /* Separator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Separator.swift; sourceTree = "<group>"; };
+		3BAE3C64287D977200E8605F /* SeparatorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorScheme.swift; sourceTree = "<group>"; };
 		3BB18CC627B28ABA009AC37A /* PrimaryButtonAccessibilityIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonAccessibilityIdentifiers.swift; sourceTree = "<group>"; };
 		3BC8341B27511A2800F1B06A /* CheckboxTextbuttonViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxTextbuttonViewScheme.swift; sourceTree = "<group>"; };
 		3BC8341E27511A6F00F1B06A /* CheckboxTextbuttonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxTextbuttonView.swift; sourceTree = "<group>"; };
@@ -1331,6 +1342,11 @@
 		3BD5ABC2273ECB390052D8C5 /* ParagraphViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParagraphViewSnapshotTests.swift; sourceTree = "<group>"; };
 		3BD5ABC5273ED0690052D8C5 /* LinkViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkViewSnapshotTests.swift; sourceTree = "<group>"; };
 		3BD5ABC8273ED9EA0052D8C5 /* SeparatorViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorViewSnapshotTests.swift; sourceTree = "<group>"; };
+		3BEDB3BA28744B4900E2AD34 /* PlatformButtonScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformButtonScheme.swift; sourceTree = "<group>"; };
+		3BEDB3BD28744C3800E2AD34 /* PlatformButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformButtonStyle.swift; sourceTree = "<group>"; };
+		3BEDB3C6287462B400E2AD34 /* PlatformButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformButton.swift; sourceTree = "<group>"; };
+		3BEDB3C8287462E400E2AD34 /* PlatformButtonCustomScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformButtonCustomScheme.swift; sourceTree = "<group>"; };
+		3BEDB3CF28746EB900E2AD34 /* PlatformButtonAccessibilityIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformButtonAccessibilityIdentifiers.swift; sourceTree = "<group>"; };
 		3BFE8373278C482D0094A451 /* AlertViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewScheme.swift; sourceTree = "<group>"; };
 		3BFE8375278C486F0094A451 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		868DDBBF2746EF8D00956AD3 /* BadgeArrowListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeArrowListView.swift; sourceTree = "<group>"; };
@@ -1921,6 +1937,7 @@
 		0E110D8D27C3DCCD00BFF58F /* TextBlock */ = {
 			isa = PBXGroup;
 			children = (
+				3B8A8912287D96DD003174B7 /* Separator */,
 				0E110D8E27C3DCD900BFF58F /* Headers */,
 			);
 			path = TextBlock;
@@ -2047,6 +2064,7 @@
 				0E110DD127C7AA1D00BFF58F /* TextBlockHeaderTest.swift */,
 				0EB2873927C7BBBE005F2155 /* TextBlockHeaderLinkTest.swift */,
 				0EB2873B27C7BF26005F2155 /* TextBlockDropDownTest.swift */,
+				3B0BCDF6287ED92100CF7394 /* SeparatorTest.swift */,
 			);
 			path = TextBlock;
 			sourceTree = "<group>";
@@ -3965,6 +3983,7 @@
 		0EEAF9EE261F91A300E46143 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				3BEDB3B928744A1E00E2AD34 /* PlatformButton */,
 				E9AA276327637B81007389CA /* ChatButton */,
 				0E62AF9E270A05CF0014CDBB /* Common */,
 				0EEAFA29261FA38500E46143 /* PrimaryButton */,
@@ -4317,6 +4336,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		3B8A8912287D96DD003174B7 /* Separator */ = {
+			isa = PBXGroup;
+			children = (
+				3BAE3C62287D976400E8605F /* Separator.swift */,
+				3BAE3C64287D977200E8605F /* SeparatorScheme.swift */,
+			);
+			path = Separator;
+			sourceTree = "<group>";
+		};
 		3BC83419275119D500F1B06A /* InfoAgreementView */ = {
 			isa = PBXGroup;
 			children = (
@@ -4461,6 +4489,25 @@
 				3BD5ABC8273ED9EA0052D8C5 /* SeparatorViewSnapshotTests.swift */,
 			);
 			path = SeparatorView;
+			sourceTree = "<group>";
+		};
+		3BEDB3B928744A1E00E2AD34 /* PlatformButton */ = {
+			isa = PBXGroup;
+			children = (
+				3BEDB3BD28744C3800E2AD34 /* PlatformButtonStyle.swift */,
+				3BEDB3BA28744B4900E2AD34 /* PlatformButtonScheme.swift */,
+				3BEDB3CF28746EB900E2AD34 /* PlatformButtonAccessibilityIdentifiers.swift */,
+			);
+			path = PlatformButton;
+			sourceTree = "<group>";
+		};
+		3BEDB3C52874628100E2AD34 /* PlatformButton */ = {
+			isa = PBXGroup;
+			children = (
+				3BEDB3C6287462B400E2AD34 /* PlatformButton.swift */,
+				3BEDB3C8287462E400E2AD34 /* PlatformButtonCustomScheme.swift */,
+			);
+			path = PlatformButton;
 			sourceTree = "<group>";
 		};
 		3BFE8372278C470C0094A451 /* Alert */ = {
@@ -5767,8 +5814,9 @@
 				E9AA277827637C78007389CA /* ChatButton */,
 				0E89DA7025AC7416004E2583 /* InfoAgreementView */,
 				E6FB30FC253DC2FA00314E00 /* GhostButton */,
-				E6FB30FA253DC2FA00314E00 /* PrimaryButton */,
+				3BEDB3C52874628100E2AD34 /* PlatformButton */,
 				E6FB30FE253DC2FA00314E00 /* SecondaryButton */,
+				E6FB30FA253DC2FA00314E00 /* PrimaryButton */,
 				C6A1B8BE25DAADF7009E4D4F /* TwoTitleButton */,
 			);
 			path = Buttons;
@@ -7087,6 +7135,7 @@
 				0E3DB3B7265D1A0500CA2F2A /* OTPTextField.swift in Sources */,
 				0EAD1D03270ED2DA0011B045 /* CountdownView.swift in Sources */,
 				0EA9F4D126261504009F4B5A /* CheckControlScheme.swift in Sources */,
+				3BEDB3BC28744B5100E2AD34 /* PlatformButtonScheme.swift in Sources */,
 				0E22C6A9262E11EF00D09FC5 /* SizePreferenceKey.swift in Sources */,
 				0E8B0F3C26DEAD5200EEA0D3 /* ChatBubbleViewScheme.swift in Sources */,
 				E9B4D813272FE1DB00B4DA98 /* UploadDocumentView.swift in Sources */,
@@ -7105,6 +7154,7 @@
 				E9AA276727637B81007389CA /* ChatButtonStyle.swift in Sources */,
 				C6D5BD64266528FB00437808 /* ToolBar.swift in Sources */,
 				0E4BC73C267CF3A3000FC891 /* CheckBoxListViewScheme.swift in Sources */,
+				3BEDB3D028746EB900E2AD34 /* PlatformButtonAccessibilityIdentifiers.swift in Sources */,
 				0EAD1D08270F16E20011B045 /* CountdownViewScheme.swift in Sources */,
 				0E4BC86D2681DFDE000FC891 /* ImageCardListViewScheme.swift in Sources */,
 				0E8B0F3626DE519C00EEA0D3 /* CodeInputControlScheme.swift in Sources */,
@@ -7173,6 +7223,7 @@
 				E9A18D9A273A4F9000668C03 /* UploadingImageGrid.swift in Sources */,
 				0EC136602665295800F4EB7E /* FeedbackInputControl.swift in Sources */,
 				0EFCDB4B26B8497E006207B1 /* CurrencyViewScheme.swift in Sources */,
+				3BEDB3BF28744C3A00E2AD34 /* PlatformButtonStyle.swift in Sources */,
 				0E59D388263361DC007B5CC1 /* RectPreferenceKey.swift in Sources */,
 				0E2A62D426E7C9D8009CE2C0 /* TitleWithImageListViewScheme.swift in Sources */,
 				0E6223BA26BD28930012DB6E /* BadgeViewScheme.swift in Sources */,
@@ -7340,6 +7391,7 @@
 				0E738653277B53CF003892C7 /* CountDownTimerViewScheme.swift in Sources */,
 				0EB7576C2600D625009BFC21 /* CirclePageControlScheme.swift in Sources */,
 				0EB7577A2600D625009BFC21 /* BaseLinkControl.swift in Sources */,
+				3BEDB3CB287462EE00E2AD34 /* PlatformButtonCustomScheme.swift in Sources */,
 				E65B4C4726C2C1EE00AACEBB /* InputNumberScheme.swift in Sources */,
 				E9A755FB274D0352005024B3 /* DoubleSilderProgressView.swift in Sources */,
 				0EB757902600D625009BFC21 /* SubtitleTitleListView.swift in Sources */,
@@ -7479,6 +7531,7 @@
 				0EB7575A2600D625009BFC21 /* SecondaryTitleListViewScheme.swift in Sources */,
 				E9BE41CA27C8D6AA00894224 /* MapButtonScheme.swift in Sources */,
 				0EB756E52600D624009BFC21 /* TitleWithArrowListViewScheme.swift in Sources */,
+				3BAE3C63287D976400E8605F /* Separator.swift in Sources */,
 				0E89C537273BD1BC00476216 /* ButtonWithArrowScheme.swift in Sources */,
 				E610495526014D3F00FF20ED /* BankCardTextField.swift in Sources */,
 				0EB757002600D624009BFC21 /* ActivityIndicatorAnimator.swift in Sources */,
@@ -7500,6 +7553,7 @@
 				C66A0D5426026751005B0AF7 /* String+TimePicker.swift in Sources */,
 				0EA26049274D43F900D6699E /* WeekView.swift in Sources */,
 				E95DC43B27A0269C00532BDC /* Array+Extensions.swift in Sources */,
+				3BAE3C65287D977200E8605F /* SeparatorScheme.swift in Sources */,
 				0EB757A72600D625009BFC21 /* SearchBarColorScheme.swift in Sources */,
 				0EB757702600D625009BFC21 /* StatusHistoryStatusView.swift in Sources */,
 				0EB757312600D625009BFC21 /* MessageInformerScheme.swift in Sources */,
@@ -7546,6 +7600,7 @@
 				E9AA277327637C62007389CA /* ChatBubbleView.swift in Sources */,
 				0EB757C72600D625009BFC21 /* StandardSegmentedView.swift in Sources */,
 				0EB757C92600D625009BFC21 /* ShimmeringLayer.swift in Sources */,
+				3BEDB3CA287462EB00E2AD34 /* PlatformButton.swift in Sources */,
 				0EB757132600D624009BFC21 /* SegmentControlContainerContent.swift in Sources */,
 				E610495326014D3F00FF20ED /* TextFieldInput.swift in Sources */,
 				0EB757202600D624009BFC21 /* РageItemControl.swift in Sources */,
@@ -7737,6 +7792,7 @@
 				0E8E0BCB2600DCCE00A813BC /* SliderSnapshotTest.swift in Sources */,
 				E95553DD27ABF7F100A14BCA /* ChatInputView.swift in Sources */,
 				0E8E0BD52600DCCE00A813BC /* InformerTabSegmentedControlSnapshotTest.swift in Sources */,
+				3B0BCDF7287ED92100CF7394 /* SeparatorTest.swift in Sources */,
 				0E8E0BD42600DCCE00A813BC /* FeedbackInputSnapshotTests.swift in Sources */,
 				0E8E0BD22600DCCE00A813BC /* CustomSwitchSnapshotTests.swift in Sources */,
 				0EB2873C27C7BF26005F2155 /* TextBlockDropDownTest.swift in Sources */,

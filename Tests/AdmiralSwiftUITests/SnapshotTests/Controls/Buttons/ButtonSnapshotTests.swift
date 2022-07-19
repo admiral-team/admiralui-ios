@@ -203,7 +203,23 @@ final class ButtonSnapshotTests: XCTestCase {
         checkButton(view: secondaryButton, named: "secondaryDarkTheme", testName: "Button")
     }
 
+    // MARK: - Platform Button Style Default Theme
+    
+    func testPlatformButtonStyle() {
+        SwiftUIThemeManager.shared.theme = .default
+        let platfotmButton = Button("Text", action: {})
+            .buttonStyle(PlatformButtonStyle())
+        checkButton(view: platfotmButton, named: "platform", testName: "Button")
+    }
+    
+    // MARK: - Platform Button Style Dark Theme
 
+    func testPlatformButtonStyleDarkTheme() {
+        SwiftUIThemeManager.shared.theme = .default
+        let platfotmButton = Button("Text", action: {})
+            .buttonStyle(PlatformButtonStyle())
+        checkButton(view: platfotmButton, named: "platformDarkTheme", testName: "Button")
+    }
 }
 
 private extension ButtonSnapshotTests {

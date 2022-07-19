@@ -34,13 +34,13 @@ final class FontsViewController: MenuListViewController {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 64.0
+        64.0
     }
     
     // MARK: - Private Methods
     
     private func createSections() -> [MenuListSectionViewModel] {
-        return [
+        [
             createHeadlines(themeFonts: fonts),
             createSubtitle(themeFonts: fonts),
             createSubhead(themeFonts: fonts),

@@ -10,7 +10,7 @@ import UIKit
 extension UIView {
     
     var bottomSafeAreaAnchor: NSLayoutYAxisAnchor {
-        return safeAreaLayoutGuide.bottomAnchor
+        safeAreaLayoutGuide.bottomAnchor
     }
     
 }

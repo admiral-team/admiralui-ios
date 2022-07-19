@@ -38,7 +38,7 @@ class ScrollViewController: UIViewController, AnyAppThemable {
     lazy var outlineSegmentControl = OutlineSliderTabSegmentedControl(frame: .zero)
     
     var isThemeSwitchViewHidden: Bool {
-        get { return themeSwitchView.isHidden }
+        get { themeSwitchView.isHidden }
         set { themeSwitchView.isHidden = newValue }
     }
     

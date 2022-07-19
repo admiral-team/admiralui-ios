@@ -68,7 +68,7 @@ final class ThemeSwitchView: UIView, AppThemeable, ThemeSwitchListViewDelegate, 
     // MARK: - ThemeSwitchViewDataSource
     
     func selectedIndex(_ view: ThemeSwitchListView) -> Int? {
-        return dataSource?.selectedIndex
+        dataSource?.selectedIndex
     }
     
     func items(_ view: ThemeSwitchListView) -> [ThemeSwitchComponentView] {

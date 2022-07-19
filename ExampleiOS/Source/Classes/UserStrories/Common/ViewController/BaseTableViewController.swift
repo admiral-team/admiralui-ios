@@ -14,7 +14,7 @@ class BaseTableViewController: UIViewController, UITableViewDelegate, AnyAppThem
     // MARK: - Public Properties
     
     var isThemeSwitchButtonHidden: Bool {
-        get { return themeSwitchView.isHidden }
+        get { themeSwitchView.isHidden }
         set { themeSwitchView.isHidden = newValue }
     }
     
@@ -113,11 +113,11 @@ class BaseTableViewController: UIViewController, UITableViewDelegate, AnyAppThem
     // MARK: - TableViewDelegate
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return tableViewManager.tableView(tableView, viewForHeaderInSection: section)
+        tableViewManager.tableView(tableView, viewForHeaderInSection: section)
     }
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return tableViewManager.tableView(tableView, viewForFooterInSection: section)
+        tableViewManager.tableView(tableView, viewForFooterInSection: section)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -126,7 +126,7 @@ class BaseTableViewController: UIViewController, UITableViewDelegate, AnyAppThem
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return LayoutGrid.halfModule * 17
+        LayoutGrid.halfModule * 17
     }
     
 }

@@ -17,7 +17,7 @@ internal class BrightnessSlider: UIView {
 
     var brightness: CGFloat {
         get {
-            return brightness(for: scrollView.contentOffset.y)
+            brightness(for: scrollView.contentOffset.y)
         }
     }
 
@@ -174,7 +174,7 @@ internal class BrightnessSlider: UIView {
     }
 
     private func contentOffsetY(for brightness: CGFloat) -> CGFloat {
-        return (brightness - 1) * -1 * scrollView.contentSize.height - scrollView.contentInset.top
+        (brightness - 1) * -1 * scrollView.contentSize.height - scrollView.contentInset.top
     }
 }
 

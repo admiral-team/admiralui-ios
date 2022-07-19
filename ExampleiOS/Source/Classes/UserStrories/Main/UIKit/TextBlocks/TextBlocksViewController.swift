@@ -74,15 +74,15 @@ final class TextBlocksViewController: ScrollViewController {
             vc.title = "Accordion"
             navigationController?.pushViewController(vc, animated: true)
         case 2:
-            // TODO: - Add paragraph
             break
         case 3:
             let vc = LinksHeaderViewController()
             vc.title = "Link"
             navigationController?.pushViewController(vc, animated: true)
         case 4:
-            // TODO: - Add line
-            break
+            let vc = SeparatorViewController()
+            vc.title = "Padding"
+            navigationController?.pushViewController(vc, animated: true)
         default:
             break
         }

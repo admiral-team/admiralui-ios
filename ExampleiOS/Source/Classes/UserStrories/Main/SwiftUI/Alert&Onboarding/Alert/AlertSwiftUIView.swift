@@ -25,7 +25,6 @@ struct AlertSwiftUIView: View {
                 alertView
             }
             .background(show ? Color(scheme.backBackgroundColor.uiColor) : Color(scheme.backgroundColor.uiColor))
-            .animation(.easeInOut(duration: Durations.Default.double))
         }
     }
     
@@ -38,13 +37,14 @@ struct AlertSwiftUIView: View {
                 .foregroundColor(scheme.descriptionLabelTextColor.swiftUIColor)
             
             SwiftUI.Button("Показать Alert", action: {
-                self.show.toggle()
+                withAnimation(.easeInOut(duration: Durations.Default.double)) {
+                    self.show.toggle()
+                }
             })
             .buttonStyle(GhostButtonStyle())
             Spacer()
         }
         .padding(.top)
-        .animation(nil)
     }
     
     private var alertView: some View {
@@ -53,11 +53,15 @@ struct AlertSwiftUIView: View {
                   message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
                   buttonTitle: "Хорошо",
                   buttonAction: {
-                    self.show.toggle()
+                    withAnimation(.easeInOut(duration: Durations.Default.double)) {
+                        self.show.toggle()
+                    }
                 },
                   additionalButtonTitle: "Отмена",
                   additionalButtonAction: {
-                    self.show.toggle()
+                    withAnimation(.easeInOut(duration: Durations.Default.double)) {
+                        self.show.toggle()
+                    }
                   })
             .padding()
             .opacity(show ? 1 : 0)

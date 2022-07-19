@@ -161,12 +161,15 @@
 		3B574AAC27D29344006FEF9A /* AdmiralGunViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B574AAB27D29344006FEF9A /* AdmiralGunViewModel.swift */; };
 		3B59203F278D9A5700706DA6 /* AlertSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B59203E278D9A5700706DA6 /* AlertSwiftUIView.swift */; };
 		3B592041278DC75400706DA6 /* AlertCustomScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B592040278DC75400706DA6 /* AlertCustomScheme.swift */; };
+		3B8A8911287D80F9003174B7 /* SeparatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8A8910287D80F9003174B7 /* SeparatorViewController.swift */; };
 		3B9DD043283C2927002F7706 /* UnderlineTabsUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9DD042283C2927002F7706 /* UnderlineTabsUIView.swift */; };
 		3B9DD046283C29F0002F7706 /* UnderlineCenterTabsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9DD045283C29F0002F7706 /* UnderlineCenterTabsSwiftUIView.swift */; };
 		3B9DD048283C2BCE002F7706 /* UnderlineTabsSwiftUIItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9DD047283C2BCE002F7706 /* UnderlineTabsSwiftUIItem.swift */; };
 		3BA83504280462AE00D54318 /* OnBoardingSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA83503280462AE00D54318 /* OnBoardingSwiftUIView.swift */; };
 		3BA835062804638400D54318 /* OnBoardingCustomScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA835052804638400D54318 /* OnBoardingCustomScheme.swift */; };
 		3BA8350928059BE500D54318 /* ZeroScreenSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8350828059BE500D54318 /* ZeroScreenSwiftUIView.swift */; };
+		3BAE3C68287DD7DD00E8605F /* SeparatorCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAE3C67287DD7DD00E8605F /* SeparatorCellView.swift */; };
+		3BAE3C6A287DD84A00E8605F /* SeparatorViewCustomScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAE3C69287DD84A00E8605F /* SeparatorViewCustomScheme.swift */; };
 		3BB8D1C6285922F6004A656D /* SecondaryButtonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8D1C5285922F6004A656D /* SecondaryButtonsViewController.swift */; };
 		3BB8D1C8285923B4004A656D /* ButtonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8D1C7285923B4004A656D /* ButtonsViewController.swift */; };
 		3BB8D1CB28592D53004A656D /* GhostButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8D1CA28592D53004A656D /* GhostButtonViewController.swift */; };
@@ -176,6 +179,8 @@
 		3BB8D1D72859FAF7004A656D /* SecondaryButtonsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8D1D62859FAF7004A656D /* SecondaryButtonsSwiftUIView.swift */; };
 		3BB8D1DA285A0ACA004A656D /* GhostButtonSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8D1D9285A0ACA004A656D /* GhostButtonSwiftUIView.swift */; };
 		3BB8D1DD285A0B6E004A656D /* RulesSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8D1DC285A0B6E004A656D /* RulesSwiftUIView.swift */; };
+		3BEDB3C42874555E00E2AD34 /* OtherButtonsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BEDB3C32874555E00E2AD34 /* OtherButtonsSwiftUIView.swift */; };
+		3BEDB3CE2874660600E2AD34 /* OtherButtonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BEDB3CD2874660600E2AD34 /* OtherButtonsViewController.swift */; };
 		C61C26F7261BB99300D01ED9 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61C26F6261BB99300D01ED9 /* BaseViewController.swift */; };
 		C620B7F5256560F300CB1B29 /* VerticalCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C620B7F4256560F300CB1B29 /* VerticalCalendarViewController.swift */; };
 		C6260A99255A88BA007175C2 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6260A98255A88BA007175C2 /* BaseRouter.swift */; };
@@ -628,12 +633,15 @@
 		3B574AAB27D29344006FEF9A /* AdmiralGunViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralGunViewModel.swift; sourceTree = "<group>"; };
 		3B59203E278D9A5700706DA6 /* AlertSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSwiftUIView.swift; sourceTree = "<group>"; };
 		3B592040278DC75400706DA6 /* AlertCustomScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCustomScheme.swift; sourceTree = "<group>"; };
+		3B8A8910287D80F9003174B7 /* SeparatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorViewController.swift; sourceTree = "<group>"; };
 		3B9DD042283C2927002F7706 /* UnderlineTabsUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineTabsUIView.swift; sourceTree = "<group>"; };
 		3B9DD045283C29F0002F7706 /* UnderlineCenterTabsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineCenterTabsSwiftUIView.swift; sourceTree = "<group>"; };
 		3B9DD047283C2BCE002F7706 /* UnderlineTabsSwiftUIItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineTabsSwiftUIItem.swift; sourceTree = "<group>"; };
 		3BA83503280462AE00D54318 /* OnBoardingSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingSwiftUIView.swift; sourceTree = "<group>"; };
 		3BA835052804638400D54318 /* OnBoardingCustomScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingCustomScheme.swift; sourceTree = "<group>"; };
 		3BA8350828059BE500D54318 /* ZeroScreenSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroScreenSwiftUIView.swift; sourceTree = "<group>"; };
+		3BAE3C67287DD7DD00E8605F /* SeparatorCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorCellView.swift; sourceTree = "<group>"; };
+		3BAE3C69287DD84A00E8605F /* SeparatorViewCustomScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorViewCustomScheme.swift; sourceTree = "<group>"; };
 		3BB8D1C5285922F6004A656D /* SecondaryButtonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButtonsViewController.swift; sourceTree = "<group>"; };
 		3BB8D1C7285923B4004A656D /* ButtonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsViewController.swift; sourceTree = "<group>"; };
 		3BB8D1CA28592D53004A656D /* GhostButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostButtonViewController.swift; sourceTree = "<group>"; };
@@ -643,6 +651,8 @@
 		3BB8D1D62859FAF7004A656D /* SecondaryButtonsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButtonsSwiftUIView.swift; sourceTree = "<group>"; };
 		3BB8D1D9285A0ACA004A656D /* GhostButtonSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostButtonSwiftUIView.swift; sourceTree = "<group>"; };
 		3BB8D1DC285A0B6E004A656D /* RulesSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesSwiftUIView.swift; sourceTree = "<group>"; };
+		3BEDB3C32874555E00E2AD34 /* OtherButtonsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherButtonsSwiftUIView.swift; sourceTree = "<group>"; };
+		3BEDB3CD2874660600E2AD34 /* OtherButtonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherButtonsViewController.swift; sourceTree = "<group>"; };
 		C61C26F6261BB99300D01ED9 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		C620B7F4256560F300CB1B29 /* VerticalCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalCalendarViewController.swift; sourceTree = "<group>"; };
 		C6260A98255A88BA007175C2 /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
@@ -959,6 +969,7 @@
 				0E110DA327C5016A00BFF58F /* Headers */,
 				0E110DCD27C7925900BFF58F /* Links */,
 				0E110DB527C6E73500BFF58F /* DropDown */,
+				3B8A890F287D808E003174B7 /* Separator */,
 			);
 			path = TextBlocks;
 			sourceTree = "<group>";
@@ -1030,12 +1041,13 @@
 		0E22C66F262AFC5A00D09FC5 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				3BEDB3B62874427000E2AD34 /* Otherbuttons */,
 				3BB8D1D42859FAB6004A656D /* PrimaryButtons */,
 				3BB8D1D52859FACF004A656D /* SecondaryButtons */,
 				3BB8D1D8285A0AAC004A656D /* GhostButton */,
 				3BB8D1DB285A0B61004A656D /* Rules */,
-				3BB8D1D02859F53B004A656D /* ButtonsSwiftUIView.swift */,
 				3BB8D1D22859F58D004A656D /* ButtonsSwiftUIItem.swift */,
+				3BB8D1D02859F53B004A656D /* ButtonsSwiftUIView.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -1230,6 +1242,7 @@
 		0E576D3625370C2D00E223DD /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				3BEDB3CC287465E400E2AD34 /* OtherButtons */,
 				3BB8D1C328592297004A656D /* PrimaryButton */,
 				3BB8D1C4285922B2004A656D /* SecondaryButton */,
 				3BB8D1C928592CFA004A656D /* GhostButtons */,
@@ -1971,6 +1984,15 @@
 			path = "Alert&Onboarding";
 			sourceTree = "<group>";
 		};
+		3B8A890F287D808E003174B7 /* Separator */ = {
+			isa = PBXGroup;
+			children = (
+				3BAE3C66287DD7BB00E8605F /* View */,
+				3B8A8910287D80F9003174B7 /* SeparatorViewController.swift */,
+			);
+			path = Separator;
+			sourceTree = "<group>";
+		};
 		3BA83502280362C000D54318 /* OnBoarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -1988,6 +2010,15 @@
 				3BA8350828059BE500D54318 /* ZeroScreenSwiftUIView.swift */,
 			);
 			path = ZeroScreen;
+			sourceTree = "<group>";
+		};
+		3BAE3C66287DD7BB00E8605F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3BAE3C67287DD7DD00E8605F /* SeparatorCellView.swift */,
+				3BAE3C69287DD84A00E8605F /* SeparatorViewCustomScheme.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		3BB8D1C328592297004A656D /* PrimaryButton */ = {
@@ -2052,6 +2083,22 @@
 				3BB8D1DC285A0B6E004A656D /* RulesSwiftUIView.swift */,
 			);
 			path = Rules;
+			sourceTree = "<group>";
+		};
+		3BEDB3B62874427000E2AD34 /* Otherbuttons */ = {
+			isa = PBXGroup;
+			children = (
+				3BEDB3C32874555E00E2AD34 /* OtherButtonsSwiftUIView.swift */,
+			);
+			path = Otherbuttons;
+			sourceTree = "<group>";
+		};
+		3BEDB3CC287465E400E2AD34 /* OtherButtons */ = {
+			isa = PBXGroup;
+			children = (
+				3BEDB3CD2874660600E2AD34 /* OtherButtonsViewController.swift */,
+			);
+			path = OtherButtons;
 			sourceTree = "<group>";
 		};
 		C620B7F3256560E100CB1B29 /* Calendar */ = {
@@ -3703,6 +3750,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BAE3C68287DD7DD00E8605F /* SeparatorCellView.swift in Sources */,
 				0E22C680262D7BD900D09FC5 /* CheckBoxSwiftUIView.swift in Sources */,
 				C6B2A6A5264DC2C700D43FB2 /* UserDefaults+Keys.swift in Sources */,
 				E6529CC42534ED01009D8DE9 /* TableViewListItemManager.swift in Sources */,
@@ -3869,6 +3917,7 @@
 				0E76FB43253EDB94001B1F3D /* SwitcherCellView.swift in Sources */,
 				0E4BC92A268347A8000FC891 /* PrimaryTitleBaseCellSwiftUI.swift in Sources */,
 				E9BE41A927C7DFF400894224 /* IconsCurrencyViewController.swift in Sources */,
+				3BEDB3CE2874660600E2AD34 /* OtherButtonsViewController.swift in Sources */,
 				0E853CBF259213A20033F17C /* StatusHistoryViewController.swift in Sources */,
 				0E6EA49B27025DCA002EBBBC /* ParagraphSwiftUIView.swift in Sources */,
 				E94518A227D36D630048B133 /* AdmiralGunProviderProtocol.swift in Sources */,
@@ -3927,6 +3976,7 @@
 				E9B82B8627B521BF00FC7BB9 /* View+Extensions.swift in Sources */,
 				C6E04AA8256E937600C32381 /* MessageInformerView.swift in Sources */,
 				E9BE41A727C7DFF400894224 /* DefaultCurrencyViewModel.swift in Sources */,
+				3B8A8911287D80F9003174B7 /* SeparatorViewController.swift in Sources */,
 				0ED08A1A266FBA8E00389A1A /* CalendarSwiftUIView.swift in Sources */,
 				0E76FB40253ED9AF001B1F3D /* RadioButtonViewController.swift in Sources */,
 				E9332FA2277C65F700F9AF26 /* UploadingFileCell.swift in Sources */,
@@ -4015,6 +4065,7 @@
 				0EA9F81E262EC94000808B38 /* TabsSwiftUIItem.swift in Sources */,
 				0E9464E826B1908100F5E790 /* StaticNotificationsSwiftUIView.swift in Sources */,
 				0E6EA49827025AD5002EBBBC /* DropDownSwiftUIView.swift in Sources */,
+				3BAE3C6A287DD84A00E8605F /* SeparatorViewCustomScheme.swift in Sources */,
 				C6260AAA255B0536007175C2 /* SliderViewController.swift in Sources */,
 				C620B7F5256560F300CB1B29 /* VerticalCalendarViewController.swift in Sources */,
 				3BA8350928059BE500D54318 /* ZeroScreenSwiftUIView.swift in Sources */,
@@ -4126,6 +4177,7 @@
 				3BB8D1CB28592D53004A656D /* GhostButtonViewController.swift in Sources */,
 				E9BE41D427C8D83C00894224 /* MapButtonsViewModel.swift in Sources */,
 				3B56DADA280D772900161355 /* PageViewController.swift in Sources */,
+				3BEDB3C42874555E00E2AD34 /* OtherButtonsSwiftUIView.swift in Sources */,
 				0E9464DE26B18E0600F5E790 /* InformersAndToastsSwiftUIView.swift in Sources */,
 				0EA9F52626285034009F4B5A /* SwiftUIItem.swift in Sources */,
 				0EADAA09268AFE62003FF903 /* TextBaseCellSwiftUIView.swift in Sources */,

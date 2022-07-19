@@ -70,10 +70,10 @@ final class AlertController: BaseViewController, AccessibilitySupport {
 
         vc.modalPresentationStyle = .custom
         vc.modalTransitionStyle = .crossDissolve
-        let action = AlertAction(title: "Хорошо", style: .primary) { [weak self] (_) in
+        let action = AlertAction(title: "Хорошо", style: .primary) { [weak self] _ in
             self?.vc.dismiss(animated: true, completion: nil)
         }
-        let secondAction = AlertAction(title: "Отмена", style: .alternative) { [weak self] (_) in
+        let secondAction = AlertAction(title: "Отмена", style: .alternative) { [weak self] _ in
             self?.vc.dismiss(animated: true, completion: nil)
         }
         vc.addAction(action)

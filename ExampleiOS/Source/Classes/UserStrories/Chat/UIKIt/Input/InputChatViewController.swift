@@ -47,7 +47,7 @@ final class InputChatViewController: UIViewController, AnyAppThemable {
     }()
 
     private var isThemeSwitchViewHidden: Bool {
-        get { return themeSwitchView.isHidden }
+        get { themeSwitchView.isHidden }
         set { themeSwitchView.isHidden = newValue }
     }
 
@@ -177,7 +177,7 @@ extension InputChatViewController: KeyboardBindable {
 extension InputChatViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        UITableView.automaticDimension
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -224,7 +224,7 @@ private extension UITableView {
     }
 
     func hasRowAtIndexPath(indexPath: IndexPath) -> Bool {
-        return indexPath.section < numberOfSections && indexPath.row < numberOfRows(inSection: indexPath.section)
+        indexPath.section < numberOfSections && indexPath.row < numberOfRows(inSection: indexPath.section)
     }
 
 }

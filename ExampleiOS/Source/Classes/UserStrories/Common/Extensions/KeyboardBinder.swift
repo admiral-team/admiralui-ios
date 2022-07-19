@@ -31,11 +31,11 @@ extension KeyboardBindable {
 }
 
 extension KeyboardBindable where Self: UIViewController {
-    var rootBindableView: UIView { return view }
+    var rootBindableView: UIView { view }
 }
 
 extension KeyboardBindable where Self: UIView {
-    var rootBindableView: UIView { return self }
+    var rootBindableView: UIView { self }
 }
 
 final class KeyboardBinder: NSObject {

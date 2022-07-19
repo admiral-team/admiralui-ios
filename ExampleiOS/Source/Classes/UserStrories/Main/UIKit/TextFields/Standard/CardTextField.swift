@@ -16,7 +16,7 @@ final class CardTextField: UIView, AnyAppThemable {
     // MARK: - Public Properties
     
     var state: TextInputState {
-        get { return textField.state }
+        get { textField.state }
         set {
             textField.state = newValue
             updateState()

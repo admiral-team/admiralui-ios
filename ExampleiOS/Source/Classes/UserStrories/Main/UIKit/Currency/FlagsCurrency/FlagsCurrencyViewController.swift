@@ -17,7 +17,7 @@ final class FlagsCurrencyViewController: UIViewController, AnyAppThemable {
     private let viewModel = FlagsCurrencyViewModel()
 
     private var isThemeSwitchViewHidden: Bool {
-        get { return themeSwitchView.isHidden }
+        get { themeSwitchView.isHidden }
         set { themeSwitchView.isHidden = newValue }
     }
 

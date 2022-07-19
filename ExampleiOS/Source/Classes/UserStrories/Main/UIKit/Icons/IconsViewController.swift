@@ -126,11 +126,11 @@ final class IconsViewController: UIViewController, AnyAppThemable {
             }
         }
         
-        outlineImageSections.sort { (sectionFirst, sectionSecond) -> Bool in
+        outlineImageSections.sort { sectionFirst, sectionSecond -> Bool in
             return (sectionFirst.size.width * sectionFirst.size.height) < (sectionSecond.size.width * sectionSecond.size.height)
         }
         
-        solidImageSections.sort { (sectionFirst, sectionSecond) -> Bool in
+        solidImageSections.sort { sectionFirst, sectionSecond -> Bool in
             return (sectionFirst.size.width * sectionFirst.size.height) < (sectionSecond.size.width * sectionSecond.size.height)
         }
         
@@ -186,11 +186,11 @@ final class IconsViewController: UIViewController, AnyAppThemable {
         searchSolidImageSections.removeAll()
         
         defer {
-            searchOutlineImageSections.sort { (sectionFirst, sectionSecond) -> Bool in
+            searchOutlineImageSections.sort { sectionFirst, sectionSecond -> Bool in
                 return (sectionFirst.size.width * sectionFirst.size.height) < (sectionSecond.size.width * sectionSecond.size.height)
             }
             
-            searchSolidImageSections.sort { (sectionFirst, sectionSecond) -> Bool in
+            searchSolidImageSections.sort { sectionFirst, sectionSecond -> Bool in
                 return (sectionFirst.size.width * sectionFirst.size.height) < (sectionSecond.size.width * sectionSecond.size.height)
             }
             
@@ -272,7 +272,7 @@ extension IconsViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.width, height: 64.0)
+        CGSize(width: view.frame.width, height: 64.0)
     }
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -290,11 +290,11 @@ extension IconsViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 12, bottom: 16, right: 12)
+        UIEdgeInsets(top: 0, left: 12, bottom: 16, right: 12)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 6
+        6
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -350,11 +350,11 @@ extension IconsViewController: UICollectionViewDelegateFlowLayout {
 extension IconsViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return dataSource.count
+        dataSource.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataSource[section].icons.count
+        dataSource[section].icons.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

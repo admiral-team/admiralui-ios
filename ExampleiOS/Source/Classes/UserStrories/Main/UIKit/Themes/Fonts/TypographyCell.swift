@@ -37,7 +37,7 @@ final class FontCell: UITableViewCell, TableViewListItemConfigurable, AnyAppThem
     // MARK: - Public Properties
     
     var title: String? {
-        get { return titleLabel.text }
+        get { titleLabel.text }
         set { titleLabel.text = newValue }
     }
     

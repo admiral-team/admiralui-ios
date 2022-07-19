@@ -194,6 +194,6 @@ enum SwiftUIItem: String, CaseIterable {
     }
     
     var image: Image {
-        return Image(self.imageName)
+        Image(self.imageName)
     }
 }

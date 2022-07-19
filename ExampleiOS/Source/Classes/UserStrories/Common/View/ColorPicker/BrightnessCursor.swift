@@ -55,6 +55,6 @@ internal class BrightnessCursor: UIView {
 
 extension RGBColor {
     var hexString: String {
-        return String(format: "#%02x%02x%02x", red, green, blue)
+        String(format: "#%02x%02x%02x", red, green, blue)
     }
 }
