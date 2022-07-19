@@ -62,5 +62,5 @@ public enum ArrowSegmentSliderCustomThemeState: UInt {
 }
 
 extension ArrowSegmentSliderCustomThemeState: DefaultRepresentable {
-    public static var defaultValue: ArrowSegmentSliderCustomThemeState { return .normal }
+    public static var defaultValue: ArrowSegmentSliderCustomThemeState { .normal }
 }

@@ -62,7 +62,7 @@ final class ModallyPresentedNavigationControllerDelegate: BackButtonWithoutTitle
 private extension UIViewController {
     
     var isRootViewController: Bool {
-        return self == navigationController?.viewControllers.first
+        self == navigationController?.viewControllers.first
     }
     
 }

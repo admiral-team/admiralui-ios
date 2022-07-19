@@ -23,7 +23,7 @@ final class ThemeSwitchListView: UIControl, AnyAppThemable {
     // MARK: - Public Properties
     
     var selectedSegmentIndex: Int {
-        get { return selectedIndex }
+        get { selectedIndex }
         set { setSelectView(newValue) }
     }
     
@@ -31,7 +31,7 @@ final class ThemeSwitchListView: UIControl, AnyAppThemable {
     weak var dataSource: ThemeSwitchListViewDataSource?
         
     override var intrinsicContentSize: CGSize {
-        return calculateContentSize()
+        calculateContentSize()
     }
    
     // MARK: - Private Properties

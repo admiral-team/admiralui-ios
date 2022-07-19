@@ -11,7 +11,7 @@ import Combine
 extension Publisher where Self.Output: OptionalType {
 
     func filterNil() -> AnyPublisher<Self.Output.Wrapped, Self.Failure> {
-        return flatMap { element -> AnyPublisher<Self.Output.Wrapped, Self.Failure> in
+        flatMap { element -> AnyPublisher<Self.Output.Wrapped, Self.Failure> in
             guard let value = element.value else {
                 return Empty(completeImmediately: false)
                     .setFailureType(to: Self.Failure.self)

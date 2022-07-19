@@ -48,11 +48,11 @@ final class TableViewListItemManager: NSObject, UITableViewDelegate, UITableView
     // MARK: - TableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sections[section].items.count
+        sections[section].items.count
     }
     
     func numberOfSections(in: UITableView) -> Int {
-        return sections.count
+        sections.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -8,7 +8,6 @@
 import SwiftUI
 
 @available(iOS 14.0.0, *)
-// TODO: - Fix navigation bar for swiftui
 struct NavigationBarModifier: ViewModifier {
 
     public var backgroundColor: UIColor?
@@ -46,9 +45,12 @@ struct NavigationBarModifier: ViewModifier {
 extension View {
 
     func navigationBarColor(backgroundColor: Color?, titleColor: Color?) -> some View {
-        self.modifier(NavigationBarModifier(
-                        backgroundColor: UIColor(backgroundColor ?? Color.clear),
-                        titleColor: UIColor(titleColor ?? Color.clear)))
+        self.modifier(
+            NavigationBarModifier(
+                backgroundColor: UIColor(backgroundColor ?? Color.clear),
+                titleColor: UIColor(titleColor ?? Color.clear)
+            )
+        )
     }
 
 }

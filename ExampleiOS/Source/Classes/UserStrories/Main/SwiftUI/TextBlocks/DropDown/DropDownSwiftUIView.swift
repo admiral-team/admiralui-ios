@@ -34,9 +34,10 @@ struct DropDownSwiftUIView: View {
                         .disabled(isEnabledControlsState != 0)
                     ButtonDropDown(
                         buttonTitle: "Button",
-                                dropDownHeaderType: .down,
-                        buttonAction: {})
-                        .disabled(isEnabledControlsState != 0)
+                        dropDownHeaderType: .down,
+                        buttonAction: {}
+                    )
+                    .disabled(isEnabledControlsState != 0)
                 }
                 .padding(.bottom, LayoutGrid.doubleModule * 4)
             }

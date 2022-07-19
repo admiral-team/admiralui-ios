@@ -57,8 +57,8 @@ struct CalendarHorizontalSwiftUIView: View {
             }
             .padding()
         }
-        .onChange(of: selectedStartDate, perform: { (_) in })
-        .onChange(of: selectedEndDate, perform: { (_) in })
+        .onChange(of: selectedStartDate, perform: { _ in })
+        .onChange(of: selectedEndDate, perform: { _ in })
     }
     
 }

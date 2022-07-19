@@ -20,7 +20,7 @@ class UserSettingService: UserSettingServiceProtocol {
     }
     
     var isOnboardingFinish: Bool {
-        return defaults.bool(forKey: Constants.isOnboardingFinishKey)
+        defaults.bool(forKey: Constants.isOnboardingFinishKey)
     }
     
     // MARK: - Private Properties

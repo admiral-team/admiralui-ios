@@ -77,7 +77,7 @@ final class ControlCellView<T>: UIView, AnyAppThemable where T: UIView {
     }
     
     private func configureUI() {
-        guard statuses.count > 0 else { return }
+        guard !statuses.isEmpty else { return }
         
         for index in 0..<statuses.count {
             let status = statuses[index]

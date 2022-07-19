@@ -71,7 +71,7 @@ final class RulesViewController: ScrollViewController {
 extension RulesViewController: InfoAgreementViewDelegate {
     
     func checkBoxShouldSelected(_ checkBox: CheckBox) -> Bool {
-        return !checkBox.isSelected
+        !checkBox.isSelected
     }
     
 }

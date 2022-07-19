@@ -59,7 +59,6 @@ class SwiftUIController: UIHostingController<CustomSwiftUIView>, AnyAppThemable 
     
     init() {
         super.init(rootView: CustomSwiftUIView(theme: SwiftUIContentViewObservable()))
-        // TODO: - BackgroundColor for scroll view in SwiftUI
         UIScrollView.appearance().backgroundColor = .clear
         configureUI()
     }
