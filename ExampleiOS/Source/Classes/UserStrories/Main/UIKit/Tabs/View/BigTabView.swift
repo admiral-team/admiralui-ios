@@ -28,7 +28,7 @@ final class BigTabView: UIView, AnyAppThemable {
     }
     
     public override var intrinsicContentSize: CGSize {
-        return CGSize(width: UIView.noIntrinsicMetric, height: 120.0)
+        CGSize(width: UIView.noIntrinsicMetric, height: 120.0)
     }
     
     // MARK: - AnyAppThemable

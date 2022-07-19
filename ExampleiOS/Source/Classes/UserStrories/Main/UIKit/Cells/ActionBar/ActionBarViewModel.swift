@@ -25,7 +25,70 @@ final class ActionBarViewModel {
 
     // MARK: - Internal Properties
 
-    let items: [ActionBarItem]
+    var items: [ActionBarItem] = []
+
+    // MARK: - Computed Properties
+
+    var defaultActions: [ActionItemBarAction] {
+        [
+            ActionItemBarAction(
+                image: Asset.ActionBar.closeOutline.image,
+                imageStyle: .error,
+                style: .default,
+                handler: {}
+            ),
+            ActionItemBarAction(
+                image: Asset.ActionBar.union.image,
+                imageStyle: .accent,
+                style: .default,
+                handler: {}
+            ),
+            ActionItemBarAction(
+                image: Asset.ActionBar.arrowDownOutline.image,
+                imageStyle: .primary,
+                style: .default,
+                handler: {}
+            ),
+            ActionItemBarAction(
+                image: Asset.ActionBar.arrowUpOutline.image,
+                imageStyle: .primary,
+                style: .default,
+                handler: {}
+            ),
+            ActionItemBarAction(
+                image: Asset.ActionBar.moreOutline.image,
+                imageStyle: .accent,
+                style: .default,
+                handler: {}
+            )
+        ]
+    }
+
+    var secondaryActions: [ActionItemBarAction] {
+        [
+            ActionItemBarAction(
+                image: Asset.ActionBar.shape.image,
+                imageStyle: .attention,
+                style: .secondary,
+                text: "Text",
+                handler: {}
+            ),
+            ActionItemBarAction(
+                image: Asset.ActionBar.union.image,
+                imageStyle: .success,
+                style: .secondary,
+                text: "Text",
+                handler: {}
+            ),
+            ActionItemBarAction(
+                image: Asset.ActionBar.mail.image,
+                imageStyle: .accent,
+                style: .secondary,
+                text: "Text",
+                handler: {}
+            )
+        ]
+    }
 
     // MARK: - Initializer
 
@@ -39,38 +102,7 @@ final class ActionBarViewModel {
                 swipeSubtitle: "Swipe",
                 swipeImage: AdmiralUIResources.Asset.System.Outline.arrowLeftOutline.image,
                 type: .default,
-                actions: [
-                    ActionItemBarAction(
-                        image: Asset.ActionBar.closeOutline.image,
-                        imageStyle: .error,
-                        style: .default,
-                        handler: {}
-                    ),
-                    ActionItemBarAction(
-                        image: Asset.ActionBar.union.image,
-                        imageStyle: .accent,
-                        style: .default,
-                        handler: {}
-                    ),
-                    ActionItemBarAction(
-                        image: Asset.ActionBar.arrowDownOutline.image,
-                        imageStyle: .primary,
-                        style: .default,
-                        handler: {}
-                    ),
-                    ActionItemBarAction(
-                        image: Asset.ActionBar.arrowUpOutline.image,
-                        imageStyle: .primary,
-                        style: .default,
-                        handler: {}
-                    ),
-                    ActionItemBarAction(
-                        image: Asset.ActionBar.moreOutline.image,
-                        imageStyle: .accent,
-                        style: .default,
-                        handler: {}
-                    )
-                ]
+                actions: defaultActions
             ),
             ActionBarItem(
                 header: "Secondary",
@@ -80,29 +112,7 @@ final class ActionBarViewModel {
                 swipeSubtitle: "Swipe",
                 swipeImage: AdmiralUIResources.Asset.System.Outline.arrowLeftOutline.image,
                 type: .secondary,
-                actions: [
-                    ActionItemBarAction(
-                        image: Asset.ActionBar.shape.image,
-                        imageStyle: .attention,
-                        style: .secondary,
-                        text: "Text",
-                        handler: {}
-                    ),
-                    ActionItemBarAction(
-                        image: Asset.ActionBar.union.image,
-                        imageStyle: .success,
-                        style: .secondary,
-                        text: "Text",
-                        handler: {}
-                    ),
-                    ActionItemBarAction(
-                        image: Asset.ActionBar.mail.image,
-                        imageStyle: .accent,
-                        style: .secondary,
-                        text: "Text",
-                        handler: {}
-                    )
-                ]
+                actions: secondaryActions
             )
         ]
     }

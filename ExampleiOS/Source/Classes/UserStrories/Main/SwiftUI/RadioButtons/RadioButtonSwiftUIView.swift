@@ -42,7 +42,7 @@ struct RadioButtonSwiftUIView: View {
                             .foregroundColor(scheme.textColor.swiftUIColor)
                         RadioControl(isSelected: $isDefaultRadioButtonSelected, text: "", checkState: .normal)
                             .disabled(isEnabledControlsState != 0)
-                            .onChange(of: isDefaultRadioButtonSelected) { (value) in
+                            .onChange(of: isDefaultRadioButtonSelected) { value in
                                 if value {
                                     isDefaultRadioButtonTextSelected = false
                                 } else if !isDefaultRadioButtonTextSelected {
@@ -51,7 +51,7 @@ struct RadioButtonSwiftUIView: View {
                             }
                         RadioControl(isSelected: $isDefaultRadioButtonTextSelected, text: "Text", checkState: .normal)
                             .disabled(isEnabledControlsState != 0)
-                            .onChange(of: isDefaultRadioButtonTextSelected) { (value) in
+                            .onChange(of: isDefaultRadioButtonTextSelected) { value in
                                 if value {
                                     isDefaultRadioButtonSelected = false
                                 } else if !isDefaultRadioButtonSelected {
@@ -69,7 +69,7 @@ struct RadioButtonSwiftUIView: View {
                             .foregroundColor(scheme.textColor.swiftUIColor)
                         RadioControl(isSelected: $isSelectedRadioButtonSelected, text: "", checkState: .normal)
                             .disabled(isEnabledControlsState != 0)
-                            .onChange(of: isSelectedRadioButtonSelected) { (value) in
+                            .onChange(of: isSelectedRadioButtonSelected) { value in
                                 if value {
                                     isSelectedRadioButtonTextSelected = false
                                 } else if !isSelectedRadioButtonTextSelected {
@@ -78,7 +78,7 @@ struct RadioButtonSwiftUIView: View {
                             }
                         RadioControl(isSelected: $isSelectedRadioButtonTextSelected, text: "Text", checkState: .normal)
                             .disabled(isEnabledControlsState != 0)
-                            .onChange(of: isSelectedRadioButtonTextSelected) { (value) in
+                            .onChange(of: isSelectedRadioButtonTextSelected) { value in
                                 if value {
                                     isSelectedRadioButtonSelected = false
                                 } else if !isSelectedRadioButtonSelected {
@@ -97,7 +97,7 @@ struct RadioButtonSwiftUIView: View {
                             .foregroundColor(scheme.textColor.swiftUIColor)
                         RadioControl(isSelected: $isErrorRadioButtonSelected, text: "", checkState: .error)
                             .disabled(isEnabledControlsState != 0)
-                            .onChange(of: isErrorRadioButtonSelected) { (value) in
+                            .onChange(of: isErrorRadioButtonSelected) { value in
                                 if value {
                                     isErrorRadioButtonTextSelected = false
                                 } else if !isErrorRadioButtonTextSelected {
@@ -106,7 +106,7 @@ struct RadioButtonSwiftUIView: View {
                             }
                         RadioControl(isSelected: $isErrorRadioButtonTextSelected, text: "Text", checkState: .error)
                             .disabled(isEnabledControlsState != 0)
-                            .onChange(of: isErrorRadioButtonTextSelected) { (value) in
+                            .onChange(of: isErrorRadioButtonTextSelected) { value in
                                 if value {
                                     isErrorRadioButtonSelected = false
                                 } else if !isErrorRadioButtonSelected {

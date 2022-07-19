@@ -35,8 +35,8 @@ struct CalendarSwiftUIView: View {
                 notActiveAfterDate: Date(),
                 pointDates: [Date()]
             )
-            .onChange(of: selectedStartDate, perform: { (_) in })
-            .onChange(of: selectedEndDate, perform: { (_) in })
+            .onChange(of: selectedStartDate, perform: { _ in })
+            .onChange(of: selectedEndDate, perform: { _ in })
         }
     }
     

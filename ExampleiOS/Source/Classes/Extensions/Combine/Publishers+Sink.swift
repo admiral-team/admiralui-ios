@@ -13,7 +13,7 @@ extension Publisher {
         receiveFailure: @escaping ((Self.Failure) -> Void) = { _ in },
         receiveValue: @escaping ((Self.Output) -> Void) = { _ in }
     ) -> AnyCancellable {
-        return sink(receiveCompletion: { completion in
+        sink(receiveCompletion: { completion in
             guard case let .failure(error) = completion else {
                 return
             }

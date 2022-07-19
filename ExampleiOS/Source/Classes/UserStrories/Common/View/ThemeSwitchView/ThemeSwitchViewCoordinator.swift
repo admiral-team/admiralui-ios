@@ -31,7 +31,7 @@ final class ThemeSwitchViewCoordinator: ThemeSwitchViewDelegate, ThemeSwitchView
     
     private var theme: AppTheme {
         get {
-            return storage.selectedTheme ?? manager.theme
+            storage.selectedTheme ?? manager.theme
         }
         set {
             if #available(iOS 14.0.0, *) {
@@ -44,7 +44,7 @@ final class ThemeSwitchViewCoordinator: ThemeSwitchViewDelegate, ThemeSwitchView
     // MARK: - ThemeSwitchViewDelegate
     
     func shouldShowMenu(_ view: ThemeSwitchView) -> Bool {
-        return storage.themes.count > 2
+        storage.themes.count > 2
     }
     
     func didTap(_ view: ThemeSwitchView? = nil) {

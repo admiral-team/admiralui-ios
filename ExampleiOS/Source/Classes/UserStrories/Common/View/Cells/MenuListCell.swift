@@ -59,17 +59,17 @@ final class MenuListCell: UITableViewCell, AnyAppThemable, TableViewListItemConf
     // MARK: - Public Properties
     
     var title: String? {
-        get { return titleLabel.text }
+        get { titleLabel.text }
         set { titleLabel.text = newValue }
     }
     
     var subtitle: String? {
-        get { return subtitleLabel.text }
+        get { subtitleLabel.text }
         set { subtitleLabel.text = newValue }
     }
     
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: UIView.noIntrinsicMetric, height: 68)
+        CGSize(width: UIView.noIntrinsicMetric, height: 68)
     }
     
     // MARK: - AccessibilitySupport

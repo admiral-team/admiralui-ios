@@ -21,7 +21,7 @@ extension UIView {
                            options: .curveEaseInOut,
                            animations: {
                 self.alpha = hidden ? 0.0 : 1.0
-            }) { (_) in // swiftlint:disable:this multiple_closures_with_trailing_closure
+            }) { _ in // swiftlint:disable:this multiple_closures_with_trailing_closure
                 self.isHidden = hidden
             }
         } else {

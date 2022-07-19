@@ -63,7 +63,7 @@ extension HSVColor {
     }
 
     var hueAndSaturation: HSColor {
-        return HSColor(colorSpace: colorSpace, hue: hue, saturation: saturation)
+        HSColor(colorSpace: colorSpace, hue: hue, saturation: saturation)
     }
 
     var rgbColor: RGBColor {
@@ -74,7 +74,7 @@ extension HSVColor {
     }
 
     private var sRGBUIColor: UIColor {
-        return UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: 1)
+        UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: 1)
     }
 
     private var extendedSRGBUIColor: UIColor {
@@ -110,6 +110,6 @@ extension HSVColor {
 
 extension HSColor {
     func with(brightness: CGFloat) -> HSVColor {
-        return HSVColor(colorSpace: colorSpace, hue: hue, saturation: saturation, brightness: brightness)
+        HSVColor(colorSpace: colorSpace, hue: hue, saturation: saturation, brightness: brightness)
     }
 }

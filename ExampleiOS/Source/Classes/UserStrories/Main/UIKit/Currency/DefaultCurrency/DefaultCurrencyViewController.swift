@@ -17,7 +17,7 @@ final class DefaultCurrencyViewController: UIViewController, AnyAppThemable {
     private let viewModel = DefaultCurrencyViewModel()
 
     private var isThemeSwitchViewHidden: Bool {
-        get { return themeSwitchView.isHidden }
+        get { themeSwitchView.isHidden }
         set { themeSwitchView.isHidden = newValue }
     }
 

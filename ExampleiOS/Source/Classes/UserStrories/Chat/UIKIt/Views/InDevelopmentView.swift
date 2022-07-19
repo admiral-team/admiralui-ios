@@ -14,12 +14,12 @@ class InDevelopmentView: UIView, AnyAppThemable, AccessibilitySupport {
     // MARK: - Public Properties
     
     var image: UIImage? {
-        get { return imageView.image }
+        get { imageView.image }
         set { imageView.image = newValue }
     }
     
     var title: String? {
-        get { return titleLabel.text }
+        get { titleLabel.text }
         set { titleLabel.text = newValue }
     }
     

@@ -33,7 +33,7 @@ final class MenuTableViewHeaderView: UITableViewHeaderFooterView, TableViewListI
     // MARK: - Public Properties
     
     var title: String? {
-        get { return titleLabel.text }
+        get { titleLabel.text }
         set { titleLabel.text = newValue }
     }
     
