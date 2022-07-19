@@ -14,15 +14,15 @@ final class BottomSheetExampleViewController: UIViewController, BottomSheetPrese
     // MARK: - BottomSheetPresentable
     
     var panScrollable: UIScrollView? {
-        return tableView
+        tableView
     }
     
     var cornerRadius: CGFloat {
-        return 24.0
+        24.0
     }
     
     var shortFormHeight: BottomSheetHeight {
-        return longFormHeight
+        longFormHeight
     }
     
     var scrollIndicatorInsets: UIEdgeInsets {
@@ -161,7 +161,7 @@ extension BottomSheetExampleViewController: BottomSheetHeaderDelegate {
 extension BottomSheetExampleViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return models.count
+        models.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -188,7 +188,7 @@ extension BottomSheetExampleViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return LayoutGrid.module * 10
+        LayoutGrid.module * 10
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -197,11 +197,11 @@ extension BottomSheetExampleViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return LayoutGrid.module * 20
+        LayoutGrid.module * 20
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return LayoutGrid.halfModule * 17
+        LayoutGrid.halfModule * 17
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

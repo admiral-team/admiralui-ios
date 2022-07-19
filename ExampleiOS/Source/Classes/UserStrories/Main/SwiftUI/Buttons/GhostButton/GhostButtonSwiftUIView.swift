@@ -94,7 +94,7 @@ struct GhostButtonSwiftUIView: View {
     }
     
     private func createButton(name: String, image: UIImage?, direction: ImageDirection) -> some View {
-        return SwiftUI.Button {
+        SwiftUI.Button {
         } label: {
             switch direction {
             case .left:

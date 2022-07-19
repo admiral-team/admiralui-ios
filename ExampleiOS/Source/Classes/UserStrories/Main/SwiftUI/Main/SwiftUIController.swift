@@ -145,6 +145,7 @@ struct CustomSwiftUIView: View {
         }
     }
 
+    // swiftlint:disable all
     @ViewBuilder
     func view(for type: SwiftUIItem) -> some View {
         switch type {

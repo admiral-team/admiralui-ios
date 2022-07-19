@@ -58,11 +58,11 @@ class MenuListViewController: UIViewController, UITableViewDelegate, AnyAppThema
     // MARK: - TableViewDelegate
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return tableViewManager.tableView(tableView, viewForHeaderInSection: section)
+        tableViewManager.tableView(tableView, viewForHeaderInSection: section)
     }
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return tableViewManager.tableView(tableView, viewForFooterInSection: section)
+        tableViewManager.tableView(tableView, viewForFooterInSection: section)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

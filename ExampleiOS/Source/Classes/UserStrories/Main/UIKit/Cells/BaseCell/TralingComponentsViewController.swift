@@ -103,7 +103,7 @@ final class TralingComponentsViewController: ScrollViewController {
     
     private func configureSwitchListViewCell() -> ListCell<ListCellEmpty, TitleListView, SwitchListView> {
         let switchListView = SwitchListView()
-        switchListView.didSelect = { (isOn) in
+        switchListView.didSelect = { isOn in
             print(isOn)
         }
         switchListView.isControlSelected = true

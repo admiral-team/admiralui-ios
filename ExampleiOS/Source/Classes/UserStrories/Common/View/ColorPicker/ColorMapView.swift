@@ -21,7 +21,7 @@ internal class ColorMapView: UIView {
 
     var colorSpace: HRColorSpace {
         get {
-            return model.colorSpace
+            model.colorSpace
         }
         set {
             model.colorSpace = newValue
@@ -168,11 +168,11 @@ private class HRColorMapModel {
     }
 
     private func radius(normalizedPosition: CGPoint) -> CGFloat {
-        return hypot(normalizedPosition.x - center, normalizedPosition.y - center)
+        hypot(normalizedPosition.x - center, normalizedPosition.y - center)
     }
 
     private func angle(normalizedPosition: CGPoint) -> CGFloat {
-        return atan2(normalizedPosition.y - center, normalizedPosition.x - center)
+        atan2(normalizedPosition.y - center, normalizedPosition.x - center)
     }
 
     private func normalize(radian: CGFloat) -> CGFloat {

@@ -61,10 +61,14 @@ final class ShimmerCellView: UIView, AnyAppThemable {
     // MARK: - AnyAppThemable
     
     func apply(theme: AppTheme) {
-        titleLabel.setDynamicFont(font: theme.fonts.body1.uiFont,
-                                  textStyle: theme.fonts.body1.textStyle)
-        subtitleLabel.setDynamicFont(font: theme.fonts.subtitle2.uiFont,
-                                      textStyle: theme.fonts.subtitle2.textStyle)
+        titleLabel.setDynamicFont(
+            font: theme.fonts.body1.uiFont,
+            textStyle: theme.fonts.body1.textStyle
+        )
+        subtitleLabel.setDynamicFont(
+            font: theme.fonts.subtitle2.uiFont,
+            textStyle: theme.fonts.subtitle2.textStyle
+        )
         titleLabel.textColor = theme.colors.textPrimary.uiColor
         subtitleLabel.textColor = theme.colors.textAccent.uiColor
         subtitleShimmerView.apply(theme: theme)

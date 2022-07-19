@@ -12,7 +12,7 @@ public final class ColorPicker: UIControl {
     private(set) lazy var colorSpace: HRColorSpace = { preconditionFailure() }()
 
     public var color: UIColor {
-        get { return hsvColor.uiColor }
+        get { hsvColor.uiColor }
     }
 
     private let brightnessCursor = BrightnessCursor()

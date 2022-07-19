@@ -24,7 +24,7 @@ final class ErrorViewController: UIViewController, AnyAppThemable {
     private let errorView = ErrorView()
 
     private var isThemeSwitchViewHidden: Bool {
-        get { return themeSwitchView.isHidden }
+        get { themeSwitchView.isHidden }
         set { themeSwitchView.isHidden = newValue }
     }
 

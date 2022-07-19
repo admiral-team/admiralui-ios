@@ -103,7 +103,7 @@ extension PinCodeViewController: PinCodeKeyboardDelegate {
     
     func pincodeViewDidTapItem(_ view: PinCodeKeyboard, text: String) {
         pincodeControl.insertText(text)
-        if pincodeControl.text.count > 0 {
+        if !pincodeControl.text.isEmpty {
             view.rightButtonImage = Asset.PinCode.deleteButton.image
         } else {
             view.rightButtonImage = AdmiralUIResources.Asset.Security.Outline.faceIDOutline.image
@@ -115,9 +115,9 @@ extension PinCodeViewController: PinCodeKeyboardDelegate {
     }
     
     func pincodeViewDidTapRightAccessoryItem(_ view: PinCodeKeyboard) {
-        if pincodeControl.text.count > 0 {
+        if !pincodeControl.text.isEmpty {
             pincodeControl.deleteBackward()
-            if pincodeControl.text.count == 0 {
+            if pincodeControl.text.isEmpty {
                 view.rightButtonImage = AdmiralUIResources.Asset.Security.Outline.faceIDOutline.image
             }
         } 

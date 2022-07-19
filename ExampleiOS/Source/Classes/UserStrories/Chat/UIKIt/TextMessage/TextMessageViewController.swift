@@ -30,7 +30,7 @@ final class TextMessageViewController: UIViewController, AnyAppThemable {
     }()
 
     private var isThemeSwitchViewHidden: Bool {
-        get { return themeSwitchView.isHidden }
+        get { themeSwitchView.isHidden }
         set { themeSwitchView.isHidden = newValue }
     }
 
@@ -124,7 +124,7 @@ final class TextMessageViewController: UIViewController, AnyAppThemable {
 extension TextMessageViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        UITableView.automaticDimension
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
