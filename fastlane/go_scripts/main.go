@@ -12,7 +12,7 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/admiral-team/admiral-tools/figma"
+	"github.com/admiral-team/admiral-tools/client"
 	"github.com/joho/godotenv"
 )
 
@@ -53,7 +53,11 @@ func main() {
 		token := os.Args[2]
 		id := os.Args[3]
 		path := os.Args[4]
-		figma.LoadDocumentation(token, id, path)
+		client.LoadDocumentation(token, id, path)
+	case "downloadImagesFigma":
+		token := os.Args[2]
+		fileName := os.Args[3]
+		client.LoadImagesIos(token, fileName)
 	default:
 		fmt.Println("Unknown command")
 	}
