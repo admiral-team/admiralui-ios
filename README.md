@@ -1,6 +1,8 @@
 # AdmiralUI ![version](https://img.shields.io/badge/dynamic/json.svg?label=release&url=https://raw.githubusercontent.com/admiral-team/admiralui-ios/main/version.json&query=$.external_version)
 The visual component library for `iOS`<br/></br>
-
+<p align="center">
+<img src="/Documentation/ios.gif?raw=true" align="middle">
+</p>
 ## What is AdmiralUI?
 `AdmiralUI` - is a ready-made set of user interface elements.
 
