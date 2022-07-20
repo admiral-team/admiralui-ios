@@ -31,7 +31,7 @@ struct InformerTabSwiftUIView: View {
                     .frame(height: 16.0)
                 VStack(alignment: .leading) {
                     VStack(alignment: .leading, spacing: 16.0) {
-                        Text("Two Controls")
+                        Text("Two controls")
                             .padding(.horizontal, 16.0)
                             .foregroundColor(scheme.textColor.swiftUIColor)
                             .font(scheme.textFont.swiftUIFont)
@@ -55,7 +55,7 @@ struct InformerTabSwiftUIView: View {
                     
                     
                     VStack(alignment: .leading, spacing: 16.0) {
-                        Text("Three Controls")
+                        Text("Three controls")
                             .padding(.horizontal, 16.0)
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)

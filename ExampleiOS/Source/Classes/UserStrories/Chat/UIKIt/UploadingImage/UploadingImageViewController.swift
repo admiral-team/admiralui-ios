@@ -212,7 +212,10 @@ final class UploadingImageViewController: UIViewController, AnyAppThemable {
     private func showAlert() {
         let alert = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Повторить отправку", style: .default, handler: { _ in }))
-        alert.addAction(UIAlertAction(title: "Удалить", style: .default, handler: { _ in }))
+        alert.addAction(UIAlertAction(title: "Удалить", style: .default, handler: { [weak self] _ in
+            self?.uploadImages.remove(at: 6)
+            self?.updateTable()
+        }))
         alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: { _ in }))
         present(alert, animated: true, completion: {})
     }

@@ -31,7 +31,7 @@ struct IconTabsSwiftUI: View {
                     .frame(height: 16.0)
                 VStack(alignment: .leading) {
                     VStack(alignment: .leading, spacing: 16.0) {
-                        Text("Two Controls")
+                        Text("Two controls")
                             .foregroundColor(scheme.textColor.swiftUIColor)
                             .font(scheme.textFont.swiftUIFont)
                         IconTab(
@@ -52,7 +52,7 @@ struct IconTabsSwiftUI: View {
                     Spacer()
                         .frame(height: 24.0)
                     VStack(alignment: .leading, spacing: 16.0) {
-                        Text("Three Controls")
+                        Text("Three controls")
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)
                             IconTab(

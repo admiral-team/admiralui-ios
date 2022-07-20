@@ -52,61 +52,7 @@ final class SwiftUIUploadingPhotoViewModel: ObservableObject {
     
     @Published var action: Action?
     
-    @Published var gridItems = [
-        UploadGridItem(
-            models: [
-                UploadImageModel(
-                    isLoading: true,
-                    time: "22:36",
-                    backgroundImage: Image(uiImage: Asset.Chat.photo.image),
-                    uploadStatus: .none,
-                    closeAction: { print("tapped at UploadImageModel 1") }
-                )
-            ],
-            direction: .left
-        ),
-        UploadGridItem(
-            models: Array(repeating: UploadImageModel(
-                isLoading: true,
-                time: "22:36",
-                backgroundImage: Image(uiImage: Asset.Chat.photo.image),
-                uploadStatus: .none,
-                closeAction: { print("tapped at UploadImageModel 2") }
-            ),
-            count: 2),
-            direction: .left
-        ),
-        UploadGridItem(
-            models: Array(repeating: UploadImageModel(
-                isLoading: true,
-                time: "22:36",
-                backgroundImage: Image(uiImage: Asset.Chat.photo.image),
-                uploadStatus: .none
-            ),
-            count: 3),
-            direction: .left
-        ),
-        UploadGridItem(
-            models: Array(repeating: UploadImageModel(
-                isLoading: true,
-                time: "22:36",
-                backgroundImage: Image(uiImage: Asset.Chat.photo.image),
-                uploadStatus: .none
-            ),
-            count: 4),
-            direction: .left
-        ),
-        UploadGridItem(
-            models: Array(repeating: UploadImageModel(
-                isLoading: true,
-                time: "22:36",
-                backgroundImage: Image(uiImage: Asset.Chat.photo.image),
-                uploadStatus: .error
-            ),
-            count: 5),
-            direction: .right
-        )
-    ]
+    @Published var gridItems: [UploadGridItem] = []
     
     @Published var showActionSheet: Bool = false
     @Published var isEnabledControlsState: Int = 0
@@ -149,10 +95,58 @@ final class SwiftUIUploadingPhotoViewModel: ObservableObject {
                 self?.setStatusForItems(isLoading: value == 0 ? false : true )
             }
             .store(in: &cancellables)
+
+        gridItems = [
+           UploadGridItem(
+               models: buildModels(gridItem: 0, count: 1),
+               direction: .left
+           ),
+           UploadGridItem(
+               models: buildModels(gridItem: 1, count: 2),
+               direction: .left
+           ),
+           UploadGridItem(
+               models: buildModels(gridItem: 2, count: 3),
+               direction: .left
+           ),
+           UploadGridItem(
+               models: buildModels(gridItem: 3, count: 4),
+               direction: .left
+           ),
+           UploadGridItem(
+               models: buildModels(gridItem: 5, count: 6),
+               direction: .right
+           )
+       ]
     }
     
     // MARK: - Private methods
-    
+
+    private func buildModels(
+        gridItem: Int,
+        isLoading: Bool = true,
+        count: Int,
+        status: ChatStatus = .read,
+        time: String = "22:36",
+        backgroundImage: Image = Image(uiImage: Asset.Chat.photo.image)
+    ) -> [UploadImageModel] {
+        var models: [UploadImageModel] = []
+        for index in  0..<count {
+            models.append(
+                .init(
+                    isLoading: isLoading,
+                    time: time,
+                    backgroundImage: backgroundImage,
+                    uploadStatus: status,
+                    closeAction: { [weak self] in
+                        self?.reloadItem(grid: gridItem, item: index)
+                    }
+                )
+            )
+        }
+        return models
+    }
+
     private func startTimer(grid: Int? = nil, item: Int? = nil) {
         timerPublisher = Timer.publish(
             every: 1.0,
@@ -167,7 +161,7 @@ final class SwiftUIUploadingPhotoViewModel: ObservableObject {
             }
         }
     }
-    
+
     private func stopTimer() {
         counter = 0
         setStatusForItems(isLoading: false)
@@ -196,5 +190,4 @@ private extension SwiftUIUploadingPhotoViewModel {
     func removeGrid() {
         gridItems.remove(at: errorGridIndex)
     }
-    
 }

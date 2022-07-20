@@ -32,7 +32,7 @@ struct StandardTabSwiftUIView: View {
                     .frame(height: 54.0)
                 VStack(alignment: .leading) {
                     VStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
-                        Text("Two Controls")
+                        Text("Two controls")
                             .foregroundColor(scheme.textColor.swiftUIColor)
                             .font(scheme.textFont.swiftUIFont)
                         VStack(alignment: .leading) {
@@ -44,7 +44,7 @@ struct StandardTabSwiftUIView: View {
                     Spacer()
                         .frame(height: 54.0)
                     VStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
-                        Text("Three Controls")
+                        Text("Three controls")
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)
                         VStack(alignment: .leading) {
@@ -56,7 +56,7 @@ struct StandardTabSwiftUIView: View {
                     Spacer()
                         .frame(height: 54.0)
                     VStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
-                        Text("Four Controls")
+                        Text("Four controls")
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)
                         VStack(alignment: .leading) {
@@ -68,7 +68,7 @@ struct StandardTabSwiftUIView: View {
                     Spacer()
                         .frame(height: 54.0)
                     VStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
-                        Text("Five Controls")
+                        Text("Five controls")
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)
                         VStack(alignment: .leading) {
