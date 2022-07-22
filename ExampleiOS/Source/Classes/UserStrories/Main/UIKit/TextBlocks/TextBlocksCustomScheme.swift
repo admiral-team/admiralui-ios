@@ -8,9 +8,9 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-struct SeparatorViewCustomScheme {
+struct TextBlocksCustomScheme {
     var titleFont: AFont
-
+    var titleColor: AColor
     var backgroundColor: AColor
     
     init() {
@@ -19,6 +19,7 @@ struct SeparatorViewCustomScheme {
     
     init(theme: AppTheme) {
         titleFont = theme.fonts.headline
+        titleColor = theme.colors.textSecondary
         backgroundColor = theme.colors.backgroundBasic
     }
 }

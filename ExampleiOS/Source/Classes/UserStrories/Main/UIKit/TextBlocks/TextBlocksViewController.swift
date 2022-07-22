@@ -74,7 +74,9 @@ final class TextBlocksViewController: ScrollViewController {
             vc.title = "Accordion"
             navigationController?.pushViewController(vc, animated: true)
         case 2:
-            break
+            let vc = ParagraphViewController()
+            vc.title = "Paragraph"
+            navigationController?.pushViewController(vc, animated: true)
         case 3:
             let vc = LinksHeaderViewController()
             vc.title = "Link"
