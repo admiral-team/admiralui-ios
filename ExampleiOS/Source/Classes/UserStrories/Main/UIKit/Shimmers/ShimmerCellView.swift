@@ -33,7 +33,7 @@ final class ShimmerCellView: UIView, AnyAppThemable {
     
     private let contentViewShimmeringView = ShimmeringView()
     private lazy var subtitleHeightContraint: NSLayoutConstraint = {
-        return subtitleShimmerView.heightAnchor.constraint(equalToConstant: subtitleLabel.font.pointSize)
+        subtitleShimmerView.heightAnchor.constraint(equalToConstant: subtitleLabel.font.pointSize)
     }()
     
     // MARK: - Initializer

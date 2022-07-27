@@ -45,7 +45,7 @@ class ScrollViewController: UIViewController, AnyAppThemable {
     // MARK: - Private Properties
     
     private lazy var stackViewTopConstraint: NSLayoutConstraint = {
-        return stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: Constants.segmentViewHeight)
+        stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: Constants.segmentViewHeight)
     }()
     
     private let themeSwitchView = ThemeSwitchView(frame: .zero)
