@@ -9,7 +9,6 @@ import AdmiralTheme
 import AdmiralUIResources
 import UIKit
 
-
 struct ParagraphScheme {
     var backgroundColor: AColor
     var textColor = ParagraphViewParametrs<AColor>()
@@ -38,7 +37,7 @@ struct ParagraphScheme {
 
 }
 
-public struct ParagraphViewParametrs<P> {
+struct ParagraphViewParametrs<P> {
     var parameters: [String: P?] = [:]
     
     mutating func set(parameter: P?, for state: UIControl.State, style: ParagraphStyle?) {

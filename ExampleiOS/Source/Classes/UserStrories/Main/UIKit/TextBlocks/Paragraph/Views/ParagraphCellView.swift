@@ -35,7 +35,6 @@ class ParagraphCellView: UIView, AnyAppThemable, AccessibilitySupport {
     init(paragraph: Paragraph, titleText: String? = nil, heightParagraph: CGFloat = LayoutGrid.module * 5) {
         super.init(frame: .zero)
         titleLabel.text = titleText
-//        titleLabel.isHidden = titleText == nil
         self.paragraph = paragraph
         self.heightParagraph = heightParagraph
         

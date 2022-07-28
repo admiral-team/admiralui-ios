@@ -26,14 +26,12 @@ final class ParagraphViewController: ScrollViewController {
     
     override func apply(theme: AppTheme) {
         super.apply(theme: theme)
-//        views.forEach({ ($0 as? AppThemeCompatible)?.apply(theme: theme) })
+        views.forEach({ $0.apply(theme: theme) })
     }
     
     // MARK: - Private Methods
     
     private func configureUI() {
-        //        view.traillingImage = Asset.Card.info.image
-        
         stackView.spacing = LayoutGrid.halfModule * 3
         
         ceateParagraphCelView(titleText: "Primary", style: .primary)
