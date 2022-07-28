@@ -87,7 +87,7 @@ struct AdmiralGunView: View {
                 value: .constant(textFieldModel.text),
                 accessibilityIdentifier: "testTextField",
                 formatter: BlocFormatter(format: { text in
-                    return text?.replacingOccurrences(of: "=)", with: "🙂")
+                    text?.replacingOccurrences(of: "=)", with: "🙂")
                 }),
                 contentType: .default,
                 placeholder: textFieldModel.additionalText ?? "",

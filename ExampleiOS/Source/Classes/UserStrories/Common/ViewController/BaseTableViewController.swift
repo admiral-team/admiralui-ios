@@ -40,7 +40,7 @@ class BaseTableViewController: UIViewController, UITableViewDelegate, AnyAppThem
     }
     
     private lazy var tableViewTopConstraint: NSLayoutConstraint = {
-        return tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.segmentViewHeight)
+        tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.segmentViewHeight)
     }()
     private let themeSwitchView = ThemeSwitchView()
     

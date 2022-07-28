@@ -66,7 +66,7 @@ struct StandardTextFieldSwiftUIView: View {
                                 value: $formatText,
                                 accessibilityIdentifier: "testTextField",
                                 formatter: BlocFormatter(format: { text in
-                                    return text?.replacingOccurrences(of: "=)", with: "🙂")
+                                    text?.replacingOccurrences(of: "=)", with: "🙂")
                                 }),
                                 contentType: .default,
                                 canPerformActionPaste: false,
@@ -121,7 +121,7 @@ struct StandardTextFieldSwiftUIView: View {
                             TextView(
                                 value: $viewText,
                                 formatter: BlocFormatter(format: { text in
-                                    return text?.replacingOccurrences(of: "=)", with: "🙂")
+                                    text?.replacingOccurrences(of: "=)", with: "🙂")
                                 }),
                                 contentType: .default,
                                 canPerformActionPaste: false,

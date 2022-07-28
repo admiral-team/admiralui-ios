@@ -72,7 +72,7 @@ final class SelectThemeTemplateViewController: BaseTableViewController {
 
     private func createSections() -> [MainSectionViewModel] {
         let items: [TableViewListItem] = themes.map() { theme in
-            return MainTitleTableViewCellViewModel(
+            MainTitleTableViewCellViewModel(
                 title: theme.displayName ?? "",
                 subtitle: selectedTheme == theme ? "Выбрано" : nil,
                 didSelect: { [weak self] in self?.didSelect(theme: theme) }

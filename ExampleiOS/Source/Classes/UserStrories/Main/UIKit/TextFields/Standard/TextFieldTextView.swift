@@ -41,7 +41,7 @@ final class TextFieldTextView: UIView, AnyAppThemable, AccessibilitySupport {
     private let titleLabel = UILabel()
     private let textField: UIView
     private lazy var titleLabelTopConstraint: NSLayoutConstraint = {
-        return titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: LayoutGrid.halfModule * 7)
+        titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: LayoutGrid.halfModule * 7)
     }()
     private var textFieldSideOffset = LayoutGrid.doubleModule
     private var scheme = TextFieldsTextViewCustomScheme() {

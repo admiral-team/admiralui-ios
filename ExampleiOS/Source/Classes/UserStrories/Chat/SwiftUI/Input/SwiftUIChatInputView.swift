@@ -108,7 +108,7 @@ struct SwiftUIChatInputView: View {
             tapFileButton: { [weak viewModel] in viewModel?.showingActionSheet = true },
             isShowFileButton: true,
             formatter: BlocFormatter(format: { text in
-                return text?.replacingOccurrences(of: "=)", with: "🙂")
+                text?.replacingOccurrences(of: "=)", with: "🙂")
             })
         )
         .modifier(SizeAwareViewModifier(viewSize: $viewSize))
