@@ -38,8 +38,8 @@ class AdmiralUIKitThemesTests: XCTestCase {
         app.buttons["Применить"].tap()
         
         app.buttons["Создать новую тему"].tap()
-        app.staticTexts["Theme one"].tap()
-        app.staticTexts["Theme one"].typeText("New theme")
+        app.textFields["ThemeName"].tap()
+        app.textFields["ThemeName"].typeText("New theme")
                 
         
         
