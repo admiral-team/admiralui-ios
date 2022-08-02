@@ -49,16 +49,16 @@ final class ContactsTableViewCell: UITableViewCell, AnyAppThemable, Accessibilit
     private let subtitleLabel = UILabel()
     private let additionalLabel = UILabel()
     private lazy var subtitleLabelHeightConstraint: NSLayoutConstraint = {
-        return subtitleLabel.heightAnchor.constraint(equalToConstant: 0)
+        subtitleLabel.heightAnchor.constraint(equalToConstant: 0)
     }()
     private lazy var subtitleTopConstraint: NSLayoutConstraint = {
-        return subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: LayoutGrid.halfModule)
+        subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: LayoutGrid.halfModule)
     }()
     private lazy var additionalLabelTopConstraint: NSLayoutConstraint = {
-        return additionalLabel.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: LayoutGrid.halfModule * 3)
+        additionalLabel.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: LayoutGrid.halfModule * 3)
     }()
     private lazy var additionalLabelHeightConstraint: NSLayoutConstraint = {
-        return additionalLabel.heightAnchor.constraint(equalToConstant: 0)
+        additionalLabel.heightAnchor.constraint(equalToConstant: 0)
     }()
     private var scheme = ContactsTableViewCustomTheme() {
         didSet { updateScheme() }

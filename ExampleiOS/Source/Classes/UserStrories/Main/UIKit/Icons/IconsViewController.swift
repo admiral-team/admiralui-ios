@@ -127,11 +127,11 @@ final class IconsViewController: UIViewController, AnyAppThemable {
         }
         
         outlineImageSections.sort { sectionFirst, sectionSecond -> Bool in
-            return (sectionFirst.size.width * sectionFirst.size.height) < (sectionSecond.size.width * sectionSecond.size.height)
+            (sectionFirst.size.width * sectionFirst.size.height) < (sectionSecond.size.width * sectionSecond.size.height)
         }
         
         solidImageSections.sort { sectionFirst, sectionSecond -> Bool in
-            return (sectionFirst.size.width * sectionFirst.size.height) < (sectionSecond.size.width * sectionSecond.size.height)
+            (sectionFirst.size.width * sectionFirst.size.height) < (sectionSecond.size.width * sectionSecond.size.height)
         }
         
         dataSource = outlineImageSections
@@ -187,11 +187,11 @@ final class IconsViewController: UIViewController, AnyAppThemable {
         
         defer {
             searchOutlineImageSections.sort { sectionFirst, sectionSecond -> Bool in
-                return (sectionFirst.size.width * sectionFirst.size.height) < (sectionSecond.size.width * sectionSecond.size.height)
+                (sectionFirst.size.width * sectionFirst.size.height) < (sectionSecond.size.width * sectionSecond.size.height)
             }
             
             searchSolidImageSections.sort { sectionFirst, sectionSecond -> Bool in
-                return (sectionFirst.size.width * sectionFirst.size.height) < (sectionSecond.size.width * sectionSecond.size.height)
+                (sectionFirst.size.width * sectionFirst.size.height) < (sectionSecond.size.width * sectionSecond.size.height)
             }
             
             dataSource = segmentControl.selectedSegmentIndex == 0 ? searchOutlineImageSections : searchSolidImageSections

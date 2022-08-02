@@ -63,13 +63,13 @@ final class FAQTableViewCells: UITableViewCell, AnyAppThemable, AccessibilitySup
     private let subtitleLabel = UILabel()
     private let disclosureImage = UIImageView()
     private lazy var subtitleLabelHeightConstraint: NSLayoutConstraint = {
-        return subtitleLabel.heightAnchor.constraint(equalToConstant: 0)
+        subtitleLabel.heightAnchor.constraint(equalToConstant: 0)
     }()
     private lazy var subtitleLabelBottomConstraint: NSLayoutConstraint = {
-        return contentView.bottomAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: LayoutGrid.halfModule * 3)
+        contentView.bottomAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: LayoutGrid.halfModule * 3)
     }()
     private lazy var subtitleLabelTopConstraint: NSLayoutConstraint = {
-        return subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: LayoutGrid.halfModule * 9)
+        subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: LayoutGrid.halfModule * 9)
     }()
     private var scheme = FAQTableViewCellCustomScheme() {
         didSet { updateScheme() }

@@ -38,10 +38,10 @@ class OnboardingPageViewController: UIViewController, AnyAppThemable {
         return button
     }()
     private lazy var leftBarButton: UIBarButtonItem = {
-       return UIBarButtonItem(customView: leftButton)
+       UIBarButtonItem(customView: leftButton)
     }()
     private lazy var rightBarButton: UIBarButtonItem = {
-       return UIBarButtonItem(
+       UIBarButtonItem(
         title: "Пропустить",
         style: .plain,
         target: self,
