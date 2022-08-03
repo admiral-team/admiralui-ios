@@ -46,7 +46,7 @@ struct OutlineSliderTabSwiftUITab: View {
                     .frame(height: 16.0)
                 VStack(alignment: .leading) {
                     VStack(alignment: .leading, spacing: 16.0) {
-                        Text("Three Controls")
+                        Text("Three controls")
                             .foregroundColor(scheme.textColor.swiftUIColor)
                             .font(scheme.textFont.swiftUIFont)
                             .padding()
@@ -59,7 +59,7 @@ struct OutlineSliderTabSwiftUITab: View {
                     Spacer()
                         .frame(height: 24.0)
                     VStack(alignment: .leading, spacing: 16.0) {
-                        Text("Slider Controls")
+                        Text("Slider controls")
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)
                             .padding()
