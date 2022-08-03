@@ -32,7 +32,7 @@ struct LogoTabSwiftUIView: View {
                     .frame(height: 16.0)
                 VStack(alignment: .leading) {
                     VStack(alignment: .leading, spacing: 16.0) {
-                        Text("Two Controls")
+                        Text("Two controls")
                             .foregroundColor(scheme.textColor.swiftUIColor)
                             .font(scheme.textFont.swiftUIFont)
                         VStack(alignment: .leading) {
@@ -45,7 +45,7 @@ struct LogoTabSwiftUIView: View {
                     Spacer()
                         .frame(height: 24.0)
                     VStack(alignment: .leading, spacing: 16.0) {
-                        Text("Three Controls")
+                        Text("Three controls")
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)
                         VStack(alignment: .leading) {
@@ -62,7 +62,7 @@ struct LogoTabSwiftUIView: View {
                     Spacer()
                         .frame(height: 24.0)
                     VStack(alignment: .leading, spacing: 16.0) {
-                        Text("Four Controls")
+                        Text("Four controls")
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)
                         VStack(alignment: .leading) {
@@ -80,7 +80,7 @@ struct LogoTabSwiftUIView: View {
                     Spacer()
                         .frame(height: 24.0)
                     VStack(alignment: .leading, spacing: 16.0) {
-                        Text("Five Controls")
+                        Text("Five controls")
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)
                         VStack(alignment: .leading) {

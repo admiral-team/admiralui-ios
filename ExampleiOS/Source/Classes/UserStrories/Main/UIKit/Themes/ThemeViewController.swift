@@ -42,7 +42,7 @@ final class ThemeViewController: BaseTableViewController {
     private let bottomButton = PrimaryButton()
     
     private lazy var deleteButton: UIBarButtonItem = {
-        return UIBarButtonItem(
+        UIBarButtonItem(
             image: AdmiralUIResources.Asset.System.Outline.deleteOutline.image,
             style: .plain,
             target: self,

@@ -30,7 +30,7 @@ struct UnderlineTabsUIView: View {
                             ListCell(
                                 centerView: { TitleListView(title: item.title) },
                                 trailingView: { ArrowListView() },
-                                isHighlighted: Binding(get: { return self.selection == item.rawValue }, set: { _ in }))
+                                isHighlighted: Binding(get: { self.selection == item.rawValue }, set: { _ in }))
                                 .frame(height: 68)
                         }
                         .onTapGesture {

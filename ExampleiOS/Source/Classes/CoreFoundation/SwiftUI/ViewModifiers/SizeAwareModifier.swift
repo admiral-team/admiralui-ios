@@ -52,7 +52,7 @@ struct SizeAwareViewModifier: ViewModifier {
 private struct BackgroundGeometryReader: View {
     var body: some View {
         GeometryReader { geometry in
-            return Color
+            Color
                 .clear
                 .preference(key: SizePreferenceKey.self, value: geometry.size)
         }
