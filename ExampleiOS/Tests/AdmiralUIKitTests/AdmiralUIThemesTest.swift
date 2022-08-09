@@ -37,12 +37,6 @@ class AdmiralUIKitThemesTests: XCTestCase {
         app.tables.staticTexts["SME Dark"].tap()
         app.buttons["Применить"].tap()
         
-        app.buttons["Создать новую тему"].tap()
-        app.textFields["ThemeName"].tap()
-        app.textFields["ThemeName"].typeText("New theme")
-                
-        
-        
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
