@@ -33,9 +33,6 @@ class AdmiralUIKitThemesTests: XCTestCase {
         app.buttons["Применить"].tap()
         app.tables.staticTexts["SME Dark"].tap()
         app.buttons["Применить"].tap()
-        app.buttons["Создать новую тему"].tap()
-        app.textFields["ThemeName"].tap()
-        app.textFields["ThemeName"].typeText("New theme")
     }
 
     func testLaunchPerformance() throws {
