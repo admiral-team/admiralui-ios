@@ -44,6 +44,3 @@ class AdmiralUIKitThemesTests: XCTestCase {
         }
     }
 }
-
-
-
