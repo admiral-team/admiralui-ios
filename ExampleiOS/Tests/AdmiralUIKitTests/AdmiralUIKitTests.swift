@@ -2,8 +2,6 @@
 //  AdmiralUIKitTests.swift
 //  AdmiralUIKitTests
 //
-//  Created by Мигунов Евгений Анатольевич on 02.08.2022.
-//
 
 import XCTest
 

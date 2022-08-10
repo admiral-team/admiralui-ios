@@ -2,8 +2,6 @@
 //  AdmiralUIKitUITests.swift
 //  AdmiralUIKitUITests
 //
-//  Created by Мигунов Евгений Анатольевич on 01.08.2022.
-//
 
 import XCTest
 
@@ -26,24 +24,15 @@ class AdmiralUIKitIconsTest: XCTestCase {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
-        
         app.tables/*@START_MENU_TOKEN@*/.staticTexts["Icons"]/*[[".cells.staticTexts[\"Icons\"]",".staticTexts[\"Icons\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         app.staticTexts["Solid"].tap()
         app.staticTexts["Outline"].tap()
-        
         app.windows.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .collectionView).element.swipeUp()
-        
         app.windows.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .collectionView).element.swipeDown()
-        
         _ = app.textFields["Поиск"]
         app.textFields["Поиск"].tap()
         app.textFields["Поиск"].typeText("Bank")
-
         app.buttons["closeSolid"].tap()
-                        
-        
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 
     func testLaunchPerformance() throws {
@@ -55,5 +44,3 @@ class AdmiralUIKitIconsTest: XCTestCase {
         }
     }
 }
-
-

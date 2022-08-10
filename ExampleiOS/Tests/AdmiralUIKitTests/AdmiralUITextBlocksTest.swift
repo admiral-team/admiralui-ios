@@ -2,8 +2,6 @@
 //  AdmiralUIKitUITests.swift
 //  AdmiralUIKitUITests
 //
-//  Created by Мигунов Евгений Анатольевич on 01.08.2022.
-//
 
 import XCTest
 import ExampleiOS
@@ -28,37 +26,27 @@ class AdmiralUIKitTextBlockTests: XCTestCase {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
-        
         app.tables.staticTexts["Text Blocks"].tap()
         app.staticTexts["Header"].tap()
-        
         app.staticTexts["Headline Secondary"].tap()
         app.staticTexts["Title 1"].tap()
-        
         app.buttons["Ellipse"].tap()
-    
         app.staticTexts["Light"].tap()
         app.staticTexts["Dark"].tap()
         app.staticTexts["SME Light"].tap()
         app.staticTexts["SME Dark"].tap()
         app.buttons["Ellipse"].tap()
-
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
     func testAccordion() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
-        
         app.tables.staticTexts["Text Blocks"].tap()
         app.staticTexts["Accordion"].tap()
         app.staticTexts["Disabled"].tap()
         app.staticTexts["Default"].tap()
-        
         app.buttons["Ellipse"].tap()
-    
         app.staticTexts["Light"].tap()
         app.staticTexts["Dark"].tap()
         app.staticTexts["SME Light"].tap()
@@ -70,36 +58,27 @@ class AdmiralUIKitTextBlockTests: XCTestCase {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
-        
         app.tables.staticTexts["Text Blocks"].tap()
         app.staticTexts["Paragraph"].tap()
         app.staticTexts["Disabled"].tap()
         app.staticTexts["Default"].tap()
-        
         app.buttons["Ellipse"].tap()
-    
         app.staticTexts["Light"].tap()
         app.staticTexts["Dark"].tap()
         app.staticTexts["SME Light"].tap()
         app.staticTexts["SME Dark"].tap()
         app.buttons["Ellipse"].tap()
-        
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
     func testLink() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
-        
         app.tables.staticTexts["Text Blocks"].tap()
         app.staticTexts["Link"].tap()
         app.staticTexts["Disabled"].tap()
         app.staticTexts["Default"].tap()
-        
         app.buttons["Ellipse"].tap()
-    
         app.staticTexts["Light"].tap()
         app.staticTexts["Dark"].tap()
         app.staticTexts["SME Light"].tap()
@@ -111,14 +90,11 @@ class AdmiralUIKitTextBlockTests: XCTestCase {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
-        
         app.tables.staticTexts["Text Blocks"].tap()
         app.staticTexts["Padding"].tap()
         app.staticTexts["Disabled"].tap()
         app.staticTexts["Default"].tap()
-        
         app.buttons["Ellipse"].tap()
-    
         app.staticTexts["Light"].tap()
         app.staticTexts["Dark"].tap()
         app.staticTexts["SME Light"].tap()
@@ -135,9 +111,3 @@ class AdmiralUIKitTextBlockTests: XCTestCase {
         }
     }
 }
-
-
-
-
-
-
