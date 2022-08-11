@@ -300,6 +300,12 @@
 		C6E04A86256C256600C32381 /* SmallInformersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E04A85256C256600C32381 /* SmallInformersViewController.swift */; };
 		C6E04A8F256D609500C32381 /* BigInformerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E04A8E256D609500C32381 /* BigInformerView.swift */; };
 		C6E04AA8256E937600C32381 /* MessageInformerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E04AA7256E937600C32381 /* MessageInformerView.swift */; };
+		D6245A04289981A60027F3CA /* AdmiralUIKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6245A03289981A60027F3CA /* AdmiralUIKitTests.swift */; };
+		D6245A06289981A60027F3CA /* AdmiralUIKitTestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6245A05289981A60027F3CA /* AdmiralUIKitTestsLaunchTests.swift */; };
+		D6245A0E2899822F0027F3CA /* AdmiralUIIconsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6245A0D2899822F0027F3CA /* AdmiralUIIconsTest.swift */; };
+		D6245A10289982460027F3CA /* AdmiralUIThemesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6245A0F289982460027F3CA /* AdmiralUIThemesTest.swift */; };
+		D6245A12289AA5530027F3CA /* AdmiralUIKitButtonsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6245A11289AA5530027F3CA /* AdmiralUIKitButtonsTest.swift */; };
+		D6245A1628A13AC70027F3CA /* AdmiralUITextBlocksTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6245A1528A13AC70027F3CA /* AdmiralUITextBlocksTest.swift */; };
 		E6117EF625F9754300214949 /* CardTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6117EF525F9754300214949 /* CardTextField.swift */; };
 		E63B50DE25DD2B1800993D21 /* ThemesRepostory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63B50DD25DD2B1800993D21 /* ThemesRepostory.swift */; };
 		E63B50E125DD3BCC00993D21 /* ColorToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63B50E025DD3BCC00993D21 /* ColorToken.swift */; };
@@ -456,6 +462,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		D6245A07289981A60027F3CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E6D91C3C2532047C00DCE489 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E6D91C432532047C00DCE489;
+			remoteInfo = ExampleiOS;
+		};
 		E97CAD6027206BF7001283A1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E6D91C3C2532047C00DCE489 /* Project object */;
@@ -774,6 +787,13 @@
 		C6E04A85256C256600C32381 /* SmallInformersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallInformersViewController.swift; sourceTree = "<group>"; };
 		C6E04A8E256D609500C32381 /* BigInformerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigInformerView.swift; sourceTree = "<group>"; };
 		C6E04AA7256E937600C32381 /* MessageInformerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInformerView.swift; sourceTree = "<group>"; };
+		D6245A01289981A60027F3CA /* AdmiralUIKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdmiralUIKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6245A03289981A60027F3CA /* AdmiralUIKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIKitTests.swift; sourceTree = "<group>"; };
+		D6245A05289981A60027F3CA /* AdmiralUIKitTestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIKitTestsLaunchTests.swift; sourceTree = "<group>"; };
+		D6245A0D2899822F0027F3CA /* AdmiralUIIconsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIIconsTest.swift; sourceTree = "<group>"; };
+		D6245A0F289982460027F3CA /* AdmiralUIThemesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIThemesTest.swift; sourceTree = "<group>"; };
+		D6245A11289AA5530027F3CA /* AdmiralUIKitButtonsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIKitButtonsTest.swift; sourceTree = "<group>"; };
+		D6245A1528A13AC70027F3CA /* AdmiralUITextBlocksTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUITextBlocksTest.swift; sourceTree = "<group>"; };
 		E6117EF525F9754300214949 /* CardTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTextField.swift; sourceTree = "<group>"; };
 		E63B50DD25DD2B1800993D21 /* ThemesRepostory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesRepostory.swift; sourceTree = "<group>"; };
 		E63B50E025DD3BCC00993D21 /* ColorToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorToken.swift; sourceTree = "<group>"; };
@@ -933,6 +953,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D62459FE289981A60027F3CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E6D91C412532047C00DCE489 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -2797,6 +2824,28 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		D6245A02289981A60027F3CA /* AdmiralUIKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				D6245A03289981A60027F3CA /* AdmiralUIKitTests.swift */,
+				D6245A05289981A60027F3CA /* AdmiralUIKitTestsLaunchTests.swift */,
+				D6245A0D2899822F0027F3CA /* AdmiralUIIconsTest.swift */,
+				D6245A0F289982460027F3CA /* AdmiralUIThemesTest.swift */,
+				D6245A11289AA5530027F3CA /* AdmiralUIKitButtonsTest.swift */,
+				D6245A1528A13AC70027F3CA /* AdmiralUITextBlocksTest.swift */,
+			);
+			path = AdmiralUIKitTests;
+			sourceTree = "<group>";
+		};
+		D6245A0C289981B90027F3CA /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				E97CAD5B27206BF7001283A1 /* AdmiralSwiftUITests */,
+				D6245A02289981A60027F3CA /* AdmiralUIKitTests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 		E6058902255C7C35004436E5 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -2988,7 +3037,7 @@
 			isa = PBXGroup;
 			children = (
 				E6D91C462532047C00DCE489 /* Source */,
-				E97CAD5B27206BF7001283A1 /* AdmiralSwiftUITests */,
+				D6245A0C289981B90027F3CA /* Tests */,
 				E6D91C452532047C00DCE489 /* Products */,
 				E6D91C762532076000DCE489 /* Frameworks */,
 			);
@@ -2999,6 +3048,7 @@
 			children = (
 				E6D91C442532047C00DCE489 /* ExampleiOS.app */,
 				E97CAD5A27206BF7001283A1 /* AdmiralSwiftUITests.xctest */,
+				D6245A01289981A60027F3CA /* AdmiralUIKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -3633,6 +3683,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		D6245A00289981A60027F3CA /* AdmiralUIKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D6245A0B289981A60027F3CA /* Build configuration list for PBXNativeTarget "AdmiralUIKitTests" */;
+			buildPhases = (
+				D62459FD289981A60027F3CA /* Sources */,
+				D62459FE289981A60027F3CA /* Frameworks */,
+				D62459FF289981A60027F3CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D6245A08289981A60027F3CA /* PBXTargetDependency */,
+			);
+			name = AdmiralUIKitTests;
+			productName = AdmiralUIKitTests;
+			productReference = D6245A01289981A60027F3CA /* AdmiralUIKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		E6D91C432532047C00DCE489 /* ExampleiOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E6D91C582532047D00DCE489 /* Build configuration list for PBXNativeTarget "ExampleiOS" */;
@@ -3677,9 +3745,13 @@
 		E6D91C3C2532047C00DCE489 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1300;
+				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
+					D6245A00289981A60027F3CA = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = E6D91C432532047C00DCE489;
+					};
 					E6D91C432532047C00DCE489 = {
 						CreatedOnToolsVersion = 12.0.1;
 					};
@@ -3705,11 +3777,19 @@
 			targets = (
 				E6D91C432532047C00DCE489 /* ExampleiOS */,
 				E97CAD5927206BF7001283A1 /* AdmiralSwiftUITests */,
+				D6245A00289981A60027F3CA /* AdmiralUIKitTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D62459FF289981A60027F3CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E6D91C422532047C00DCE489 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3768,6 +3848,19 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D62459FD289981A60027F3CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6245A1628A13AC70027F3CA /* AdmiralUITextBlocksTest.swift in Sources */,
+				D6245A06289981A60027F3CA /* AdmiralUIKitTestsLaunchTests.swift in Sources */,
+				D6245A0E2899822F0027F3CA /* AdmiralUIIconsTest.swift in Sources */,
+				D6245A10289982460027F3CA /* AdmiralUIThemesTest.swift in Sources */,
+				D6245A04289981A60027F3CA /* AdmiralUIKitTests.swift in Sources */,
+				D6245A12289AA5530027F3CA /* AdmiralUIKitButtonsTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E6D91C402532047C00DCE489 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -4221,6 +4314,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		D6245A08289981A60027F3CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E6D91C432532047C00DCE489 /* ExampleiOS */;
+			targetProxy = D6245A07289981A60027F3CA /* PBXContainerItemProxy */;
+		};
 		E97CAD6127206BF7001283A1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = E6D91C432532047C00DCE489 /* ExampleiOS */;
@@ -4241,6 +4339,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		D6245A09289981A60027F3CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = admiralUIKitTests.AdmiralUIKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ExampleiOS;
+			};
+			name = Debug;
+		};
+		D6245A0A289981A60027F3CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = admiralUIKitTests.AdmiralUIKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ExampleiOS;
+			};
+			name = Release;
+		};
 		E6D91C562532047D00DCE489 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -4425,7 +4559,7 @@
 				CURRENT_PROJECT_VERSION = 1647607851;
 				DEVELOPMENT_TEAM = 66JEAC242Y;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -4453,7 +4587,7 @@
 				CURRENT_PROJECT_VERSION = 1647607851;
 				DEVELOPMENT_TEAM = 66JEAC242Y;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -4474,6 +4608,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D6245A0B289981A60027F3CA /* Build configuration list for PBXNativeTarget "AdmiralUIKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6245A09289981A60027F3CA /* Debug */,
+				D6245A0A289981A60027F3CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E6D91C3F2532047C00DCE489 /* Build configuration list for PBXProject "ExampleiOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
