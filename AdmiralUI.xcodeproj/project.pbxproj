@@ -4226,6 +4226,15 @@
 			path = LinerPageControl;
 			sourceTree = "<group>";
 		};
+		3B2FCBCD28AA981D00E94293 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E6D4958C255E75AB00497106 /* AppTheme.swift */,
+				E6BB793A25DAA0800080E2EF /* AppThemeStorage.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		3B3669C227479566007F7582 /* ListCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -5948,10 +5957,9 @@
 		E6FB3110253DC2FA00314E00 /* Themes */ = {
 			isa = PBXGroup;
 			children = (
+				3B2FCBCD28AA981D00E94293 /* Models */,
 				0E008ADC2743F590003D7882 /* UIKit */,
 				0E008ADB2743F585003D7882 /* SwiftUI */,
-				E6D4958C255E75AB00497106 /* AppTheme.swift */,
-				E6BB793A25DAA0800080E2EF /* AppThemeStorage.swift */,
 				0EEAFACE262467C400E46143 /* ParameterBox.swift */,
 				E6D49552255DF4CB00497106 /* ThemeManager */,
 			);
