@@ -14,10 +14,13 @@ public struct PrimaryLinkControlScheme: AppThemeScheme {
 
     // MARK: - Public properties
 
+    /// The font color of PrimaryLinkControl
     public var font = PrimaryLinkControlSchemeParameters<AFont>()
+
+    /// The text color of PrimaryLinkControl
     public var textColor = ControlParameter<AColor>()
 
-    // MARK: - Init/deinit
+    // MARK: - Initializer
 
     public init(theme: AppTheme) {
         let alpha = theme.colors.disabledAlpha

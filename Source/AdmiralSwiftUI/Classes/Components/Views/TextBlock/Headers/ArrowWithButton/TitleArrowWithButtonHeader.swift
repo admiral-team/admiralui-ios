@@ -26,14 +26,14 @@ import AdmiralUIResources
  ## Example to create vertical TitleArrowWithButtonHeader:
  # Code
  ```
-TitleArrowWithButtonHeader(title: "Title", buttonTitle: "Button", buttonAction: {})
-TitleArrowWithButtonHeader(
+ TitleArrowWithButtonHeader(title: "Title", buttonTitle: "Button", buttonAction: {})
+ TitleArrowWithButtonHeader(
  title: "Title",
  buttonTitle: "Button",
  buttonAction: {},
  dropDownHeaderType: .up)
  ```
-*/
+ */
 /// A header with header title, arrow and button.
 @available(iOS 14.0.0, *)
 public struct TitleArrowWithButtonHeader: View {
@@ -46,7 +46,8 @@ public struct TitleArrowWithButtonHeader: View {
     
     /// Drop down header type.
     @Binding public var dropDownHeaderType: DropDownHeaderType?
-    
+
+    /// The button action
     public var buttonAction: () -> ()
     
     /// Image rendering mode.
@@ -64,14 +65,17 @@ public struct TitleArrowWithButtonHeader: View {
         buttonAction: @escaping () -> (),
         renderingMode: Image.TemplateRenderingMode = .original,
         dropDownHeaderType: DropDownHeaderType? = nil,
-        headerStyle: HeaderStyle = .title) {
-            self._title = Binding(get: { return title }, set: { _ in })
-            self._buttonTitle = Binding(get: { return buttonTitle }, set: { _ in })
-            self.buttonAction = buttonAction
-            self.renderingMode = renderingMode
-            self.textBlockStyle = headerStyle.textBlockStyle
-            self._dropDownHeaderType = Binding(get: { return dropDownHeaderType }, set: { _ in })
-        }
+        headerStyle: HeaderStyle = .title
+    ) {
+        self._title = Binding(get: { return title }, set: { _ in })
+        self._buttonTitle = Binding(get: { return buttonTitle }, set: { _ in })
+        self.buttonAction = buttonAction
+        self.renderingMode = renderingMode
+        self.textBlockStyle = headerStyle.textBlockStyle
+        self._dropDownHeaderType = Binding(get: { return dropDownHeaderType }, set: { _ in })
+    }
+
+    // MARK: - Body
     
     public var body: some View {
         let titleWithImageListStyle = TitleWithImageListStyle(rawValue: textBlockStyle.rawValue)
@@ -83,7 +87,7 @@ public struct TitleArrowWithButtonHeader: View {
                 titleWithImageListStyle: titleWithImageListStyle)
             },
             trailingView: { ButtonListView(text: buttonTitle, action: buttonAction) })
-            .configCell(minHeight: textBlockStyle.minHeight, edgeInsets: textBlockStyle.edgeInsets)
+        .configCell(minHeight: textBlockStyle.minHeight, edgeInsets: textBlockStyle.edgeInsets)
     }
 }
 

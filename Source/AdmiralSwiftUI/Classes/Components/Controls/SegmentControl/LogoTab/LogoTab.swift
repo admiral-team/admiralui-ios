@@ -28,7 +28,9 @@ import SwiftUI
 @available(iOS 14.0, *)
 /// A horizontal control that consists of multiple segments, each segment functioning as a discrete image button.
 public struct LogoTab: View {
-    
+
+    // MARK: - Constants
+
     enum Constants {
         static let segmentCornerRadius: CGFloat = LayoutGrid.module
         static let pickerPadding: CGFloat = LayoutGrid.halfModule
@@ -49,10 +51,13 @@ public struct LogoTab: View {
     @Binding private var selection: Int
     
     @State private var segmentSize: CGSize = .zero
-    @State private var scheme: LogoTabScheme? = nil
     @State private var items: [Image] = []
+
+    @State private var scheme: LogoTabScheme? = nil
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<LogoTabScheme>()
-    
+
+    // MARK: - Private Computed Properties
+
     private var activeSegmentView: AnyView {
         let scheme = self.scheme ?? schemeProvider.scheme
         let isInitialized: Bool = segmentSize != .zero
@@ -76,6 +81,8 @@ public struct LogoTab: View {
         self._selection = selection
         self._items = .init(initialValue: images)
     }
+
+    // MARK: - Body
     
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme

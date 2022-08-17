@@ -49,6 +49,7 @@ public struct CodeInputControl: View {
     // MARK: - Private Properties
     
     private var cursorPosition = 0
+    
     @State private var scheme: CodeInputControlScheme? = nil
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<CodeInputControlScheme>()
     
@@ -67,6 +68,8 @@ public struct CodeInputControl: View {
         }, set: { _ in })
         self.cursorPosition = min(text.wrappedValue.count, itemsCount)
     }
+
+    // MARK: - Body
     
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme

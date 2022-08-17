@@ -119,7 +119,7 @@ public struct UnderlineTab: View {
         self.init(items: items.map({ UnderlineTabItem(title: $0, badgeStyle: nil) }), selection: selection, offset: offset, isStaticTabs: isStaticTabs)
     }
     
-    // MARK: - Layout
+    // MARK: - Body
     
     public var body: some View {
         if isStaticTabs {

@@ -14,8 +14,12 @@
  */
 @available(iOS 14.0, *)
 public enum ParagraphStyle: String {
+    /// The primary style of Paragraph
     case primary
+    /// The secondary style of Paragraph
     case secondary
+
+    // MARK: - Computed Properties
     
     var textBlockStyle: TextBlockStyle {
         switch self {

@@ -11,8 +11,15 @@ import AdmiralUIResources
 
 public struct ChatButtonScheme: AppThemeScheme {
 
+    // MARK: - Public Properties
+
+    /// The button color of ChatButton
     public var buttonColor = ControlParameter<AColor>()
+
+    /// The send button color of ChatButton
     public var sendButtonColor: AColor
+
+    // MARK: - Initializer
 
     public init(theme: AppTheme) {
         let alpha = theme.colors.disabledAlpha

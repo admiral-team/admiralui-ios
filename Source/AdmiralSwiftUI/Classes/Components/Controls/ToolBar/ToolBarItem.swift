@@ -41,13 +41,17 @@ public enum ToolbarItemType: String {
 @available(iOS 14.0.0, *)
 public struct ToolBarItem: Hashable, Identifiable {
 
+    // MARK: - Public Properties
+
     public let id = UUID()
     public let title: String
     public let image: Image
     public var badgeStyle: ToolBarBadgeStyle? = nil
     public var type: ToolbarItemType = .default
     public var isEnabled: Bool = true
-    
+
+    // MARK: - Initializer
+
     public init(
         title: String,
         image: Image,
@@ -60,7 +64,9 @@ public struct ToolBarItem: Hashable, Identifiable {
         self.type = type
         self.isEnabled = isEnabled
     }
-    
+
+    // MARK: - Public Methods
+
     public func hash(into hasher: inout Hasher) {
         hasher.combine(title)
     }

@@ -46,6 +46,12 @@ import AdmiralUIResources
  */
 @available(iOS 14.0, *)
 public struct InfoAgreementView: View {
+
+    // MARK: - Constants
+
+    private enum Constants {
+        static let spacing: CGFloat = LayoutGrid.doubleModule
+    }
     
     // MARK: - Public Properties
     
@@ -83,11 +89,6 @@ public struct InfoAgreementView: View {
     @State var scheme: InfoAgreementViewScheme?
     @ObservedObject var schemeProvider = AppThemeSchemeProvider<InfoAgreementViewScheme>()
     
-    private enum Constants {
-        // MARK: - Common constants
-        static let spacing: CGFloat = LayoutGrid.doubleModule
-    }
-    
     // MARK: - Initializer
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
@@ -111,7 +112,9 @@ public struct InfoAgreementView: View {
         self.additionalButtonTitle = additionalButtonTitle
         self.additionalButtonAction = additionalButtonAction
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         VStack(alignment: .leading) {

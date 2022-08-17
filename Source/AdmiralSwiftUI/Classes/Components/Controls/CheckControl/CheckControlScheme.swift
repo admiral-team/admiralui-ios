@@ -13,12 +13,20 @@ public typealias CheckControlParameters<P> = DoubleParameterBox<ControlState, Ch
 
 @available(iOS 14.0.0, *)
 public struct CheckControlScheme: AppThemeScheme {
-    
+
+    // MARK: - Public Properties
+
+    /// The tint color of CheckControl
     public var tintColor = CheckControlParameters<AColor>()
+
+    /// The text color of CheckControl
     public var textColor = ControlParameter<AColor>()
-    
-    var textFont: AFont
-    
+
+    /// The text font of  CheckControl
+    public var textFont: AFont
+
+    // MARK: - Initializer
+
     init() {
         self.init(theme: AppTheme.default)
     }

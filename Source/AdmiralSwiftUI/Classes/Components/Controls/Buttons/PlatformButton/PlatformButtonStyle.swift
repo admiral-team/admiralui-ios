@@ -36,24 +36,31 @@ Button("Text", action: {})
 public struct PlatformButtonStyle: ButtonStyle {
     
     // MARK: - Private Properties
-    
+
+    private var accessibilityIdentifier: String?
+
     private var scheme: PlatformButtonScheme? = nil
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<PlatformButtonScheme>()
-    private var accessibilityIdentifier: String?
+
+    // MARK: - Initializer
 
     public init(
         scheme: PlatformButtonScheme? = nil,
-        accessibilityIdentifier: String? = nil) {
+        accessibilityIdentifier: String? = nil
+    ) {
         self.scheme = scheme
         self.accessibilityIdentifier = accessibilityIdentifier
     }
-    
+
+    // MARK: - Body
+
     public func makeBody(configuration: Self.Configuration) -> some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         PrimaryButton(
             scheme: scheme,
             configuration: configuration,
-            accessibilityIdentifier: accessibilityIdentifier)
+            accessibilityIdentifier: accessibilityIdentifier
+        )
     }
 }
 

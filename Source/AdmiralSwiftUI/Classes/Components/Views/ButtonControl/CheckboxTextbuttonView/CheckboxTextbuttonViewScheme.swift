@@ -9,11 +9,17 @@ import AdmiralTheme
 import AdmiralUIResources
 
 public struct CheckboxTextbuttonViewScheme: AppThemeScheme {
-    
+
+    // MARK: - Public Properties
+
+    /// The title font of CheckboxTextbuttonView
     public var titleFont: AFont
-    
+
+    /// The text color of CheckboxTextbuttonView
     public var textColor = ControlParameter<AColor>()
-    
+
+    // MARK: - Initializer
+
     public init(theme: AppTheme) {
         let alpha = theme.colors.disabledAlpha
         
@@ -21,6 +27,5 @@ public struct CheckboxTextbuttonViewScheme: AppThemeScheme {
         
         textColor.set(parameter: theme.colors.textPrimary, for: .normal)
         textColor.set(parameter: theme.colors.textPrimary.withAlpha(alpha), for: .disabled)
-
     }
 }

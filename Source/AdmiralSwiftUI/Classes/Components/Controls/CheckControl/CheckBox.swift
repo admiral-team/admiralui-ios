@@ -38,7 +38,6 @@ public struct CheckBox: View {
     // MARK: - Public Properties
     
     @Binding public var isSelected: Bool
-    
     @State public var text: String = ""
     @State public var checkState: CheckControlState = .normal
     
@@ -48,7 +47,9 @@ public struct CheckBox: View {
     
     @State private var scheme: CheckControlScheme? = nil
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<CheckControlScheme>()
-    
+
+    // MARK: - Computed Properties
+
     private var image: Image {
         return isSelected ? Image(uiImage: PrivateAsset.Custom.Control.checkBoxOn.image) : Image(uiImage: PrivateAsset.Custom.Control.checkBoxOff.image)
     }
@@ -74,7 +75,9 @@ public struct CheckBox: View {
     public init(isSelected: Binding<Bool>) {
         self._isSelected = isSelected
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         let tintColor = scheme.tintColor.parameter(for: isEnabled ? .normal : .disabled, state: checkState)

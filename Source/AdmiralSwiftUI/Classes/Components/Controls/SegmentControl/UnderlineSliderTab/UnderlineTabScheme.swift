@@ -18,12 +18,16 @@ public struct UnderlineTabScheme: AppThemeScheme {
     
     /// Background color.
     public var backgroundColor: AColor
+
     /// Thumb color.
     public var thumbColor = ControlParameter<AColor>()
+
     /// Border color.
     public var borderColor = ControlParameter<AColor>()
+
     /// Title color.
     public var titleColor = ControlParameter<AColor>()
+    
     /// Title font.
     public var titleFont = ControlParameter<AFont>()
     

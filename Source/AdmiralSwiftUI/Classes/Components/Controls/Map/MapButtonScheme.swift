@@ -11,11 +11,20 @@ import AdmiralUIResources
 
 @available(iOS 14.0.0, *)
 public struct MapButtonScheme: AppThemeScheme {
-    
+
+    // MARK: - Properties
+
+    /// The background color of SeveralPinButton
     public var backgroundColor = ControlParameter<AColor>()
+
+    /// The image color of SeveralPinButton
     public let imageTintColor: AColor
+
+    /// The shadow color of SeveralPinButton
     public let shadowColor: AColor
-    
+
+    // MARK: - Initializer
+
     public init() {
         self.init(theme: AppTheme.default)
     }

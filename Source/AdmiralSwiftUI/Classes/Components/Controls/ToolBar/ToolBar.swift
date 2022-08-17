@@ -43,23 +43,8 @@ public enum ToolBarType {
 @available(iOS 14.0.0, *)
 /// An object that displays a ToolBar .
 public struct ToolBar: View {
-    
-    // MARK: - Internal Properties
-    
-    @Environment(\.isEnabled) var isEnabled
-    
-    @StateObject var viewRouter = ViewRouter()
-    
-    // MARK: - Private Properties
-    
-    @State private var scheme: ToolBarScheme? = nil
-    @Binding  private var items: [ToolBarItem]
-    @Binding private var type: ToolBarType
-    @Binding private var selectedIndex: Int
-    
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ToolBarScheme>()
-    private let isSelectable: Bool
-    private let onTap: (Int) -> ()
+
+    // MARK: - Constants
 
     private enum Constants {
         static let height: CGFloat = 48.0
@@ -72,6 +57,24 @@ public struct ToolBar: View {
         static let width: CGFloat = UIScreen.main.bounds.width - 72.0
         static let oneItemWidth: CGFloat = 140.0
     }
+
+    // MARK: - Internal Properties
+    
+    @Environment(\.isEnabled) var isEnabled
+    
+    @StateObject var viewRouter = ViewRouter()
+    
+    // MARK: - Private Properties
+
+    @Binding private var items: [ToolBarItem]
+    @Binding private var type: ToolBarType
+    @Binding private var selectedIndex: Int
+
+    private let isSelectable: Bool
+    private let onTap: (Int) -> ()
+
+    @State private var scheme: ToolBarScheme? = nil
+    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ToolBarScheme>()
     
     // MARK: - Initializer
 
@@ -92,7 +95,9 @@ public struct ToolBar: View {
         self.onTap = onTap
         self.isSelectable = isSelectable
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         HStack {
@@ -137,6 +142,8 @@ public struct ToolBar: View {
                 .foregroundColor(scheme.backgroundColor.swiftUIColor)
         )
     }
+
+    // MARK: - Private Methods
     
     private func tapItem(id: Int) {
         viewRouter.currentPage = id

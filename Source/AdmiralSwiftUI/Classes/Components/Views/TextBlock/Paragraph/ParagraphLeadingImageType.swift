@@ -18,9 +18,14 @@ import SwiftUI
  */
 @available(iOS 14.0, *)
 public enum ParagraphLeadingImageType {
+    /// The point type of ParagraphLeadingImage
     case point
+    /// The check type of ParagraphLeadingImage
     case check
+    /// The custom type of ParagraphLeadingImage
     case custom(Image)
+
+    // MARK: - Computed Properties
     
     var image: Image {
         switch self {

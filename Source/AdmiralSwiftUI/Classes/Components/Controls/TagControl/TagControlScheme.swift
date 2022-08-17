@@ -10,14 +10,32 @@ import AdmiralTheme
 import AdmiralUIResources
 
 public struct TagControlScheme: AppThemeScheme {
+
+    // MARK: - Properties
+
+    /// The font of TagControl
     public var font: AFont
+
+    /// The text color of TagControl
     public var textColor = TagParameters<AColor>()
+
+    /// The background color of TagControl
     public var backgroundColor = TagParameters<AColor>()
+
+    /// The view tint color of TagControl
     public var viewTintColor = TagParameters<AColor>()
+
+    /// The link title color of TagControl
     public var linkTitleFont: AFont
+
+    /// The link title color of TagControl
     public var linkTitleFontAdidtional: AFont
+
+    /// The leading alpha color of TagControl
     public var leadingTrailingViewsAlpha = ControlParameter<Double>()
-    
+
+    // MARK: - Initializer
+
     public init(theme: AppTheme) {
         let alpha = theme.colors.disabledAlpha
 

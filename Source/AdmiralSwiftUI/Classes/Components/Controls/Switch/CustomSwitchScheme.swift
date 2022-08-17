@@ -10,12 +10,21 @@ import AdmiralTheme
 import AdmiralUIResources
 
 @available(iOS 14.0.0, *)
-public struct CustomSwitchScheme: ToggleStyle, AppThemeScheme  {
-    
+public struct CustomSwitchScheme: AppThemeScheme  {
+
+    // MARK: - Properties
+
+    /// The font of CustomSwitch
     public let font: AFont
+
+    /// The tint color of CustomSwitch
     public let onTintColorColor: AColor
+
+    /// The text color of CustomSwitch
     public let textColor: AColor
-    
+
+    // MARK: - Initializer
+
     public init() {
         self.init(theme: AppTheme.default)
     }
@@ -25,12 +34,5 @@ public struct CustomSwitchScheme: ToggleStyle, AppThemeScheme  {
         onTintColorColor = theme.colors.elementAccent
         textColor = theme.colors.textPrimary
     }
-    
-    public func makeBody(configuration: Self.Configuration) -> some View {
-        Toggle(configuration)
-            .foregroundColor(textColor.swiftUIColor)
-            .font(font.swiftUIFont)
-            .toggleStyle(SwitchToggleStyle(tint: onTintColorColor.swiftUIColor))
-    }
-    
+
 }

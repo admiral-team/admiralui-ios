@@ -59,6 +59,8 @@ public struct DropDownHeader: View {
         self._dropDownHeaderType = Binding(get: { return dropDownHeaderType }, set: { _ in })
         self.renderingMode = renderingMode
     }
+
+    // MARK: - Body
     
     public var body: some View {
         let titleListViewStyle = TitleListViewStyle(rawValue: textBlockStyle.rawValue)

@@ -14,6 +14,7 @@ public struct UnderlineTabItem {
     
     /// Title item.
     public let title: String
+    
     /// Badge style. Default is none.
     public var badgeStyle: BadgeStyle?
     

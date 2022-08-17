@@ -36,15 +36,26 @@ import SwiftUI
 @available(iOS 14.0.0, *)
 public struct PrimaryLinkControlStyle: ButtonStyle {
 
+    // MARK: - Public properties
+
+    /// The image of PrimaryLinkControl
     public let image: Image?
+
+    /// The text of PrimaryLinkControl
     public let text: String?
+
+    /// The direction of PrimaryLinkControl
     public let direction: LinkControlDirection
+
+    /// The style of PrimaryLinkControl
     public let style: LinkControlStyle
 
     // MARK: - Private properties
 
     @State private var scheme: PrimaryLinkControlScheme? = nil
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<PrimaryLinkControlScheme>()
+
+    // MARK: - Initializer
 
     public init(
         image: Image? = nil,
@@ -60,6 +71,8 @@ public struct PrimaryLinkControlStyle: ButtonStyle {
         self.scheme = scheme
         self.schemeProvider = AppThemeSchemeProvider<PrimaryLinkControlScheme>()
     }
+
+    // MARK: - Body
 
     public func makeBody(configuration: Self.Configuration) -> some View {
         let scheme = self.scheme ?? schemeProvider.scheme

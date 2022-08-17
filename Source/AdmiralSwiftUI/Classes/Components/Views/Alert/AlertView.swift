@@ -71,14 +71,26 @@ public enum AlertColorStyle: Int {
  */
 @available(iOS 14.0, *)
 public struct AlertView: View {
-    
+
+    // MARK: - Constants
+
+    private enum Constants {
+        static let imageViewIllustration: CGFloat = LayoutGrid.halfModule * 35
+        static let imageViewIcon: CGFloat = 54.0
+
+        static let titleFameWidth: CGFloat = LayoutGrid.halfModule * 47
+
+        static let imageSpacing: CGFloat = LayoutGrid.halfModule * 5
+        static let titleSpacing: CGFloat = 10
+        static let subTitleSpacing: CGFloat = LayoutGrid.halfModule * 10
+
+        static let lineLimit: Int = 2
+    }
+
     // MARK: - Internal Properties
     
     /// Flag loading button.
     @Binding var isLoading: Bool
-    
-    @State var scheme: AlertViewScheme?
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<AlertViewScheme>()
 
     // MARK: - Private properties
     
@@ -117,7 +129,12 @@ public struct AlertView: View {
     
     /// Action additionalButtonAction.
     private var additionalButtonAction: (() -> ())?
-    
+
+    @State private var scheme: AlertViewScheme?
+    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<AlertViewScheme>()
+
+    // MARK: - Computed Properties
+
     /// Frame type for imege view
     private var imageViewFrame: CGFloat {
         get {
@@ -128,21 +145,6 @@ public struct AlertView: View {
                 return Constants.imageViewIllustration
             }
         }
-    }
-    
-    // MARK: - Constants
-    
-    private enum Constants {
-        static let imageViewIllustration: CGFloat = LayoutGrid.halfModule * 35
-        static let imageViewIcon: CGFloat = 54.0
-        
-        static let titleFameWidth: CGFloat = LayoutGrid.halfModule * 47
-        
-        static let imageSpacing: CGFloat = LayoutGrid.halfModule * 5
-        static let titleSpacing: CGFloat = 10
-        static let subTitleSpacing: CGFloat = LayoutGrid.halfModule * 10
-        
-        static let lineLimit: Int = 2
     }
     
     // MARK: - Initializer
@@ -161,7 +163,9 @@ public struct AlertView: View {
         buttonTitle: String? = nil,
         buttonAction: (() -> ())? = nil,
         additionalButtonTitle: String? = nil,
-        additionalButtonAction: (() -> ())? = nil) {
+        additionalButtonAction: (() -> ())? = nil,
+        scheme: AlertViewScheme? = nil
+    ) {
         self._isLoading = isLoading
         self.imageType = imageType
         self.titleTextLabelColor = titleTextLabelColor
@@ -175,8 +179,11 @@ public struct AlertView: View {
         self.buttonAction = buttonAction
         self.additionalButtonTitle = additionalButtonTitle
         self.additionalButtonAction = additionalButtonAction
+        self.scheme = scheme
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         VStack(alignment: .center, spacing: 0) {

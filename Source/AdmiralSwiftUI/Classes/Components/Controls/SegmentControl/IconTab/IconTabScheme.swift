@@ -15,11 +15,22 @@ public final class IconTabScheme: AppThemeScheme {
 
     // MARK: - Public properties
 
+    /// The background color of IconTab
     public var backgroundColor: AColor
+
+    /// The title color of IconTab
     public var titleColor = ControlParameter<AColor>()
+
+    /// The circle color of IconTab
     public var circleColor = ControlParameter<AColor>()
+
+    /// The alpha color of IconTab
     public var alphaColor = ControlParameter<Double>()
+
+    /// The icon color of IconTab
     public var iconColor = ControlParameter<AColor>()
+
+    /// The title color of IconTab
     public var titleFont = ControlParameter<AFont>()
 
     // MARK: - Initializer

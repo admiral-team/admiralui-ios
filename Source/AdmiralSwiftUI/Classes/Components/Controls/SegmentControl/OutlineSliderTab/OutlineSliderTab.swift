@@ -105,6 +105,8 @@ public struct OutlineSliderTab: View {
             offset: offset,
             onTapAction: onTapAction)
     }
+
+    // MARK: - Body
     
     public var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {

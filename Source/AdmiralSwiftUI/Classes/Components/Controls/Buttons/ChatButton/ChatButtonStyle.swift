@@ -23,7 +23,7 @@ public struct ChatButtonStyle: ButtonStyle {
         self.scheme = scheme
     }
 
-    // MARK: - Public methods
+    // MARK: - Body
 
     public func makeBody(configuration: Self.Configuration) -> some View {
         let scheme = self.scheme ?? schemeProvider.scheme

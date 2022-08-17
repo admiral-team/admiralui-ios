@@ -59,6 +59,8 @@ public struct TitleButtonDropDown: View {
         self._dropDownHeaderType = Binding(get: { return dropDownHeaderType }, set: { _ in })
         self.buttonAction = buttonAction
     }
+
+    // MARK: - Body
     
     public var body: some View {
         ListCell(

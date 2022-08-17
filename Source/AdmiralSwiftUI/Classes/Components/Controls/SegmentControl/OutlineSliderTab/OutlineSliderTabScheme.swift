@@ -18,12 +18,16 @@ public final class OutlineSliderTabScheme: AppThemeScheme {
     
     /// Background color.
     public var backgroundColor: AColor
+
     /// Thumb color.
     public var thumbColor = ControlParameter<AColor>()
+
     /// Border color.
     public var borderColor = ControlParameter<AColor>()
+
     /// Title item color.
     public var titleColor = ControlParameter<AColor>()
+    
     /// Title item font.
     public var titleFont = ControlParameter<AFont>()
     

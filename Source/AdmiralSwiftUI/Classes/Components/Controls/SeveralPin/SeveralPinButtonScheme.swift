@@ -10,12 +10,23 @@ import AdmiralUIResources
 
 @available(iOS 14.0.0, *)
 public struct SeveralPinButtonScheme: AppThemeScheme {
-    
+
+    // MARK: - Properties
+
+    /// The border color of SeveralPinButton
     public var borderColor: AColor
+
+    /// The background color of SeveralPinButton
     public var backgroundColor: AColor
+
+    /// The text color of SeveralPinButton
     public var textColor: AColor
+
+    /// The shadow color of SeveralPinButton
     public let shadowColor: AColor
-    
+
+    // MARK: - Initializer
+
     public init() {
         self.init(theme: AppTheme.default)
     }

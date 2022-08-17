@@ -10,8 +10,10 @@ import AdmiralUIResources
 import SwiftUI
 
 @available(iOS 14.0.0, *)
-struct ArrowSegmentSlider: View {
-    
+public struct ArrowSegmentSlider: View {
+
+    // MARK: - Constants
+
     enum Constants {
         static let imageSize = CGSize(width: 32.0, height: 12.0)
         static let arrowImage = PrivateAsset.Custom.Segment.arrowUp.image
@@ -22,8 +24,10 @@ struct ArrowSegmentSlider: View {
     
     @State private var scheme: ArrowSegmentSliderScheme? = nil
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ArrowSegmentSliderScheme>()
-    
-    var body: some View {
+
+    // MARK: - Body
+
+    public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         Image(uiImage: Constants.arrowImage)
             .frame(width: Constants.imageSize.width)

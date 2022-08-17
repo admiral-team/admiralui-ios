@@ -30,16 +30,13 @@ import SwiftUI
 @available(iOS 14.0, *)
 public struct TwoTitleGhostButton: View {
     
-    // MARK: - Internal Properties
-    
-    var leftText: String
-    var rightText: String
-    
     // MARK: - Private Properties
     
     @State private var scheme: TwoTitleGhostButtonScheme? = nil
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<TwoTitleGhostButtonScheme>()
-    
+
+    private var leftText: String
+    private var rightText: String
     private let leftAction: () -> ()
     private let rightAction: () -> ()
     
@@ -55,6 +52,8 @@ public struct TwoTitleGhostButton: View {
         self.leftAction = leftAction
         self.rightAction = rightAction
     }
+
+    // MARK: - Body
     
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme

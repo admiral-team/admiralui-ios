@@ -50,6 +50,15 @@ public struct CustomSwitch: View {
     public init(isOn: Binding<Bool>) {
         self._isOn = isOn
     }
+
+    // MARK: - Body
+
+    public var body: some View {
+        let scheme = self.scheme ?? schemeProvider.scheme
+        Toggle(isOn: $isOn, label: {})
+            .labelsHidden()
+            .toggleStyle(CustomSwitchStyle(scheme: scheme))
+    }
     
     // MARK: - Internal Methods
     
@@ -59,11 +68,37 @@ public struct CustomSwitch: View {
         return view.id(UUID())
     }
     
-    public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
-        Toggle(isOn: $isOn, label: {})
-            .labelsHidden()
-            .toggleStyle(scheme)
+}
+
+@available(iOS 14.0, *)
+private struct CustomSwitchStyle: ToggleStyle {
+
+    // MARK: - Private Properties
+
+    @State private var scheme: CustomSwitchScheme? = nil
+    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<CustomSwitchScheme>()
+
+    // MARK: - Inializer
+
+    public init(
+        scheme: CustomSwitchScheme? = nil
+    ) {
+        self.scheme = scheme
     }
-    
+
+    // MARK: - Body
+
+    public func makeBody(configuration: Self.Configuration) -> some View {
+        let scheme = self.scheme ?? schemeProvider.scheme
+
+        Toggle(configuration)
+            .foregroundColor(scheme.textColor.swiftUIColor)
+            .font(scheme.font.swiftUIFont)
+            .toggleStyle(
+                SwitchToggleStyle(
+                    tint: scheme.onTintColorColor.swiftUIColor
+                )
+            )
+    }
+
 }

@@ -35,7 +35,8 @@ public struct TitleHeader: View {
     
     /// The text that the label displays.
     @Binding public var title: String?
-    
+
+    /// The alignment of TitleHeader.
     @Binding public var textAligment: TextAlignment
     
     /// Text block style.
@@ -49,6 +50,8 @@ public struct TitleHeader: View {
         self.textBlockStyle = headerStyle.textBlockStyle
         self._textAligment = Binding(get: { return textAligment }, set: { _ in })
     }
+
+    // MARK: - Body
     
     public var body: some View {
         let titleListViewStyle = TitleListViewStyle(rawValue: textBlockStyle.rawValue)

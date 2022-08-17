@@ -32,12 +32,21 @@ Button("Text", action: {})
 */
 @available(iOS 14.0.0, *)
 public struct SecondaryButtonStyle: ButtonStyle {
-    
-    @Binding var isLoading: Bool
-    var sizeType: ButtonSizeType?
-    
+
+    // MARK: - Public Properties
+
+    /// The loading flag of SecondaryButton
+    @Binding public var isLoading: Bool
+
+    /// The size type of SecondaryButton
+    public var sizeType: ButtonSizeType?
+
+    // MARK: - Private Properties
+
     private var scheme: SecondaryButtonScheme? = nil
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SecondaryButtonScheme>()
+
+    // MARK: - Initializer
 
     public init(
         isLoading: Binding<Bool> = .constant(false),

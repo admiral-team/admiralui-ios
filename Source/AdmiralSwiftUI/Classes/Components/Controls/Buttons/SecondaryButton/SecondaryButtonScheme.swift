@@ -11,12 +11,23 @@ import AdmiralUIResources
 
 @available(iOS 14.0.0, *)
 public struct SecondaryButtonScheme: AppThemeScheme {
-    
+
+    // MARK: - Public Properties
+
+    /// The font of SecondaryButton
     public let font: AFont
+
+    /// The font of SecondaryButton
     public var backgroundColor: AColor
+
+    /// The text color of SecondaryButton
     public var textColor = ControlParameter<AColor>()
+
+    /// The border color of SecondaryButton
     public var borderColor = ControlParameter<AColor>()
-    
+
+    // MARK: - Initializer
+
     public init(theme: AppTheme) {
         let alpha = theme.colors.disabledAlpha
         

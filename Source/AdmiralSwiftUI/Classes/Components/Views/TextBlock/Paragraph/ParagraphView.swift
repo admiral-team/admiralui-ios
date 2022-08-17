@@ -86,7 +86,8 @@ public struct ParagraphView: View {
         renderingMode: Image.TemplateRenderingMode = .template,
         trailingImage: Image? = nil,
         textAligment: TextAlignment = .leading,
-        paragraphStyle: ParagraphStyle = .primary) {
+        paragraphStyle: ParagraphStyle = .primary
+    ) {
         self._title = Binding(get: { return title }, set: { _ in })
         self._paragraphImageType = Binding(get: { return paragraphImageType }, set: { _ in })
         self._trailingImage = Binding(get: { return trailingImage }, set: { _ in })
@@ -94,7 +95,9 @@ public struct ParagraphView: View {
         self._renderingMode = Binding(get: { return renderingMode }, set: { _ in })
         self._textAligment = Binding(get: { return textAligment }, set: { _ in })
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         let imageListViewStyle: ImageListViewStyle
         switch textBlockStyle {

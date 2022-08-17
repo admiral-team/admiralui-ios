@@ -45,10 +45,16 @@ public struct SeparatorView: View {
     // MARK: - Initializer
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-    public init(paddingStyle: SeparatorStyle = .short) {
+    public init(
+        paddingStyle: SeparatorStyle = .short,
+        scheme: SeparatorViewScheme? = nil
+    ) {
         self.textBlockStyle = paddingStyle.textBlockStyle
+        self.scheme = scheme
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         return ListCell(

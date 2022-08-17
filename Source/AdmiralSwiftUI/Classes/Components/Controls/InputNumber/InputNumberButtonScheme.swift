@@ -10,16 +10,28 @@ import AdmiralTheme
 import AdmiralUIResources
 
 @available(iOS 14.0.0, *)
-struct InputNumberButtonStyle: ButtonStyle {
-    
-    @Binding var isPressing: Bool
-    
-    var backgroundColor = ControlParameter<AColor>()
-    var tintColor = ControlParameter<AColor>()
-    var image: Image
-    var onTap: () -> ()
-    
-    init(
+public struct InputNumberButtonStyle: ButtonStyle {
+
+    // MARK: - Properties
+
+    /// The pressing flag of InputNumberButton
+    @Binding public var isPressing: Bool
+
+    /// The background color of InputNumberButton
+    public var backgroundColor = ControlParameter<AColor>()
+
+    /// The tint color of InputNumberButton
+    public var tintColor = ControlParameter<AColor>()
+
+    /// The image of InputNumberButton
+    public var image: Image
+
+    /// The tap action of InputNumberButton
+    public var onTap: () -> ()
+
+    // MARK: - Initializer
+
+    public init(
         isPressing: Binding<Bool>,
         backgroundColor: ControlParameter<AColor>,
         tintColor: ControlParameter<AColor>,
@@ -31,7 +43,9 @@ struct InputNumberButtonStyle: ButtonStyle {
         self.image = image
         self.onTap = onTap
     }
-    
+
+    // MARK: - Body
+
     public func makeBody(configuration: Self.Configuration) -> some View {
         InputNumberButton(
             configuration: configuration,

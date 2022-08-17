@@ -11,18 +11,37 @@ import AdmiralTheme
 import AdmiralUIResources
 
 @available(iOS 14.0.0, *)
-struct ToolBarItemStyle: ButtonStyle {
+public struct ToolBarItemStyle: ButtonStyle {
 
-    var image: Image
-    var title: String
-    var badgeStyle: ToolBarBadgeStyle?
-    var type: ToolBarType
-    var scheme: ToolBarScheme.ItemScheme
-    var isSelected: Bool
-    var itemType: ToolbarItemType
-    var isEnabled: Bool
-    
-    init(
+    // MARK: - Properties
+
+    /// The image of ToolBarItem
+    public var image: Image
+
+    /// The title of ToolBarItem
+    public var title: String
+
+    /// The badge style of ToolBarItem
+    public var badgeStyle: ToolBarBadgeStyle?
+
+    /// The type of ToolBarItem
+    public var type: ToolBarType
+
+    /// The scheme of ToolBarItem
+    public var scheme: ToolBarScheme.ItemScheme
+
+    /// The selection flag of ToolBarItem
+    public var isSelected: Bool
+
+    /// The itemType of ToolBarItem
+    public var itemType: ToolbarItemType
+
+    /// The enabled flag of ToolBarItem
+    public var isEnabled: Bool
+
+    // MARK: - Initializer
+
+    public init(
         scheme: ToolBarScheme.ItemScheme,
         image: Image,
         title: String,
@@ -40,6 +59,8 @@ struct ToolBarItemStyle: ButtonStyle {
         self.isSelected = isSelected
         self.isEnabled = isEnabled
     }
+
+    // MARK: - Body
     
     public func makeBody(configuration: Self.Configuration) -> AnyView {
         let content = ToolBarItemContent(
@@ -68,7 +89,7 @@ struct ToolBarItemStyle: ButtonStyle {
 }
 
 @available(iOS 14.0.0, *)
-extension ToolBarItemStyle {
+private extension ToolBarItemStyle {
     
     struct ToolBarItemContent: View {
         @Environment(\.isEnabled) private var isEnabled

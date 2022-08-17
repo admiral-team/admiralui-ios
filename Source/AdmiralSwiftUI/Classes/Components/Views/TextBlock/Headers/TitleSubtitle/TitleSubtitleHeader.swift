@@ -46,6 +46,8 @@ public struct TitleSubtitleHeader: View {
         self._subtitle = Binding(get: { return subtitle }, set: { _ in })
         self.textBlockStyle = headerStyle.textBlockStyle
     }
+
+    // MARK: - Body
     
     public var body: some View {
         let titleSubtitleListViewStyle = TitleSubtitleListViewStyle(rawValue: textBlockStyle.rawValue)

@@ -12,12 +12,22 @@ import AdmiralUIResources
 
 @available(iOS 14.0, *)
 public final class LogoTabScheme: AppThemeScheme {
-    
+
+    // MARK: - Properties
+
+    /// The background color of LogoTab
     public var backgroundColor: AColor
+
+    /// The thumb color of LogoTab
     public var thumbColor = ControlParameter<AColor>()
+
+    /// The border color of LogoTab
     public var borderColor = ControlParameter<AColor>()
-    
+
+    /// The alpha color of LogoTab
     public var alphaLogo = ControlParameter<Double>()
+
+    // MARK: - Initializer
     
     public init(theme: AppTheme) {
         let alpha = theme.colors.disabledAlpha

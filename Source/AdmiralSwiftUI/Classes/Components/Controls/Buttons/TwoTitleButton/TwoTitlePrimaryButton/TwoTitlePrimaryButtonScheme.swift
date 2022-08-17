@@ -10,20 +10,30 @@ import AdmiralTheme
 import AdmiralUIResources
 
 @available(iOS 14.0.0, *)
-public struct TwoTitlePrimaryButtonScheme: ButtonStyle, AppThemeScheme {
-    
+public struct TwoTitlePrimaryButtonScheme: AppThemeScheme {
+
+    // MARK: - Public Properties
+
+    /// The left title color of TwoTitlePrimaryButton
     public var leftTitleColor = ControlParameter<AColor>()
+
+    /// The left title color of TwoTitlePrimaryButton
     public var rightTitleColor = ControlParameter<AColor>()
+
+    /// The left title color of TwoTitlePrimaryButton
     public var backgroundColor: AColor
+
+    /// The left title color of TwoTitlePrimaryButton
     public var buttonBackgroundColor = ControlParameter<AColor>()
 
+    /// The left label font
     public var leftLabelFont: AFont
+
+    /// The right label font
     public var rightLabelFont: AFont
-    
-    // FIXME: - Separate logic scheme and style
-    public var leftTitle: String = ""
-    public var rightTitle: String = ""
-    
+
+    // MARK: - Initializer
+
     public init(theme: AppTheme) {
         let alpha = theme.colors.disabledAlpha
 
@@ -43,66 +53,4 @@ public struct TwoTitlePrimaryButtonScheme: ButtonStyle, AppThemeScheme {
         rightTitleColor.set(parameter: theme.colors.textStaticWhite.withAlpha(alpha), for: .disabled)
     }
     
-    public func makeBody(configuration: TwoTitlePrimaryButtonScheme.Configuration) -> some View {
-        TwoTitlePrimaryButton(
-            configuration: configuration,
-            leftTitle: leftTitle,
-            rightTitle: rightTitle,
-            leftTitleColor: leftTitleColor,
-            rightTitleColor: rightTitleColor,
-            backgroundColor: backgroundColor,
-            buttonBackgroundColor: buttonBackgroundColor,
-            leftLabelFont: leftLabelFont,
-            rightLabelFont: rightLabelFont)
-    }
-    
-}
-
-@available(iOS 14.0.0, *)
-private extension TwoTitlePrimaryButtonScheme {
-    struct TwoTitlePrimaryButton: View {
-        
-        let configuration: Configuration
-        let leftTitle: String
-        let rightTitle: String
-        let leftTitleColor: ControlParameter<AColor>
-        let rightTitleColor: ControlParameter<AColor>
-        let backgroundColor: AColor
-        let buttonBackgroundColor: ControlParameter<AColor>
-
-        let leftLabelFont: AFont
-        let rightLabelFont: AFont
-        
-        @Environment(\.isEnabled) private var isEnabled
-
-        var body: some View {
-            let state = twoTitlePrimaryState(configuration)
-            return ZStack {
-                buttonBackgroundColor.parameter(for: state)?.swiftUIColor
-                HStack(spacing: 0) {
-                    Text(leftTitle)
-                        .font(leftLabelFont.swiftUIFont)
-                        .foregroundColor(leftTitleColor.parameter(for: state)?.swiftUIColor)
-                        .padding(.horizontal, LayoutGrid.doubleModule)
-                    Spacer()
-                    Text(rightTitle)
-                        .font(rightLabelFont.swiftUIFont)
-                        .foregroundColor(rightTitleColor.parameter(for: state)?.swiftUIColor)
-                        .padding(.horizontal, LayoutGrid.doubleModule)
-                }
-            }
-            .background(backgroundColor.swiftUIColor)
-            .cornerRadius(LayoutGrid.module)
-        }
-        
-        private func twoTitlePrimaryState(_ configuration: Configuration) -> ControlState {
-            var state: ControlState = .normal
-            if !isEnabled {
-                state = .disabled
-            } else if configuration.isPressed {
-                state = .highlighted
-            }
-            return state
-        }
-    }
 }

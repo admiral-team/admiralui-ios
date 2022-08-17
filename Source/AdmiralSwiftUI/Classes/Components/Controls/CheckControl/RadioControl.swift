@@ -45,7 +45,9 @@ public struct RadioControl: View {
     
     @State private var scheme: CheckControlScheme? = nil
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<CheckControlScheme>()
-    
+
+    // MARK: - Computed Properties
+
     private var image: Image {
         return isSelected ? Image(uiImage: PrivateAsset.Custom.Control.radioButtonOn.image) : Image(uiImage: PrivateAsset.Custom.Control.radioButtonOff.image)
     }

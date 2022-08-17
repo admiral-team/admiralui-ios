@@ -37,10 +37,17 @@ struct PrimaryButtonsSwiftUIView: View {
                     .frame(height: 44.0)
                 
                 VStack(alignment: .leading, spacing: 16.0) {
-                    TwoTitlePrimaryButton(leftText: "08.06.20 — 14.08.20", rightText: "Выбрать", action: {})
+                    Button(action: {}, label: {})
+                        .buttonStyle(
+                            TwoTitlePrimaryButtonStyle(
+                                isLoading: .constant(false),
+                                sizeType: nil,
+                                leftText: "08.06.20 — 14.08.20",
+                                rightText: "Выбрать"
+                            )
+                        )
                         .frame(height: LayoutGrid.doubleModule * 3)
                         .disabled(isEnabledControlsState != 0)
-                    
                     createBigButton()
                     createMediumButton()
                     createSmallButton()
@@ -57,13 +64,13 @@ struct PrimaryButtonsSwiftUIView: View {
             createButton(name: "Big Button",
                          image: AdmiralUIResources.Asset.Category.Outline.heartOutline.image,
                          direction: .left)
-                .buttonStyle(PrimaryButtonStyle(sizeType: .big))
-                .disabled(isEnabledControlsState != 0)
+            .buttonStyle(PrimaryButtonStyle(sizeType: .big))
+            .disabled(isEnabledControlsState != 0)
             createButton(name: "Big Button",
                          image: AdmiralUIResources.Asset.Category.Solid.maintenanceSolid.image,
                          direction: .right)
-                .buttonStyle(PrimaryButtonStyle(sizeType: .big))
-                .disabled(isEnabledControlsState != 0)
+            .buttonStyle(PrimaryButtonStyle(sizeType: .big))
+            .disabled(isEnabledControlsState != 0)
             SwiftUI.Button("Big Button", action: {})
                 .buttonStyle(PrimaryButtonStyle(sizeType: .big))
                 .disabled(isEnabledControlsState != 0)

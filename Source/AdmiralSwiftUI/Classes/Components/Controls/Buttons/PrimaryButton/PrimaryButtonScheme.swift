@@ -11,12 +11,23 @@ import AdmiralUIResources
 
 @available(iOS 14.0.0, *)
 public struct PrimaryButtonScheme: AppThemeScheme {
-    
+
+    // MARK: - Properties
+
+    /// The font of PrimaryButton
     public let font: AFont
+
+    /// The background of PrimaryButton
     public var backgroundColor: AColor
+
+    /// The button background color of PrimaryButton
     public var buttonBackgroundColor = ControlParameter<AColor>()
+
+    /// The text color of PrimaryButton
     public var textColor = ControlParameter<AColor>()
-    
+
+    // MARK: - Initializer
+
     public init(theme: AppTheme) {
         let alpha = theme.colors.disabledAlpha
         

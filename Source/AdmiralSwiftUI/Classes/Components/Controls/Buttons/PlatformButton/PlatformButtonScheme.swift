@@ -10,12 +10,23 @@ import AdmiralTheme
 import AdmiralUIResources
 
 public struct PlatformButtonScheme: AppThemeScheme {
-    
-    let font: AFont
-    var backgroundColor: AColor
-    var buttonBackgroundColor = ControlParameter<AColor>()
-    var textColor = ControlParameter<AColor>()
-    
+
+    // MARK: - Public Properties
+
+    /// The font of PlatformButton
+    public let font: AFont
+
+    /// The background color of PlatformButton
+    public var backgroundColor: AColor
+
+    /// The button background color of PlatformButton
+    public var buttonBackgroundColor = ControlParameter<AColor>()
+
+    /// The text color of PlatformButton
+    public var textColor = ControlParameter<AColor>()
+
+    // MARK: - Initializer
+
     public init(theme: AppTheme) {
         let alpha = theme.colors.disabledAlpha
         let highlightedOpacity: CGFloat = 0.8

@@ -46,7 +46,9 @@ public struct LinkView: View {
         self._buttonTitle = Binding(get: { return buttonTitle }, set: { _ in })
         self.buttonAction = buttonAction
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         ListCell(
             centerView: {

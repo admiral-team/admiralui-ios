@@ -12,8 +12,15 @@ import AdmiralUIResources
 @available(iOS 14.0.0, *)
 public struct CirclePageControlScheme: AppThemeScheme {
 
+    // MARK: - Properties
+
+    /// The backgroundColor CirclePageControl
     public var backgroundColor = CirclePageControlSchemeParameters<AColor>()
+
+    /// The color of image in CirclePageControl
     public var imageTintColor = CirclePageControlSchemeParameters<AColor>()
+
+    // MARK: - Initializer
 
     public init() {
         self.init(theme: AppTheme.default)

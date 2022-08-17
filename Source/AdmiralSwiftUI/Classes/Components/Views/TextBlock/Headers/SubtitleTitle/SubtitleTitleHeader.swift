@@ -29,7 +29,9 @@ import AdmiralUIResources
 /// A header with header subtitle and title.
 @available(iOS 14.0.0, *)
 public struct SubtitleTitleHeader: View {
-    
+
+    // MARK: - Properties
+
     /// The text that the title label displays.
     @Binding public var title: String?
     
@@ -47,6 +49,8 @@ public struct SubtitleTitleHeader: View {
         self._subtitle = Binding(get: { return subtitle }, set: { _ in })
         self.textBlockStyle = headerStyle.textBlockStyle
     }
+
+    // MARK: - Body
     
     public var body: some View {
         let titleSubtitleListViewStyle = TitleSubtitleListViewStyle(rawValue: textBlockStyle.rawValue)

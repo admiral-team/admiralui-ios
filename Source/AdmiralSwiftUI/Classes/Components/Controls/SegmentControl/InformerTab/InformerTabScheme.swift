@@ -12,15 +12,32 @@ import AdmiralUIResources
 
 @available(iOS 14.0, *)
 public final class InformerTabScheme: AppThemeScheme {
-    
+
+    // MARK: - Properties
+
+    /// The background color of InformerTab
     public var backgroundColor: AColor
+
+    /// The thumb color of InformerTab
     public var thumbColor = ControlParameter<AColor>()
+
+    /// The border color of InformerTab
     public var borderColor = ControlParameter<AColor>()
+
+    /// The title color of InformerTab
     public var titleColor = ControlParameter<AColor>()
+
+    /// The title font color of InformerTab
     public var titleFont = ControlParameter<AFont>()
+
+    /// The subtitle color of InformerTab
     public var subtitleColor = ControlParameter<AColor>()
+
+    /// The subtitle font color of InformerTab
     public var subtitleFont = ControlParameter<AFont>()
-    
+
+    // MARK: - Initializer
+
     public init(theme: AppTheme) {
         let alpha = theme.colors.disabledAlpha
         

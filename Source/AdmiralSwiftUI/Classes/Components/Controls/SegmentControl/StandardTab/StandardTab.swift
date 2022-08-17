@@ -28,7 +28,9 @@ import SwiftUI
 /// A horizontal control that consists of multiple segments, each segment functioning as a discrete text button.
 @available(iOS 14.0, *)
 public struct StandardTab: View {
-    
+
+    // MARK: - Constants
+
     enum Constants {
         static let segmentCornerRadius: CGFloat = LayoutGrid.module
         static let pickerPadding: CGFloat = LayoutGrid.halfModule
@@ -50,6 +52,7 @@ public struct StandardTab: View {
     @State private var tabSelection: Int = 0
     @State private var segmentSize: CGSize = .zero
     @State private var activeSegmentOffset: CGFloat = Constants.separatorWidth
+
     @State private var scheme: StandardTabScheme? = nil
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<StandardTabScheme>()
     
@@ -62,7 +65,9 @@ public struct StandardTab: View {
         self._selection = selection
         self.items = items
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         let scheme = scheme ?? schemeProvider.scheme
         ZStack(alignment: .leading) {

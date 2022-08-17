@@ -32,12 +32,21 @@ Button("Text", action: {})
 */
 @available(iOS 14.0.0, *)
 public struct GhostButtonStyle: ButtonStyle {
-    
-    @Binding var isLoading: Bool
-    var sizeType: ButtonSizeType?
-    
+
+    // MARK: - Public Properties
+
+    /// The loading flag of GhostButton
+    @Binding public var isLoading: Bool
+
+    /// The size type of GhostButton
+    public var sizeType: ButtonSizeType?
+
+    // MARK: - Private Properties
+
     private var scheme: GhostButtonScheme? = nil
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<GhostButtonScheme>()
+
+    // MARK: - Inializer
 
     public init(
         isLoading: Binding<Bool> = .constant(false),
@@ -47,7 +56,9 @@ public struct GhostButtonStyle: ButtonStyle {
         self.sizeType = sizeType
         self.scheme = scheme
     }
-    
+
+    // MARK: - Body
+
     public func makeBody(configuration: Self.Configuration) -> some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         return GhostButton(
@@ -61,16 +72,17 @@ public struct GhostButtonStyle: ButtonStyle {
 @available(iOS 14.0.0, *)
 private extension GhostButtonStyle {
     struct GhostButton: View {
-        
+
+        // MARK: - Environment
+
         @Environment(\.isEnabled) private var isEnabled
-        
+
+        // MARK: - Properties
+
         @Binding var isLoading: Bool
-        
         var sizeType: ButtonSizeType?
-        
         let configuration: Configuration
-        
-        var scheme: GhostButtonScheme
+        let scheme: GhostButtonScheme
         
         init(
             isLoading: Binding<Bool>,

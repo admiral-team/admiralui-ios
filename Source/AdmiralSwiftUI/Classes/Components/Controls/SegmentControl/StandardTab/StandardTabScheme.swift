@@ -12,13 +12,26 @@ import AdmiralUIResources
 
 @available(iOS 14.0, *)
 public final class StandardTabScheme: AppThemeScheme {
-    
+
+    // MARK: - Public Properties
+
+    /// The backgorund color of StandardTab
     public var backgroundColor: AColor
+
+    /// The thumb color of StandardTab
     public var thumbColor = ControlParameter<AColor>()
+
+    /// The border color of StandardTab
     public var borderColor = ControlParameter<AColor>()
+
+    /// The title color of StandardTab
     public var titleColor = ControlParameter<AColor>()
+
+    /// The title font of StandardTab
     public var titleFont = ControlParameter<AFont>()
-    
+
+    // MARK: - Initializer
+
     public init(theme: AppTheme) {
         let alpha = theme.colors.disabledAlpha
         

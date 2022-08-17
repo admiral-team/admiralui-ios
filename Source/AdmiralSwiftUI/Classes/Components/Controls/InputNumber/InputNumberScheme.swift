@@ -11,14 +11,26 @@ import AdmiralUIResources
 
 @available(iOS 14.0, *)
 public final class InputNumberScheme: AppThemeScheme {
-    
+
+    // MARK: - Public Properties
+
+    /// The title of InputNumber
     public var titleFont = ControlParameter<AFont>()
+
+    /// The number font of InputNumber
     public var numberFont = ControlParameter<AFont>()
-    
+
+    /// The text color of InputNumber
     public var textColor = ControlParameter<AColor>()
+
+    /// The tint color of InputNumber
     public var tintColor = ControlParameter<AColor>()
+
+    /// The background color of InputNumber
     public var backgroundColor = ControlParameter<AColor>()
-    
+
+    // MARK: - Initializer
+
     public init(theme: AppTheme) {
         let alpha = theme.colors.disabledAlpha
         

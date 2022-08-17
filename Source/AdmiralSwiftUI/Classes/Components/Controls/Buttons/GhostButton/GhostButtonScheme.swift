@@ -11,10 +11,17 @@ import AdmiralUIResources
 
 @available(iOS 14.0.0, *)
 public struct GhostButtonScheme: AppThemeScheme {
-    
+
+    // MARK: - Public Properties
+
+    /// The font color of GhostButton
     public let font: AFont
+
+    /// The text color GhostButton
     public var textColor = ControlParameter<AColor>()
-    
+
+    // MARK: - Initializer
+
     public init(theme: AppTheme) {
         let alpha = theme.colors.disabledAlpha
         

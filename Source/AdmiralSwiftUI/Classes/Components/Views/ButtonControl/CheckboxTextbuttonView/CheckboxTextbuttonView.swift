@@ -13,9 +13,7 @@ import AdmiralUIResources
  CheckboxTextbuttonView - The component is used to inform users with the option to select in the checkBox. And also one interaction buttons.
  
  You can create a CheckboxTextbuttonView by specifying the following parameters in the initializer:
- 
  ## Initializer parameters:
- 
  - isSelected: Bool - Flag select checkBox.
  - title: String - The text that the title label displays.
  - subtitleButtonTitle: String? - The text that the subtitle button displays.
@@ -37,7 +35,13 @@ import AdmiralUIResources
  */
 @available(iOS 14.0, *)
 public struct CheckboxTextbuttonView: View {
-    
+
+    // MARK: - Constants
+
+    private enum Constants {
+        static let spacing: CGFloat = LayoutGrid.doubleModule
+    }
+
     // MARK: - Internal Properties
     
     @Environment(\.isEnabled) private var isEnabled
@@ -57,16 +61,9 @@ public struct CheckboxTextbuttonView: View {
     
     /// Action subtitleButton.
     private var subtitleButtonAction: () -> ()
-    
-    // MARK: Internal Properties
-    
-    @State var scheme: CheckboxTextbuttonViewScheme?
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<CheckboxTextbuttonViewScheme>()
-    
-    private enum Constants {
-        // MARK: - Common constants
-        static let spacing: CGFloat = LayoutGrid.doubleModule
-    }
+
+    @State private var scheme: CheckboxTextbuttonViewScheme?
+    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<CheckboxTextbuttonViewScheme>()
     
     // MARK: - Initializer
     
@@ -75,13 +72,18 @@ public struct CheckboxTextbuttonView: View {
         title: String,
         isSelected: Binding<Bool>,
         subtitleButtonTitle: String? = nil,
-        subtitleButtonAction: @escaping () -> () = {}) {
+        subtitleButtonAction: @escaping () -> () = {},
+        scheme: CheckboxTextbuttonViewScheme? = nil
+    ) {
         self.title = title
         self._isSelected = isSelected
         self.subtitleButtonTitle = subtitleButtonTitle
         self.subtitleButtonAction = subtitleButtonAction
+        self.scheme = scheme
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         let textColor = scheme.textColor.parameter(for: isEnabled ? .normal : .disabled)

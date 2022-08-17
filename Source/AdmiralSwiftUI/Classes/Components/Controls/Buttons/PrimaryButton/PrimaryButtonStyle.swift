@@ -34,16 +34,23 @@ Button("Text", action: {})
 */
 @available(iOS 14.0.0, *)
 public struct PrimaryButtonStyle: ButtonStyle {
-    
-    @Binding var isLoading: Bool
-    
-    var sizeType: ButtonSizeType?
+
+    // MARK: - Public Properties
+
+    /// The loading flag of PrimaryButton
+    @Binding public var isLoading: Bool
+
+    /// The size type of PrimaryButton
+    public var sizeType: ButtonSizeType?
     
     // MARK: - Private Properties
-    
+
+    private var accessibilityIdentifier: String?
+
     private var scheme: PrimaryButtonScheme? = nil
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<PrimaryButtonScheme>()
-    private var accessibilityIdentifier: String?
+
+    // MARK: - Initializer
 
     public init(
         isLoading: Binding<Bool> = .constant(false),
@@ -55,7 +62,9 @@ public struct PrimaryButtonStyle: ButtonStyle {
         self.scheme = scheme
         self.accessibilityIdentifier = accessibilityIdentifier
     }
-    
+
+    // MARK: - Body
+
     public func makeBody(configuration: Self.Configuration) -> some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         PrimaryButton(

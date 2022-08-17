@@ -40,7 +40,9 @@ public enum TextBlockStyle: String {
     case separator
     case separatorShort
     case separatorEmpty
-    
+
+    // MARK: - Computed Properties
+
     var minHeight: CGFloat {
         switch self {
         case .title, .dropDown:

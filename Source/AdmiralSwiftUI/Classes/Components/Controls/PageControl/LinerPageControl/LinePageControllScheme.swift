@@ -10,15 +10,20 @@ import AdmiralTheme
 import AdmiralUIResources
 
 @available(iOS 14.0.0, *)
-struct PageControlViewScheme: AppThemeScheme {
-            
-    var backgroundColor = ControlParameter<AColor>()
-    
+public struct PageControlViewScheme: AppThemeScheme {
+
+    // MARK: - Properties
+
+    /// The backgroundColor of PageControlView.
+    public var backgroundColor = ControlParameter<AColor>()
+
+    // MARK: - Initializer
+
     public init() {
         self.init(theme: AppTheme.default)
     }
     
-    init(theme: AppTheme) {
+    public init(theme: AppTheme) {
         backgroundColor.set(parameter: theme.colors.textSecondary, for: .normal)
         backgroundColor.set(parameter: theme.colors.textPrimary, for: .selected)
     }

@@ -33,7 +33,9 @@ import AdmiralUIResources
  */
 @available(iOS 14.0, *)
 public struct ErrorView: View {
-    
+
+    // MARK: - Constants
+
     private enum Constants {
         static let imageSize = CGSize(width: 54.0, height: 54.0)
     }
@@ -52,25 +54,29 @@ public struct ErrorView: View {
     /// Flag loading button.
     @Binding public var isLoadingButton: Bool
     
-    // MARK: Internal Properties
+    // MARK: Private Properties
 
-    @State var scheme: ErrorViewScheme?
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<ErrorViewScheme>()
+    @State private var scheme: ErrorViewScheme?
+    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ErrorViewScheme>()
     
     // MARK: - Initializer
-    
-    
+
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     public init(
         text: String? = nil,
         buttonTitle: String? = nil,
         isLoadingButton: Binding<Bool> = .constant(false),
-        buttonAction: @escaping () -> () = {}) {
+        buttonAction: @escaping () -> () = {},
+        scheme: ErrorViewScheme? = nil
+    ) {
         self.text = text
         self.buttonTitle = buttonTitle
         self.buttonAction = buttonAction
         self._isLoadingButton = isLoadingButton
+        self.scheme = scheme
     }
+
+    // MARK: - Body
 
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme

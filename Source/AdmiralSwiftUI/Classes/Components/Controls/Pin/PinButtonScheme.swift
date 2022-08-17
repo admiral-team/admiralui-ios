@@ -11,11 +11,20 @@ import AdmiralUIResources
 
 @available(iOS 14.0.0, *)
 public struct PinButtonScheme: AppThemeScheme {
-    
+
+    // MARK: - Properties
+
+    /// The selected backgroundColor of PinButton
     public var selectedbackgroundColor: AColor
+
+    /// The background color of PinButton
     public var backgroundColor: AColor
+
+    /// The shadow color of PinButton
     public let shadowColor: AColor
-    
+
+    // MARK: - Initializer
+
     public init() {
         self.init(theme: AppTheme.default)
     }

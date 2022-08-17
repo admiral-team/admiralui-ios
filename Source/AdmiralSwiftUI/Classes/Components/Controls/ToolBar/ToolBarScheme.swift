@@ -12,11 +12,20 @@ import AdmiralUIResources
 
 @available(iOS 14.0.0, *)
 public struct ToolBarScheme: AppThemeScheme {
-    
+
+    // MARK: - Public properties
+
+    /// The background color of ToolBar
     public var backgroundColor: AColor
+
+    /// The shadow color of ToolBar
     public var shadowColor: AColor
+
+    /// The scheme of ToolBar
     public var itemScheme: ItemScheme
-    
+
+    // MARK: - Initializer
+
     public init(theme: AppTheme) {
         itemScheme = ItemScheme(theme: theme)
         backgroundColor = theme.colors.backgroundAccentDark

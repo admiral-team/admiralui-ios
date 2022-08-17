@@ -45,7 +45,9 @@ public struct InformerSegmentedItem {
 /// A horizontal control that consists of multiple segments, each segment functioning as a discrete text button.
 @available(iOS 14.0, *)
 public struct InformerTab: View {
-    
+
+    // MARK: - Constants
+
     enum Constants {
         static let segmentCornerRadius: CGFloat = 8.0
         static let animationDuration: Double = 0.1
@@ -66,11 +68,16 @@ public struct InformerTab: View {
     
     @State private var segmentSize: CGSize = .zero
     @State private var arrowOffset: CGFloat = .zero
-    @State private var scheme: InformerTabScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<InformerTabScheme>()
-        
     @Binding private var selection: Int
     @Binding private var offsetSegment: CGFloat
+
+    @State private var scheme: InformerTabScheme? = nil
+    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<InformerTabScheme>()
+
+    private var customView: AnyView
+    private let items: [InformerSegmentedItem]
+
+    // MARK: - Computed Properties
 
     private var activeSegmentView: AnyView {
         let scheme = self.scheme ?? schemeProvider.scheme
@@ -94,9 +101,7 @@ public struct InformerTab: View {
             .offset(x: computeActiveSegmentHorizontalOffset() + segmentSize.width / 2 - ArrowSegmentSlider.Constants.imageSize.width / 2, y: 0)
             .eraseToAnyView()
     }
-    
-    private var customView: AnyView
-    private let items: [InformerSegmentedItem]
+
     
     // MARK: - Initializer
     
@@ -111,6 +116,8 @@ public struct InformerTab: View {
         self.customView = customView
         self.items = items
     }
+
+    // MARK: - Body
     
     public var body: some View {
         VStack(alignment: .leading, spacing: 0.0) {

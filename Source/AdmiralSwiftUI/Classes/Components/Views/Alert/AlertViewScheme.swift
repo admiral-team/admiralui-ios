@@ -12,6 +12,8 @@ import AdmiralUIResources
 
 public struct AlertViewScheme: AppThemeScheme {
 
+    // MARK: - Public Properties
+
     /// Styled font of title label that depends on AlertTitleFontStyle.
     public var titleFont = DefaultAlertViewCustomSchemeParameters<AFont, AlertTitleFontStyle>()
 

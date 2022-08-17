@@ -38,8 +38,15 @@ import AdmiralUIResources
 @available(iOS 14.0, *)
 public struct IconTabModel {
 
+    // MARK: - Properties
+
+    /// The image of IconTabModel
     public let image: Image
+
+    /// The text of IconTabModel
     public let text: String
+
+    // MARK: - Initializer
 
     public init(image: Image, text: String) {
         self.image = image
@@ -68,6 +75,7 @@ public struct IconTab: View {
 
     @Binding private var selection: Int
     private var models: [IconTabModel] = []
+
     @State private var scheme: IconTabScheme? = nil
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<IconTabScheme>()
 
