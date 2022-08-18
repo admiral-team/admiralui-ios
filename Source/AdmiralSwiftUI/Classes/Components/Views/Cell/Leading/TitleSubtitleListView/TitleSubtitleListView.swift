@@ -77,8 +77,9 @@ public struct TitleSubtitleListView: View, LeadingListViewComponent {
 
     // MARK: - Private Properties
 
-    @State private var scheme: TitleSubtitleListViewScheme? = nil
     private let lineLimit: Int?
+
+    @State private var scheme: TitleSubtitleListViewScheme? = nil
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<TitleSubtitleListViewScheme>()
 
     // MARK: - Initializer
@@ -88,11 +89,14 @@ public struct TitleSubtitleListView: View, LeadingListViewComponent {
         title: String?,
         subtitle: String?,
         lineLimit: Int? = nil,
-        titleSubtitleListViewStyle: TitleSubtitleListViewStyle? = nil) {
+        titleSubtitleListViewStyle: TitleSubtitleListViewStyle? = nil,
+        scheme: TitleSubtitleListViewScheme? = nil
+    ) {
         self._title = Binding(get: { return title }, set: { _ in })
         self._subtitle = Binding(get: { return subtitle }, set: { _ in })
         self.lineLimit = lineLimit
         self.titleSubtitleListViewStyle = titleSubtitleListViewStyle
+        self.scheme = scheme
     }
     
     // MARK: - Layout

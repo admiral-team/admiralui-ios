@@ -10,8 +10,10 @@ import AdmiralUIResources
 import SwiftUI
 
 @available(iOS 14.0.0, *)
-struct CalendarHorizontalHeaderView: View {
-    
+public struct CalendarHorizontalHeaderView: View {
+
+    // MARK: - Constants
+
     enum Constants {
         static let choiceText = "Выбрать"
     }
@@ -27,19 +29,26 @@ struct CalendarHorizontalHeaderView: View {
     var leftArrowTap: () -> Void
     var rightArrowTap: () -> Void
     var choiceTap: () -> Void
-    
+
+    // MARK: - Schemes
+
     @State private var scheme: CalendarHorizontalHeaderViewScheme? = nil
     @State private var buttonScheme: MonthYearButtonScheme? = nil
+
     @ObservedObject var schemeProvider = AppThemeSchemeProvider<CalendarHorizontalHeaderViewScheme>()
     @ObservedObject var buttonSchemeProvider = AppThemeSchemeProvider<MonthYearButtonScheme>()
-    
-    init(
+
+    // MARK: - Initializer
+
+    public init(
         title: String,
         isOpen: Binding<Bool>,
         monthYearButtonTap: @escaping () -> Void,
         leftArrowTap: @escaping () -> Void,
         rightArrowTap: @escaping () -> Void,
-        choiceTap: @escaping () -> Void
+        choiceTap: @escaping () -> Void,
+        scheme: CalendarHorizontalHeaderViewScheme? = nil,
+        buttonScheme: MonthYearButtonScheme? = nil
     ) {
         self._title = Binding(
             get: { title },
@@ -50,20 +59,23 @@ struct CalendarHorizontalHeaderView: View {
         self.leftArrowTap = leftArrowTap
         self.rightArrowTap = rightArrowTap
         self.choiceTap = choiceTap
+        self.scheme = scheme
+        self.buttonScheme = buttonScheme
     }
-    
-    var body: some View {
+
+    // MARK: - Body
+
+    public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         let buttonImage = isOpen ?
             Image(uiImage: PrivateAsset.Custom.Cell.arrowDown.image) :
             AssetSymbol.System.Outline.smallArrowUp.image
-        var buttonScheme = self.buttonScheme ?? buttonSchemeProvider.scheme
-        buttonScheme.image = buttonImage
+        let buttonScheme = self.buttonScheme ?? buttonSchemeProvider.scheme
         let buttonColor = scheme.buttonColor.parameter(for: isEnabled ? .normal : .disabled)
         return ZStack {
             HStack {
                 Button(title, action: monthYearButtonTaped)
-                    .buttonStyle(buttonScheme)
+                    .buttonStyle(MonthYearButtonStyle(image: buttonImage, scheme: buttonScheme))
                 Spacer()
                 if isOpen {
                     Button(action: leftArrowTaped, label: {
@@ -86,7 +98,9 @@ struct CalendarHorizontalHeaderView: View {
         }
         
     }
-    
+
+    // MARK: - Private Methods
+
     private func monthYearButtonTaped() {
         monthYearButtonTap()
     }

@@ -33,7 +33,9 @@ import AdmiralUIResources
 /// A view object with badge and arrow image view.
 @available(iOS 14.0.0, *)
 public struct BadgeArrowListView: View, TralingListViewComponent {
-    
+
+    // MARK: - Constants
+
     private enum Constants {
         static let cellWidth: CGFloat = LayoutGrid.halfModule * 6
         static let cellHeightThreshold: CGFloat = LayoutGrid.halfModule * 18
@@ -70,19 +72,31 @@ public struct BadgeArrowListView: View, TralingListViewComponent {
     /// - Parameters:
     ///   - badgeStyle: Badge style.
     ///   - value: Text on badge.
-    public init(badgeStyle: BadgeStyle, value: Int?) {
+    public init(
+        badgeStyle: BadgeStyle,
+        value: Int?,
+        scheme: BadgeArrowListViewScheme? = nil
+    ) {
         self.badgeStyle = badgeStyle
         self.value = value
+        self.scheme = scheme
     }
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     /// - Parameters:
     ///   - badgeStyle: Badge style.
     ///   - text: Text on badge.
-    public init(badgeStyle: BadgeStyle, text: String?) {
+    public init(
+        badgeStyle: BadgeStyle,
+        text: String?,
+        scheme: BadgeArrowListViewScheme? = nil
+    ) {
         self.badgeStyle = badgeStyle
         self.text = text
+        self.scheme = scheme
     }
+
+    // MARK: - Body
 
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme

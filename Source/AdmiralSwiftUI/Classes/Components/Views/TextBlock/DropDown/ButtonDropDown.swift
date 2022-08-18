@@ -50,7 +50,7 @@ public struct ButtonDropDown: View {
         dropDownHeaderType: DropDownHeaderType = .down,
         buttonAction: @escaping () -> ()) {
         self._buttonTitle = Binding(get: { return buttonTitle }, set: { _ in })
-        self._drropDownHeaderType = Binding(get: { return         dropDownHeaderType }, set: { _ in })
+        self._drropDownHeaderType = Binding(get: { return dropDownHeaderType }, set: { _ in })
         self.buttonAction = buttonAction
     }
 

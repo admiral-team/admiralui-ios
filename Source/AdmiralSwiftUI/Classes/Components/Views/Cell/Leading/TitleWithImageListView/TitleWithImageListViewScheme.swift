@@ -10,15 +10,26 @@ import AdmiralUIResources
 
 @available(iOS 14.0, *)
 public struct TitleWithImageListViewScheme: AppThemeScheme {
-    
+
+    // MARK: - Properties
+
+    /// The background color of TitleWithImageListView
     public var viewBackgroundColor = ControlParameter<AColor>()
+
+    /// The title label text color of TitleWithImageListView
     public var titleLabelTextColor = ControlParameter<AColor>()
-    
+
+    /// The image tint color of TitleWithImageListView
     public var imageTintColor = ControlParameter<AColor>()
+
+    /// The image alpha color of TitleWithImageListView
     public var imageViewAlpha = ControlParameter<Double>()
-    
+
+    /// The title font of TitleWithImageListView
     public var titleFont = TitleWithImageListViewParameters<AFont>()
-    
+
+    // MARK: - Initializer
+
     public init() {
         self.init(theme: AppTheme.default)
     }

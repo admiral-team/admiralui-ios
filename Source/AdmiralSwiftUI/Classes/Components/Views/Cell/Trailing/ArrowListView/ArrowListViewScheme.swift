@@ -10,10 +10,21 @@ import AdmiralTheme
 import AdmiralUIResources
 
 public struct ArrowListViewScheme: AppThemeScheme {
-    
+
+    // MARK: - Properties
+
+    /// The background color ArrowListView
     public var backgroundColor = ControlParameter<AColor>()
+
+    /// The image tint color of ArrowListView
     public var imageTintColor = ControlParameter<AColor>()
-    
+
+    // MARK: - Initializer
+
+    public init() {
+        self.init(theme: AppTheme.default)
+    }
+
     public init(theme: AppTheme) {
         let alpha = theme.colors.disabledAlpha
 

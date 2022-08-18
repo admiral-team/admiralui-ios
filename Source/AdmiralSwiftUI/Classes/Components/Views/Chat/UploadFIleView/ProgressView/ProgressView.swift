@@ -76,8 +76,9 @@ public struct ProgressView: View {
     // MARK: - Private properties
 
     private var closeAction: () -> ()
-    @State private var scheme: ProgressViewScheme? = nil
     @State private var animate: Bool = false
+
+    @State private var scheme: ProgressViewScheme? = nil
     @ObservedObject var schemeProvider = AppThemeSchemeProvider<ProgressViewScheme>()
 
     // MARK: - Computed properties

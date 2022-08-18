@@ -105,6 +105,8 @@ public struct UploadDocumentGrid: View {
             }.eraseToAnyView()
         }
     }
+
+    // MARK: - Layouts
     
     private func uploadDocumentView() -> some View {
         VStack(spacing: .zero) {
@@ -136,11 +138,9 @@ public struct UploadDocumentGrid: View {
         }
     }
 
-private func isStatusError() -> Bool {
-    models.contains(where: {
-        $0.status == .error
-    })
-}
+    private func isStatusError() -> Bool {
+        models.contains(where: {$0.status == .error })
+    }
 
 }
 

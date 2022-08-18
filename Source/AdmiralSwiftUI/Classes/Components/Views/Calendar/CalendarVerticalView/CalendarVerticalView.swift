@@ -10,7 +10,9 @@ import SwiftUI
 
 @available(iOS 14.0, *)
 struct CalendarVerticalView: View {
-    
+
+    // MARK: - Constants
+
     enum Constants {
         static let offsetY: CGFloat = -0.03
     }
@@ -53,10 +55,11 @@ struct CalendarVerticalView: View {
     // MARK: - Private Properties
     
     @State private var dates = [Date]()
-    
-    @State private var scheme: CalendarVerticalViewScheme? = nil
+
     @State private var currentMonthDate: Date?
     @State private var isScrollCalendar: Bool = false
+
+    @State private var scheme: CalendarVerticalViewScheme? = nil
     @ObservedObject var schemeProvider = AppThemeSchemeProvider<CalendarVerticalViewScheme>()
 
     // MARK: - Initializer
@@ -72,29 +75,34 @@ struct CalendarVerticalView: View {
         isMutlipleSelectionAllowed: Bool = true,
         didSelectedDate: ((Date?) -> ())? = nil,
         didSelectedDates: (([Date]) -> ())? = nil,
-        pointDates: [Date]) {
-            if let startDate = startDate {
-                self._startDate = .init(initialValue: startDate)
-            } else {
-                self._startDate = .init(initialValue: Calendar.current.date(byAdding: .year, value: -10, to: Date()) ?? Date())
-            }
-            
-            if let endDate = endDate {
-                self._endDate = .init(initialValue: endDate)
-            } else {
-                self._endDate = .init(initialValue: Calendar.current.date(byAdding: .year, value: 10, to: Date()) ?? Date())
-            }
-            
-            self.pointDates = pointDates
-            self.locale = locale
-            self._selectedStartDate = selectedStartDate
-            self._selectedEndDate = selectedEndDate
-            
-            self.notActiveAfterDate = notActiveAfterDate
-            self._isMutlipleSelectionAllowed = .init(initialValue: isMutlipleSelectionAllowed)
-            self._didSelectedDate = .init(initialValue: didSelectedDate)
-            self._didSelectedDates = .init(initialValue: didSelectedDates)
+        pointDates: [Date],
+        scheme: CalendarVerticalViewScheme? = nil
+    ) {
+        if let startDate = startDate {
+            self._startDate = .init(initialValue: startDate)
+        } else {
+            self._startDate = .init(initialValue: Calendar.current.date(byAdding: .year, value: -10, to: Date()) ?? Date())
         }
+
+        if let endDate = endDate {
+            self._endDate = .init(initialValue: endDate)
+        } else {
+            self._endDate = .init(initialValue: Calendar.current.date(byAdding: .year, value: 10, to: Date()) ?? Date())
+        }
+
+        self.pointDates = pointDates
+        self.locale = locale
+        self._selectedStartDate = selectedStartDate
+        self._selectedEndDate = selectedEndDate
+
+        self.notActiveAfterDate = notActiveAfterDate
+        self._isMutlipleSelectionAllowed = .init(initialValue: isMutlipleSelectionAllowed)
+        self._didSelectedDate = .init(initialValue: didSelectedDate)
+        self._didSelectedDates = .init(initialValue: didSelectedDates)
+        self.scheme = scheme
+    }
+
+    // MARK: - Body
     
     var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
@@ -153,12 +161,12 @@ struct CalendarVerticalView: View {
         startDate: Date,
         endDate: Date,
         monthDate: Date?) -> ([Date],Date?) {
-        let dates = generator.calculateDates(
-            startDate: startDate,
-            endDate: endDate,
-            monthDate: monthDate)
-        return dates
-    }
+            let dates = generator.calculateDates(
+                startDate: startDate,
+                endDate: endDate,
+                monthDate: monthDate)
+            return dates
+        }
     
     private func weeks(days: [Day]) -> [Week] {
         var weekDays: [Week] = []
@@ -227,7 +235,7 @@ struct CalendarView_Previews: PreviewProvider {
             endDate: Calendar.current.date(byAdding: .weekOfYear, value: 10, to: Date())!,
             notActiveAfterDate: Date(),
             pointDates: [])
-            .padding()
-            .environment(\.manager, SwiftUIThemeManager(theme: .dark))
+        .padding()
+        .environment(\.manager, SwiftUIThemeManager(theme: .dark))
     }
 }

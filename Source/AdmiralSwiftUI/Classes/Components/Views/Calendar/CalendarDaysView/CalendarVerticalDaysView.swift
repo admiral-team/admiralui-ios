@@ -10,11 +10,6 @@ import SwiftUI
 
 @available(iOS 14.0.0, *)
 public struct CalendarVerticalDaysView: View {
-    
-    // MARK: - Internal Properties
-    
-    @State private var scheme: CalendarViewCellColorScheme? = nil
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<CalendarViewCellColorScheme>()
 
     // MARK: - Private Properties
 
@@ -24,16 +19,21 @@ public struct CalendarVerticalDaysView: View {
     @Binding private var updateBlock: (Day) -> ()
     private var notActiveAfterDate: Date?
     private var pointDates: [Date]
+
+    @State private var scheme: CalendarViewCellColorScheme? = nil
+    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<CalendarViewCellColorScheme>()
     
     // MARK: - Initializer
     
-    init(
+    public init(
         days: [Day],
         startDate: Date?,
         endDate: Date?,
         notActiveAfterDate: Date?,
         pointDates: [Date],
-        updateBlock: @escaping (Day) -> ()) {
+        updateBlock: @escaping (Day) -> (),
+        scheme: CalendarViewCellColorScheme? = nil
+    ) {
         self._days = Binding(
             get: { days },
             set: { _, _ in  }
@@ -52,7 +52,10 @@ public struct CalendarVerticalDaysView: View {
         )
         self.pointDates = pointDates.map( { $0.removeTimeStamp() })
         self.notActiveAfterDate = notActiveAfterDate
+        self.scheme = scheme
     }
+
+    // MARK: - Body
     
     public var body: some View {
         let weekDays: [[Day]] = weeks()

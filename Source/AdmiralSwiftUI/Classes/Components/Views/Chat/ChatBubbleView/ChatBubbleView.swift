@@ -120,7 +120,9 @@ public struct ChatBubbleView: View {
         name: String? = nil,
         isRoundAllCorners: Bool = false,
         maxWidth: CGFloat? = nil,
-        errorAction: @escaping ()->() = {}) {
+        errorAction: @escaping ()->() = {},
+        scheme: ChatBubbleViewScheme? = nil
+    ) {
         self.text = text
         self.direction = direction
         self.time = time
@@ -129,8 +131,11 @@ public struct ChatBubbleView: View {
         self.isRoundAllCorners = isRoundAllCorners
         self.maxWidth = maxWidth
         self.errorAction = errorAction
+        self.scheme = scheme
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         switch direction {

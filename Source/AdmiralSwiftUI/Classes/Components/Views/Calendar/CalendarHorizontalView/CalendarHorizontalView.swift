@@ -9,14 +9,16 @@ import AdmiralTheme
 import SwiftUI
 
 @available(iOS 14.0.0, *)
-struct CalendarHorizontalView: View {
+public struct CalendarHorizontalView: View {
     
     enum CalendarHorizontalViewDirection {
         case forward
         case back
         case none
     }
-    
+
+    // MARK: - Constants
+
     enum Constants {
         static let calendarHeight: CGFloat = 376.0
         static let calendarHorizontalViewHeight: CGFloat = 356.0
@@ -80,7 +82,7 @@ struct CalendarHorizontalView: View {
     
     // MARK: - Initializer
     
-    init(
+    public init(
         startDate: Date? = nil,
         endDate: Date? = nil,
         locale: Locale? = nil,
@@ -89,7 +91,9 @@ struct CalendarHorizontalView: View {
         monthYearDate: Date? = nil,
         notActiveAfterDate: Date?,
         isMutlipleSelectionAllowed: Bool = true,
-        pointDates: [Date]) {
+        pointDates: [Date],
+        scheme: CalendarHorizontalViewScheme? = nil
+    ) {
         
         self.startDate = startDate
         self.endDate = endDate
@@ -104,6 +108,7 @@ struct CalendarHorizontalView: View {
         self._selectedEndDate = selectedEndDate
         self.monthYearDate = monthYearDate.removeTimeStamp()
         self.notActiveAfterDate = notActiveAfterDate
+        self.scheme = scheme
         
         let preInitDates = preInitDate()
         var generator = CalendarGenerator()
@@ -116,8 +121,10 @@ struct CalendarHorizontalView: View {
             self._calendarPickerYears = .init(initialValue: pickerData)
         }
     }
+
+    // MARK: - Body
     
-    var body: some View {
+    public var body: some View {
         var title = ""
 
         if isHeaderOpen {

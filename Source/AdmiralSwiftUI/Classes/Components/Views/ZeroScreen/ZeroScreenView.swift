@@ -36,7 +36,9 @@ import AdmiralUIResources
  */
 @available(iOS 14.0, *)
 public struct ZeroScreenView: View {
-    
+
+    // MARK: - Constants
+
     private enum Constants {
         static let imageSize = CGFloat(54.0)
     }
@@ -75,14 +77,19 @@ public struct ZeroScreenView: View {
         subtitle: String? = nil,
         buttonTitle: String? = nil,
         isLoadingButton: Binding<Bool> = .constant(false),
-        buttonAction: @escaping () -> () = {}) {
+        buttonAction: @escaping () -> () = {},
+        scheme: ZeroScreenViewScheme? = nil
+    ) {
         self.image = image
         self.title = title
         self.subtitle = subtitle
         self.buttonTitle = buttonTitle
         self.buttonAction = buttonAction
         self._isLoadingButton = isLoadingButton
+        self.scheme = scheme
     }
+
+    // MARK: - Body
 
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme

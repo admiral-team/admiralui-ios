@@ -9,13 +9,23 @@ import AdmiralTheme
 import AdmiralUIResources
 
 public struct ImageNameListViewScheme: AppThemeScheme {
-    
+
+    // MARK: - Properties
+
+    /// The background color of ImageNameListView
     public var backgroundColor = ControlParameter<AColor>()
+
+    /// The background name color of ImageNameListView
     public var backgroundNameViewColor = ControlParameter<AColor>()
+
+    /// The title label color of ImageNameListView
     public var titleLabelTextColor = ControlParameter<AColor>()
-    
+
+    /// The title font of ImageNameListView
     public var titleFont: AFont
-    
+
+    // MARK: - Initializer
+
     public init(theme: AppTheme) {
         let alpha = theme.colors.disabledAlpha
 

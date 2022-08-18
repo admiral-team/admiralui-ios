@@ -28,7 +28,9 @@ import SwiftUI
 */
 @available(iOS 14.0, *)
 public struct ActivityIndicator: View {
-    
+
+    // MARK: - Constants
+
     enum Constants {
         static let duration = 2.0
     }
@@ -62,9 +64,10 @@ public struct ActivityIndicator: View {
     // MARK: - Private Properties
     
     @Environment(\.isEnabled) private var isEnabled
-    
-    @State private var scheme: ActivityIndicatorScheme? = nil
+
     @State private var animatableParameter: Double = 0
+
+    @State private var scheme: ActivityIndicatorScheme? = nil
     @ObservedObject var schemeProvider = AppThemeSchemeProvider<ActivityIndicatorScheme>()
     
     // MARK: - Initializer
@@ -73,6 +76,8 @@ public struct ActivityIndicator: View {
         self.style = style
         self.size = size
     }
+
+    // MARK: - Body
 
     public var body: some View {
         let animation = Animation

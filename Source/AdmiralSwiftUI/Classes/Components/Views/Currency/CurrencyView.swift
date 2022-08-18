@@ -92,7 +92,8 @@ public struct CurrencyView: View {
         sellText: String,
         image: Image? = nil,
         firstCellType: CurrencyCellType = .none,
-        secondCellType: CurrencyCellType = .none
+        secondCellType: CurrencyCellType = .none,
+        scheme: CurrencyViewScheme? = nil
     ) {
         self._currencyText = Binding(get: { return currencyText }, set: { _ in})
         self._buyText = Binding(get: { return buyText }, set: { _ in})
@@ -100,6 +101,7 @@ public struct CurrencyView: View {
         self._image = Binding(get: { return image }, set: { _ in })
         self._firstCellType = Binding(get: { return firstCellType }, set: { _ in })
         self._secondCellType = Binding(get: { return secondCellType }, set: { _ in })
+        self.scheme = scheme
     }
 
     // MARK: - Layout

@@ -27,7 +27,9 @@ import AdmiralUIResources
 /// A view object with radio button.
 @available(iOS 14.0, *)
 public struct RadioButtonListView: View, TralingListViewComponent {
-    
+
+    // MARK: - Constants
+
     enum Constants {
         static let selectedImage = PrivateAsset.Custom.Control.radioButtonOn.image
         static let defaultImage = PrivateAsset.Custom.Control.radioButtonOff.image
@@ -52,9 +54,15 @@ public struct RadioButtonListView: View, TralingListViewComponent {
     // MARK: - Initializer
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-    public init(isControlSelected: Binding<Bool>) {
+    public init(
+        isControlSelected: Binding<Bool>,
+        scheme: RadioButtonListViewScheme? = nil
+    ) {
         self._isControlSelected = isControlSelected
+        self.scheme = scheme
     }
+
+    // MARK: - Body
 
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme

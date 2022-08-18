@@ -9,15 +9,31 @@ import AdmiralTheme
 import AdmiralUIResources
 
 public struct ToastViewScheme: AppThemeScheme {
- 
+
+    // MARK: - Properties
+
+    /// The title color of ToastView
     var titleTextColor = ToastViewParameters<AColor>()
+
+    /// The close tint color of ToastView
     var closeTintColor = ToastViewParameters<AColor>()
+
+    /// The close title color of ToastView
     var closeTitleColor = ToastViewParameters<AColor>()
+
+    /// The background color of ToastView
     var backgroundColor = ToastViewParameters<AColor>()
+
+    /// The iamge tint color of ToastView
     var imageTintColor =  ToastImageParameters<AColor>()
-    
+
+    /// The title font of ToastView
     var titleTextFont: AFont
+
+    /// The close title font of ToastView
     var closeTitleFont: AFont
+
+    // MARK: - Initializer
     
     public init(theme: AppTheme) {
         

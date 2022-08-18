@@ -10,14 +10,26 @@ import AdmiralUIResources
 
 @available(iOS 14.0, *)
 public struct ChatBubbleViewScheme: AppThemeScheme {
-    
+
+    // MARK: - Properties
+
+    /// The text font of ChatBubbleView
     public var textFont: AFont
+
+    /// The text color of ChatBubbleView
     public var textColor = ChatBubbleViewParameters<AColor>()
+
+    /// The background color of  ChatBubbleView
     public var backgroundColor = ChatBubbleViewParameters<AColor>()
-    
+
+    /// The font of name text label in ChatBubbleView
     public var nameTextFont: AFont
+
+    /// The color of name text label in ChatBubbleView
     public var nameTextColor: AColor
-    
+
+    // MARK: - Initializer
+
     public init(theme: AppTheme) {
         textColor.set(parameter: theme.colors.textPrimary, style: .left)
         textColor.set(parameter: theme.colors.textStaticWhite, style: .right)

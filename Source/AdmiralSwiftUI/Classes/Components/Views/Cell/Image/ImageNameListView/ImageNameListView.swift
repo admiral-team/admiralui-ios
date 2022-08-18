@@ -44,9 +44,15 @@ public struct ImageNameListView: View, ImageListViewComponent {
     // MARK: - Initializer
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-    public init(text: String) {
+    public init(
+        text: String,
+        scheme: ImageNameListViewScheme? = nil
+    ) {
         self._text = Binding(get: { return text }, set: { _ in })
+        self.scheme = scheme
     }
+
+    // MARK: - Body
 
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme

@@ -38,12 +38,13 @@ public struct CurrencyHeaderView: View {
     @State var currencyText: String
     @State var buyText: String
     @State var sellText: String
-    @State var scheme: CurrencyHeaderViewScheme?
 
     // MARK: - Private properties
 
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<CurrencyHeaderViewScheme>()
     private let isTextSpacingEnabled: Bool
+
+    @ObservedObject var schemeProvider = AppThemeSchemeProvider<CurrencyHeaderViewScheme>()
+    @State var scheme: CurrencyHeaderViewScheme?
 
     // MARK: - Initializer
     
@@ -52,12 +53,14 @@ public struct CurrencyHeaderView: View {
         currencyText: String,
         buyText: String,
         sellText: String,
-        isTextSpacingEnabled: Bool = false
+        isTextSpacingEnabled: Bool = false,
+        scheme: CurrencyHeaderViewScheme? = nil
     ) {
         self._currencyText = .init(initialValue: currencyText)
         self._buyText = .init(initialValue: buyText)
         self._sellText = .init(initialValue: sellText)
         self.isTextSpacingEnabled = isTextSpacingEnabled
+        self.scheme = scheme
     }
 
     // MARK: - Layout

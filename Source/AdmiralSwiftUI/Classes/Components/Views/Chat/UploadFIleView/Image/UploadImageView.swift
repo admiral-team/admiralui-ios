@@ -110,19 +110,28 @@ struct UploadImageView: View {
 
     private enum Constants {
         // MARK: - Common constants
+        
         static let width: CGFloat = 232
         static let height: CGFloat = 114
+
         static let cornerRadius: CGFloat = LayoutGrid.module + 4.0
+
         static let lineLimitText = 1
+
         static let bottomInfoViewPaddingHorizontal: CGFloat = LayoutGrid.module + 4.0
         static let bottomInfoViewPaddingVertical: CGFloat = LayoutGrid.module / 2
+
         static let blurRadius: CGFloat = 3
+
         static let opacity: CGFloat = 0.4
 
         // MARK: - BottomInfoView constants
+
         static let imageAndTextSpacing: CGFloat = 7.5
+
         static let checkClearOutlineImageWidth: CGFloat = 9
         static let checkClearOutlineImageHeight: CGFloat = 6.5
+
         static let bottomViewPadding: CGFloat = LayoutGrid.module / 4
         static let bottomViewTrailing: CGFloat = LayoutGrid.module - 2
         static let bottomViewLeading: CGFloat = LayoutGrid.module / 2
@@ -134,9 +143,10 @@ struct UploadImageView: View {
 
     // MARK: - Private properties
 
-    @State private var scheme: UploadImageViewScheme? = nil
     private let cornersStyle: UploadImageViewCornerStyle
     private let direction: ChatDirection
+
+    @State private var scheme: UploadImageViewScheme? = nil
     @ObservedObject var schemeProvider = AppThemeSchemeProvider<UploadImageViewScheme>()
 
     // MARK: - Initializer

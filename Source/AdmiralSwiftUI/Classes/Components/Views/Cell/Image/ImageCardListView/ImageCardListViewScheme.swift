@@ -9,11 +9,20 @@ import AdmiralTheme
 import AdmiralUIResources
 
 public struct ImageCardListViewScheme: AppThemeScheme {
-    
+
+    // MARK: - Properties
+
+    /// The background color of ImageCardListView
     public var backgroundColor = ControlParameter<AColor>()
+
+    /// The image tint color of ImageCardListView
     public var imageTintColor = ControlParameter<AColor>()
+
+    /// The image alpha of ImageCardListView
     public var imageViewAlpha = ControlParameter<Double>()
-    
+
+    // MARK: - Initializer
+
     public init(theme: AppTheme) {
         let alpha = theme.colors.disabledAlpha
 

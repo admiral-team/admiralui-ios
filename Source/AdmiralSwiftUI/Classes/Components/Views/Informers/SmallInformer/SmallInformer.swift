@@ -104,13 +104,15 @@ public struct SmallInformer: View {
         informerStyle: InformerStyleSwiftUI = .default,
         arrowDirection: SmallInformerArrowDirection = .top,
         arrowOffset: CGFloat = LayoutGrid.halfModule * 3,
-        cornerRadius: CornerRadius = .module
+        cornerRadius: CornerRadius = .module,
+        scheme: SmallInformerScheme? = nil
     ) {
         self.title = title
         self.informerStyle = informerStyle
         self.arrowDirection = arrowDirection
         self.arrowOffset = arrowOffset
         self.cornerRadius = cornerRadius.rawValue
+        self.scheme = scheme
     }
     
     // MARK: - Layout

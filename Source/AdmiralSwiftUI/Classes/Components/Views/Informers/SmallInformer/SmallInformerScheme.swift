@@ -14,11 +14,17 @@ import AdmiralUIResources
 public struct SmallInformerScheme: AppThemeScheme {
     
     // MARK: - Public Properties
-    
+
+    /// The title label text color of SmallInformer
     public var titleLabelTextColors = InformerParameters<AColor>()
+
+    /// The wrap view background  color of SmallInformer
     public var wrapViewBackgroundColors = InformerParameters<AColor>()
+
+    /// The background colors of SmallInformer
     public var backgroundColors = InformerParameters<AColor>()
-    
+
+    /// The title label font of SmallInformer
     public var titleLabelFont: AFont = AppTheme.default.fonts.body2
     
     // MARK: - Initilizers

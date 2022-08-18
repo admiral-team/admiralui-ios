@@ -10,11 +10,20 @@ import AdmiralUIResources
 
 @available(iOS 14.0, *)
 public struct ChatBubbleStatusViewScheme: AppThemeScheme {
-    
+
+    // MARK: - Properties
+
+    /// The text font of ChatBubbleStatusViewScheme
     public var textFont: AFont
+
+    /// The text color of ChatBubbleStatusViewScheme
     public var textColor = ChatBubbleStatusViewParameters<AColor>()
+
+    /// The image color of ChatBubbleStatusViewScheme
     public var imageColor = ChatBubbleStatusViewParameters<AColor>()
-    
+
+    // MARK: - Initializer
+
     public init(theme: AppTheme) {
         textColor.set(parameter: theme.colors.textAccentAdditional, status: .loading, direction: .right, style: .default)
         textColor.set(parameter: theme.colors.textAccentAdditional, status: .error, direction: .right, style: .default)

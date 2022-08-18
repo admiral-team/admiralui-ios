@@ -87,7 +87,9 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
                 animationDuration: animationDuration,
                 hideAnimationDuration: hideAnimationDuration))
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         ZStack {
             content(toastPresenter)
@@ -135,7 +137,9 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
             .padding(.horizontal, LayoutGrid.doubleModule)
         }
     }
-    
+
+    // MARK: - Layouts
+
     private func toastView() -> some View {
         toastPresenter.toast
             .transition(AnyTransition

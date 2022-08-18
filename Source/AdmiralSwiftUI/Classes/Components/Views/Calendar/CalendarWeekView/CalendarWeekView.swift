@@ -10,19 +10,27 @@ import SwiftUI
 
 @available(iOS 14.0.0, *)
 struct CalendarWeekView: View {
-    
-    // MARK: - Internal Properties
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<CalendarWeekViewScheme>()
-    
+
     // MARK: - Private Properties
-    @State private var scheme: CalendarWeekViewScheme? = nil
+
     private let dateFormatter = DateFormatter()
     private var weakDays: [String]
-    
-    init(_ locale: Locale? = nil) {
+
+    @State private var scheme: CalendarWeekViewScheme? = nil
+    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<CalendarWeekViewScheme>()
+
+    // MARK: - Initializer
+
+    init(
+        _ locale: Locale? = nil,
+        scheme: CalendarWeekViewScheme? = nil
+    ) {
         self.weakDays = dateFormatter.getShortWeekdaySymbols(locale)
+        self.scheme = scheme
     }
-    
+
+    // MARK: - Body
+
     var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         return HStack {

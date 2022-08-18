@@ -143,10 +143,11 @@ struct UploadDocumentView: View {
 
     // MARK: - Private properties
 
-    @State private var scheme: UploadDocumentViewScheme? = nil
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<UploadDocumentViewScheme>()
     private var cornersOfGroup: UIRectCorner? = nil
     private var direction: ChatDirection
+
+    @State private var scheme: UploadDocumentViewScheme? = nil
+    @ObservedObject var schemeProvider = AppThemeSchemeProvider<UploadDocumentViewScheme>()
 
     // MARK: - Computed properties
 
@@ -168,11 +169,13 @@ struct UploadDocumentView: View {
     public init(
         model: UploadDocument,
         cornersOfGroup: UIRectCorner? = nil,
-        direction: ChatDirection
+        direction: ChatDirection,
+        scheme: UploadDocumentViewScheme? = nil
     ) {
         self.model = model
         self.cornersOfGroup = cornersOfGroup
         self.direction = direction
+        self.scheme = scheme
     }
 
     // MARK: - Layout

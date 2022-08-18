@@ -91,11 +91,11 @@ public struct BadgeView<Content>: View where Content: View {
     
     @Environment(\.isEnabled) var isEnabled
     
-    @State var scheme: BadgeViewScheme? = nil
-    
     // MARK: - Private Properties
     
     @State private var segmentSize: CGSize = .zero
+
+    @State var scheme: BadgeViewScheme? = nil
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<BadgeViewScheme>()
     
     // MARK: - Initializer
@@ -112,13 +112,16 @@ public struct BadgeView<Content>: View where Content: View {
         value: Int?,
         borderColor: Color? = nil,
         offset: CGPoint = .zero,
-        @ViewBuilder content: @escaping () -> (Content)) {
-            self.badgeStyle = badgeStyle
-            self.value = value
-            self.borderColor = borderColor
-            self.offset = offset
-            self.content = content
-        }
+        @ViewBuilder content: @escaping () -> (Content),
+        scheme: BadgeViewScheme? = nil
+    ) {
+        self.badgeStyle = badgeStyle
+        self.value = value
+        self.borderColor = borderColor
+        self.offset = offset
+        self.content = content
+        self.scheme = scheme
+    }
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     /// - Parameters:
@@ -132,14 +135,19 @@ public struct BadgeView<Content>: View where Content: View {
         text: String?,
         borderColor: Color? = nil,
         offset: CGPoint = .zero,
-        @ViewBuilder content: @escaping () -> (Content)) {
-            self.badgeStyle = badgeStyle
-            self.text = text
-            self.borderColor = borderColor
-            self.content = content
-            self.offset = offset
-        }
-    
+        @ViewBuilder content: @escaping () -> (Content),
+        scheme: BadgeViewScheme? = nil
+    ) {
+        self.badgeStyle = badgeStyle
+        self.text = text
+        self.borderColor = borderColor
+        self.content = content
+        self.offset = offset
+        self.scheme = scheme
+    }
+
+    // MARK: - Body
+
     public var body: some View {
         if let content = content {
             ZStack(alignment: .topTrailing) {

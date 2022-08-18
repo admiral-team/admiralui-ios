@@ -9,12 +9,20 @@ import AdmiralTheme
 import AdmiralUIResources
 
 public struct SecondaryTitleListViewScheme: AppThemeScheme {
-    
+
+    // MARK: - Properties
+
+    /// Thebackground color of SecondaryTitleListView
     public var backgroundColor = ControlParameter<AColor>()
+
+    /// The text color of SecondaryTitleListView
     public var textColor = ControlParameter<AColor>()
-    
+
+    /// The title font of SecondaryTitleListView
     public var titleFont: AFont
-    
+
+    // MARK: - Initializer
+
     public init() {
         self.init(theme: AppTheme.default)
     }

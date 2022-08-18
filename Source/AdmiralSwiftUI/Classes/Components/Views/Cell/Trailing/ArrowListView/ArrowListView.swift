@@ -24,7 +24,9 @@ import AdmiralUIResources
 /// A view object with arrow image view.
 @available(iOS 14.0.0, *)
 public struct ArrowListView: View, TralingListViewComponent {
-    
+
+    // MARK: - Constants
+
     private enum Constants {
         static let cellHeightThreshold: CGFloat = LayoutGrid.halfModule * 18
     }
@@ -53,8 +55,14 @@ public struct ArrowListView: View, TralingListViewComponent {
     // MARK: - Initializer
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-    public init() {}
-    
+    public init(
+        scheme: ArrowListViewScheme? = nil
+    ) {
+        self.scheme = scheme
+    }
+
+    // MARK: - Body
+
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         VStack {

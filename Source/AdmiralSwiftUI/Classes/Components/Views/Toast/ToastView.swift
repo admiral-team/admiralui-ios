@@ -85,7 +85,9 @@ public enum ToastImageType: String {
  */
 @available(iOS 14.0, *)
 public struct ToastView: View {
-    
+
+    // MARK: - Constants
+
     enum Constants {
         static let closeImage = AssetSymbol.Service.Outline.close.image
         static let maxHeight: CGFloat = LayoutGrid.halfModule * 33
@@ -129,10 +131,11 @@ public struct ToastView: View {
     let closeView: () -> (AnyView?)
     
     // MARK: - Private Properties
-    
+
+    private var accessibilityIdentifier: String?
+
     @State private var scheme: ToastViewScheme? = nil
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ToastViewScheme>()
-    private var accessibilityIdentifier: String?
     
     // MARK: - Initializer
     
@@ -159,7 +162,8 @@ public struct ToastView: View {
         closeAction: (() -> ())? = nil,
         imageAction: (() -> ())? = nil,
         @ViewBuilder closeView: @escaping () -> (T?) = { return nil },
-        type: ToastViewType = .default
+        type: ToastViewType = .default,
+        scheme: ToastViewScheme? = nil
     ) {
         self.accessibilityIdentifier = accessibilityIdentifier
         self.title = title
@@ -187,6 +191,7 @@ public struct ToastView: View {
         self.closeAction = closeAction
         self.type = type
         self.closeView = { return closeView()?.eraseToAnyView() }
+        self.scheme = scheme
     }
     
     public init(
@@ -199,7 +204,8 @@ public struct ToastView: View {
         accessibilityIdentifier: String? = nil,
         closeAction: (() -> ())? = nil,
         imageAction: (() -> ())? = nil,
-        type: ToastViewType = .default
+        type: ToastViewType = .default,
+        scheme: ToastViewScheme? = nil
     ) {
         self.accessibilityIdentifier = accessibilityIdentifier
         self.title = title
@@ -227,6 +233,7 @@ public struct ToastView: View {
         self.closeAction = closeAction
         self.type = type
         self.closeView = { return nil }
+        self.scheme = scheme
     }
     
     public init<T: View>(
@@ -237,7 +244,8 @@ public struct ToastView: View {
         accessibilityIdentifier: String? = nil,
         closeAction: (() -> ())? = nil,
         @ViewBuilder closeView: @escaping () -> (T?) = { return nil },
-        type: ToastViewType = .default
+        type: ToastViewType = .default,
+        scheme: ToastViewScheme? = nil
     ) {
         self.accessibilityIdentifier = accessibilityIdentifier
         self.title = title
@@ -251,8 +259,11 @@ public struct ToastView: View {
         self.imageAction = nil
         self.type = type
         self.closeView = { return closeView()?.eraseToAnyView() }
+        self.scheme = scheme
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         HStack(alignment: .top, spacing: 0.0) {

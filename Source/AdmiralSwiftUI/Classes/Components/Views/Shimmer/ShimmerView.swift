@@ -7,17 +7,39 @@
 
 import SwiftUI
 
+/**
+ ShimmerModifier -  modifier for set shimmer view.
+
+ You can create a ShimmerModifier with the zero frame rectangle by specifying the following parameters in init:
+ - isActive: Bool - the active flag of ShimmerModifier
+ - cornerRadius: CGFloat - The corner radius of ShimmerModifier
+
+ ## Example to create ShimmerModifier
+ # Code
+ ```
+HStack {
+
+}.modifier(ShimmerModifier(isActive: true, cornerRadius: 12))
+```
+ */
 /// Shimmer modifier for set shimmer view.
 @available(iOS 14.0.0, *)
 public struct ShimmerModifier: ViewModifier {
-    let isActive: Bool
-    var cornerRadius: CGFloat
-    
-    init(isActive: Bool, cornerRadius: CGFloat) {
+
+    // MARK: - Private Properties
+
+    private let isActive: Bool
+    private let cornerRadius: CGFloat
+
+    // MARK: - Initializer
+
+    public init(isActive: Bool, cornerRadius: CGFloat) {
         self.isActive = isActive
         self.cornerRadius = cornerRadius
     }
-    
+
+    // MARK: - Body
+
     public func body(content: Content) -> Self.Body {
         guard isActive else { return AnyView(content) }
         return AnyView(

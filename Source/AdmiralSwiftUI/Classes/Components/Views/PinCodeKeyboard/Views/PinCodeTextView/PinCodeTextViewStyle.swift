@@ -10,12 +10,32 @@ import Combine
 import AdmiralTheme
 import AdmiralUIResources
 
+/**
+ PinCodeTextViewStyle - the button style that creates PinCodeTextView.
+
+ ## Example to create PinCodeTextViewStyle:
+ # Code
+ ```
+ Button(action: {}, label: {})
+    .buttonStyle(PinCodeNumberViewStyle())
+ ```
+*/
 @available(iOS 14.0.0, *)
-struct PinCodeTextViewStyle: ButtonStyle {
-    
+public struct PinCodeTextViewStyle: ButtonStyle {
+
+    // MARK: - Properties
+
     @State private var scheme: PinCodeTextViewScheme? = nil
     @ObservedObject var schemeProvider = AppThemeSchemeProvider<PinCodeTextViewScheme>()
-    
+
+    // MARK: - Initializer
+
+    public init(scheme: PinCodeTextViewScheme? = nil) {
+        self.scheme = scheme
+    }
+
+    // MARK: - Body
+
     public func makeBody(configuration: Self.Configuration) -> some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         PinCodeTextView(configuration: configuration, scheme: scheme)

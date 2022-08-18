@@ -9,10 +9,17 @@ import AdmiralTheme
 import AdmiralUIResources
 
 public struct ActivityIndicatorScheme: AppThemeScheme {
-    
+
+    // MARK: - Properties
+
+    /// The background color of ActivityIndicator
     public var backgroundDefaultColor = ControlParameter<AColor>()
+
+    /// The background constant color of ActivityIndicator
     public var backgroundConstrastColor = ControlParameter<AColor>()
-    
+
+    // MARK: - Initializer
+
     public init(theme: AppTheme) {
         let alpha = theme.colors.disabledAlpha
         

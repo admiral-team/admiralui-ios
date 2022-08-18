@@ -42,16 +42,19 @@ public enum ChatBubbleStatusStyle: Int {
 public struct ChatBubbleStatusView: View {
     
     // MARK: - Public Properties
-    
+
+    /// The time of ChatBubbleStatusView
     @State public var time: String
-    
+
+    /// The status of ChatBubbleStatusView
     @State public var status: ChatStatus?
-    
+
+    /// The direction of ChatBubbleStatusView
     @State public var direction: ChatDirection
 
+    /// The style of ChatBubbleStatusView
     @State public var style: ChatBubbleStatusStyle
 
-    
     // MARK: - Private Properties
     
     @State private var scheme: ChatBubbleStatusViewScheme? = nil
@@ -63,14 +66,18 @@ public struct ChatBubbleStatusView: View {
         time: String,
         status: ChatStatus? = nil,
         direction: ChatDirection,
-        style: ChatBubbleStatusStyle = .default
+        style: ChatBubbleStatusStyle = .default,
+        scheme: ChatBubbleStatusViewScheme? = nil
     ) {
         self._time = .init(initialValue: time)
         self._status = .init(initialValue: status)
         self._direction = .init(initialValue: direction)
         self._style = .init(initialValue: style)
+        self.scheme = scheme
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         var image: Image?

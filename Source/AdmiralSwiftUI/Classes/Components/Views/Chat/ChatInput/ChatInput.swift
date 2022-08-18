@@ -49,7 +49,9 @@ import SwiftUI
 */
 @available(iOS 14.0, *)
 public struct ChatInput: View, AccessabilitySupportUIKit {
-    
+
+    // MARK: - Constants
+
     enum Constants {
         static let maxHeightInput: CGFloat = 306.0
         static let lineSpacing = LayoutGrid.halfModule
@@ -140,7 +142,8 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
         isSendButtonDisabled: Bool? = nil,
         maxNumberOfLines: Int? = nil,
         maxHeight: CGFloat? = nil,
-        onCursorPosition: ((Int, Int, String) -> (Int))? = nil
+        onCursorPosition: ((Int, Int, String) -> (Int))? = nil,
+        scheme: ChatInputScheme? = nil
     ) {
         self._content = Binding(get: {
             if let value = value.wrappedValue {
@@ -167,7 +170,7 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
         self.isSendButtonDisabled = isSendButtonDisabled
         self.onCursorPosition = onCursorPosition
         self.canPerformActionPaste = canPerformActionPaste
-
+        self.scheme = scheme
         updateMaxHeight(maxNumberOfLines: maxNumberOfLines, maxHeight: maxHeight)
     }
     
@@ -189,7 +192,8 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
         isSendButtonDisabled: Bool? = nil,
         maxNumberOfLines: Int? = nil,
         maxHeight: CGFloat? = nil,
-        onCursorPosition: ((Int, Int, String) -> (Int))? = nil
+        onCursorPosition: ((Int, Int, String) -> (Int))? = nil,
+        scheme: ChatInputScheme? = nil
     ) {
         self.init(
             value: content,
@@ -208,10 +212,13 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
             isSendButtonDisabled: isSendButtonDisabled,
             maxNumberOfLines: maxNumberOfLines,
             maxHeight: maxHeight,
-            onCursorPosition: onCursorPosition
+            onCursorPosition: onCursorPosition,
+            scheme: scheme
         )
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         let scheme = scheme ?? schemeProvider.scheme
         

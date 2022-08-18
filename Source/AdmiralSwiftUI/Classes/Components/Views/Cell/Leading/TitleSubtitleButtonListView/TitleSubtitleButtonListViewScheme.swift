@@ -9,20 +9,48 @@ import AdmiralTheme
 import AdmiralUIResources
 
 public struct TitleSubtitleButtonListViewScheme: AppThemeScheme {
-    
+
+    // MARK: - Properties
+
+    /// The background color of TitleSubtitleButtonListView
     public var backgroundColor = ControlParameter<AColor>()
+
+    /// The title label color of TitleSubtitleButtonListView
     public var titleLabelTextColor = ControlParameter<AColor>()
+
+    /// The subtitle color of TitleSubtitleButtonListView
     public var subtitleTagLabelTextColor = ControlParameter<AColor>()
+
+    /// The button title color of TitleSubtitleButtonListView
     public var buttonTitleColor = ControlParameter<AColor>()
+
+    /// The subtitle color of TitleSubtitleButtonListView
     public var subtitleLabelTextColor = ControlParameter<AColor>()
+
+    /// The tag view backgorund color of TitleSubtitleButtonListView
     public var tagViewBackgroundColor = ControlParameter<AColor>()
-    
+
+    /// The title font color of TitleSubtitleButtonListView
     public var titleFont: AFont
+
+    /// The  title font of TitleSubtitleButtonListView
     public var subtitleTagFont: AFont
+
+    /// The  title font of TitleSubtitleButtonListView
     public var subtitleFont: AFont
+
+    /// The tag view font color of TitleSubtitleButtonListView
     public var tagViewFont: AFont
+
+    /// The ghost button font color of TitleSubtitleButtonListView
     public var ghostButtonFont: AFont
-    
+
+    // MARK: - Initializer
+
+    public init() {
+        self.init(theme: AppTheme.default)
+    }
+
     public init(theme: AppTheme) {
         let alpha = theme.colors.disabledAlpha
 

@@ -9,12 +9,32 @@ import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
 
+/**
+ PinCodeNumberViewStyle - the button style that creates PinCodeNumberView.
+
+ ## Example to create PinCodeNumberViewStyle:
+ # Code
+ ```
+ Button(action: {}, label: {})
+    .buttonStyle(PinCodeNumberViewStyle())
+ ```
+*/
 @available(iOS 14.0.0, *)
-struct PinCodeNumberViewStyle: ButtonStyle {
-    
+public struct PinCodeNumberViewStyle: ButtonStyle {
+
+    // MARK: - Properties
+
     @State private var scheme: PinCodeNumberViewScheme? = nil
     @ObservedObject var schemeProvider = AppThemeSchemeProvider<PinCodeNumberViewScheme>()
-    
+
+    // MARK: - Initializer
+
+    public init(scheme: PinCodeNumberViewScheme? = nil) {
+        self.scheme = scheme
+    }
+
+    // MARK: - Body
+
     public func makeBody(configuration: Self.Configuration) -> some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         PinCodeNumberView(configuration: configuration, scheme: scheme)
@@ -37,7 +57,7 @@ private extension PinCodeNumberViewStyle {
         
         var body: some View {
             configuration.label
-                .font(scheme.textFont)
+                .font(scheme.textFont.swiftUIFont)
                 .foregroundColor(scheme.textColor.swiftUIColor)
                 .frame(width: 60, height: 60)
                 .background(

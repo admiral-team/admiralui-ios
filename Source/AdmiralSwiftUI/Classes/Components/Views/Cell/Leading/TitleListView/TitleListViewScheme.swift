@@ -11,12 +11,24 @@ import AdmiralUIResources
 
 @available(iOS 14.0.0, *)
 public struct TitleListViewScheme: AppThemeScheme {
-    
+
+    // MARK: - Properties
+
+    /// The background color of TitleListViewScheme
     public var backgroundColor = ControlParameter<AColor>()
+
+    /// The text color  of TitleListViewScheme
     public var textColor = TitleListViewParameters<AColor>()
-    
+
+    /// The title font  of TitleListViewScheme
     public var titleFont = TitleListViewParameters<AFont>()
-    
+
+    // MARK: - Initializer
+
+    public init() {
+        self.init(theme: AppTheme.default)
+    }
+
     public init(theme: AppTheme) {
         let alpha = theme.colors.disabledAlpha
 

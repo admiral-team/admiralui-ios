@@ -22,7 +22,6 @@ struct UIKitPickerView: UIViewRepresentable {
     var heightPicker: CGFloat = LayoutGrid.doubleModule * 14
     var widthPicker: CGFloat
 
-    
     // MARK: - Internal Methods
 
     func makeCoordinator() -> UIKitPickerView.Coordinator {
@@ -56,7 +55,7 @@ struct UIKitPickerView: UIViewRepresentable {
     
     // MARK: - Coordinator
 
-    class Coordinator: NSObject, UIPickerViewDataSource, UIPickerViewDelegate {
+    final class Coordinator: NSObject, UIPickerViewDataSource, UIPickerViewDelegate {
         var data: [[String]]
         @Binding var selections: [Int]
         var textColor: UIColor

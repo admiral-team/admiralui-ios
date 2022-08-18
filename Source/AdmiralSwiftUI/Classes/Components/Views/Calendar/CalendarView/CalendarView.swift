@@ -141,7 +141,9 @@ public struct CalendarView: View {
         self.type = type
         self.pointDates = pointDates
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         switch type {
         case .horizontal:

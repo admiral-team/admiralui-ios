@@ -57,7 +57,10 @@ public struct LinkView: View {
                     Spacer()
                 }
         })
-        .configCell(minHeight: TextBlockStyle.link.minHeight, edgeInsets: TextBlockStyle.link.edgeInsets)
+        .configCell(
+            minHeight: TextBlockStyle.link.minHeight,
+            edgeInsets: TextBlockStyle.link.edgeInsets
+        )
     }
 }
 

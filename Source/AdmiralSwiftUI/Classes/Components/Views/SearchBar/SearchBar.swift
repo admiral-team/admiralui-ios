@@ -49,7 +49,9 @@ import SwiftUI
 /// A specialized view for receiving search-related information from the user.
 @available(iOS 14.0, *)
 public struct SearchBar: View, AccessabilitySupportUIKit {
-    
+
+    // MARK: - Constants
+
     enum Constants {
         static let closeImage = Asset.Service.Solid.closeSolid.image
     }
@@ -83,6 +85,7 @@ public struct SearchBar: View, AccessabilitySupportUIKit {
     
     @State private var scheme: SearchBarColorScheme? = nil
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SearchBarColorScheme>()
+
     private var accessibilityIdentifier: String?
     
     // MARK: - Initializer
@@ -104,17 +107,22 @@ public struct SearchBar: View, AccessabilitySupportUIKit {
         autocorrectionType: UITextAutocorrectionType = .no,
         isResponder: Binding<Bool>? = nil,
         placeholder: String = "",
-        searchImage: SwiftUI.Image? = AssetSymbol.System.Outline.search.image) {
-            self._content = content
-            self.contentType = contentType
-            self.returnKeyType = returnKeyType
-            self.autocapitalizationType = autocapitalizationType
-            self.autocorrectionType = autocorrectionType
-            self.isResponder = isResponder
-            self.placeholder = placeholder
-            self.searchImage = searchImage
-        }
-    
+        searchImage: SwiftUI.Image? = AssetSymbol.System.Outline.search.image,
+        scheme: SearchBarColorScheme? = nil
+    ) {
+        self._content = content
+        self.contentType = contentType
+        self.returnKeyType = returnKeyType
+        self.autocapitalizationType = autocapitalizationType
+        self.autocorrectionType = autocorrectionType
+        self.isResponder = isResponder
+        self.placeholder = placeholder
+        self.searchImage = searchImage
+        self.scheme = scheme
+    }
+
+    // MARK: - Body
+
     public var body: some View {
         let style = scheme ?? schemeProvider.scheme
         

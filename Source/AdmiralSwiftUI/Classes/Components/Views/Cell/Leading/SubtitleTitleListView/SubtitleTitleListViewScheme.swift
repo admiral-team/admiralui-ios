@@ -10,14 +10,30 @@ import AdmiralUIResources
 
 @available(iOS 14.0, *)
 public struct SubtitleTitleListViewScheme: AppThemeScheme {
-    
+
+    // MARK: - Properties
+
+    /// The background color of SubtitleTitleListViewScheme
     public var backgroundColor = ControlParameter<AColor>()
+
+    /// The title color of SubtitleTitleListViewScheme
     public var titleColor = ControlParameter<AColor>()
+
+    /// The subtitle color of SubtitleTitleListViewScheme
     public var subtitleColor = ControlParameter<AColor>()
-    
+
+    /// The title font of SubtitleTitleListViewScheme
     public var titleFont = TitleSubtitleListViewParameters<AFont>()
+
+    /// The subtitle font of SubtitleTitleListViewScheme
     public var subtitleFont = TitleSubtitleListViewParameters<AFont>()
-    
+
+    // MARK: - Initializer
+
+    public init() {
+        self.init(theme: AppTheme.default)
+    }
+
     public init(theme: AppTheme) {
         let alpha = theme.colors.disabledAlpha
 

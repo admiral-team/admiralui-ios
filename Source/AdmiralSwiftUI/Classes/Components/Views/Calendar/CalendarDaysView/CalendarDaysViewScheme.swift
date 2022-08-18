@@ -9,13 +9,28 @@ import AdmiralTheme
 import AdmiralUIResources
 
 public struct CalendarViewCellColorScheme: AppThemeScheme {
-    
+
+    // MARK: - Properties
+
+    /// The background color of  CalendarViewCell
     public var backgroundColors = CalendarParameters<AColor>()
+
+    /// The text background color of  CalendarViewCell
     public var textColors = CalendarParameters<AColor>()
+
+    /// The selected color of  CalendarViewCell
     public var selectedBackgroundColors = CalendarParameters<AColor>()
+
+    /// The border color of  CalendarViewCell
     public var borderColors = CalendarParameters<AColor>()
+
+    /// The title label color of  CalendarViewCell
     public var titleLabelFont: AFont
+
+    /// The day point color of  CalendarViewCell
     public var dayPointColor: AColor
+
+    // MARK: - Initializer
 
     public init(theme: AppTheme) {
         let alpha = theme.colors.disabledAlpha

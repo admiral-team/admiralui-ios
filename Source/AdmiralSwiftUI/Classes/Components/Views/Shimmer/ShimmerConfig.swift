@@ -41,7 +41,8 @@ public class ShimmerConfig: ObservableObject {
         theme: AppTheme,
         shimmerAngle: Double = 0,
         shimmerDuration: TimeInterval = 2,
-        shimmerDelay: TimeInterval = 1) {
+        shimmerDelay: TimeInterval = 1
+    ) {
 
         self.bgColor = theme.colors.backgroundAdditionalOne.swiftUIColor
         self.shimmerColor = theme.colors.elementStaticWhite.swiftUIColor
@@ -70,7 +71,8 @@ public class ShimmerConfig: ObservableObject {
                 shimmerColor: Color,
                 shimmerAngle: Double = 0,
                 shimmerDuration: TimeInterval = 2,
-                shimmerDelay: TimeInterval = 1) {
+                shimmerDelay: TimeInterval = 1
+    ) {
         self.bgColor = bgColor
         self.shimmerColor = shimmerColor
         self.shimmerAngle = shimmerAngle

@@ -10,11 +10,6 @@ import SwiftUI
 
 @available(iOS 14.0.0, *)
 public struct CalendarDaysView: View {
-    
-    // MARK: - Internal Properties
-    
-    @State private var scheme: CalendarViewCellColorScheme? = nil
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<CalendarViewCellColorScheme>()
 
     // MARK: - Private Properties
     
@@ -26,7 +21,10 @@ public struct CalendarDaysView: View {
     private var date: Date
     private var notActiveAfterDate: Date?
     private var pointDates: [Date]
-    
+
+    @State private var scheme: CalendarViewCellColorScheme? = nil
+    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<CalendarViewCellColorScheme>()
+
     // MARK: - Initializer
     
     public init(
@@ -35,14 +33,19 @@ public struct CalendarDaysView: View {
         startDate: Binding<Date?>,
         endDate: Binding<Date?>,
         notActiveAfterDate: Date?,
-        pointDates: [Date]) {
+        pointDates: [Date],
+        scheme: CalendarViewCellColorScheme? = nil
+    ) {
         self.date = date
         self._isMutlipleSelectionAllowed = .init(initialValue: isMutlipleSelectionAllowed)
         self._startDate = startDate
         self._endDate = endDate
         self.pointDates = pointDates.map( { $0.removeTimeStamp() })
         self.notActiveAfterDate = notActiveAfterDate
+        self.scheme = scheme
     }
+
+    // MARK: - Body
     
     public var body: some View {
         let grid = [

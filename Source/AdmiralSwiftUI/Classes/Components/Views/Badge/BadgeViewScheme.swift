@@ -9,13 +9,23 @@ import AdmiralTheme
 import AdmiralUIResources
 
 public struct BadgeViewScheme: AppThemeScheme {
-    
+
+    // MARK: - Properties
+
+    /// The font of BadgeView
     public var font: AFont
+
+    /// The border color  of BadgeView
     public var borderColor: AColor
-    
+
+    /// The text color of BadgeView
     public var textColor = BadgeParameters<AColor>()
+
+    /// The background color of BadgeView
     public var backgroundColor = BadgeParameters<AColor>()
-    
+
+    // MARK: - Initializer
+
     public init(theme: AppTheme) {
         font = theme.fonts.caption2
         borderColor = theme.colors.backgroundBasic

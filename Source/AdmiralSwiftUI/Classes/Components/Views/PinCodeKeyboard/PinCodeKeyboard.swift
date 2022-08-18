@@ -48,18 +48,9 @@ enum PinCodeButtonType {
  */
 @available(iOS 14.0, *)
 public struct PinCodeKeyboard: View {
-    
-    // MARK: - Private Properties
-    
-    @State private var scheme: PinCodeTextViewScheme? = nil
-    
-    private var rightButtonImage: Image
-    private var leftButtonTitle: String
-    private let didTapNumber: (Int) -> ()
-    private let didTapLeftButton: () -> ()
-    private let didTapRightButton: () -> ()
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<PinCodeTextViewScheme>()
-    
+
+    // MARK: - Constants
+
     private enum Constants {
         static let keyboardInsets: EdgeInsets = EdgeInsets(
             top: 0,
@@ -69,6 +60,17 @@ public struct PinCodeKeyboard: View {
         static let keyboardWidth: CGFloat = 270.0
         static let keyboardHeight: CGFloat = 288.0
     }
+
+    // MARK: - Private Properties
+    
+    private var rightButtonImage: Image
+    private var leftButtonTitle: String
+    private let didTapNumber: (Int) -> ()
+    private let didTapLeftButton: () -> ()
+    private let didTapRightButton: () -> ()
+
+    @State private var scheme: PinCodeTextViewScheme? = nil
+    @ObservedObject var schemeProvider = AppThemeSchemeProvider<PinCodeTextViewScheme>()
     
     // MARK: - Initializer
     
@@ -84,13 +86,19 @@ public struct PinCodeKeyboard: View {
         rightButtonImage: Image = AssetSymbol.Security.Outline.faceID.image,
         didTapNumber: @escaping (Int) -> (),
         didTapLeftButton: @escaping () -> (),
-        didTapRightButton: @escaping () -> ()) {
+        didTapRightButton: @escaping () -> (),
+        scheme: PinCodeTextViewScheme? = nil
+    ) {
         self.leftButtonTitle = leftButtonTitle
         self.rightButtonImage = rightButtonImage
         self.didTapNumber = didTapNumber
         self.didTapLeftButton = didTapLeftButton
         self.didTapRightButton = didTapRightButton
+        self.scheme = scheme
     }
+
+
+    // MARK: - Body
     
     public var body: some View {
         let numbers: [[Int]] = numbers()

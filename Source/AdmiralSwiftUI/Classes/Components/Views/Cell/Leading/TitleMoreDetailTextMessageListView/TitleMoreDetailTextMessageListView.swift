@@ -94,7 +94,9 @@ public struct TitleMoreDetailTextMessageListView: View, LeadingListViewComponent
         subtitle: String? = nil,
         tagText: String? = nil,
         messageText: String? = nil,
-        infoImage: Image? = nil) {
+        infoImage: Image? = nil,
+        scheme: TitleMoreDetailTextMessageListViewScheme? = nil
+    ) {
         self._title = Binding(get: { return title }, set: { _ in })
         self._more = Binding(get: { return more }, set: { _ in })
         self._detaile = Binding(get: { return detaile }, set: { _ in })
@@ -103,8 +105,11 @@ public struct TitleMoreDetailTextMessageListView: View, LeadingListViewComponent
         self._tagText = Binding(get: { return tagText }, set: { _ in })
         self._messageText = Binding(get: { return messageText }, set: { _ in })
         self._infoImage = Binding(get: { return infoImage }, set: { _ in })
+        self.scheme = scheme
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         VStack(alignment: .leading, spacing: LayoutGrid.module) {
