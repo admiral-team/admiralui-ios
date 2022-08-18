@@ -197,7 +197,6 @@ open class ChatInputView: TextViewInput, AnyAppThemable, AccessibilitySupport {
 
     override func commonInit() {
         super.commonInit()
-        autoManage()
         addSubviews()
         setupContraints()
         configureUI()

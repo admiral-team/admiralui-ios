@@ -65,6 +65,7 @@ final class ChatMessageCell: UITableViewCell, AnyAppThemable {
 
     func apply(theme: AppTheme) {
         scheme = ChatMessageCellScheme(theme: theme)
+        testChatBubble.apply(theme: theme)
     }
 
     // MARK: - Initializers
