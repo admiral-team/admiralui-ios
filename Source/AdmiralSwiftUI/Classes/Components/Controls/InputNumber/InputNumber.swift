@@ -33,7 +33,7 @@ import AdmiralUIResources
 @available(iOS 14.0, *)
 /// An object that displays an editable text area with incrementing or decrementing a value.
 public struct InputNumber: View {
-    
+
     enum Constants {
         static let height: CGFloat = LayoutGrid.module * 6
         static let buttonHeight: CGFloat = LayoutGrid.module * 5
@@ -41,56 +41,56 @@ public struct InputNumber: View {
         static let titleHeight: CGFloat = LayoutGrid.halfModule * 5
         static let tick: TimeInterval = 0.25
         static let countTick: Float = 0.25
-        
+
         static let firstStepMultiplier: Double = 5
         static let secondStepMultiplier: Double = 10
         static let thirdStepMultiplier: Double = 100
-        
+
         enum TitleLabel {
             static let defaultWidth: CGFloat = 48.0
             static let maxWidth: CGFloat = 102.0
         }
     }
-    
+
     // MARK: - Internal Properties
-    
+
     @Environment(\.isEnabled) var isEnabled
-    
+
     @State var isMinusPressing = false
     @State var isPlusPressing = false
-    
+
     // MARK: - Private Properties
-    
+
     @Binding private var titleText: String?
-    
+
     /// The numeric value of the stepper.
     @Binding private var value: Double
-    
+
     /// The lowest possible numeric value for the stepper.
     @Binding private var minimumValue: Double
-    
+
     /// The highest possible numeric value for the stepper.
     @Binding private var maximumValue: Double
-    
+
     /// The step, or increment, value for the stepper. The default value for this property is 1.
     @Binding private var stepValue: Double
-    
-    @State private var scheme: InputNumberScheme? = nil
+
+    @Binding private var scheme: InputNumberScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<InputNumberScheme>()
-    
+
     @State private var valueText: String?
-    
+
     @State private var isMinusButtonDisabled: Bool = false
     @State private var isPlusButtonDisabled: Bool = false
-    
+
     @State private var inputStepValue: Double = 1.0
     @State private var timer: Timer?
     @State private var runCount: Float = 0
-    
+
     @State private var segmentSize: CGSize = .zero
-    
+
     // MARK: - Initializer
-    
+
     /// Initializes and returns a newly allocated input number object.
     /// - Parameters:
     ///   - titleText: Leading text.
@@ -103,17 +103,22 @@ public struct InputNumber: View {
         value: Binding<Double>,
         minimumValue: Binding<Double> = .constant(0.0),
         maximumValue: Binding<Double> = .constant(.infinity),
-        stepValue: Binding<Double> = .constant(1.0)) {
+        stepValue: Binding<Double> = .constant(1.0),
+        scheme: Binding<InputNumberScheme?> = .constant(nil)
+    ) {
         self._titleText = titleText
         self._value = value
         self._minimumValue = minimumValue
         self._maximumValue = maximumValue
         self._stepValue = stepValue
+        self._scheme = scheme
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
-        
+
         ZStack(alignment: .leading) {
             HStack(spacing: 0.0) {
                 Text(titleText ?? "")
@@ -175,8 +180,8 @@ public struct InputNumber: View {
                     }
                 }
                 .disabled(isPlusButtonDisabled)
-                
-                
+
+
             }
             .frame(height: Constants.height)
             .onAppear(perform: {
@@ -184,21 +189,21 @@ public struct InputNumber: View {
             })
         }
     }
-    
+
     // MARK: - Internal Methods
-    
+
     func runTimedMinusCode() {
         setStepValue()
         tapMinus()
     }
-    
+
     func runTimedPlusCode() {
         setStepValue()
         tapPlus()
     }
-    
+
     // MARK: - Private Methods
-    
+
     private func setStepValue() {
         runCount += Constants.countTick
         if runCount < Constants.countTick * 5 {
@@ -211,7 +216,7 @@ public struct InputNumber: View {
             inputStepValue = stepValue * Constants.thirdStepMultiplier
         }
     }
-    
+
     private func tapMinus() {
         if value - inputStepValue <= minimumValue {
             value = minimumValue
@@ -222,7 +227,7 @@ public struct InputNumber: View {
         isPlusButtonDisabled = false
         updateValueState()
     }
-    
+
     private func tapPlus() {
         if value + inputStepValue >= maximumValue {
             value = maximumValue
@@ -233,15 +238,15 @@ public struct InputNumber: View {
         isMinusButtonDisabled = false
         updateValueState()
     }
-    
+
     private func updateValueState() {
         let formatter = NumberFormatter()
         formatter.minimumFractionDigits = 0
         formatter.maximumFractionDigits = 2
-        
+
         valueText = formatter.string(from: NSNumber(value: value)) ?? ""
     }
-    
+
     private func setInitialNumberValue() {
         if value >= maximumValue {
             value = maximumValue
@@ -252,22 +257,22 @@ public struct InputNumber: View {
         }
         updateValueState()
     }
-    
+
     private func finishTimer() {
         timer?.invalidate()
         timer = nil
         runCount = 0
         inputStepValue = stepValue
     }
-    
+
 }
 
 @available(iOS 14.0, *)
 struct InputNumber_Previews: PreviewProvider {
     @State static var value: Double = 10.0
-    
+
     static var previews: some View {
         InputNumber(titleText: .constant("Optional text"), value: .constant(10), minimumValue: .constant(5.0))
-            
+
     }
 }

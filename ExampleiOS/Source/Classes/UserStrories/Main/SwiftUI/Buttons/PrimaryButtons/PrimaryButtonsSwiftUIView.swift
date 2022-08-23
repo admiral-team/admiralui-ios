@@ -37,10 +37,10 @@ struct PrimaryButtonsSwiftUIView: View {
                     .frame(height: 44.0)
                 
                 VStack(alignment: .leading, spacing: 16.0) {
-                    TwoTitlePrimaryButton(leftText: "08.06.20 — 14.08.20", rightText: "Выбрать", action: {})
+                    Button(action: {}, label: {})
+                        .buttonStyle(TwoTitlePrimaryButtonStyle(leftText: "08.06.20 — 14.08.20", rightText: "Выбрать"))
                         .frame(height: LayoutGrid.doubleModule * 3)
                         .disabled(isEnabledControlsState != 0)
-                    
                     createBigButton()
                     createMediumButton()
                     createSmallButton()
