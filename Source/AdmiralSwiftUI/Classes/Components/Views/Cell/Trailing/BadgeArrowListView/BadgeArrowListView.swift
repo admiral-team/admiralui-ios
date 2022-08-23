@@ -89,7 +89,7 @@ public struct BadgeArrowListView: View, TralingListViewComponent {
         HStack(spacing: Constants.cellItemsSpacing) {
             Spacer()
             BadgeView(badgeStyle: badgeStyle, text: textForBadge())
-                .scheme(scheme.badgeViewScheme)
+                .scheme(.constant(scheme.badgeViewScheme))
                 .fixedSize()
             Image(uiImage: AdmiralUIResources.PrivateAsset.Custom.Cell.arrow.image)
                 .frame(width: LayoutGrid.module, height: LayoutGrid.doubleModule)

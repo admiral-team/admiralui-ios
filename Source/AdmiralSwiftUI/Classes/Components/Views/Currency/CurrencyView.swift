@@ -10,7 +10,7 @@ import AdmiralTheme
 import AdmiralUIResources
 /**
  CurrencyCellType - Public enum for type CurrencyCell
- 
+
  CurrencyCellType can be one of the following values:
  - arrowUp - Cell with ArrowUp Image.
  - arrowDown - Cell with ArrowDown Image.
@@ -40,7 +40,7 @@ public enum CurrencyCellType {
  - image: Image? - The image that the image view displays.
  - firstCellType: CurrencyCellType - A value that configures style of buy price.
  - secondCellType: CurrencyCellType - A value that configures style of sell price.
- 
+
  - CurrencyCellType - The style of currency cell. Can be: arrowUp (cell with ArrowDown Image), arrowDown (cell without image. There is an indent from the right edge), empty (cell without image. The position of the cell is at the right edge), none
 
  ## Example to create CurrencyView
@@ -59,32 +59,32 @@ public enum CurrencyCellType {
 /// The view for display currency.
 @available(iOS 14.0.0, *)
 public struct CurrencyView: View {
-    
+
     /// The text that the currency label displays.
     @Binding public var currencyText: String
-    
+
     /// The text that the buy label displays.
     @Binding public var buyText: String
-    
+
     /// The text that the sell label displays.
     @Binding public var sellText: String
-    
+
     /// The image that the image view displays.
     @Binding public var image: Image?
-    
+
     /// A value that configures style of buy price.
     @Binding public var firstCellType: CurrencyCellType
-    
+
     /// A value that configures style of sell price.
     @Binding public var secondCellType: CurrencyCellType
-    
+
     // MARK: Internal Properties
-    
-    @State private var scheme: CurrencyViewScheme? = nil
+
+    @Binding private var scheme: CurrencyViewScheme?
     @ObservedObject var schemeProvider = AppThemeSchemeProvider<CurrencyViewScheme>()
 
     // MARK: - Initializer
-    
+
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     public init(
         currencyText: String,
@@ -92,7 +92,8 @@ public struct CurrencyView: View {
         sellText: String,
         image: Image? = nil,
         firstCellType: CurrencyCellType = .none,
-        secondCellType: CurrencyCellType = .none
+        secondCellType: CurrencyCellType = .none,
+        scheme: Binding<CurrencyViewScheme?> = .constant(nil)
     ) {
         self._currencyText = Binding(get: { return currencyText }, set: { _ in})
         self._buyText = Binding(get: { return buyText }, set: { _ in})
@@ -100,6 +101,7 @@ public struct CurrencyView: View {
         self._image = Binding(get: { return image }, set: { _ in })
         self._firstCellType = Binding(get: { return firstCellType }, set: { _ in })
         self._secondCellType = Binding(get: { return secondCellType }, set: { _ in })
+        self._scheme = scheme
     }
 
     // MARK: - Layout
@@ -115,17 +117,17 @@ public struct CurrencyView: View {
             quotationView(text: sellText, cellType: secondCellType, scheme: scheme)
         }
     }
-    
+
     // MARK: - Internal Methods
-    
-    func scheme(_ scheme: CurrencyViewScheme) -> some View {
+
+    func scheme(_ scheme: Binding<CurrencyViewScheme?>) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = scheme
         return view.id(UUID())
     }
-    
+
     // MARK: - Private Methods
-    
+
     private func currencyView(scheme: CurrencyViewScheme) -> some View {
         if let image = image {
             return HStack(alignment: .center, spacing: LayoutGrid.halfModule * 3, content: {
@@ -144,7 +146,7 @@ public struct CurrencyView: View {
                 .eraseToAnyView()
         }
     }
-    
+
     private func quotationView(text: String, cellType: CurrencyCellType, scheme: CurrencyViewScheme) -> some View {
         HStack(alignment: .center, spacing: .zero, content: {
             switch cellType {
@@ -178,7 +180,7 @@ public struct CurrencyView: View {
             .foregroundColor(scheme.imageTintColor.swiftUIColor)
             .frame(width: LayoutGrid.tripleModule, height: LayoutGrid.tripleModule)
     }
-    
+
 }
 
 @available(iOS 14.0, *)

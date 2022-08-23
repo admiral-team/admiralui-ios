@@ -32,32 +32,35 @@ import AdmiralUIResources
 /// The view for display header currency.
 @available(iOS 14.0.0, *)
 public struct CurrencyHeaderView: View {
-    
+
     // MARK: Internal Properties
-    
+
     @State var currencyText: String
     @State var buyText: String
     @State var sellText: String
-    @State var scheme: CurrencyHeaderViewScheme?
 
     // MARK: - Private properties
 
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<CurrencyHeaderViewScheme>()
     private let isTextSpacingEnabled: Bool
 
+    @ObservedObject var schemeProvider = AppThemeSchemeProvider<CurrencyHeaderViewScheme>()
+    @Binding var scheme: CurrencyHeaderViewScheme?
+
     // MARK: - Initializer
-    
+
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     public init(
         currencyText: String,
         buyText: String,
         sellText: String,
-        isTextSpacingEnabled: Bool = false
+        isTextSpacingEnabled: Bool = false,
+        scheme: Binding<CurrencyHeaderViewScheme?> = .constant(nil)
     ) {
         self._currencyText = .init(initialValue: currencyText)
         self._buyText = .init(initialValue: buyText)
         self._sellText = .init(initialValue: sellText)
         self.isTextSpacingEnabled = isTextSpacingEnabled
+        self._scheme = scheme
     }
 
     // MARK: - Layout
@@ -75,18 +78,18 @@ public struct CurrencyHeaderView: View {
         .foregroundColor(scheme.textColor.swiftUIColor)
         .font(scheme.textFont.swiftUIFont)
     }
-    
+
     // MARK: - Internal Methods
-    
-    func scheme(_ scheme: CurrencyHeaderViewScheme) -> some View {
+
+    func scheme(_ scheme: Binding<CurrencyHeaderViewScheme?>) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = scheme
         return view.id(UUID())
     }
 
     // MARK: - Private methods
 
-    @ViewBuilder private func sellLabel(_ scheme: CurrencyHeaderViewScheme) -> some View {
+    @ViewBuilder private func sellLabel(_ scheme: CurrencyHeaderViewScheme?) -> some View {
         Text(sellText)
         if isTextSpacingEnabled {
             Spacer()

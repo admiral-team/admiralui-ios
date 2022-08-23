@@ -7,17 +7,39 @@
 
 import SwiftUI
 
+/**
+ ShimmerModifier -  modifier for set shimmer view.
+
+ You can create a ShimmerModifier with the zero frame rectangle by specifying the following parameters in init:
+ - isActive: Bool - the active flag of ShimmerModifier
+ - cornerRadius: CGFloat - The corner radius of ShimmerModifier
+
+ ## Example to create ShimmerModifier
+ # Code
+ ```
+HStack {
+
+}.modifier(ShimmerModifier(isActive: true, cornerRadius: 12))
+```
+ */
 /// Shimmer modifier for set shimmer view.
 @available(iOS 14.0.0, *)
 public struct ShimmerModifier: ViewModifier {
-    let isActive: Bool
-    var cornerRadius: CGFloat
-    
-    init(isActive: Bool, cornerRadius: CGFloat) {
+
+    // MARK: - Private Properties
+
+    private let isActive: Bool
+    private let cornerRadius: CGFloat
+
+    // MARK: - Initializer
+
+    public init(isActive: Bool, cornerRadius: CGFloat) {
         self.isActive = isActive
         self.cornerRadius = cornerRadius
     }
-    
+
+    // MARK: - Body
+
     public func body(content: Content) -> Self.Body {
         guard isActive else { return AnyView(content) }
         return AnyView(
@@ -28,17 +50,17 @@ public struct ShimmerModifier: ViewModifier {
             )
         )
     }
-    
+
     public typealias Body = AnyView
 }
 
 @available(iOS 14.0.0, *)
 extension View {
-    
+
     public dynamic func shimmer(isActive: Bool, cornerRadius: CGFloat = LayoutGrid.halfModule) -> some View {
         self.modifier(ShimmerModifier(isActive: isActive, cornerRadius: cornerRadius))
     }
-    
+
 }
 
 /**
@@ -52,20 +74,20 @@ extension View {
  */
 @available(iOS 14.0.0, *)
 struct ShimmerView : View {
-    
+
     @EnvironmentObject private var shimmerConfig: ShimmerConfig
-        
+
     var body: some View {
         let startGradient = Gradient.Stop(color: self.shimmerConfig.bgColor, location: 0.3)
         let endGradient = Gradient.Stop(color: self.shimmerConfig.bgColor, location: 0.7)
         let maskGradient = Gradient.Stop(color: self.shimmerConfig.shimmerColor, location: 0.5)
-        
+
         let gradient = Gradient(stops: [startGradient, maskGradient, endGradient])
-        
+
         let linearGradient = LinearGradient(gradient: gradient,
                                             startPoint: .leading,
                                             endPoint: .trailing)
-            
+
         return GeometryReader { geometry in
             ZStack(alignment: .leading) {
                 Rectangle()
@@ -85,7 +107,7 @@ struct ShimmerView : View {
                                 trailing: 0))
         }
     }
-    
+
     func shimmerOffset(_ width: CGFloat) -> CGFloat {
         width + CGFloat(2 * self.shimmerConfig.shimmerAngle)
     }

@@ -11,15 +11,15 @@ import AdmiralUIResources
 
 /**
  ZeroScreenView - the component is used to attract the user's attention as a message. A view with title, subtitle and image.
- 
+
  You can create a ZeroScreenView with the zero frame rectangle by specifying the following parameters in init:
- 
+
  - image: Image - The image displayed in the image view.
  - title: String - The text that the title label displays.
  - subtitle: String - The text that the subtitle label displays.
  - buttonTitle: String - The text that the button displays.
  - isLoadingButton: Binding<Bool> - For button with an activity indicator
- 
+
  ## Example to create ZeroScreenView
  # Code
  ```
@@ -36,38 +36,40 @@ import AdmiralUIResources
  */
 @available(iOS 14.0, *)
 public struct ZeroScreenView: View {
-    
+
+    // MARK: - Constants
+
     private enum Constants {
         static let imageSize = CGFloat(54.0)
     }
 
     // MARK: - Public Properties
-    
+
     /// The image displayed in the image view.
     public var image: Image?
-    
+
     /// The text that the title label displays.
     public var title: String?
-    
+
     /// The text that the subtitle label displays.
     public var subtitle: String?
-    
+
     /// The text that the button displays.
     public var buttonTitle: String?
-    
+
     /// Action button.
     public var buttonAction: () -> ()
-    
+
     /// Flag loading button.
     @Binding  public var isLoadingButton: Bool
-    
+
     // MARK: Internal Properties
 
-    @State var scheme: ZeroScreenViewScheme?
+    @Binding var scheme: ZeroScreenViewScheme?
     @ObservedObject var schemeProvider = AppThemeSchemeProvider<ZeroScreenViewScheme>()
-    
+
     // MARK: - Initializer
-    
+
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     public init(
         image: Image? = nil,
@@ -75,14 +77,19 @@ public struct ZeroScreenView: View {
         subtitle: String? = nil,
         buttonTitle: String? = nil,
         isLoadingButton: Binding<Bool> = .constant(false),
-        buttonAction: @escaping () -> () = {}) {
+        buttonAction: @escaping () -> () = {},
+        scheme: Binding<ZeroScreenViewScheme?> = .constant(nil)
+    ) {
         self.image = image
         self.title = title
         self.subtitle = subtitle
         self.buttonTitle = buttonTitle
         self.buttonAction = buttonAction
         self._isLoadingButton = isLoadingButton
+        self._scheme = scheme
     }
+
+    // MARK: - Body
 
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
@@ -123,15 +130,15 @@ public struct ZeroScreenView: View {
         }
         .padding(.horizontal, LayoutGrid.doubleModule)
     }
-    
+
     // MARK: - Internal Methods
 
-    func scheme(_ scheme: ZeroScreenViewScheme) -> some View {
+    func scheme(_ scheme: Binding<ZeroScreenViewScheme?>) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = scheme
         return view.id(UUID())
     }
-    
+
 }
 
 @available(iOS 14.0, *)
