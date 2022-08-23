@@ -664,8 +664,6 @@
 		C6C7D279265BB2B7006F4106 /* SmallInformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C7D274265BAE7E006F4106 /* SmallInformer.swift */; };
 		C6D5BD64266528FB00437808 /* ToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D5BD602665288D00437808 /* ToolBar.swift */; };
 		C6D5BD65266528FE00437808 /* ToolBarScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D5BD622665289800437808 /* ToolBarScheme.swift */; };
-		C6D5BD6B26655C2100437808 /* ToolBarItemScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D5BD6A26655C2100437808 /* ToolBarItemScheme.swift */; };
-		C6D5BD6D26666FC800437808 /* ToolBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D5BD6C26666FC800437808 /* ToolBarItem.swift */; };
 		C6D5BD7F266A51F400437808 /* PinCodeKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D5BD7E266A51F400437808 /* PinCodeKeyboard.swift */; };
 		C6D5BD83266FF91000437808 /* PinCodeNumberViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D5BD82266FF91000437808 /* PinCodeNumberViewStyle.swift */; };
 		C6DCBFD026316EEA00754365 /* GhostButtonCustomScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DCBFCF26316EEA00754365 /* GhostButtonCustomScheme.swift */; };
@@ -770,6 +768,11 @@
 		E9AA277727637C62007389CA /* ChatBubbleStatusViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AA277127637C62007389CA /* ChatBubbleStatusViewScheme.swift */; };
 		E9AA277B27637C78007389CA /* ChatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AA277927637C78007389CA /* ChatButton.swift */; };
 		E9AA277C27637C78007389CA /* ChatButtonCustomScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AA277A27637C78007389CA /* ChatButtonCustomScheme.swift */; };
+		E9B3BB3F28B55A1A00FD8D9B /* ToolBarItemStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3BB3E28B55A1A00FD8D9B /* ToolBarItemStyle.swift */; };
+		E9B3BB4128B55A2F00FD8D9B /* ToolBarViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3BB4028B55A2F00FD8D9B /* ToolBarViewRouter.swift */; };
+		E9B3BB4328B55A4200FD8D9B /* ToolBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3BB4228B55A4100FD8D9B /* ToolBarItem.swift */; };
+		E9B3BB4528B55A5200FD8D9B /* ToolBarItemSelectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3BB4428B55A5200FD8D9B /* ToolBarItemSelectable.swift */; };
+		E9B3BB4728B55A6400FD8D9B /* ToolBarItemScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3BB4628B55A6400FD8D9B /* ToolBarItemScheme.swift */; };
 		E9B4103828228FB4004DAC6E /* SpinnerAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4103628228FB1004DAC6E /* SpinnerAnimator.swift */; };
 		E9B4D813272FE1DB00B4DA98 /* UploadDocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4D811272FE1CA00B4DA98 /* UploadDocumentView.swift */; };
 		E9B4D816272FFF6200B4DA98 /* UploadDocumentViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4D814272FFF2400B4DA98 /* UploadDocumentViewScheme.swift */; };
@@ -1452,8 +1455,6 @@
 		C6D2BB4D2576AFBF0058E754 /* ToolbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarItem.swift; sourceTree = "<group>"; };
 		C6D5BD602665288D00437808 /* ToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBar.swift; sourceTree = "<group>"; };
 		C6D5BD622665289800437808 /* ToolBarScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarScheme.swift; sourceTree = "<group>"; };
-		C6D5BD6A26655C2100437808 /* ToolBarItemScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarItemScheme.swift; sourceTree = "<group>"; };
-		C6D5BD6C26666FC800437808 /* ToolBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarItem.swift; sourceTree = "<group>"; };
 		C6D5BD7E266A51F400437808 /* PinCodeKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeKeyboard.swift; sourceTree = "<group>"; };
 		C6D5BD82266FF91000437808 /* PinCodeNumberViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeNumberViewStyle.swift; sourceTree = "<group>"; };
 		C6DCBFCF26316EEA00754365 /* GhostButtonCustomScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostButtonCustomScheme.swift; sourceTree = "<group>"; };
@@ -1692,6 +1693,11 @@
 		E9AA277127637C62007389CA /* ChatBubbleStatusViewScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatBubbleStatusViewScheme.swift; sourceTree = "<group>"; };
 		E9AA277927637C78007389CA /* ChatButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatButton.swift; sourceTree = "<group>"; };
 		E9AA277A27637C78007389CA /* ChatButtonCustomScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatButtonCustomScheme.swift; sourceTree = "<group>"; };
+		E9B3BB3E28B55A1A00FD8D9B /* ToolBarItemStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarItemStyle.swift; sourceTree = "<group>"; };
+		E9B3BB4028B55A2F00FD8D9B /* ToolBarViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarViewRouter.swift; sourceTree = "<group>"; };
+		E9B3BB4228B55A4100FD8D9B /* ToolBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarItem.swift; sourceTree = "<group>"; };
+		E9B3BB4428B55A5200FD8D9B /* ToolBarItemSelectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarItemSelectable.swift; sourceTree = "<group>"; };
+		E9B3BB4628B55A6400FD8D9B /* ToolBarItemScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarItemScheme.swift; sourceTree = "<group>"; };
 		E9B4103628228FB1004DAC6E /* SpinnerAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerAnimator.swift; sourceTree = "<group>"; };
 		E9B4D811272FE1CA00B4DA98 /* UploadDocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDocumentView.swift; sourceTree = "<group>"; };
 		E9B4D814272FFF2400B4DA98 /* UploadDocumentViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDocumentViewScheme.swift; sourceTree = "<group>"; };
@@ -4984,10 +4990,9 @@
 		C6D5BD5F2665287200437808 /* ToolBar */ = {
 			isa = PBXGroup;
 			children = (
+				E9B3BB3D28B559FF00FD8D9B /* ToolBarItem */,
 				C6D5BD602665288D00437808 /* ToolBar.swift */,
 				C6D5BD622665289800437808 /* ToolBarScheme.swift */,
-				C6D5BD6C26666FC800437808 /* ToolBarItem.swift */,
-				C6D5BD6A26655C2100437808 /* ToolBarItemScheme.swift */,
 			);
 			path = ToolBar;
 			sourceTree = "<group>";
@@ -6479,6 +6484,18 @@
 			path = ChatButton;
 			sourceTree = "<group>";
 		};
+		E9B3BB3D28B559FF00FD8D9B /* ToolBarItem */ = {
+			isa = PBXGroup;
+			children = (
+				E9B3BB3E28B55A1A00FD8D9B /* ToolBarItemStyle.swift */,
+				E9B3BB4028B55A2F00FD8D9B /* ToolBarViewRouter.swift */,
+				E9B3BB4228B55A4100FD8D9B /* ToolBarItem.swift */,
+				E9B3BB4428B55A5200FD8D9B /* ToolBarItemSelectable.swift */,
+				E9B3BB4628B55A6400FD8D9B /* ToolBarItemScheme.swift */,
+			);
+			path = ToolBarItem;
+			sourceTree = "<group>";
+		};
 		E9B410392822B63A004DAC6E /* Animators */ = {
 			isa = PBXGroup;
 			children = (
@@ -7065,6 +7082,7 @@
 				E9A755E8274B81B5005024B3 /* IconTabScheme.swift in Sources */,
 				0E4BC96626836C3E000FC891 /* ActionCellViewScheme.swift in Sources */,
 				0E4BC8952681E6F4000FC891 /* ImageNameListViewScheme.swift in Sources */,
+				E9B3BB4528B55A5200FD8D9B /* ToolBarItemSelectable.swift in Sources */,
 				0E2A62D026E7C8D6009CE2C0 /* InputRangeTextFieldScheme.swift in Sources */,
 				0E231C68276CA480007F3ED4 /* UIKitTextField.swift in Sources */,
 				E9B82B6127B40B9300FC7BB9 /* ActionBarControlScheme.swift in Sources */,
@@ -7090,10 +7108,10 @@
 				0E4BC7732680B598000FC891 /* CardListView.swift in Sources */,
 				0E6FCA4D266E426B00761EB1 /* TitleListViewScheme.swift in Sources */,
 				0E2A62B626E7C614009CE2C0 /* GhostButtonScheme.swift in Sources */,
+				E9B3BB4128B55A2F00FD8D9B /* ToolBarViewRouter.swift in Sources */,
 				0EB053FC2638C0F800238CB7 /* ArrowSegmentSliderScheme.swift in Sources */,
 				0E4BC82F2681CE07000FC891 /* ImageListViewScheme.swift in Sources */,
 				0EA9F4A4262478D3009F4B5A /* SecondaryButtonScheme.swift in Sources */,
-				C6D5BD6B26655C2100437808 /* ToolBarItemScheme.swift in Sources */,
 				0E4BC8872681E6EB000FC891 /* ImageNameListView.swift in Sources */,
 				0EC13720266E0B6A00F4EB7E /* ImageListViewComponent.swift in Sources */,
 				0E4561122686090A003F588D /* ShimmerView.swift in Sources */,
@@ -7225,7 +7243,6 @@
 				C6A5610F2670D5DB00133D40 /* PinCodeTextViewStyle.swift in Sources */,
 				0E4BC74D2680AA7F000FC891 /* SwitchListViewScheme.swift in Sources */,
 				0EC136ED266E0AD700F4EB7E /* ListCell.swift in Sources */,
-				C6D5BD6D26666FC800437808 /* ToolBarItem.swift in Sources */,
 				0EF0308626E7C24F00F888B7 /* TitleMoreDetailTextMessageListView.swift in Sources */,
 				0EF0308D26E7C58B00F888B7 /* TitleSubtitleListViewScheme.swift in Sources */,
 				0EB8532D267387FA008FC0FD /* SecurityTextField.swift in Sources */,
@@ -7237,6 +7254,7 @@
 				E9B82B6027B40B9300FC7BB9 /* ActionBarButtonStyle.swift in Sources */,
 				3BFE8374278C482D0094A451 /* AlertViewScheme.swift in Sources */,
 				0E4BC77B2680B59E000FC891 /* CardListViewScheme.swift in Sources */,
+				E9B3BB4328B55A4200FD8D9B /* ToolBarItem.swift in Sources */,
 				0E22C6C0262E12AC00D09FC5 /* StandardTab.swift in Sources */,
 				E9B82B6527B40B9300FC7BB9 /* ActionItemBarAction.swift in Sources */,
 				E9A755E7274B81B5005024B3 /* IconTab.swift in Sources */,
@@ -7276,11 +7294,13 @@
 				0E6FCA45266E3C3B00761EB1 /* ArrowListViewScheme.swift in Sources */,
 				0EF548252679149700E49DEB /* SearchBar.swift in Sources */,
 				0E94D05C26FCE8680051BBC2 /* DropDownHeaderType.swift in Sources */,
+				E9B3BB3F28B55A1A00FD8D9B /* ToolBarItemStyle.swift in Sources */,
 				C6A7F2E32653F73700105F2D /* BigInformer.swift in Sources */,
 				0E2A62CE26E7C858009CE2C0 /* SliderScheme.swift in Sources */,
 				0E16C79126AEEB3C00C0E808 /* ToastView.swift in Sources */,
 				E916F9F627677B2700628C96 /* TextOperationViewScheme.swift in Sources */,
 				0ED08A1D266FD1A000389A1A /* CalendarDaysView.swift in Sources */,
+				E9B3BB4728B55A6400FD8D9B /* ToolBarItemScheme.swift in Sources */,
 				0E2A62DA26E7CA85009CE2C0 /* CalendarHorizontalHeaderViewScheme.swift in Sources */,
 				3BFE8376278C486F0094A451 /* AlertView.swift in Sources */,
 				0E235A0926F492FD0039BD04 /* AccessabilitySupportUIKit.swift in Sources */,

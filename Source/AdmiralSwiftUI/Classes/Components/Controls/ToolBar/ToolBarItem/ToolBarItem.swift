@@ -18,7 +18,6 @@ public enum ToolbarItemType: String {
     case success
     case attention
 }
-
 /**
  ToolBarItem - A model that represents an item which can be placed in the toolbar.
 
@@ -41,32 +40,39 @@ public enum ToolbarItemType: String {
 @available(iOS 14.0.0, *)
 public struct ToolBarItem: Hashable, Identifiable {
 
+    // MARK: - Public Properties
+
     public let id = UUID()
     public let title: String
     public let image: Image
     public var badgeStyle: ToolBarBadgeStyle? = nil
     public var type: ToolbarItemType = .default
     public var isEnabled: Bool = true
-    
+
+    // MARK: - Initializer
+
     public init(
         title: String,
         image: Image,
         badgeStyle: ToolBarBadgeStyle? = nil,
         type: ToolbarItemType = .default,
-        isEnabled: Bool = true) {
+        isEnabled: Bool = true
+    ) {
         self.title = title
         self.image = image
         self.badgeStyle = badgeStyle
         self.type = type
         self.isEnabled = isEnabled
     }
-    
+
+    // MARK: - Public Methods
+
     public func hash(into hasher: inout Hasher) {
         hasher.combine(title)
     }
-    
+
     public static func == (lhs: ToolBarItem, rhs: ToolBarItem) -> Bool {
         lhs.id == rhs.id
     }
-    
+
 }
