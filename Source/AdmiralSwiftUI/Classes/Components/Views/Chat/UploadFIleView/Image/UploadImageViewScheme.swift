@@ -13,8 +13,13 @@ public struct UploadImageViewScheme: AppThemeScheme {
 
     // MARK: - Properties
 
+    /// The text color of UploadImageView
     public var textColor: AColor
+
+    /// The text font of UploadImageView
     public var textFont: AFont
+
+    /// The loading mask color of UploadImageView
     public var loadingMaskColor: AColor
 
     // MARK: - Init/deinit

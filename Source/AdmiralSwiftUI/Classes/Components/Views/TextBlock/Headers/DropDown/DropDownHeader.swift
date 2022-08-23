@@ -8,19 +8,18 @@
 import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
-
 /**
  DropDownHeader - A header with header title, arrow and button.
 
  You can create a DropDownHeader by specifying the following parameters in the initializer
- 
+
  ## Initializer parameters:
- 
+
  - title: String? - Title text block
  - dropDownHeaderType: DropDownHeaderType? - A type of header. DropDownHeaderType can be: up, down, custom
  - textBlockStyle: TextBlockStyle - A style of title and subtitle text block. HeaderStyle can be: title, body, headline, headlineSecondary, dropDown, paragraph, paragraphSecondary, link, separator, separatorShort, separatorEmpty
  - renderingMode: Image.TemplateRenderingMode - Rendering mode for image
- 
+
  ## Example to create DropDownHeader with title and dropDownHeaderType:
  # Code
  ```
@@ -33,21 +32,21 @@ import AdmiralUIResources
 /// A header with header title.
 @available(iOS 14.0.0, *)
 public struct DropDownHeader: View {
-    
+
     /// The text that the label displays.
     @Binding public var title: String?
-    
+
     /// Drop down header type.
     @Binding public var dropDownHeaderType: DropDownHeaderType
-    
+
     /// Text block style.
     public var textBlockStyle: TextBlockStyle
-    
+
     /// Image rendering mode.
     public var renderingMode: Image.TemplateRenderingMode
-    
+
     // MARK: - Initializer
-    
+
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     public init(
         title: String?,
@@ -59,7 +58,9 @@ public struct DropDownHeader: View {
         self._dropDownHeaderType = Binding(get: { return dropDownHeaderType }, set: { _ in })
         self.renderingMode = renderingMode
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         let titleListViewStyle = TitleListViewStyle(rawValue: textBlockStyle.rawValue)
         return ListCell(centerView: {
@@ -84,4 +85,3 @@ struct TitleDropDownHeader_Previews: PreviewProvider {
         }
     }
 }
-

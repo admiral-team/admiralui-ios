@@ -11,7 +11,7 @@ import SwiftUI
 
 /**
  UploadDocumentState - Public enum for UploadDocumentView
- 
+
  UploadDocumentState can be one of the following values:
  - loading
  - description
@@ -26,7 +26,7 @@ public enum UploadDocumentState {
 
 /**
  UploadDocumentDirection - Public enum for UploadDocumentView
- 
+
  UploadDocumentDirection can be one of the following values:
  - right
  - left
@@ -143,10 +143,11 @@ struct UploadDocumentView: View {
 
     // MARK: - Private properties
 
-    @State private var scheme: UploadDocumentViewScheme? = nil
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<UploadDocumentViewScheme>()
     private var cornersOfGroup: UIRectCorner? = nil
     private var direction: ChatDirection
+
+    @Binding private var scheme: UploadDocumentViewScheme?
+    @ObservedObject var schemeProvider = AppThemeSchemeProvider<UploadDocumentViewScheme>()
 
     // MARK: - Computed properties
 
@@ -168,11 +169,13 @@ struct UploadDocumentView: View {
     public init(
         model: UploadDocument,
         cornersOfGroup: UIRectCorner? = nil,
-        direction: ChatDirection
+        direction: ChatDirection,
+        scheme: Binding<UploadDocumentViewScheme?> = .constant(nil)
     ) {
         self.model = model
         self.cornersOfGroup = cornersOfGroup
         self.direction = direction
+        self._scheme = scheme
     }
 
     // MARK: - Layout

@@ -13,12 +13,12 @@ import AdmiralUIResources
  LinkView - A header with link button.
 
  You can create a LinkView by specifying the following parameters in the initializer
- 
+
  ## Initializer parameters:
- 
+
  - buttonTitle: String - The text that the button displays
  - buttonAction: () -> () - The callback action by tapping the button
- 
+
  ## Example to create LinkView:
  # Code
  ```
@@ -30,15 +30,15 @@ import AdmiralUIResources
 /// A header with link button.
 @available(iOS 14.0.0, *)
 public struct LinkView: View {
-    
+
     /// The text that the button displays.
     @Binding public var buttonTitle: String
-    
+
     /// The button action.
     public var buttonAction: () -> ()
 
     // MARK: - Initializer
-    
+
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     public init(
         buttonTitle: String,
@@ -46,7 +46,9 @@ public struct LinkView: View {
         self._buttonTitle = Binding(get: { return buttonTitle }, set: { _ in })
         self.buttonAction = buttonAction
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         ListCell(
             centerView: {
@@ -55,7 +57,10 @@ public struct LinkView: View {
                     Spacer()
                 }
         })
-        .configCell(minHeight: TextBlockStyle.link.minHeight, edgeInsets: TextBlockStyle.link.edgeInsets)
+        .configCell(
+            minHeight: TextBlockStyle.link.minHeight,
+            edgeInsets: TextBlockStyle.link.edgeInsets
+        )
     }
 }
 

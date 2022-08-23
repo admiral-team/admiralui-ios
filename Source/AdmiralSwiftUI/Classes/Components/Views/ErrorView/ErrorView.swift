@@ -11,14 +11,14 @@ import AdmiralUIResources
 
 /**
  ErrorView - the component is used to attract the user's attention as a message.
- 
- You can create a ZeroScreenView with the zero frame rectangle by specifying the following parameters in init: 
- 
+
+ You can create a ZeroScreenView with the zero frame rectangle by specifying the following parameters in init:
+
  - text: String - Information text
  - button Title: String - Title for the button
  - isLoadingButton: Binding<Bool> - For button with an activity indicator
  - button Action: @escaping () -> () - Closure for processing button tap
- 
+
  ## Example to create ErrorView
  # Code
  ```
@@ -33,44 +33,50 @@ import AdmiralUIResources
  */
 @available(iOS 14.0, *)
 public struct ErrorView: View {
-    
+
+    // MARK: - Constants
+
     private enum Constants {
         static let imageSize = CGSize(width: 54.0, height: 54.0)
     }
 
     // MARK: - Public Properties
-    
+
     /// The text that the text label displays.
     public var text: String?
-    
+
     /// The text that the button displays.
     public var buttonTitle: String?
 
     /// Action button.
     public var buttonAction: () -> ()
-    
+
     /// Flag loading button.
     @Binding public var isLoadingButton: Bool
-    
-    // MARK: Internal Properties
 
-    @State var scheme: ErrorViewScheme?
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<ErrorViewScheme>()
-    
+    // MARK: Private Properties
+
+    @Binding private var scheme: ErrorViewScheme?
+    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ErrorViewScheme>()
+
     // MARK: - Initializer
-    
-    
+
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     public init(
         text: String? = nil,
         buttonTitle: String? = nil,
         isLoadingButton: Binding<Bool> = .constant(false),
-        buttonAction: @escaping () -> () = {}) {
+        buttonAction: @escaping () -> () = {},
+        scheme: Binding<ErrorViewScheme?> = .constant(nil)
+    ) {
         self.text = text
         self.buttonTitle = buttonTitle
         self.buttonAction = buttonAction
         self._isLoadingButton = isLoadingButton
+        self._scheme = scheme
     }
+
+    // MARK: - Body
 
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
@@ -93,12 +99,12 @@ public struct ErrorView: View {
             Spacer()
         })
     }
-    
+
     // MARK: - Internal Methods
 
-    func scheme(_ scheme: ErrorViewScheme) -> some View {
+    func scheme(_ scheme: Binding<ErrorViewScheme?>) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = scheme
         return view.id(UUID())
     }
 
@@ -115,6 +121,5 @@ struct ErrorView_Previews: PreviewProvider {
             .previewLayout(.fixed(width: 300.0, height: 400.0))
             .padding(.horizontal, LayoutGrid.doubleModule)
     }
-    
-}
 
+}

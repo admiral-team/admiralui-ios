@@ -10,11 +10,20 @@ import AdmiralUIResources
 
 @available(iOS 14.0, *)
 public struct ChatBubbleStatusViewScheme: AppThemeScheme {
-    
+
+    // MARK: - Properties
+
+    /// The text font of ChatBubbleStatusViewScheme
     public var textFont: AFont
+
+    /// The text color of ChatBubbleStatusViewScheme
     public var textColor = ChatBubbleStatusViewParameters<AColor>()
+
+    /// The image color of ChatBubbleStatusViewScheme
     public var imageColor = ChatBubbleStatusViewParameters<AColor>()
-    
+
+    // MARK: - Initializer
+
     public init(theme: AppTheme) {
         textColor.set(parameter: theme.colors.textAccentAdditional, status: .loading, direction: .right, style: .default)
         textColor.set(parameter: theme.colors.textAccentAdditional, status: .error, direction: .right, style: .default)
@@ -29,7 +38,7 @@ public struct ChatBubbleStatusViewScheme: AppThemeScheme {
         textColor.set(parameter: theme.colors.elementStaticWhite, status: .receive, direction: .right, style: .light)
         textColor.set(parameter: theme.colors.elementStaticWhite, status: .read, direction: .right, style: .light)
         textColor.set(parameter: theme.colors.elementStaticWhite, status: .none, direction: .right, style: .light)
-        
+
         textColor.set(parameter: theme.colors.textSecondary, status: .loading, direction: .left, style: .default)
         textColor.set(parameter: theme.colors.textSecondary, status: .error, direction: .left, style: .default)
         textColor.set(parameter: theme.colors.textSecondary, status: .sent, direction: .left, style: .default)
@@ -43,9 +52,9 @@ public struct ChatBubbleStatusViewScheme: AppThemeScheme {
         textColor.set(parameter: theme.colors.elementStaticWhite, status: .receive, direction: .left, style: .light)
         textColor.set(parameter: theme.colors.elementStaticWhite, status: .read, direction: .left, style: .light)
         textColor.set(parameter: theme.colors.elementStaticWhite, status: .none, direction: .left, style: .light)
-        
+
         textFont = theme.fonts.caption1
-        
+
         imageColor.set(parameter: theme.colors.elementStaticWhite, status: .loading, direction: .right, style: .default)
         imageColor.set(parameter: theme.colors.elementStaticWhite, status: .error, direction: .right, style: .default)
         imageColor.set(parameter: theme.colors.elementStaticWhite, status: .sent, direction: .right, style: .default)
@@ -60,7 +69,7 @@ public struct ChatBubbleStatusViewScheme: AppThemeScheme {
         imageColor.set(parameter: theme.colors.elementStaticWhite, status: .read, direction: .right, style: .light)
         imageColor.set(parameter: theme.colors.elementStaticWhite, status: .none, direction: .right, style: .light)
     }
-    
+
 }
 
 public struct ChatBubbleStatusViewParameters<P> {

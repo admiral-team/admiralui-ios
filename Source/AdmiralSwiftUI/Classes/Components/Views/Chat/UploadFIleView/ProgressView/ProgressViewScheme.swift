@@ -14,8 +14,13 @@ public struct ProgressViewScheme: AppThemeScheme {
 
     // MARK: - Properties
 
+    /// The background color of ProgressView
     public var backgroundColor = ProgressViewSchemeParameters<AColor>()
+
+    /// The circle color of ProgressView
     public var circleColor = ProgressViewSchemeParameters<AColor>()
+
+    /// The icon color of ProgressView
     public var iconColor = ProgressViewSchemeParameters<AColor>()
 
     // MARK: - Init/deinit

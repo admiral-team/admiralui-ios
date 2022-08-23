@@ -12,14 +12,14 @@ import SwiftUI
  ActivityIndicator - A view that shows that a task is in progress.
 
  You can create a ActivityIndicator by specifying the following parameters in the initializer
- 
+
  ## Initializer parameters:
- 
+
  - style: Style - Activity indicator style
  - size: Size - Activity indicator size. Can be: small, medium, large
- 
+
  You can control the animation time using the animatableParameter parameter
- 
+
  ## Example to create ActivityIndicator with different parameters:
  # Code
  ```
@@ -28,11 +28,13 @@ import SwiftUI
 */
 @available(iOS 14.0, *)
 public struct ActivityIndicator: View {
-    
+
+    // MARK: - Constants
+
     enum Constants {
         static let duration = 2.0
     }
-    
+
     /// Activity indicator style.
     public enum Style {
         /// Default style.
@@ -40,7 +42,7 @@ public struct ActivityIndicator: View {
         /// Contrast content style.
         case contrast
     }
-    
+
     /// Activity indicator size.
     public enum Size: Int {
         /// Small size.
@@ -50,29 +52,37 @@ public struct ActivityIndicator: View {
         /// Large size.
         case large
     }
-    
+
     // MARK: - Public Properties
-    
+
     /// The control style.
     public var style: Style = .default
-    
+
     /// The control size.
     public var size: Size = .large
-    
+
     // MARK: - Private Properties
-    
+
     @Environment(\.isEnabled) private var isEnabled
-    
-    @State private var scheme: ActivityIndicatorScheme? = nil
+
     @State private var animatableParameter: Double = 0
+
+    @Binding private var scheme: ActivityIndicatorScheme?
     @ObservedObject var schemeProvider = AppThemeSchemeProvider<ActivityIndicatorScheme>()
-    
+
     // MARK: - Initializer
-    
-    public init(style: Style = .default, size: Size = .medium) {
+
+    public init(
+        style: Style = .default,
+        size: Size = .medium,
+        scheme: Binding<ActivityIndicatorScheme?> = .constant(nil)
+    ) {
         self.style = style
         self.size = size
+        self._scheme = scheme
     }
+
+    // MARK: - Body
 
     public var body: some View {
         let animation = Animation
@@ -82,7 +92,7 @@ public struct ActivityIndicator: View {
         var backroundColor: Color
         var sizeItem: CGSize
         var lineWidth: CGFloat
-        
+
         switch style {
         case .default:
             backroundColor = scheme.backgroundDefaultColor.parameter(for: isEnabled ? .normal : .disabled)?.swiftUIColor ?? .clear
@@ -164,10 +174,9 @@ struct GrowingActivityIndicator: Shape {
 
 @available(iOS 14.0, *)
 struct GrowingArc_Previews: PreviewProvider {
-    
+
     static var previews: some View {
         ActivityIndicator()
             .frame(width: 24.0, height: 24.0)
     }
 }
-

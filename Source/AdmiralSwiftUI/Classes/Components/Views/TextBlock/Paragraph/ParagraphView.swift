@@ -8,14 +8,13 @@
 import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
-
 /**
  ParagraphView - A group of text components exists in several variants.
 
  You can create a ParagraphView by specifying the following parameters in the initializer
- 
+
  ## Initializer parameters:
- 
+
  - title: String? - The text that the label displays
  - paragraphImageType: ParagraphLeadingImageType? - A type of paragraph Image. Can be: point, check, custom (your image)
  - trailingImage: Image? - Trailing image.
@@ -31,23 +30,23 @@ import AdmiralUIResources
          paragraphImageType: .check,
          textAligment: .leading,
          paragraphStyle: .primary)
-     
+
      ParagraphView(
          title: "Title",
          paragraphImageType: .point,
          textAligment: .leading,
          paragraphStyle: .secondary)
-     
+
      ParagraphView(
          title: "Title",
          textAligment: .leading,
          paragraphStyle: .primary)
-     
+
      ParagraphView(
          title: "Title",
          textAligment: .center,
          paragraphStyle: .secondary)
-     
+
      ParagraphView(
          title: "Title",
          trailingImage: Image("Your image"),
@@ -59,26 +58,26 @@ import AdmiralUIResources
 /// Paragraph view.
 @available(iOS 14.0.0, *)
 public struct ParagraphView: View {
-    
+
     /// The text that the label displays.
     @Binding public var title: String?
-    
+
     /// Paragraph image type.
     @Binding public var paragraphImageType: ParagraphLeadingImageType?
-    
+
     /// Trailing image.
     @Binding public var trailingImage: Image?
-    
+
     /// Text block style.
     public var textBlockStyle: TextBlockStyle
-    
+
     @Binding var textAligment: TextAlignment
-    
+
     /// Image rendering mode.
     @Binding public var renderingMode: Image.TemplateRenderingMode
-    
+
     // MARK: - Initializer
-    
+
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     public init(
         title: String?,
@@ -86,7 +85,8 @@ public struct ParagraphView: View {
         renderingMode: Image.TemplateRenderingMode = .template,
         trailingImage: Image? = nil,
         textAligment: TextAlignment = .leading,
-        paragraphStyle: ParagraphStyle = .primary) {
+        paragraphStyle: ParagraphStyle = .primary
+    ) {
         self._title = Binding(get: { return title }, set: { _ in })
         self._paragraphImageType = Binding(get: { return paragraphImageType }, set: { _ in })
         self._trailingImage = Binding(get: { return trailingImage }, set: { _ in })
@@ -94,7 +94,9 @@ public struct ParagraphView: View {
         self._renderingMode = Binding(get: { return renderingMode }, set: { _ in })
         self._textAligment = Binding(get: { return textAligment }, set: { _ in })
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         let imageListViewStyle: ImageListViewStyle
         switch textBlockStyle {
@@ -141,23 +143,23 @@ struct ImageTitleParagraph_Previews: PreviewProvider {
                 paragraphImageType: .check,
                 textAligment: .leading,
                 paragraphStyle: .primary)
-            
+
             ParagraphView(
                 title: "Title",
                 paragraphImageType: .point,
                 textAligment: .leading,
                 paragraphStyle: .secondary)
-            
+
             ParagraphView(
                 title: "Title",
                 textAligment: .leading,
                 paragraphStyle: .primary)
-            
+
             ParagraphView(
                 title: "Title",
                 textAligment: .center,
                 paragraphStyle: .secondary)
-            
+
             ParagraphView(
                 title: "Title",
                 trailingImage: AssetSymbol.Service.Outline.closeCircle.image,

@@ -5,17 +5,16 @@
 //  Created on 22.11.2021.
 //
 
-import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
-
+import SwiftUI
 /**
  InfoAgreementView - The component is used to inform users with the option to select in the checkBox. And also three interaction buttons.
- 
+
  You can create a InfoAgreementView by specifying the following parameters in the initializer:
- 
+
  ## Initializer parameters:
- 
+
  - isSelected: Bool - Flag select checkBox.
  - title: String - The text that the title label displays.
  - subtitleButtonTitle: String? - The text that the subtitle button displays.
@@ -25,7 +24,7 @@ import AdmiralUIResources
  - buttonAction: () -> () - Action button.
  - additionalButtonTitle: String? - The text that the additionalButtonTitle displays.
  - additionalButtonAction: () -> () - Action additionalButtonAction.
- 
+
  ## Example to create InfoAgreementView
  # Code
  ```
@@ -46,50 +45,51 @@ import AdmiralUIResources
  */
 @available(iOS 14.0, *)
 public struct InfoAgreementView: View {
-    
-    // MARK: - Public Properties
-    
-    /// Flag select checkBox.
-    @Binding public var isSelected: Bool
-    
-    /// Flag loading button.
-    @Binding public var isLoading: Bool
-    
-    // MARK: - Private properties
-    
-    /// The text that the title label displays.
-    private var title: String
-    
-    /// The text that the subtitle button displays.
-    private var subtitleButtonTitle: String?
-    
-    /// Action subtitleButton.
-    private var subtitleButtonAction: () -> ()
-    
-    /// The text that the button displays.
-    private var buttonTitle: String?
-    
-    /// Action button.
-    private var buttonAction: () -> ()
-    
-    /// The text that the additionalButtonTitle displays.
-    private var additionalButtonTitle: String?
-    
-    /// Action additionalButtonAction.
-    private var additionalButtonAction: () -> ()
-    
-    // MARK: Internal Properties
-    
-    @State var scheme: InfoAgreementViewScheme?
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<InfoAgreementViewScheme>()
-    
+
+    // MARK: - Constants
+
     private enum Constants {
-        // MARK: - Common constants
         static let spacing: CGFloat = LayoutGrid.doubleModule
     }
-    
+
+    // MARK: - Public Properties
+
+    /// Flag select checkBox.
+    @Binding public var isSelected: Bool
+
+    /// Flag loading button.
+    @Binding public var isLoading: Bool
+
+    // MARK: - Private properties
+
+    /// The text that the title label displays.
+    private var title: String
+
+    /// The text that the subtitle button displays.
+    private var subtitleButtonTitle: String?
+
+    /// Action subtitleButton.
+    private var subtitleButtonAction: () -> ()
+
+    /// The text that the button displays.
+    private var buttonTitle: String?
+
+    /// Action button.
+    private var buttonAction: () -> ()
+
+    /// The text that the additionalButtonTitle displays.
+    private var additionalButtonTitle: String?
+
+    /// Action additionalButtonAction.
+    private var additionalButtonAction: () -> ()
+
+    // MARK: Internal Properties
+
+    @Binding var scheme: InfoAgreementViewScheme?
+    @ObservedObject var schemeProvider = AppThemeSchemeProvider<InfoAgreementViewScheme>()
+
     // MARK: - Initializer
-    
+
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     public init (
         title: String,
@@ -100,7 +100,9 @@ public struct InfoAgreementView: View {
         buttonTitle: String? = nil,
         buttonAction: @escaping () -> () = {},
         additionalButtonTitle: String? = nil,
-        additionalButtonAction: @escaping () -> () = {}) {
+        additionalButtonAction: @escaping () -> () = {},
+        scheme: Binding<InfoAgreementViewScheme?> = .constant(nil)
+    ) {
         self.title = title
         self._isSelected = isSelected
         self._isLoading = isLoading
@@ -110,8 +112,11 @@ public struct InfoAgreementView: View {
         self.buttonAction = buttonAction
         self.additionalButtonTitle = additionalButtonTitle
         self.additionalButtonAction = additionalButtonAction
+        self._scheme = scheme
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         VStack(alignment: .leading) {
@@ -140,20 +145,20 @@ public struct InfoAgreementView: View {
                         .buttonStyle(GhostButtonStyle())
                     Spacer()
                 }
-                
+
             }
         }
-        
+
     }
-    
+
     // MARK: - Internal Methods
-    
-    func scheme(_ scheme: InfoAgreementViewScheme) -> some View {
+
+    func scheme(_ scheme: Binding<InfoAgreementViewScheme?>) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = scheme
         return view.id(UUID())
     }
-    
+
 }
 
 @available(iOS 14.0, *)

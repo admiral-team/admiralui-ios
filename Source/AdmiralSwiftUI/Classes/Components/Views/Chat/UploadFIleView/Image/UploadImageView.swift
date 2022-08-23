@@ -11,7 +11,7 @@ import SwiftUI
 
 /**
  UploadImageViewCornerStyle - Public enum for UploadImageView
- 
+
  UploadImageViewCornerStyle can be one of the following values:
  - leftSide
  - rightSide
@@ -110,19 +110,28 @@ struct UploadImageView: View {
 
     private enum Constants {
         // MARK: - Common constants
+
         static let width: CGFloat = 232
         static let height: CGFloat = 114
+
         static let cornerRadius: CGFloat = LayoutGrid.module + 4.0
+
         static let lineLimitText = 1
+
         static let bottomInfoViewPaddingHorizontal: CGFloat = LayoutGrid.module + 4.0
         static let bottomInfoViewPaddingVertical: CGFloat = LayoutGrid.module / 2
+
         static let blurRadius: CGFloat = 3
+
         static let opacity: CGFloat = 0.4
 
         // MARK: - BottomInfoView constants
+
         static let imageAndTextSpacing: CGFloat = 7.5
+
         static let checkClearOutlineImageWidth: CGFloat = 9
         static let checkClearOutlineImageHeight: CGFloat = 6.5
+
         static let bottomViewPadding: CGFloat = LayoutGrid.module / 4
         static let bottomViewTrailing: CGFloat = LayoutGrid.module - 2
         static let bottomViewLeading: CGFloat = LayoutGrid.module / 2
@@ -134,9 +143,10 @@ struct UploadImageView: View {
 
     // MARK: - Private properties
 
-    @State private var scheme: UploadImageViewScheme? = nil
     private let cornersStyle: UploadImageViewCornerStyle
     private let direction: ChatDirection
+
+    @Binding private var scheme: UploadImageViewScheme?
     @ObservedObject var schemeProvider = AppThemeSchemeProvider<UploadImageViewScheme>()
 
     // MARK: - Initializer
@@ -144,11 +154,13 @@ struct UploadImageView: View {
     public init(
         model: UploadImageModel,
         direction: ChatDirection,
-        cornersStyle: UploadImageViewCornerStyle = .allSides
+        cornersStyle: UploadImageViewCornerStyle = .allSides,
+        scheme: Binding<UploadImageViewScheme?> = .constant(nil)
     ) {
         self.model = model
         self.direction = direction
         self.cornersStyle = cornersStyle
+        self._scheme = scheme
     }
 
     // MARK: - Layout
@@ -214,9 +226,9 @@ struct UploadImageView: View {
 
     // MARK: - Internal methods
 
-    func scheme(_ scheme: UploadImageViewScheme) -> some View {
+    func scheme(_ scheme: Binding<UploadImageViewScheme?>) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = scheme
         return view.id(UUID())
     }
 
@@ -242,5 +254,5 @@ struct UploadImageView_Previews: PreviewProvider {
             cornersStyle: .leftSide
         )
     }
-    
+
 }
