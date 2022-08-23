@@ -146,7 +146,7 @@ struct UploadDocumentView: View {
     private var cornersOfGroup: UIRectCorner? = nil
     private var direction: ChatDirection
 
-    @State private var scheme: UploadDocumentViewScheme? = nil
+    @Binding private var scheme: UploadDocumentViewScheme?
     @ObservedObject var schemeProvider = AppThemeSchemeProvider<UploadDocumentViewScheme>()
 
     // MARK: - Computed properties
@@ -170,12 +170,12 @@ struct UploadDocumentView: View {
         model: UploadDocument,
         cornersOfGroup: UIRectCorner? = nil,
         direction: ChatDirection,
-        scheme: UploadDocumentViewScheme? = nil
+        scheme: Binding<UploadDocumentViewScheme?> = .constant(nil)
     ) {
         self.model = model
         self.cornersOfGroup = cornersOfGroup
         self.direction = direction
-        self.scheme = scheme
+        self._scheme = scheme
     }
 
     // MARK: - Layout

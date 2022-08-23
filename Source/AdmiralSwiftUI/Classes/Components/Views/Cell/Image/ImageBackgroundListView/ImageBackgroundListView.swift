@@ -44,7 +44,7 @@ public struct ImageBackgroundListView: View, ImageListViewComponent {
     
     var renderingMode: Image.TemplateRenderingMode
 
-    @State private var scheme: ImageBackgroundListViewScheme? = nil
+    @Binding private var scheme: ImageBackgroundListViewScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ImageBackgroundListViewScheme>()
     
     // MARK: - Initializer
@@ -53,11 +53,11 @@ public struct ImageBackgroundListView: View, ImageListViewComponent {
     public init(
         image: Image,
         renderingMode: Image.TemplateRenderingMode = .original,
-        scheme: ImageBackgroundListViewScheme? = nil
+        scheme: Binding<ImageBackgroundListViewScheme?> = .constant(nil)
     ) {
         self._image = Binding(get: { return image }, set: { _ in })
         self.renderingMode = renderingMode
-        self.scheme = scheme
+        self._scheme = scheme
     }
 
     // MARK: - Body
@@ -72,9 +72,9 @@ public struct ImageBackgroundListView: View, ImageListViewComponent {
     
     // MARK: - Internal Methods
     
-    func scheme(_ scheme: ImageBackgroundListViewScheme) -> some View {
+    func scheme(_ scheme: Binding<ImageBackgroundListViewScheme?>) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = scheme
         return view.id(UUID())
     }
     

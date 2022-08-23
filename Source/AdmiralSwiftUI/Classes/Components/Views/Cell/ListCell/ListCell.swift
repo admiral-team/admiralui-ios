@@ -58,14 +58,14 @@ public enum CornerRadius: CGFloat {
  # Code
  ```
  ListCell<EmptyView, SubtitleTitleListView, EmptyView>(
-     centerView: {
-         SubtitleTitleListView(
-             title: "Title",
-             subtitle: "Subtitle"
-         )
-     }
+ centerView: {
+ SubtitleTitleListView(
+ title: "Title",
+ subtitle: "Subtitle"
  )
-```
+ }
+ )
+ ```
  */
 /// A view that displays leading, trailing and image views.
 @available(iOS 14.0.0, *)
@@ -111,7 +111,7 @@ public struct ListCell<L, C, T>: ListViewCell where L: View , C: View, T: View {
         return trailingLayoutPriority == 0
     }
     
-    @State private var scheme: ListCellScheme? = nil
+    @Binding private var scheme: ListCellScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ListCellScheme>()
     
     // MARK: - Initializer
@@ -132,16 +132,20 @@ public struct ListCell<L, C, T>: ListViewCell where L: View , C: View, T: View {
         isSelected: Binding<Bool?> = .constant(nil),
         centerLayoutPriority: Double = 1.0,
         trailingLayoutPriority: Double = 0.0,
-        cornerRadius: CornerRadius = .zero) {
-            self.centerView = centerView
-            self.trailingView = trailingView
-            self.leadingView = leadingView
-            self._isHighlighted = isHighlighted
-            self._isSelected = isSelected
-            self.centerLayoutPriority = centerLayoutPriority
-            self.trailingLayoutPriority = trailingLayoutPriority
-            self.cornerRadius = cornerRadius.rawValue
-        }
+        cornerRadius: CornerRadius = .zero,
+        scheme: Binding<ListCellScheme?> = .constant(nil)
+    ) {
+        self.centerView = centerView
+        self.trailingView = trailingView
+        self.leadingView = leadingView
+        self._isHighlighted = isHighlighted
+        self._isSelected = isSelected
+        self.centerLayoutPriority = centerLayoutPriority
+        self.trailingLayoutPriority = trailingLayoutPriority
+        self.cornerRadius = cornerRadius.rawValue
+        self._scheme = scheme
+
+    }
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     /// - Parameters:
@@ -159,25 +163,28 @@ public struct ListCell<L, C, T>: ListViewCell where L: View , C: View, T: View {
         isSelected: Binding<Bool?> = .constant(nil),
         centerLayoutPriority: Double = 1.0,
         trailingLayoutPriority: Double = 0.0,
-        cornerRadius: CornerRadius = .zero) {
-            self.centerView = centerView
-            self.trailingView = trailingView
-            self.leadingView = leadingView
-            self._isHighlighted = isHighlighted
-            self._isSelected = isSelected
-            self.centerLayoutPriority = centerLayoutPriority
-            self.trailingLayoutPriority = trailingLayoutPriority
-            self.cornerRadius = cornerRadius.rawValue
-        }
+        cornerRadius: CornerRadius = .zero,
+        scheme: Binding<ListCellScheme?> = .constant(nil)
+    ) {
+        self.centerView = centerView
+        self.trailingView = trailingView
+        self.leadingView = leadingView
+        self._isHighlighted = isHighlighted
+        self._isSelected = isSelected
+        self.centerLayoutPriority = centerLayoutPriority
+        self.trailingLayoutPriority = trailingLayoutPriority
+        self.cornerRadius = cornerRadius.rawValue
+        self._scheme = scheme
+    }
     
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         if isSelected != nil {
             contentView(scheme: scheme)
                 .frame(minHeight: minHeight)
-            .onTapGesture {
-                self.isSelected?.toggle()
-            }
+                .onTapGesture {
+                    self.isSelected?.toggle()
+                }
         } else {
             contentView(scheme: scheme)
                 .frame(minHeight: minHeight)
@@ -198,12 +205,12 @@ public struct ListCell<L, C, T>: ListViewCell where L: View , C: View, T: View {
             bottom: LayoutGrid.halfModule * 3,
             trailing: LayoutGrid.doubleModule),
         leadingViewWidth: CGFloat = LayoutGrid.halfModule * 14) -> some View {
-        var view = self
-        view._minHeight = State(initialValue: minHeight)
-        view._edgeInsets = State(initialValue: edgeInsets)
-        view._leadingViewWidth = State(initialValue: leadingViewWidth)
-        return view.id(UUID())
-    }
+            var view = self
+            view._minHeight = State(initialValue: minHeight)
+            view._edgeInsets = State(initialValue: edgeInsets)
+            view._leadingViewWidth = State(initialValue: leadingViewWidth)
+            return view.id(UUID())
+        }
     
     // MARK: - Private Methods
     
@@ -270,17 +277,21 @@ extension ListCell where L == EmptyView {
         isSelected: Binding<Bool?> = .constant(nil),
         centerLayoutPriority: Double = 1.0,
         trailingLayoutPriority: Double = 0.0,
-        cornerRadius: CornerRadius = .zero) {
-            self.init(
-                leadingView: nil,
-                centerView: centerView,
-                trailingView: trailingView,
-                isHighlighted: isHighlighted,
-                isSelected: isSelected,
-                centerLayoutPriority: centerLayoutPriority,
-                trailingLayoutPriority: trailingLayoutPriority,
-                cornerRadius: cornerRadius)
-        }
+        cornerRadius: CornerRadius = .zero,
+        scheme: Binding<ListCellScheme?> = .constant(nil)
+    ) {
+        self.init(
+            leadingView: nil,
+            centerView: centerView,
+            trailingView: trailingView,
+            isHighlighted: isHighlighted,
+            isSelected: isSelected,
+            centerLayoutPriority: centerLayoutPriority,
+            trailingLayoutPriority: trailingLayoutPriority,
+            cornerRadius: cornerRadius,
+            scheme: scheme
+        )
+    }
     
 }
 
@@ -301,17 +312,21 @@ extension ListCell where T == EmptyView {
         isSelected: Binding<Bool?> = .constant(nil),
         centerLayoutPriority: Double = 1.0,
         trailingLayoutPriority: Double = 0.0,
-        cornerRadius: CornerRadius = .zero) {
-            self.init(
-                leadingView: leadingView,
-                centerView: centerView,
-                trailingView: nil,
-                isHighlighted: isHighlighted,
-                isSelected: isSelected,
-                centerLayoutPriority: centerLayoutPriority,
-                trailingLayoutPriority: trailingLayoutPriority,
-                cornerRadius: cornerRadius)
-        }
+        cornerRadius: CornerRadius = .zero,
+        scheme: Binding<ListCellScheme?> = .constant(nil)
+    ) {
+        self.init(
+            leadingView: leadingView,
+            centerView: centerView,
+            trailingView: nil,
+            isHighlighted: isHighlighted,
+            isSelected: isSelected,
+            centerLayoutPriority: centerLayoutPriority,
+            trailingLayoutPriority: trailingLayoutPriority,
+            cornerRadius: cornerRadius,
+            scheme: scheme
+        )
+    }
     
 }
 
@@ -330,17 +345,21 @@ extension ListCell where L == EmptyView, T == EmptyView {
         isSelected: Binding<Bool?> = .constant(nil),
         centerLayoutPriority: Double = 1.0,
         trailingLayoutPriority: Double = 0.0,
-        cornerRadius: CornerRadius = .zero) {
-            self.init(
-                leadingView: nil,
-                centerView: centerView,
-                trailingView: nil,
-                isHighlighted: isHighlighted,
-                isSelected: isSelected,
-                centerLayoutPriority: centerLayoutPriority,
-                trailingLayoutPriority: trailingLayoutPriority,
-                cornerRadius: cornerRadius)
-        }
+        cornerRadius: CornerRadius = .zero,
+        scheme: Binding<ListCellScheme?> = .constant(nil)
+    ) {
+        self.init(
+            leadingView: nil,
+            centerView: centerView,
+            trailingView: nil,
+            isHighlighted: isHighlighted,
+            isSelected: isSelected,
+            centerLayoutPriority: centerLayoutPriority,
+            trailingLayoutPriority: trailingLayoutPriority,
+            cornerRadius: cornerRadius,
+            scheme: scheme
+        )
+    }
     
 }
 

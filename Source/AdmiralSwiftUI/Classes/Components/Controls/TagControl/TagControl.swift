@@ -71,54 +71,62 @@ public struct TagControl: View {
     
     @State var isPressing: Bool = false
     
-    
     // MARK: - Private Properties
     
-    @State private var scheme: TagControlScheme? = nil
+    @Binding private var scheme: TagControlScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<TagControlScheme>()
-
-    // MARK: - Private Parameters
     
     // MARK: - Initializer
     
     public init(
         title: String,
         tagStyle: TagStyle,
-        tapTagControl: @escaping () -> ()) {
+        tapTagControl: @escaping () -> (),
+        scheme: Binding<TagControlScheme?> = .constant(nil)
+    ) {
         self.title = title
         self.tapTagControl = tapTagControl
         self.tagStyle = tagStyle
+        self._scheme = scheme
     }
     
     public init<L : View>(
         title: String,
         tagStyle: TagStyle,
         @ViewBuilder leadingView: @escaping () -> L,
-        tapTagControl: @escaping () -> ()) {
+        tapTagControl: @escaping () -> (),
+        scheme: Binding<TagControlScheme?> = .constant(nil)
+    ) {
         self.title = title
         self.tapTagControl = tapTagControl
         self.tagStyle = tagStyle
         self.leadingView = { return leadingView().eraseToAnyView() }
+        self._scheme = scheme
     }
     
     public init<V : View>(
         tagStyle: TagStyle,
         @ViewBuilder view: @escaping () -> V,
-        tapTagControl: @escaping () -> ()) {
+        tapTagControl: @escaping () -> (),
+        scheme: Binding<TagControlScheme?> = .constant(nil)
+    ) {
         self.tapTagControl = tapTagControl
         self.tagStyle = tagStyle
         self.leadingView = { return view().eraseToAnyView() }
+        self._scheme = scheme
     }
     
     public init<T : View>(
         title: String,
         tagStyle: TagStyle,
         @ViewBuilder trailingView: @escaping () -> T,
-        tapTagControl: @escaping () -> ()) {
+        tapTagControl: @escaping () -> (),
+        scheme: Binding<TagControlScheme?> = .constant(nil)
+    ) {
         self.title = title
         self.tapTagControl = tapTagControl
         self.tagStyle = tagStyle
-        
+        self._scheme = scheme
         self.trailingView = { return trailingView().eraseToAnyView() }
     }
     
@@ -127,14 +135,19 @@ public struct TagControl: View {
         tagStyle: TagStyle,
         @ViewBuilder leadingView: @escaping () -> L,
         @ViewBuilder trailingView: @escaping () -> T,
-        tapTagControl: @escaping () -> ()) {
+        tapTagControl: @escaping () -> (),
+        scheme: Binding<TagControlScheme?> = .constant(nil)
+    ) {
         self.title = title
         self.tapTagControl = tapTagControl
         self.tagStyle = tagStyle
-        
+        self._scheme = scheme
+
         self.leadingView = { return leadingView().eraseToAnyView() }
         self.trailingView = { return trailingView().eraseToAnyView() }
     }
+
+    // MARK: - Body
     
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme

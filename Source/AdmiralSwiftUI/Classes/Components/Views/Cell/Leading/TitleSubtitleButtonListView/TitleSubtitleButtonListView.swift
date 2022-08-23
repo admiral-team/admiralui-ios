@@ -69,9 +69,10 @@ public struct TitleSubtitleButtonListView: View, LeadingListViewComponent {
 
     // MARK: - Private Properties
 
-    @State private var scheme: TitleSubtitleButtonListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<TitleSubtitleButtonListViewScheme>()
     private let subtitleLineLimit: Int?
+
+    @Binding private var scheme: TitleSubtitleButtonListViewScheme?
+    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<TitleSubtitleButtonListViewScheme>()
 
     // MARK: - Initializer
     
@@ -84,7 +85,7 @@ public struct TitleSubtitleButtonListView: View, LeadingListViewComponent {
         subtitleLineLimit: Int? = nil,
         buttonTitle: String?,
         buttonAction: (() -> ())?,
-        scheme: TitleSubtitleButtonListViewScheme? = nil
+        scheme: Binding<TitleSubtitleButtonListViewScheme?> = .constant(nil)
     ) {
         self._title = Binding(get: { return title }, set: { _ in })
         self._tagSubtitle = Binding(get: { return tagSubtitle }, set: { _ in })
@@ -93,7 +94,7 @@ public struct TitleSubtitleButtonListView: View, LeadingListViewComponent {
         self._buttonTitle = Binding(get: { return buttonTitle }, set: { _ in })
         self.buttonAction = buttonAction ?? {}
         self.subtitleLineLimit = subtitleLineLimit
-        self.scheme = scheme
+        self._scheme = scheme
     }
 
     // MARK: - Body
@@ -118,9 +119,9 @@ public struct TitleSubtitleButtonListView: View, LeadingListViewComponent {
     
     // MARK: - Internal Methods
     
-    func scheme(_ scheme: TitleSubtitleButtonListViewScheme) -> some View {
+    func scheme(_ scheme: Binding<TitleSubtitleButtonListViewScheme?>) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = scheme
         return view.id(UUID())
     }
     

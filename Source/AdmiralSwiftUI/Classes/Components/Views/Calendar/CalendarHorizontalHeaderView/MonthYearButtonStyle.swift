@@ -31,27 +31,25 @@ public struct MonthYearButtonStyle: ButtonStyle {
 
     private var image: Image?
 
-    @State private var scheme: MonthYearButtonScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<MonthYearButtonScheme>()
+    @Binding private var scheme: MonthYearButtonScheme?
 
     // MARK: - Initializer
 
     public init(
         image: Image? = nil,
-        scheme: MonthYearButtonScheme? = nil
+        scheme: Binding<MonthYearButtonScheme?> = .constant(nil)
     ) {
-        self.scheme = scheme
+        self._scheme = scheme
         self.image = image
     }
 
     // MARK: - Body
 
     public func makeBody(configuration: Self.Configuration) -> some View {
-        let scheme = scheme ?? schemeProvider.scheme
         MonthYearButton(
             configuration: configuration,
             image: image,
-            scheme: scheme
+            scheme: $scheme
         )
     }
 
@@ -69,11 +67,14 @@ private extension MonthYearButtonStyle {
 
         let configuration: Configuration
         let image: Image?
-        let scheme: MonthYearButtonScheme
+
+        @Binding var scheme: MonthYearButtonScheme?
+        @ObservedObject private var schemeProvider = AppThemeSchemeProvider<MonthYearButtonScheme>()
 
         // MARK: - Body
 
         var body: some View {
+            let scheme = scheme ?? schemeProvider.scheme
             let color = isEnabled ?
             (configuration.isPressed ? scheme.textColor.parameter(for: .highlighted)?.swiftUIColor : scheme.textColor.parameter(for: .normal)?.swiftUIColor)
             : scheme.textColor.parameter(for: .disabled)?.swiftUIColor

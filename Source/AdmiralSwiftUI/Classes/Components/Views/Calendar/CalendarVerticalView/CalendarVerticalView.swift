@@ -59,7 +59,7 @@ struct CalendarVerticalView: View {
     @State private var currentMonthDate: Date?
     @State private var isScrollCalendar: Bool = false
 
-    @State private var scheme: CalendarVerticalViewScheme? = nil
+    @Binding private var scheme: CalendarVerticalViewScheme?
     @ObservedObject var schemeProvider = AppThemeSchemeProvider<CalendarVerticalViewScheme>()
 
     // MARK: - Initializer
@@ -76,7 +76,7 @@ struct CalendarVerticalView: View {
         didSelectedDate: ((Date?) -> ())? = nil,
         didSelectedDates: (([Date]) -> ())? = nil,
         pointDates: [Date],
-        scheme: CalendarVerticalViewScheme? = nil
+        scheme: Binding<CalendarVerticalViewScheme?> = .constant(nil)
     ) {
         if let startDate = startDate {
             self._startDate = .init(initialValue: startDate)
@@ -99,7 +99,7 @@ struct CalendarVerticalView: View {
         self._isMutlipleSelectionAllowed = .init(initialValue: isMutlipleSelectionAllowed)
         self._didSelectedDate = .init(initialValue: didSelectedDate)
         self._didSelectedDates = .init(initialValue: didSelectedDates)
-        self.scheme = scheme
+        self._scheme = scheme
     }
 
     // MARK: - Body
@@ -138,9 +138,9 @@ struct CalendarVerticalView: View {
     
     // MARK: - Internal Methods
     
-    func scheme(_ scheme: CalendarVerticalViewScheme) -> some View {
+    func scheme(_ scheme: Binding<CalendarVerticalViewScheme?>) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = scheme
         return view.id(UUID())
     }
     
@@ -213,7 +213,8 @@ struct CalendarVerticalView: View {
                 startDate: $selectedStartDate,
                 endDate: $selectedEndDate,
                 notActiveAfterDate: notActiveAfterDate,
-                pointDates: pointDates)
+                pointDates: pointDates
+            )
             Spacer()
                 .frame(height: LayoutGrid.halfModule)
             Line()

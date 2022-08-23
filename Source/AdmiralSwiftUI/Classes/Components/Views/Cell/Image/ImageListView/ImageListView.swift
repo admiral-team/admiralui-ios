@@ -62,7 +62,7 @@ public struct ImageListView: View, ImageListViewComponent {
     
     var renderingMode: Image.TemplateRenderingMode
 
-    @State private var scheme: ImageListViewScheme? = nil
+    @Binding private var scheme: ImageListViewScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ImageListViewScheme>()
     
     // MARK: - Initializer
@@ -71,11 +71,11 @@ public struct ImageListView: View, ImageListViewComponent {
     public init(
         image: Image,
         renderingMode: Image.TemplateRenderingMode = .original,
-        scheme: ImageListViewScheme? = nil
+        scheme: Binding<ImageListViewScheme?> = .constant(nil)
     ) {
         self._image = Binding(get: { return image }, set: { _ in })
         self.renderingMode = renderingMode
-        self.scheme = scheme
+        self._scheme = scheme
     }
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
@@ -83,12 +83,12 @@ public struct ImageListView: View, ImageListViewComponent {
         image: Image,
         renderingMode: Image.TemplateRenderingMode = .original,
         imageListViewStyle: ImageListViewStyle,
-        scheme: ImageListViewScheme? = nil
+        scheme: Binding<ImageListViewScheme?> = .constant(nil)
     ) {
         self._image = Binding(get: { return image }, set: { _ in })
         self.renderingMode = renderingMode
         self._imageListViewStyle = .init(initialValue: imageListViewStyle)
-        self.scheme = scheme
+        self._scheme = scheme
     }
 
     // MARK: - Body
@@ -109,9 +109,9 @@ public struct ImageListView: View, ImageListViewComponent {
     
     // MARK: - Internal Methods
     
-    func scheme(_ scheme: ImageListViewScheme) -> some View {
+    func scheme(_ scheme: Binding<ImageListViewScheme?>) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = scheme
         return view.id(UUID())
     }
     

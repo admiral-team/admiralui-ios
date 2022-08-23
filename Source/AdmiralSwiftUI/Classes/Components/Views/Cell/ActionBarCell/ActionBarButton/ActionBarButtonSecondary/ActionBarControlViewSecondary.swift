@@ -38,7 +38,7 @@ struct ActionBarControlViewSecondary: View {
 
     @Environment(\.isEnabled) var isEnabled
 
-    @State private var scheme: ActionBarControlSchemeTwo? = nil
+    @Binding private var scheme: ActionBarControlSchemeTwo?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ActionBarControlSchemeTwo>()
 
     // MARK: - Private  Properties
@@ -61,7 +61,8 @@ struct ActionBarControlViewSecondary: View {
         imageTintColor: Color?,
         style: ActionBarItemStyle = .default,
         text: String?,
-        tapActionBar: @escaping () -> ()
+        tapActionBar: @escaping () -> (),
+        scheme: Binding<ActionBarControlSchemeTwo?> = .constant(nil)
     ) {
         self.image = image
         self.imageStyle = imageStyle
@@ -70,6 +71,7 @@ struct ActionBarControlViewSecondary: View {
         self.style = style
         self.text = text
         self.tapActionBar = tapActionBar
+        self._scheme = scheme
     }
 
     // MARK: - Layout
@@ -91,9 +93,9 @@ struct ActionBarControlViewSecondary: View {
 
     // MARK: - Internal Methods
 
-    func scheme(_ scheme: ActionBarControlSchemeTwo) -> some View {
+    func scheme(_ scheme: Binding<ActionBarControlSchemeTwo?>) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = scheme
         return view.id(UUID())
     }
 

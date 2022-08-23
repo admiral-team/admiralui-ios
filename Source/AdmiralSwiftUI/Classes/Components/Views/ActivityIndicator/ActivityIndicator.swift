@@ -67,14 +67,19 @@ public struct ActivityIndicator: View {
 
     @State private var animatableParameter: Double = 0
 
-    @State private var scheme: ActivityIndicatorScheme? = nil
+    @Binding private var scheme: ActivityIndicatorScheme?
     @ObservedObject var schemeProvider = AppThemeSchemeProvider<ActivityIndicatorScheme>()
     
     // MARK: - Initializer
     
-    public init(style: Style = .default, size: Size = .medium) {
+    public init(
+        style: Style = .default,
+        size: Size = .medium,
+        scheme: Binding<ActivityIndicatorScheme?> = .constant(nil)
+    ) {
         self.style = style
         self.size = size
+        self._scheme = scheme
     }
 
     // MARK: - Body

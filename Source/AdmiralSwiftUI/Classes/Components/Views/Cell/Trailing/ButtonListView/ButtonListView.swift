@@ -40,16 +40,23 @@ public struct ButtonListView: View, TralingListViewComponent {
     @Binding var text: String
     var action: () -> ()
     
-    @State private var scheme: ButtonListViewScheme? = nil
+    @Binding private var scheme: ButtonListViewScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ButtonListViewScheme>()
     
     // MARK: - Initializer
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-    public init(text: String, action: @escaping () -> ()) {
+    public init(
+        text: String,
+        action: @escaping () -> (),
+        scheme: Binding<ButtonListViewScheme?> = .constant(nil)
+    ) {
         self._text = Binding(get: { return text }, set: { _ in })
         self.action = action
+        self._scheme = scheme
     }
+
+    // TODO: - Add styles for text
 
     public var body: some View {
         HStack(alignment: .center) {

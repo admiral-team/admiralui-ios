@@ -16,7 +16,7 @@ public protocol AppThemeScheme {
 @available(iOS 14.0.0, *)
 public class AppThemeSchemeProvider<S>: ObservableObject where S: AppThemeScheme {
     @Published public private(set) var scheme: S
-    
+
     private let manager = SwiftUIThemeManager.shared
     private var subscribers: Set<AnyCancellable> = []
     

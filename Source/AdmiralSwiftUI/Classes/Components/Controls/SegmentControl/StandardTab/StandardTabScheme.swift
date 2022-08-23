@@ -9,7 +9,29 @@ import SwiftUI
 import Combine
 import AdmiralTheme
 import AdmiralUIResources
-
+/**
+ StandardTabScheme - the visual scheme of PlatformButtonStyle.
+ You can create a by specifying the following parameters in init:
+ - StandardTabScheme() - Initialize default StandardTabScheme with default themezation
+ - StandardTabScheme(
+     backgroundColor: AColor,
+     titleColorNormal: AColor,
+     titleFontNormal: AFont,
+     borderColorNormal: AColor,
+     borderColorDisabled: AColor,
+     thumbColorNormal: AColor,
+     thumbColorSelected: AColor,
+     titleFontSelected: AFont,
+     titleColorDisabled: AColor,
+     titleColorSelected: AColor,
+     thumbColorDisabled: AColor
+   )
+ # Example to create StandardTabScheme:
+ # Code
+ ```
+let scheme = StandardTabScheme()
+ ```
+ */
 @available(iOS 14.0, *)
 public final class StandardTabScheme: AppThemeScheme {
 
@@ -52,6 +74,41 @@ public final class StandardTabScheme: AppThemeScheme {
         titleColor.set(parameter: theme.colors.textSecondary, for: .selected)
         
         thumbColor.set(parameter: theme.colors.elementAccent.withAlpha(alpha), for: .disabled)
+    }
+
+    public convenience init() {
+        self.init(theme: AppTheme.default)
+    }
+
+    public init(
+        backgroundColor: AColor,
+        titleColorNormal: AColor,
+        titleFontNormal: AFont,
+        borderColorNormal: AColor,
+        borderColorDisabled: AColor,
+        thumbColorNormal: AColor,
+        thumbColorSelected: AColor,
+        titleFontSelected: AFont,
+        titleColorDisabled: AColor,
+        titleColorSelected: AColor,
+        thumbColorDisabled: AColor
+    ) {
+        self.backgroundColor = backgroundColor
+
+        titleColor.set(parameter: titleColorNormal, for: .normal)
+        titleFont.set(parameter: titleFontNormal, for: .normal)
+
+        borderColor.set(parameter: borderColorNormal, for: .normal)
+        borderColor.set(parameter: borderColorDisabled, for: .disabled)
+        thumbColor.set(parameter: thumbColorNormal, for: .normal)
+        thumbColor.set(parameter: thumbColorSelected, for: .selected)
+
+        titleFont.set(parameter: titleFontSelected, for: .selected)
+
+        titleColor.set(parameter: titleColorDisabled, for: .disabled)
+        titleColor.set(parameter: titleColorSelected, for: .selected)
+
+        thumbColor.set(parameter: thumbColorDisabled, for: .disabled)
     }
     
 }

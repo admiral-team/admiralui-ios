@@ -108,11 +108,13 @@ public struct OTPTextField: TextFieldInput, AccessabilitySupportUIKit, Identifia
     
     // Flag is disable pasting. If flasg is true pasting is enabled.
     private let canPerformActionPaste: Bool
-    
-    @State private var scheme: OTPTextFieldScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<OTPTextFieldScheme>()
+
+    /// The accessibility Identifier
     private var accessibilityIdentifier: String?
-    
+
+    @Binding private var scheme: OTPTextFieldScheme?
+    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<OTPTextFieldScheme>()
+
     // MARK: - Initializer
     
     /// Initializes and returns a newly allocated view object
@@ -146,7 +148,9 @@ public struct OTPTextField: TextFieldInput, AccessabilitySupportUIKit, Identifia
         isResponder: Binding<Bool>? = nil,
         infoNumberOfLines: Int? = nil,
         onSubmit: (() -> Void)? = nil,
-        onCursorPosition: ((Int, Int, String) -> (Int))? = nil) {
+        onCursorPosition: ((Int, Int, String) -> (Int))? = nil,
+        scheme: Binding<OTPTextFieldScheme?> = .constant(nil)
+    ) {
         self._content = Binding(get: {
             if let value = value.wrappedValue {
                 return String(describing: value)
@@ -173,6 +177,7 @@ public struct OTPTextField: TextFieldInput, AccessabilitySupportUIKit, Identifia
         self.autocorrectionType = autocorrectionType
         self.textContentType = textContentType
         self.accessibilityIdentifier = accessibilityIdentifier
+        self._scheme = scheme
         self._isFocused = .init(initialValue: isResponder?.wrappedValue ?? false)
         self._isFilled = .init(initialValue: !($content.wrappedValue ?? "").isEmpty)
     }
@@ -208,7 +213,9 @@ public struct OTPTextField: TextFieldInput, AccessabilitySupportUIKit, Identifia
         isResponder: Binding<Bool>? = nil,
         infoNumberOfLines: Int? = nil,
         onSubmit: (() -> Void)? = nil,
-        onCursorPosition: ((Int, Int, String) -> (Int))? = nil) {
+        onCursorPosition: ((Int, Int, String) -> (Int))? = nil,
+        scheme: Binding<OTPTextFieldScheme?> = .constant(nil)
+    ) {
         self.init(
             value: content,
             accessibilityIdentifier: accessibilityIdentifier,
@@ -225,7 +232,9 @@ public struct OTPTextField: TextFieldInput, AccessabilitySupportUIKit, Identifia
             isResponder: isResponder,
             infoNumberOfLines: infoNumberOfLines,
             onSubmit: onSubmit,
-            onCursorPosition: onCursorPosition)
+            onCursorPosition: onCursorPosition,
+            scheme: scheme
+        )
     }
     
     public var body: some View {
@@ -302,9 +311,9 @@ public struct OTPTextField: TextFieldInput, AccessabilitySupportUIKit, Identifia
     
     // MARK: - Internal Methods
     
-    func scheme(_ scheme: OTPTextFieldScheme) -> some View {
+    func scheme(_ scheme: Binding<OTPTextFieldScheme?>) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = scheme
         return view.id(UUID())
     }
     

@@ -75,7 +75,7 @@ public struct CalendarHorizontalView: View {
     @State private var selectionYear: Int = 0
     @State private var pickerSelections: [Int] = [0, 0]
     
-    @State private var scheme: CalendarHorizontalViewScheme? = nil
+    @Binding private var scheme: CalendarHorizontalViewScheme?
     @ObservedObject var schemeProvider = AppThemeSchemeProvider<CalendarHorizontalViewScheme>()
     
     @State private var calendarPickerYears = [CalendarPickerYear]()
@@ -92,7 +92,7 @@ public struct CalendarHorizontalView: View {
         notActiveAfterDate: Date?,
         isMutlipleSelectionAllowed: Bool = true,
         pointDates: [Date],
-        scheme: CalendarHorizontalViewScheme? = nil
+        scheme: Binding<CalendarHorizontalViewScheme?> = .constant(nil)
     ) {
         
         self.startDate = startDate
@@ -108,7 +108,7 @@ public struct CalendarHorizontalView: View {
         self._selectedEndDate = selectedEndDate
         self.monthYearDate = monthYearDate.removeTimeStamp()
         self.notActiveAfterDate = notActiveAfterDate
-        self.scheme = scheme
+        self._scheme = scheme
         
         let preInitDates = preInitDate()
         var generator = CalendarGenerator()

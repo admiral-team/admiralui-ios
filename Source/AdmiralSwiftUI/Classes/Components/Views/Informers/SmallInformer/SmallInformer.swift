@@ -87,7 +87,7 @@ public struct SmallInformer: View {
         return arrowDirection == .top || arrowDirection == .topRight ? -LayoutGrid.module : LayoutGrid.module
     }
     
-    @State private var scheme: SmallInformerScheme? = nil
+    @Binding private var scheme: SmallInformerScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SmallInformerScheme>()
     
     // MARK: - Initializer
@@ -105,14 +105,14 @@ public struct SmallInformer: View {
         arrowDirection: SmallInformerArrowDirection = .top,
         arrowOffset: CGFloat = LayoutGrid.halfModule * 3,
         cornerRadius: CornerRadius = .module,
-        scheme: SmallInformerScheme? = nil
+        scheme: Binding<SmallInformerScheme?> = .constant(nil)
     ) {
         self.title = title
         self.informerStyle = informerStyle
         self.arrowDirection = arrowDirection
         self.arrowOffset = arrowOffset
         self.cornerRadius = cornerRadius.rawValue
-        self.scheme = scheme
+        self._scheme = scheme
     }
     
     // MARK: - Layout

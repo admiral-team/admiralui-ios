@@ -22,8 +22,14 @@ public struct ArrowSegmentSlider: View {
     
     // MARK: - Private Properties
     
-    @State private var scheme: ArrowSegmentSliderScheme? = nil
+    @Binding private var scheme: ArrowSegmentSliderScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ArrowSegmentSliderScheme>()
+
+    // MARK: - Initializer
+
+    public init(scheme: Binding<ArrowSegmentSliderScheme?> = .constant(nil)) {
+        self._scheme = scheme
+    }
 
     // MARK: - Body
 

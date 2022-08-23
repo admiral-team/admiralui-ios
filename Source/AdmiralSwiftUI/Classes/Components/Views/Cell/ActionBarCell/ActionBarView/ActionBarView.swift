@@ -42,15 +42,20 @@ struct ActionBarView: View {
 
     // MARK: - Private Properties
 
-    @State private var scheme: ActionBarViewScheme? = nil
+    @Binding private var scheme: ActionBarViewScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ActionBarViewScheme>()
 
     // MARK: - Initializer
 
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-    init(actions: [ActionItemBarAction], style: ActionBarViewStyle = .default) {
+    init(
+        actions: [ActionItemBarAction],
+        style: ActionBarViewStyle = .default,
+        scheme: Binding<ActionBarViewScheme?> = .constant(nil)
+    ) {
         self.actions = actions
         self.style = style
+        self._scheme = scheme
     }
 
     // MARK: - Layout
@@ -99,7 +104,7 @@ struct ActionBarView: View {
                 imageStyle: action.imageStyle ?? .accent,
                 tapActionBar: action.handler
             )
-            .scheme(scheme.actionBarConrolScheme)
+            .scheme(.constant(scheme.actionBarConrolScheme))
         case .secondary:
             ActionBarControlViewSecondary(
                 image: action.image,
@@ -110,7 +115,7 @@ struct ActionBarView: View {
                 text: action.text,
                 tapActionBar: action.handler
             )
-            .scheme(scheme.actionBarConrolSchemeTwo)
+            .scheme(.constant(scheme.actionBarConrolSchemeTwo))
         }
     }
 

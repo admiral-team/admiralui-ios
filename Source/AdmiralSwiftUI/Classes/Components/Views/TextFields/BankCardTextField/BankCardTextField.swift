@@ -124,7 +124,7 @@ public struct BankCardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
     // Flag is disable pasting. If flasg is true pasting is enabled.
     private let canPerformActionPaste: Bool
     
-    @State private var scheme: BankCardTextFieldScheme? = nil
+    @Binding private var scheme: BankCardTextFieldScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<BankCardTextFieldScheme>()
     
     private let textFieldHeight: CGFloat = LayoutGrid.tripleModule
@@ -167,7 +167,9 @@ public struct BankCardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
         isResponder: Binding<Bool>? = nil,
         onSubmit: (() -> Void)? = nil,
         onCursorPosition: ((Int, Int, String) -> (Int))? = nil,
-        @ViewBuilder trailingView: @escaping () -> T) {
+        @ViewBuilder trailingView: @escaping () -> T,
+        scheme: Binding<BankCardTextFieldScheme?> = .constant(nil)
+    ) {
         self._content = Binding(get: {
             if let value = value.wrappedValue {
                 return String(describing: value)
@@ -192,6 +194,7 @@ public struct BankCardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
         self.autocorrectionType = autocorrectionType
         self.canPerformActionPaste = canPerformActionPaste
         self.isResponder = isResponder
+        self._scheme = scheme
         self._isFocused = .init(initialValue: isResponder?.wrappedValue ?? false)
         self.trailingView = trailingView
         self._isFilled = .init(initialValue: !($content.wrappedValue ?? "").isEmpty)
@@ -231,7 +234,9 @@ public struct BankCardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
         isResponder: Binding<Bool>? = nil,
         onSubmit: (() -> Void)? = nil,
         onCursorPosition: ((Int, Int, String) -> (Int))? = nil,
-        @ViewBuilder trailingView: @escaping () -> T) {
+        @ViewBuilder trailingView: @escaping () -> T,
+        scheme: Binding<BankCardTextFieldScheme?> = .constant(nil)
+    ) {
             self.init(
                 value: content,
                 accessibilityIdentifier: accessibilityIdentifier,
@@ -248,9 +253,13 @@ public struct BankCardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
                 isResponder: isResponder,
                 onSubmit: onSubmit,
                 onCursorPosition: onCursorPosition,
-                trailingView: trailingView)
+                trailingView: trailingView,
+                scheme: scheme
+            )
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         let isTextFieldDisabled = !isEnabled || (state == .disabled || state == .readOnly)
         
@@ -327,9 +336,9 @@ public struct BankCardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
     
     // MARK: - Internal Methods
     
-    func scheme(_ scheme: BankCardTextFieldScheme) -> some View {
+    func scheme(_ scheme: Binding<BankCardTextFieldScheme?>) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = scheme
         return view.id(UUID())
     }
     
@@ -439,7 +448,9 @@ extension BankCardTextField where T == EmptyView {
         infoNumberOfLines: Int? = nil,
         isResponder: Binding<Bool>? = nil,
         onSubmit: (() -> Void)? = nil,
-        onCursorPosition: ((Int, Int, String) -> (Int))? = nil) {
+        onCursorPosition: ((Int, Int, String) -> (Int))? = nil,
+        scheme: Binding<BankCardTextFieldScheme?> = .constant(nil)
+    ) {
         self._content = Binding(get: {
             if let value = value.wrappedValue {
                 return String(describing: value)
@@ -464,6 +475,7 @@ extension BankCardTextField where T == EmptyView {
         self.autocorrectionType = autocorrectionType
         self.canPerformActionPaste = canPerformActionPaste
         self.isResponder = isResponder
+        self._scheme = scheme
         self._isFocused = .init(initialValue: isResponder?.wrappedValue ?? false)
         self.trailingView = { EmptyView() }
         self._isFilled = .init(initialValue: !($content.wrappedValue ?? "").isEmpty)
@@ -501,7 +513,9 @@ extension BankCardTextField where T == EmptyView {
         infoNumberOfLines: Int? = nil,
         isResponder: Binding<Bool>? = nil,
         onSubmit: (() -> Void)? = nil,
-        onCursorPosition: ((Int, Int, String) -> (Int))? = nil) {
+        onCursorPosition: ((Int, Int, String) -> (Int))? = nil,
+        scheme: Binding<BankCardTextFieldScheme?> = .constant(nil)
+    ) {
         self.init(
             value: content,
             accessibilityIdentifier: accessibilityIdentifier,
@@ -517,7 +531,9 @@ extension BankCardTextField where T == EmptyView {
             infoNumberOfLines: infoNumberOfLines,
             isResponder: isResponder,
             onSubmit: onSubmit,
-            onCursorPosition: onCursorPosition)
+            onCursorPosition: onCursorPosition,
+            scheme: scheme
+        )
     }
     
 }

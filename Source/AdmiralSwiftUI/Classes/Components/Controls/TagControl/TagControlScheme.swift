@@ -8,7 +8,16 @@
 import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
-
+/**
+ TagControlScheme - the visual scheme of PrimaryLinkControlStyle.
+ You can create a by specifying the following parameters in init:
+ - TagControlScheme() - Initialize default TagControlScheme with default themezation
+ Example to create TagControlScheme:
+ Code
+ ```
+ let scheme = TagControlScheme()
+ ```
+ */
 public struct TagControlScheme: AppThemeScheme {
 
     // MARK: - Properties

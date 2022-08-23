@@ -31,7 +31,7 @@ public struct SliderView: View {
     
     // MARK: - Private Properties
     
-    @State private var scheme: SliderScheme? = nil
+    @Binding private var scheme: SliderScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SliderScheme>()
     
     // MARK: - Initializer
@@ -40,16 +40,20 @@ public struct SliderView: View {
         value: Binding<Double>,
         minValue: Double = 0.0,
         maxValue: Double = 1.0,
-        gestureChange: @escaping () -> ()) {
+        gestureChange: @escaping () -> (),
+        scheme: Binding<SliderScheme?> = .constant(nil)
+    ) {
         self._value = value
         self.gestureChange = gestureChange
+        self._scheme = scheme
         guard maxValue > minValue else { return }
         
         self._minValue = .init(initialValue: minValue)
         self._maxValue = .init(initialValue: maxValue)
     }
-    
-    /// `Slider` view setup
+
+    // MARK: - Body
+
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         let val = CGFloat((min(max(Double(value), minValue), maxValue) - minValue) / (maxValue - minValue))

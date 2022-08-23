@@ -86,7 +86,7 @@ public struct InfoAgreementView: View {
     
     // MARK: Internal Properties
     
-    @State var scheme: InfoAgreementViewScheme?
+    @Binding var scheme: InfoAgreementViewScheme?
     @ObservedObject var schemeProvider = AppThemeSchemeProvider<InfoAgreementViewScheme>()
     
     // MARK: - Initializer
@@ -101,7 +101,9 @@ public struct InfoAgreementView: View {
         buttonTitle: String? = nil,
         buttonAction: @escaping () -> () = {},
         additionalButtonTitle: String? = nil,
-        additionalButtonAction: @escaping () -> () = {}) {
+        additionalButtonAction: @escaping () -> () = {},
+        scheme: Binding<InfoAgreementViewScheme?> = .constant(nil)
+    ) {
         self.title = title
         self._isSelected = isSelected
         self._isLoading = isLoading
@@ -111,6 +113,7 @@ public struct InfoAgreementView: View {
         self.buttonAction = buttonAction
         self.additionalButtonTitle = additionalButtonTitle
         self.additionalButtonAction = additionalButtonAction
+        self._scheme = scheme
     }
 
     // MARK: - Body
@@ -151,9 +154,9 @@ public struct InfoAgreementView: View {
     
     // MARK: - Internal Methods
     
-    func scheme(_ scheme: InfoAgreementViewScheme) -> some View {
+    func scheme(_ scheme: Binding<InfoAgreementViewScheme?>) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = scheme
         return view.id(UUID())
     }
     

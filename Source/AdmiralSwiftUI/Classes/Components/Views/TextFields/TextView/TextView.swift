@@ -113,13 +113,14 @@ public struct TextView<T>: TextFieldInput, AccessabilitySupportUIKit, Identifiab
     // MARK: - Private Properties
     
     @State private var segmentSize: CGSize = .zero
-    @State private var scheme: StandardTextFieldScheme? = nil
     @State private var textViewHeight: CGFloat = 36.0
     @State private var textViewWidth: CGFloat?
     @State private var trailingViewSize: CGSize = CGSize(
         width: 30.0,
-        height: LayoutGrid.halfModule * 6)
-    
+        height: LayoutGrid.halfModule * 6
+    )
+
+    @Binding private var scheme: StandardTextFieldScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<StandardTextFieldScheme>()
     
     private let rightOffset = LayoutGrid.module
@@ -165,7 +166,9 @@ public struct TextView<T>: TextFieldInput, AccessabilitySupportUIKit, Identifiab
         isResponder: Binding<Bool>? = nil,
         onSubmit: (() -> Void)? = nil,
         onCursorPosition: ((Int, Int, String) -> (Int))? = nil,
-        @ViewBuilder trailingView: @escaping () -> T) {
+        @ViewBuilder trailingView: @escaping () -> T,
+        scheme: Binding<StandardTextFieldScheme?> = .constant(nil)
+    ) {
         self._content = Binding(get: {
             if let value = value.wrappedValue {
                 return String(describing: value)
@@ -193,6 +196,7 @@ public struct TextView<T>: TextFieldInput, AccessabilitySupportUIKit, Identifiab
         self.onCursorPosition = onCursorPosition
         self._isFocused = .init(initialValue: isResponder?.wrappedValue ?? false)
         self.trailingView = trailingView
+        self._scheme = scheme
         self._isFilled = .init(initialValue: !($content.wrappedValue ?? "").isEmpty)
         self.accessibilityIdentifier = accessibilityIdentifier
     }
@@ -231,7 +235,9 @@ public struct TextView<T>: TextFieldInput, AccessabilitySupportUIKit, Identifiab
         isResponder: Binding<Bool>? = nil,
         onSubmit: (() -> Void)? = nil,
         onCursorPosition: ((Int, Int, String) -> (Int))? = nil,
-        @ViewBuilder trailingView: @escaping () -> T) {
+        @ViewBuilder trailingView: @escaping () -> T,
+        scheme: Binding<StandardTextFieldScheme?> = .constant(nil)
+    ) {
         self.init(
             value: content,
             accessibilityIdentifier: accessibilityIdentifier,
@@ -249,8 +255,12 @@ public struct TextView<T>: TextFieldInput, AccessabilitySupportUIKit, Identifiab
             isResponder: isResponder,
             onSubmit: onSubmit,
             onCursorPosition: onCursorPosition,
-            trailingView: trailingView)
+            trailingView: trailingView,
+            scheme: scheme
+        )
     }
+
+    // MARK: - Body
     
     public var body: some View {
         let isTextFieldDisabled = !isEnabled || (state == .disabled || state == .readOnly)
@@ -333,9 +343,9 @@ public struct TextView<T>: TextFieldInput, AccessabilitySupportUIKit, Identifiab
     
     // MARK: - Internal Methods
     
-    func scheme(_ scheme: StandardTextFieldScheme) -> some View {
+    func scheme(_ scheme: Binding<StandardTextFieldScheme?>) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = scheme
         return view.id(UUID())
     }
     
@@ -474,7 +484,9 @@ extension TextView where T == EmptyView {
         infoNumberOfLines: Int? = nil,
         isResponder: Binding<Bool>? = nil,
         onSubmit: (() -> Void)? = nil,
-        onCursorPosition: ((Int, Int, String) -> (Int))? = nil) {
+        onCursorPosition: ((Int, Int, String) -> (Int))? = nil,
+        scheme: Binding<StandardTextFieldScheme?> = .constant(nil)
+    ) {
         self._content = Binding(get: {
             if let value = value.wrappedValue {
                 return String(describing: value)
@@ -502,6 +514,7 @@ extension TextView where T == EmptyView {
         self.onCursorPosition = onCursorPosition
         self._isFocused = .init(initialValue: isResponder?.wrappedValue ?? false)
         self.trailingView = { EmptyView() }
+        self._scheme = scheme
         self._isFilled = .init(initialValue: !($content.wrappedValue ?? "").isEmpty)
         self.accessibilityIdentifier = accessibilityIdentifier
     }

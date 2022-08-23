@@ -8,7 +8,25 @@
 import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
-
+/**
+ PlatformButtonScheme - the visual scheme of PlatformButtonStyle.
+ You can create a by specifying the following parameters in init:
+ - PlatformButtonScheme() - Initialize default PlatformButtonScheme with default themezation
+ - PlatformButtonScheme(
+     font: AFont,
+     backgroundColor: AColor,
+     buttonBackgroundColorNormal: AColor,
+     buttonBackgroundColorHighlighted: AColor,
+     buttonBackgroundColorDisabled: AColor,
+     textColorNormal: AColor,
+     textColorDisabled: AColor
+   )
+ # Example to create PlatformButtonScheme:
+ # Code
+ ```
+let scheme = PlatformButtonScheme()
+ ```
+ */
 public struct PlatformButtonScheme: AppThemeScheme {
 
     // MARK: - Public Properties
@@ -41,6 +59,30 @@ public struct PlatformButtonScheme: AppThemeScheme {
         
         textColor.set(parameter: theme.colors.textStaticWhite, for: .normal)
         textColor.set(parameter: theme.colors.textStaticWhite.withAlpha(alpha), for: .disabled)
+    }
+
+    public init() {
+        self.init(theme: AppTheme.default)
+    }
+
+    public init(
+        font: AFont,
+        backgroundColor: AColor,
+        buttonBackgroundColorNormal: AColor,
+        buttonBackgroundColorHighlighted: AColor,
+        buttonBackgroundColorDisabled: AColor,
+        textColorNormal: AColor,
+        textColorDisabled: AColor
+    ) {
+        self.font = font
+        self.backgroundColor = backgroundColor
+
+        buttonBackgroundColor.set(parameter: buttonBackgroundColorNormal, for: .normal)
+        buttonBackgroundColor.set(parameter: buttonBackgroundColorHighlighted, for: .highlighted)
+        buttonBackgroundColor.set(parameter: buttonBackgroundColorDisabled, for: .disabled)
+
+        textColor.set(parameter: textColorNormal, for: .normal)
+        textColor.set(parameter: textColorDisabled, for: .disabled)
     }
     
 }

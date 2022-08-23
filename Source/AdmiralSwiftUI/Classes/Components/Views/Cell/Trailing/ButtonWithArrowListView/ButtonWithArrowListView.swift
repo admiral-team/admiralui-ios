@@ -45,23 +45,34 @@ public struct ButtonWithArrowListView: View, LeadingListViewComponent, TralingLi
     @Binding var text: String
     var action: () -> ()
     
-    @State private var scheme: ButtonWithArrowListViewScheme? = nil
+    @Binding private var scheme: ButtonWithArrowListViewScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ButtonWithArrowListViewScheme>()
     
     // MARK: - Initializer
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-    public init(text: String, image: Image = Image(uiImage: PrivateAsset.Custom.Cell.arrowDown.image), action: @escaping () -> ()) {
+    public init(
+        text: String,
+        image: Image = Image(uiImage: PrivateAsset.Custom.Cell.arrowDown.image),
+        action: @escaping () -> (),
+        scheme: Binding<ButtonWithArrowListViewScheme?> = .constant(nil)
+    ) {
         self._text = Binding(get: { return text }, set: { _ in })
         self._image = Binding(get: { return image }, set: { _ in })
+        self._scheme = scheme
         self.action = action
     }
+
+    // MARK: - Body
 
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         scheme.image = image
-        return Button(text, action: action)
-                .buttonStyle(scheme.button)
+        return Button(
+            text,
+            action: action
+        )
+        .buttonStyle(scheme.button)
     }
     
 }

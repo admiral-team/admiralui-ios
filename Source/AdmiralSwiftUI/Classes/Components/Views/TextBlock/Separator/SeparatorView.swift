@@ -39,7 +39,7 @@ public struct SeparatorView: View {
     
     // MARK: - Private Properties
     
-    @State private var scheme: SeparatorViewScheme? = nil
+    @Binding private var scheme: SeparatorViewScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SeparatorViewScheme>()
 
     // MARK: - Initializer
@@ -47,10 +47,10 @@ public struct SeparatorView: View {
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     public init(
         paddingStyle: SeparatorStyle = .short,
-        scheme: SeparatorViewScheme? = nil
+        scheme: Binding<SeparatorViewScheme?> = .constant(nil)
     ) {
         self.textBlockStyle = paddingStyle.textBlockStyle
-        self.scheme = scheme
+        self._scheme = scheme
     }
 
     // MARK: - Body

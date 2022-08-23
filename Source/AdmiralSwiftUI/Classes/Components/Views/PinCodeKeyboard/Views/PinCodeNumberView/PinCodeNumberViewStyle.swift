@@ -24,20 +24,20 @@ public struct PinCodeNumberViewStyle: ButtonStyle {
 
     // MARK: - Properties
 
-    @State private var scheme: PinCodeNumberViewScheme? = nil
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<PinCodeNumberViewScheme>()
+    @Binding private var scheme: PinCodeNumberViewScheme?
 
     // MARK: - Initializer
 
-    public init(scheme: PinCodeNumberViewScheme? = nil) {
-        self.scheme = scheme
+    public init(
+        scheme: Binding<PinCodeNumberViewScheme?> = .constant(nil)
+    ) {
+        self._scheme = scheme
     }
 
     // MARK: - Body
 
     public func makeBody(configuration: Self.Configuration) -> some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
-        PinCodeNumberView(configuration: configuration, scheme: scheme)
+        PinCodeNumberView(configuration: configuration, scheme: $scheme)
     }
 }
 
@@ -47,15 +47,20 @@ private extension PinCodeNumberViewStyle {
         @Environment(\.isEnabled) private var isEnabled
 
         let configuration: Configuration
-        var scheme: PinCodeNumberViewScheme
 
+        @Binding var scheme: PinCodeNumberViewScheme?
+        @ObservedObject var schemeProvider = AppThemeSchemeProvider<PinCodeNumberViewScheme>()
         
-        init(configuration: Configuration, scheme: PinCodeNumberViewScheme) {
+        init(
+            configuration: Configuration,
+            scheme: Binding<PinCodeNumberViewScheme?>
+        ) {
             self.configuration = configuration
-            self.scheme = scheme
+            self._scheme = scheme
         }
         
         var body: some View {
+            let scheme = self.scheme ?? schemeProvider.scheme
             configuration.label
                 .font(scheme.textFont.swiftUIFont)
                 .foregroundColor(scheme.textColor.swiftUIColor)

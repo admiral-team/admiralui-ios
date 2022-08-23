@@ -8,7 +8,6 @@
 import AdmiralUIResources
 import AdmiralTheme
 import SwiftUI
-
 /**
  CodeInputControl - A control of the entered user characters. Used for secure password entry.
  
@@ -50,7 +49,7 @@ public struct CodeInputControl: View {
     
     private var cursorPosition = 0
     
-    @State private var scheme: CodeInputControlScheme? = nil
+    @Binding private var scheme: CodeInputControlScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<CodeInputControlScheme>()
     
     // MARK: - Initializer
@@ -58,7 +57,9 @@ public struct CodeInputControl: View {
     public init(
         text: Binding<String>,
         itemsCount: Int = 4,
-        status: CodeInputControl.Status = .normal) {
+        status: CodeInputControl.Status = .normal,
+        scheme: Binding<CodeInputControlScheme?> = .constant(nil)
+    ) {
         self._text = text
         self._itemsCount = Binding(get: {
             return itemsCount
@@ -67,6 +68,7 @@ public struct CodeInputControl: View {
             return status
         }, set: { _ in })
         self.cursorPosition = min(text.wrappedValue.count, itemsCount)
+        self._scheme = scheme
     }
 
     // MARK: - Body

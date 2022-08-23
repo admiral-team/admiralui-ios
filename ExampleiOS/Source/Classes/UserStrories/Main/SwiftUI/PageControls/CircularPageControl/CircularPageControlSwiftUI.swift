@@ -11,19 +11,22 @@ import AdmiralSwiftUI
 import AdmiralUIResources
 
 @available(iOS 14.0.0, *)
-struct CircularPageCOntrolSwiftUI: View {
+struct CircularPageControlSwiftUI: View {
 
     // MARK: - Private Properties
 
     @State private var isEnabledControlsState: Int = 0
     @State private var totalPages: Int = 0
     @State var step: Int = 0
+
+    @State var scheme: CirclePageControlScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
 
-    public var body: some View {
-        let scheme = schemeProvider.scheme
+    // MARK: - Body
+
+    var body: some View {
         NavigationContentView(navigationTitle: "Circular Page Control") {
-            scheme.backgroundColor.swiftUIColor
+            schemeProvider.scheme.backgroundColor.swiftUIColor
             ScrollView(.vertical) {
                 HStack {
                   Spacer()
@@ -52,7 +55,8 @@ struct CircularPageCOntrolSwiftUI: View {
                                 CirclePageControlStyle(
                                     step: $step,
                                     totalPages: totalPages + 1,
-                                    style: .default
+                                    style: .default,
+                                    scheme: $scheme
                                 )
                             )
                         Spacer()

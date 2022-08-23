@@ -107,7 +107,7 @@ public struct ChatBubbleView: View {
 
     @State private var segmentSize: CGSize = .zero
     
-    @State private var scheme: ChatBubbleViewScheme? = nil
+    @Binding private var scheme: ChatBubbleViewScheme?
     @ObservedObject var schemeProvider = AppThemeSchemeProvider<ChatBubbleViewScheme>()
     
     // MARK: - Initializer
@@ -121,7 +121,7 @@ public struct ChatBubbleView: View {
         isRoundAllCorners: Bool = false,
         maxWidth: CGFloat? = nil,
         errorAction: @escaping ()->() = {},
-        scheme: ChatBubbleViewScheme? = nil
+        scheme: Binding<ChatBubbleViewScheme?> = .constant(nil)
     ) {
         self.text = text
         self.direction = direction
@@ -131,7 +131,7 @@ public struct ChatBubbleView: View {
         self.isRoundAllCorners = isRoundAllCorners
         self.maxWidth = maxWidth
         self.errorAction = errorAction
-        self.scheme = scheme
+        self._scheme = scheme
     }
 
     // MARK: - Body

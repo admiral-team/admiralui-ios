@@ -68,7 +68,7 @@ public struct TitleWithImageListView: View, LeadingListViewComponent {
 
     // MARK: - Private Properties
 
-    @State private var scheme: TitleWithImageListViewScheme? = nil
+    @Binding private var scheme: TitleWithImageListViewScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<TitleWithImageListViewScheme>()
 
     private let lineLimit: Int?
@@ -82,14 +82,14 @@ public struct TitleWithImageListView: View, LeadingListViewComponent {
         renderingMode: Image.TemplateRenderingMode = .original,
         lineLimit: Int? = nil,
         titleWithImageListStyle: TitleWithImageListStyle? = nil,
-        scheme: TitleWithImageListViewScheme? = nil
+        scheme: Binding<TitleWithImageListViewScheme?> = .constant(nil)
     ) {
         self._title = Binding(get: { return title }, set: { _ in })
         self._image = Binding(get: { return image }, set: { _ in })
         self.renderingMode = renderingMode
         self.lineLimit = lineLimit
         self.titleWithImageListStyle = titleWithImageListStyle
-        self.scheme = scheme
+        self._scheme = scheme
     }
 
     // MARK: - Body
@@ -113,9 +113,9 @@ public struct TitleWithImageListView: View, LeadingListViewComponent {
     
     // MARK: - Internal Methods
     
-    func scheme(_ scheme: TitleWithImageListViewScheme) -> some View {
+    func scheme(_ scheme: Binding<TitleWithImageListViewScheme?>) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = scheme
         return view.id(UUID())
     }
     

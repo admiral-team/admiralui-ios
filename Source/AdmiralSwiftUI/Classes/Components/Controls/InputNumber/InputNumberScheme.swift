@@ -8,7 +8,29 @@
 import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
-
+/**
+ InputNumberScheme - the visual scheme of InputNumber.
+ You can create a by specifying the following parameters in init:
+ - InputNumberScheme() - Initialize default InputNumberScheme with default themezation
+ - InputNumberScheme(
+     titleFontNormal: AFont,
+     numberFontNormal: AFont,
+     textColorNormal: AColor,
+     tintColorNormal: AColor,
+     backgroundColorNormal: AColor,
+     textColorHighlighted: AColor,
+     tintColorHighlighted: AColor,
+     backgroundColorHighlighted: AColor,
+     textColorDisabled: AColor,
+     tintColorDisabled: AColor,
+     backgroundColorDisabled: AColor
+ )
+ Example to create InputNumberScheme:
+ Code
+ ```
+ let scheme = InputNumberScheme()
+ ```
+ */
 @available(iOS 14.0, *)
 public final class InputNumberScheme: AppThemeScheme {
 
@@ -48,6 +70,35 @@ public final class InputNumberScheme: AppThemeScheme {
         textColor.set(parameter: theme.colors.textSecondary, for: .disabled)
         tintColor.set(parameter: theme.colors.elementPrimary.withAlpha(alpha), for: .disabled)
         backgroundColor.set(parameter: theme.colors.backgroundAdditionalOne, for: .disabled)
+    }
+
+    public init(
+        titleFontNormal: AFont,
+        numberFontNormal: AFont,
+        textColorNormal: AColor,
+        tintColorNormal: AColor,
+        backgroundColorNormal: AColor,
+        textColorHighlighted: AColor,
+        tintColorHighlighted: AColor,
+        backgroundColorHighlighted: AColor,
+        textColorDisabled: AColor,
+        tintColorDisabled: AColor,
+        backgroundColorDisabled: AColor
+    ) {
+        titleFont.set(parameter: titleFontNormal, for: .normal)
+        numberFont.set(parameter: numberFontNormal, for: .normal)
+
+        textColor.set(parameter: textColorNormal, for: .normal)
+        tintColor.set(parameter: tintColorNormal, for: .normal)
+        backgroundColor.set(parameter: backgroundColorNormal, for: .normal)
+
+        textColor.set(parameter: textColorHighlighted, for: .highlighted)
+        tintColor.set(parameter: tintColorHighlighted, for: .highlighted)
+        backgroundColor.set(parameter: backgroundColorHighlighted, for: .highlighted)
+
+        textColor.set(parameter: textColorDisabled, for: .disabled)
+        tintColor.set(parameter: tintColorDisabled, for: .disabled)
+        backgroundColor.set(parameter: backgroundColorDisabled, for: .disabled)
     }
     
 }

@@ -75,7 +75,7 @@ public struct InputNumber: View {
     /// The step, or increment, value for the stepper. The default value for this property is 1.
     @Binding private var stepValue: Double
     
-    @State private var scheme: InputNumberScheme? = nil
+    @Binding private var scheme: InputNumberScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<InputNumberScheme>()
     
     @State private var valueText: String?
@@ -103,13 +103,18 @@ public struct InputNumber: View {
         value: Binding<Double>,
         minimumValue: Binding<Double> = .constant(0.0),
         maximumValue: Binding<Double> = .constant(.infinity),
-        stepValue: Binding<Double> = .constant(1.0)) {
+        stepValue: Binding<Double> = .constant(1.0),
+        scheme: Binding<InputNumberScheme?> = .constant(nil)
+    ) {
         self._titleText = titleText
         self._value = value
         self._minimumValue = minimumValue
         self._maximumValue = maximumValue
         self._stepValue = stepValue
+        self._scheme = scheme
     }
+
+    // MARK: - Body
     
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme

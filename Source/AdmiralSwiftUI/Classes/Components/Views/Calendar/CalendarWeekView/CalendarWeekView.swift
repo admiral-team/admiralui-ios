@@ -16,17 +16,17 @@ struct CalendarWeekView: View {
     private let dateFormatter = DateFormatter()
     private var weakDays: [String]
 
-    @State private var scheme: CalendarWeekViewScheme? = nil
+    @Binding private var scheme: CalendarWeekViewScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<CalendarWeekViewScheme>()
 
     // MARK: - Initializer
 
     init(
         _ locale: Locale? = nil,
-        scheme: CalendarWeekViewScheme? = nil
+        scheme: Binding<CalendarWeekViewScheme?> = .constant(nil)
     ) {
         self.weakDays = dateFormatter.getShortWeekdaySymbols(locale)
-        self.scheme = scheme
+        self._scheme = scheme
     }
 
     // MARK: - Body

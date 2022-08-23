@@ -8,7 +8,6 @@
 import SwiftUI
 import AdmiralUIResources
 import AdmiralTheme
-
 /// The style of ActionCellView.
 public enum ActionBarViewStyle {
     /// The default style of ActionBarViewStyle.
@@ -16,7 +15,6 @@ public enum ActionBarViewStyle {
     /// The two style of ActionBarViewStyle.
     case secondary
 }
-
 /**
  ActionCellView - A view object for present action bar.
  
@@ -71,9 +69,10 @@ public struct ActionCellView<T>: View where T: ListViewCell {
 
     // MARK: - Private Properties
 
-    @State private var scheme: ActionCellViewScheme? = nil
     private var style: ActionBarViewStyle
     @State private var cellViewOffset: CGFloat = 0.0
+
+    @Binding private var scheme: ActionCellViewScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ActionCellViewScheme>()
 
     private var isOpen: Bool = false
@@ -83,16 +82,23 @@ public struct ActionCellView<T>: View where T: ListViewCell {
     public init(
         cellView: T,
         actions: [ActionItemBarAction],
-        style: ActionBarViewStyle = .default
+        style: ActionBarViewStyle = .default,
+        scheme: Binding<ActionCellViewScheme?> = .constant(nil)
     ) {
         self.cellView = cellView
         self.style = style
         self.actions = actions
+        self._scheme = scheme
     }
 
-    public init(cellView: T,  style: ActionBarViewStyle = .default) {
+    public init(
+        cellView: T,
+        style: ActionBarViewStyle = .default,
+        scheme: Binding<ActionCellViewScheme?> = .constant(nil)
+    ) {
         self.cellView = cellView
         self.style = style
+        self._scheme = scheme
     }
 
     // MARK: - Layout

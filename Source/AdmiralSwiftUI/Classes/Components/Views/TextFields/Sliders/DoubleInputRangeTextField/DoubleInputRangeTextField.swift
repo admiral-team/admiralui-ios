@@ -151,10 +151,11 @@ public struct DoubleInputRangeTextField: AccessabilitySupportUIKit, Identifiable
     
     /// Text field formatter.
     private let formatter: Formatter?
-    
-    @State private var scheme: DoubleInputRangeTextFieldScheme? = nil
+
     private var accessibilityIdentifierFirst: String?
     private var accessibilityIdentifierSecond: String?
+
+    @Binding private var scheme: DoubleInputRangeTextFieldScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<DoubleInputRangeTextFieldScheme>()
     
     @State private var textViewFromWidth: CGFloat = LayoutGrid.tripleModule
@@ -204,36 +205,39 @@ public struct DoubleInputRangeTextField: AccessabilitySupportUIKit, Identifiable
         returnKeyType: UIReturnKeyType = .default,
         autocapitalizationType: UITextAutocapitalizationType = .none,
         autocorrectionType: UITextAutocorrectionType = .no,
-        onSubmit: (() -> Void)? = nil) {
-            self._contentFrom = contentFrom
-            self._contentTo = contentTo
-            self.placeholderFrom = placeholderFrom
-            self.placeholderTo = placeholderTo
-            self.name = name
-            self.formatter = formatter
-            self._state = state
-            self._info = info
-            self._leadingText = leadingText
-            self._trailingText = trailingText
-            self.onSubmit = onSubmit
-            self.infoNumberOfLines = infoNumberOfLines
-            self._sliderValueFrom = .init(initialValue: sliderValueFrom)
-            self._sliderValueTo = .init(initialValue: sliderValueTo)
-            self._maxValue = .init(initialValue: maxValue)
-            self._minValue = .init(initialValue: minValue)
-            self._isFilledFrom = .init(initialValue: !(contentFrom.wrappedValue ?? "").isEmpty)
-            self._isFilledTo = .init(initialValue: !(contentTo.wrappedValue ?? "").isEmpty)
-            self.contentType = contentType
-            self.returnKeyType = returnKeyType
-            self.autocapitalizationType = autocapitalizationType
-            self.autocorrectionType = autocorrectionType
-            self.isResponderFrom = isResponderFrom
-            self.isResponderTo = isResponderTo
-            self._isFocusedFrom = .init(initialValue: isResponderFrom?.wrappedValue ?? false)
-            self._isFocusedTo = .init(initialValue: isResponderTo?.wrappedValue ?? false)
-            self.accessibilityIdentifierFirst = accessibilityIdentifierFirst
-            self.accessibilityIdentifierSecond = accessibilityIdentifierSecond
-        }
+        onSubmit: (() -> Void)? = nil,
+        scheme: Binding<DoubleInputRangeTextFieldScheme?> = .constant(nil)
+    ) {
+        self._contentFrom = contentFrom
+        self._contentTo = contentTo
+        self.placeholderFrom = placeholderFrom
+        self.placeholderTo = placeholderTo
+        self.name = name
+        self.formatter = formatter
+        self._state = state
+        self._info = info
+        self._leadingText = leadingText
+        self._trailingText = trailingText
+        self.onSubmit = onSubmit
+        self.infoNumberOfLines = infoNumberOfLines
+        self._sliderValueFrom = .init(initialValue: sliderValueFrom)
+        self._sliderValueTo = .init(initialValue: sliderValueTo)
+        self._maxValue = .init(initialValue: maxValue)
+        self._minValue = .init(initialValue: minValue)
+        self._isFilledFrom = .init(initialValue: !(contentFrom.wrappedValue ?? "").isEmpty)
+        self._isFilledTo = .init(initialValue: !(contentTo.wrappedValue ?? "").isEmpty)
+        self.contentType = contentType
+        self.returnKeyType = returnKeyType
+        self.autocapitalizationType = autocapitalizationType
+        self.autocorrectionType = autocorrectionType
+        self.isResponderFrom = isResponderFrom
+        self.isResponderTo = isResponderTo
+        self._scheme = scheme
+        self._isFocusedFrom = .init(initialValue: isResponderFrom?.wrappedValue ?? false)
+        self._isFocusedTo = .init(initialValue: isResponderTo?.wrappedValue ?? false)
+        self.accessibilityIdentifierFirst = accessibilityIdentifierFirst
+        self.accessibilityIdentifierSecond = accessibilityIdentifierSecond
+    }
 
     
     public var body: some View {
@@ -300,21 +304,21 @@ public struct DoubleInputRangeTextField: AccessabilitySupportUIKit, Identifiable
                             self.isTextFieldResponderTo = false
                         }
                     })
-                    .padding(.top, 5)
-                    .onChange(of: sliderValueFrom) { value in
-                        DispatchQueue.main.async {
-                            let text = String(format: "%.0f", value).replacingOccurrences(of: ",", with: ".")
-                            contentFrom = text
-                        }
+                .padding(.top, 5)
+                .onChange(of: sliderValueFrom) { value in
+                    DispatchQueue.main.async {
+                        let text = String(format: "%.0f", value).replacingOccurrences(of: ",", with: ".")
+                        contentFrom = text
+                    }
 
+                }
+                .onChange(of: sliderValueTo) { value in
+                    DispatchQueue.main.async {
+                        let text = String(format: "%.0f", value).replacingOccurrences(of: ",", with: ".")
+                        contentTo = text
                     }
-                    .onChange(of: sliderValueTo) { value in
-                        DispatchQueue.main.async {
-                            let text = String(format: "%.0f", value).replacingOccurrences(of: ",", with: ".")
-                            contentTo = text
-                        }
-                    }
-                    .disabled(isTextFieldDisabled)
+                }
+                .disabled(isTextFieldDisabled)
                 Spacer()
                     .frame(height: 16.0)
                 minMaxView(
@@ -352,9 +356,9 @@ public struct DoubleInputRangeTextField: AccessabilitySupportUIKit, Identifiable
     
     // MARK: - Internal Methods
     
-    func scheme(_ scheme: DoubleInputRangeTextFieldScheme) -> some View {
+    func scheme(_ scheme: Binding<DoubleInputRangeTextFieldScheme?>) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = scheme
         return view.id(UUID())
     }
     
@@ -552,34 +556,34 @@ public struct DoubleInputRangeTextField: AccessabilitySupportUIKit, Identifiable
                         },
                         accessibilityIdentifier: accessibilityIdentifierSecond
                     )
-                        .zIndex(10)
-                        .fixedSize()
-                        .onChange(of: contentTo) { value in
-                            guard !finishAfterChangeSlider else { return }
+                    .zIndex(10)
+                    .fixedSize()
+                    .onChange(of: contentTo) { value in
+                        guard !finishAfterChangeSlider else { return }
 
-                            if(contentTo == "") {
-                                withAnimation(.easeInOut) {
-                                    isFilledTo = false
-                                }
-                            } else {
-                                withAnimation(.easeInOut) {
-                                    isFilledTo = true
-                                }
-                            }
-
-                            let text = (value ?? "").replacingOccurrences(of: ",", with: ".")
-                            guard let val = Double(text) else { return }
-
+                        if(contentTo == "") {
                             withAnimation(.easeInOut) {
-                                sliderValueTo = val
+                                isFilledTo = false
+                            }
+                        } else {
+                            withAnimation(.easeInOut) {
+                                isFilledTo = true
                             }
                         }
-                        .onChange(of: isTextFieldResponderTo) { value in
-                            responderToChange(value: value)
+
+                        let text = (value ?? "").replacingOccurrences(of: ",", with: ".")
+                        guard let val = Double(text) else { return }
+
+                        withAnimation(.easeInOut) {
+                            sliderValueTo = val
                         }
-                        .onChange(of: isResponderTo?.wrappedValue ?? false, perform: { value in
-                            responderToChange(value: value)
-                        })
+                    }
+                    .onChange(of: isTextFieldResponderTo) { value in
+                        responderToChange(value: value)
+                    }
+                    .onChange(of: isResponderTo?.wrappedValue ?? false, perform: { value in
+                        responderToChange(value: value)
+                    })
                 }
             }
         }
@@ -638,32 +642,32 @@ public struct DoubleInputRangeTextField: AccessabilitySupportUIKit, Identifiable
                         },
                         accessibilityIdentifier: accessibilityIdentifierFirst
                     )
-                        .fixedSize()
-                        .onChange(of: contentFrom) { value in
-                            guard !finishAfterChangeSlider else { return }
+                    .fixedSize()
+                    .onChange(of: contentFrom) { value in
+                        guard !finishAfterChangeSlider else { return }
 
-                            if(contentFrom == "") {
-                                withAnimation(.easeInOut) {
-                                    isFilledFrom = false
-                                }
-                            } else {
-                                withAnimation(.easeInOut) {
-                                    isFilledFrom = true
-                                }
-                            }
+                        if(contentFrom == "") {
                             withAnimation(.easeInOut) {
-                                let text = (value ?? "").replacingOccurrences(of: ",", with: ".")
-                                guard let val = Double(text) else { return }
-
-                                sliderValueFrom = val
+                                isFilledFrom = false
+                            }
+                        } else {
+                            withAnimation(.easeInOut) {
+                                isFilledFrom = true
                             }
                         }
-                        .onChange(of: isTextFieldResponderFrom) { value in
-                            responderFromChange(value: value)
+                        withAnimation(.easeInOut) {
+                            let text = (value ?? "").replacingOccurrences(of: ",", with: ".")
+                            guard let val = Double(text) else { return }
+
+                            sliderValueFrom = val
                         }
-                        .onChange(of: isResponderFrom?.wrappedValue ?? false, perform: { value in
-                            responderFromChange(value: value)
-                        })
+                    }
+                    .onChange(of: isTextFieldResponderFrom) { value in
+                        responderFromChange(value: value)
+                    }
+                    .onChange(of: isResponderFrom?.wrappedValue ?? false, perform: { value in
+                        responderFromChange(value: value)
+                    })
                     if let leadingText = leadingText {
                         Text(leadingText)
                             .font(textFieldFont?.swiftUIFont)

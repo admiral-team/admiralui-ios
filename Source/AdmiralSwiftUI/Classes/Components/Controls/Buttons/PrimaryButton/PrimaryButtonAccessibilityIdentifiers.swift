@@ -13,7 +13,9 @@ enum PrimaryButtonAccessibilityIdentifiers: String {
     
     case activityIndicator = "activityIndicator"
     case lable = "lable"
-    
+
+    // TODO: - Refactoring
+
     func accessibilityViewIdentifier(accessibilityIdentifier: String?) -> String {
         guard let accessibilityIdentifier = accessibilityIdentifier else { return "" }
         return accessibilityIdentifier + PrimaryButtonAccessibilityIdentifiers.separator + self.rawValue

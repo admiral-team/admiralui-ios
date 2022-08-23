@@ -132,7 +132,7 @@ public struct SecurityTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
     // MARK: - Private Properties
     
     @State private var segmentSize: CGSize = .zero
-    @State private var scheme: StandardTextFieldScheme? = nil
+    @Binding private var scheme: StandardTextFieldScheme?
     
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<StandardTextFieldScheme>()
     
@@ -180,7 +180,9 @@ public struct SecurityTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
         isResponder: Binding<Bool>? = nil,
         onSubmit: (() -> Void)? = nil,
         onCursorPosition: ((Int, Int, String) -> (Int))? = nil,
-        @ViewBuilder trailingView: @escaping () -> T) {
+        @ViewBuilder trailingView: @escaping () -> T,
+        scheme: Binding<StandardTextFieldScheme?> = .constant(nil)
+    ) {
         self._content = Binding(get: {
             if let value = value.wrappedValue {
                 return String(describing: value)
@@ -192,6 +194,7 @@ public struct SecurityTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
                 value.wrappedValue = val
             }
         })
+        self._scheme = scheme
         self.formatter = formatter
         self._isSecure = .init(initialValue: isSecure) 
         self.contentType = contentType
@@ -250,7 +253,9 @@ public struct SecurityTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
         isResponder: Binding<Bool>? = nil,
         onSubmit: (() -> Void)? = nil,
         onCursorPosition: ((Int, Int, String) -> (Int))? = nil,
-        @ViewBuilder trailingView: @escaping () -> T) {
+        @ViewBuilder trailingView: @escaping () -> T,
+        scheme: Binding<StandardTextFieldScheme?> = .constant(nil)
+    ) {
         self.init(
             value: content,
             accessibilityIdentifier: accessibilityIdentifier,
@@ -269,9 +274,13 @@ public struct SecurityTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
             isResponder: isResponder,
             onSubmit: onSubmit,
             onCursorPosition: onCursorPosition,
-            trailingView: trailingView)
+            trailingView: trailingView,
+            scheme: scheme
+        )
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         let isTextFieldDisabled = !isEnabled || (state == .disabled || state == .readOnly)
         
@@ -350,9 +359,9 @@ public struct SecurityTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
     
     // MARK: - Internal Methods
     
-    func scheme(_ scheme: StandardTextFieldScheme) -> some View {
+    func scheme(_ scheme: Binding<StandardTextFieldScheme?>) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = scheme
         return view.id(UUID())
     }
     
@@ -490,7 +499,9 @@ extension SecurityTextField where T == EmptyView {
         infoNumberOfLines: Int? = nil,
         isResponder: Binding<Bool>? = nil,
         onSubmit: (() -> Void)? = nil,
-        onCursorPosition: ((Int, Int, String) -> (Int))? = nil) {
+        onCursorPosition: ((Int, Int, String) -> (Int))? = nil,
+        scheme: Binding<StandardTextFieldScheme?> = .constant(nil)
+    ) {
         self._content = Binding(get: {
             if let value = value.wrappedValue {
                 return String(describing: value)
@@ -502,6 +513,7 @@ extension SecurityTextField where T == EmptyView {
                 value.wrappedValue = val
             }
         })
+        self._scheme = scheme
         self.formatter = formatter
         self._isSecure = .init(initialValue: isSecure)
         self.contentType = contentType
@@ -558,7 +570,9 @@ extension SecurityTextField where T == EmptyView {
         infoNumberOfLines: Int? = nil,
         isResponder: Binding<Bool>? = nil,
         onSubmit: (() -> Void)? = nil,
-        onCursorPosition: ((Int, Int, String) -> (Int))? = nil) {
+        onCursorPosition: ((Int, Int, String) -> (Int))? = nil,
+        scheme: Binding<StandardTextFieldScheme?> = .constant(nil)
+    ) {
         self.init(
             value: content,
             accessibilityIdentifier: accessibilityIdentifier,
@@ -576,7 +590,9 @@ extension SecurityTextField where T == EmptyView {
             infoNumberOfLines: infoNumberOfLines,
             isResponder: isResponder,
             onSubmit: onSubmit,
-            onCursorPosition: onCursorPosition)
+            onCursorPosition: onCursorPosition,
+            scheme: scheme
+        )
     }
     
 }

@@ -130,7 +130,7 @@ public struct AlertView: View {
     /// Action additionalButtonAction.
     private var additionalButtonAction: (() -> ())?
 
-    @State private var scheme: AlertViewScheme?
+    @Binding private var scheme: AlertViewScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<AlertViewScheme>()
 
     // MARK: - Computed Properties
@@ -164,7 +164,7 @@ public struct AlertView: View {
         buttonAction: (() -> ())? = nil,
         additionalButtonTitle: String? = nil,
         additionalButtonAction: (() -> ())? = nil,
-        scheme: AlertViewScheme? = nil
+        scheme: Binding<AlertViewScheme?> = .constant(nil)
     ) {
         self._isLoading = isLoading
         self.imageType = imageType
@@ -179,7 +179,7 @@ public struct AlertView: View {
         self.buttonAction = buttonAction
         self.additionalButtonTitle = additionalButtonTitle
         self.additionalButtonAction = additionalButtonAction
-        self.scheme = scheme
+        self._scheme = scheme
     }
 
     // MARK: - Body
@@ -244,9 +244,9 @@ public struct AlertView: View {
     
     // MARK: - Internal Methods
     
-    func scheme(_ scheme: AlertViewScheme) -> some View {
+    func scheme(_ scheme: Binding<AlertViewScheme?>) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = scheme
         return view.id(UUID())
     }
     

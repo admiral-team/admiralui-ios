@@ -53,7 +53,7 @@ public struct LogoTab: View {
     @State private var segmentSize: CGSize = .zero
     @State private var items: [Image] = []
 
-    @State private var scheme: LogoTabScheme? = nil
+    @Binding private var scheme: LogoTabScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<LogoTabScheme>()
 
     // MARK: - Private Computed Properties
@@ -77,9 +77,14 @@ public struct LogoTab: View {
     // MARK: - Initializer
     
     /// Initializes and returns a newly allocated view object with images and binding selection.
-    public init(images: [Image], selection: Binding<Int>) {
+    public init(
+        images: [Image],
+        selection: Binding<Int>,
+        scheme: Binding<LogoTabScheme?> = .constant(nil)
+    ) {
         self._selection = selection
         self._items = .init(initialValue: images)
+        self._scheme = scheme
     }
 
     // MARK: - Body

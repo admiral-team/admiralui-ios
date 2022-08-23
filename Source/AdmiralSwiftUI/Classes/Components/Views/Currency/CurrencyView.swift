@@ -80,7 +80,7 @@ public struct CurrencyView: View {
     
     // MARK: Internal Properties
     
-    @State private var scheme: CurrencyViewScheme? = nil
+    @Binding private var scheme: CurrencyViewScheme?
     @ObservedObject var schemeProvider = AppThemeSchemeProvider<CurrencyViewScheme>()
 
     // MARK: - Initializer
@@ -93,7 +93,7 @@ public struct CurrencyView: View {
         image: Image? = nil,
         firstCellType: CurrencyCellType = .none,
         secondCellType: CurrencyCellType = .none,
-        scheme: CurrencyViewScheme? = nil
+        scheme: Binding<CurrencyViewScheme?> = .constant(nil)
     ) {
         self._currencyText = Binding(get: { return currencyText }, set: { _ in})
         self._buyText = Binding(get: { return buyText }, set: { _ in})
@@ -101,7 +101,7 @@ public struct CurrencyView: View {
         self._image = Binding(get: { return image }, set: { _ in })
         self._firstCellType = Binding(get: { return firstCellType }, set: { _ in })
         self._secondCellType = Binding(get: { return secondCellType }, set: { _ in })
-        self.scheme = scheme
+        self._scheme = scheme
     }
 
     // MARK: - Layout
@@ -120,9 +120,9 @@ public struct CurrencyView: View {
     
     // MARK: - Internal Methods
     
-    func scheme(_ scheme: CurrencyViewScheme) -> some View {
+    func scheme(_ scheme: Binding<CurrencyViewScheme?>) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = scheme
         return view.id(UUID())
     }
     

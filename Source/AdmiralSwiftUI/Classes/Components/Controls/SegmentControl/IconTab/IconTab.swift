@@ -76,14 +76,19 @@ public struct IconTab: View {
     @Binding private var selection: Int
     private var models: [IconTabModel] = []
 
-    @State private var scheme: IconTabScheme? = nil
+    @Binding private var scheme: IconTabScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<IconTabScheme>()
 
     // MARK: - Initializer
 
-    public init(models: [IconTabModel], selection: Binding<Int>) {
+    public init(
+        models: [IconTabModel],
+        selection: Binding<Int>,
+        scheme: Binding<IconTabScheme?> = .constant(nil)
+    ) {
         self._selection = selection
         self.models = models
+        self._scheme = scheme
     }
 
     // MARK: - Layout

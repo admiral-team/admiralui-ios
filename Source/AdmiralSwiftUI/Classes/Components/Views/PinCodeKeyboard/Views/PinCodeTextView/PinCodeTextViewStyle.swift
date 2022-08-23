@@ -25,20 +25,18 @@ public struct PinCodeTextViewStyle: ButtonStyle {
 
     // MARK: - Properties
 
-    @State private var scheme: PinCodeTextViewScheme? = nil
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<PinCodeTextViewScheme>()
+    @Binding private var scheme: PinCodeTextViewScheme?
 
     // MARK: - Initializer
 
-    public init(scheme: PinCodeTextViewScheme? = nil) {
-        self.scheme = scheme
+    public init(scheme: Binding<PinCodeTextViewScheme?> = .constant(nil)) {
+        self._scheme = scheme
     }
 
     // MARK: - Body
 
     public func makeBody(configuration: Self.Configuration) -> some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
-        PinCodeTextView(configuration: configuration, scheme: scheme)
+        PinCodeTextView(configuration: configuration, scheme: $scheme)
     }
 }
 
@@ -48,15 +46,20 @@ private extension PinCodeTextViewStyle {
         @Environment(\.isEnabled) private var isEnabled
 
         let configuration: Configuration
-        var scheme: PinCodeTextViewScheme
+
+        @ObservedObject var schemeProvider = AppThemeSchemeProvider<PinCodeTextViewScheme>()
+        @Binding var scheme: PinCodeTextViewScheme?
         
-        init(configuration: Configuration, scheme: PinCodeTextViewScheme) {
+        init(
+            configuration: Configuration,
+            scheme: Binding<PinCodeTextViewScheme?> = .constant(nil)
+        ) {
             self.configuration = configuration
-            self.scheme = scheme
+            self._scheme = scheme
         }
         
         var body: some View {
-            
+            let scheme = self.scheme ?? schemeProvider.scheme
             configuration.label
                 .lineLimit(2)
                 .multilineTextAlignment(.center)

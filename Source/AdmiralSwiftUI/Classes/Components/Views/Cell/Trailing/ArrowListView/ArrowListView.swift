@@ -41,7 +41,7 @@ public struct ArrowListView: View, TralingListViewComponent {
     /// The state of the view. Default is normal.
     @State var state: ControlState = .normal
     
-    @State private var scheme: ArrowListViewScheme? = nil
+    @Binding private var scheme: ArrowListViewScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ArrowListViewScheme>()
     
     // MARK: - Private Properties
@@ -56,9 +56,9 @@ public struct ArrowListView: View, TralingListViewComponent {
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     public init(
-        scheme: ArrowListViewScheme? = nil
+        scheme: Binding<ArrowListViewScheme?> = .constant(nil)
     ) {
-        self.scheme = scheme
+        self._scheme = scheme
     }
 
     // MARK: - Body
@@ -83,9 +83,9 @@ public struct ArrowListView: View, TralingListViewComponent {
     
     // MARK: - Internal Methods
     
-    func scheme(_ scheme: ArrowListViewScheme) -> some View {
+    func scheme(_ scheme: Binding<ArrowListViewScheme?>) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = scheme
         return view.id(UUID())
     }
     

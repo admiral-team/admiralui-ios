@@ -7,7 +7,6 @@
 
 import AdmiralTheme
 import SwiftUI
-
 /**
  The style for creating the Ghost Button. Is used in cases when the main button is not enough, often goes with it in pairs when you need to designate several actions, one of which is the main one.
 
@@ -43,29 +42,29 @@ public struct GhostButtonStyle: ButtonStyle {
 
     // MARK: - Private Properties
 
-    private var scheme: GhostButtonScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<GhostButtonScheme>()
+    @Binding private var scheme: GhostButtonScheme?
 
     // MARK: - Inializer
 
     public init(
         isLoading: Binding<Bool> = .constant(false),
         sizeType: ButtonSizeType? = nil,
-        scheme: GhostButtonScheme? = nil) {
+        scheme: Binding<GhostButtonScheme?> = .constant(nil)
+    ) {
         self._isLoading = isLoading
         self.sizeType = sizeType
-        self.scheme = scheme
+        self._scheme = scheme
     }
 
     // MARK: - Body
 
     public func makeBody(configuration: Self.Configuration) -> some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
-        return GhostButton(
+        GhostButton(
             isLoading: $isLoading,
-            scheme: scheme,
+            scheme: $scheme,
             sizeType: sizeType,
-            configuration: configuration)
+            configuration: configuration
+        )
     }
 }
 
@@ -82,28 +81,36 @@ private extension GhostButtonStyle {
         @Binding var isLoading: Bool
         var sizeType: ButtonSizeType?
         let configuration: Configuration
-        let scheme: GhostButtonScheme
+
+        @ObservedObject private var schemeProvider = AppThemeSchemeProvider<GhostButtonScheme>()
+        @Binding var scheme: GhostButtonScheme?
         
         init(
             isLoading: Binding<Bool>,
-            scheme: GhostButtonScheme,
+            scheme: Binding<GhostButtonScheme?>,
             sizeType: ButtonSizeType?,
-            configuration: Configuration) {
+            configuration: Configuration
+        ) {
             
             self.sizeType = sizeType
             self.configuration = configuration
             self._isLoading = isLoading
-            self.scheme = scheme
+            self._scheme = scheme
         }
         
         var body: some View {
+            let scheme = self.scheme ?? schemeProvider.scheme
             let content = isLoading ?
                 ActivityIndicator(style: .contrast, size: .medium).eraseToAnyView()
                 : configuration.label.eraseToAnyView()
             
             switch sizeType {
             case .small, .medium, .big:
-                buttonWithSize(content: content, sizeType: sizeType)
+                buttonWithSize(
+                    content: content,
+                    sizeType: sizeType,
+                    scheme: scheme
+                )
             default:
                 contentButton(scheme: scheme, content: content)
                     .frame(minHeight: LayoutGrid.halfModule * 10, idealHeight: LayoutGrid.module * 6, maxHeight: LayoutGrid.module * 6)
@@ -116,7 +123,8 @@ private extension GhostButtonStyle {
         
         func contentButton(
             scheme: GhostButtonScheme,
-            content: AnyView) -> some View {
+            content: AnyView
+        ) -> some View {
                 let normal = scheme.textColor.parameter(for: .normal)?.swiftUIColor
                 let disabled = scheme.textColor.parameter(for: .disabled)?.swiftUIColor
                 let highlighted = scheme.textColor.parameter(for: .highlighted)?.swiftUIColor
@@ -126,7 +134,11 @@ private extension GhostButtonStyle {
                     .foregroundColor(isEnabled ? (configuration.isPressed ? highlighted : normal) : disabled)
         }
         
-        func buttonWithSize(content: AnyView, sizeType: ButtonSizeType?) -> some View  {
+        func buttonWithSize(
+            content: AnyView,
+            sizeType: ButtonSizeType?,
+            scheme: GhostButtonScheme
+        ) -> some View  {
             return contentButton(scheme: scheme, content: content)
                 .frame(maxWidth: .infinity)
                 .frame(width: sizeType?.width, height: sizeType?.height)

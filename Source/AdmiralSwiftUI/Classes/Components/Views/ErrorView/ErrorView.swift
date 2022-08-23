@@ -56,7 +56,7 @@ public struct ErrorView: View {
     
     // MARK: Private Properties
 
-    @State private var scheme: ErrorViewScheme?
+    @Binding private var scheme: ErrorViewScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ErrorViewScheme>()
     
     // MARK: - Initializer
@@ -67,13 +67,13 @@ public struct ErrorView: View {
         buttonTitle: String? = nil,
         isLoadingButton: Binding<Bool> = .constant(false),
         buttonAction: @escaping () -> () = {},
-        scheme: ErrorViewScheme? = nil
+        scheme: Binding<ErrorViewScheme?> = .constant(nil)
     ) {
         self.text = text
         self.buttonTitle = buttonTitle
         self.buttonAction = buttonAction
         self._isLoadingButton = isLoadingButton
-        self.scheme = scheme
+        self._scheme = scheme
     }
 
     // MARK: - Body
@@ -102,9 +102,9 @@ public struct ErrorView: View {
     
     // MARK: - Internal Methods
 
-    func scheme(_ scheme: ErrorViewScheme) -> some View {
+    func scheme(_ scheme: Binding<ErrorViewScheme?>) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = scheme
         return view.id(UUID())
     }
 

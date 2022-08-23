@@ -71,7 +71,7 @@ public struct InformerTab: View {
     @Binding private var selection: Int
     @Binding private var offsetSegment: CGFloat
 
-    @State private var scheme: InformerTabScheme? = nil
+    @Binding private var scheme: InformerTabScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<InformerTabScheme>()
 
     private var customView: AnyView
@@ -110,9 +110,12 @@ public struct InformerTab: View {
         items: [InformerSegmentedItem],
         customView: AnyView = AnyView(EmptyView()),
         selection: Binding<Int> = .constant(0),
-        offsetSegment: Binding<CGFloat> = .constant(0.0)) {
+        offsetSegment: Binding<CGFloat> = .constant(0.0),
+        scheme: Binding<InformerTabScheme?> = .constant(nil)
+    ) {
         self._selection = selection
         self._offsetSegment = offsetSegment
+        self._scheme = scheme
         self.customView = customView
         self.items = items
     }

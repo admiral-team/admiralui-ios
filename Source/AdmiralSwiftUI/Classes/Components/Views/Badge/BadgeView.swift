@@ -95,7 +95,7 @@ public struct BadgeView<Content>: View where Content: View {
     
     @State private var segmentSize: CGSize = .zero
 
-    @State var scheme: BadgeViewScheme? = nil
+    @Binding var scheme: BadgeViewScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<BadgeViewScheme>()
     
     // MARK: - Initializer
@@ -113,14 +113,14 @@ public struct BadgeView<Content>: View where Content: View {
         borderColor: Color? = nil,
         offset: CGPoint = .zero,
         @ViewBuilder content: @escaping () -> (Content),
-        scheme: BadgeViewScheme? = nil
+        scheme: Binding<BadgeViewScheme?> = .constant(nil)
     ) {
         self.badgeStyle = badgeStyle
         self.value = value
         self.borderColor = borderColor
         self.offset = offset
         self.content = content
-        self.scheme = scheme
+        self._scheme = scheme
     }
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
@@ -136,14 +136,14 @@ public struct BadgeView<Content>: View where Content: View {
         borderColor: Color? = nil,
         offset: CGPoint = .zero,
         @ViewBuilder content: @escaping () -> (Content),
-        scheme: BadgeViewScheme? = nil
+        scheme: Binding<BadgeViewScheme?> = .constant(nil)
     ) {
         self.badgeStyle = badgeStyle
         self.text = text
         self.borderColor = borderColor
         self.content = content
         self.offset = offset
-        self.scheme = scheme
+        self._scheme = scheme
     }
 
     // MARK: - Body
@@ -161,9 +161,9 @@ public struct BadgeView<Content>: View where Content: View {
     
     // MARK: - Internal Methods
     
-    func scheme(_ scheme: BadgeViewScheme) -> some View {
+    func scheme(_ scheme: Binding<BadgeViewScheme?>) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = scheme
         return view.id(UUID())
     }
     
@@ -236,12 +236,15 @@ extension BadgeView where Content == EmptyView {
         badgeStyle: BadgeStyle,
         value: Int?,
         borderColor: Color? = nil,
-        offset: CGPoint = .zero) {
-            self.badgeStyle = badgeStyle
-            self.value = value
-            self.borderColor = borderColor
-            self.offset = offset
-        }
+        offset: CGPoint = .zero,
+        scheme: Binding<BadgeViewScheme?> = .constant(nil)
+    ) {
+        self.badgeStyle = badgeStyle
+        self.value = value
+        self.borderColor = borderColor
+        self.offset = offset
+        self._scheme = scheme
+    }
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     /// - Parameters:
@@ -253,12 +256,15 @@ extension BadgeView where Content == EmptyView {
         badgeStyle: BadgeStyle,
         text: String?,
         borderColor: Color? = nil,
-        offset: CGPoint = .zero) {
-            self.badgeStyle = badgeStyle
-            self.text = text
-            self.borderColor = borderColor
-            self.offset = offset
-        }
+        offset: CGPoint = .zero,
+        scheme: Binding<BadgeViewScheme?> = .constant(nil)
+    ) {
+        self.badgeStyle = badgeStyle
+        self.text = text
+        self.borderColor = borderColor
+        self.offset = offset
+        self._scheme = scheme
+    }
 }
 
 @available(iOS 14.0, *)

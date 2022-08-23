@@ -5,10 +5,9 @@
 //  Created on 31.05.2021.
 //
 
-import SwiftUI
-
 import AdmiralTheme
 import AdmiralUIResources
+import SwiftUI
 
 @available(iOS 14.0.0, *)
 public struct ToolBarItemStyle: ButtonStyle {
@@ -28,7 +27,7 @@ public struct ToolBarItemStyle: ButtonStyle {
     public var type: ToolBarType
 
     /// The scheme of ToolBarItem
-    public var scheme: ToolBarScheme.ItemScheme
+    public var scheme: ToolBarItemScheme
 
     /// The selection flag of ToolBarItem
     public var isSelected: Bool
@@ -42,14 +41,15 @@ public struct ToolBarItemStyle: ButtonStyle {
     // MARK: - Initializer
 
     public init(
-        scheme: ToolBarScheme.ItemScheme,
+        scheme: ToolBarItemScheme,
         image: Image,
         title: String,
         badgeStyle: ToolBarBadgeStyle?,
         type: ToolBarType,
         itemType: ToolbarItemType,
         isSelected: Bool,
-        isEnabled: Bool) {
+        isEnabled: Bool
+    ) {
         self.scheme = scheme
         self.image = image
         self.title = title
@@ -71,7 +71,8 @@ public struct ToolBarItemStyle: ButtonStyle {
             badgeStyle: badgeStyle,
             type: type,
             itemType: itemType,
-            isSelected: isSelected)
+            isSelected: isSelected
+        )
         if type == .horizontal {
             return ToolBarItemHorizontal(
                 content: { content })
@@ -95,7 +96,7 @@ private extension ToolBarItemStyle {
         @Environment(\.isEnabled) private var isEnabled
         
         let configuration: Configuration
-        let scheme: ToolBarScheme.ItemScheme
+        let scheme: ToolBarItemScheme
         let image: Image
         let title: String
         let badgeStyle: ToolBarBadgeStyle?
@@ -194,91 +195,4 @@ private extension ToolBarItemStyle {
             Spacer()
         }
     }
-}
-
-@available(iOS 14.0.0, *)
-class ViewRouter: ObservableObject {
-    
-    @Published var currentPage: Int = 0
-    
-}
-
-@available(iOS 14.0.0, *)
-struct ToolBarItemSelectable: View {
-    
-    @StateObject var viewRouter: ViewRouter
-    let scheme: ToolBarScheme.ItemScheme
-    let assignedPage: Int
-    let image: Image
-    let title: String
-    let badgeStyle: ToolBarBadgeStyle?
-    let itemType: ToolbarItemType
-    let onTap: (Int) -> ()
-    let isEnabled: Bool
-    
-    private var imageColor: Color? {
-        var imageColor = viewRouter.currentPage == assignedPage
-            ? scheme.imageColor.parameter(for: .highlighted, type: itemType)?.swiftUIColor
-            : scheme.imageColor.parameter(for: .normal, type: itemType)?.swiftUIColor
-        if !isEnabled {
-            imageColor = scheme.imageColor.parameter(for: .disabled, type: itemType)?.swiftUIColor
-        }
-        return imageColor
-    }
-    
-    private var titleColor: Color? {
-        var titleColor = viewRouter.currentPage == assignedPage
-            ? scheme.titleColor.parameter(for: .highlighted, type: itemType)?.swiftUIColor
-            : scheme.titleColor.parameter(for: .normal, type: itemType)?.swiftUIColor
-        if !isEnabled {
-            titleColor = scheme.titleColor.parameter(for: .disabled, type: itemType)?.swiftUIColor
-        }
-        return titleColor
-    }
-    
-    var body: some View {
-        Spacer()
-        VStack {
-            if let badgeStyle = badgeStyle {
-                switch badgeStyle {
-                case .empty:
-                    BadgeView(badgeStyle: .error,
-                              value: nil,
-                              borderColor: scheme.borderColor.swiftUIColor) {
-                        image
-                            .renderingMode(.template)
-                            .foregroundColor(imageColor)
-                            .frame(width: 32.0, height: 32.0)
-                    }
-                    .disabled(!isEnabled)
-                case .value(let value):
-                    BadgeView(badgeStyle: .error,
-                              value: value,
-                              borderColor: scheme.borderColor.swiftUIColor) {
-                        image
-                            .renderingMode(.template)
-                            .foregroundColor(titleColor)
-                            .frame(width: 32.0, height: 32.0)
-                    }
-                    .disabled(!isEnabled)
-                }
-            } else {
-                image
-                    .renderingMode(.template)
-                    .foregroundColor(imageColor)
-                    .frame(width: 32.0, height: 32.0)
-            }
-            Text(title)
-                .font(scheme.titleLabelVerticalFont.swiftUIFont)
-                .foregroundColor(titleColor)
-        }
-        .onTapGesture {
-            guard isEnabled else { return }
-            
-            onTap(assignedPage)
-            viewRouter.currentPage = assignedPage
-        }
-        Spacer()
-    }
-    
 }

@@ -34,7 +34,8 @@ public struct DoubleSliderView: View {
     // MARK: - Private Properties
     
     @State private var isFromLastTouch: Bool = true
-    @State private var scheme: SliderScheme? = nil
+
+    @Binding private var scheme: SliderScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SliderScheme>()
     
     // MARK: - Initializer
@@ -45,10 +46,13 @@ public struct DoubleSliderView: View {
         minValue: Double = 0.0,
         maxValue: Double = 1.0,
         segmentSize: Binding<CGSize>,
-        gestureChange: @escaping () -> ()) {
+        gestureChange: @escaping () -> (),
+        scheme: Binding<SliderScheme?> = .constant(nil)
+    ) {
         self._valueFrom = valueFrom
         self._valueTo = valueTo
         self.gestureChange = gestureChange
+        self._scheme = scheme
         self._segmentSize = segmentSize
         guard maxValue > minValue else { return }
         
@@ -56,7 +60,8 @@ public struct DoubleSliderView: View {
         self._maxValue = .init(initialValue: maxValue)
     }
     
-    /// `Slider` view setup
+    // MARK: - Body
+
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         var valFrom = CGFloat((min(max(Double(valueFrom), minValue), maxValue) - minValue) / (maxValue - minValue))

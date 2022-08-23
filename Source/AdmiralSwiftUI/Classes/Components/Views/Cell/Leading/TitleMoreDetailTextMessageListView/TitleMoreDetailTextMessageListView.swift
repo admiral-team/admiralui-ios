@@ -80,7 +80,7 @@ public struct TitleMoreDetailTextMessageListView: View, LeadingListViewComponent
     
     @Environment(\.isEnabled) var isEnabled
     
-    @State private var scheme: TitleMoreDetailTextMessageListViewScheme? = nil
+    @Binding private var scheme: TitleMoreDetailTextMessageListViewScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<TitleMoreDetailTextMessageListViewScheme>()
     
     // MARK: - Initializer
@@ -95,7 +95,7 @@ public struct TitleMoreDetailTextMessageListView: View, LeadingListViewComponent
         tagText: String? = nil,
         messageText: String? = nil,
         infoImage: Image? = nil,
-        scheme: TitleMoreDetailTextMessageListViewScheme? = nil
+        scheme: Binding<TitleMoreDetailTextMessageListViewScheme?> = .constant(nil)
     ) {
         self._title = Binding(get: { return title }, set: { _ in })
         self._more = Binding(get: { return more }, set: { _ in })
@@ -105,7 +105,7 @@ public struct TitleMoreDetailTextMessageListView: View, LeadingListViewComponent
         self._tagText = Binding(get: { return tagText }, set: { _ in })
         self._messageText = Binding(get: { return messageText }, set: { _ in })
         self._infoImage = Binding(get: { return infoImage }, set: { _ in })
-        self.scheme = scheme
+        self._scheme = scheme
     }
 
     // MARK: - Body
@@ -130,9 +130,9 @@ public struct TitleMoreDetailTextMessageListView: View, LeadingListViewComponent
     
     // MARK: - Internal Methods
     
-    func scheme(_ scheme: TitleMoreDetailTextMessageListViewScheme) -> some View {
+    func scheme(_ scheme: Binding<TitleMoreDetailTextMessageListViewScheme?>) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = scheme
         return view.id(UUID())
     }
     

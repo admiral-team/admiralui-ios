@@ -7,7 +7,6 @@
 
 import AdmiralTheme
 import SwiftUI
-
 /**
  A TwoTitlePrimaryButtonStyle with two text headers (left and right). PrimaryButton - the main button for the most important actions
  
@@ -20,10 +19,9 @@ import SwiftUI
  # Code
  ```
  TwoTitlePrimaryButton(
-    leftText: "left Text",
-    rightText: "right Text",
+ leftText: "left Text",
+ rightText: "right Text",
  )
- 
  ```
  */
 @available(iOS 14.0.0, *)
@@ -45,8 +43,7 @@ public struct TwoTitlePrimaryButtonStyle: ButtonStyle {
 
     // MARK: - Private Properties
 
-    @State private var scheme: TwoTitlePrimaryButtonScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<TwoTitlePrimaryButtonScheme>()
+    @Binding private var scheme: TwoTitlePrimaryButtonScheme?
 
     // MARK: - Inializer
 
@@ -55,13 +52,13 @@ public struct TwoTitlePrimaryButtonStyle: ButtonStyle {
         sizeType: ButtonSizeType? = nil,
         leftText: String,
         rightText: String,
-        scheme: TwoTitlePrimaryButtonScheme? = nil
+        scheme: Binding<TwoTitlePrimaryButtonScheme?> = .constant(nil)
     ) {
         self._isLoading = isLoading
         self.sizeType = sizeType
         self.leftText = leftText
         self.rightText = rightText
-        self.scheme = scheme
+        self._scheme = scheme
     }
 
     // MARK: - Body
@@ -71,7 +68,7 @@ public struct TwoTitlePrimaryButtonStyle: ButtonStyle {
             configuration: configuration,
             leftTitle: leftText,
             rightTitle: rightText,
-            scheme: self.scheme ?? schemeProvider.scheme
+            scheme: $scheme
         )
     }
 }
@@ -89,11 +86,14 @@ private extension TwoTitlePrimaryButtonStyle {
         let configuration: Configuration
         let leftTitle: String
         let rightTitle: String
-        let scheme: TwoTitlePrimaryButtonScheme
+
+        @Binding var scheme: TwoTitlePrimaryButtonScheme?
+        @ObservedObject private var schemeProvider = AppThemeSchemeProvider<TwoTitlePrimaryButtonScheme>()
 
         // MARK: - Body
 
         var body: some View {
+            let scheme = self.scheme ?? schemeProvider.scheme
             let state = twoTitlePrimaryState(configuration)
             return ZStack {
                 scheme.buttonBackgroundColor.parameter(for: state)?.swiftUIColor
@@ -133,12 +133,13 @@ struct Two_Previews: PreviewProvider {
     static var previews: some View {
         Spacer()
         Button(action: {}, label: {})
-            .buttonStyle(TwoTitlePrimaryButtonStyle(
-                isLoading: .constant(false),
-                sizeType: .medium,
-                leftText: "left",
-                rightText: "right",
-                scheme: nil)
+            .buttonStyle(
+                TwoTitlePrimaryButtonStyle(
+                    isLoading: .constant(false),
+                    sizeType: .medium,
+                    leftText: "left",
+                    rightText: "right"
+                )
             )
         Spacer()
     }

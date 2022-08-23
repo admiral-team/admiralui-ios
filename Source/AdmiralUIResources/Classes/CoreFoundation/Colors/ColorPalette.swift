@@ -108,6 +108,7 @@ public class ColorPalette: Codable {
     public var textSuccess: AColor 
     public var textSuccessDefault: AColor 
     public var textSuccessPressed: AColor
+    public var dictionary: [String: AColor] = [:]
 
     public init(
         style: ColorPaletteStyle,
@@ -294,9 +295,9 @@ public class ColorPalette: Codable {
 
 // MARK: - All Fonts
 
-extension ColorPalette {
+public extension ColorPalette {
 
-    public var all: [AColor] {
+    var all: [AColor] {
         return [
             backgroundAccent,
             backgroundAccentDark,
@@ -391,9 +392,9 @@ extension ColorPalette {
  
 // MARK: - Dark
 
-extension ColorPalette {
+public extension ColorPalette {
 
-    public static var dark: ColorPalette {
+    static var dark: ColorPalette {
         return ColorPalette(
             style: .dark,
             disabledAlpha: 0.6,
@@ -490,9 +491,9 @@ extension ColorPalette {
  
 // MARK: - Light
 
-extension ColorPalette {
+public extension ColorPalette {
 
-    public static var light: ColorPalette {
+    static var light: ColorPalette {
         return ColorPalette(
             style: .light,
             disabledAlpha: 0.6,
@@ -589,9 +590,9 @@ extension ColorPalette {
  
 // MARK: - Smedark
 
-extension ColorPalette {
+public extension ColorPalette {
 
-    public static var sMEDark: ColorPalette {
+    static var sMEDark: ColorPalette {
         return ColorPalette(
             style: .dark,
             disabledAlpha: 0.6,
@@ -688,9 +689,9 @@ extension ColorPalette {
  
 // MARK: - Smelight
 
-extension ColorPalette {
+public extension ColorPalette {
 
-    public static var sMELight: ColorPalette {
+    static var sMELight: ColorPalette {
         return ColorPalette(
             style: .light,
             disabledAlpha: 0.6,
@@ -787,7 +788,8 @@ extension ColorPalette {
 
 // MARK: - Color
 
-public struct AColor: Codable {
+public struct AColor: Codable, Identifiable {
+    public var id = UUID().uuidString
     public let red: CGFloat
     public let green: CGFloat
     public let blue: CGFloat

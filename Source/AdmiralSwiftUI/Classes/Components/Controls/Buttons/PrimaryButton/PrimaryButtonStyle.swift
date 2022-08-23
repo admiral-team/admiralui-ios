@@ -15,8 +15,8 @@ import SwiftUI
  You can create buttons in three sizes: (small, medium, big) by specifying size Type in init PrimaryButtonStyle:
  # Code
  ```
-Button("Text", action: {})
-    .buttonStyle(PrimaryButtonStyle(sizeType: .small))
+ Button("Text", action: {})
+ .buttonStyle(PrimaryButtonStyle(sizeType: .small))
  ```
  Big - the main button, the width of which depends on the width of the screen;
  Medium - an additional button of a smaller size, the button does not change its size depending on the width of the screen;
@@ -29,9 +29,9 @@ Button("Text", action: {})
  # Code
  ```
  Button("Text", action: {})
-    .buttonStyle(PrimaryButtonStyle(isLoading: .constant(true)))
+ .buttonStyle(PrimaryButtonStyle(isLoading: .constant(true)))
  ```
-*/
+ */
 @available(iOS 14.0.0, *)
 public struct PrimaryButtonStyle: ButtonStyle {
 
@@ -47,32 +47,32 @@ public struct PrimaryButtonStyle: ButtonStyle {
 
     private var accessibilityIdentifier: String?
 
-    private var scheme: PrimaryButtonScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<PrimaryButtonScheme>()
+    @Binding private var scheme: PrimaryButtonScheme?
 
     // MARK: - Initializer
 
     public init(
         isLoading: Binding<Bool> = .constant(false),
         sizeType: ButtonSizeType? = nil,
-        scheme: PrimaryButtonScheme? = nil,
-        accessibilityIdentifier: String? = nil) {
+        scheme: Binding<PrimaryButtonScheme?> = .constant(nil),
+        accessibilityIdentifier: String? = nil
+    ) {
         self._isLoading = isLoading
         self.sizeType = sizeType
-        self.scheme = scheme
+        self._scheme = scheme
         self.accessibilityIdentifier = accessibilityIdentifier
     }
 
     // MARK: - Body
 
     public func makeBody(configuration: Self.Configuration) -> some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
         PrimaryButton(
             isLoading: $isLoading,
             sizeType: sizeType,
-            scheme: scheme,
             configuration: configuration,
-            accessibilityIdentifier: accessibilityIdentifier)
+            accessibilityIdentifier: accessibilityIdentifier,
+            scheme: $scheme
+        )
     }
 }
 
@@ -90,28 +90,30 @@ private extension PrimaryButtonStyle {
         @Binding var isLoading: Bool
         var sizeType: ButtonSizeType?
 
-        
         let configuration: Configuration
-        var scheme: PrimaryButtonScheme
+
+        @ObservedObject private var schemeProvider = AppThemeSchemeProvider<PrimaryButtonScheme>()
+        @Binding var scheme: PrimaryButtonScheme?
         
         init(
             isLoading: Binding<Bool>,
             sizeType: ButtonSizeType?,
-            scheme: PrimaryButtonScheme,
             configuration: Configuration,
-            accessibilityIdentifier: String? = nil) {
-            
+            accessibilityIdentifier: String? = nil,
+            scheme: Binding<PrimaryButtonScheme?>
+        ) {
             self.configuration = configuration
             self.sizeType = sizeType
-            self.scheme = scheme
+            self._scheme = scheme
             self._isLoading = isLoading
             self.accessibilityIdentifier = accessibilityIdentifier
         }
         
         var body: some View {
+            let scheme = self.scheme ?? schemeProvider.scheme
             let content = isLoading ?
-                activityIndicator().eraseToAnyView()
-                : lable().eraseToAnyView()
+            activityIndicator().eraseToAnyView()
+            : lable(scheme: scheme).eraseToAnyView()
             
             let backgroundNormal = scheme.buttonBackgroundColor.parameter(for: .normal)?.swiftUIColor
             let backgroundDisabled = scheme.buttonBackgroundColor.parameter(for: .disabled)?.swiftUIColor
@@ -151,23 +153,35 @@ private extension PrimaryButtonStyle {
         }
         
         func activityIndicator() -> some View {
-            ActivityIndicator(style: .default, size: .medium).accessibilityIdentifier(PrimaryButtonAccessibilityIdentifiers.activityIndicator
-                                                                                        .accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier))
+            ActivityIndicator(
+                style: .default,
+                size: .medium
+            ).accessibilityIdentifier(
+                PrimaryButtonAccessibilityIdentifiers
+                    .activityIndicator
+                    .accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier)
+            )
         }
         
-        func lable() -> some View {
-            configuration.label.accessibilityIdentifier(PrimaryButtonAccessibilityIdentifiers.lable
-                                                            .accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier))
-                .foregroundColor(scheme.textColor.parameter(for: .normal)?.swiftUIColor)
+        func lable(scheme: PrimaryButtonScheme) -> some View {
+            configuration.label.accessibilityIdentifier(
+                PrimaryButtonAccessibilityIdentifiers
+                    .lable
+                    .accessibilityViewIdentifier(
+                        accessibilityIdentifier: accessibilityIdentifier
+                    )
+            )
+            .foregroundColor(scheme.textColor.parameter(for: .normal)?.swiftUIColor)
         }
         
         func contentButton(
             scheme: PrimaryButtonScheme,
-            content: AnyView) -> some View {
+            content: AnyView
+        ) -> some View {
             let textNormal = scheme.textColor.parameter(for: .normal)?.swiftUIColor
             let textDisabled = scheme.textColor.parameter(for: .disabled)?.swiftUIColor
             let text = isEnabled ? textNormal : textDisabled
-            
+
             return content
                 .font(scheme.font.swiftUIFont)
                 .foregroundColor(text)

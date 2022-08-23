@@ -57,7 +57,7 @@ public struct ChatBubbleStatusView: View {
 
     // MARK: - Private Properties
     
-    @State private var scheme: ChatBubbleStatusViewScheme? = nil
+    @Binding private var scheme: ChatBubbleStatusViewScheme?
     @ObservedObject var schemeProvider = AppThemeSchemeProvider<ChatBubbleStatusViewScheme>()
     
     // MARK: - Initializer
@@ -67,13 +67,13 @@ public struct ChatBubbleStatusView: View {
         status: ChatStatus? = nil,
         direction: ChatDirection,
         style: ChatBubbleStatusStyle = .default,
-        scheme: ChatBubbleStatusViewScheme? = nil
+        scheme: Binding<ChatBubbleStatusViewScheme?> = .constant(nil)
     ) {
         self._time = .init(initialValue: time)
         self._status = .init(initialValue: status)
         self._direction = .init(initialValue: direction)
         self._style = .init(initialValue: style)
-        self.scheme = scheme
+        self._scheme = scheme
     }
 
     // MARK: - Body

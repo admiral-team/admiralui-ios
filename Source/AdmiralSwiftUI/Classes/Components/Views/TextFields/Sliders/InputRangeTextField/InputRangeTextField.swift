@@ -118,12 +118,13 @@ public struct InputRangeTextField<T>: TextFieldInput, AccessabilitySupportUIKit,
     private let formatter: Formatter?
     
     // MARK: - Private Properties
-    
-    @State private var scheme: InputRangeTextFieldScheme? = nil
-    @State private var finishAfterChangeSlider: Bool = false
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<InputRangeTextFieldScheme>()
     private var accessibilityIdentifier: String?
-    
+
+    @State private var finishAfterChangeSlider: Bool = false
+
+    @Binding private var scheme: InputRangeTextFieldScheme?
+    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<InputRangeTextFieldScheme>()
+
     // MARK: - Initializer
     
     /// Initializes and returns a newly allocated view object
@@ -159,7 +160,9 @@ public struct InputRangeTextField<T>: TextFieldInput, AccessabilitySupportUIKit,
         autocapitalizationType: UITextAutocapitalizationType = .none,
         autocorrectionType: UITextAutocorrectionType = .no,
         onSubmit: (() -> Void)? = nil,
-        @ViewBuilder trailingView: @escaping () -> T) {
+        @ViewBuilder trailingView: @escaping () -> T,
+        scheme: Binding<InputRangeTextFieldScheme?> = .constant(nil)
+    ) {
         self._content = Binding(get: {
             if let value = value.wrappedValue {
                 return String(describing: value)
@@ -189,6 +192,7 @@ public struct InputRangeTextField<T>: TextFieldInput, AccessabilitySupportUIKit,
         self.isResponder = isResponder
         self._isFocused = .init(initialValue: isResponder?.wrappedValue ?? false)
         self.trailingView = trailingView
+        self._scheme = scheme
         self._isFilled = .init(initialValue: !($content.wrappedValue ?? "").isEmpty)
         self.accessibilityIdentifier = accessibilityIdentifier
     }
@@ -224,7 +228,9 @@ public struct InputRangeTextField<T>: TextFieldInput, AccessabilitySupportUIKit,
         autocapitalizationType: UITextAutocapitalizationType = .none,
         autocorrectionType: UITextAutocorrectionType = .no,
         onSubmit: (() -> Void)? = nil,
-        @ViewBuilder trailingView: @escaping () -> T) {
+        @ViewBuilder trailingView: @escaping () -> T,
+        scheme: Binding<InputRangeTextFieldScheme?> = .constant(nil)
+    ) {
         self.init(
             value: content,
             accessibilityIdentifier: accessibilityIdentifier,
@@ -244,7 +250,9 @@ public struct InputRangeTextField<T>: TextFieldInput, AccessabilitySupportUIKit,
             autocapitalizationType: autocapitalizationType,
             autocorrectionType: autocorrectionType,
             onSubmit: onSubmit,
-            trailingView: trailingView)
+            trailingView: trailingView,
+            scheme: scheme
+        )
     }
     
     public var body: some View {
@@ -349,9 +357,9 @@ public struct InputRangeTextField<T>: TextFieldInput, AccessabilitySupportUIKit,
     
     // MARK: - Internal Methods
     
-    func scheme(_ scheme: InputRangeTextFieldScheme) -> some View {
+    func scheme(_ scheme: Binding<InputRangeTextFieldScheme?>) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = scheme
         return view.id(UUID())
     }
     
@@ -543,7 +551,9 @@ extension InputRangeTextField where T == EmptyView {
         returnKeyType: UIReturnKeyType = .default,
         autocapitalizationType: UITextAutocapitalizationType = .none,
         autocorrectionType: UITextAutocorrectionType = .no,
-        onSubmit: (() -> Void)? = nil) {
+        onSubmit: (() -> Void)? = nil,
+        scheme: Binding<InputRangeTextFieldScheme?> = .constant(nil)
+    ) {
         self._content = Binding(get: {
             if let value = value.wrappedValue {
                 return String(describing: value)
@@ -573,6 +583,7 @@ extension InputRangeTextField where T == EmptyView {
         self.isResponder = isResponder
         self.accessibilityIdentifier = accessibilityIdentifier
         self.trailingView = { EmptyView() }
+        self._scheme = scheme
         self._isFocused = .init(initialValue: isResponder?.wrappedValue ?? false)
         self._isFilled = .init(initialValue: !($content.wrappedValue ?? "").isEmpty)
     }

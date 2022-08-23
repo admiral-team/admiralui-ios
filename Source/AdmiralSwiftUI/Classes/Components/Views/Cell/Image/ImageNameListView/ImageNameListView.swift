@@ -38,7 +38,7 @@ public struct ImageNameListView: View, ImageListViewComponent {
     @Environment(\.isEnabled) var isEnabled
     @Environment(\.manager) var manager
     
-    @State private var scheme: ImageNameListViewScheme? = nil
+    @Binding private var scheme: ImageNameListViewScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ImageNameListViewScheme>()
     
     // MARK: - Initializer
@@ -46,10 +46,10 @@ public struct ImageNameListView: View, ImageListViewComponent {
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     public init(
         text: String,
-        scheme: ImageNameListViewScheme? = nil
+        scheme: Binding<ImageNameListViewScheme?> = .constant(nil)
     ) {
         self._text = Binding(get: { return text }, set: { _ in })
-        self.scheme = scheme
+        self._scheme = scheme
     }
 
     // MARK: - Body
@@ -66,9 +66,9 @@ public struct ImageNameListView: View, ImageListViewComponent {
     
     // MARK: - Internal Methods
     
-    func scheme(_ scheme: ImageNameListViewScheme) -> some View {
+    func scheme(_ scheme: Binding<ImageNameListViewScheme?>) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = scheme
         return view.id(UUID())
     }
     

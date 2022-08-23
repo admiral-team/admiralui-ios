@@ -8,7 +8,26 @@
 import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
+/**
+ PrimaryLinkControlScheme - the visual scheme of PrimaryLinkControlStyle.
+ You can create a by specifying the following parameters in init:
+ - PrimaryLinkControlScheme() - Initialize default PrimaryLinkControlScheme with default themezation
+ - PrimaryLinkControlScheme(
+     fontMediumDisabled: AFont - the font with medium style and disabled state,
+     fontMeduimEnabled: AFont -  the font with medium style and disabled state,,
+     fontDefaultDisabled: AFont -  the font with medium style and disabled state,,
+     fontDefaultEnabled: AFont  the font with medium style and disabled state,,
+     textColorNormal: AColor - the normal text color
+     textColorHighlighted: AColor - the color of text with highlighted state,
+     textColorDisabled: AColor -  the color of text with disabled state,
+ )
 
+ Example to create PrimaryLinkControlScheme:
+ Code
+ ```
+ let scheme = PrimaryLinkControlScheme()
+ ```
+ */
 @available(iOS 14.0.0, *)
 public struct PrimaryLinkControlScheme: AppThemeScheme {
 
@@ -34,6 +53,26 @@ public struct PrimaryLinkControlScheme: AppThemeScheme {
         textColor.set(parameter: theme.colors.backgroundAccent, for: .normal)
         textColor.set(parameter: theme.colors.backgroundAccentPressed, for: .highlighted)
         textColor.set(parameter: theme.colors.backgroundAccent.withAlpha(alpha), for: .disabled)
+    }
+
+    public init(
+        fontMediumDisabled: AFont,
+        fontMeduimEnabled: AFont,
+        fontDefaultDisabled: AFont,
+        fontDefaultEnabled: AFont,
+        textColorNormal: AColor,
+        textColorHighlighted: AColor,
+        textColorDisabled: AColor
+    ) {
+        font.set(parameter: fontMediumDisabled, style: .medium, isEnabled: false)
+        font.set(parameter: fontMeduimEnabled, style: .medium, isEnabled: true)
+
+        font.set(parameter: fontDefaultDisabled, style: .default, isEnabled: false)
+        font.set(parameter: fontDefaultEnabled, style: .default, isEnabled: true)
+
+        textColor.set(parameter: textColorNormal, for: .normal)
+        textColor.set(parameter: textColorHighlighted, for: .highlighted)
+        textColor.set(parameter: textColorDisabled, for: .disabled)
     }
 
 }

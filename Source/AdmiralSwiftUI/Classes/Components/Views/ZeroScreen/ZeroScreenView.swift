@@ -65,7 +65,7 @@ public struct ZeroScreenView: View {
     
     // MARK: Internal Properties
 
-    @State var scheme: ZeroScreenViewScheme?
+    @Binding var scheme: ZeroScreenViewScheme?
     @ObservedObject var schemeProvider = AppThemeSchemeProvider<ZeroScreenViewScheme>()
     
     // MARK: - Initializer
@@ -78,7 +78,7 @@ public struct ZeroScreenView: View {
         buttonTitle: String? = nil,
         isLoadingButton: Binding<Bool> = .constant(false),
         buttonAction: @escaping () -> () = {},
-        scheme: ZeroScreenViewScheme? = nil
+        scheme: Binding<ZeroScreenViewScheme?> = .constant(nil)
     ) {
         self.image = image
         self.title = title
@@ -86,7 +86,7 @@ public struct ZeroScreenView: View {
         self.buttonTitle = buttonTitle
         self.buttonAction = buttonAction
         self._isLoadingButton = isLoadingButton
-        self.scheme = scheme
+        self._scheme = scheme
     }
 
     // MARK: - Body
@@ -133,9 +133,9 @@ public struct ZeroScreenView: View {
     
     // MARK: - Internal Methods
 
-    func scheme(_ scheme: ZeroScreenViewScheme) -> some View {
+    func scheme(_ scheme: Binding<ZeroScreenViewScheme?>) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = scheme
         return view.id(UUID())
     }
     

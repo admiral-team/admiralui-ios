@@ -7,7 +7,6 @@
 
 import AdmiralTheme
 import SwiftUI
-
 /**
  The style for creating the Secondary Button. A secondary button, for additional actions, is used independently or in combination with other types of buttons.
 
@@ -43,28 +42,27 @@ public struct SecondaryButtonStyle: ButtonStyle {
 
     // MARK: - Private Properties
 
-    private var scheme: SecondaryButtonScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SecondaryButtonScheme>()
+    @Binding private var scheme: SecondaryButtonScheme?
 
     // MARK: - Initializer
 
     public init(
         isLoading: Binding<Bool> = .constant(false),
         sizeType: ButtonSizeType? = nil,
-        scheme: SecondaryButtonScheme? = nil) {
+        scheme: Binding<SecondaryButtonScheme?> = .constant(nil)
+    ) {
         self._isLoading = isLoading
         self.sizeType = sizeType
-        self.scheme = scheme
+        self._scheme = scheme
     }
 
     public func makeBody(configuration: Self.Configuration) -> some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
-        
-        return SecondaryButton(
+        SecondaryButton(
             isLoading: $isLoading,
             sizeType: sizeType,
-            scheme: scheme,
-            configuration: configuration)
+            scheme: $scheme,
+            configuration: configuration
+        )
     }
 }
 
@@ -78,22 +76,25 @@ private extension SecondaryButtonStyle {
         var sizeType: ButtonSizeType?
         
         let configuration: Configuration
-        
-        var scheme: SecondaryButtonScheme
+
+        @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SecondaryButtonScheme>()
+        @Binding var scheme: SecondaryButtonScheme?
         
         init(
             isLoading: Binding<Bool>,
             sizeType: ButtonSizeType?,
-            scheme: SecondaryButtonScheme,
-            configuration: Configuration) {
+            scheme: Binding<SecondaryButtonScheme?> = .constant(nil),
+            configuration: Configuration
+        ) {
             
             self.sizeType = sizeType
             self.configuration = configuration
-            self.scheme = scheme
+            self._scheme = scheme
             self._isLoading = isLoading
         }
         
         var body: some View {
+            let scheme = self.scheme ?? schemeProvider.scheme
             let content = isLoading ?
                 ActivityIndicator(style: .contrast, size: .medium).eraseToAnyView()
                 : configuration.label.eraseToAnyView()

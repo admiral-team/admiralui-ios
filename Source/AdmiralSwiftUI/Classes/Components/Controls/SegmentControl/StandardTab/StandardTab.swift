@@ -53,7 +53,7 @@ public struct StandardTab: View {
     @State private var segmentSize: CGSize = .zero
     @State private var activeSegmentOffset: CGFloat = Constants.separatorWidth
 
-    @State private var scheme: StandardTabScheme? = nil
+    @Binding private var scheme: StandardTabScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<StandardTabScheme>()
     
     private let items: [String]
@@ -61,9 +61,14 @@ public struct StandardTab: View {
     // MARK: - Initializer
     
     /// Initializes and returns a newly allocated view object with titles and binding selection.
-    public init(items: [String], selection: Binding<Int>) {
+    public init(
+        items: [String],
+        selection: Binding<Int>,
+        scheme: Binding<StandardTabScheme?> = .constant(nil)
+    ) {
         self._selection = selection
         self.items = items
+        self._scheme = scheme
     }
 
     // MARK: - Body
@@ -108,14 +113,6 @@ public struct StandardTab: View {
         }
         .background(Color.clear)
         .clipShape(RoundedRectangle(cornerRadius: Constants.segmentCornerRadius))
-    }
-    
-    // MARK: - Internal Methods
-    
-    func scheme(_ scheme: StandardTabScheme) -> some View {
-        var view = self
-        view._scheme = State(initialValue: scheme)
-        return view.id(UUID())
     }
     
     // MARK: - Private Methods

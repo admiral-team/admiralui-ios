@@ -69,7 +69,7 @@ public struct PinCodeKeyboard: View {
     private let didTapLeftButton: () -> ()
     private let didTapRightButton: () -> ()
 
-    @State private var scheme: PinCodeTextViewScheme? = nil
+    @Binding private var scheme: PinCodeTextViewScheme?
     @ObservedObject var schemeProvider = AppThemeSchemeProvider<PinCodeTextViewScheme>()
     
     // MARK: - Initializer
@@ -87,14 +87,14 @@ public struct PinCodeKeyboard: View {
         didTapNumber: @escaping (Int) -> (),
         didTapLeftButton: @escaping () -> (),
         didTapRightButton: @escaping () -> (),
-        scheme: PinCodeTextViewScheme? = nil
+        scheme: Binding<PinCodeTextViewScheme?> = .constant(nil)
     ) {
         self.leftButtonTitle = leftButtonTitle
         self.rightButtonImage = rightButtonImage
         self.didTapNumber = didTapNumber
         self.didTapLeftButton = didTapLeftButton
         self.didTapRightButton = didTapRightButton
-        self.scheme = scheme
+        self._scheme = scheme
     }
 
 

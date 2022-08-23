@@ -62,7 +62,7 @@ public struct CheckboxTextbuttonView: View {
     /// Action subtitleButton.
     private var subtitleButtonAction: () -> ()
 
-    @State private var scheme: CheckboxTextbuttonViewScheme?
+    @Binding private var scheme: CheckboxTextbuttonViewScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<CheckboxTextbuttonViewScheme>()
     
     // MARK: - Initializer
@@ -73,13 +73,13 @@ public struct CheckboxTextbuttonView: View {
         isSelected: Binding<Bool>,
         subtitleButtonTitle: String? = nil,
         subtitleButtonAction: @escaping () -> () = {},
-        scheme: CheckboxTextbuttonViewScheme? = nil
+        scheme: Binding<CheckboxTextbuttonViewScheme?> = .constant(nil)
     ) {
         self.title = title
         self._isSelected = isSelected
         self.subtitleButtonTitle = subtitleButtonTitle
         self.subtitleButtonAction = subtitleButtonAction
-        self.scheme = scheme
+        self._scheme = scheme
     }
 
     // MARK: - Body
@@ -111,9 +111,9 @@ public struct CheckboxTextbuttonView: View {
     
     // MARK: - Internal Methods
     
-    func scheme(_ scheme: CheckboxTextbuttonViewScheme) -> some View {
+    func scheme(_ scheme: Binding<CheckboxTextbuttonViewScheme?>) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = scheme
         return view.id(UUID())
     }
     

@@ -7,7 +7,29 @@
 
 import AdmiralTheme
 import AdmiralUIResources
+/**
+ SeveralPinButtonScheme - the visual scheme of SeveralPinButtonStyle.
+ You can create a by specifying the following parameters in init:
+ - SeveralPinButtonScheme() - Initialize default PinButtonScheme with default themezation
+ - SeveralPinButtonScheme(
+     borderColor: AColor - the border color of SeveralPinButtonStyle,
+     backgroundColor: AColor - the background color of SeveralPinButtonStyle,
+     textColor: AColor - the text color of SeveralPinButtonStyle,
+     shadowColor: AColor -  the shadow color of SeveralPinButtonStyle
+   )
 
+Example to create SeveralPinButtonScheme:
+Code
+ ```
+ let scheme = SeveralPinButtonScheme()
+ let customScheme = SeveralPinButtonScheme(
+ borderColor: AppTheme.default.colors.specialExtra22,
+ backgroundColor: AppTheme.default.colors.specialExtra22,
+ textColor: AColor(hexString: "#FFFFFF"),
+ shadowColor: AColor(hexString: "#FFFFFF")
+ )
+ ```
+ */
 @available(iOS 14.0.0, *)
 public struct SeveralPinButtonScheme: AppThemeScheme {
 
@@ -29,6 +51,18 @@ public struct SeveralPinButtonScheme: AppThemeScheme {
 
     public init() {
         self.init(theme: AppTheme.default)
+    }
+
+    public init(
+        borderColor: AColor,
+        backgroundColor: AColor,
+        textColor: AColor,
+        shadowColor: AColor
+    ) {
+        self.borderColor = borderColor
+        self.backgroundColor = backgroundColor
+        self.textColor = textColor
+        self.shadowColor = shadowColor
     }
     
     public init(theme: AppTheme) {

@@ -7,7 +7,6 @@
 
 import AdmiralTheme
 import SwiftUI
-
 /**
  A custom control that toggles between on and off states.
  
@@ -42,29 +41,31 @@ public struct CustomSwitch: View {
     
     // MARK: - Private Properties
     
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<CustomSwitchScheme>()
-    @State private var scheme: CustomSwitchScheme? = nil
+    @Binding private var scheme: CustomSwitchScheme?
     
     // MARK: - Initializer
     
-    public init(isOn: Binding<Bool>) {
+    public init(
+        isOn: Binding<Bool>,
+        scheme: Binding<CustomSwitchScheme?> = .constant(nil)
+    ) {
         self._isOn = isOn
+        self._scheme = scheme
     }
 
     // MARK: - Body
 
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
         Toggle(isOn: $isOn, label: {})
             .labelsHidden()
-            .toggleStyle(CustomSwitchStyle(scheme: scheme))
+            .toggleStyle(CustomSwitchStyle(scheme: $scheme))
     }
     
     // MARK: - Internal Methods
     
-    func scheme(_ scheme: CustomSwitchScheme) -> some View {
+    func scheme(_ scheme: Binding<CustomSwitchScheme?>) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = scheme
         return view.id(UUID())
     }
     
@@ -75,15 +76,15 @@ private struct CustomSwitchStyle: ToggleStyle {
 
     // MARK: - Private Properties
 
-    @State private var scheme: CustomSwitchScheme? = nil
+    @Binding private var scheme: CustomSwitchScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<CustomSwitchScheme>()
 
     // MARK: - Inializer
 
     public init(
-        scheme: CustomSwitchScheme? = nil
+        scheme: Binding<CustomSwitchScheme?> = .constant(nil)
     ) {
-        self.scheme = scheme
+        self._scheme = scheme
     }
 
     // MARK: - Body

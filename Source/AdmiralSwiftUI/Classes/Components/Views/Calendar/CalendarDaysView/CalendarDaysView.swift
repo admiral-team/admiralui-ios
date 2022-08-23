@@ -22,7 +22,7 @@ public struct CalendarDaysView: View {
     private var notActiveAfterDate: Date?
     private var pointDates: [Date]
 
-    @State private var scheme: CalendarViewCellColorScheme? = nil
+    @Binding private var scheme: CalendarViewCellColorScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<CalendarViewCellColorScheme>()
 
     // MARK: - Initializer
@@ -34,7 +34,7 @@ public struct CalendarDaysView: View {
         endDate: Binding<Date?>,
         notActiveAfterDate: Date?,
         pointDates: [Date],
-        scheme: CalendarViewCellColorScheme? = nil
+        scheme: Binding<CalendarViewCellColorScheme?> = .constant(nil)
     ) {
         self.date = date
         self._isMutlipleSelectionAllowed = .init(initialValue: isMutlipleSelectionAllowed)
@@ -42,7 +42,7 @@ public struct CalendarDaysView: View {
         self._endDate = endDate
         self.pointDates = pointDates.map( { $0.removeTimeStamp() })
         self.notActiveAfterDate = notActiveAfterDate
-        self.scheme = scheme
+        self._scheme = scheme
     }
 
     // MARK: - Body

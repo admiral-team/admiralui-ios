@@ -26,7 +26,9 @@ import SwiftUI
 /// An object that displays an editable text area for enter sms code.
 @available(iOS 14.0, *)
 public struct FeedbackInputControl: View {
-    
+
+    // MARK: - Constants
+
     private enum Constants {
         static let animationDuration: Double = 0.1
         static let starImage = Asset.System.Solid.starSolid.image
@@ -44,7 +46,7 @@ public struct FeedbackInputControl: View {
     
     // MARK: - Private Properties
     
-    @State private var scheme: FeedbackInputControlScheme? = nil
+    @Binding private var scheme: FeedbackInputControlScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<FeedbackInputControlScheme>()
     
     // MARK: - Initializer
@@ -53,11 +55,18 @@ public struct FeedbackInputControl: View {
     /// - Parameters:
     ///   - cursorPosition: Current cursor position.
     ///   - itemsCount: Number of items in control.
-    public init(cursorPosition: Binding<Int>, itemsCount: Int = 5) {
+    public init(
+        cursorPosition: Binding<Int>,
+        itemsCount: Int = 5,
+        scheme: Binding<FeedbackInputControlScheme?> = .constant(nil)
+    ){
         self._cursorPosition = cursorPosition
         self.itemsCount = itemsCount
+        self._scheme = scheme
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         
@@ -81,9 +90,9 @@ public struct FeedbackInputControl: View {
     
     // MARK: - Internal Methods
     
-    func scheme(_ scheme: FeedbackInputControlScheme) -> some View {
+    func scheme(_ scheme: Binding<FeedbackInputControlScheme?>) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = scheme
         return view.id(UUID())
     }
     

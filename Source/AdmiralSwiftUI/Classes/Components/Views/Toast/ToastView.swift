@@ -134,7 +134,7 @@ public struct ToastView: View {
 
     private var accessibilityIdentifier: String?
 
-    @State private var scheme: ToastViewScheme? = nil
+    @Binding private var scheme: ToastViewScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ToastViewScheme>()
     
     // MARK: - Initializer
@@ -163,7 +163,7 @@ public struct ToastView: View {
         imageAction: (() -> ())? = nil,
         @ViewBuilder closeView: @escaping () -> (T?) = { return nil },
         type: ToastViewType = .default,
-        scheme: ToastViewScheme? = nil
+        scheme: Binding<ToastViewScheme?> = .constant(nil)
     ) {
         self.accessibilityIdentifier = accessibilityIdentifier
         self.title = title
@@ -191,7 +191,7 @@ public struct ToastView: View {
         self.closeAction = closeAction
         self.type = type
         self.closeView = { return closeView()?.eraseToAnyView() }
-        self.scheme = scheme
+        self._scheme = scheme
     }
     
     public init(
@@ -205,7 +205,7 @@ public struct ToastView: View {
         closeAction: (() -> ())? = nil,
         imageAction: (() -> ())? = nil,
         type: ToastViewType = .default,
-        scheme: ToastViewScheme? = nil
+        scheme: Binding<ToastViewScheme?> = .constant(nil)
     ) {
         self.accessibilityIdentifier = accessibilityIdentifier
         self.title = title
@@ -233,7 +233,7 @@ public struct ToastView: View {
         self.closeAction = closeAction
         self.type = type
         self.closeView = { return nil }
-        self.scheme = scheme
+        self._scheme = scheme
     }
     
     public init<T: View>(
@@ -245,7 +245,7 @@ public struct ToastView: View {
         closeAction: (() -> ())? = nil,
         @ViewBuilder closeView: @escaping () -> (T?) = { return nil },
         type: ToastViewType = .default,
-        scheme: ToastViewScheme? = nil
+        scheme: Binding<ToastViewScheme?> = .constant(nil)
     ) {
         self.accessibilityIdentifier = accessibilityIdentifier
         self.title = title
@@ -259,7 +259,7 @@ public struct ToastView: View {
         self.imageAction = nil
         self.type = type
         self.closeView = { return closeView()?.eraseToAnyView() }
-        self.scheme = scheme
+        self._scheme = scheme
     }
 
     // MARK: - Body

@@ -8,7 +8,31 @@
 import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
+/**
+ TwoTitlePrimaryButtonScheme - the visual scheme of PageControlView.
+ You can create a by specifying the following parameters in init:
+ - TwoTitlePrimaryButtonScheme() - Initialize default TwoTitlePrimaryButtonScheme with default themezation
+ - TwoTitlePrimaryButtonScheme(
+    leftLabelFont: AFont,
+    rightLabelFont: AFont,
+    backgroundColor: AColor,
 
+    buttonBackgroundColorNormal: AColor,
+    buttonBackgroundColorHighlighted: AColor,
+    buttonBackgroundColorDisabled: AColor,
+
+    leftTitleColorNormal: AColor,
+    leftTitleColorDisabled: AColor,
+
+    rightTitleColorNormal: AColor,
+    rightTitleColorDisabled: AColor
+   )
+ # Example to create TwoTitlePrimaryButtonScheme:
+ # Code
+ ```
+let scheme = TwoTitlePrimaryButtonScheme()
+ ```
+ */
 @available(iOS 14.0.0, *)
 public struct TwoTitlePrimaryButtonScheme: AppThemeScheme {
 
@@ -52,5 +76,40 @@ public struct TwoTitlePrimaryButtonScheme: AppThemeScheme {
         rightTitleColor.set(parameter: theme.colors.textStaticWhite, for: .normal)
         rightTitleColor.set(parameter: theme.colors.textStaticWhite.withAlpha(alpha), for: .disabled)
     }
-    
+
+    public init(
+        leftLabelFont: AFont,
+        rightLabelFont: AFont,
+        backgroundColor: AColor,
+
+        buttonBackgroundColorNormal: AColor,
+        buttonBackgroundColorHighlighted: AColor,
+        buttonBackgroundColorDisabled: AColor,
+
+        leftTitleColorNormal: AColor,
+        leftTitleColorDisabled: AColor,
+
+        rightTitleColorNormal: AColor,
+        rightTitleColorDisabled: AColor
+    ) {
+        self.leftLabelFont = leftLabelFont
+        self.rightLabelFont = rightLabelFont
+
+        self.backgroundColor = backgroundColor
+
+        buttonBackgroundColor.set(parameter: buttonBackgroundColorNormal, for: .normal)
+        buttonBackgroundColor.set(parameter: buttonBackgroundColorHighlighted, for: .highlighted)
+        buttonBackgroundColor.set(parameter: buttonBackgroundColorDisabled, for: .disabled)
+
+        leftTitleColor.set(parameter: leftTitleColorNormal, for: .normal)
+        leftTitleColor.set(parameter: leftTitleColorDisabled, for: .disabled)
+
+        rightTitleColor.set(parameter: rightTitleColorNormal, for: .normal)
+        rightTitleColor.set(parameter: rightTitleColorDisabled, for: .disabled)
+    }
+
+    public init() {
+        self.init(theme: AppTheme.default)
+    }
+
 }

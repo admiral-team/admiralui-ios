@@ -83,7 +83,7 @@ public struct SearchBar: View, AccessabilitySupportUIKit {
     
     @State private var isTextFieldResponder = false
     
-    @State private var scheme: SearchBarColorScheme? = nil
+    @Binding private var scheme: SearchBarColorScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SearchBarColorScheme>()
 
     private var accessibilityIdentifier: String?
@@ -108,7 +108,7 @@ public struct SearchBar: View, AccessabilitySupportUIKit {
         isResponder: Binding<Bool>? = nil,
         placeholder: String = "",
         searchImage: SwiftUI.Image? = AssetSymbol.System.Outline.search.image,
-        scheme: SearchBarColorScheme? = nil
+        scheme: Binding<SearchBarColorScheme?> = .constant(nil)
     ) {
         self._content = content
         self.contentType = contentType
@@ -118,7 +118,7 @@ public struct SearchBar: View, AccessabilitySupportUIKit {
         self.isResponder = isResponder
         self.placeholder = placeholder
         self.searchImage = searchImage
-        self.scheme = scheme
+        self._scheme = scheme
     }
 
     // MARK: - Body
@@ -185,9 +185,9 @@ public struct SearchBar: View, AccessabilitySupportUIKit {
     
     // MARK: - Internal Methods
     
-    func scheme(_ scheme: SearchBarColorScheme) -> some View {
+    func scheme(_ scheme: Binding<SearchBarColorScheme?>) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = scheme
         return view.id(UUID())
     }
     
@@ -213,7 +213,8 @@ public extension SearchBar {
             autocapitalizationType: autocapitalizationType,
             autocorrectionType: autocorrectionType,
             isResponder: isResponder,
-            placeholder: placeholder)
+            placeholder: placeholder
+        )
     }
     
     /// Sets responder.
@@ -227,7 +228,8 @@ public extension SearchBar {
             autocapitalizationType: autocapitalizationType,
             autocorrectionType: autocorrectionType,
             isResponder: isResponder,
-            placeholder: placeholder)
+            placeholder: placeholder
+        )
     }
     
 }

@@ -81,12 +81,12 @@ public protocol TextFieldInput: View {
  # Code
  ```
  StandardTextField(
-     .constant("Text"),
-     placeholder: "Placeholder",
-     name: "Optional Label",
-     state: .constant(.normal),
-     info: .constant("Info"))
-```
+ .constant("Text"),
+ placeholder: "Placeholder",
+ name: "Optional Label",
+ state: .constant(.normal),
+ info: .constant("Info"))
+ ```
  */
 @available(iOS 14.0, *)
 public struct StandardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, Identifiable where T: View {
@@ -159,8 +159,8 @@ public struct StandardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
     private let onCursorPosition: ((Int, Int, String) -> (Int))?
 
     @State private var segmentSize: CGSize = .zero
-    @State private var scheme: StandardTextFieldScheme? = nil
-    
+
+    @Binding private var scheme: StandardTextFieldScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<StandardTextFieldScheme>()
 
     private var accessibilityIdentifier: String?
@@ -203,7 +203,9 @@ public struct StandardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
         isResponder: Binding<Bool>? = nil,
         onSubmit: (() -> Void)? = nil,
         onCursorPosition: ((Int, Int, String) -> (Int))? = nil,
-        @ViewBuilder trailingView: @escaping () -> T) {
+        @ViewBuilder trailingView: @escaping () -> T,
+        scheme: Binding<StandardTextFieldScheme?> = .constant(nil)
+    ) {
         self.accessibilityIdentifier = accessibilityIdentifier
         self._content = Binding(get: {
             if let value = value.wrappedValue {
@@ -232,6 +234,7 @@ public struct StandardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
         self.isResponder = isResponder
         self.formatter = formatter
         self.onCursorPosition = onCursorPosition
+        self._scheme = scheme
         self._isFocused = .init(initialValue: isResponder?.wrappedValue ?? false)
         self._isFilled = .init(initialValue: !($content.wrappedValue ?? "").isEmpty)
     }
@@ -270,7 +273,9 @@ public struct StandardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
         isResponder: Binding<Bool>? = nil,
         onSubmit: (() -> Void)? = nil,
         onCursorPosition: ((Int, Int, String) -> (Int))? = nil,
-        @ViewBuilder trailingView: @escaping () -> T) {
+        @ViewBuilder trailingView: @escaping () -> T,
+        scheme: Binding<StandardTextFieldScheme?> = .constant(nil)
+    ) {
         self.init(
             value: content,
             accessibilityIdentifier: accessibilityIdentifier,
@@ -289,8 +294,12 @@ public struct StandardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
             isResponder: isResponder,
             onSubmit: onSubmit,
             onCursorPosition: onCursorPosition,
-            trailingView: trailingView)
+            trailingView: trailingView,
+            scheme: scheme
+        )
     }
+
+    // MARK: - Body
 
     public var body: some View {
         let isTextFieldDisabled = !isEnabled || (state == .disabled || state == .readOnly)
@@ -346,7 +355,8 @@ public struct StandardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
             separatorLineMode: state != .readOnly ? .solid : .dashed(lineWidth: 1.0, dash: 5.0),
             isFocused: $isFocused,
             isFilled: $isFilled,
-            isTextFieldDisabled: isTextFieldDisabled)
+            isTextFieldDisabled: isTextFieldDisabled
+        )
     }
 
     // MARK: - Public Methods
@@ -365,9 +375,9 @@ public struct StandardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
 
     // MARK: - Internal Methods
 
-    func scheme(_ scheme: StandardTextFieldScheme) -> some View {
+    func scheme(_ scheme: Binding<StandardTextFieldScheme?>) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = scheme
         return view.id(UUID())
     }
 
@@ -384,8 +394,8 @@ public struct StandardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
         trailingViewTintColor: Color,
         textFieldFont: AFont,
         nameFont: AFont?,
-        isTextFieldDisabled: Bool) -> AnyView {
-
+        isTextFieldDisabled: Bool
+    ) -> AnyView {
         return HStack {
             ZStack {
                 if isTextFieldDisabled {
@@ -418,29 +428,29 @@ public struct StandardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
                         onCursorPosition: onCursorPosition,
                         accessibilityIdentifier: accessibilityIdentifier
                     )
-                        .accessibilityElement(children: .contain)
-                        .frame(height: LayoutGrid.tripleModule)
-                        .onChange(of: content) { value in
-                            if(content == "") {
-                                withAnimation(.spring()) {
-                                    isFilled = false
-                                }
-                            } else {
-                                withAnimation(.spring()) {
-                                    isFilled = true
-                                }
+                    .accessibilityElement(children: .contain)
+                    .frame(height: LayoutGrid.tripleModule)
+                    .onChange(of: content) { value in
+                        if(content == "") {
+                            withAnimation(.spring()) {
+                                isFilled = false
+                            }
+                        } else {
+                            withAnimation(.spring()) {
+                                isFilled = true
                             }
                         }
-                        .onChange(of: isResponder?.wrappedValue ?? false, perform: { value in
-                            withAnimation() {
-                                isFocused = value
-                            }
-                        })
-                        .onChange(of: isTextFieldResponder) { value in
-                            withAnimation() {
-                                isFocused = value
-                            }
+                    }
+                    .onChange(of: isResponder?.wrappedValue ?? false, perform: { value in
+                        withAnimation() {
+                            isFocused = value
                         }
+                    })
+                    .onChange(of: isTextFieldResponder) { value in
+                        withAnimation() {
+                            isFocused = value
+                        }
+                    }
                 }
             }
             Spacer(minLength: trailingView() is EmptyView ? 0.0 : LayoutGrid.module)
@@ -494,7 +504,9 @@ extension StandardTextField where T == EmptyView {
         infoNumberOfLines: Int? = nil,
         isResponder: Binding<Bool>? = nil,
         onSubmit: (() -> Void)? = nil,
-        onCursorPosition: ((Int, Int, String) -> (Int))? = nil) {
+        onCursorPosition: ((Int, Int, String) -> (Int))? = nil,
+        scheme: Binding<StandardTextFieldScheme?> = .constant(nil)
+    ) {
         self.accessibilityIdentifier = accessibilityIdentifier
         self._content = Binding(get: {
             if let value = value.wrappedValue {
@@ -524,6 +536,7 @@ extension StandardTextField where T == EmptyView {
         self.isResponder = isResponder
         self.formatter = formatter
         self.onCursorPosition = onCursorPosition
+        self._scheme = scheme
         self._isFocused = .init(initialValue: isResponder?.wrappedValue ?? false)
         self._isFilled = .init(initialValue: !($content.wrappedValue ?? "").isEmpty)
     }
@@ -560,24 +573,29 @@ extension StandardTextField where T == EmptyView {
         infoNumberOfLines: Int? = nil,
         isResponder: Binding<Bool>? = nil,
         onSubmit: (() -> Void)? = nil,
-        onCursorPosition: ((Int, Int, String) -> (Int))? = nil) {
-            self.init(value: content,
-                      accessibilityIdentifier: accessibilityIdentifier,
-                      formatter: nil,
-                      contentType: contentType,
-                      returnKeyType:returnKeyType,
-                      autocapitalizationType: autocapitalizationType,
-                      autocorrectionType: autocorrectionType,
-                      textContentType: textContentType,
-                      canPerformActionPaste: canPerformActionPaste,
-                      placeholder: placeholder,
-                      name: name,
-                      state: state,
-                      info: info,
-                      infoNumberOfLines: infoNumberOfLines,
-                      isResponder: isResponder,
-                      onSubmit: onSubmit,
-                      onCursorPosition: onCursorPosition)
+        onCursorPosition: ((Int, Int, String) -> (Int))? = nil,
+        scheme: Binding<StandardTextFieldScheme?> = .constant(nil)
+    ) {
+        self.init(
+            value: content,
+            accessibilityIdentifier: accessibilityIdentifier,
+            formatter: nil,
+            contentType: contentType,
+            returnKeyType:returnKeyType,
+            autocapitalizationType: autocapitalizationType,
+            autocorrectionType: autocorrectionType,
+            textContentType: textContentType,
+            canPerformActionPaste: canPerformActionPaste,
+            placeholder: placeholder,
+            name: name,
+            state: state,
+            info: info,
+            infoNumberOfLines: infoNumberOfLines,
+            isResponder: isResponder,
+            onSubmit: onSubmit,
+            onCursorPosition: onCursorPosition,
+            scheme: scheme
+        )
     }
 
 }

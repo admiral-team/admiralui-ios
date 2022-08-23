@@ -18,7 +18,6 @@ public enum ToolbarItemType: String {
     case success
     case attention
 }
-
 /**
  ToolBarItem - A model that represents an item which can be placed in the toolbar.
 
@@ -57,7 +56,8 @@ public struct ToolBarItem: Hashable, Identifiable {
         image: Image,
         badgeStyle: ToolBarBadgeStyle? = nil,
         type: ToolbarItemType = .default,
-        isEnabled: Bool = true) {
+        isEnabled: Bool = true
+    ) {
         self.title = title
         self.image = image
         self.badgeStyle = badgeStyle

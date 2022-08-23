@@ -9,7 +9,26 @@ import SwiftUI
 import Combine
 import AdmiralTheme
 import AdmiralUIResources
-
+/**
+ LogoTabScheme - the visual scheme of PlatformButtonStyle.
+ You can create a by specifying the following parameters in init:
+ - LogoTabScheme() - Initialize default LogoTabScheme with default themezation
+ - LogoTabScheme(
+     backgroundColor: AColor,
+     alphaLogoNormal: Double,
+     alphaLogoDisabled: Double,
+     borderColorNormal: AColor,
+     borderColorDisabled: AColor,
+     thumbColorNormal: AColor,
+     thumbColorSelected: AColor,
+     thumbColorDisabled: AColor
+   )
+ # Example to create LogoTabScheme:
+ # Code
+ ```
+let scheme = LogoTabScheme()
+ ```
+ */
 @available(iOS 14.0, *)
 public final class LogoTabScheme: AppThemeScheme {
 
@@ -43,6 +62,29 @@ public final class LogoTabScheme: AppThemeScheme {
         thumbColor.set(parameter: theme.colors.elementAccent, for: .selected)
         
         thumbColor.set(parameter: theme.colors.elementAccent.withAlpha(alpha), for: .disabled)
+    }
+
+    public init(
+        backgroundColor: AColor,
+        alphaLogoNormal: Double,
+        alphaLogoDisabled: Double,
+        borderColorNormal: AColor,
+        borderColorDisabled: AColor,
+        thumbColorNormal: AColor,
+        thumbColorSelected: AColor,
+        thumbColorDisabled: AColor
+    ) {
+        self.backgroundColor = backgroundColor
+
+        alphaLogo.set(parameter: alphaLogoNormal, for: .normal)
+        alphaLogo.set(parameter: alphaLogoDisabled, for: .disabled)
+
+        borderColor.set(parameter: borderColorNormal, for: .normal)
+        borderColor.set(parameter: borderColorDisabled, for: .disabled)
+
+        thumbColor.set(parameter: thumbColorNormal, for: .normal)
+        thumbColor.set(parameter: thumbColorSelected, for: .selected)
+        thumbColor.set(parameter: thumbColorDisabled, for: .disabled)
     }
     
 }

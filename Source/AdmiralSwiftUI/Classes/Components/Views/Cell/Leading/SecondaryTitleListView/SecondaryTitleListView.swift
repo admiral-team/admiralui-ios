@@ -42,7 +42,7 @@ public struct SecondaryTitleListView: View, LeadingListViewComponent {
 
     // MARK: - Private Properties
     
-    @State private var scheme: SecondaryTitleListViewScheme? = nil
+    @Binding private var scheme: SecondaryTitleListViewScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SecondaryTitleListViewScheme>()
 
     private let lineLimit: Int?
@@ -54,11 +54,11 @@ public struct SecondaryTitleListView: View, LeadingListViewComponent {
     public init(
         title: String?,
         lineLimit: Int? = nil,
-        scheme: SecondaryTitleListViewScheme? = nil
+        scheme: Binding<SecondaryTitleListViewScheme?> = .constant(nil)
     ) {
         self._title = Binding(get: { return title }, set: { _ in })
         self.lineLimit = lineLimit
-        self.scheme = scheme
+        self._scheme = scheme
     }
 
     // MARK: - Body
@@ -74,9 +74,9 @@ public struct SecondaryTitleListView: View, LeadingListViewComponent {
     
     // MARK: - Internal Methods
     
-    func scheme(_ scheme: SecondaryTitleListViewScheme) -> some View {
+    func scheme(_ scheme: Binding<SecondaryTitleListViewScheme?>) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = scheme
         return view.id(UUID())
     }
     

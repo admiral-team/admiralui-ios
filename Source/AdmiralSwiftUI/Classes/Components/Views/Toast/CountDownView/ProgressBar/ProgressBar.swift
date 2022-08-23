@@ -18,17 +18,17 @@ struct ProgressBar: View {
 
     // MARK: - Private Properties
 
-    @State private var scheme: ProgressBarScheme? = nil
+    @Binding private var scheme: ProgressBarScheme?
     @ObservedObject var schemeProvider = AppThemeSchemeProvider<ProgressBarScheme>()
 
     init(
         counter: Int,
         countTo: Int,
-        scheme: ProgressBarScheme? = nil
+        scheme: Binding<ProgressBarScheme?> = .constant(nil)
     ) {
         self.counter = counter
         self.countTo = countTo
-        self.scheme = scheme
+        self._scheme = scheme
     }
 
     // MARK: - Body

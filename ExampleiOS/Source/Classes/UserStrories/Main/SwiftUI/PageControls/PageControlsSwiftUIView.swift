@@ -13,10 +13,14 @@ import AdmiralUIResources
 @available(iOS 14.0.0, *)
 struct PageControlsSwiftUIView: View {
 
+    // MARK: - Properties
+
     @State private var selection: Int?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
 
-    public var body: some View {
+    // MARK: - Body
+
+    var body: some View {
         let scheme = schemeProvider.scheme
         NavigationContentView(navigationTitle: "Page Controls") {
             scheme.backgroundColor.swiftUIColor
@@ -49,7 +53,7 @@ struct PageControlsSwiftUIView: View {
     func view(for type: PageControlsSwiftUIItem) -> some View {
         switch type {
         case .circular:
-            CircularPageCOntrolSwiftUI()
+            CircularPageControlSwiftUI()
         case .liner:
             LinerSwiftUIView()
         }

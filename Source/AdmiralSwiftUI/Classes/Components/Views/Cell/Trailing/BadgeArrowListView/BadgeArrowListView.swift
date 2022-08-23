@@ -57,7 +57,7 @@ public struct BadgeArrowListView: View, TralingListViewComponent {
 
     // MARK: - Private Properties
     
-    @State private var scheme: BadgeArrowListViewScheme? = nil
+    @Binding private var scheme: BadgeArrowListViewScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<BadgeArrowListViewScheme>()
     
     @State private var viewSize: CGSize = .zero
@@ -75,11 +75,11 @@ public struct BadgeArrowListView: View, TralingListViewComponent {
     public init(
         badgeStyle: BadgeStyle,
         value: Int?,
-        scheme: BadgeArrowListViewScheme? = nil
+        scheme: Binding<BadgeArrowListViewScheme?> = .constant(nil)
     ) {
         self.badgeStyle = badgeStyle
         self.value = value
-        self.scheme = scheme
+        self._scheme = scheme
     }
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
@@ -89,11 +89,11 @@ public struct BadgeArrowListView: View, TralingListViewComponent {
     public init(
         badgeStyle: BadgeStyle,
         text: String?,
-        scheme: BadgeArrowListViewScheme? = nil
+        scheme: Binding<BadgeArrowListViewScheme?> = .constant(nil)
     ) {
         self.badgeStyle = badgeStyle
         self.text = text
-        self.scheme = scheme
+        self._scheme = scheme
     }
 
     // MARK: - Body
@@ -103,7 +103,7 @@ public struct BadgeArrowListView: View, TralingListViewComponent {
         HStack(spacing: Constants.cellItemsSpacing) {
             Spacer()
             BadgeView(badgeStyle: badgeStyle, text: textForBadge())
-                .scheme(scheme.badgeViewScheme)
+                .scheme(.constant(scheme.badgeViewScheme))
                 .fixedSize()
             Image(uiImage: AdmiralUIResources.PrivateAsset.Custom.Cell.arrow.image)
                 .frame(width: LayoutGrid.module, height: LayoutGrid.doubleModule)
@@ -113,9 +113,9 @@ public struct BadgeArrowListView: View, TralingListViewComponent {
     
     // MARK: - Internal Methods
     
-    func scheme(_ scheme: BadgeArrowListViewScheme) -> some View {
+    func scheme(_ scheme: Binding<BadgeArrowListViewScheme?>) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = scheme
         return view.id(UUID())
     }
     

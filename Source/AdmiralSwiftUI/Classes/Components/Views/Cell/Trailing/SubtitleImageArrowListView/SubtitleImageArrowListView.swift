@@ -49,17 +49,26 @@ public struct SubtitleImageArrowListView: View, TralingListViewComponent {
     @Environment(\.manager) var manager
     
     var renderingMode: Image.TemplateRenderingMode
-    @State private var scheme: SubtitleImageArrowListViewScheme? = nil
+    
+    @Binding private var scheme: SubtitleImageArrowListViewScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SubtitleImageArrowListViewScheme>()
     
     // MARK: - Initializer
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-    public init(subtitle: String?, image: Image?, renderingMode: Image.TemplateRenderingMode = .original) {
+    public init(
+        subtitle: String?,
+        image: Image?,
+        renderingMode: Image.TemplateRenderingMode = .original,
+        scheme: Binding<SubtitleImageArrowListViewScheme?> = .constant(nil)
+    ) {
         self._subtitle = Binding(get: { return subtitle }, set: { _ in })
         self._image = Binding(get: { return image }, set: { _ in })
         self.renderingMode = renderingMode
+        self._scheme = scheme
     }
+
+    // MARK: - Body
 
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme

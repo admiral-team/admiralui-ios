@@ -7,7 +7,6 @@
 
 import AdmiralTheme
 import SwiftUI
-
 /**
  UnderlineTab - A horizontal control with scroll that consists of multiple segments, each segment functioning as a discrete text button. Has a line under view. The component is used to switch between multiple tabs. UnderlineTab is presented in one version with already planned margins - 16px on the left, 22px on top and 14px on the bottom. You have the ability to enable and disable tabs, change the order of the selected tab.
  
@@ -77,7 +76,7 @@ public struct UnderlineTab: View {
     @State private var activeSegmentX: CGFloat = 0
     @State private var isShowStartPositionActiveSegment: Bool = false
     
-    @State private var scheme: UnderlineTabScheme? = nil
+    @Binding private var scheme: UnderlineTabScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<UnderlineTabScheme>()
     
     private var activeSegmentView: AnyView {
@@ -101,12 +100,14 @@ public struct UnderlineTab: View {
         items: [UnderlineTabItem],
         selection: Binding<Int>,
         offset: Binding<CGFloat> = .constant(0.0),
-        isStaticTabs: Binding<Bool> = .constant(false)
+        isStaticTabs: Binding<Bool> = .constant(false),
+        scheme: Binding<UnderlineTabScheme?> = .constant(nil)
     ) {
         self._selection = selection
         self._offset = offset
         self.items = items
         self._isStaticTabs = isStaticTabs
+        self._scheme = scheme
     }
     
     /// Initializes and returns a newly allocated view object with items.

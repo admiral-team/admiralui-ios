@@ -18,7 +18,7 @@ struct Clock: View {
 
     // MARK: - Private Properties
 
-    @State private var scheme: ClockScheme? = nil
+    @Binding private var scheme: ClockScheme?
     @ObservedObject var schemeProvider = AppThemeSchemeProvider<ClockScheme>()
 
     // MARK: - Initializer
@@ -26,11 +26,11 @@ struct Clock: View {
     init(
         counter: Int,
         countTo: Int,
-        scheme: ClockScheme? = nil
+        scheme: Binding<ClockScheme?> = .constant(nil)
     ) {
         self.counter = counter
         self.countTo = countTo
-        self.scheme = scheme
+        self._scheme = scheme
     }
 
     // MARK: - Body

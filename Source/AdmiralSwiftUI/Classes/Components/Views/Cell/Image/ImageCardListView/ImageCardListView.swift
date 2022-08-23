@@ -41,7 +41,7 @@ public struct ImageCardListView: View, ImageListViewComponent {
     
     var renderingMode: Image.TemplateRenderingMode
 
-    @State private var scheme: ImageCardListViewScheme? = nil
+    @Binding private var scheme: ImageCardListViewScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ImageCardListViewScheme>()
     
     // MARK: - Initializer
@@ -50,11 +50,11 @@ public struct ImageCardListView: View, ImageListViewComponent {
     public init(
         cardImage: Image,
         renderingMode: Image.TemplateRenderingMode = .original,
-        scheme: ImageCardListViewScheme? = nil
+        scheme: Binding<ImageCardListViewScheme?> = .constant(nil)
     ) {
         self._cardImage = Binding(get: { return cardImage }, set: { _ in })
         self.renderingMode = renderingMode
-        self.scheme = scheme
+        self._scheme = scheme
     }
 
     // MARK: - Body
@@ -79,9 +79,9 @@ public struct ImageCardListView: View, ImageListViewComponent {
     
     // MARK: - Internal Methods
     
-    func scheme(_ scheme: ImageCardListViewScheme) -> some View {
+    func scheme(_ scheme: Binding<ImageCardListViewScheme?>) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = scheme
         return view.id(UUID())
     }
     
