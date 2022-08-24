@@ -217,7 +217,6 @@ public final class UploadImageView: UIView, AnyAppThemable {
     // MARK: - Private methods
 
     private func commonInit() {
-        autoManage()
         addSubviews()
         setupConstraints()
         configureUI()
