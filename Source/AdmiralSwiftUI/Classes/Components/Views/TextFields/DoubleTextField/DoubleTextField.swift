@@ -69,7 +69,7 @@ public struct DoubleTextField<T1, T2>: View where T1: TextFieldInput, T2: TextFi
     @State private var isPresentTextField = false
     @State private var scheme: DoubleTextFieldScheme? = nil
     private var accessibilityIdentifier: String?
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<DoubleTextFieldScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<DoubleTextFieldScheme>()
     
     // MARK: - Initializer
     
@@ -94,7 +94,7 @@ public struct DoubleTextField<T1, T2>: View where T1: TextFieldInput, T2: TextFi
         self.infoNumberOfLines = infoNumberOfLines
         self._state = state
         self.accessibilityIdentifier = accessibilityIdentifier
-        self.schemeProvider = AppThemeSchemeProvider<DoubleTextFieldScheme>()
+        self.schemeProvider = SwiftUISchemeProvider<DoubleTextFieldScheme>()
     }
     
     public var body: some View {

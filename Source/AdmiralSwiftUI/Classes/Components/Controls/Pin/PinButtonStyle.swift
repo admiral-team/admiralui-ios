@@ -37,7 +37,7 @@ public struct PinButtonStyle: ButtonStyle {
     // MARK: - Private Properties
     
     @State private var scheme: PinButtonScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<PinButtonScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<PinButtonScheme>()
     
     // MARK: - Initializer
     

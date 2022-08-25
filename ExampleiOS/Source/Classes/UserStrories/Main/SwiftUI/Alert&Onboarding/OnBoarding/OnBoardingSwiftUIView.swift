@@ -28,7 +28,7 @@ struct OnBoardingSwiftUIView: View {
                                     subtitle: "Мы рады любому фидбеку и активно ведем непрерывную работу над дизайн-системой.\nВсе наши контакты находятся в разделе “Инфо”.",
                                     imageName: Asset.Onboarding.three.name))]
     
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<OnBoardingCustomScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<OnBoardingCustomScheme>()
     @State private var currentPageIndex: Int = 0
     @State private var circlePageIndex: Int = 1
     

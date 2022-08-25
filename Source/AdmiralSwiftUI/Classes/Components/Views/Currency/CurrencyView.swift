@@ -81,7 +81,7 @@ public struct CurrencyView: View {
     // MARK: Internal Properties
     
     @State private var scheme: CurrencyViewScheme? = nil
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<CurrencyViewScheme>()
+    @ObservedObject var schemeProvider = SwiftUISchemeProvider<CurrencyViewScheme>()
 
     // MARK: - Initializer
     

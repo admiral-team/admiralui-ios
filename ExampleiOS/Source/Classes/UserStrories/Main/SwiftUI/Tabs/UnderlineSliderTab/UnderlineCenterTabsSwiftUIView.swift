@@ -18,7 +18,7 @@ struct UnderlineCenterTabSwiftUIView: View {
     @State private var isFourItemControlsState: Int = 0
     @State private var isFiveItemControlsState: Int = 0
     @State private var isNotificationsControlsState: Int = 0
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<SwiftUIContentViewScheme>()
     
     private let notificationTabItems = [UnderlineTabItem(title: "One", badgeStyle: .default),
                                      UnderlineTabItem(title: "Two", badgeStyle: .default),

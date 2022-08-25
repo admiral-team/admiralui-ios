@@ -14,7 +14,7 @@ import AdmiralUIResources
 struct PinCodeTextViewStyle: ButtonStyle {
     
     @State private var scheme: PinCodeTextViewScheme? = nil
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<PinCodeTextViewScheme>()
+    @ObservedObject var schemeProvider = SwiftUISchemeProvider<PinCodeTextViewScheme>()
     
     public func makeBody(configuration: Self.Configuration) -> some View {
         let scheme = self.scheme ?? schemeProvider.scheme

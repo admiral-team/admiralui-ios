@@ -63,7 +63,7 @@ public class DoubleTextField<T1, T2>: UIView, AnyAppThemable, AccessibilitySuppo
     
     // MARK: - AccessibilitySupport
     
-    public var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
+    public var adjustsFontForContentSizeCategory: Bool = Appearance.shared.isAccessabilitySupportEnabled {
         didSet { updateFonts() }
     }
     

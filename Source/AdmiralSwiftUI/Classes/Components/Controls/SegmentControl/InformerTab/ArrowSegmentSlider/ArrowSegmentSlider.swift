@@ -21,7 +21,7 @@ struct ArrowSegmentSlider: View {
     // MARK: - Private Properties
     
     @State private var scheme: ArrowSegmentSliderScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ArrowSegmentSliderScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<ArrowSegmentSliderScheme>()
     
     var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme

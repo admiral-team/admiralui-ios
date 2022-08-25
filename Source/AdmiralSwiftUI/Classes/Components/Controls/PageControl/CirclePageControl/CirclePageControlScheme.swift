@@ -66,4 +66,4 @@ public protocol CirclePageControlSchemeProvider {
 }
 
 @available(iOS 14.0.0, *)
-extension AppThemeSchemeProvider: CirclePageControlSchemeProvider where S == CirclePageControlScheme {}
+extension SwiftUISchemeProvider: CirclePageControlSchemeProvider where S == CirclePageControlScheme {}

@@ -16,7 +16,7 @@ struct SwiftUITextOperationView: View {
     // MARK: - Private properties
     
     @StateObject private var viewModel = SwiftUITextOperationViewModel()
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<SwiftUIContentViewScheme>()
     
     // MARK: - Layout
 

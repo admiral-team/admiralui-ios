@@ -66,7 +66,7 @@ public class TitleMoreDetailTextMessageListView: BaseListView, LeadingListViewCo
     
     // MARK: - AccessibilitySupport
     
-    public var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
+    public var adjustsFontForContentSizeCategory: Bool = Appearance.shared.isAccessabilitySupportEnabled {
         didSet { updateSchemeFonts() }
     }
     

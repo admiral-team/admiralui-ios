@@ -42,7 +42,7 @@ public struct CurrencyHeaderView: View {
 
     // MARK: - Private properties
 
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<CurrencyHeaderViewScheme>()
+    @ObservedObject var schemeProvider = SwiftUISchemeProvider<CurrencyHeaderViewScheme>()
     private let isTextSpacingEnabled: Bool
 
     // MARK: - Initializer

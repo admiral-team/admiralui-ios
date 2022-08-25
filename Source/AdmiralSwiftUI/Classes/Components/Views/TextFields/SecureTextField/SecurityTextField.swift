@@ -134,7 +134,7 @@ public struct SecurityTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
     @State private var segmentSize: CGSize = .zero
     @State private var scheme: StandardTextFieldScheme? = nil
     
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<StandardTextFieldScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<StandardTextFieldScheme>()
     
     private let eyeOff = AdmiralUIResources.AssetSymbol.Service.Outline.eyeClose.image
     private let eyeOn = AdmiralUIResources.AssetSymbol.Service.Outline.eye.image

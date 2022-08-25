@@ -12,7 +12,7 @@ final class StandardSegmentedView: UIControl, SegmentControlItem, AccessibilityS
      
     // MARK: - AccessibilitySupport
     
-    var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
+    var adjustsFontForContentSizeCategory: Bool = Appearance.shared.isAccessabilitySupportEnabled {
         didSet { updateSchemeFonts() }
     }
         

@@ -88,7 +88,7 @@ public struct SmallInformer: View {
     }
     
     @State private var scheme: SmallInformerScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SmallInformerScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<SmallInformerScheme>()
     
     // MARK: - Initializer
     

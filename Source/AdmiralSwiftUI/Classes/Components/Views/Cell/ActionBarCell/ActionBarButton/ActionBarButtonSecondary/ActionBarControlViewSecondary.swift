@@ -39,7 +39,7 @@ struct ActionBarControlViewSecondary: View {
     @Environment(\.isEnabled) var isEnabled
 
     @State private var scheme: ActionBarControlSchemeTwo? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ActionBarControlSchemeTwo>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<ActionBarControlSchemeTwo>()
 
     // MARK: - Private  Properties
 

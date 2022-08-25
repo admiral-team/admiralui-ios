@@ -60,7 +60,7 @@ class HeaderButtonWithArrow: UIControl, AnyAppThemable, AccessibilitySupport {
     
     // MARK: - AccessibilitySupport
     
-    var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
+    var adjustsFontForContentSizeCategory: Bool = Appearance.shared.isAccessabilitySupportEnabled {
         didSet { updateSchemeFonts() }
     }
     

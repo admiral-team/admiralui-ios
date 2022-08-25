@@ -15,7 +15,7 @@ struct BadgesSwiftUIView: View {
 
     // MARK: - Properties
 
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<SwiftUIContentViewScheme>()
 
     // MARK: - Layout
 

@@ -43,7 +43,7 @@ struct ActionBarView: View {
     // MARK: - Private Properties
 
     @State private var scheme: ActionBarViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ActionBarViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<ActionBarViewScheme>()
 
     // MARK: - Initializer
 

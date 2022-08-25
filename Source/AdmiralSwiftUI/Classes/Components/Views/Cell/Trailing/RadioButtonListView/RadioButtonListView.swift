@@ -47,7 +47,7 @@ public struct RadioButtonListView: View, TralingListViewComponent {
     @State var state: ControlState = .normal
     
     @State private var scheme: RadioButtonListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<RadioButtonListViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<RadioButtonListViewScheme>()
     
     // MARK: - Initializer
     

@@ -70,7 +70,7 @@ public struct TitleSubtitleButtonListView: View, LeadingListViewComponent {
     // MARK: - Private Properties
 
     @State private var scheme: TitleSubtitleButtonListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<TitleSubtitleButtonListViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<TitleSubtitleButtonListViewScheme>()
     private let subtitleLineLimit: Int?
 
     // MARK: - Initializer

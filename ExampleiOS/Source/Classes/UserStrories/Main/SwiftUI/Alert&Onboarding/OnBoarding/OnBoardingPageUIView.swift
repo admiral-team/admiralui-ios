@@ -17,7 +17,7 @@ struct OnBoardingPageUIView: View {
     var title: String
     var subtitle: String
     var imageName: String
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<OnBoardingCustomScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<OnBoardingCustomScheme>()
     
     // MARK: - Layout
     

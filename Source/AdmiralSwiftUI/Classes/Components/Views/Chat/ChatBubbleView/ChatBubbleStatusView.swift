@@ -55,7 +55,7 @@ public struct ChatBubbleStatusView: View {
     // MARK: - Private Properties
     
     @State private var scheme: ChatBubbleStatusViewScheme? = nil
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<ChatBubbleStatusViewScheme>()
+    @ObservedObject var schemeProvider = SwiftUISchemeProvider<ChatBubbleStatusViewScheme>()
     
     // MARK: - Initializer
 

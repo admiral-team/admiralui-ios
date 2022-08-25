@@ -42,7 +42,7 @@ public final class ErrorView: UIView, AnyAppThemable {
 
     // MARK: - Public properties
 
-    public var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
+    public var adjustsFontForContentSizeCategory: Bool = Appearance.shared.isAccessabilitySupportEnabled {
         didSet { updateFonts() }
     }
 

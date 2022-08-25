@@ -68,7 +68,7 @@ public struct CirclePageControlStyle: ButtonStyle {
         self._step = step
         self.scheme = scheme
         self.action = action
-        self.schemeProvider = AppThemeSchemeProvider<CirclePageControlScheme>()
+        self.schemeProvider = SwiftUISchemeProvider<CirclePageControlScheme>()
     }
 
     // MARK: - Public methods
@@ -132,7 +132,7 @@ private extension CirclePageControlStyle {
             self.totalPages = totalPages
             self.style = style
             self.action = action
-            self.schemeProvider = AppThemeSchemeProvider<CirclePageControlScheme>()
+            self.schemeProvider = SwiftUISchemeProvider<CirclePageControlScheme>()
             stepLength = 1.0 / CGFloat(totalPages)
         }
 

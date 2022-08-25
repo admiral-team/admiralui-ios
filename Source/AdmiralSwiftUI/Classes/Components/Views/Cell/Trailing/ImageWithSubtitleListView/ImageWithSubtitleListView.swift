@@ -49,7 +49,7 @@ public struct ImageWithSubtitleListView: View, TralingListViewComponent {
     
     var renderingMode: Image.TemplateRenderingMode
     @State private var scheme: ImageWithSubtitleListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ImageWithSubtitleListViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<ImageWithSubtitleListViewScheme>()
     
     // MARK: - Initializer
     

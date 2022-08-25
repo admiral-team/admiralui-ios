@@ -107,7 +107,7 @@ public final class CurrencyView: UIView, AnyAppThemable {
         didSet { updateScheme() }
     }
 
-    var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
+    var adjustsFontForContentSizeCategory: Bool = Appearance.shared.isAccessabilitySupportEnabled {
         didSet { updateFonts() }
     }
 

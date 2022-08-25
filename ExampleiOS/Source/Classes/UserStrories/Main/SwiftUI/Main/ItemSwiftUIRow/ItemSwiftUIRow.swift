@@ -14,7 +14,7 @@ import SwiftUI
 struct ItemSwiftUIRow: View {
     
     @State private var item: SwiftUIItem
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ItemSwiftUIRowScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<ItemSwiftUIRowScheme>()
     
     init(item: SwiftUIItem) {
         self._item = .init(initialValue: item)

@@ -75,7 +75,7 @@ public struct TitleListView: View, LeadingListViewComponent {
     private let lineLimit: Int?
 
     @State private var scheme: TitleListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<TitleListViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<TitleListViewScheme>()
     
     // MARK: - Initializer
     

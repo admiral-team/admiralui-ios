@@ -12,7 +12,7 @@ import AdmiralSwiftUI
 @available(iOS 14.0.0, *)
 struct DefaultCurrencySwiftUIView: View {
     
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<SwiftUIContentViewScheme>()
     
     public var body: some View {
         let scheme = schemeProvider.scheme

@@ -81,7 +81,7 @@ public struct TitleMoreDetailTextMessageListView: View, LeadingListViewComponent
     @Environment(\.isEnabled) var isEnabled
     
     @State private var scheme: TitleMoreDetailTextMessageListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<TitleMoreDetailTextMessageListViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<TitleMoreDetailTextMessageListViewScheme>()
     
     // MARK: - Initializer
     

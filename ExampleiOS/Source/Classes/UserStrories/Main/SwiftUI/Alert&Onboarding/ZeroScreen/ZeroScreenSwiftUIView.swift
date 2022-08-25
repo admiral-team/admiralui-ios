@@ -22,7 +22,7 @@ struct ZeroScreenSwiftUIView: View {
     
     // MARK: - Private properties
     
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<SwiftUIContentViewScheme>()
     
     // MARK: - Layout
     

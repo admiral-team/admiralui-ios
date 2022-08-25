@@ -16,7 +16,7 @@ struct ToastNotificationsSwiftUIView: View {
     @State var isShow: Bool = false
     // @State var toastView: ToastView?
     
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ToastNotificationsSwiftUIViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<ToastNotificationsSwiftUIViewScheme>()
     private let toastManager = ToastNotificationsManager.shared
     
     public var body: some View {

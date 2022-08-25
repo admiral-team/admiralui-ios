@@ -57,7 +57,7 @@ public struct IconListView: View, TralingListViewComponent {
     var renderingMode: Image.TemplateRenderingMode
     
     @State private var scheme: IconListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<IconListViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<IconListViewScheme>()
     
     // MARK: - Initializer
     

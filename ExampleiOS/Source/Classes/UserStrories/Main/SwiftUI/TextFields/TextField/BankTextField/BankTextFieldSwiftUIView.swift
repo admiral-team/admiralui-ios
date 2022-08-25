@@ -21,7 +21,7 @@ struct BankTextFieldSwiftUIView: View {
     @State private var controlsState: Int = 0
     @State private var state: TextInputState = .normal
     @State private var isResponder = true
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<SwiftUIContentViewScheme>()
     
     public var body: some View {
         let scheme = schemeProvider.scheme

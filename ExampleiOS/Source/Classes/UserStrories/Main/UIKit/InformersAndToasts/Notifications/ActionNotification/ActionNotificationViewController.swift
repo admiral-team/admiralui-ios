@@ -18,7 +18,7 @@ final class ActionNotificationViewController: BaseViewController, AccessibilityS
     
     // MARK: - AccessibilitySupport
     
-    var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
+    var adjustsFontForContentSizeCategory: Bool = Appearance.shared.isAccessabilitySupportEnabled {
         didSet { updateSchemeFonts() }
     }
     

@@ -14,7 +14,7 @@ import AdmiralUIResources
 struct SwiftUITextMessageView: View {
 
     @StateObject private var viewModel = SwiftUITextMessageViewModel()
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<SwiftUIContentViewScheme>()
     
     public var body: some View {
         let scheme = schemeProvider.scheme

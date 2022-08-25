@@ -50,7 +50,7 @@ public struct CodeInputControl: View {
     
     private var cursorPosition = 0
     @State private var scheme: CodeInputControlScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<CodeInputControlScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<CodeInputControlScheme>()
     
     // MARK: - Initializer
     

@@ -28,7 +28,7 @@ class CalendarDayLabel: UILabel, AnyAppThemable, AccessibilitySupport {
     func apply(theme: AppTheme) {
         setDynamicFont(font: theme.fonts.subhead2.uiFont,
                        textStyle: theme.fonts.subhead2.textStyle,
-                       adjustsFontForContentSize: Appearance.isAccessabilitySupportEnabled)
+                       adjustsFontForContentSize: Appearance.shared.isAccessabilitySupportEnabled)
         textColor = theme.colors.textSecondary.uiColor
     }
     

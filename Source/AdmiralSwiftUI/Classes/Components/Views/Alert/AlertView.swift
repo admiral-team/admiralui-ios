@@ -78,7 +78,7 @@ public struct AlertView: View {
     @Binding var isLoading: Bool
     
     @State var scheme: AlertViewScheme?
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<AlertViewScheme>()
+    @ObservedObject var schemeProvider = SwiftUISchemeProvider<AlertViewScheme>()
 
     // MARK: - Private properties
     

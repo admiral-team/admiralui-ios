@@ -74,7 +74,7 @@ public struct ActionCellView<T>: View where T: ListViewCell {
     @State private var scheme: ActionCellViewScheme? = nil
     private var style: ActionBarViewStyle
     @State private var cellViewOffset: CGFloat = 0.0
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ActionCellViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<ActionCellViewScheme>()
 
     private var isOpen: Bool = false
     

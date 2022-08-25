@@ -144,7 +144,7 @@ struct UploadDocumentView: View {
     // MARK: - Private properties
 
     @State private var scheme: UploadDocumentViewScheme? = nil
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<UploadDocumentViewScheme>()
+    @ObservedObject var schemeProvider = SwiftUISchemeProvider<UploadDocumentViewScheme>()
     private var cornersOfGroup: UIRectCorner? = nil
     private var direction: ChatDirection
 

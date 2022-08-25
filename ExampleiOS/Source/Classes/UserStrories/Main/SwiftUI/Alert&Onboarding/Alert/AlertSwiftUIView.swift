@@ -14,7 +14,7 @@ import AdmiralSwiftUI
 struct AlertSwiftUIView: View {
     // swiftlint:disable all
     @State private var show = false
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<AlertCustomScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<AlertCustomScheme>()
 
     var body: some View {
         let scheme = schemeProvider.scheme

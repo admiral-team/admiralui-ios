@@ -17,7 +17,7 @@ struct ActionBarSwiftUIView: View {
 
     @State private var selectedIndex: Int?
     @State private var isEnabledControlsState: Int = 0
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<SwiftUIContentViewScheme>()
 
     // MARK: - Layout
 

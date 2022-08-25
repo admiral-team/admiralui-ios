@@ -44,7 +44,7 @@ public struct RadioControl: View {
     @Environment(\.isEnabled) private var isEnabled
     
     @State private var scheme: CheckControlScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<CheckControlScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<CheckControlScheme>()
     
     private var image: Image {
         return isSelected ? Image(uiImage: PrivateAsset.Custom.Control.radioButtonOn.image) : Image(uiImage: PrivateAsset.Custom.Control.radioButtonOff.image)

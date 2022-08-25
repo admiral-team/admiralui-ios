@@ -44,7 +44,7 @@ public struct ImageBackgroundListView: View, ImageListViewComponent {
     
     var renderingMode: Image.TemplateRenderingMode
     @State private var scheme: ImageBackgroundListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ImageBackgroundListViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<ImageBackgroundListViewScheme>()
     
     // MARK: - Initializer
     

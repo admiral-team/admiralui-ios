@@ -96,7 +96,7 @@ public struct BadgeView<Content>: View where Content: View {
     // MARK: - Private Properties
     
     @State private var segmentSize: CGSize = .zero
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<BadgeViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<BadgeViewScheme>()
     
     // MARK: - Initializer
     

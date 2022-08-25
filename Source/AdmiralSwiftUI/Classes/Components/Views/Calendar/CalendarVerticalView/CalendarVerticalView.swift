@@ -57,7 +57,7 @@ struct CalendarVerticalView: View {
     @State private var scheme: CalendarVerticalViewScheme? = nil
     @State private var currentMonthDate: Date?
     @State private var isScrollCalendar: Bool = false
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<CalendarVerticalViewScheme>()
+    @ObservedObject var schemeProvider = SwiftUISchemeProvider<CalendarVerticalViewScheme>()
 
     // MARK: - Initializer
     

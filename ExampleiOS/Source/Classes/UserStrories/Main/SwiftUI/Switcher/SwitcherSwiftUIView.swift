@@ -15,7 +15,7 @@ struct SwitcherSwiftUIView: View {
     @State private var isCustomSwitchOn: Bool = true
     @State private var isCustomSwitchOff: Bool = false
     @State private var isEnabledControlsState: Int = 0
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<SwiftUIContentViewScheme>()
     
     public var body: some View {
         let scheme = schemeProvider.scheme

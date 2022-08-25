@@ -155,7 +155,7 @@ public struct DoubleInputRangeTextField: AccessabilitySupportUIKit, Identifiable
     @State private var scheme: DoubleInputRangeTextFieldScheme? = nil
     private var accessibilityIdentifierFirst: String?
     private var accessibilityIdentifierSecond: String?
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<DoubleInputRangeTextFieldScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<DoubleInputRangeTextFieldScheme>()
     
     @State private var textViewFromWidth: CGFloat = LayoutGrid.tripleModule
     @State private var textViewWidth: CGFloat = LayoutGrid.tripleModule

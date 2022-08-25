@@ -16,7 +16,7 @@ struct SwiftUIUploadingFileView: View {
     // MARK: - Private properties
     
     @StateObject private var viewModel = SwiftUIUploadFileViewModel()
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<SwiftUIContentViewScheme>()
     
     // MARK: - Layout
     

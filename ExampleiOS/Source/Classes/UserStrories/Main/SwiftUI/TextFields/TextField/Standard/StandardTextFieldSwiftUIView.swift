@@ -28,7 +28,7 @@ struct StandardTextFieldSwiftUIView: View {
     @State private var isResponderSecureTextField: Bool = false
     @State private var isResponderTextView: Bool = false
     
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<SwiftUIContentViewScheme>()
     
     public var body: some View {
         let scheme = schemeProvider.scheme

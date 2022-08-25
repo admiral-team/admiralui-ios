@@ -61,7 +61,7 @@ public struct CheckboxTextbuttonView: View {
     // MARK: Internal Properties
     
     @State var scheme: CheckboxTextbuttonViewScheme?
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<CheckboxTextbuttonViewScheme>()
+    @ObservedObject var schemeProvider = SwiftUISchemeProvider<CheckboxTextbuttonViewScheme>()
     
     private enum Constants {
         // MARK: - Common constants

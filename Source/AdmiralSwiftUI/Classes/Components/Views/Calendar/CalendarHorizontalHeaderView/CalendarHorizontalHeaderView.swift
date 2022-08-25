@@ -30,8 +30,8 @@ struct CalendarHorizontalHeaderView: View {
     
     @State private var scheme: CalendarHorizontalHeaderViewScheme? = nil
     @State private var buttonScheme: MonthYearButtonScheme? = nil
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<CalendarHorizontalHeaderViewScheme>()
-    @ObservedObject var buttonSchemeProvider = AppThemeSchemeProvider<MonthYearButtonScheme>()
+    @ObservedObject var schemeProvider = SwiftUISchemeProvider<CalendarHorizontalHeaderViewScheme>()
+    @ObservedObject var buttonSchemeProvider = SwiftUISchemeProvider<MonthYearButtonScheme>()
     
     init(
         title: String,

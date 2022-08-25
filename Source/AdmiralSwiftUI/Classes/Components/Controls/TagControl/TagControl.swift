@@ -75,7 +75,7 @@ public struct TagControl: View {
     // MARK: - Private Properties
     
     @State private var scheme: TagControlScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<TagControlScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<TagControlScheme>()
 
     // MARK: - Private Parameters
     

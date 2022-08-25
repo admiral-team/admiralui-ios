@@ -42,7 +42,7 @@ open class SeveralPinButton: CustomButton, AnyAppThemable, AccessibilitySupport 
         }
     }
 
-    public var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
+    public var adjustsFontForContentSizeCategory: Bool = Appearance.shared.isAccessabilitySupportEnabled {
         didSet { updateSchemeFonts() }
     }
 

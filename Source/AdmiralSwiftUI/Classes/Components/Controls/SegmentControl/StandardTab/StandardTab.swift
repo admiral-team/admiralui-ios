@@ -51,7 +51,7 @@ public struct StandardTab: View {
     @State private var segmentSize: CGSize = .zero
     @State private var activeSegmentOffset: CGFloat = Constants.separatorWidth
     @State private var scheme: StandardTabScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<StandardTabScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<StandardTabScheme>()
     
     private let items: [String]
     

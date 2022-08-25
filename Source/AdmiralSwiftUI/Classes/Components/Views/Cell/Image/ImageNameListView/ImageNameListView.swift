@@ -39,7 +39,7 @@ public struct ImageNameListView: View, ImageListViewComponent {
     @Environment(\.manager) var manager
     
     @State private var scheme: ImageNameListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ImageNameListViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<ImageNameListViewScheme>()
     
     // MARK: - Initializer
     

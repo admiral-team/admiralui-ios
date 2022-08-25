@@ -5,8 +5,9 @@
 //  Created on 16.06.2021.
 //
 
-import SwiftUI
+import AdmiralSwiftUI
 import AdmiralTheme
+import SwiftUI
 
 @available(iOS 14.0.0, *)
 struct NavigationContentView<Content>: View where Content: View {
@@ -25,7 +26,7 @@ struct NavigationContentView<Content>: View where Content: View {
     
     // MARK: - Private Properties
     
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<NavigationContentViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<NavigationContentViewScheme>()
     
     // MARK: - Initializer
     

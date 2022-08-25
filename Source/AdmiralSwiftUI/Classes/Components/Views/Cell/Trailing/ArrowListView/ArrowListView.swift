@@ -40,7 +40,7 @@ public struct ArrowListView: View, TralingListViewComponent {
     @State var state: ControlState = .normal
     
     @State private var scheme: ArrowListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ArrowListViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<ArrowListViewScheme>()
     
     // MARK: - Private Properties
     

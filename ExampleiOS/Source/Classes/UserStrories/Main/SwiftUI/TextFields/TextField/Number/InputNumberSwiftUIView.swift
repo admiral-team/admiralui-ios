@@ -14,7 +14,7 @@ struct InputNumberSwiftUIView: View {
     
     @State private var isEnabledControlsState: Int = 0
     @State private var startValue: Double = 0
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<SwiftUIContentViewScheme>()
     
     public var body: some View {
         let scheme = schemeProvider.scheme

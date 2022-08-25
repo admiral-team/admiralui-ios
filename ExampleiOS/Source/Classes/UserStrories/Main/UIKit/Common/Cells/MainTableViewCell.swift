@@ -55,7 +55,7 @@ final class MainTableViewCell: UITableViewCell, AnyAppThemable, AccessibilitySup
     
     // MARK: - AccessibilitySupport
     
-    public var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
+    public var adjustsFontForContentSizeCategory: Bool = Appearance.shared.isAccessabilitySupportEnabled {
         didSet { updateSchemeFonts() }
     }
     

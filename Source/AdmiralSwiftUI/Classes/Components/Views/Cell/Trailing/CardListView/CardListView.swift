@@ -44,7 +44,7 @@ public struct CardListView: View, TralingListViewComponent {
     
     var renderingMode: Image.TemplateRenderingMode
     @State private var scheme: CardListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<CardListViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<CardListViewScheme>()
     
     // MARK: - Initializer
     

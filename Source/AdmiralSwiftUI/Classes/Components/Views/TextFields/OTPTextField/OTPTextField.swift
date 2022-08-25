@@ -110,7 +110,7 @@ public struct OTPTextField: TextFieldInput, AccessabilitySupportUIKit, Identifia
     private let canPerformActionPaste: Bool
     
     @State private var scheme: OTPTextFieldScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<OTPTextFieldScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<OTPTextFieldScheme>()
     private var accessibilityIdentifier: String?
     
     // MARK: - Initializer

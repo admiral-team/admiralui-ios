@@ -13,7 +13,7 @@ class InformationViewController: UIViewController, AnyAppThemable, Accessibility
     
     // MARK: - AccessibilitySupport
     
-    var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
+    var adjustsFontForContentSizeCategory: Bool = Appearance.shared.isAccessabilitySupportEnabled {
         didSet { updateSchemeFonts() }
     }
     

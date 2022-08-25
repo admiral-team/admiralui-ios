@@ -42,7 +42,7 @@ public struct CustomSwitch: View {
     
     // MARK: - Private Properties
     
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<CustomSwitchScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<CustomSwitchScheme>()
     @State private var scheme: CustomSwitchScheme? = nil
     
     // MARK: - Initializer

@@ -19,7 +19,7 @@ struct OutlineSliderTabSwiftUITab: View {
     @State private var isTwoItemControlsState: Int = 0
     @State private var isThreeItemControlsState: Int = 0
     @State private var isFourItemControlsState: Int = 0
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<SwiftUIContentViewScheme>()
     
     private let outlineSliderTabItems = [OutlineSliderTabItem(title: "One", badgeStyle: nil),
                                          OutlineSliderTabItem(title: "Two", badgeStyle: nil),

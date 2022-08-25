@@ -32,7 +32,7 @@ public struct SliderView: View {
     // MARK: - Private Properties
     
     @State private var scheme: SliderScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SliderScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<SliderScheme>()
     
     // MARK: - Initializer
     

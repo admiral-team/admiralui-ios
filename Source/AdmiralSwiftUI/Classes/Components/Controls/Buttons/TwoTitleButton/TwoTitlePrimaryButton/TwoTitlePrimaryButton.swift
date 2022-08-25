@@ -38,7 +38,7 @@ public struct TwoTitlePrimaryButton: View {
     // MARK: - Private Properties
     
     @State private var scheme: TwoTitlePrimaryButtonScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<TwoTitlePrimaryButtonScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<TwoTitlePrimaryButtonScheme>()
     
     private let action: () -> ()
     

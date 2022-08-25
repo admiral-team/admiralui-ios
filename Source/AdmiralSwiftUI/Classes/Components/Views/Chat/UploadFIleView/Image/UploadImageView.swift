@@ -137,7 +137,7 @@ struct UploadImageView: View {
     @State private var scheme: UploadImageViewScheme? = nil
     private let cornersStyle: UploadImageViewCornerStyle
     private let direction: ChatDirection
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<UploadImageViewScheme>()
+    @ObservedObject var schemeProvider = SwiftUISchemeProvider<UploadImageViewScheme>()
 
     // MARK: - Initializer
 

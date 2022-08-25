@@ -13,7 +13,7 @@ import AdmiralUIResources
 struct PinCodeNumberViewStyle: ButtonStyle {
     
     @State private var scheme: PinCodeNumberViewScheme? = nil
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<PinCodeNumberViewScheme>()
+    @ObservedObject var schemeProvider = SwiftUISchemeProvider<PinCodeNumberViewScheme>()
     
     public func makeBody(configuration: Self.Configuration) -> some View {
         let scheme = self.scheme ?? schemeProvider.scheme

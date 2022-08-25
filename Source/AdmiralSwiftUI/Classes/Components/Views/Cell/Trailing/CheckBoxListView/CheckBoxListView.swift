@@ -47,7 +47,7 @@ public struct CheckBoxListView: View, TralingListViewComponent {
     @State var state: ControlState = .normal
     
     @State private var scheme: CheckBoxListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<CheckBoxListViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<CheckBoxListViewScheme>()
     
     // MARK: - Initializer
     

@@ -46,7 +46,7 @@ public struct DatePercentListView: View, TralingListViewComponent {
     @Environment(\.isEnabled) var isEnabled
     
     @State private var scheme: DatePercentListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<DatePercentListViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<DatePercentListViewScheme>()
     
     // MARK: - Initializer
     

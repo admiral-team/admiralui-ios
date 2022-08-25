@@ -40,7 +40,7 @@ public struct SeparatorView: View {
     // MARK: - Private Properties
     
     @State private var scheme: SeparatorViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SeparatorViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<SeparatorViewScheme>()
 
     // MARK: - Initializer
     

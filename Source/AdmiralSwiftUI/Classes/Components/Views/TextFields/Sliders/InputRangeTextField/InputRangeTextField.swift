@@ -121,7 +121,7 @@ public struct InputRangeTextField<T>: TextFieldInput, AccessabilitySupportUIKit,
     
     @State private var scheme: InputRangeTextFieldScheme? = nil
     @State private var finishAfterChangeSlider: Bool = false
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<InputRangeTextFieldScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<InputRangeTextFieldScheme>()
     private var accessibilityIdentifier: String?
     
     // MARK: - Initializer

@@ -17,7 +17,7 @@ struct LogoTabSwiftUIView: View {
     @State private var isThreeItemControlsState: Int = 0
     @State private var isFourItemControlsState: Int = 0
     @State private var isFiveItemControlsState: Int = 0
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<SwiftUIContentViewScheme>()
     
     public var body: some View {
         let scheme = schemeProvider.scheme

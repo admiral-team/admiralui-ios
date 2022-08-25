@@ -16,7 +16,7 @@ struct UnderlineSliderTabSwiftUIView: View {
     @State private var isTwoItemControlsState: Int = 0
     @State private var isThreeItemControlsState: Int = 0
     @State private var isStaticControlsState: Int = 0
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<SwiftUIContentViewScheme>()
     
     private let underlineTabItems = [UnderlineTabItem(title: "One", badgeStyle: .default),
                                      UnderlineTabItem(title: "Two", badgeStyle: .default),

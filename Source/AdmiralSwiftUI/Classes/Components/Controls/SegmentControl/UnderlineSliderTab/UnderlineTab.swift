@@ -78,7 +78,7 @@ public struct UnderlineTab: View {
     @State private var isShowStartPositionActiveSegment: Bool = false
     
     @State private var scheme: UnderlineTabScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<UnderlineTabScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<UnderlineTabScheme>()
     
     private var activeSegmentView: AnyView {
         let scheme = self.scheme ?? schemeProvider.scheme

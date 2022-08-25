@@ -118,7 +118,7 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
     }
     
     @State private var scheme: ChatInputScheme? = nil
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<ChatInputScheme>()
+    @ObservedObject var schemeProvider = SwiftUISchemeProvider<ChatInputScheme>()
 
     // MARK: - Initializer
     

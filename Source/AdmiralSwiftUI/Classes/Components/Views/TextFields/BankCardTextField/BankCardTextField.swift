@@ -125,7 +125,7 @@ public struct BankCardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
     private let canPerformActionPaste: Bool
     
     @State private var scheme: BankCardTextFieldScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<BankCardTextFieldScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<BankCardTextFieldScheme>()
     
     private let textFieldHeight: CGFloat = LayoutGrid.tripleModule
     private var accessibilityIdentifier: String?

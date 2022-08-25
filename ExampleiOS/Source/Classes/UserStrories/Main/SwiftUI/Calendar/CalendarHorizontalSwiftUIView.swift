@@ -19,7 +19,7 @@ struct CalendarHorizontalSwiftUIView: View {
     
     // MAQRK: - Private Properties
     
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<SwiftUIContentViewScheme>()
     
     var startDate: Date?
     var endDate: Date?

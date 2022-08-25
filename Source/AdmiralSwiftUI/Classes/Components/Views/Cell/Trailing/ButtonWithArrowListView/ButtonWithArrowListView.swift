@@ -46,7 +46,7 @@ public struct ButtonWithArrowListView: View, LeadingListViewComponent, TralingLi
     var action: () -> ()
     
     @State private var scheme: ButtonWithArrowListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ButtonWithArrowListViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<ButtonWithArrowListViewScheme>()
     
     // MARK: - Initializer
     

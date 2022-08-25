@@ -19,7 +19,7 @@ struct InfoSwiftUIView: View {
         static let contentWidth: CGFloat = 236.0
     }
     
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<InfoSwiftUIViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<InfoSwiftUIViewScheme>()
     
     @Binding private var title: String
     @Binding private var subtitle: String

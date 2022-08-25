@@ -42,7 +42,7 @@ class CalendarDayCell: UICollectionViewCell, AnyAppThemable, AccessibilitySuppor
     
     // MARK: - AccessibilitySupport
     
-    public var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
+    public var adjustsFontForContentSizeCategory: Bool = Appearance.shared.isAccessabilitySupportEnabled {
         didSet { updateSchemeFonts() }
     }
     

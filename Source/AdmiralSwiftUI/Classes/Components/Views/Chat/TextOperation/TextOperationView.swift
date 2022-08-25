@@ -84,7 +84,7 @@ public struct TextOperationView: View {
     // MARK: - Private properties
 
     @State private var scheme: TextOperationViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<TextOperationViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<TextOperationViewScheme>()
 
     // MARK: - Initializer
 

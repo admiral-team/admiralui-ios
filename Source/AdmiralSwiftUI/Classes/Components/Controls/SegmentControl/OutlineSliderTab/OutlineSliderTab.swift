@@ -71,7 +71,7 @@ public struct OutlineSliderTab: View {
     // MARK: - Private Properties
     
     @State private var scheme: OutlineSliderTabScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<OutlineSliderTabScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<OutlineSliderTabScheme>()
     
     @Binding private var selection: Int
     @Binding private var offset: CGFloat

@@ -81,7 +81,7 @@ public struct InfoAgreementView: View {
     // MARK: Internal Properties
     
     @State var scheme: InfoAgreementViewScheme?
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<InfoAgreementViewScheme>()
+    @ObservedObject var schemeProvider = SwiftUISchemeProvider<InfoAgreementViewScheme>()
     
     private enum Constants {
         // MARK: - Common constants

@@ -64,7 +64,7 @@ public struct LinerPageControll: View {
     private var numberOfPages: Int
     private var scheme: PageControlViewScheme? = nil
     
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<PageControlViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<PageControlViewScheme>()
     
     // MARK: - Initializer
     

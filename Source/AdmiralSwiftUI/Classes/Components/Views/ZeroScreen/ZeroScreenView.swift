@@ -64,7 +64,7 @@ public struct ZeroScreenView: View {
     // MARK: Internal Properties
 
     @State var scheme: ZeroScreenViewScheme?
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<ZeroScreenViewScheme>()
+    @ObservedObject var schemeProvider = SwiftUISchemeProvider<ZeroScreenViewScheme>()
     
     // MARK: - Initializer
     

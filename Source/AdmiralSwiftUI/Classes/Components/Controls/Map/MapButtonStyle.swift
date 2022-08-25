@@ -39,7 +39,7 @@ public struct MapButtonStyle: ButtonStyle {
     // MARK: - Private Properties
     
     @State private var scheme: MapButtonScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<MapButtonScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<MapButtonScheme>()
     
     // MARK: - Initializer
     

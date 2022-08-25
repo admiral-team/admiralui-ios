@@ -69,7 +69,7 @@ public struct TitleWithImageListView: View, LeadingListViewComponent {
     // MARK: - Private Properties
 
     @State private var scheme: TitleWithImageListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<TitleWithImageListViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<TitleWithImageListViewScheme>()
     private let lineLimit: Int?
     
     // MARK: - Initializer

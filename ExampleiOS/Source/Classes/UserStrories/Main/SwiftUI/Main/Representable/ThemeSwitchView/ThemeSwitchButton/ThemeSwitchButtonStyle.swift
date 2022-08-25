@@ -18,7 +18,7 @@ struct ThemeSwitchButtonStyle: ButtonStyle {
 
     // MARK: - Private properties
 
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ThemeSwitchButtonScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<ThemeSwitchButtonScheme>()
     private var scheme: ThemeSwitchButtonScheme?
 
     // MARK: - Initializer

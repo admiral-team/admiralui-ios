@@ -18,7 +18,7 @@ struct ThemeSwitchSwiftUIView: View {
 
     // MARK: - Private Properties
 
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ThemeSwitchViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<ThemeSwitchViewScheme>()
     @State private var isListHidden = true
     @State private var selectedIndex: Int
     @State private var items: [ThemeItem] = []

@@ -22,7 +22,7 @@ struct ErrorSwiftUIView: View {
     // MARK: - Private properties
 
     @State private var isLoading = false
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<SwiftUIContentViewScheme>()
 
     // MARK: - Layout
 

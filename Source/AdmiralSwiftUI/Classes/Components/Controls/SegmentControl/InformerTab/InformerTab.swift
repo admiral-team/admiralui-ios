@@ -67,7 +67,7 @@ public struct InformerTab: View {
     @State private var segmentSize: CGSize = .zero
     @State private var arrowOffset: CGFloat = .zero
     @State private var scheme: InformerTabScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<InformerTabScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<InformerTabScheme>()
         
     @Binding private var selection: Int
     @Binding private var offsetSegment: CGFloat

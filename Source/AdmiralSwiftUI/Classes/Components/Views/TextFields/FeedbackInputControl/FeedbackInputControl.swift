@@ -45,7 +45,7 @@ public struct FeedbackInputControl: View {
     // MARK: - Private Properties
     
     @State private var scheme: FeedbackInputControlScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<FeedbackInputControlScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<FeedbackInputControlScheme>()
     
     // MARK: - Initializer
     

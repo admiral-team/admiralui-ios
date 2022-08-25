@@ -131,7 +131,7 @@ public struct ToastView: View {
     // MARK: - Private Properties
     
     @State private var scheme: ToastViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ToastViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<ToastViewScheme>()
     private var accessibilityIdentifier: String?
     
     // MARK: - Initializer

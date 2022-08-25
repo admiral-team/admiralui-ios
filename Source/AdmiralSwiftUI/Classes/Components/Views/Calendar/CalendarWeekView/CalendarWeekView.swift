@@ -12,7 +12,7 @@ import SwiftUI
 struct CalendarWeekView: View {
     
     // MARK: - Internal Properties
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<CalendarWeekViewScheme>()
+    @ObservedObject var schemeProvider = SwiftUISchemeProvider<CalendarWeekViewScheme>()
     
     // MARK: - Private Properties
     @State private var scheme: CalendarWeekViewScheme? = nil

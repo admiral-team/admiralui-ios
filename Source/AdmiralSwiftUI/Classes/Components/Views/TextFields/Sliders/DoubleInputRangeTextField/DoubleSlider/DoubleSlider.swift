@@ -35,7 +35,7 @@ public struct DoubleSliderView: View {
     
     @State private var isFromLastTouch: Bool = true
     @State private var scheme: SliderScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SliderScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<SliderScheme>()
     
     // MARK: - Initializer
     

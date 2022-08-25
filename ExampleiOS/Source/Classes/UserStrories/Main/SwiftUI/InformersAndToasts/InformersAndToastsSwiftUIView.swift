@@ -14,7 +14,7 @@ struct InformersAndToastsSwiftUIView: View {
  
     @State private var selection: Int?
     @State private var scheme: SwiftUIContentViewScheme?
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<SwiftUIContentViewScheme>()
     
     public var body: some View {
         let scheme = schemeProvider.scheme

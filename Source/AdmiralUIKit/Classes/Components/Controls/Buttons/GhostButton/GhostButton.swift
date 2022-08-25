@@ -33,7 +33,7 @@ open class GhostButton: CustomButton, AnyAppThemable, AccessibilitySupport {
     
     // MARK: - Public Properties
     
-    public var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
+    public var adjustsFontForContentSizeCategory: Bool = Appearance.shared.isAccessabilitySupportEnabled {
         didSet { updateSchemeFonts() }
     }
 

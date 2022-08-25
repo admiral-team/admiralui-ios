@@ -86,7 +86,7 @@ public final class ChatBubbleView: UIView, AnyAppThemable {
         set { chatStatusBubbleView.timeTitle = newValue }
     }
 
-    public var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
+    public var adjustsFontForContentSizeCategory: Bool = Appearance.shared.isAccessabilitySupportEnabled {
         didSet { updateFonts() }
     }
 

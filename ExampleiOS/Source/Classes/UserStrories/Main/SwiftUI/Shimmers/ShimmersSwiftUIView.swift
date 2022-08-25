@@ -12,7 +12,7 @@ import AdmiralSwiftUI
 @available(iOS 14.0.0, *)
 struct ShimmersSwiftUIView: View {
     
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ShimmersSwiftUIViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<ShimmersSwiftUIViewScheme>()
     
     public var body: some View {
         let scheme = schemeProvider.scheme

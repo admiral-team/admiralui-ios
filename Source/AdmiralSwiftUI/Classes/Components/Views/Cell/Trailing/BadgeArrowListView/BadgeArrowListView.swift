@@ -56,7 +56,7 @@ public struct BadgeArrowListView: View, TralingListViewComponent {
     // MARK: - Private Properties
     
     @State private var scheme: BadgeArrowListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<BadgeArrowListViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<BadgeArrowListViewScheme>()
     
     @State private var viewSize: CGSize = .zero
 

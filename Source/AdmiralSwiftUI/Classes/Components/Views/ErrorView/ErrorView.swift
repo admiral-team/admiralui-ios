@@ -55,7 +55,7 @@ public struct ErrorView: View {
     // MARK: Internal Properties
 
     @State var scheme: ErrorViewScheme?
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<ErrorViewScheme>()
+    @ObservedObject var schemeProvider = SwiftUISchemeProvider<ErrorViewScheme>()
     
     // MARK: - Initializer
     

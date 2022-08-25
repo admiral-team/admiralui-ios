@@ -43,7 +43,7 @@ public struct SecondaryTitleListView: View, LeadingListViewComponent {
     // MARK: - Private Properties
     
     @State private var scheme: SecondaryTitleListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SecondaryTitleListViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<SecondaryTitleListViewScheme>()
     private let lineLimit: Int?
 
 

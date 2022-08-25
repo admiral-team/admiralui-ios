@@ -108,7 +108,7 @@ public struct ChatBubbleView: View {
     @State private var segmentSize: CGSize = .zero
     
     @State private var scheme: ChatBubbleViewScheme? = nil
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<ChatBubbleViewScheme>()
+    @ObservedObject var schemeProvider = SwiftUISchemeProvider<ChatBubbleViewScheme>()
     
     // MARK: - Initializer
 

@@ -15,7 +15,7 @@ struct InformerTabSwiftUIView: View {
     @State private var isEnabledControlsState: Int = 0
     @State private var isTwoItemControlsState: Int = 0
     @State private var isThreeItemControlsState: Int = 0
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<SwiftUIContentViewScheme>()
     
     public var body: some View {
         let scheme = schemeProvider.scheme

@@ -65,7 +65,7 @@ public struct ActivityIndicator: View {
     
     @State private var scheme: ActivityIndicatorScheme? = nil
     @State private var animatableParameter: Double = 0
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<ActivityIndicatorScheme>()
+    @ObservedObject var schemeProvider = SwiftUISchemeProvider<ActivityIndicatorScheme>()
     
     // MARK: - Initializer
     

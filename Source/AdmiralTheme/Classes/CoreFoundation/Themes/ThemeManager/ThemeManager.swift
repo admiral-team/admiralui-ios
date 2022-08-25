@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 struct InvalidThemeError: Error {
     // intentionally left blank
 }
@@ -17,22 +16,22 @@ struct RedundantObservationError: Error {
 }
 
 /// Theme manager for assigning a theme
-class ThemeManager {
+public class ThemeManager {
 
     /// The default ThemeManager
-    static let `default`: ThemeManager = .init()
+    public static let `default`: ThemeManager = .init()
 
     /// Whether to apply themes with animation
-    var animated: Bool = true
+    public var animated: Bool = true
 
     /// Duration of animation during theme application
-    var animationDuration: TimeInterval = 0.3
+    public var animationDuration: TimeInterval = 0.3
     
     /// The current theme.
     ///
     /// - Important:
     /// Upon receiving an initial value any future values are expected to be of the same type.
-    var theme: Theme? {
+    public var theme: Theme? {
         willSet {
             #if DEBUG
             guard let currentValue = self.theme else {
@@ -87,7 +86,7 @@ class ThemeManager {
     /// - Note:
     ///   Consider using `ThemeManager.default` instead of creating your own instances.
     ///   It should cover 99% of your use-cases.
-    init() {
+    public init() {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(handleDynamicTypeChange(_:)),
@@ -101,7 +100,7 @@ class ThemeManager {
     /// - Parameters:
     ///   - theme: `themeable`'s sub-theme's key-path relative to the Manager's current theme to apply
     ///   - themeable: the object to have the theme applied to
-    func manage<T, U>(
+    public func manage<T, U>(
         themeKeyPath keyPath: KeyPath<T, U.AssociatedTheme>,
         for themeable: U) where T: Theme, U: Themeable {
         let identifier = ObjectIdentifier(themeable)
@@ -140,7 +139,7 @@ class ThemeManager {
     /// - Parameters:
     ///   - theme: `themeable`'s sub-theme's key-path relative to the Manager's current theme to apply
     ///   - themeable: the object to have the theme applied to
-    func manage<T, U>(
+    public func manage<T, U>(
         theme: T.Type,
         for themeable: U) where U: Themeable, U.AssociatedTheme == T {
         let identifier = ObjectIdentifier(themeable)
@@ -308,4 +307,13 @@ extension ThemeManager: CustomStringConvertible {
         }
     }
     
+}
+
+private extension String {
+
+    func base64Decoded() -> String? {
+        guard let data = Data(base64Encoded: self) else { return nil }
+        return String(data: data, encoding: .utf8)
+    }
+
 }

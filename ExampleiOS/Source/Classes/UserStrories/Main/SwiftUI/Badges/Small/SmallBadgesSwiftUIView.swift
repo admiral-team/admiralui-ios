@@ -15,7 +15,7 @@ struct SmallBadgesSwiftUIView: View {
 
     @State private var scheme: BadgesSwiftUIViewScheme?
     @StateObject private var viewModel = SmallBadgesViewModel()
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<BadgesSwiftUIViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<BadgesSwiftUIViewScheme>()
 
     var body: some View {
         let scheme = schemeProvider.scheme

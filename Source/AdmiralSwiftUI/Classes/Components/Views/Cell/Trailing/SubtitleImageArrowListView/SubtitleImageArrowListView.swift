@@ -50,7 +50,7 @@ public struct SubtitleImageArrowListView: View, TralingListViewComponent {
     
     var renderingMode: Image.TemplateRenderingMode
     @State private var scheme: SubtitleImageArrowListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SubtitleImageArrowListViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<SubtitleImageArrowListViewScheme>()
     
     // MARK: - Initializer
     

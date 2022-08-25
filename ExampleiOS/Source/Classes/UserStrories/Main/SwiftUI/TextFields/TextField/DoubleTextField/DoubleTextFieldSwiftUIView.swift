@@ -19,7 +19,7 @@ struct DoubleTextFieldSwiftUIView: View {
     @State private var thirdText: String? = "Text"
     @State private var fourText: String? = "Text"
     @State private var state: TextInputState = .normal
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<SwiftUIContentViewScheme>()
     
     public var body: some View {
         let scheme = schemeProvider.scheme

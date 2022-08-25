@@ -34,7 +34,7 @@ public struct SeveralPinButtonStyle: ButtonStyle {
     // MARK: - Private Properties
     
     @State private var scheme: SeveralPinButtonScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SeveralPinButtonScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<SeveralPinButtonScheme>()
     
     // MARK: - Initializer
     

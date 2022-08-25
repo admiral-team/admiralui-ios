@@ -38,7 +38,7 @@ public struct TwoTitleGhostButton: View {
     // MARK: - Private Properties
     
     @State private var scheme: TwoTitleGhostButtonScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<TwoTitleGhostButtonScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<TwoTitleGhostButtonScheme>()
     
     private let leftAction: () -> ()
     private let rightAction: () -> ()

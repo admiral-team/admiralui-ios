@@ -52,7 +52,7 @@ public class OTPTextField: TextFieldInput, AnyAppThemable, AccessibilitySupport 
     
     // MARK: - AccessibilitySupport
     
-    public var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
+    public var adjustsFontForContentSizeCategory: Bool = Appearance.shared.isAccessabilitySupportEnabled {
         didSet { updateFonts() }
     }
     

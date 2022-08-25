@@ -125,7 +125,7 @@ public final class TextOperationView: UIView, AnyAppThemable {
         }
     }
 
-    public var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
+    public var adjustsFontForContentSizeCategory: Bool = Appearance.shared.isAccessabilitySupportEnabled {
         didSet { updateFonts() }
     }
 

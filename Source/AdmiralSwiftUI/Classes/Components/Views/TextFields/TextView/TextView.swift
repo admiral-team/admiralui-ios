@@ -120,7 +120,7 @@ public struct TextView<T>: TextFieldInput, AccessabilitySupportUIKit, Identifiab
         width: 30.0,
         height: LayoutGrid.halfModule * 6)
     
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<StandardTextFieldScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<StandardTextFieldScheme>()
     
     private let rightOffset = LayoutGrid.module
     private let labelOffset: CGFloat = 30.0

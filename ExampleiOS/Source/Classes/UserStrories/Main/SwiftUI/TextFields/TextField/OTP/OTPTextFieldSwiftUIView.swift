@@ -20,7 +20,7 @@ struct OTPTextFieldSwiftUIView: View {
     @State private var controlsState: Int = 0
     @State private var isResponder = true
     @State private var state: TextInputState = .normal
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<SwiftUIContentViewScheme>()
     
     public var body: some View {
         let scheme = schemeProvider.scheme

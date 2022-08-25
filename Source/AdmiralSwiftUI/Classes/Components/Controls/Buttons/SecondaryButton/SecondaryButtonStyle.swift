@@ -37,7 +37,7 @@ public struct SecondaryButtonStyle: ButtonStyle {
     var sizeType: ButtonSizeType?
     
     private var scheme: SecondaryButtonScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SecondaryButtonScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<SecondaryButtonScheme>()
 
     public init(
         isLoading: Binding<Bool> = .constant(false),

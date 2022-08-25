@@ -82,7 +82,7 @@ public struct SearchBar: View, AccessabilitySupportUIKit {
     @State private var isTextFieldResponder = false
     
     @State private var scheme: SearchBarColorScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SearchBarColorScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<SearchBarColorScheme>()
     private var accessibilityIdentifier: String?
     
     // MARK: - Initializer

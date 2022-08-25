@@ -57,7 +57,7 @@ public struct ToolBar: View {
     @Binding private var type: ToolBarType
     @Binding private var selectedIndex: Int
     
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ToolBarScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<ToolBarScheme>()
     private let isSelectable: Bool
     private let onTap: (Int) -> ()
 

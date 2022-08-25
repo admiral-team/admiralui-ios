@@ -17,7 +17,7 @@ struct Clock: View {
     // MARK: - Private Properties
     
     @State private var scheme: ClockScheme? = nil
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<ClockScheme>()
+    @ObservedObject var schemeProvider = SwiftUISchemeProvider<ClockScheme>()
     
     init(counter: Int, countTo: Int) {
         self.counter = counter
@@ -51,7 +51,7 @@ struct ProgressBar: View {
     // MARK: - Private Properties
     
     @State private var scheme: ProgressBarScheme? = nil
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<ProgressBarScheme>()
+    @ObservedObject var schemeProvider = SwiftUISchemeProvider<ProgressBarScheme>()
     
     init(counter: Int, countTo: Int) {
         self.counter = counter

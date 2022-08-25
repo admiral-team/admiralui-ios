@@ -22,7 +22,7 @@ struct InputRangeTextFieldSwiftUIView: View {
     @State private var isResponder = false
     @State private var isResponderTo = false
     @State private var isResponderFrom = false
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<SwiftUIContentViewScheme>()
     
     public var body: some View {
         let scheme = schemeProvider.scheme

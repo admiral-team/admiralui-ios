@@ -69,7 +69,7 @@ public struct IconTab: View {
     @Binding private var selection: Int
     private var models: [IconTabModel] = []
     @State private var scheme: IconTabScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<IconTabScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<IconTabScheme>()
 
     // MARK: - Initializer
 

@@ -42,7 +42,7 @@ public struct PrimaryButtonStyle: ButtonStyle {
     // MARK: - Private Properties
     
     private var scheme: PrimaryButtonScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<PrimaryButtonScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<PrimaryButtonScheme>()
     private var accessibilityIdentifier: String?
 
     public init(

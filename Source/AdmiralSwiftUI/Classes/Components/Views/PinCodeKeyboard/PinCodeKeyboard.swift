@@ -58,7 +58,7 @@ public struct PinCodeKeyboard: View {
     private let didTapNumber: (Int) -> ()
     private let didTapLeftButton: () -> ()
     private let didTapRightButton: () -> ()
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<PinCodeTextViewScheme>()
+    @ObservedObject var schemeProvider = SwiftUISchemeProvider<PinCodeTextViewScheme>()
     
     private enum Constants {
         static let keyboardInsets: EdgeInsets = EdgeInsets(

@@ -25,7 +25,7 @@ struct ToolBarSwiftUIView: View {
     @State private var selectedIndex: Int = 1
     private var items = [ToolBarItem]()
     
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<SwiftUIContentViewScheme>()
     
     // MARK: - Initielizers
     

@@ -21,7 +21,7 @@ struct PinCodeTextFieldView: View {
     @State private var controlsState: Int = 0
     @State private var maxCountNumbers: Double = 4
     @State private var status: CodeInputControl.Status = .normal
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<SwiftUIContentViewScheme>()
     
     public var body: some View {
         let scheme = schemeProvider.scheme

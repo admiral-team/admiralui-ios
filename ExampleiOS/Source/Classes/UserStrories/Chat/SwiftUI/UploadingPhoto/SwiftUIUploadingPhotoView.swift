@@ -16,7 +16,7 @@ struct SwiftUIUploadingPhotoView: View {
     // MARK: - Private properties
 
     @StateObject private var viewModel = SwiftUIUploadingPhotoViewModel()
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<SwiftUIContentViewScheme>()
 
     var body: some View {
         let scheme = schemeProvider.scheme

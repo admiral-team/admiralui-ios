@@ -41,7 +41,7 @@ public struct ButtonListView: View, TralingListViewComponent {
     var action: () -> ()
     
     @State private var scheme: ButtonListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ButtonListViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<ButtonListViewScheme>()
     
     // MARK: - Initializer
     

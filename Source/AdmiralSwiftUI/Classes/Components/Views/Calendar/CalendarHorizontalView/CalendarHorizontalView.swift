@@ -74,7 +74,7 @@ struct CalendarHorizontalView: View {
     @State private var pickerSelections: [Int] = [0, 0]
     
     @State private var scheme: CalendarHorizontalViewScheme? = nil
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<CalendarHorizontalViewScheme>()
+    @ObservedObject var schemeProvider = SwiftUISchemeProvider<CalendarHorizontalViewScheme>()
     
     @State private var calendarPickerYears = [CalendarPickerYear]()
     

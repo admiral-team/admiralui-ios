@@ -62,7 +62,7 @@ class OutlineSliderCollectionViewCell: UICollectionViewCell, AnyAppThemable, Acc
     
     // MARK: - AccessibilitySupport
     
-    var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
+    var adjustsFontForContentSizeCategory: Bool = Appearance.shared.isAccessabilitySupportEnabled {
         didSet { updateSchemeFonts() }
     }
 

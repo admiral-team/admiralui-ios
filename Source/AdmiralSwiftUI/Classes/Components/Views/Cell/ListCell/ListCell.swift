@@ -112,7 +112,7 @@ public struct ListCell<L, C, T>: ListViewCell where L: View , C: View, T: View {
     }
     
     @State private var scheme: ListCellScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ListCellScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<ListCellScheme>()
     
     // MARK: - Initializer
     

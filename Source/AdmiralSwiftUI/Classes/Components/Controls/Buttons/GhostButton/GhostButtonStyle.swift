@@ -37,7 +37,7 @@ public struct GhostButtonStyle: ButtonStyle {
     var sizeType: ButtonSizeType?
     
     private var scheme: GhostButtonScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<GhostButtonScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<GhostButtonScheme>()
 
     public init(
         isLoading: Binding<Bool> = .constant(false),

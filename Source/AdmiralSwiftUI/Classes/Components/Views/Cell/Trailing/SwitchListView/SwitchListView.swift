@@ -35,7 +35,7 @@ public struct SwitchListView: View, TralingListViewComponent {
     // MARK: Internal Properties
     
     @State private var scheme: SwitchListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwitchListViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<SwitchListViewScheme>()
     
     // MARK: - Initializer
     

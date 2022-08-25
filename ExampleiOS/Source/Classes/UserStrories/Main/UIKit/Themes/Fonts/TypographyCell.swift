@@ -43,7 +43,7 @@ final class FontCell: UITableViewCell, TableViewListItemConfigurable, AnyAppThem
     
     // MARK: - AccessibilitySupport
     
-    var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled
+    var adjustsFontForContentSizeCategory: Bool = Appearance.shared.isAccessabilitySupportEnabled
     
     // MARK: - Private Properties
     

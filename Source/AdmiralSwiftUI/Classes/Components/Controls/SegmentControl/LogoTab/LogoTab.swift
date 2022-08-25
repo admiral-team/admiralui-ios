@@ -51,7 +51,7 @@ public struct LogoTab: View {
     @State private var segmentSize: CGSize = .zero
     @State private var scheme: LogoTabScheme? = nil
     @State private var items: [Image] = []
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<LogoTabScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<LogoTabScheme>()
     
     private var activeSegmentView: AnyView {
         let scheme = self.scheme ?? schemeProvider.scheme

@@ -15,7 +15,7 @@ final class ThemesRepostory {
     
     static let `default` = ThemesRepostory()
     
-    private let manager = Appearance.shared.themeManager
+    private let manager = Appearance.shared.uikitThemeManager
     private let storage = AppThemeUserDefaultsStorage()
     
     var selectedTheme: AppTheme? {
@@ -55,7 +55,7 @@ final class ThemesRepostory {
     func apply(theme: AppTheme) {
         manager.theme = theme
         if #available(iOS 14.0, *) {
-            SwiftUIThemeManager.shared.theme = theme
+            Appearance.shared.theme = theme
         }
         try? storage.selectTheme(withId: theme.identifier)
     }
@@ -86,7 +86,7 @@ final class ThemesRepostory {
             if selectedTheme != manager.theme {
                 manager.theme = selectedTheme
                 if #available(iOS 14.0, *) {
-                    SwiftUIThemeManager.shared.theme = selectedTheme
+                    Appearance.shared.theme = selectedTheme
                 }
             }
         } else {

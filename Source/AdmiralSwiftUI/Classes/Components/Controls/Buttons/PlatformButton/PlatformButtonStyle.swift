@@ -38,7 +38,7 @@ public struct PlatformButtonStyle: ButtonStyle {
     // MARK: - Private Properties
     
     private var scheme: PlatformButtonScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<PlatformButtonScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<PlatformButtonScheme>()
     private var accessibilityIdentifier: String?
 
     public init(

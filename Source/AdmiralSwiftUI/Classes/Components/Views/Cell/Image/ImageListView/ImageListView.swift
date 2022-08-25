@@ -62,7 +62,7 @@ public struct ImageListView: View, ImageListViewComponent {
     
     var renderingMode: Image.TemplateRenderingMode
     @State private var scheme: ImageListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ImageListViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<ImageListViewScheme>()
     
     // MARK: - Initializer
     

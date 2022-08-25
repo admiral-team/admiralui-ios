@@ -76,7 +76,7 @@ public struct InputNumber: View {
     @Binding private var stepValue: Double
     
     @State private var scheme: InputNumberScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<InputNumberScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<InputNumberScheme>()
     
     @State private var valueText: String?
     

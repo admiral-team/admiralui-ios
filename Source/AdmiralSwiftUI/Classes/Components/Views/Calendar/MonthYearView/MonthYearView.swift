@@ -15,7 +15,7 @@ struct MonthYearView: View {
     
     @State var title: String
     @State private var scheme: MonthYearViewScheme? = nil
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<MonthYearViewScheme>()
+    @ObservedObject var schemeProvider = SwiftUISchemeProvider<MonthYearViewScheme>()
     
     init(title: String) {
         self._title = .init(initialValue: title)

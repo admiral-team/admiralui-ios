@@ -14,7 +14,7 @@ public struct CalendarVerticalDaysView: View {
     // MARK: - Internal Properties
     
     @State private var scheme: CalendarViewCellColorScheme? = nil
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<CalendarViewCellColorScheme>()
+    @ObservedObject var schemeProvider = SwiftUISchemeProvider<CalendarViewCellColorScheme>()
 
     // MARK: - Private Properties
 

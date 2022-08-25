@@ -59,7 +59,7 @@ struct ActionBarControlView: View {
     // MARK: - Private Properties
 
     @State private var scheme: ActionBarControlScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ActionBarControlScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<ActionBarControlScheme>()
     
     // MARK: - Initializer
     

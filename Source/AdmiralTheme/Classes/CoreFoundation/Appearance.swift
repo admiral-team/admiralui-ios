@@ -12,23 +12,36 @@ import UIKit
 public final class Appearance {
     
     /// Turn On/Off accessibility in application
-    public static var isAccessabilitySupportEnabled: Bool = true
-    
+    public var isAccessabilitySupportEnabled: Bool = true
+
     /// Current application theme.
     public var theme: AppTheme {
-        return themeManager.theme
+        get {
+            return uikitThemeManager.theme
+        } set {
+            swiftuiThemeManager.theme = newValue
+            uikitThemeManager.theme = newValue
+        }
     }
     
     /// Application Theme manager
-    public let themeManager: AppThemeManager
-    
+    public let uikitThemeManager: UIKitThemeManager
+    public let swiftuiThemeManager: SwiftUIThemeManager
+
     /// Application appearance entry point. Can be used to setup default colors and fonts.
-    public static let shared: Appearance = Appearance(themeManager: AppThemeManager())
-    
+    public static let shared: Appearance = Appearance(
+        uikitThemeManager: UIKitThemeManager(),
+        swiftuiThemeManager: SwiftUIThemeManager()
+    )
+
     /// Default apperance initializer
     /// - Parameter themeManager: Theme manager.
-    init(themeManager: AppThemeManager) {
-        self.themeManager = themeManager
+    init(
+        uikitThemeManager: UIKitThemeManager,
+        swiftuiThemeManager: SwiftUIThemeManager
+    ) {
+        self.uikitThemeManager = uikitThemeManager
+        self.swiftuiThemeManager = swiftuiThemeManager
     }
     
     /// Call this method in app delegate before using theme and theme manager

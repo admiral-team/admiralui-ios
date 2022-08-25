@@ -13,7 +13,7 @@ import AdmiralSwiftUI
 struct TabsSwiftUIView: View {
     
     @State private var selection: Int?
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<SwiftUIContentViewScheme>()
     
     public var body: some View {
         let scheme = schemeProvider.scheme

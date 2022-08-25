@@ -15,7 +15,7 @@ public struct ChatButtonStyle: ButtonStyle {
     // MARK: - Private Properties
 
     private var scheme: ChatButtonScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ChatButtonScheme>()
+    @ObservedObject private var schemeProvider = SwiftUISchemeProvider<ChatButtonScheme>()
 
     // MARK: - Initialiazer
 
