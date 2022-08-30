@@ -34,6 +34,7 @@ public final class ChatBubbleView: UIView, AnyAppThemable {
 
     private enum Constants {
         static let padding: CGFloat = LayoutGrid.quadrupleModule
+        static let imageSize: CGFloat = LayoutGrid.halfModule * 7
     }
 
     // MARK: - Public properties
@@ -94,7 +95,7 @@ public final class ChatBubbleView: UIView, AnyAppThemable {
 
     private let errorView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = PrivateAsset.Custom.Chat.error.image
+        imageView.image = Asset.Service.Solid.errorSolid.image
         return imageView
     }()
 
@@ -172,6 +173,9 @@ public final class ChatBubbleView: UIView, AnyAppThemable {
             trailingConstraint,
             errorTrailingConstraint,
             bottomAnchor.constraint(equalTo: messageView.bottomAnchor, constant: LayoutGrid.module),
+            
+            errorView.widthAnchor.constraint(equalToConstant: Constants.imageSize),
+            errorView.heightAnchor.constraint(equalToConstant: Constants.imageSize),
 
             messageTextLabel.leadingAnchor.constraint(equalTo: messageView.leadingAnchor, constant: LayoutGrid.halfModule * 3),
             messageView.trailingAnchor.constraint(equalTo: messageTextLabel.trailingAnchor, constant: LayoutGrid.halfModule * 3),
@@ -211,6 +215,7 @@ public final class ChatBubbleView: UIView, AnyAppThemable {
         messageTextLabel.textAlignment = chatStatusBubbleView.chatDirection == .left ? .left : .right
         messageTextLabel.font = scheme.textFont.uiFont
         nameLabel.font = scheme.nameTextFont.uiFont
+        errorView.tintColor = scheme.errorImageColor.uiColor
     }
 
     private func updateScheme() {

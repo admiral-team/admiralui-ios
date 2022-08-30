@@ -165,9 +165,10 @@ public struct TextOperationView: View {
             .frame(width: Constants.width)
             
             if chatStatus == .error && direction == .right {
-                Image(uiImage: PrivateAsset.Custom.Chat.error.image)
+                Image(uiImage: Asset.Service.Solid.errorSolid.image)
                     .padding(.top, LayoutGrid.module)
-                    .frame(width: LayoutGrid.module * 5, height: LayoutGrid.module * 5)
+                    .frame(width: LayoutGrid.halfModule * 7, height: LayoutGrid.halfModule * 7)
+                    .foregroundColor(scheme.errorImageColor.swiftUIColor)
                     .onTapGesture {
                         errorAction()
                     }

@@ -175,7 +175,13 @@ public struct ChatBubbleView: View {
                             RoundedCorner(radius: LayoutGrid.halfModule * 3, corners: [.topRight, .topLeft, .bottomLeft])
                         )
                     if status == .error {
-                        errorImage
+                        Image(uiImage: Asset.Service.Solid.errorSolid.image)
+                            .padding(.top, LayoutGrid.module)
+                            .frame(width: LayoutGrid.halfModule * 7, height: LayoutGrid.halfModule * 7)
+                            .foregroundColor(scheme.errorImageColor.swiftUIColor)
+                            .onTapGesture {
+                                errorAction()
+                            }
                     }
                 }
                 .frame(maxWidth: maxWidth ?? segmentSizeWidth, alignment: .trailing)
@@ -201,15 +207,6 @@ public struct ChatBubbleView: View {
         }
         .padding(.horizontal, LayoutGrid.halfModule * 3)
         .background(scheme.backgroundColor.parameter(for: direction)?.swiftUIColor)
-    }
-    
-    private var errorImage: some View {
-        return Image(uiImage: PrivateAsset.Custom.Chat.error.image)
-            .padding(.top, LayoutGrid.module)
-            .frame(width: LayoutGrid.module * 5, height: LayoutGrid.module * 5)
-            .onTapGesture {
-                errorAction()
-            }
     }
 
     private var spacerMinLength: CGFloat? {
