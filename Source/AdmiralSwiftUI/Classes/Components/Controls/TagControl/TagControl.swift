@@ -10,11 +10,17 @@ import AdmiralUIResources
 import SwiftUI
 
 public enum TagStyle: Int {
+    /// The none style of TagControl
     case none
+    /// The default style of TagControl
     case `default`
+    /// The success style of TagControl
     case success
+    /// The additional style of TagControl
     case additional
+    /// The error style of TagControl
     case error
+    /// The attention style of TagControl
     case attention
 }
 
@@ -26,7 +32,7 @@ public enum TagStyle: Int {
 - with leadingView
 - with trailingView
 - with leadingView and with trailingView
- 
+
  ## TagControl also has six display styles:
 - empty style
 - default
@@ -49,93 +55,106 @@ public enum TagStyle: Int {
 public struct TagControl: View {
 
     // MARK: - Public Properties
-    
+
     /// Tap tag control.
     public var tapTagControl: () -> ()
-    
+
     /// Tag style.
     public var tagStyle: TagStyle
-    
+
     /// Additional leading view. In this field, you can add any object from UIView.
     public var leadingView: (() -> AnyView)?
-    
+
     /// Additional trailing view. In this field, you can add any object from UIView.
     public var trailingView: (() -> AnyView)?
-    
+
     /// The text in the middle.
     public var title: String?
-    
+
     // MARK: - Internal Properties
-    
+
     @Environment(\.isEnabled) var isEnabled
-    
+
     @State var isPressing: Bool = false
-    
-    
+
     // MARK: - Private Properties
-    
-    @State private var scheme: TagControlScheme? = nil
+
+    @Binding private var scheme: TagControlScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<TagControlScheme>()
 
-    // MARK: - Private Parameters
-    
     // MARK: - Initializer
-    
+
     public init(
         title: String,
         tagStyle: TagStyle,
-        tapTagControl: @escaping () -> ()) {
+        tapTagControl: @escaping () -> (),
+        scheme: Binding<TagControlScheme?> = .constant(nil)
+    ) {
         self.title = title
         self.tapTagControl = tapTagControl
         self.tagStyle = tagStyle
+        self._scheme = scheme
     }
-    
+
     public init<L : View>(
         title: String,
         tagStyle: TagStyle,
         @ViewBuilder leadingView: @escaping () -> L,
-        tapTagControl: @escaping () -> ()) {
+        tapTagControl: @escaping () -> (),
+        scheme: Binding<TagControlScheme?> = .constant(nil)
+    ) {
         self.title = title
         self.tapTagControl = tapTagControl
         self.tagStyle = tagStyle
         self.leadingView = { return leadingView().eraseToAnyView() }
+        self._scheme = scheme
     }
-    
+
     public init<V : View>(
         tagStyle: TagStyle,
         @ViewBuilder view: @escaping () -> V,
-        tapTagControl: @escaping () -> ()) {
+        tapTagControl: @escaping () -> (),
+        scheme: Binding<TagControlScheme?> = .constant(nil)
+    ) {
         self.tapTagControl = tapTagControl
         self.tagStyle = tagStyle
         self.leadingView = { return view().eraseToAnyView() }
+        self._scheme = scheme
     }
-    
+
     public init<T : View>(
         title: String,
         tagStyle: TagStyle,
         @ViewBuilder trailingView: @escaping () -> T,
-        tapTagControl: @escaping () -> ()) {
+        tapTagControl: @escaping () -> (),
+        scheme: Binding<TagControlScheme?> = .constant(nil)
+    ) {
         self.title = title
         self.tapTagControl = tapTagControl
         self.tagStyle = tagStyle
-        
+        self._scheme = scheme
         self.trailingView = { return trailingView().eraseToAnyView() }
     }
-    
+
     public init<L : View, T: View>(
         title: String,
         tagStyle: TagStyle,
         @ViewBuilder leadingView: @escaping () -> L,
         @ViewBuilder trailingView: @escaping () -> T,
-        tapTagControl: @escaping () -> ()) {
+        tapTagControl: @escaping () -> (),
+        scheme: Binding<TagControlScheme?> = .constant(nil)
+    ) {
         self.title = title
         self.tapTagControl = tapTagControl
         self.tagStyle = tagStyle
-        
+        self._scheme = scheme
+
         self.leadingView = { return leadingView().eraseToAnyView() }
         self.trailingView = { return trailingView().eraseToAnyView() }
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         let controlState: ControlState = isEnabled ? (isPressing ? .selected : .normal) : .disabled
@@ -173,7 +192,7 @@ public struct TagControl: View {
 
 @available(iOS 14.0, *)
 struct TagControl_Previews: PreviewProvider {
-    
+
     static var previews: some View {
         TagControl(title: "Title",
                    tagStyle: .attention,
@@ -184,7 +203,7 @@ struct TagControl_Previews: PreviewProvider {
                     Button(action: {}, label: {
                         Image(uiImage: Asset.Category.Outline.bankOutline.image)
                     }) }) {
-            
+
         }
     }
 }
