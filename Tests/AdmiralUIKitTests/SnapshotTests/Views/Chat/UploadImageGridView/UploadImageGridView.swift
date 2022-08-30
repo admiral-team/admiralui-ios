@@ -23,7 +23,7 @@ class UploadImageGridViewTest: XCTestCase {
             state: .default,
             models:
                 Array(repeating: UploadImageItem(
-                    image: PrivateAsset.Custom.Chat.photo.image,
+                    image: TestsAsset.Chat.photo.image,
                     style: .default,
                     state: .default
                 ), count: 4),
@@ -36,7 +36,7 @@ class UploadImageGridViewTest: XCTestCase {
         let view = createGridView(
             state: .default,
             models: Array(repeating: UploadImageItem(
-                image: PrivateAsset.Custom.Chat.photo.image,
+                image: TestsAsset.Chat.photo.image,
                 style: .default,
                 state: .loading
             ),count: 4),
@@ -49,7 +49,7 @@ class UploadImageGridViewTest: XCTestCase {
         let view = createGridView(
             state: .default,
             models: Array(repeating: UploadImageItem(
-                image: PrivateAsset.Custom.Chat.photo.image,
+                image: TestsAsset.Chat.photo.image,
                 style: .default,
                 state: .default
             ), count: 6))
@@ -60,7 +60,7 @@ class UploadImageGridViewTest: XCTestCase {
         let view = createGridView(
             state: .default,
             models: Array(repeating: UploadImageItem(
-                image: PrivateAsset.Custom.Chat.photo.image,
+                image: TestsAsset.Chat.photo.image,
                 style: .default,
                 state: .loading
             ), count: 6),
@@ -73,7 +73,7 @@ class UploadImageGridViewTest: XCTestCase {
         let view = createGridView(
             state: .error,
             models: Array(repeating: UploadImageItem(
-                image: PrivateAsset.Custom.Chat.photo.image,
+                image: TestsAsset.Chat.photo.image,
                 style: .default,
                 state: .loading
             ), count: 6),
