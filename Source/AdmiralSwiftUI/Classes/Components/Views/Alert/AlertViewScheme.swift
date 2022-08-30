@@ -5,12 +5,13 @@
 //  Created on 10.01.2022.
 //
 
-import Foundation
-
 import AdmiralTheme
 import AdmiralUIResources
+import Foundation
 
 public struct AlertViewScheme: AppThemeScheme {
+
+    // MARK: - Public Properties
 
     /// Styled font of title label that depends on AlertTitleFontStyle.
     public var titleFont = DefaultAlertViewCustomSchemeParameters<AFont, AlertTitleFontStyle>()
@@ -23,17 +24,13 @@ public struct AlertViewScheme: AppThemeScheme {
 
     /// Styled color of message label that depends on AlertColorStyle.
     public var messageColor = DefaultAlertViewCustomSchemeParameters<AColor, AlertColorStyle>()
-    
+
     /// Background color of alert view.
     public var backgroundColor: AColor
 
     // MARK: - Initializer
 
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    public init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         titleFont.set(parameter: theme.fonts.title1, style: .title1)
         titleFont.set(parameter: theme.fonts.title2, style: .title2)
         titleFont.set(parameter: theme.fonts.subtitle1, style: .subtitle1)
@@ -54,10 +51,10 @@ public struct AlertViewScheme: AppThemeScheme {
         messageColor.set(parameter: theme.colors.textMask, style: .mask)
         messageColor.set(parameter: theme.colors.textPrimary, style: .primary)
         messageColor.set(parameter: theme.colors.textSecondary, style: .secondary)
-        
+
         backgroundColor = theme.colors.backgroundExtraSurface
     }
-    
+
 }
 
 public struct DefaultAlertViewCustomSchemeParameters<P, S: RawRepresentable & Hashable> where S.RawValue == Int {
