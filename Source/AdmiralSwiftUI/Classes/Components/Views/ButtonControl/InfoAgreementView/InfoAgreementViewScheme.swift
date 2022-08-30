@@ -7,14 +7,42 @@
 
 import AdmiralTheme
 import AdmiralUIResources
-
+/**
+ InfoAgreementViewScheme - the visual scheme of InfoAgreementView.
+  You can create a by specifying the following parameters in init:
+  - InfoAgreementViewScheme() - Initialize default InfoAgreementViewScheme with default themezation
+  - InfoAgreementViewScheme(
+     titleColor: AColor,
+     titleFont: AFont
+    )
+  # Example to create InfoAgreementViewScheme:
+  # Code
+  ```
+ let scheme = InfoAgreementViewScheme()
+  ```
+  */
 public struct InfoAgreementViewScheme: AppThemeScheme {
-    
-    public var titleColor: AColor
-    public var titleFont: AFont
-    
-    public init(theme: AppTheme) {
-        titleColor = theme.colors.textPrimary
-        titleFont = theme.fonts.subhead4
-    }
-}
+
+     // MARK: - Properties
+
+     /// The title color of InfoAgreementView
+     public var titleColor: AColor
+
+     /// The title font of InfoAgreementView
+     public var titleFont: AFont
+
+     // MARK: - Initializer
+
+     public init(theme: AppTheme = .default) {
+         titleColor = theme.colors.textPrimary
+         titleFont = theme.fonts.subhead4
+     }
+
+     public init(
+        titleColor: AColor,
+        titleFont: AFont
+     ) {
+         self.titleColor = titleColor
+         self.titleFont = titleFont
+     }
+ }
