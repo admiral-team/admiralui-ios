@@ -10,40 +10,43 @@ import SwiftUI
 
 @available(iOS 14.0.0, *)
 public struct CalendarDaysView: View {
-    
-    // MARK: - Internal Properties
-    
-    @State private var scheme: CalendarViewCellColorScheme? = nil
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<CalendarViewCellColorScheme>()
 
     // MARK: - Private Properties
-    
+
     @Binding private var startDate: Date?
     @Binding private var endDate: Date?
-    
+
     @State private var isMutlipleSelectionAllowed: Bool
 
     private var date: Date
     private var notActiveAfterDate: Date?
     private var pointDates: [Date]
-    
+
+    @Binding private var scheme: CalendarViewCellColorScheme?
+    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<CalendarViewCellColorScheme>()
+
     // MARK: - Initializer
-    
+
     public init(
         date: Date,
         isMutlipleSelectionAllowed: Bool,
         startDate: Binding<Date?>,
         endDate: Binding<Date?>,
         notActiveAfterDate: Date?,
-        pointDates: [Date]) {
+        pointDates: [Date],
+        scheme: Binding<CalendarViewCellColorScheme?> = .constant(nil)
+    ) {
         self.date = date
         self._isMutlipleSelectionAllowed = .init(initialValue: isMutlipleSelectionAllowed)
         self._startDate = startDate
         self._endDate = endDate
         self.pointDates = pointDates.map( { $0.removeTimeStamp() })
         self.notActiveAfterDate = notActiveAfterDate
+        self._scheme = scheme
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         let grid = [
             GridItem(.flexible()),
@@ -64,9 +67,9 @@ public struct CalendarDaysView: View {
             }
         }
     }
-    
+
     // MARK: - Priate Methods
-    
+
     @ViewBuilder
     private func dayView(day: Day) -> some View {
         let scheme = self.scheme ?? schemeProvider.scheme
@@ -82,7 +85,7 @@ public struct CalendarDaysView: View {
             }
         }
     }
-    
+
     @ViewBuilder
     private func textView(day: Day) -> some View {
         if let notActiveAfterDate = notActiveAfterDate.removeTimeStamp(), notActiveAfterDate < day.date, day.isDisplayedInMonth {
@@ -95,9 +98,9 @@ public struct CalendarDaysView: View {
             basicTextView(day: day)
         }
     }
-    
+
     private func checkSelect(date: Date) -> Bool {
-        
+
         let startDate = startDate?.removeTimeStamp()
         let endDate = endDate?.removeTimeStamp()
 
@@ -110,12 +113,12 @@ public struct CalendarDaysView: View {
         }
         return false
     }
-    
+
     private func selectedTextView(day: Day) -> some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         let startDate = startDate.removeTimeStamp()
         let endDate = endDate.removeTimeStamp()
-        
+
         if day.date == startDate || day.date == endDate {
             let date = day.date.copyDate()
             let backgroundColor = scheme.selectedBackgroundColors.parameter(for: .tailSelected)?.swiftUIColor
@@ -130,7 +133,7 @@ public struct CalendarDaysView: View {
                             tapDate(date)
                         })
                 .eraseToAnyView()
-            
+
         } else {
             let date = day.date.copyDate()
             let backgroundColor = scheme.selectedBackgroundColors.parameter(for: .selected)?.swiftUIColor
@@ -148,7 +151,7 @@ public struct CalendarDaysView: View {
                 .eraseToAnyView()
         }
     }
-    
+
     private func currentTextView(day: Day) -> some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         let date = day.date.copyDate()
@@ -165,7 +168,7 @@ public struct CalendarDaysView: View {
             )
         }
     }
-    
+
     private func inactiveTextView(day: Day) -> some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         return Text(day.isDisplayedInMonth ? day.number : "")
@@ -174,7 +177,7 @@ public struct CalendarDaysView: View {
             .foregroundColor(scheme.textColors.parameter(for: .inactive)?.swiftUIColor)
             .eraseToAnyView()
     }
-    
+
     private func basicTextView(day: Day) -> some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         let date = day.date.copyDate()
@@ -196,11 +199,11 @@ public struct CalendarDaysView: View {
                 .eraseToAnyView()
         }
     }
-    
+
     private func tapDate(_ date: Date) {
         isMutlipleSelectionAllowed ? prepareMultipleSelectionDates(date: date) : prepareSingleSelectionDate(date: date)
     }
-    
+
     private func prepareMultipleSelectionDates(date: Date) {
         if let startDate = startDate,
             let endDate = endDate,
@@ -229,7 +232,7 @@ public struct CalendarDaysView: View {
             self.startDate = date
         }
     }
-    
+
     private func prepareSingleSelectionDate(date: Date) {
         if let startDate = startDate,
            startDate == date {
@@ -238,6 +241,5 @@ public struct CalendarDaysView: View {
             startDate = date
         }
     }
-    
-}
 
+}

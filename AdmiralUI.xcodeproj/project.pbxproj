@@ -740,6 +740,7 @@
 		E995668A2727F0B700C5800A /* PinButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99566882727F06400C5800A /* PinButton.swift */; };
 		E995668E2727F1EC00C5800A /* TagControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E995668C2727F1DB00C5800A /* TagControl.swift */; };
 		E99BBE7C2722EB9F00EE6F51 /* CustomSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99BBE7A2722EB9000EE6F51 /* CustomSwitch.swift */; };
+		E99FD56B28BE6FBC0014C97C /* MonthYearButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99FD56A28BE6FBC0014C97C /* MonthYearButtonStyle.swift */; };
 		E9A18D9A273A4F9000668C03 /* UploadingImageGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A18D98273A4F4B00668C03 /* UploadingImageGrid.swift */; };
 		E9A18D9E273BE26300668C03 /* UploadingImageGroupModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A18D9D273BE26200668C03 /* UploadingImageGroupModifier.swift */; };
 		E9A18DA2273C06F300668C03 /* PrimaryLinkControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A18DA1273C06F300668C03 /* PrimaryLinkControl.swift */; };
@@ -1668,6 +1669,7 @@
 		E99566882727F06400C5800A /* PinButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinButton.swift; sourceTree = "<group>"; };
 		E995668C2727F1DB00C5800A /* TagControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagControl.swift; sourceTree = "<group>"; };
 		E99BBE7A2722EB9000EE6F51 /* CustomSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSwitch.swift; sourceTree = "<group>"; };
+		E99FD56A28BE6FBC0014C97C /* MonthYearButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYearButtonStyle.swift; sourceTree = "<group>"; };
 		E9A18D98273A4F4B00668C03 /* UploadingImageGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingImageGrid.swift; sourceTree = "<group>"; };
 		E9A18D9D273BE26200668C03 /* UploadingImageGroupModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingImageGroupModifier.swift; sourceTree = "<group>"; };
 		E9A18DA1273C06F300668C03 /* PrimaryLinkControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryLinkControl.swift; sourceTree = "<group>"; };
@@ -2107,7 +2109,6 @@
 			children = (
 				0E17A210269DA1C500F0A80B /* CalendarHorizontalHeaderView.swift */,
 				0E2A62D926E7CA85009CE2C0 /* CalendarHorizontalHeaderViewScheme.swift */,
-				0E17A226269DA27000F0A80B /* MonthYearButtonScheme.swift */,
 			);
 			path = CalendarHorizontalHeaderView;
 			sourceTree = "<group>";
@@ -3391,6 +3392,8 @@
 		0E963E322670C07A0051C91E /* MonthYearView */ = {
 			isa = PBXGroup;
 			children = (
+				0E17A226269DA27000F0A80B /* MonthYearButtonScheme.swift */,
+				E99FD56A28BE6FBC0014C97C /* MonthYearButtonStyle.swift */,
 				0E963E332670C0B50051C91E /* MonthYearView.swift */,
 				0E963E412670C0BD0051C91E /* MonthYearViewScheme.swift */,
 			);
@@ -7121,6 +7124,7 @@
 				0E6FCA91266E56BD00761EB1 /* RoundedCorner.swift in Sources */,
 				3BB18CC727B28ABA009AC37A /* PrimaryButtonAccessibilityIdentifiers.swift in Sources */,
 				0EA9F4EB262659E9009F4B5A /* RadioControl.swift in Sources */,
+				E99FD56B28BE6FBC0014C97C /* MonthYearButtonStyle.swift in Sources */,
 				0EADAA84268B14C8003FF903 /* TagControl.swift in Sources */,
 				0E4BC7922680BA5F000FC891 /* DatePercentListViewScheme.swift in Sources */,
 				0EFCDB4726B83D69006207B1 /* CurrencyView.swift in Sources */,
