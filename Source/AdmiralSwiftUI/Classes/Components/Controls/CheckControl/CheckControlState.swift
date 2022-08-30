@@ -8,6 +8,8 @@
 import Foundation
 
 public enum CheckControlState: Int {
-    case normal
-    case error
-}
+     /// The normal state of CheckControl
+     case normal
+     /// The error state of CheckControl
+     case error
+ }

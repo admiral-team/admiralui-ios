@@ -59,7 +59,7 @@ public struct CheckBoxListView: View, TralingListViewComponent {
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         CheckBox(isSelected: $isControlSelected)
-            .scheme(scheme.checkBoxView)
+            .scheme(.constant(scheme.checkBoxView))
     }
     
 }

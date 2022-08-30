@@ -8,10 +8,9 @@
 import AdmiralUIResources
 import AdmiralTheme
 import SwiftUI
-
 /**
  CodeInputControl - A control of the entered user characters. Used for secure password entry.
- 
+
  You can create a PrimaryButton by specifying the following parameters in the initializer:
  ## Initializer parameters:
  - text - Binding<String> Observable property for control count input text
@@ -29,35 +28,38 @@ import SwiftUI
 /// Code input control.
 @available(iOS 14.0, *)
 public struct CodeInputControl: View {
-    
+
     /// Status.
     public enum Status: Int {
         case normal
         case success
         case error
     }
-    
+
     /// Number of items in control.
     @Binding public var itemsCount: Int
-    
+
     /// Input text.
     @Binding public var text: String
-    
+
     /// Current controll status.
     @Binding public var status: Status
-    
+
     // MARK: - Private Properties
-    
+
     private var cursorPosition = 0
-    @State private var scheme: CodeInputControlScheme? = nil
+
+    @Binding private var scheme: CodeInputControlScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<CodeInputControlScheme>()
-    
+
     // MARK: - Initializer
-    
+
     public init(
         text: Binding<String>,
         itemsCount: Int = 4,
-        status: CodeInputControl.Status = .normal) {
+        status: CodeInputControl.Status = .normal,
+        scheme: Binding<CodeInputControlScheme?> = .constant(nil)
+    ) {
         self._text = text
         self._itemsCount = Binding(get: {
             return itemsCount
@@ -66,8 +68,11 @@ public struct CodeInputControl: View {
             return status
         }, set: { _ in })
         self.cursorPosition = min(text.wrappedValue.count, itemsCount)
+        self._scheme = scheme
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         var color = scheme.defaultColor.swiftUIColor
@@ -103,6 +108,5 @@ struct CodeInputControl_Previews: PreviewProvider {
             CodeInputControl(text: .constant("1234"), itemsCount: 5, status: .normal)
         }
     }
-    
-}
 
+}
