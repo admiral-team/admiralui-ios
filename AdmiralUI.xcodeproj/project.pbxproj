@@ -699,6 +699,9 @@
 		E6EEF8FC26F4DED900FAA8E3 /* SnapshotTesting.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6EEF8FA26F4DECE00FAA8E3 /* SnapshotTesting.xcframework */; };
 		E6F8CF6F269450FE005E53F8 /* Symbols.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6F8CF6E269450FE005E53F8 /* Symbols.xcassets */; };
 		E6F8CF71269455B3005E53F8 /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F8CF70269455B3005E53F8 /* Symbols.swift */; };
+		E910E96728BDDC11000FCD67 /* ToolBarItemSelectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E910E96628BDDC11000FCD67 /* ToolBarItemSelectable.swift */; };
+		E910E96928BDDC38000FCD67 /* ToolBarItemStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E910E96828BDDC38000FCD67 /* ToolBarItemStyle.swift */; };
+		E910E96B28BDDC5D000FCD67 /* ToolBarViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E910E96A28BDDC5C000FCD67 /* ToolBarViewRouter.swift */; };
 		E916F9F427677B0A00628C96 /* TextOperationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E916F9F327677B0A00628C96 /* TextOperationView.swift */; };
 		E916F9F627677B2700628C96 /* TextOperationViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E916F9F527677B2700628C96 /* TextOperationViewScheme.swift */; };
 		E916F9FC27688E5900628C96 /* TextOperationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E916F9FB27688E5900628C96 /* TextOperationView.swift */; };
@@ -1628,6 +1631,9 @@
 		E6FB3120253DC2FA00314E00 /* Badge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		E6FB3122253DC2FA00314E00 /* NumberBadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberBadgeView.swift; sourceTree = "<group>"; };
 		E6FB3127253DC2FA00314E00 /* ActivityIndicatorAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorAnimator.swift; sourceTree = "<group>"; };
+		E910E96628BDDC11000FCD67 /* ToolBarItemSelectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarItemSelectable.swift; sourceTree = "<group>"; };
+		E910E96828BDDC38000FCD67 /* ToolBarItemStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarItemStyle.swift; sourceTree = "<group>"; };
+		E910E96A28BDDC5C000FCD67 /* ToolBarViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarViewRouter.swift; sourceTree = "<group>"; };
 		E916F9F327677B0A00628C96 /* TextOperationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOperationView.swift; sourceTree = "<group>"; };
 		E916F9F527677B2700628C96 /* TextOperationViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOperationViewScheme.swift; sourceTree = "<group>"; };
 		E916F9FB27688E5900628C96 /* TextOperationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOperationView.swift; sourceTree = "<group>"; };
@@ -4984,10 +4990,9 @@
 		C6D5BD5F2665287200437808 /* ToolBar */ = {
 			isa = PBXGroup;
 			children = (
+				E910E96528BDDAAC000FCD67 /* ToolBarItem */,
 				C6D5BD602665288D00437808 /* ToolBar.swift */,
 				C6D5BD622665289800437808 /* ToolBarScheme.swift */,
-				C6D5BD6C26666FC800437808 /* ToolBarItem.swift */,
-				C6D5BD6A26655C2100437808 /* ToolBarItemScheme.swift */,
 			);
 			path = ToolBar;
 			sourceTree = "<group>";
@@ -6070,6 +6075,18 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		E910E96528BDDAAC000FCD67 /* ToolBarItem */ = {
+			isa = PBXGroup;
+			children = (
+				C6D5BD6C26666FC800437808 /* ToolBarItem.swift */,
+				C6D5BD6A26655C2100437808 /* ToolBarItemScheme.swift */,
+				E910E96628BDDC11000FCD67 /* ToolBarItemSelectable.swift */,
+				E910E96828BDDC38000FCD67 /* ToolBarItemStyle.swift */,
+				E910E96A28BDDC5C000FCD67 /* ToolBarViewRouter.swift */,
+			);
+			path = ToolBarItem;
+			sourceTree = "<group>";
+		};
 		E916F9F227677AF800628C96 /* TextOperation */ = {
 			isa = PBXGroup;
 			children = (
@@ -7036,6 +7053,7 @@
 				0EC13704266E0B5000F4EB7E /* LeadingListViewComponent.swift in Sources */,
 				0E3A110026E14C83007062C5 /* ActivityIndicatorScheme.swift in Sources */,
 				0E008AE62747DA8F003D7882 /* BadgeArrowListViewScheme.swift in Sources */,
+				E910E96928BDDC38000FCD67 /* ToolBarItemStyle.swift in Sources */,
 				0EA2311F2704833F00FFF45E /* DoubleInputRangeTextField.swift in Sources */,
 				0E6EA4842701DF82002EBBBC /* TitleButtonDropDown.swift in Sources */,
 				0E6223B026BC03B30012DB6E /* ZeroScreenView.swift in Sources */,
@@ -7208,6 +7226,7 @@
 				0E94D05626FCE7E10051BBC2 /* DropDownHeader.swift in Sources */,
 				0E4BC87E2681E1B5000FC891 /* ImageBackgroundListViewScheme.swift in Sources */,
 				0EFCDB4526B83D5B006207B1 /* CurrencyHeaderView.swift in Sources */,
+				E910E96B28BDDC5D000FCD67 /* ToolBarViewRouter.swift in Sources */,
 				0E4BC79B2680BDC4000FC891 /* ImageWithSubtitleListView.swift in Sources */,
 				0EB8531226738419008FC0FD /* LayoutGrid.swift in Sources */,
 				0EC136862667B19B00F4EB7E /* DoubleTextField.swift in Sources */,
@@ -7252,6 +7271,7 @@
 				0E6EA48D2701EE4C002EBBBC /* ParagraphLeadingImageType.swift in Sources */,
 				0E8B0F4026DEAD6B00EEA0D3 /* ChatBubbleStatusViewScheme.swift in Sources */,
 				0EF0308926E7C4EA00F888B7 /* ListCellScheme.swift in Sources */,
+				E910E96728BDDC11000FCD67 /* ToolBarItemSelectable.swift in Sources */,
 				0E4BC7E62680D42E000FC891 /* ButtonWithArrowListView.swift in Sources */,
 				0EF044D127B529FE0095DD14 /* UnderlineTabItem.swift in Sources */,
 				E916F9F427677B0A00628C96 /* TextOperationView.swift in Sources */,
