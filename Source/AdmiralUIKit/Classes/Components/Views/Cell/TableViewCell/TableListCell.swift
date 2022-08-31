@@ -57,8 +57,6 @@ open class TableListCell<I, L, T>: UITableViewCell, AnyAppThemable where L: Lead
     // MARK: - Private Methods
     
     private func commonInit() {
-        autoManage()
-        
         guard let listCell = listCell else { return }
         
         contentView.addSubview(listCell)

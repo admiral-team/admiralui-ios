@@ -117,7 +117,6 @@ public final class ProgressView: UIView, AnyAppThemable {
     // MARK: - Private methods
 
     private func commonInit() {
-        autoManage()
         setupUI()
         addSubviews()
         setupConstraints()

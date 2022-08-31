@@ -79,6 +79,7 @@ open class CheckBoxListView: BaseListView, TralingListViewComponent, AnyAppThema
     
     open func apply(theme: AppTheme) {
         scheme = CheckBoxListViewScheme(theme: theme)
+        checkBox.apply(theme: theme)
     }
     
     // MARK: - Private Methods
