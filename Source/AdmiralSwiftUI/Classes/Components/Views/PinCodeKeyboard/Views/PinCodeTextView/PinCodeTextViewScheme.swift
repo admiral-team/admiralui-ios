@@ -44,7 +44,7 @@ public struct PinCodeTextViewScheme: AppThemeScheme {
     public init(theme: AppTheme = .default) {
         backgroundColor = theme.colors.backgroundBasic
         textColor = theme.colors.textSecondary
-        textFont = theme.fonts.subtitle3
+        textFont = theme.fonts.body2
     }
 
     public init(
