@@ -4,21 +4,36 @@
 //
 //  Created on 09.06.2021.
 //
-
 import SwiftUI
-import Combine
 import AdmiralTheme
 import AdmiralUIResources
+/**
+ PinCodeTextViewStyle - the button style that creates PinCodeTextView.
 
+ ## Example to create PinCodeTextViewStyle:
+ # Code
+ ```
+ Button(action: {}, label: {})
+    .buttonStyle(PinCodeNumberViewStyle())
+ ```
+*/
 @available(iOS 14.0.0, *)
-struct PinCodeTextViewStyle: ButtonStyle {
-    
-    @State private var scheme: PinCodeTextViewScheme? = nil
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<PinCodeTextViewScheme>()
-    
+public struct PinCodeTextViewStyle: ButtonStyle {
+
+    // MARK: - Properties
+
+    @Binding private var scheme: PinCodeTextViewScheme?
+
+    // MARK: - Initializer
+
+    public init(scheme: Binding<PinCodeTextViewScheme?> = .constant(nil)) {
+        self._scheme = scheme
+    }
+
+    // MARK: - Body
+
     public func makeBody(configuration: Self.Configuration) -> some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
-        PinCodeTextView(configuration: configuration, scheme: scheme)
+        PinCodeTextView(configuration: configuration, scheme: $scheme)
     }
 }
 
@@ -28,15 +43,24 @@ private extension PinCodeTextViewStyle {
         @Environment(\.isEnabled) private var isEnabled
 
         let configuration: Configuration
-        var scheme: PinCodeTextViewScheme
-        
-        init(configuration: Configuration, scheme: PinCodeTextViewScheme) {
+
+        @ObservedObject var schemeProvider = AppThemeSchemeProvider<PinCodeTextViewScheme>()
+        @Binding var scheme: PinCodeTextViewScheme?
+
+        // MARK: - Initializer
+
+        init(
+            configuration: Configuration,
+            scheme: Binding<PinCodeTextViewScheme?> = .constant(nil)
+        ) {
             self.configuration = configuration
-            self.scheme = scheme
+            self._scheme = scheme
         }
-        
+
+        // MARK: - Body
+
         var body: some View {
-            
+            let scheme = self.scheme ?? schemeProvider.scheme
             configuration.label
                 .lineLimit(2)
                 .multilineTextAlignment(.center)
@@ -48,7 +72,7 @@ private extension PinCodeTextViewStyle {
                         .foregroundColor(scheme.backgroundColor.swiftUIColor)
                 )
         }
-        
+
     }
 }
 

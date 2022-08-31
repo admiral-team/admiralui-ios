@@ -8,10 +8,8 @@
 import AdmiralTheme
 import AdmiralUIResources
 import SwiftUI
-
 /**
  PinCodeButtonType - Public enum for type PinCodeKeyboard
- 
  PinCodeButtonType can be one of the following values:
  - rightButton
  - leftButton
