@@ -73,6 +73,7 @@ final class InputChatViewController: UIViewController, AnyAppThemable {
     func apply(theme: AppTheme) {
         view.backgroundColor = theme.colors.backgroundBasic.uiColor
         tableView.backgroundColor = theme.colors.backgroundBasic.uiColor
+        chatInputView.apply(theme: theme)
         themeSwitchView.apply(theme: theme)
         segmentControl.apply(theme: theme)
     }
