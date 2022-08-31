@@ -8,35 +8,16 @@
 import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
-/**
- PinCodeNumberViewStyle - the button style that creates PinCodeNumberView.
 
- ## Example to create PinCodeNumberViewStyle:
- # Code
- ```
- Button(action: {}, label: {})
-    .buttonStyle(PinCodeNumberViewStyle())
- ```
-*/
 @available(iOS 14.0.0, *)
-public struct PinCodeNumberViewStyle: ButtonStyle {
-
-    // MARK: - Properties
-
-    @Binding private var scheme: PinCodeNumberViewScheme?
-
-    // MARK: - Initializer
-
-    public init(
-        scheme: Binding<PinCodeNumberViewScheme?> = .constant(nil)
-    ) {
-        self._scheme = scheme
-    }
-
-    // MARK: - Body
-
+struct PinCodeNumberViewStyle: ButtonStyle {
+    
+    @State private var scheme: PinCodeNumberViewScheme? = nil
+    @ObservedObject var schemeProvider = AppThemeSchemeProvider<PinCodeNumberViewScheme>()
+    
     public func makeBody(configuration: Self.Configuration) -> some View {
-        PinCodeNumberView(configuration: configuration, scheme: $scheme)
+        let scheme = self.scheme ?? schemeProvider.scheme
+        PinCodeNumberView(configuration: configuration, scheme: scheme)
     }
 }
 
@@ -46,26 +27,17 @@ private extension PinCodeNumberViewStyle {
         @Environment(\.isEnabled) private var isEnabled
 
         let configuration: Configuration
+        var scheme: PinCodeNumberViewScheme
 
-        @Binding var scheme: PinCodeNumberViewScheme?
-        @ObservedObject var schemeProvider = AppThemeSchemeProvider<PinCodeNumberViewScheme>()
-
-        // MARK: - Initializer
-
-        init(
-            configuration: Configuration,
-            scheme: Binding<PinCodeNumberViewScheme?>
-        ) {
+        
+        init(configuration: Configuration, scheme: PinCodeNumberViewScheme) {
             self.configuration = configuration
-            self._scheme = scheme
+            self.scheme = scheme
         }
-
-        // MARK: - Body
-
+        
         var body: some View {
-            let scheme = self.scheme ?? schemeProvider.scheme
             configuration.label
-                .font(scheme.textFont.swiftUIFont)
+                .font(scheme.textFont)
                 .foregroundColor(scheme.textColor.swiftUIColor)
                 .frame(width: 60, height: 60)
                 .background(
@@ -75,7 +47,7 @@ private extension PinCodeNumberViewStyle {
                                                 : scheme.backgroundColor.parameter(for: .normal)?.swiftUIColor)
                 )
         }
-
+        
     }
 }
 
