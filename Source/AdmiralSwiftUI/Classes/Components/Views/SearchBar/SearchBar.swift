@@ -4,16 +4,12 @@
 //
 //  Created on 15.06.2021.
 //
-
 import AdmiralTheme
 import AdmiralUIResources
 import SwiftUI
-
 /**
  SearchBar - A specialized view for receiving search-related information from the user.
-
  You can create a SearchBar with the zero frame rectangle by specifying the following parameters in init:
-
  - content: String? - The text that the search bar displays.
  - contentType: UIKeyboardType - The semantic meaning for a text input area.
  - returnKeyType: UIReturnKeyType - The visible title of the Return key.
@@ -21,7 +17,7 @@ import SwiftUI
  - autocorrectionType: UITextAutocorrectionType - The autocorrection style for the text object.
  - placeholder: String - The string that displays when there is no other text in the search
  - searchImage: The image that is displayed left text field.
- 
+
  You can sets the content type to search bar. To do this, use the:
  # Code
  ```
@@ -37,7 +33,7 @@ import SwiftUI
  ```
  - Parameter isResponder: The value indicating whether this object is the first responder.
  - Returns: Search bar.
- 
+
  ## Example to create SearchBar
  # Code
  ```
@@ -49,44 +45,47 @@ import SwiftUI
 /// A specialized view for receiving search-related information from the user.
 @available(iOS 14.0, *)
 public struct SearchBar: View, AccessabilitySupportUIKit {
-    
+
+    // MARK: - Constants
+
     enum Constants {
         static let closeImage = Asset.Service.Solid.closeSolid.image
     }
-    
+
     // MARK: - Private Properties
-    
+
     /// The text that the text field displays.
     @Binding public var content: String?
-    
+
     /// The semantic meaning for a text input area.
     private var contentType: UIKeyboardType = .default
-    
+
     /// The visible title of the Return key.
     private var returnKeyType: UIReturnKeyType = .default
-    
+
     /// The autocapitalization style for the text object.
     private var autocapitalizationType: UITextAutocapitalizationType = .none
-    
+
     /// The autocorrection style for the text object.
     private var autocorrectionType: UITextAutocorrectionType = .no
-    
+
     /// The string that displays when there is no other text in the text field.
     private var placeholder: String = ""
-    
+
     /// The image that is displayed left text field.
     private var searchImage: Image?
-    
+
     private var isResponder: Binding<Bool>?
-    
+
     @State private var isTextFieldResponder = false
-    
-    @State private var scheme: SearchBarColorScheme? = nil
+
+    @Binding private var scheme: SearchBarColorScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SearchBarColorScheme>()
+
     private var accessibilityIdentifier: String?
-    
+
     // MARK: - Initializer
-    
+
     /// Initializes and returns a newly allocated view object
     /// - Parameters:
     ///   - content:  The text that the search bar displays.
@@ -104,20 +103,25 @@ public struct SearchBar: View, AccessabilitySupportUIKit {
         autocorrectionType: UITextAutocorrectionType = .no,
         isResponder: Binding<Bool>? = nil,
         placeholder: String = "",
-        searchImage: SwiftUI.Image? = AssetSymbol.System.Outline.search.image) {
-            self._content = content
-            self.contentType = contentType
-            self.returnKeyType = returnKeyType
-            self.autocapitalizationType = autocapitalizationType
-            self.autocorrectionType = autocorrectionType
-            self.isResponder = isResponder
-            self.placeholder = placeholder
-            self.searchImage = searchImage
-        }
-    
+        searchImage: SwiftUI.Image? = AssetSymbol.System.Outline.search.image,
+        scheme: Binding<SearchBarColorScheme?> = .constant(nil)
+    ) {
+        self._content = content
+        self.contentType = contentType
+        self.returnKeyType = returnKeyType
+        self.autocapitalizationType = autocapitalizationType
+        self.autocorrectionType = autocorrectionType
+        self.isResponder = isResponder
+        self.placeholder = placeholder
+        self.searchImage = searchImage
+        self._scheme = scheme
+    }
+
+    // MARK: - Body
+
     public var body: some View {
         let style = scheme ?? schemeProvider.scheme
-        
+
         return HStack(alignment: .center) {
             Spacer()
                 .frame(width: LayoutGrid.halfModule * 3)
@@ -164,36 +168,36 @@ public struct SearchBar: View, AccessabilitySupportUIKit {
         .frame(height: LayoutGrid.halfModule * 9)
         .background(style.backgroundColor.swiftUIColor)
         .cornerRadius(LayoutGrid.module)
-        
+
     }
-    
+
     // MARK: - Public Methods
-    
+
     public func accessibility(identifierUIKit: String) -> Self {
         var view = self
         view.accessibilityIdentifier = identifierUIKit
         return view
     }
-    
+
     // MARK: - Internal Methods
-    
-    func scheme(_ scheme: SearchBarColorScheme) -> some View {
+
+    func scheme(_ scheme: Binding<SearchBarColorScheme?>) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = scheme
         return view.id(UUID())
     }
-    
+
     // MARK: - Private Methods
-    
+
     private func clear() {
         content = ""
     }
-    
+
 }
 
 @available(iOS 14.0, *)
 public extension SearchBar {
-    
+
     /// Sets the content type.
     /// - Parameter contentType: The content type that the text field displays.
     /// - Returns: Search bar.
@@ -205,9 +209,10 @@ public extension SearchBar {
             autocapitalizationType: autocapitalizationType,
             autocorrectionType: autocorrectionType,
             isResponder: isResponder,
-            placeholder: placeholder)
+            placeholder: placeholder
+        )
     }
-    
+
     /// Sets responder.
     /// - Parameter isResponder: The value indicating whether this object is the first responder.
     /// - Returns: Search bar.
@@ -219,9 +224,10 @@ public extension SearchBar {
             autocapitalizationType: autocapitalizationType,
             autocorrectionType: autocorrectionType,
             isResponder: isResponder,
-            placeholder: placeholder)
+            placeholder: placeholder
+        )
     }
-    
+
 }
 
 @available(iOS 14.0, *)
@@ -233,3 +239,4 @@ struct SearchBar_Previews: PreviewProvider {
         SearchBar($text, placeholder: "Placeholder")
     }
 }
+
