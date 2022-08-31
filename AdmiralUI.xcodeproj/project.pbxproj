@@ -263,8 +263,6 @@
 		0EA9F4D126261504009F4B5A /* CheckControlScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA9F4D026261504009F4B5A /* CheckControlScheme.swift */; };
 		0EA9F4EB262659E9009F4B5A /* RadioControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA9F4EA262659E9009F4B5A /* RadioControl.swift */; };
 		0EA9F4F926265A04009F4B5A /* CheckControlState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA9F4F826265A04009F4B5A /* CheckControlState.swift */; };
-		0EAD1D03270ED2DA0011B045 /* CountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAD1D02270ED2DA0011B045 /* CountdownView.swift */; };
-		0EAD1D08270F16E20011B045 /* CountdownViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAD1D07270F16E20011B045 /* CountdownViewScheme.swift */; };
 		0EADA9AF268A13F3003FF903 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EADA9AE268A13F3003FF903 /* Line.swift */; };
 		0EADA9C3268A147C003FF903 /* CustomSwitchScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EADA9C2268A147C003FF903 /* CustomSwitchScheme.swift */; };
 		0EADA9CA268A14A4003FF903 /* CustomSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2D9CCD261F5C7C00323048 /* CustomSwitch.swift */; };
@@ -814,6 +812,11 @@
 		E9BE41E927C8FD4500894224 /* SeveralPinSnapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE41E827C8FD4500894224 /* SeveralPinSnapshots.swift */; };
 		E9C79CB527BD14A20002EC49 /* ErrorViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C79CB427BD14A20002EC49 /* ErrorViewScheme.swift */; };
 		E9C79CB727BD14B50002EC49 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C79CB627BD14B50002EC49 /* ErrorView.swift */; };
+		E9E3CABB28BFA3A7008E161A /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E3CABA28BFA3A7008E161A /* ClockView.swift */; };
+		E9E3CABD28BFA3E8008E161A /* ClockViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E3CABC28BFA3E8008E161A /* ClockViewScheme.swift */; };
+		E9E3CABF28BFA454008E161A /* ProgressBarScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E3CABE28BFA454008E161A /* ProgressBarScheme.swift */; };
+		E9E3CAC128BFA47C008E161A /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E3CAC028BFA47C008E161A /* ProgressBar.swift */; };
+		E9E3CAC328BFA4C4008E161A /* CoundDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E3CAC228BFA4C4008E161A /* CoundDownView.swift */; };
 		E9ECF207272A8EB000363E5E /* UploadImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ECF205272A8E7200363E5E /* UploadImageView.swift */; };
 		E9ECF20A272A8F6D00363E5E /* UploadImageViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ECF208272A8ED100363E5E /* UploadImageViewScheme.swift */; };
 /* End PBXBuildFile section */
@@ -1178,8 +1181,6 @@
 		0EA9F4F826265A04009F4B5A /* CheckControlState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckControlState.swift; sourceTree = "<group>"; };
 		0EAC2C3325658A4E00F28210 /* CurcleIconListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurcleIconListView.swift; sourceTree = "<group>"; };
 		0EAC2C3D25658D5A00F28210 /* TextMessageListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextMessageListView.swift; sourceTree = "<group>"; };
-		0EAD1D02270ED2DA0011B045 /* CountdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownView.swift; sourceTree = "<group>"; };
-		0EAD1D07270F16E20011B045 /* CountdownViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownViewScheme.swift; sourceTree = "<group>"; };
 		0EADA9AE268A13F3003FF903 /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		0EADA9C2268A147C003FF903 /* CustomSwitchScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSwitchScheme.swift; sourceTree = "<group>"; };
 		0EADAA83268B14C8003FF903 /* TagControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagControl.swift; sourceTree = "<group>"; };
@@ -1736,6 +1737,11 @@
 		E9BE41E827C8FD4500894224 /* SeveralPinSnapshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeveralPinSnapshots.swift; sourceTree = "<group>"; };
 		E9C79CB427BD14A20002EC49 /* ErrorViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewScheme.swift; sourceTree = "<group>"; };
 		E9C79CB627BD14B50002EC49 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		E9E3CABA28BFA3A7008E161A /* ClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
+		E9E3CABC28BFA3E8008E161A /* ClockViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockViewScheme.swift; sourceTree = "<group>"; };
+		E9E3CABE28BFA454008E161A /* ProgressBarScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarScheme.swift; sourceTree = "<group>"; };
+		E9E3CAC028BFA47C008E161A /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		E9E3CAC228BFA4C4008E161A /* CoundDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoundDownView.swift; sourceTree = "<group>"; };
 		E9ECF205272A8E7200363E5E /* UploadImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageView.swift; sourceTree = "<group>"; };
 		E9ECF208272A8ED100363E5E /* UploadImageViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageViewScheme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -2090,10 +2096,9 @@
 		0E16C78E26AEEA2400C0E808 /* Toast */ = {
 			isa = PBXGroup;
 			children = (
+				E9E3CAB728BFA370008E161A /* CountDownView */,
 				0E16C78F26AEEB3700C0E808 /* ToastView.swift */,
 				0E16C79226AEF50900C0E808 /* ToastViewScheme.swift */,
-				0EAD1D02270ED2DA0011B045 /* CountdownView.swift */,
-				0EAD1D07270F16E20011B045 /* CountdownViewScheme.swift */,
 				0E6223A826BAF4D30012DB6E /* HideToastOperation.swift */,
 				0E6223AA26BAF4ED0012DB6E /* ToastPresenter.swift */,
 				0E6223AC26BAF5430012DB6E /* ZToastNotificationsView.swift */,
@@ -6723,6 +6728,34 @@
 			path = ErrorView;
 			sourceTree = "<group>";
 		};
+		E9E3CAB728BFA370008E161A /* CountDownView */ = {
+			isa = PBXGroup;
+			children = (
+				E9E3CAB928BFA382008E161A /* ProgressBar */,
+				E9E3CAB828BFA37D008E161A /* ClockView */,
+				E9E3CAC228BFA4C4008E161A /* CoundDownView.swift */,
+			);
+			path = CountDownView;
+			sourceTree = "<group>";
+		};
+		E9E3CAB828BFA37D008E161A /* ClockView */ = {
+			isa = PBXGroup;
+			children = (
+				E9E3CABA28BFA3A7008E161A /* ClockView.swift */,
+				E9E3CABC28BFA3E8008E161A /* ClockViewScheme.swift */,
+			);
+			path = ClockView;
+			sourceTree = "<group>";
+		};
+		E9E3CAB928BFA382008E161A /* ProgressBar */ = {
+			isa = PBXGroup;
+			children = (
+				E9E3CABE28BFA454008E161A /* ProgressBarScheme.swift */,
+				E9E3CAC028BFA47C008E161A /* ProgressBar.swift */,
+			);
+			path = ProgressBar;
+			sourceTree = "<group>";
+		};
 		E9ECF204272A8E4900363E5E /* UploadFIleView */ = {
 			isa = PBXGroup;
 			children = (
@@ -7033,6 +7066,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E4BC7C62680CEEE000FC891 /* SubtitleWithImageListViewScheme.swift in Sources */,
+				E9E3CABF28BFA454008E161A /* ProgressBarScheme.swift in Sources */,
 				0EC13704266E0B5000F4EB7E /* LeadingListViewComponent.swift in Sources */,
 				0E3A110026E14C83007062C5 /* ActivityIndicatorScheme.swift in Sources */,
 				0E008AE62747DA8F003D7882 /* BadgeArrowListViewScheme.swift in Sources */,
@@ -7054,6 +7088,7 @@
 				0ED08A11266F943D00389A1A /* Date+Calendar.swift in Sources */,
 				E9B82B8127B40EFD00FC7BB9 /* ActionBarView.swift in Sources */,
 				0ED08A4C2670BD8800389A1A /* CalendarWeekViewScheme.swift in Sources */,
+				E9E3CAC128BFA47C008E161A /* ProgressBar.swift in Sources */,
 				3B540462284641C200CD6C80 /* LinePageControllScheme.swift in Sources */,
 				0E2A633226EA1695009CE2C0 /* CalendarHorizontalView.swift in Sources */,
 				0ED0836A26C98895000BE955 /* SeveralPinButtonStyle.swift in Sources */,
@@ -7145,6 +7180,7 @@
 				0E2A62D626E7CA05009CE2C0 /* TagControlScheme.swift in Sources */,
 				0ED08A432670BD1800389A1A /* CalendarWeekView.swift in Sources */,
 				0E2A62C026E7C6EF009CE2C0 /* FeedbackInputControlScheme.swift in Sources */,
+				E9E3CABB28BFA3A7008E161A /* ClockView.swift in Sources */,
 				E9B82B6427B40B9300FC7BB9 /* ActionBarButtonStyleSecondary.swift in Sources */,
 				0E6EA4A327026A2E002EBBBC /* LinkView.swift in Sources */,
 				0EC136942667B1BC00F4EB7E /* DoubleTextFieldScheme.swift in Sources */,
@@ -7153,7 +7189,6 @@
 				0ED0837226CA662D000BE955 /* ChatInputScheme.swift in Sources */,
 				0EADA9AF268A13F3003FF903 /* Line.swift in Sources */,
 				0E3DB3B7265D1A0500CA2F2A /* OTPTextField.swift in Sources */,
-				0EAD1D03270ED2DA0011B045 /* CountdownView.swift in Sources */,
 				0EA9F4D126261504009F4B5A /* CheckControlScheme.swift in Sources */,
 				3BEDB3BC28744B5100E2AD34 /* PlatformButtonScheme.swift in Sources */,
 				0E22C6A9262E11EF00D09FC5 /* SizePreferenceKey.swift in Sources */,
@@ -7175,7 +7210,6 @@
 				C6D5BD64266528FB00437808 /* ToolBar.swift in Sources */,
 				0E4BC73C267CF3A3000FC891 /* CheckBoxListViewScheme.swift in Sources */,
 				3BEDB3D028746EB900E2AD34 /* PlatformButtonAccessibilityIdentifiers.swift in Sources */,
-				0EAD1D08270F16E20011B045 /* CountdownViewScheme.swift in Sources */,
 				0E4BC86D2681DFDE000FC891 /* ImageCardListViewScheme.swift in Sources */,
 				0E8B0F3626DE519C00EEA0D3 /* CodeInputControlScheme.swift in Sources */,
 				C6D5BD65266528FE00437808 /* ToolBarScheme.swift in Sources */,
@@ -7197,6 +7231,7 @@
 				0E231C6E27714257007F3ED4 /* ResponderUITextView.swift in Sources */,
 				0E6EA4AB27026E5B002EBBBC /* SeparatorView.swift in Sources */,
 				0E4BC8762681E1AB000FC891 /* ImageBackgroundListView.swift in Sources */,
+				E9E3CAC328BFA4C4008E161A /* CoundDownView.swift in Sources */,
 				0E2A62C426E7C73E009CE2C0 /* InputNumberScheme.swift in Sources */,
 				0ED08A09266F93F100389A1A /* CalendarGenerator.swift in Sources */,
 				0E231C6A276CD4E2007F3ED4 /* UIKitTextView.swift in Sources */,
@@ -7248,6 +7283,7 @@
 				0E2A62D426E7C9D8009CE2C0 /* TitleWithImageListViewScheme.swift in Sources */,
 				0E6223BA26BD28930012DB6E /* BadgeViewScheme.swift in Sources */,
 				0E2A62CA26E7C7F2009CE2C0 /* RadioButtonListViewScheme.swift in Sources */,
+				E9E3CABD28BFA3E8008E161A /* ClockViewScheme.swift in Sources */,
 				0E6FCA5A266E43BE00761EB1 /* TitleSubtitleListView.swift in Sources */,
 				0E6EA48D2701EE4C002EBBBC /* ParagraphLeadingImageType.swift in Sources */,
 				0E8B0F4026DEAD6B00EEA0D3 /* ChatBubbleStatusViewScheme.swift in Sources */,
