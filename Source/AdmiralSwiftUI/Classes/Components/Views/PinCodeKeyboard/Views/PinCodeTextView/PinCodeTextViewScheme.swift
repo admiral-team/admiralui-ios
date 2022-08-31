@@ -37,20 +37,20 @@ public struct PinCodeTextViewScheme: AppThemeScheme {
     public var textColor: AColor
 
     /// The text font of PinCodeTextView
-    public var textFont: AFont
+    public var textFont: SwiftUI.Font
 
     // MARK: - Initializer
 
     public init(theme: AppTheme = .default) {
         backgroundColor = theme.colors.backgroundBasic
         textColor = theme.colors.textSecondary
-        textFont = theme.fonts.body2
+        textFont = SwiftUI.Font.system(size: 36.0)
     }
 
     public init(
         backgroundColor: AColor,
         textColor: AColor,
-        textFont: AFont
+        textFont: SwiftUI.Font
     ) {
         self.backgroundColor = backgroundColor
         self.textColor = textColor

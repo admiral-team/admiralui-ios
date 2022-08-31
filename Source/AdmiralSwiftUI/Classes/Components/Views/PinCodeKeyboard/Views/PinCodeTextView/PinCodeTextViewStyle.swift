@@ -64,7 +64,7 @@ private extension PinCodeTextViewStyle {
             configuration.label
                 .lineLimit(2)
                 .multilineTextAlignment(.center)
-                .font(scheme.textFont.swiftUIFont)
+                .font(scheme.textFont)
                 .frame(minWidth: 60.0, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 .foregroundColor(scheme.textColor.swiftUIColor)
                 .background(
