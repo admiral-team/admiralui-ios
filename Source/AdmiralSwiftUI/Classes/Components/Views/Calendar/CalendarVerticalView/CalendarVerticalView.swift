@@ -182,17 +182,18 @@ struct CalendarVerticalView: View {
                     for index in days.count..<7 {
                         if let nextDay = Calendar.current.date(byAdding: .day, value: index, to: lastDate) {
                             days.append(
-                                Day(
+                                CalendarDay(
                                     date: nextDay,
                                     number: "",
                                     isSelected: false,
                                     isCurrentDay: false,
-                                    isDisplayedInMonth: false))
+                                    isDisplayedInMonth: false)
+                            )
                         }
                     }
                 }
             }
-            weekDays.append(Week(days: days))
+            weekDays.append(CalendarWeek(days: days))
             startIndex += 7
             endIndex += 7
         }
