@@ -160,8 +160,8 @@ struct CalendarVerticalView: View {
         return dates
     }
     
-    private func weeks(days: [Day]) -> [Week] {
-        var weekDays: [Week] = []
+    private func weeks(days: [CalendarDay]) -> [CalendarWeek] {
+        var weekDays: [CalendarWeek] = []
         var startIndex = 0
         var endIndex = 6
         let max = (Double(days.count) / 7).rounded(.up)
@@ -174,17 +174,18 @@ struct CalendarVerticalView: View {
                     for index in days.count..<7 {
                         if let nextDay = Calendar.current.date(byAdding: .day, value: index, to: lastDate) {
                             days.append(
-                                Day(
+                                CalendarDay(
                                     date: nextDay,
                                     number: "",
                                     isSelected: false,
                                     isCurrentDay: false,
-                                    isDisplayedInMonth: false))
+                                    isDisplayedInMonth: false)
+                            )
                         }
                     }
                 }
             }
-            weekDays.append(Week(days: days))
+            weekDays.append(CalendarWeek(days: days))
             startIndex += 7
             endIndex += 7
         }
