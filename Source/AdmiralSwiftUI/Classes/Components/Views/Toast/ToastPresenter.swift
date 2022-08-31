@@ -6,8 +6,20 @@
 //
 
 import SwiftUI
-
-/// Toast presenter.
+/**
+ ToastPresenter - an object that controls a ToastView life cycle.
+ You can create a ToastPresenter with the zero frame rectangle by specifying the following parameters in init:
+ - animationDuration: Double: The full animation duration of ToastPresenter.
+ - hideAnimationDuration: Double: The hide animation time of ToastPresenter.
+ ## Example to create ToastPresenter
+ # Code
+ ```
+ let presenter = ToastPresenter(
+     animationDuration: animationDuration,
+     hideAnimationDuration: hideAnimationDuration
+ )
+```
+ */
 @available(iOS 14.0.0, *)
 public class ToastPresenter: ObservableObject {
 
