@@ -8,10 +8,8 @@
 import AdmiralTheme
 import AdmiralUIResources
 import SwiftUI
-
 /**
  PinCodeButtonType - Public enum for type PinCodeKeyboard
- 
  PinCodeButtonType can be one of the following values:
  - rightButton
  - leftButton
@@ -20,7 +18,6 @@ enum PinCodeButtonType {
     case rightButton
     case leftButton
 }
- 
 /**
  PinCodeKeyboard - A view for secure pin code entry.
 
@@ -48,18 +45,9 @@ enum PinCodeButtonType {
  */
 @available(iOS 14.0, *)
 public struct PinCodeKeyboard: View {
-    
-    // MARK: - Private Properties
-    
-    @State private var scheme: PinCodeTextViewScheme? = nil
-    
-    private var rightButtonImage: Image
-    private var leftButtonTitle: String
-    private let didTapNumber: (Int) -> ()
-    private let didTapLeftButton: () -> ()
-    private let didTapRightButton: () -> ()
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<PinCodeTextViewScheme>()
-    
+
+    // MARK: - Constants
+
     private enum Constants {
         static let keyboardInsets: EdgeInsets = EdgeInsets(
             top: 0,
@@ -69,9 +57,20 @@ public struct PinCodeKeyboard: View {
         static let keyboardWidth: CGFloat = 270.0
         static let keyboardHeight: CGFloat = 288.0
     }
-    
+
+    // MARK: - Private Properties
+
+    private var rightButtonImage: Image
+    private var leftButtonTitle: String
+    private let didTapNumber: (Int) -> ()
+    private let didTapLeftButton: () -> ()
+    private let didTapRightButton: () -> ()
+
+    @Binding private var scheme: PinCodeTextViewScheme?
+    @ObservedObject var schemeProvider = AppThemeSchemeProvider<PinCodeTextViewScheme>()
+
     // MARK: - Initializer
-    
+
     /// Initializes and returns a newly allocated input number object.
     /// - Parameters:
     ///   - leftButtonTitle: Title for left button
@@ -84,14 +83,20 @@ public struct PinCodeKeyboard: View {
         rightButtonImage: Image = AssetSymbol.Security.Outline.faceID.image,
         didTapNumber: @escaping (Int) -> (),
         didTapLeftButton: @escaping () -> (),
-        didTapRightButton: @escaping () -> ()) {
+        didTapRightButton: @escaping () -> (),
+        scheme: Binding<PinCodeTextViewScheme?> = .constant(nil)
+    ) {
         self.leftButtonTitle = leftButtonTitle
         self.rightButtonImage = rightButtonImage
         self.didTapNumber = didTapNumber
         self.didTapLeftButton = didTapLeftButton
         self.didTapRightButton = didTapRightButton
+        self._scheme = scheme
     }
-    
+
+
+    // MARK: - Body
+
     public var body: some View {
         let numbers: [[Int]] = numbers()
         let scheme = self.scheme ?? schemeProvider.scheme
@@ -99,7 +104,7 @@ public struct PinCodeKeyboard: View {
             ForEach(numbers, id: \.self) { numberSet in
                 createHStack(numbers: numberSet)
             }
-            
+
             HStack(alignment: .center) {
                 Button(leftButtonTitle) {
                     didTapLeftButton()
@@ -129,9 +134,9 @@ public struct PinCodeKeyboard: View {
         .padding(Constants.keyboardInsets)
         .foregroundColor(scheme.backgroundColor.swiftUIColor)
     }
-    
+
     // MARK: - Private Methods
-    
+
     private func createHStack(numbers: [Int]) -> some View {
         HStack(spacing: 44.0) {
             ForEach(numbers, id: \.self) { number in
@@ -142,7 +147,7 @@ public struct PinCodeKeyboard: View {
             }
         }
     }
-    
+
     private func numbers() -> [[Int]] {
         var result = [[Int]]()
         for i in 0...2 {
@@ -167,16 +172,16 @@ struct PinCodeKeyboard_Previews: PreviewProvider {
                 leftButtonTitle: "Не могу войти",
                 rightButtonImage: AssetSymbol.Security.Outline.faceID.image,
                 didTapNumber: { index in
-                    
+
                 },
                 didTapLeftButton: {
-                    
+
                 },
                 didTapRightButton: {
-                    
+
                 }
             )
         }
     }
-    
+
 }
