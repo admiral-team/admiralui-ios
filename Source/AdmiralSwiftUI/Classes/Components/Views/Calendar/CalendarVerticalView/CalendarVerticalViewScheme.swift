@@ -35,7 +35,7 @@ public struct CalendarVerticalViewScheme: AppThemeScheme {
 
     // MARK: - Initializer
 
-    public init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         backgroundColor = theme.colors.backgroundBasic
         lineBackgroundColor = theme.colors.backgroundAdditionalOne
     }
