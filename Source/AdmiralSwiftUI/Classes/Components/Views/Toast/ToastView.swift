@@ -8,10 +8,8 @@
 import AdmiralTheme
 import AdmiralUIResources
 import SwiftUI
-
 /**
  ToastViewType - Public enum for type ToastView
- 
  ToastViewType can be one of the following values:
  - default - The default state of the toast.
  - success - The success state of the toast.
@@ -30,12 +28,10 @@ public enum ToastViewType: String {
     case attention
     /// The error state of the toast is useful to show the number of errors.
     case error
-    
-}
 
+}
 /**
  ToastImageType - Public enum for type of image ToastView
- 
  ToastImageType can be one of the following values:
  - success - The success state of the image toast.
  - info - The info state of the image toast.
@@ -51,14 +47,10 @@ public enum ToastImageType: String {
     case attention
     /// The error state of the image toast.
     case error
-    
 }
-
 /**
  ToastView - An input field with an informer. It is necessary if additional information may be required to fill in the field correctly.
-
  You can create a ToastView with the zero frame rectangle by specifying the following parameters in init:
-
  - title: Title of the toast.
  - linkText: Title of link button.
  - linkAction: Callback of the link button. If callback equal nil link button is hidden.
@@ -85,57 +77,60 @@ public enum ToastImageType: String {
  */
 @available(iOS 14.0, *)
 public struct ToastView: View {
-    
+
+    // MARK: - Constants
+
     enum Constants {
         static let closeImage = AssetSymbol.Service.Outline.close.image
         static let maxHeight: CGFloat = LayoutGrid.halfModule * 33
     }
-    
+
     // MARK: - Internal Properties
-    
+
     @Environment(\.isEnabled) private var isEnabled
-    
+
     /// Timer duration.
     var timerDuration: Int?
-    
+
     /// Title of the toast.
     let title: String
-    
+
     /// Title of link button.
     let linkText: String?
-    
+
     /// Callback of the link button. If callback equal nil link button is hidden.
     let linkAction: (() -> ())?
-    
+
     /// Image of the toast.
     let image: Image?
-    
+
     /// Callback of the close button. If callback equal nil close button is hidden.
     let closeAction: (() -> ())?
-    
+
     /// Type color background toast.
     let type: ToastViewType
-    
+
     /// Toast image type.
     let imageType: ToastImageType?
-    
+
     /// Toast image color type.
     let imageColorType: ToastImageType?
-    
+
     /// Image action.
     let imageAction: (() -> ())?
-    
+
     /// Close image.
     let closeView: () -> (AnyView?)
-    
+
     // MARK: - Private Properties
-    
-    @State private var scheme: ToastViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ToastViewScheme>()
+
     private var accessibilityIdentifier: String?
-    
+
+    @Binding private var scheme: ToastViewScheme?
+    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ToastViewScheme>()
+
     // MARK: - Initializer
-    
+
     /// Initializes and returns a newly allocated view object.
     /// - Parameters:
     ///   - title: Title of the toast.
@@ -159,7 +154,8 @@ public struct ToastView: View {
         closeAction: (() -> ())? = nil,
         imageAction: (() -> ())? = nil,
         @ViewBuilder closeView: @escaping () -> (T?) = { return nil },
-        type: ToastViewType = .default
+        type: ToastViewType = .default,
+        scheme: Binding<ToastViewScheme?> = .constant(nil)
     ) {
         self.accessibilityIdentifier = accessibilityIdentifier
         self.title = title
@@ -187,8 +183,9 @@ public struct ToastView: View {
         self.closeAction = closeAction
         self.type = type
         self.closeView = { return closeView()?.eraseToAnyView() }
+        self._scheme = scheme
     }
-    
+
     public init(
         title: String,
         linkText: String? = nil,
@@ -199,7 +196,8 @@ public struct ToastView: View {
         accessibilityIdentifier: String? = nil,
         closeAction: (() -> ())? = nil,
         imageAction: (() -> ())? = nil,
-        type: ToastViewType = .default
+        type: ToastViewType = .default,
+        scheme: Binding<ToastViewScheme?> = .constant(nil)
     ) {
         self.accessibilityIdentifier = accessibilityIdentifier
         self.title = title
@@ -227,8 +225,9 @@ public struct ToastView: View {
         self.closeAction = closeAction
         self.type = type
         self.closeView = { return nil }
+        self._scheme = scheme
     }
-    
+
     public init<T: View>(
         title: String,
         linkText: String? = nil,
@@ -237,7 +236,8 @@ public struct ToastView: View {
         accessibilityIdentifier: String? = nil,
         closeAction: (() -> ())? = nil,
         @ViewBuilder closeView: @escaping () -> (T?) = { return nil },
-        type: ToastViewType = .default
+        type: ToastViewType = .default,
+        scheme: Binding<ToastViewScheme?> = .constant(nil)
     ) {
         self.accessibilityIdentifier = accessibilityIdentifier
         self.title = title
@@ -251,8 +251,11 @@ public struct ToastView: View {
         self.imageAction = nil
         self.type = type
         self.closeView = { return closeView()?.eraseToAnyView() }
+        self._scheme = scheme
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         HStack(alignment: .top, spacing: 0.0) {
@@ -301,7 +304,7 @@ public struct ToastView: View {
             .padding(.leading, LayoutGrid.halfModule * 3)
             .padding(.trailing, LayoutGrid.halfModule * 3)
             .padding(.bottom, LayoutGrid.doubleModule)
-            
+
             Spacer(minLength: 0.0)
             if let closeAction = closeAction {
                 Button(action: closeAction, label: {
@@ -322,7 +325,7 @@ public struct ToastView: View {
         .background(scheme.backgroundColor.parameter(isEnabled: isEnabled, type: type)?.swiftUIColor)
         .cornerRadius(LayoutGrid.module)
     }
-    
+
 }
 
 @available(iOS 14.0, *)
@@ -330,7 +333,7 @@ struct ToastView_Previews: PreviewProvider {
     static var previews: some View {
         ToastView(
             title: "At break point",
-            
+
             linkText: "Link Text",
             linkAction: {
                 print("Tap")
