@@ -33,7 +33,6 @@ public enum PrivateAsset {
       public static let photo = PrivateImageAsset(name: "Custom/Chat/Photo")
       public static let read = PrivateImageAsset(name: "Custom/Chat/Read")
       public static let sent = PrivateImageAsset(name: "Custom/Chat/Sent")
-      public static let error = PrivateImageAsset(name: "Custom/Chat/Shape")
     }
     public enum CirclePageControl {
       public static let arrowRight = PrivateImageAsset(name: "Custom/CirclePageControl/arrowRight")
@@ -63,7 +62,6 @@ public enum PrivateAsset {
     Custom.Chat.photo,
     Custom.Chat.read,
     Custom.Chat.sent,
-    Custom.Chat.error,
     Custom.CirclePageControl.arrowRight,
     Custom.Control.checkBoxOff,
     Custom.Control.checkBoxOn,

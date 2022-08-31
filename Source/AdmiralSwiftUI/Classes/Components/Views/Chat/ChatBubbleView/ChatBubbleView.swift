@@ -67,10 +67,13 @@ public enum ChatDirection: String {
 */
 @available(iOS 14.0, *)
 public struct ChatBubbleView: View {
+    
+    // MARK: - Constants
 
     private enum Constants {
         static let minWidth: CGFloat = LayoutGrid.quadrupleModule * 3
         static let ratioWidth: CGFloat = 0.2
+        static let paddingLeftError: CGFloat = 6
     }
 
     // MARK: - Public Properties
@@ -176,9 +179,11 @@ public struct ChatBubbleView: View {
                         )
                     if status == .error {
                         Image(uiImage: Asset.Service.Solid.errorSolid.image)
-                            .padding(.top, LayoutGrid.module)
+                            .resizable()
                             .frame(width: LayoutGrid.halfModule * 7, height: LayoutGrid.halfModule * 7)
                             .foregroundColor(scheme.errorImageColor.swiftUIColor)
+                            .padding(.top, LayoutGrid.module)
+                            .padding(.leading, Constants.paddingLeftError)
                             .onTapGesture {
                                 errorAction()
                             }
