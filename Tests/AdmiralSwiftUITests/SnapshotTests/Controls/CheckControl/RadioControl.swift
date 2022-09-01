@@ -35,25 +35,25 @@ final class RadioControlSnapshotTests: XCTestCase {
     // MARK: Default Theme
 
     func testSelectedRadioControl() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let radioControl = RadioControl(isSelected: .constant(true), text: "SelectedRadioControl")
         checkRadioControl(view: radioControl, named: "selectedNormal", testName: "RadioControl")
     }
 
     func testNotSelectedRadioControl() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let radioControl = RadioControl(isSelected: .constant(false), text: "NotSelectedRadioControl")
         checkRadioControl(view: radioControl, named: "notSelectedNormal", testName: "RadioControl")
     }
 
     func testSelectedRadioControlError() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let radioControl = RadioControl(isSelected: .constant(true), text: "SelectedRadioControlError", checkState: .error)
         checkRadioControl(view: radioControl, named: "selectedError", testName: "RadioControl")
     }
 
     func testNotSelectedRadioControlError() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let radioControl = RadioControl(isSelected: .constant(false), text: "NotSelectedRadioControlError", checkState: .error)
         checkRadioControl(view: radioControl, named: "notSelectedError", testName: "RadioControl")
     }
@@ -61,25 +61,25 @@ final class RadioControlSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testSelectedRadioControlDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let radioControl = RadioControl(isSelected: .constant(true), text: "SelectedRadioControl")
         checkRadioControl(view: radioControl, named: "selectedNormalDarkTheme", testName: "RadioControl")
     }
 
     func testNotSelectedRadioControlDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let radioControl = RadioControl(isSelected: .constant(false), text: "NotSelectedRadioControl")
         checkRadioControl(view: radioControl, named: "notSelectedNormalDarkTheme", testName: "RadioControl")
     }
 
     func testSelectedRadioControlErrorDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let radioControl = RadioControl(isSelected: .constant(true), text: "SelectedRadioControlError", checkState: .error)
         checkRadioControl(view: radioControl, named: "selectedErrorDarkTheme", testName: "RadioControl")
     }
 
     func testNotSelectedRadioControlErrorDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let radioControl = RadioControl(isSelected: .constant(false), text: "NotSelectedRadioControlError", checkState: .error)
         checkRadioControl(view: radioControl, named: "notSelectedErrorDarkTheme", testName: "RadioControl")
     }

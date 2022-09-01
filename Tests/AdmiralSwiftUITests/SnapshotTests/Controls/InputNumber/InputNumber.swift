@@ -22,7 +22,7 @@ final class InputNumberSnapshotTests: XCTestCase {
     // MARK: Default Theme
 
     func testInputNumber() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createInputNumber()
         checkInputNumber(view: view, named: "default", testName: "InputNumber")
     }
@@ -30,7 +30,7 @@ final class InputNumberSnapshotTests: XCTestCase {
     // MARK: Dark Theme
 
     func testInputNumberDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createInputNumber()
         checkInputNumber(view: view, named: "defaultDarkTheme", testName: "InputNumber")
     }

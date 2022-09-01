@@ -34,7 +34,7 @@ final class ZeroScreenSnapshotTests: XCTestCase {
     
     // MARK: DefaultTheme
     func testZeroScreenDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createZeroScreen()
         checkZeroScreen(view: view, named: "DefaultTheme", testName: "ZeroScreen")
     }
@@ -42,7 +42,7 @@ final class ZeroScreenSnapshotTests: XCTestCase {
     // MARK: DarkTheme
 
     func testZeroScreenDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createZeroScreen()
         checkZeroScreen(view: view, named: "DarkTheme", testName: "ZeroScreen")
     }
