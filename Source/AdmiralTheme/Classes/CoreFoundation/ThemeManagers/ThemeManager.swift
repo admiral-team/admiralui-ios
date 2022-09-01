@@ -17,7 +17,7 @@ struct RedundantObservationError: Error {
 }
 
 /// Theme manager for assigning a theme
-class ThemeManager {
+final class ThemeManager {
 
     /// The default ThemeManager
     static let `default`: ThemeManager = .init()
@@ -308,4 +308,17 @@ extension ThemeManager: CustomStringConvertible {
         }
     }
     
+}
+
+private extension String {
+
+    func base64Encoded() -> String? {
+        return data(using: .utf8)?.base64EncodedString()
+    }
+
+    func base64Decoded() -> String? {
+        guard let data = Data(base64Encoded: self) else { return nil }
+        return String(data: data, encoding: .utf8)
+    }
+
 }
