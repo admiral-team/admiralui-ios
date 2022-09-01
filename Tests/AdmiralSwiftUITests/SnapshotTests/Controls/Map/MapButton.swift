@@ -35,19 +35,19 @@ final class MapButtonSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testCheckButton() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let mapButton = Button(action: {}, label: {}).buttonStyle(MapButtonStyle(type: .plus))
         checkMapButton(view: mapButton, named: "default", testName: "MapButtonPlus")
     }
 
     func testCheckButtonMinus() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let mapButton = Button(action: {}, label: {}).buttonStyle(MapButtonStyle(type: .minus))
         checkMapButton(view: mapButton, named: "default", testName: "MapButtonMinus")
     }
 
     func testCheckButtonLocation() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let mapButton = Button(action: {}, label: {}).buttonStyle(MapButtonStyle(type: .location))
         checkMapButton(view: mapButton, named: "default", testName: "MapButtonLocation")
     }
@@ -55,19 +55,19 @@ final class MapButtonSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testCheckButtonDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let mapButton = Button(action: {}, label: {}).buttonStyle(MapButtonStyle(type: .plus))
         checkMapButton(view: mapButton, named: "defaultDarkTheme", testName: "MapButtonPlus")
     }
 
     func testCheckButtonMinusDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let mapButton = Button(action: {}, label: {}).buttonStyle(MapButtonStyle(type: .minus))
         checkMapButton(view: mapButton, named: "defaultDarkTheme", testName: "MapButtonMinus")
     }
 
     func testCheckButtonLocationDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let mapButton = Button(action: {}, label: {}).buttonStyle(MapButtonStyle(type: .location))
         checkMapButton(view: mapButton, named: "defaultDarkTheme", testName: "MapButtonLocation")
     }
