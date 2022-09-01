@@ -8,7 +8,6 @@
 import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
-import AdmiralCore
 
 public typealias CheckControlParameters<P> = DoubleParameterBox<ControlState, CheckControlState, P>
 

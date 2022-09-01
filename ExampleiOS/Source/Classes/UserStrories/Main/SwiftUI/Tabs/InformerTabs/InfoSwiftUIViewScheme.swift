@@ -10,7 +10,6 @@ import Combine
 import AdmiralSwiftUI
 import AdmiralTheme
 import AdmiralUIResources
-import AdmiralCore
 
 @available(iOS 14.0.0, *)
 final public class InfoSwiftUIViewScheme: AppThemeScheme {
