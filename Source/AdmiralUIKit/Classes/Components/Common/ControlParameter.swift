@@ -5,8 +5,9 @@
 //  Created on 16.10.2020.
 //
 
-import UIKit
+import AdmiralCore
 import AdmiralTheme
+import UIKit
 
 typealias ControlParameter<P> = ParameterBox<UIControl.State,P>
 
