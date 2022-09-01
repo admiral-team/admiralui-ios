@@ -43,7 +43,7 @@ final class ListCellSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testListCellDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createListCell()
         checkListCell(view: view, named: "ListCellDarkTheme", testName: "ListCell")
     }

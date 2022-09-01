@@ -31,7 +31,7 @@ final class ButtonSnapshotTests: XCTestCase {
     // MARK: - TwoTitlePrimary Button Default Theme
 
     func testTwoTitlePrimaryButton() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let twoTitlePrimaryButton = TwoTitlePrimaryButton(
             leftText: "leftText",
             rightText: "rightText",
@@ -43,7 +43,7 @@ final class ButtonSnapshotTests: XCTestCase {
     // MARK: - TwoTitlePrimary Button Dark Theme
 
     func testTwoTitlePrimaryButtonDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let twoTitlePrimaryButton = TwoTitlePrimaryButton(
             leftText: "leftText",
             rightText: "rightText",
@@ -55,7 +55,7 @@ final class ButtonSnapshotTests: XCTestCase {
     // MARK: - TwoTitleGhost Button Default Theme
 
     func testTwoTitleGhostButton() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let twoTitleGhostButton = TwoTitleGhostButton(
             leftText: "leftText",
             rightText: "rightText",
@@ -68,7 +68,7 @@ final class ButtonSnapshotTests: XCTestCase {
     // MARK: - TwoTitleGhost Button Dark Theme
 
     func testTwoTitleGhostButtonDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let twoTitleGhostButton = TwoTitleGhostButton(
             leftText: "leftText",
             rightText: "rightText",
@@ -82,7 +82,7 @@ final class ButtonSnapshotTests: XCTestCase {
     // MARK: - Ghost Button Default Theme
 
     func testGhostButton() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let ghostButton = Button("Text", action: {})
                 .buttonStyle(GhostButtonStyle(isLoading: .constant(false)))
         checkButton(view: ghostButton, named: "Ghost", testName: "Button")
@@ -91,7 +91,7 @@ final class ButtonSnapshotTests: XCTestCase {
     // MARK: - Ghost Button Dark Theme
 
     func testGhostButtonDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let ghostButton = Button("Text", action: {})
                 .buttonStyle(GhostButtonStyle(isLoading: .constant(false)))
         checkButton(view: ghostButton, named: "GhostDarkTheme", testName: "Button")
@@ -100,42 +100,42 @@ final class ButtonSnapshotTests: XCTestCase {
     // MARK: - Primary Button Default Theme
 
     func testPrimaryButtonBig() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let primaryButton =  Button("Text", action: {})
             .buttonStyle(PrimaryButtonStyle(isLoading: .constant(false), sizeType: .big))
         checkButton(view: primaryButton, named: "primaryButton", testName: "Big")
     }
 
     func testPrimaryButtonMedium() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let primaryButton =  Button("Text", action: {})
             .buttonStyle(PrimaryButtonStyle(isLoading: .constant(false), sizeType: .medium))
         checkButton(view: primaryButton, named: "primaryButton", testName: "Medium")
     }
 
     func testPrimaryButtonSmall() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let primaryButton =  Button("Text", action: {})
             .buttonStyle(PrimaryButtonStyle(isLoading: .constant(false), sizeType: .small))
         checkButton(view: primaryButton, named: "primaryButton", testName: "Small")
     }
 
     func testPrimaryButtonBigDisabled() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let primaryButton =  Button("Text", action: {})
             .buttonStyle(PrimaryButtonStyle(isLoading: .constant(false), sizeType: .big))
         checkButton(view: primaryButton, named: "primaryButtonDisabled", testName: "Big", disabled: true)
     }
 
     func testPrimaryButtonMediumDisabled() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let primaryButton =  Button("Text", action: {})
             .buttonStyle(PrimaryButtonStyle(isLoading: .constant(false), sizeType: .medium))
         checkButton(view: primaryButton, named: "primaryButtonDisabled", testName: "Medium", disabled: true)
     }
 
     func testPrimaryButtonSmallDisabled() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let primaryButton =  Button("Text", action: {})
             .buttonStyle(PrimaryButtonStyle(isLoading: .constant(false), sizeType: .small))
         checkButton(view: primaryButton, named: "primaryButtonDisabled", testName: "Small", disabled: true)
@@ -144,42 +144,42 @@ final class ButtonSnapshotTests: XCTestCase {
     // MARK: - Primary Button Dark Theme
 
     func testPrimaryButtonBigDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let primaryButton =  Button("Text", action: {})
             .buttonStyle(PrimaryButtonStyle(isLoading: .constant(false), sizeType: .big))
         checkButton(view: primaryButton, named: "primaryButtonDarkTheme", testName: "Big")
     }
 
     func testPrimaryButtonMediumDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let primaryButton =  Button("Text", action: {})
             .buttonStyle(PrimaryButtonStyle(isLoading: .constant(false), sizeType: .medium))
         checkButton(view: primaryButton, named: "primaryButtonDarkTheme", testName: "Medium")
     }
 
     func testPrimaryButtonSmallDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let primaryButton =  Button("Text", action: {})
             .buttonStyle(PrimaryButtonStyle(isLoading: .constant(false), sizeType: .small))
         checkButton(view: primaryButton, named: "primaryButtonDarkTheme", testName: "Small")
     }
 
     func testPrimaryButtonBigDisabledDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let primaryButton =  Button("Text", action: {})
             .buttonStyle(PrimaryButtonStyle(isLoading: .constant(false), sizeType: .big))
         checkButton(view: primaryButton, named: "primaryButtonDisabledDarkTheme", testName: "Big", disabled: true)
     }
 
     func testPrimaryButtonMediumDisabledDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let primaryButton =  Button("Text", action: {})
             .buttonStyle(PrimaryButtonStyle(isLoading: .constant(false), sizeType: .medium))
         checkButton(view: primaryButton, named: "primaryButtonDisabledDarkTheme", testName: "Medium", disabled: true)
     }
 
     func testPrimaryButtonSmallDisabledDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let primaryButton =  Button("Text", action: {})
             .buttonStyle(PrimaryButtonStyle(isLoading: .constant(false), sizeType: .small))
         checkButton(view: primaryButton, named: "primaryButtonDisabledDarkTheme", testName: "Small", disabled: true)
@@ -188,7 +188,7 @@ final class ButtonSnapshotTests: XCTestCase {
     // MARK: - Secondary Button Style Default Theme
 
     func testSecondaryButtonStyle() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let secondaryButton = Button("Text", action: {})
             .buttonStyle(SecondaryButtonStyle(isLoading: .constant(false)))
         checkButton(view: secondaryButton, named: "secondary", testName: "Button")
@@ -197,7 +197,7 @@ final class ButtonSnapshotTests: XCTestCase {
     // MARK: - Secondary Button Style Dark Theme
 
     func testSecondaryButtonStyleDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let secondaryButton = Button("Text", action: {})
             .buttonStyle(SecondaryButtonStyle(isLoading: .constant(false)))
         checkButton(view: secondaryButton, named: "secondaryDarkTheme", testName: "Button")
@@ -206,7 +206,7 @@ final class ButtonSnapshotTests: XCTestCase {
     // MARK: - Platform Button Style Default Theme
     
     func testPlatformButtonStyle() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let platfotmButton = Button("Text", action: {})
             .buttonStyle(PlatformButtonStyle())
         checkButton(view: platfotmButton, named: "platform", testName: "Button")
@@ -215,7 +215,7 @@ final class ButtonSnapshotTests: XCTestCase {
     // MARK: - Platform Button Style Dark Theme
 
     func testPlatformButtonStyleDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let platfotmButton = Button("Text", action: {})
             .buttonStyle(PlatformButtonStyle())
         checkButton(view: platfotmButton, named: "platformDarkTheme", testName: "Button")

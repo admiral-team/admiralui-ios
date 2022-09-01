@@ -35,37 +35,37 @@ final class BadgeViewSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testBadgeViewDefaultStyleDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createBadgeView(style: .default)
         checkNumberBadgeView(view: view, named: "DefaultStyle.DefaultTheme", testName: "BadgeView")
     }
     
     func testBadgeViewNaturalStyleDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createBadgeView(style: .natural)
         checkNumberBadgeView(view: view, named: "NaturalStyle.DefaultTheme", testName: "BadgeView")
     }
     
     func testBadgeViewAttentionStyleDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createBadgeView(style: .attention)
         checkNumberBadgeView(view: view, named: "AttentionStyle.DefaultTheme", testName: "BadgeView")
     }
     
     func testBadgeViewSuccessStyleDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createBadgeView(style: .success)
         checkNumberBadgeView(view: view, named: "SuccessStyle.DefaultTheme", testName: "BadgeView")
     }
     
     func testBadgeViewErrorStyleDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createBadgeView(style: .error)
         checkNumberBadgeView(view: view, named: "ErrorStyle.DefaultTheme", testName: "BadgeView")
     }
     
     func testBadgeViewAdditionalStyleDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createBadgeView(style: .additional)
         checkNumberBadgeView(view: view, named: "AdditionalStyle.DefaultTheme", testName: "BadgeView")
     }
@@ -73,37 +73,37 @@ final class BadgeViewSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testBadgeViewDefaultStyleDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createBadgeView(style: .default)
         checkNumberBadgeView(view: view, named: "DefaultStyle.DarkTheme", testName: "BadgeView")
     }
     
     func testBadgeViewNaturalStyleDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createBadgeView(style: .natural)
         checkNumberBadgeView(view: view, named: "NaturalStyle.DarkTheme", testName: "BadgeView")
     }
     
     func testBadgeViewAttentionStyleDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createBadgeView(style: .attention)
         checkNumberBadgeView(view: view, named: "AttentionStyle.DarkTheme", testName: "BadgeView")
     }
     
     func testBadgeViewSuccessStyleDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createBadgeView(style: .success)
         checkNumberBadgeView(view: view, named: "SuccessStyle.DarkTheme", testName: "BadgeView")
     }
     
     func testBadgeViewErrorStyleDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createBadgeView(style: .error)
         checkNumberBadgeView(view: view, named: "ErrorStyle.DarkTheme", testName: "BadgeView")
     }
     
     func testBadgeViewAdditionalStyleDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createBadgeView(style: .additional)
         checkNumberBadgeView(view: view, named: "AdditionalStyle.DarkTheme", testName: "BadgeView")
     }

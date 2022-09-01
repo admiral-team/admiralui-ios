@@ -37,13 +37,13 @@ final class SeveralPinButtonSnapshotTests: XCTestCase {
     // MARK: Default Theme
 
     func testSeveralPinButton() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let severalPinButton = Button(action: {}, label: {}).buttonStyle(SeveralPinButtonStyle(value: .constant("")))
         checkMapButton(view: severalPinButton, named: "default", testName: "severalPinButton")
     }
 
     func testSeveralPinButtonDisabled() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let severalPinButton = Button(action: {}, label: {}).buttonStyle(SeveralPinButtonStyle(value: .constant("")))
         checkMapButton(view: severalPinButton, named: "default", testName: "severalPinButtonDisabled", disabled: true)
     }
@@ -51,13 +51,13 @@ final class SeveralPinButtonSnapshotTests: XCTestCase {
     // MARK: Dark Theme
 
     func testSeveralPinButtonDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let severalPinButton = Button(action: {}, label: {}).buttonStyle(SeveralPinButtonStyle(value: .constant("")))
         checkMapButton(view: severalPinButton, named: "defaultDarkTheme", testName: "severalPinButton")
     }
 
     func testSeveralPinButtonDisabledDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let severalPinButton = Button(action: {}, label: {}).buttonStyle(SeveralPinButtonStyle(value: .constant("")))
         checkMapButton(view: severalPinButton, named: "defaultDarkTheme", testName: "severalPinButtonDisabled", disabled: true)
     }

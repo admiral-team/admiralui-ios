@@ -35,19 +35,19 @@ final class SubtitleTitleListViewSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testSubtitleTitleListViewHeadlineSecondaryDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createSubtitleTitleListView(style: .headlineSecondary)
         checkSubtitleTitleListView(view: view, named: "HeadlineSecondaryDefaultTheme", testName: "SubtitleTitleList")
     }
     
     func testSubtitleTitleListViewBodyDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createSubtitleTitleListView(style: .body)
         checkSubtitleTitleListView(view: view, named: "BodyDefaultTheme", testName: "SubtitleTitleList")
     }
     
     func testSubtitleTitleListViewHeadlineDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createSubtitleTitleListView(style: .headline)
         checkSubtitleTitleListView(view: view, named: "HeadlineDefaultTheme", testName: "SubtitleTitleList")
     }
@@ -55,19 +55,19 @@ final class SubtitleTitleListViewSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testSubtitleTitleListViewHeadlineSecondaryDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createSubtitleTitleListView(style: .headlineSecondary)
         checkSubtitleTitleListView(view: view, named: "HeadlineSecondaryDarkTheme", testName: "SubtitleTitleList")
     }
     
     func testSubtitleTitleListViewBodyDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createSubtitleTitleListView(style: .body)
         checkSubtitleTitleListView(view: view, named: "BodyDarkTheme", testName: "SubtitleTitleList")
     }
     
     func testSubtitleTitleListViewHeadlineDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createSubtitleTitleListView(style: .headline)
         checkSubtitleTitleListView(view: view, named: "HeadlineDarkTheme", testName: "SubtitleTitleList")
     }

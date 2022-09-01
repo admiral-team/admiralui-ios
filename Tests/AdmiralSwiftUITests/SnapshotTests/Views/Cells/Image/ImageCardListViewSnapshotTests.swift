@@ -30,7 +30,7 @@ final class ImageCardListViewSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testImageCardListViewDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createImageCardListView()
         checkImageCardListView(view: view, named: "DarkTheme", testName: "ImageCardListView")
     }

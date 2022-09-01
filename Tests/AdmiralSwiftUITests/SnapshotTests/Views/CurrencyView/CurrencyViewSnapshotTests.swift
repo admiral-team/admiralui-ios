@@ -35,13 +35,13 @@ final class CurrencyViewSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testCurrencyViewArrowUpDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createCurrencyView(type: .arrowUp)
         checkCurrencyView(view: view, named: "ArrowUp.DefaultTheme", testName: "CurrencyView")
     }
     
     func testCurrencyViewArrowDownDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createCurrencyView(type: .arrowUp)
         checkCurrencyView(view: view, named: "ArrowDown.DefaultTheme", testName: "CurrencyView")
     }
@@ -49,13 +49,13 @@ final class CurrencyViewSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testCurrencyViewArrowUpDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createCurrencyView(type: .arrowUp)
         checkCurrencyView(view: view, named: "ArrowUp.DarkTheme", testName: "CurrencyView")
     }
     
     func testCurrencyViewArrowDownDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createCurrencyView(type: .arrowUp)
         checkCurrencyView(view: view, named: "ArrowDown.DarkTheme", testName: "CurrencyView")
     }
