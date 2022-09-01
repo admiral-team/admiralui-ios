@@ -1743,6 +1743,7 @@
 		E9B4D81F27313CEE00B4DA98 /* ProgressViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewScheme.swift; sourceTree = "<group>"; };
 		E9B684AE28C0E54A00904D16 /* UIColor+Light.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Light.swift"; sourceTree = "<group>"; };
 		E9B684B028C0E55F00904D16 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		E9B684F928C1118000904D16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9B82B5427B40B9200FC7BB9 /* ActionBarControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionBarControlView.swift; sourceTree = "<group>"; };
 		E9B82B5527B40B9200FC7BB9 /* ActionBarButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionBarButtonStyle.swift; sourceTree = "<group>"; };
 		E9B82B5627B40B9200FC7BB9 /* ActionBarControlScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionBarControlScheme.swift; sourceTree = "<group>"; };
@@ -6085,8 +6086,9 @@
 		E917A16728C0F4A50057C9F5 /* AdmiralCore */ = {
 			isa = PBXGroup;
 			children = (
-				E917A17828C0F56A0057C9F5 /* Classes */,
 				E917A16828C0F4A50057C9F5 /* AdmiralCore.h */,
+				E917A17828C0F56A0057C9F5 /* Classes */,
+				E9B684F828C1115600904D16 /* Supporting Files */,
 			);
 			path = AdmiralCore;
 			sourceTree = "<group>";
@@ -6560,6 +6562,14 @@
 				E9B684B028C0E55F00904D16 /* UIColor+Hex.swift */,
 			);
 			path = UIColor;
+			sourceTree = "<group>";
+		};
+		E9B684F828C1115600904D16 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E9B684F928C1118000904D16 /* Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		E9B82B5227B40B9200FC7BB9 /* ActionBarButton */ = {
@@ -8481,7 +8491,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Source/AdmiralCore/Supporting Files/Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -8515,7 +8526,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Source/AdmiralCore/Supporting Files/Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
