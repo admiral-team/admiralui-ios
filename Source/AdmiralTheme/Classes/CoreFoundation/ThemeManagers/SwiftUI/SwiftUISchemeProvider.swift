@@ -15,12 +15,19 @@ public protocol AppThemeScheme {
 
 @available(iOS 14.0.0, *)
 public class AppThemeSchemeProvider<S>: ObservableObject where S: AppThemeScheme {
+
+    // MARK: - Published Properties
+
     @Published public private(set) var scheme: S
-    
-    private let manager = SwiftUIThemeManager.shared
+
+    // MARK: - Private Properties
+
+    private let manager = Appearance.shared.swiftuiThemeManager
     private var subscribers: Set<AnyCancellable> = []
-    
-    public init(manager: SwiftUIThemeManager = .shared) {
+
+    // MARK: - Initializer
+
+    public init(manager: SwiftUIThemeManager = Appearance.shared.swiftuiThemeManager) {
         self.scheme = S(theme: manager.theme)
         manager.$theme.sink { [weak self] theme in
             self?.scheme = S(theme: theme)
@@ -29,11 +36,16 @@ public class AppThemeSchemeProvider<S>: ObservableObject where S: AppThemeScheme
 }
 
 @available(iOS 14.0.0, *)
-public final class AppThemeConstantSchemeProvider<S> where S: AppThemeScheme {
+public final class SwiftUIConstantSchemeProvider<S> where S: AppThemeScheme {
+
+    // MARK: - Public Properties
+
     public var scheme: S
+
+    // MARK: - Initializer
+
     public init(scheme: S) {
         self.scheme = scheme
     }
 }
-
 

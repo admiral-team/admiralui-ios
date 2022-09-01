@@ -19,7 +19,7 @@
 		0E0D25D6261CD6D1003D6481 /* UnderlineSliderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0D25D5261CD6D1003D6481 /* UnderlineSliderViewCell.swift */; };
 		0E0E881625FBA24C00127626 /* AdmiralTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E0E881425FBA24C00127626 /* AdmiralTheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0E0E885F25FBB2A900127626 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D4958C255E75AB00497106 /* AppTheme.swift */; };
-		0E0E886025FBB2A900127626 /* AppThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D49569255DFE7600497106 /* AppThemeManager.swift */; };
+		0E0E886025FBB2A900127626 /* UIKitThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D49569255DFE7600497106 /* UIKitThemeManager.swift */; };
 		0E0E886125FBB2A900127626 /* AppThemeStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6BB793A25DAA0800080E2EF /* AppThemeStorage.swift */; };
 		0E0E888525FBB2BC00127626 /* Disposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D49553255DF4FF00497106 /* Disposable.swift */; };
 		0E0E888625FBB2BC00127626 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D4956D255E0FDF00497106 /* Theme.swift */; };
@@ -546,7 +546,7 @@
 		0EF044D127B529FE0095DD14 /* UnderlineTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF044D027B529FE0095DD14 /* UnderlineTabItem.swift */; };
 		0EF044D327B52A0F0095DD14 /* OutlineSliderTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF044D227B52A0F0095DD14 /* OutlineSliderTabItem.swift */; };
 		0EF548252679149700E49DEB /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF548242679149700E49DEB /* SearchBar.swift */; };
-		0EF8BE6B2742AD79005F7620 /* SchemeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6773FED2692F4080064AFA8 /* SchemeProvider.swift */; };
+		0EF8BE6B2742AD79005F7620 /* SwiftUISchemeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6773FED2692F4080064AFA8 /* SwiftUISchemeProvider.swift */; };
 		0EF8BE6C2742AD7D005F7620 /* SwiftUIThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB1AC382656B30C007D7795 /* SwiftUIThemeManager.swift */; };
 		0EFCDB4526B83D5B006207B1 /* CurrencyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFCDB4426B83D5B006207B1 /* CurrencyHeaderView.swift */; };
 		0EFCDB4726B83D69006207B1 /* CurrencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFCDB4626B83D69006207B1 /* CurrencyView.swift */; };
@@ -1501,7 +1501,7 @@
 		E6529CA42534DC4A009D8DE9 /* SFProText-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Medium.otf"; sourceTree = "<group>"; };
 		E66E0ACC256D2BA9003D7C01 /* OutlineSliderScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlineSliderScheme.swift; sourceTree = "<group>"; };
 		E6702122254955CE009040D6 /* SliderThumbView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderThumbView.swift; sourceTree = "<group>"; };
-		E6773FED2692F4080064AFA8 /* SchemeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeProvider.swift; sourceTree = "<group>"; };
+		E6773FED2692F4080064AFA8 /* SwiftUISchemeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUISchemeProvider.swift; sourceTree = "<group>"; };
 		E67F201B25D3E8AD00E3D6A6 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		E69505B225ECFB13006483F2 /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		E69505B325ECFB13006483F2 /* SearchBarColorScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarColorScheme.swift; sourceTree = "<group>"; };
@@ -1596,7 +1596,7 @@
 		E6D4955B255DF56A00497106 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		E6D4955F255DF66D00497106 /* Themeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themeable.swift; sourceTree = "<group>"; };
 		E6D49563255DF84500497106 /* ThemeObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeObserver.swift; sourceTree = "<group>"; };
-		E6D49569255DFE7600497106 /* AppThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppThemeManager.swift; sourceTree = "<group>"; };
+		E6D49569255DFE7600497106 /* UIKitThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitThemeManager.swift; sourceTree = "<group>"; };
 		E6D4956D255E0FDF00497106 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		E6D4958C255E75AB00497106 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		E6D91C802532094000DCE489 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -1804,23 +1804,6 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		0E008ADB2743F585003D7882 /* SwiftUI */ = {
-			isa = PBXGroup;
-			children = (
-				E6773FED2692F4080064AFA8 /* SchemeProvider.swift */,
-				0EB1AC382656B30C007D7795 /* SwiftUIThemeManager.swift */,
-			);
-			path = SwiftUI;
-			sourceTree = "<group>";
-		};
-		0E008ADC2743F590003D7882 /* UIKit */ = {
-			isa = PBXGroup;
-			children = (
-				E6D49569255DFE7600497106 /* AppThemeManager.swift */,
-			);
-			path = UIKit;
-			sourceTree = "<group>";
-		};
 		0E008ADD2746AFB2003D7882 /* MonthYearPickerView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1894,6 +1877,7 @@
 		0E0E885425FBB28A00127626 /* CoreFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				E9E3CAC428C0CD4C008E161A /* ThemeManagers */,
 				E6FB3110253DC2FA00314E00 /* Themes */,
 				E6EE7E53255973BD009F3D5D /* Appearance.swift */,
 			);
@@ -5948,8 +5932,6 @@
 		E6FB3110253DC2FA00314E00 /* Themes */ = {
 			isa = PBXGroup;
 			children = (
-				0E008ADC2743F590003D7882 /* UIKit */,
-				0E008ADB2743F585003D7882 /* SwiftUI */,
 				E6D4958C255E75AB00497106 /* AppTheme.swift */,
 				E6BB793A25DAA0800080E2EF /* AppThemeStorage.swift */,
 				0EEAFACE262467C400E46143 /* ParameterBox.swift */,
@@ -6723,6 +6705,32 @@
 			path = ErrorView;
 			sourceTree = "<group>";
 		};
+		E9E3CAC428C0CD4C008E161A /* ThemeManagers */ = {
+			isa = PBXGroup;
+			children = (
+				E9E3CAC628C0CD5E008E161A /* UIKit */,
+				E9E3CAC528C0CD59008E161A /* SwiftUI */,
+			);
+			path = ThemeManagers;
+			sourceTree = "<group>";
+		};
+		E9E3CAC528C0CD59008E161A /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				E6773FED2692F4080064AFA8 /* SwiftUISchemeProvider.swift */,
+				0EB1AC382656B30C007D7795 /* SwiftUIThemeManager.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		E9E3CAC628C0CD5E008E161A /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				E6D49569255DFE7600497106 /* UIKitThemeManager.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
 		E9ECF204272A8E4900363E5E /* UploadFIleView */ = {
 			isa = PBXGroup;
 			children = (
@@ -7020,11 +7028,11 @@
 				0E0E888725FBB2BC00127626 /* Themeable.swift in Sources */,
 				0E0E888625FBB2BC00127626 /* Theme.swift in Sources */,
 				E6C6CFF5268C92AD00972A1B /* ParameterBox.swift in Sources */,
-				0EF8BE6B2742AD79005F7620 /* SchemeProvider.swift in Sources */,
+				0EF8BE6B2742AD79005F7620 /* SwiftUISchemeProvider.swift in Sources */,
 				0E0E889425FBB2C100127626 /* Appearance.swift in Sources */,
 				0EF8BE6C2742AD7D005F7620 /* SwiftUIThemeManager.swift in Sources */,
 				E9A709FD27610270003233DF /* version.swift in Sources */,
-				0E0E886025FBB2A900127626 /* AppThemeManager.swift in Sources */,
+				0E0E886025FBB2A900127626 /* UIKitThemeManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
