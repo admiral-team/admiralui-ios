@@ -1,12 +1,12 @@
 xcassets:
-    inputs: Source/AdmiralUIResources/Resources/Assets/TestsImages.xcassets
+    inputs: Tests/Resources/TestAssets.xcassets
     outputs:
         templateName: swift5
-        output: Source/AdmiralUIResources/Classes/CoreFoundation/Assets/TestsAssets.swift
+        output: Tests/Resources/TestAssets.swift
         params:
             publicAccess: 1
             allValues: 1
-            enumName: TestsAsset
-            imageTypeName: TestsImageAsset
-            imageAliasName: TestsAssetImageTypeAlias
+            enumName: TestAsset
+            imageTypeName: TestImageAsset
+            imageAliasName: TestAssetImageTypeAlias
 

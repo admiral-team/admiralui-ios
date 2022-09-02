@@ -10,21 +10,21 @@
 #endif
 
 // Deprecated typealiases
-@available(*, deprecated, renamed: "TestsImageAsset.Image", message: "This typealias will be removed in SwiftGen 7.0")
-public typealias TestsAssetImageTypeAlias = TestsImageAsset.Image
+@available(*, deprecated, renamed: "TestImageAsset.Image", message: "This typealias will be removed in SwiftGen 7.0")
+public typealias TestAssetImageTypeAlias = TestImageAsset.Image
 
 // swiftlint:disable superfluous_disable_command file_length implicit_return
 
 // MARK: - Asset Catalogs
 
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
-public enum TestsAsset {
+public enum TestAsset {
   public enum Chat {
-    public static let photo = TestsImageAsset(name: "Chat/photo")
+    public static let photo = TestImageAsset(name: "Chat/photo")
   }
 
   // swiftlint:disable trailing_comma
-  public static let allImages: [TestsImageAsset] = [
+  public static let allImages: [TestImageAsset] = [
     Chat.photo,
   ]
   // swiftlint:enable trailing_comma
@@ -33,7 +33,7 @@ public enum TestsAsset {
 
 // MARK: - Implementation Details
 
-public struct TestsImageAsset {
+public struct TestImageAsset {
   public fileprivate(set) var name: String
 
   #if os(macOS)
@@ -71,11 +71,11 @@ public struct TestsImageAsset {
   #endif
 }
 
-public extension TestsImageAsset.Image {
+public extension TestImageAsset.Image {
   @available(iOS 8.0, tvOS 9.0, watchOS 2.0, *)
   @available(macOS, deprecated,
-    message: "This initializer is unsafe on macOS, please use the TestsImageAsset.image property")
-  convenience init?(asset: TestsImageAsset) {
+    message: "This initializer is unsafe on macOS, please use the TestImageAsset.image property")
+  convenience init?(asset: TestImageAsset) {
     #if os(iOS) || os(tvOS)
     let bundle = BundleToken.bundle
     self.init(named: asset.name, in: bundle, compatibleWith: nil)
