@@ -47,20 +47,18 @@ public final class LogoTabScheme: AppThemeScheme {
 
     // MARK: - Initializer
 
-    public init(theme: AppTheme) {
+    public convenience init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
-
-        backgroundColor = theme.colors.backgroundBasic
-
-        alphaLogo.set(parameter: 1.0, for: .normal)
-        alphaLogo.set(parameter: 0.5, for: .disabled)
-
-        borderColor.set(parameter: theme.colors.elementAdditional, for: .normal)
-        borderColor.set(parameter: theme.colors.elementAdditional.withAlpha(alpha), for: .disabled)
-        thumbColor.set(parameter: theme.colors.elementAccent, for: .normal)
-        thumbColor.set(parameter: theme.colors.elementAccent, for: .selected)
-
-        thumbColor.set(parameter: theme.colors.elementAccent.withAlpha(alpha), for: .disabled)
+        self.init(
+            backgroundColor: theme.colors.backgroundBasic,
+            alphaLogoNormal: 1.0,
+            alphaLogoDisabled: 0.5,
+            borderColorNormal: theme.colors.elementAdditional,
+            borderColorDisabled: theme.colors.elementAdditional.withAlpha(alpha),
+            thumbColorNormal: theme.colors.elementAccent,
+            thumbColorSelected: theme.colors.elementAccent,
+            thumbColorDisabled: theme.colors.elementAccent.withAlpha(alpha)
+        )
     }
 
     public init(

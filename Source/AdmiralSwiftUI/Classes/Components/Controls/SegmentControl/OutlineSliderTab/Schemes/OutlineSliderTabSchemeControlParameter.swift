@@ -1,8 +1,8 @@
 //
-//  OutlineSliderTabStyle.swift
+//  OutlineSliderTabSchemeControlParameter.swift
 //  AdmiralSwiftUI
 //
-//  Created on 22.04.2021.
+//  Created on 02.09.2022.
 //
 
 import SwiftUI
@@ -13,16 +13,11 @@ import AdmiralUIResources
  You can create a by specifying the following parameters in init:
  - OutlineSliderTabScheme() - Initialize default OutlineSliderTabScheme with default themezation
  - OutlineSliderTabScheme(
-     backgroundColor: AColor,
-     titleColorNormal: AColor,
-     titleFontNormal: AFont,
-     borderColorNormal: AColor,
-     borderColorDisabled: AColor,
-     thumbColorSelected: AColor,
-     thumbColorDisabled: AColor,
-     titleFontSelected:  AFont,
-     titleColorDisabled: AColor,
-     titleColorSelected: AColor
+    backgroundColor: AColor - the background color of OutlineSliderTabView ,
+     thumbColor: ControlParameter<AColor> - The control parameter for thumb,
+     borderColor: ControlParameter<AColor> - The control parameter for thumb,
+     titleColor: ControlParameter<AColor> - The control parameter for thumb,
+     titleFont: ControlParameter<AFont> - The control parameter for thumb
    )
  # Example to create OutlineSliderTabScheme:
  # Code
@@ -30,9 +25,7 @@ import AdmiralUIResources
 let scheme = OutlineSliderTabScheme()
  ```
  */
-@available(iOS 14.0, *)
-/// Outline slider tab scheme.
-public final class OutlineSliderTabScheme: AppThemeScheme {
+public final class OutlineSliderTabSchemeControlParameter: AppThemeScheme {
 
     // MARK: - Public Properties
 
@@ -55,7 +48,6 @@ public final class OutlineSliderTabScheme: AppThemeScheme {
 
     public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
-
         backgroundColor = theme.colors.backgroundBasic
 
         titleColor.set(parameter: theme.colors.textPrimary, for: .normal)
@@ -75,31 +67,16 @@ public final class OutlineSliderTabScheme: AppThemeScheme {
 
     public init(
         backgroundColor: AColor,
-        titleColorNormal: AColor,
-        titleFontNormal: AFont,
-        borderColorNormal: AColor,
-        borderColorDisabled: AColor,
-        thumbColorSelected: AColor,
-        thumbColorDisabled: AColor,
-        titleFontSelected:  AFont,
-        titleColorDisabled: AColor,
-        titleColorSelected: AColor
+        thumbColor: ControlParameter<AColor>,
+        borderColor: ControlParameter<AColor>,
+        titleColor: ControlParameter<AColor>,
+        titleFont: ControlParameter<AFont>
     ) {
         self.backgroundColor = backgroundColor
-
-        titleColor.set(parameter: titleColorNormal, for: .normal)
-        titleFont.set(parameter: titleFontNormal, for: .normal)
-
-        borderColor.set(parameter: borderColorNormal, for: .normal)
-        borderColor.set(parameter: borderColorDisabled, for: .disabled)
-
-        thumbColor.set(parameter: thumbColorSelected, for: .selected)
-        thumbColor.set(parameter: thumbColorDisabled, for: .disabled)
-
-        titleFont.set(parameter: titleFontSelected, for: .selected)
-
-        titleColor.set(parameter: titleColorDisabled, for: .disabled)
-        titleColor.set(parameter: titleColorSelected, for: .selected)
+        self.thumbColor = thumbColor
+        self.borderColor = borderColor
+        self.titleColor = titleColor
+        self.titleFont = titleFont
     }
 
 }
