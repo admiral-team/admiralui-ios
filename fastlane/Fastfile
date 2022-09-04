@@ -83,6 +83,7 @@ lane :deploy_appcenter_dev do |options|
       output_directory: "Release/AdmiralUI-Example/Dev",
       export_method: "enterprise",
       output_name: "admiralui-example.ipa",
+      sdk: "iOS 15.0" 
     )
 
     increment_app_build(build_number: previous_build_number)
