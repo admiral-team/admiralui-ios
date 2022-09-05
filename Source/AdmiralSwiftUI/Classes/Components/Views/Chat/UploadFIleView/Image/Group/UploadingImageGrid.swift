@@ -39,7 +39,6 @@ public struct UploadingImageGrid: View {
         static let verticalSpacing: CGFloat = 10
         static let maximumElemenetsInGrid = 6
         static let leftPadding: CGFloat = 110
-        static let paddingLeftError: CGFloat = 6
     }
 
     // MARK: - Public properties
@@ -127,19 +126,26 @@ public struct UploadingImageGrid: View {
             HStack(alignment: .bottom, spacing: LayoutGrid.halfModule) {
                 Spacer()
                 uploadImageViews()
-                    if isStatusError() {
-                        Image(uiImage: Asset.Service.Solid.errorSolid.image)
-                            .resizable()
-                            .frame(width: LayoutGrid.halfModule * 7, height: LayoutGrid.halfModule * 7)
-                            .foregroundColor(scheme.errorImageColor.swiftUIColor)
-                            .padding(.top, LayoutGrid.module)
-                            .padding(.leading, Constants.paddingLeftError)
-                            .onTapGesture {
-                                errorAction()
-                            }
-                    }
+
+                statusError(scheme: scheme)
             }
             .eraseToAnyView()
+        }
+    }
+    
+    private func statusError(scheme: UploadingImageGridScheme) -> some View {
+        return VStack {
+            if isStatusError() {
+                Image(uiImage: Asset.Service.Solid.errorSolid.image)
+                    .resizable()
+                    .frame(width: LayoutGrid.halfModule * 7, height: LayoutGrid.halfModule * 7)
+                    .foregroundColor(scheme.errorImageColor.swiftUIColor)
+                    .padding(.top, LayoutGrid.module)
+                    .padding(.leading, LayoutGrid.module)
+                    .onTapGesture {
+                        errorAction()
+                    }
+            }
         }
     }
     

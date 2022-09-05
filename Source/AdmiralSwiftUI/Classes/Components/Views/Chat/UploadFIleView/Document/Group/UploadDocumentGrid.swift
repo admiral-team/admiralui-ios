@@ -45,12 +45,6 @@ import SwiftUI
  */
 @available(iOS 14.0.0, *)
 public struct UploadDocumentGrid: View {
-    
-    // MARK: - Constants
-
-    private enum Constants {
-        static let paddingLeftError: CGFloat = 6
-    }
 
     // MARK: - Public properties
 
@@ -143,7 +137,7 @@ public struct UploadDocumentGrid: View {
                     .frame(width: LayoutGrid.halfModule * 7, height: LayoutGrid.halfModule * 7)
                     .foregroundColor(scheme.errorImageColor.swiftUIColor)
                     .padding(.top, LayoutGrid.module)
-                    .padding(.leading, Constants.paddingLeftError)
+                    .padding(.leading, LayoutGrid.module)
                     .onTapGesture {
                         errorAction()
                     }

@@ -56,7 +56,6 @@ public struct TextOperationView: View {
         static let paddingHorizontal = LayoutGrid.tripleModule / 2
         static let paddingVertical = LayoutGrid.module
         static let cornerRadius = LayoutGrid.tripleModule / 2
-        static let paddingLeftError: CGFloat = 6
     }
 
     // MARK: - Public properties
@@ -165,20 +164,25 @@ public struct TextOperationView: View {
             )
             .frame(width: Constants.width)
             
+            statusError(scheme: scheme)
+        }
+    }
+    
+    private func statusError(scheme: TextOperationViewScheme) -> some View {
+        return VStack {
             if chatStatus == .error && direction == .right {
                 Image(uiImage: Asset.Service.Solid.errorSolid.image)
                     .resizable()
                     .frame(width: LayoutGrid.halfModule * 7, height: LayoutGrid.halfModule * 7)
                     .foregroundColor(scheme.errorImageColor.swiftUIColor)
                     .padding(.top, LayoutGrid.module)
-                    .padding(.leading, Constants.paddingLeftError)
+                    .padding(.leading, LayoutGrid.module)
                     .onTapGesture {
                         errorAction()
                     }
             }
         }
     }
-
 }
 
 @available(iOS 14.0, *)

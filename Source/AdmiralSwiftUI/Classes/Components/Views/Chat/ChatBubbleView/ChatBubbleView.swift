@@ -73,7 +73,6 @@ public struct ChatBubbleView: View {
     private enum Constants {
         static let minWidth: CGFloat = LayoutGrid.quadrupleModule * 3
         static let ratioWidth: CGFloat = 0.2
-        static let paddingLeftError: CGFloat = 6
     }
 
     // MARK: - Public Properties
@@ -183,7 +182,7 @@ public struct ChatBubbleView: View {
                             .frame(width: LayoutGrid.halfModule * 7, height: LayoutGrid.halfModule * 7)
                             .foregroundColor(scheme.errorImageColor.swiftUIColor)
                             .padding(.top, LayoutGrid.module)
-                            .padding(.leading, Constants.paddingLeftError)
+                            .padding(.leading, LayoutGrid.module)
                             .onTapGesture {
                                 errorAction()
                             }
