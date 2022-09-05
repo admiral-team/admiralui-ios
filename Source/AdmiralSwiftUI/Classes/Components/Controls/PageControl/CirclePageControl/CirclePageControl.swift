@@ -4,15 +4,12 @@
 //
 //  Created on 11.11.2021.
 //
-
 import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
-
 /**
  The style for creating the CirclePageControl Button.
-
- To configure the current button style for a view hierarchy, use the buttonStyle(_:) modifier.
+ To configure the current button style for a view hierarchy, use the buttonStyle(_:) modifier.
  You can create buttons in two styles: (default, additional) by specifying style in init CirclePageControlStyle:
  # Code
  ```
@@ -20,15 +17,12 @@ import AdmiralUIResources
      .buttonStyle(CirclePageControlStyle(totalPages: 7, style: .additional))
  ```
  You can create a buttin with CirclePageControlStyle specifying the following parameters in init:
-
  step: Binding<Int> - The current page of page control.
  style: CirclePageSliderStyle - The style of button.
  totalPages: Int - The number of pages of page control.
-
  There is two types of style:
  Additional - the style with additional colors in elements including cirle, progress indicator and arrow icon;
  Default - the style with accent colors in elements including cirle, progress indicator and arrow icon
-
  # Code
  ```
  Button(action: {}, label: {})
@@ -39,7 +33,7 @@ import AdmiralUIResources
 public struct CirclePageControlStyle: ButtonStyle {
 
     // MARK: - Public properties
-    
+
     /// Step page control.
     @Binding public var step: Int
     /// Total count pages.
@@ -51,8 +45,7 @@ public struct CirclePageControlStyle: ButtonStyle {
 
     // MARK: - Private properties
 
-    private var scheme: CirclePageControlScheme? = nil
-    private let schemeProvider: CirclePageControlSchemeProvider
+    @Binding private var scheme: CirclePageControlScheme?
 
     // MARK: - Initializier
 
@@ -61,25 +54,23 @@ public struct CirclePageControlStyle: ButtonStyle {
         totalPages: Int,
         style: CirclePageSliderStyle = .default,
         action: (() -> Void)? = nil,
-        scheme: CirclePageControlScheme? = nil
+        scheme: Binding<CirclePageControlScheme?> = .constant(nil)
     ) {
         self.totalPages = totalPages
         self.style = style
         self._step = step
-        self.scheme = scheme
+        self._scheme = scheme
         self.action = action
-        self.schemeProvider = AppThemeSchemeProvider<CirclePageControlScheme>()
     }
 
     // MARK: - Public methods
 
     public func makeBody(configuration: Self.Configuration) -> some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
         CirclePageControl(
             totalPages: totalPages,
             step: $step,
             style: style,
-            scheme: scheme,
+            scheme: $scheme,
             action: action,
             configuration: configuration
         )
@@ -108,13 +99,15 @@ private extension CirclePageControlStyle {
         // MARK: - Private Properties
 
         @Binding private var step: Int
+
         private let style: CirclePageSliderStyle
         private let totalPages: Int
         private let configuration: Configuration
         private let stepLength: CGFloat
         private let action: (() -> Void)?
-        private let scheme: CirclePageControlScheme
-        private let schemeProvider: CirclePageControlSchemeProvider
+
+        @Binding private var scheme: CirclePageControlScheme?
+        @ObservedObject private var schemeProvider = AppThemeSchemeProvider<CirclePageControlScheme>()
 
         // MARK: - Initializer
 
@@ -122,17 +115,16 @@ private extension CirclePageControlStyle {
             totalPages: Int,
             step: Binding<Int>,
             style: CirclePageSliderStyle,
-            scheme: CirclePageControlScheme,
+            scheme: Binding<CirclePageControlScheme?> = .constant(nil),
             action: (() -> Void)?,
             configuration: Configuration
         ) {
-            self.scheme = scheme
+            self._scheme = scheme
             self._step = step
             self.configuration = configuration
             self.totalPages = totalPages
             self.style = style
             self.action = action
-            self.schemeProvider = AppThemeSchemeProvider<CirclePageControlScheme>()
             stepLength = 1.0 / CGFloat(totalPages)
         }
 
@@ -152,7 +144,7 @@ private extension CirclePageControlStyle {
 
         private func contentView() -> some View {
             ZStack {
-
+                let scheme = self.scheme ?? schemeProvider.scheme
                 Circle()
                     .trim(from: .zero, to: CGFloat(step) * stepLength)
                     .stroke(style: StrokeStyle(lineWidth: Constants.circleLineWidth, lineCap: .round, lineJoin: .round))
@@ -190,5 +182,5 @@ struct CirclePageControl_Previews: PreviewProvider {
     static var previews: some View {
         exampleCircleControl()
     }
-    
+
 }
