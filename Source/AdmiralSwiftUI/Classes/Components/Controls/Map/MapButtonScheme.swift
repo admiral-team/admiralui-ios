@@ -38,6 +38,15 @@ public struct MapButtonScheme: AppThemeScheme {
 
     // MARK: - Initializer
 
+    public init(theme: AppTheme = .default) {
+        self.init(
+            backgroundColorNormal: theme.colors.backgroundExtraSurface,
+            backgroundColorHighlighted: theme.colors.backgroundAdditionalOne,
+            imageTintColor: theme.colors.elementPrimary,
+            shadowColor: theme.colors.backgroundShadow
+        )
+    }
+
     public init(
         backgroundColorNormal: AColor,
         backgroundColorHighlighted: AColor,
@@ -48,13 +57,6 @@ public struct MapButtonScheme: AppThemeScheme {
         backgroundColor.set(parameter: backgroundColorHighlighted, for: .highlighted)
         self.imageTintColor = imageTintColor
         self.shadowColor = shadowColor
-    }
-
-    public init(theme: AppTheme = .default) {
-        backgroundColor.set(parameter: theme.colors.backgroundExtraSurface, for: .normal)
-        backgroundColor.set(parameter: theme.colors.backgroundAdditionalOne, for: .highlighted)
-        imageTintColor = theme.colors.elementPrimary
-        shadowColor = theme.colors.backgroundShadow
     }
 
 }
