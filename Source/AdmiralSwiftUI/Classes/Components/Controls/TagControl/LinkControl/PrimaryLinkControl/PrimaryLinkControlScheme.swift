@@ -41,20 +41,6 @@ public struct PrimaryLinkControlScheme: AppThemeScheme {
 
     // MARK: - Initializer
 
-    public init(theme: AppTheme) {
-        let alpha = theme.colors.disabledAlpha
-
-        font.set(parameter: theme.fonts.subhead3, style: .medium, isEnabled: false)
-        font.set(parameter: theme.fonts.subhead3, style: .medium, isEnabled: true)
-
-        font.set(parameter: theme.fonts.body2, style: .default, isEnabled: false)
-        font.set(parameter: theme.fonts.body2, style: .default, isEnabled: true)
-
-        textColor.set(parameter: theme.colors.backgroundAccent, for: .normal)
-        textColor.set(parameter: theme.colors.backgroundAccentPressed, for: .highlighted)
-        textColor.set(parameter: theme.colors.backgroundAccent.withAlpha(alpha), for: .disabled)
-    }
-
     public init(
         fontMediumDisabled: AFont,
         fontMeduimEnabled: AFont,
@@ -73,6 +59,19 @@ public struct PrimaryLinkControlScheme: AppThemeScheme {
         textColor.set(parameter: textColorNormal, for: .normal)
         textColor.set(parameter: textColorHighlighted, for: .highlighted)
         textColor.set(parameter: textColorDisabled, for: .disabled)
+    }
+
+    public init(theme: AppTheme) {
+        let alpha = theme.colors.disabledAlpha
+        self.init(
+            fontMediumDisabled: theme.fonts.subhead3,
+            fontMeduimEnabled: theme.fonts.subhead3,
+            fontDefaultDisabled: theme.fonts.body2,
+            fontDefaultEnabled: theme.fonts.body2,
+            textColorNormal: theme.colors.backgroundAccent,
+            textColorHighlighted: theme.colors.backgroundAccentPressed,
+            textColorDisabled: theme.colors.backgroundAccent.withAlpha(alpha)
+        )
     }
 
 }

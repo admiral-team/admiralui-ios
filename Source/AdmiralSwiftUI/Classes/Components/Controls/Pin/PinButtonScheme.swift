@@ -45,6 +45,15 @@ public struct PinButtonScheme: AppThemeScheme {
 
     // MARK: - Initializer
 
+    public init(theme: AppTheme = .default) {
+        let alpha = theme.colors.disabledAlpha
+        self.init(
+            backgroundColor: theme.colors.backgroundAccent,
+            selectedBackgroundColor: theme.colors.backgroundAccent.withAlpha(alpha),
+            shadowColor: theme.colors.backgroundShadow
+        )
+    }
+
     public init(
         backgroundColor: AColor,
         selectedBackgroundColor: AColor,
@@ -53,13 +62,6 @@ public struct PinButtonScheme: AppThemeScheme {
         self.backgroundColor = backgroundColor
         self.selectedBackgroundColor = selectedBackgroundColor
         self.shadowColor = shadowColor
-    }
-
-    public init(theme: AppTheme = .default) {
-        let alpha = theme.colors.disabledAlpha
-        backgroundColor = theme.colors.backgroundAccent
-        selectedBackgroundColor = theme.colors.backgroundAccent.withAlpha(alpha)
-        shadowColor = theme.colors.backgroundShadow
     }
 
 }

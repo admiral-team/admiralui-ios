@@ -29,6 +29,7 @@ public struct SeveralPinButtonStyle: ButtonStyle {
 
     // MARK: - Public Properties
 
+    /// The text 
     @Binding public var value: String
 
     // MARK: - Private Properties

@@ -31,22 +31,21 @@ import SwiftUI
  }
 ```
  */
-
 @available(iOS 14.0.0, *)
 public struct PrimaryLinkControlStyle: ButtonStyle {
 
     // MARK: - Public properties
 
-    /// The image of PrimaryLinkControl
+    /// The image
     public let image: Image?
 
-    /// The text of PrimaryLinkControl
+    /// The text
     public let text: String?
 
-    /// The direction of PrimaryLinkControl
+    /// The direction
     public let direction: LinkControlDirection
 
-    /// The style of PrimaryLinkControl
+    /// The style
     public let style: LinkControlStyle
 
     // MARK: - Private properties
@@ -94,7 +93,6 @@ public enum LinkControlStyle: Int {
     case medium
     case `default`
 }
-
 
 @available(iOS 14.0.0, *)
 private extension PrimaryLinkControlStyle {
@@ -168,7 +166,6 @@ private extension PrimaryLinkControlStyle {
                     .font(scheme.font.parameter(style: style, isEnabled: isEnabled)?.swiftUIFont)
             }
         }
-
     }
 
 }

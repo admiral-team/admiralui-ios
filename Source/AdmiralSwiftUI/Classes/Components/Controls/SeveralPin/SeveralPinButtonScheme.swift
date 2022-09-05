@@ -47,6 +47,15 @@ public struct SeveralPinButtonScheme: AppThemeScheme {
 
     // MARK: - Initializer
 
+    public init(theme: AppTheme = .default) {
+        self.init(
+            borderColor: theme.colors.backgroundAccent,
+            backgroundColor: theme.colors.backgroundBasic,
+            textColor: theme.colors.textPrimary,
+            shadowColor: theme.colors.backgroundShadow
+        )
+    }
+
     public init(
         borderColor: AColor,
         backgroundColor: AColor,
@@ -57,13 +66,6 @@ public struct SeveralPinButtonScheme: AppThemeScheme {
         self.backgroundColor = backgroundColor
         self.textColor = textColor
         self.shadowColor = shadowColor
-    }
-
-    public init(theme: AppTheme = .default) {
-        textColor = theme.colors.textPrimary
-        backgroundColor = theme.colors.backgroundBasic
-        borderColor = theme.colors.backgroundAccent
-        shadowColor = theme.colors.backgroundShadow
     }
 
 }
