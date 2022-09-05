@@ -40,9 +40,11 @@ public struct ToolBarScheme: AppThemeScheme {
 
     // MARK: - Initializer
 
-    public init(theme: AppTheme) {
-        backgroundColor = theme.colors.backgroundAccentDark
-        shadowColor = theme.colors.backgroundShadow
+    public init(theme: AppTheme = .default) {
+        self.init(
+            backgroundColor: theme.colors.backgroundAccentDark,
+            shadowColor: theme.colors.backgroundShadow
+        )
     }
 
     public init(
