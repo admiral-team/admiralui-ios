@@ -36,17 +36,19 @@ public struct PageControlViewScheme: AppThemeScheme {
 
     // MARK: - Initializer
 
+    public init(theme: AppTheme = .default) {
+        self.init(
+            normalColor: theme.colors.textSecondary,
+            selectedColor: theme.colors.textPrimary
+        )
+    }
+
     public init(
         normalColor: AColor,
         selectedColor: AColor
     ) {
         backgroundColor.set(parameter: normalColor, for: .normal)
         backgroundColor.set(parameter: selectedColor, for: .selected)
-    }
-
-    public init(theme: AppTheme = .default) {
-        backgroundColor.set(parameter: theme.colors.textSecondary, for: .normal)
-        backgroundColor.set(parameter: theme.colors.textPrimary, for: .selected)
     }
 
 }

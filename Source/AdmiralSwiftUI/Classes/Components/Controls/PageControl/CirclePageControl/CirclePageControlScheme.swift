@@ -51,6 +51,19 @@ public struct CirclePageControlScheme: AppThemeScheme {
 
     // MARK: - Initializer
 
+    public init(theme: AppTheme = .default) {
+        self.init(
+            backroundColorNotPressedDefault: theme.colors.backgroundAccent,
+            backroundColorNotPressedAdditional: theme.colors.backgroundAdditionalOne,
+            backroundColorPressedDefault: theme.colors.backgroundAccent,
+            backroundColorPressedAdditional: theme.colors.backgroundAdditionalOne,
+            imageColorNotPressedDefault: theme.colors.textStaticWhite,
+            imageColorNotPressedAdditional: theme.colors.elementAccent,
+            imageColorPressedDefault: theme.colors.backgroundAdditionalOne,
+            imageColorPressedAdditional: theme.colors.elementAccent.withAlpha(0.5)
+        )
+    }
+
     public init(
         backroundColorNotPressedDefault: AColor,
         backroundColorNotPressedAdditional: AColor,
@@ -67,27 +80,11 @@ public struct CirclePageControlScheme: AppThemeScheme {
         backgroundColor.set(parameter: backroundColorPressedDefault, for: true, style: .default)
         backgroundColor.set(parameter: backroundColorPressedAdditional, for: true, style: .additional)
 
-
         imageTintColor.set(parameter: imageColorNotPressedDefault, for: false, style: .default)
         imageTintColor.set(parameter: imageColorNotPressedAdditional, for: false, style: .additional)
 
         imageTintColor.set(parameter: imageColorPressedDefault, for: true, style: .default)
         imageTintColor.set(parameter: imageColorPressedAdditional.withAlpha(0.5), for: true, style: .additional)
-    }
-
-    public init(theme: AppTheme = .default) {
-        backgroundColor.set(parameter: theme.colors.backgroundAccent, for: false, style: .default)
-        backgroundColor.set(parameter: theme.colors.backgroundAdditionalOne, for: false, style: .additional)
-
-        backgroundColor.set(parameter: theme.colors.backgroundAccent, for: true, style: .default)
-        backgroundColor.set(parameter: theme.colors.backgroundAdditionalOne, for: true, style: .additional)
-
-
-        imageTintColor.set(parameter: theme.colors.textStaticWhite, for: false, style: .default)
-        imageTintColor.set(parameter: theme.colors.elementAccent, for: false, style: .additional)
-
-        imageTintColor.set(parameter: theme.colors.backgroundAdditionalOne, for: true, style: .default)
-        imageTintColor.set(parameter: theme.colors.elementAccent.withAlpha(0.5), for: true, style: .additional)
     }
 
 }
