@@ -24,7 +24,6 @@ public enum PrivateAsset {
       public static let point = PrivateImageAsset(name: "Custom/Cell/point")
     }
     public enum Chat {
-      public static let photo = PrivateImageAsset(name: "Custom/Chat/Photo")
       public static let read = PrivateImageAsset(name: "Custom/Chat/Read")
       public static let sent = PrivateImageAsset(name: "Custom/Chat/Sent")
       public static let error = PrivateImageAsset(name: "Custom/Chat/Shape")
@@ -50,7 +49,6 @@ public enum PrivateAsset {
   // swiftlint:disable trailing_comma
   public static let allImages: [PrivateImageAsset] = [
     Custom.Cell.point,
-    Custom.Chat.photo,
     Custom.Chat.read,
     Custom.Chat.sent,
     Custom.Chat.error,
