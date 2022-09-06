@@ -181,9 +181,9 @@ public struct SearchBar: View, AccessabilitySupportUIKit {
 
     // MARK: - Internal Methods
 
-    func scheme(_ scheme: Binding<SearchBarColorScheme?>) -> some View {
+    func scheme(_ scheme: SearchBarColorScheme) -> some View {
         var view = self
-        view._scheme = scheme
+        view._scheme = .constant(scheme)
         return view.id(UUID())
     }
 
