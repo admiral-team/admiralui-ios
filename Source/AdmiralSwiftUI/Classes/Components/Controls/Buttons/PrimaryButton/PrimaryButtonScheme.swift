@@ -12,15 +12,6 @@ import AdmiralUIResources
  PrimaryButtonScheme - the visual scheme of PageControlView.
  You can create a by specifying the following parameters in init:
  - PrimaryButtonScheme() - Initialize default PrimaryButtonScheme with default themezation
- - PrimaryButtonScheme(
-     font: AFont,
-     backgroundColor: AColor,
-     buttonBackgroundColorNormal: AColor,
-     buttonBackgroundColorHighlighted: AColor,
-     buttonBackgroundColorDisabled: AColor,
-     textColorNormal: AColor,
-     textColorDisabled: AColor
-   )
  # Example to create PrimaryButtonScheme:
  # Code
  ```
@@ -33,7 +24,7 @@ public struct PrimaryButtonScheme: AppThemeScheme {
     // MARK: - Properties
 
     /// The font of PrimaryButton
-    public let font: AFont
+    public var font: AFont
 
     /// The background of PrimaryButton
     public var backgroundColor: AColor
@@ -59,26 +50,6 @@ public struct PrimaryButtonScheme: AppThemeScheme {
 
         textColor.set(parameter: theme.colors.textStaticWhite, for: .normal)
         textColor.set(parameter: theme.colors.textStaticWhite.withAlpha(alpha), for: .disabled)
-    }
-
-    public init(
-        font: AFont,
-        backgroundColor: AColor,
-        buttonBackgroundColorNormal: AColor,
-        buttonBackgroundColorHighlighted: AColor,
-        buttonBackgroundColorDisabled: AColor,
-        textColorNormal: AColor,
-        textColorDisabled: AColor
-    ) {
-        self.font = font
-        self.backgroundColor = backgroundColor
-
-        buttonBackgroundColor.set(parameter: buttonBackgroundColorNormal, for: .normal)
-        buttonBackgroundColor.set(parameter: buttonBackgroundColorHighlighted, for: .highlighted)
-        buttonBackgroundColor.set(parameter: buttonBackgroundColorDisabled, for: .disabled)
-
-        textColor.set(parameter: textColorNormal, for: .normal)
-        textColor.set(parameter: textColorDisabled, for: .disabled)
     }
 
 }

@@ -11,16 +11,6 @@ import AdmiralUIResources
  SecondaryButtonScheme - the visual scheme of PageControlView.
  You can create a by specifying the following parameters in init:
  - SecondaryButtonScheme() - Initialize default SecondaryButtonScheme with default themezation
- - SecondaryButtonScheme(
-     font: AFont,
-     backgroundColor: AColor,
-     textColorNormal: AColor,
-     textColorHighlighted: AColor,
-     textColorDisabled: AColor,
-     borderColorNormal: AColor,
-     borderColorHighlighted: AColor,
-     borderColorDisabled: AColor
-   )
  # Example to create SecondaryButtonScheme:
  # Code
  ```
@@ -33,7 +23,7 @@ public struct SecondaryButtonScheme: AppThemeScheme {
     // MARK: - Public Properties
 
     /// The font of SecondaryButton
-    public let font: AFont
+    public var font: AFont
 
     /// The font of SecondaryButton
     public var backgroundColor: AColor
@@ -46,7 +36,7 @@ public struct SecondaryButtonScheme: AppThemeScheme {
 
     // MARK: - Initializer
 
-    public init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         font = theme.fonts.body1
@@ -60,29 +50,6 @@ public struct SecondaryButtonScheme: AppThemeScheme {
         borderColor.set(parameter: theme.colors.backgroundAccent, for: .normal)
         borderColor.set(parameter: theme.colors.backgroundAccentPressed, for: .highlighted)
         borderColor.set(parameter: theme.colors.backgroundAccent.withAlpha(alpha), for: .disabled)
-    }
-
-    public init(
-        font: AFont,
-        backgroundColor: AColor,
-        textColorNormal: AColor,
-        textColorHighlighted: AColor,
-        textColorDisabled: AColor,
-        borderColorNormal: AColor,
-        borderColorHighlighted: AColor,
-        borderColorDisabled: AColor
-    ) {
-        self.font = font
-
-        self.backgroundColor = backgroundColor
-
-        textColor.set(parameter: textColorNormal, for: .normal)
-        textColor.set(parameter: textColorHighlighted, for: .highlighted)
-        textColor.set(parameter: textColorDisabled, for: .disabled)
-
-        borderColor.set(parameter: borderColorNormal, for: .normal)
-        borderColor.set(parameter: borderColorHighlighted, for: .highlighted)
-        borderColor.set(parameter: borderColorDisabled, for: .disabled)
     }
 
 }
