@@ -12,21 +12,10 @@ import AdmiralUIResources
  PinButtonScheme - the visual scheme of PinButtonStyle.
  You can create a by specifying the following parameters in init:
  - PinButtonScheme() - Initialize default PinButtonScheme with default themezation
- - PinButtonScheme(
-     backgroundColor: AColor - the background color of PinButtonStyle,
-     selectedbackgroundColor: AColor - the selected background color of PinButtonStyle,
-     shadowColor: AColor -  the shadow color of PinButtonStyle,
-   )
-
 Example to create PinButtonScheme:
 Code
  ```
 let scheme = PinButtonScheme()
-let customScheme = PinButtonScheme(
-    backgroundColor: AppTheme.default.colors.specialExtra22,
-    selectedbackgroundColor: AppTheme.default.colors.specialExtra22,
-    shadowColor: AColor(hexString: "#FFFFFF")
-)
  ```
  */
 @available(iOS 14.0.0, *)
