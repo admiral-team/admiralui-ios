@@ -13,23 +13,6 @@ import AdmiralUIResources
  InformerTabScheme - the visual scheme of PlatformButtonStyle.
  You can create a by specifying the following parameters in init:
  - InformerTabScheme() - Initialize default InformerTabScheme with default themezation
- - InformerTabScheme(
-     backgroundColor: AColor,
-     titleColorNormal: AColor,
-     titleFontNormal: AFont,
-     subtitleColorNormal: AColor,
-     subtitleColorSelected: AColor,
-     subtitleColorDisabled: AColor,
-     subtitleFontNormal: AFont,
-     borderColorNormal: AColor,
-     borderColorDisabled: AColor,
-     thumbColorNormal: AColor,
-     thumbColorSelected: AColor,
-     thumbColorDisabled: AColor,
-     titleFontSelected: AFont,
-     titleColorDisabled: AColor,
-     titleColorSelected: AColor
-   )
  # Example to create InformerTabScheme:
  # Code
  ```
@@ -87,48 +70,6 @@ public final class InformerTabScheme: AppThemeScheme {
         subtitleColor.set(parameter: theme.colors.textSecondary, for: .selected)
 
         thumbColor.set(parameter: theme.colors.elementAccent.withAlpha(alpha), for: .disabled)
-    }
-
-    public init(
-        backgroundColor: AColor,
-        titleColorNormal: AColor,
-        titleFontNormal: AFont,
-
-        subtitleColorNormal: AColor,
-        subtitleColorSelected: AColor,
-        subtitleColorDisabled: AColor,
-        subtitleFontNormal: AFont,
-
-        borderColorNormal: AColor,
-        borderColorDisabled: AColor,
-
-        thumbColorNormal: AColor,
-        thumbColorSelected: AColor,
-        thumbColorDisabled: AColor,
-
-        titleFontSelected: AFont,
-        titleColorDisabled: AColor,
-        titleColorSelected: AColor
-    ) {
-        self.backgroundColor = backgroundColor
-
-        titleColor.set(parameter: titleColorNormal, for: .normal)
-        titleFont.set(parameter: titleFontNormal, for: .normal)
-
-        subtitleColor.set(parameter: subtitleColorNormal, for: .normal)
-        subtitleFont.set(parameter: subtitleFontNormal, for: .normal)
-        titleColor.set(parameter: titleColorDisabled, for: .disabled)
-        titleColor.set(parameter: titleColorSelected, for: .selected)
-
-        subtitleColor.set(parameter: subtitleColorDisabled, for: .disabled)
-        subtitleColor.set(parameter: subtitleColorSelected, for: .selected)
-
-        borderColor.set(parameter: borderColorNormal, for: .normal)
-        borderColor.set(parameter: borderColorDisabled, for: .disabled)
-
-        thumbColor.set(parameter: thumbColorNormal, for: .normal)
-        thumbColor.set(parameter: thumbColorSelected, for: .selected)
-        thumbColor.set(parameter: thumbColorDisabled, for: .disabled)
     }
 
 }
