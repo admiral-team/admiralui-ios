@@ -2,7 +2,7 @@
 //  CalendarMonth.swift
 //  AdmiralSwiftUI
 //
-//  Created by Борисов Кирилл Анатольевич on 31.08.2022.
+//  Created on 31.08.2022.
 //
 
 import Foundation
