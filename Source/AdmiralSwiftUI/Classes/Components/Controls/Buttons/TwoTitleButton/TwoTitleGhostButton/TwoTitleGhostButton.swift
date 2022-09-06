@@ -7,7 +7,6 @@
 
 import AdmiralTheme
 import SwiftUI
-
 /**
  A TwoTitleGhostButton with two text headers (left and right). TwoTitleGhostButton - is used in cases when the main button is not enough, often goes with it in pairs when you need to designate several actions, one of which is the main one.
  You can create a TwoTitleGhostButton by specifying the following parameters in the initializer:
@@ -49,13 +48,16 @@ public struct TwoTitleGhostButton: View {
         leftText: String,
         rightText: String,
         leftAction: @escaping () -> (),
-        rightAction: @escaping () -> ()) {
+        rightAction: @escaping () -> ()
+    ) {
         self.leftText = leftText
         self.rightText = rightText
         self.leftAction = leftAction
         self.rightAction = rightAction
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         ZStack {
