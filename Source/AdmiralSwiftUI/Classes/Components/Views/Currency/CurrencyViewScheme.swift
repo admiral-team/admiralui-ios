@@ -9,14 +9,9 @@ import UIKit
 import AdmiralTheme
 import AdmiralUIResources
 /**
- CurrencyViewScheme - the visual scheme of CurrencyView.
+ CurrencyViewScheme - the visual scheme.
  You can create a by specifying the following parameters in init:
  - CurrencyViewScheme() - Initialize default CurrencyViewScheme with default themezation
- - CurrencyViewScheme(
- textColor: AColor,
- textFont: AFont,
- imageTintColor: AColor
- )
  # Example to create CurrencyViewScheme:
  # Code
  ```
@@ -27,13 +22,13 @@ public struct CurrencyViewScheme: AppThemeScheme {
 
     // MARK: - Properties
 
-    /// The text color of CurrencyView
+    /// The text color
     public var textColor: AColor
 
-    /// The text font of CurrencyView
+    /// The text font
     public var textFont: AFont
 
-    /// The image tint color of CurrencyView
+    /// The image tint color
     public var imageTintColor: AColor
 
     // MARK: - Initializer
@@ -44,14 +39,5 @@ public struct CurrencyViewScheme: AppThemeScheme {
         textFont = theme.fonts.body1
     }
 
-    public init(
-        textColor: AColor,
-        textFont: AFont,
-        imageTintColor: AColor
-    ) {
-        self.textFont = textFont
-        self.textColor = textColor
-        self.imageTintColor = imageTintColor
-    }
 }
 

@@ -120,9 +120,9 @@ public struct CurrencyView: View {
 
     // MARK: - Internal Methods
 
-    func scheme(_ scheme: Binding<CurrencyViewScheme?>) -> some View {
+    func scheme(_ scheme: CurrencyViewScheme) -> some View {
         var view = self
-        view._scheme = scheme
+        view._scheme = .constant(scheme)
         return view.id(UUID())
     }
 
