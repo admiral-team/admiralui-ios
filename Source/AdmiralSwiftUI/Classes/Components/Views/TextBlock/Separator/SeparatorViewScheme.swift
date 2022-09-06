@@ -11,9 +11,6 @@ import AdmiralUIResources
  SeparatorViewScheme - the visual scheme of SeparatorView.
  You can create a by specifying the following parameters in init:
  - SeparatorViewScheme() - Initialize default SeparatorViewScheme with default themezation
- - SeparatorViewScheme(
-    lineTintColor: AColor
-   )
  # Example to create SeparatorViewScheme:
  # Code
  ```
@@ -28,12 +25,9 @@ public struct SeparatorViewScheme: AppThemeScheme {
 
     // MARK: - Initializer
 
-    public init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         lineTintColor = theme.colors.elementAdditional
     }
 
-    public init(lineTintColor: AColor) {
-        self.lineTintColor = lineTintColor
-    }
 }
 

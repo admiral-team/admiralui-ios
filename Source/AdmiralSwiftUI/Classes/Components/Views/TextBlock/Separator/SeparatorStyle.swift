@@ -24,7 +24,7 @@ public enum SeparatorStyle: String {
 
     // MARK: - Computed Properties
 
-    var textBlockStyle: TextBlockStyle {
+    public var textBlockStyle: TextBlockStyle {
         switch self {
         case .long:
             return .separator
