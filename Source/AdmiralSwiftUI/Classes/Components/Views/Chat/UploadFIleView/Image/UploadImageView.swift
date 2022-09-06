@@ -200,7 +200,7 @@ struct UploadImageView: View {
             }
             Spacer()
         }
-        .background(scheme.loadingMaskColor.swiftUIColor)
+        .background(scheme.progressColor.swiftUIColor)
     }
 
     private func bottomView(scheme: UploadImageViewScheme) -> some View {
@@ -212,7 +212,7 @@ struct UploadImageView: View {
                     .padding(.leading, Constants.bottomViewLeading)
                     .padding(.trailing, Constants.bottomViewTrailing)
                     .padding(.vertical, Constants.bottomViewPadding)
-                    .background(scheme.loadingMaskColor.swiftUIColor.zIndex(0))
+                    .background(scheme.progressColor.swiftUIColor.zIndex(0))
                     .clipShape(RoundedCorner(radius: Constants.cornerRadius, corners: [.allCorners]))
                     .font(scheme.textFont.swiftUIFont)
                     .foregroundColor(Color.white)
@@ -224,9 +224,9 @@ struct UploadImageView: View {
 
     // MARK: - Internal methods
 
-    func scheme(_ scheme: Binding<UploadImageViewScheme?>) -> some View {
+    func scheme(_ scheme: UploadImageViewScheme) -> some View {
         var view = self
-        view._scheme = scheme
+        view._scheme = .constant(scheme)
         return view.id(UUID())
     }
 
