@@ -11,15 +11,6 @@ import AdmiralUIResources
  ChatBubbleViewScheme - the visual scheme of ChatBubbleView.
   You can create a by specifying the following parameters in init:
   - ChatBubbleViewScheme() - Initialize default StandardTabScheme with default themezation
-  - ChatBubbleViewScheme(
-     textFont: AFont,
-     textColorLeft: AColor,
-     textColorRight: AColor,
-     backgroundColorLeft: AColor,
-     backgroundColorRight: AColor,
-     nameTextFont: AFont,
-     nameTextColor: AColor
-    )
   # Example to create ChatBubbleViewScheme:
   # Code
   ```
@@ -31,24 +22,24 @@ public struct ChatBubbleViewScheme: AppThemeScheme {
 
     // MARK: - Properties
 
-    /// The text font of ChatBubbleView
+    /// The text font
     public var textFont: AFont
 
-    /// The text color of ChatBubbleView
+    /// The text color
     public var textColor = ChatBubbleViewParameters<AColor>()
 
-    /// The background color of  ChatBubbleView
+    /// The background color
     public var backgroundColor = ChatBubbleViewParameters<AColor>()
 
-    /// The font of name text label in ChatBubbleView
+    /// The font of name text label
     public var nameTextFont: AFont
 
-    /// The color of name text label in ChatBubbleView
+    /// The color of name text label
     public var nameTextColor: AColor
 
     // MARK: - Initializer
 
-    public init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         textColor.set(parameter: theme.colors.textPrimary, style: .left)
         textColor.set(parameter: theme.colors.textStaticWhite, style: .right)
 
@@ -59,26 +50,6 @@ public struct ChatBubbleViewScheme: AppThemeScheme {
 
         nameTextFont = theme.fonts.caption1
         nameTextColor = theme.colors.textSecondary
-    }
-
-    public init(
-        textFont: AFont,
-        textColorLeft: AColor,
-        textColorRight: AColor,
-        backgroundColorLeft: AColor,
-        backgroundColorRight: AColor,
-        nameTextFont: AFont,
-        nameTextColor: AColor
-    ) {
-        textColor.set(parameter: textColorLeft, style: .left)
-        textColor.set(parameter: textColorRight, style: .right)
-
-        backgroundColor.set(parameter: backgroundColorLeft, style: .left)
-        backgroundColor.set(parameter: backgroundColorRight, style: .right)
-
-        self.textFont = textFont
-        self.nameTextFont = nameTextFont
-        self.nameTextColor = nameTextColor
     }
 
 }
