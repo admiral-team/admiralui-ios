@@ -37,10 +37,10 @@ struct PrimaryButtonsSwiftUIView: View {
                     .frame(height: 44.0)
                 VStack(alignment: .leading, spacing: 16.0) {
                     Button(action: {}, label: {})
-                        .buttonStyle(TwoTitlePrimaryButtonStyle(
-                            isLoading: .constant(false),
-                            leftText: "08.06.20 — 14.08.20",
-                            rightText: "Выбрать"
+                        .buttonStyle(
+                            TwoTitlePrimaryButtonStyle(
+                                leftTitle: "08.06.20 — 14.08.20",
+                                rightTitle: "Выбрать"
                         )
                     )
                     .frame(height: LayoutGrid.doubleModule * 3)
