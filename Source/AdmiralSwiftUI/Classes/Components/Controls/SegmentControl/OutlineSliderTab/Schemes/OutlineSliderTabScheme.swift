@@ -12,18 +12,6 @@ import AdmiralUIResources
  OutlineSliderTabScheme - the visual scheme of PlatformButtonStyle.
  You can create a by specifying the following parameters in init:
  - OutlineSliderTabScheme() - Initialize default OutlineSliderTabScheme with default themezation
- - OutlineSliderTabScheme(
-     backgroundColor: AColor,
-     titleColorNormal: AColor,
-     titleFontNormal: AFont,
-     borderColorNormal: AColor,
-     borderColorDisabled: AColor,
-     thumbColorSelected: AColor,
-     thumbColorDisabled: AColor,
-     titleFontSelected:  AFont,
-     titleColorDisabled: AColor,
-     titleColorSelected: AColor
-   )
  # Example to create OutlineSliderTabScheme:
  # Code
  ```
@@ -53,49 +41,23 @@ public final class OutlineSliderTabScheme: AppThemeScheme {
 
     // MARK: - Initializer
 
-    public convenience init(theme: AppTheme = .default) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
-        self.init(
-            backgroundColor: theme.colors.backgroundBasic,
-            titleColorNormal: theme.colors.textPrimary,
-            titleFontNormal: theme.fonts.subhead3,
-            borderColorNormal: theme.colors.elementAdditional,
-            borderColorDisabled: theme.colors.elementAdditional.withAlpha(alpha),
-            thumbColorSelected: theme.colors.elementAccent,
-            thumbColorDisabled: theme.colors.elementAccent.withAlpha(alpha),
-            titleFontSelected: theme.fonts.subhead2,
-            titleColorDisabled: theme.colors.textSecondary,
-            titleColorSelected: theme.colors.textSecondary
-        )
-    }
+        backgroundColor = theme.colors.backgroundBasic
 
-    public init(
-        backgroundColor: AColor,
-        titleColorNormal: AColor,
-        titleFontNormal: AFont,
-        borderColorNormal: AColor,
-        borderColorDisabled: AColor,
-        thumbColorSelected: AColor,
-        thumbColorDisabled: AColor,
-        titleFontSelected:  AFont,
-        titleColorDisabled: AColor,
-        titleColorSelected: AColor
-    ) {
-        self.backgroundColor = backgroundColor
+        titleColor.set(parameter: theme.colors.textPrimary, for: .normal)
+        titleFont.set(parameter: theme.fonts.subhead3, for: .normal)
 
-        titleColor.set(parameter: titleColorNormal, for: .normal)
-        titleFont.set(parameter: titleFontNormal, for: .normal)
+        borderColor.set(parameter: theme.colors.elementAdditional, for: .normal)
+        borderColor.set(parameter: theme.colors.elementAdditional.withAlpha(alpha), for: .disabled)
 
-        borderColor.set(parameter: borderColorNormal, for: .normal)
-        borderColor.set(parameter: borderColorDisabled, for: .disabled)
+        thumbColor.set(parameter: theme.colors.elementAccent, for: .selected)
+        thumbColor.set(parameter: theme.colors.elementAccent.withAlpha(alpha), for: .disabled)
 
-        thumbColor.set(parameter: thumbColorSelected, for: .selected)
-        thumbColor.set(parameter: thumbColorDisabled, for: .disabled)
+        titleFont.set(parameter: theme.fonts.subhead2, for: .selected)
 
-        titleFont.set(parameter: titleFontSelected, for: .selected)
-
-        titleColor.set(parameter: titleColorDisabled, for: .disabled)
-        titleColor.set(parameter: titleColorSelected, for: .selected)
+        titleColor.set(parameter: theme.colors.textSecondary, for: .disabled)
+        titleColor.set(parameter: theme.colors.textSecondary, for: .selected)
     }
 
 }
