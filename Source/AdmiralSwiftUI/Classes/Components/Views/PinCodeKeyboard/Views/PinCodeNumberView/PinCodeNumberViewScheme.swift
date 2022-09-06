@@ -33,7 +33,7 @@ public struct PinCodeNumberViewScheme: AppThemeScheme {
     public var textColor: AColor
 
     /// The background color
-    public var textFont: AFont
+    public var textFont: SwiftUI.Font
 
     // MARK: - Initializer
 
@@ -43,7 +43,8 @@ public struct PinCodeNumberViewScheme: AppThemeScheme {
 
         textColor = theme.colors.textPrimary
         imageColor = theme.colors.elementPrimary
-        textFont = theme.fonts.body2
+        // TODO: - Fix font
+        textFont = SwiftUI.Font.system(size: 36.0)
     }
 
 }

@@ -61,7 +61,7 @@ private extension PinCodeNumberViewStyle {
         var body: some View {
             let scheme = self.scheme ?? schemeProvider.scheme
             configuration.label
-                .font(scheme.textFont.swiftUIFont)
+                .font(scheme.textFont)
                 .foregroundColor(scheme.textColor.swiftUIColor)
                 .frame(width: 60, height: 60)
                 .background(
