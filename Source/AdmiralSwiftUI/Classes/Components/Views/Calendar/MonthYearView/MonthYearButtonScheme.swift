@@ -12,12 +12,6 @@ import AdmiralUIResources
  MonthYearButtonScheme - the visual scheme of MonthYearButtonStyle.
  You can create a by specifying the following parameters in init:
  - MonthYearButtonScheme() - Initialize default MonthYearButtonScheme with default themezation
- - MonthYearButtonScheme(
-     font: AFont,
-     textColorNormal: AColor,
-     textColorHighlighted: AColor,
-     textColorDisabled: AColor
- )
  # Example to create MonthYearButtonScheme:
  # Code
  ```
@@ -30,7 +24,7 @@ public struct MonthYearButtonScheme: AppThemeScheme {
     // MARK: - Properties
 
     /// The font of MonthYearButton
-    public let font: AFont
+    public var font: AFont
 
     /// The text color of MonthYearButton
     public var textColor = ControlParameter<AColor>()
@@ -43,18 +37,6 @@ public struct MonthYearButtonScheme: AppThemeScheme {
         textColor.set(parameter: theme.colors.textAccent, for: .normal)
         textColor.set(parameter: theme.colors.textAccentPressed, for: .highlighted)
         textColor.set(parameter: theme.colors.textAccent.withAlpha(alpha), for: .disabled)
-    }
-
-    public init(
-        font: AFont,
-        textColorNormal: AColor,
-        textColorHighlighted: AColor,
-        textColorDisabled: AColor
-    ) {
-        self.font = font
-        textColor.set(parameter: textColorNormal, for: .normal)
-        textColor.set(parameter: textColorHighlighted, for: .highlighted)
-        textColor.set(parameter: textColorDisabled, for: .disabled)
     }
 
 }
