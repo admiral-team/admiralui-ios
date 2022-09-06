@@ -20,17 +20,10 @@ public typealias PrivateAssetImageTypeAlias = PrivateImageAsset.Image
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 public enum PrivateAsset {
   public enum Custom {
-    public enum BottomSheet {
-      public static let close = PrivateImageAsset(name: "Custom/BottomSheet/close")
-    }
     public enum Cell {
-      public static let arrow = PrivateImageAsset(name: "Custom/Cell/arrow")
-      public static let arrowDown = PrivateImageAsset(name: "Custom/Cell/arrowDown")
-      public static let arrowUp = PrivateImageAsset(name: "Custom/Cell/arrowUp")
       public static let point = PrivateImageAsset(name: "Custom/Cell/point")
     }
     public enum Chat {
-      public static let photo = PrivateImageAsset(name: "Custom/Chat/Photo")
       public static let read = PrivateImageAsset(name: "Custom/Chat/Read")
       public static let sent = PrivateImageAsset(name: "Custom/Chat/Sent")
     }
@@ -54,12 +47,7 @@ public enum PrivateAsset {
 
   // swiftlint:disable trailing_comma
   public static let allImages: [PrivateImageAsset] = [
-    Custom.BottomSheet.close,
-    Custom.Cell.arrow,
-    Custom.Cell.arrowDown,
-    Custom.Cell.arrowUp,
     Custom.Cell.point,
-    Custom.Chat.photo,
     Custom.Chat.read,
     Custom.Chat.sent,
     Custom.CirclePageControl.arrowRight,

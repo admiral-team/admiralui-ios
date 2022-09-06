@@ -44,8 +44,8 @@ class ButtonWithArrow: UIControl, AnyAppThemable, AccessibilitySupport {
     /// Image arrow is up state.
     var isArrowUp: Bool = true {
         didSet {
-            arrowImageView.image = isArrowUp ? PrivateAsset.Custom.Cell.arrowDown.image
-            : PrivateAsset.Custom.Cell.arrowUp.image
+            arrowImageView.image = isArrowUp ? Asset.System.Outline.chevronUpOutline.image
+            : Asset.System.Outline.chevronDownOutline.image
         }
     }
     
