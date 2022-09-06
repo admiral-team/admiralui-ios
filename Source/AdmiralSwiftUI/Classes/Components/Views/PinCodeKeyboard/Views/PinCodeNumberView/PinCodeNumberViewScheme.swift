@@ -9,16 +9,9 @@ import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
 /**
- PinCodeNumberViewScheme - the visual scheme of PinCodeNumberView.
+ PinCodeNumberViewScheme - the visual scheme.
  You can create a by specifying the following parameters in init:
  - PinCodeNumberViewScheme() - Initialize default PinCodeNumberViewScheme with default themezation
- - PinCodeNumberViewScheme(
- backgroundColorNormal: AColor,
- backgroundColorHighlighted: AColor,
- imageColor: AColor,
- textColor: AColor,
- textFont: AFont
- )
  # Example to create PinCodeNumberViewScheme:
  # Code
  ```
@@ -30,16 +23,16 @@ public struct PinCodeNumberViewScheme: AppThemeScheme {
 
     // MARK: - Properties
 
-    /// The background color of PinCodeNumberView
+    /// The background color
     public var backgroundColor = ControlParameter<AColor>()
 
-    /// The background color of PinCodeNumberView
+    /// The background color
     public var imageColor: AColor
 
-    /// The background color of PinCodeNumberView
+    /// The background color
     public var textColor: AColor
 
-    /// The background color of PinCodeNumberView
+    /// The background color
     public var textFont: AFont
 
     // MARK: - Initializer
@@ -51,21 +44,6 @@ public struct PinCodeNumberViewScheme: AppThemeScheme {
         textColor = theme.colors.textPrimary
         imageColor = theme.colors.elementPrimary
         textFont = theme.fonts.body2
-    }
-
-    public init(
-        backgroundColorNormal: AColor,
-        backgroundColorHighlighted: AColor,
-        imageColor: AColor,
-        textColor: AColor,
-        textFont: AFont
-    ) {
-        backgroundColor.set(parameter: backgroundColorNormal, for: .normal)
-        backgroundColor.set(parameter: backgroundColorHighlighted, for: .highlighted)
-
-        self.textColor = textColor
-        self.imageColor = imageColor
-        self.textFont = textFont
     }
 
 }
