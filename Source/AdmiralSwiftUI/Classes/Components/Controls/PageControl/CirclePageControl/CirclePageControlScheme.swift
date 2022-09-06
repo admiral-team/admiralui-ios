@@ -58,12 +58,3 @@ public struct CirclePageControlSchemeParameters<P> {
     }
 
 }
-
-
-@available(iOS 14.0.0, *)
-public protocol CirclePageControlSchemeProvider {
-    var scheme: CirclePageControlScheme { get }
-}
-
-@available(iOS 14.0.0, *)
-extension AppThemeSchemeProvider: CirclePageControlSchemeProvider where S == CirclePageControlScheme {}

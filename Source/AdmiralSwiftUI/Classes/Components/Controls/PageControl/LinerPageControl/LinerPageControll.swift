@@ -64,18 +64,20 @@ public struct LinerPageControll: View {
     private var numberOfPages: Int
     private var scheme: PageControlViewScheme? = nil
     
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<PageControlViewScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<PageControlViewScheme>
     
     // MARK: - Initializer
     
     public init(
             currentPage: Binding<Int> = .constant(0),
             numberOfPages: Int = 6,
-            displayedItems: Int = 5
+            displayedItems: Int = 5,
+            schemeProvider: SchemeProvider<PageControlViewScheme> = AppThemeSchemeProvider<PageControlViewScheme>()
     ) {
         self._currentPage = currentPage
         self.numberOfPages = numberOfPages
         self.displayedItems = displayedItems
+        self.schemeProvider = schemeProvider
     }
     
     // MARK: - Layout

@@ -13,15 +13,29 @@ public protocol AppThemeScheme {
     init(theme: AppTheme)
 }
 
+@available (iOS 14.0.0, *)
+public class SchemeProvider<S>: ObservableObject {
+    @Published public fileprivate(set) var scheme: S
+    public init (scheme: S) {
+        self.scheme = scheme
+    }
+}
+
+@available (iOS 14.0.0, *)
+public class ManualSchemeProvider<S>: SchemeProvider<S> {
+    public func update(scheme: S) {
+        self.scheme = scheme
+    }
+}
+
 @available(iOS 14.0.0, *)
-public class AppThemeSchemeProvider<S>: ObservableObject where S: AppThemeScheme {
-    @Published public private(set) var scheme: S
-    
-    private let manager = SwiftUIThemeManager.shared
+public class AppThemeSchemeProvider<S>: SchemeProvider<S> where S: AppThemeScheme {
+    private let manager: SwiftUIThemeManager
     private var subscribers: Set<AnyCancellable> = []
     
     public init(manager: SwiftUIThemeManager = .shared) {
-        self.scheme = S(theme: manager.theme)
+        self.manager = manager
+        super.init(scheme: S(theme: manager.theme))
         manager.$theme.sink { [weak self] theme in
             self?.scheme = S(theme: theme)
         }.store(in: &subscribers)

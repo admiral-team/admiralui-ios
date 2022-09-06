@@ -52,7 +52,7 @@ public struct CirclePageControlStyle: ButtonStyle {
     // MARK: - Private properties
 
     private var scheme: CirclePageControlScheme? = nil
-    private let schemeProvider: CirclePageControlSchemeProvider
+    @ObservedObject private var schemeProvider: SchemeProvider<CirclePageControlScheme>
 
     // MARK: - Initializier
 
@@ -61,14 +61,15 @@ public struct CirclePageControlStyle: ButtonStyle {
         totalPages: Int,
         style: CirclePageSliderStyle = .default,
         action: (() -> Void)? = nil,
-        scheme: CirclePageControlScheme? = nil
+        scheme: CirclePageControlScheme? = nil,
+        schemeProvider: SchemeProvider<CirclePageControlScheme> = AppThemeSchemeProvider<CirclePageControlScheme>()
     ) {
         self.totalPages = totalPages
         self.style = style
         self._step = step
         self.scheme = scheme
         self.action = action
-        self.schemeProvider = AppThemeSchemeProvider<CirclePageControlScheme>()
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Public methods
@@ -80,6 +81,7 @@ public struct CirclePageControlStyle: ButtonStyle {
             step: $step,
             style: style,
             scheme: scheme,
+            schemeProvider: schemeProvider,
             action: action,
             configuration: configuration
         )
@@ -114,7 +116,7 @@ private extension CirclePageControlStyle {
         private let stepLength: CGFloat
         private let action: (() -> Void)?
         private let scheme: CirclePageControlScheme
-        private let schemeProvider: CirclePageControlSchemeProvider
+        private let schemeProvider: SchemeProvider<CirclePageControlScheme>
 
         // MARK: - Initializer
 
@@ -123,6 +125,7 @@ private extension CirclePageControlStyle {
             step: Binding<Int>,
             style: CirclePageSliderStyle,
             scheme: CirclePageControlScheme,
+            schemeProvider: SchemeProvider<CirclePageControlScheme>,
             action: (() -> Void)?,
             configuration: Configuration
         ) {
@@ -132,7 +135,7 @@ private extension CirclePageControlStyle {
             self.totalPages = totalPages
             self.style = style
             self.action = action
-            self.schemeProvider = AppThemeSchemeProvider<CirclePageControlScheme>()
+            self.schemeProvider = schemeProvider
             stepLength = 1.0 / CGFloat(totalPages)
         }
 
