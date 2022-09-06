@@ -776,8 +776,6 @@
 		E9B4D81A27303A5C00B4DA98 /* UploadDocumentGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4D8182730398000B4DA98 /* UploadDocumentGrid.swift */; };
 		E9B4D81E27313AEA00B4DA98 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4D81C27313AE000B4DA98 /* ProgressView.swift */; };
 		E9B4D82127313D4500B4DA98 /* ProgressViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4D81F27313CEE00B4DA98 /* ProgressViewScheme.swift */; };
-		E9B684FD28C213C600904D16 /* OutlineSliderTabSchemeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B684FC28C213C600904D16 /* OutlineSliderTabSchemeSettings.swift */; };
-		E9B684FF28C2199100904D16 /* OutlineSliderTabSchemeControlParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B684FE28C2199100904D16 /* OutlineSliderTabSchemeControlParameter.swift */; };
 		E9B82B5F27B40B9300FC7BB9 /* ActionBarControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B82B5427B40B9200FC7BB9 /* ActionBarControlView.swift */; };
 		E9B82B6027B40B9300FC7BB9 /* ActionBarButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B82B5527B40B9200FC7BB9 /* ActionBarButtonStyle.swift */; };
 		E9B82B6127B40B9300FC7BB9 /* ActionBarControlScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B82B5627B40B9200FC7BB9 /* ActionBarControlScheme.swift */; };
@@ -1700,8 +1698,6 @@
 		E9B4D8182730398000B4DA98 /* UploadDocumentGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDocumentGrid.swift; sourceTree = "<group>"; };
 		E9B4D81C27313AE000B4DA98 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		E9B4D81F27313CEE00B4DA98 /* ProgressViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewScheme.swift; sourceTree = "<group>"; };
-		E9B684FC28C213C600904D16 /* OutlineSliderTabSchemeSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlineSliderTabSchemeSettings.swift; sourceTree = "<group>"; };
-		E9B684FE28C2199100904D16 /* OutlineSliderTabSchemeControlParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlineSliderTabSchemeControlParameter.swift; sourceTree = "<group>"; };
 		E9B82B5427B40B9200FC7BB9 /* ActionBarControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionBarControlView.swift; sourceTree = "<group>"; };
 		E9B82B5527B40B9200FC7BB9 /* ActionBarButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionBarButtonStyle.swift; sourceTree = "<group>"; };
 		E9B82B5627B40B9200FC7BB9 /* ActionBarControlScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionBarControlScheme.swift; sourceTree = "<group>"; };
@@ -2875,8 +2871,8 @@
 		0E59D34C263179DC007B5CC1 /* OutlineSliderTab */ = {
 			isa = PBXGroup;
 			children = (
-				E9B684FB28C2139D00904D16 /* Schemes */,
 				0E59D34D263179FB007B5CC1 /* OutlineSliderTab.swift */,
+				0E59D35B26317A0D007B5CC1 /* OutlineSliderTabScheme.swift */,
 				0EF044D227B52A0F0095DD14 /* OutlineSliderTabItem.swift */,
 			);
 			path = OutlineSliderTab;
@@ -6529,16 +6525,6 @@
 			path = ProgressView;
 			sourceTree = "<group>";
 		};
-		E9B684FB28C2139D00904D16 /* Schemes */ = {
-			isa = PBXGroup;
-			children = (
-				0E59D35B26317A0D007B5CC1 /* OutlineSliderTabScheme.swift */,
-				E9B684FC28C213C600904D16 /* OutlineSliderTabSchemeSettings.swift */,
-				E9B684FE28C2199100904D16 /* OutlineSliderTabSchemeControlParameter.swift */,
-			);
-			path = Schemes;
-			sourceTree = "<group>";
-		};
 		E9B82B5227B40B9200FC7BB9 /* ActionBarButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -7122,7 +7108,6 @@
 				0ED08A3B2670275D00389A1A /* Optional.swift in Sources */,
 				0E963E342670C0B50051C91E /* MonthYearView.swift in Sources */,
 				0E59D390263361E9007B5CC1 /* RectAwareViewModifier.swift in Sources */,
-				E9B684FF28C2199100904D16 /* OutlineSliderTabSchemeControlParameter.swift in Sources */,
 				0EC1372A266E108A00F4EB7E /* TitleListView.swift in Sources */,
 				0E84C2C926FCC96D00A91542 /* TextBlockStyle.swift in Sources */,
 				0E4BC7642680AD70000FC891 /* IconListView.swift in Sources */,
@@ -7164,7 +7149,6 @@
 				0E6EA4A327026A2E002EBBBC /* LinkView.swift in Sources */,
 				0EC136942667B1BC00F4EB7E /* DoubleTextFieldScheme.swift in Sources */,
 				E9A18D9E273BE26300668C03 /* UploadingImageGroupModifier.swift in Sources */,
-				E9B684FD28C213C600904D16 /* OutlineSliderTabSchemeSettings.swift in Sources */,
 				0EA943ED27686CD400E393DF /* UIKitPickerView.swift in Sources */,
 				0ED0837226CA662D000BE955 /* ChatInputScheme.swift in Sources */,
 				0EADA9AF268A13F3003FF903 /* Line.swift in Sources */,
