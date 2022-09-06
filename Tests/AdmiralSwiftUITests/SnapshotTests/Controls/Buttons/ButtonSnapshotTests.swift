@@ -37,10 +37,8 @@ final class ButtonSnapshotTests: XCTestCase {
             label: {}
         ).buttonStyle(
             TwoTitlePrimaryButtonStyle(
-                isLoading: .constant(false),
-                sizeType: nil,
-                leftText: "leftText",
-                rightText: "rightText"
+                leftTitle: "leftText",
+                rightTitle: "rightText"
             )
         )
         checkButton(view: twoTitlePrimaryButton, named: "twoTitle", testName: "PrimaryButton")
@@ -55,10 +53,8 @@ final class ButtonSnapshotTests: XCTestCase {
             label: {}
         ).buttonStyle(
             TwoTitlePrimaryButtonStyle(
-                isLoading: .constant(false),
-                sizeType: nil,
-                leftText: "leftText",
-                rightText: "rightText"
+                leftTitle: "leftText",
+                rightTitle: "rightText"
             )
         )
         checkButton(view: twoTitlePrimaryButton, named: "twoTitleDarkTheme", testName: "PrimaryButton")
