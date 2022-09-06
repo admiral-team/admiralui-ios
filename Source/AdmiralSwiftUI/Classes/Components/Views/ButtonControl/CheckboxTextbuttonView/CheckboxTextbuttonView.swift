@@ -109,9 +109,9 @@ public struct CheckboxTextbuttonView: View {
 
     // MARK: - Internal Methods
 
-    func scheme(_ scheme: Binding<CheckboxTextbuttonViewScheme?>) -> some View {
+    func scheme(_ scheme: CheckboxTextbuttonViewScheme) -> some View {
         var view = self
-        view._scheme = scheme
+        view._scheme = .constant(scheme)
         return view.id(UUID())
     }
 
