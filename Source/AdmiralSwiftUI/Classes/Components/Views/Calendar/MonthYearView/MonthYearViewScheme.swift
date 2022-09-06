@@ -10,11 +10,6 @@ import AdmiralUIResources
  MonthYearViewScheme - the visual scheme of MonthYearView.
  You can create a by specifying the following parameters in init:
  - MonthYearViewScheme() - Initialize default MonthYearViewScheme with default themezation
- - MonthYearViewScheme(
- titleLabelColor: AColor,
- backgroundColor: AColor,
- titleLabelFont: AFont
- )
  # Example to create MonthYearViewScheme:
  # Code
  ```
@@ -42,17 +37,6 @@ struct MonthYearViewScheme: AppThemeScheme {
 
         backgroundColor = theme.colors.backgroundBasic
         titleLabelColor = theme.colors.textPrimary
-    }
-
-    init(
-        titleLabelColor: AColor,
-        backgroundColor: AColor,
-        titleLabelFont: AFont
-    ) {
-        self.titleLabelFont = titleLabelFont
-
-        self.backgroundColor = backgroundColor
-        self.titleLabelColor = titleLabelColor
     }
 
 }

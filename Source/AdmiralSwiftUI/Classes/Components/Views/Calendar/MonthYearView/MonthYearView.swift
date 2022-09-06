@@ -15,17 +15,13 @@ struct MonthYearView: View {
 
     @State var title: String
 
-    @Binding private var scheme: MonthYearViewScheme?
+    @State private var scheme: MonthYearViewScheme?
     @ObservedObject var schemeProvider = AppThemeSchemeProvider<MonthYearViewScheme>()
 
     // MARK: - Initializer
 
-    init(
-        title: String,
-        scheme: Binding<MonthYearViewScheme?> = .constant(nil)
-    ) {
+    init(title: String) {
         self._title = .init(initialValue: title)
-        self._scheme = scheme
     }
 
     // MARK: - Body

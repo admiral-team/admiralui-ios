@@ -10,10 +10,6 @@ import AdmiralUIResources
  PickerViewScheme - the visual scheme of UIKitPickerView.
  You can create a by specifying the following parameters in init:
  - PickerViewScheme() - Initialize default PickerViewScheme with default themezation
- - PickerViewScheme(
- backgroundColor: AColor,
- titleColor: AColor
- )
  # Example to create PickerViewScheme:
  # Code
  ```
@@ -25,10 +21,10 @@ public struct PickerViewScheme: AppThemeScheme {
 
     // MARK: - Properties
 
-    /// The background color of PickerView
+    /// The background color
     public var backgroundColor: AColor
 
-    /// The title color of PickerView
+    /// The title color
     public var titleColor: AColor
 
     // MARK: - Initializer
@@ -36,14 +32,6 @@ public struct PickerViewScheme: AppThemeScheme {
     public init(theme: AppTheme = .default) {
         titleColor = theme.colors.textPrimary
         backgroundColor = theme.colors.backgroundBasic
-    }
-
-    public init(
-        backgroundColor: AColor,
-        titleColor: AColor
-    ) {
-        self.backgroundColor = backgroundColor
-        self.titleColor = titleColor
     }
 
 }
