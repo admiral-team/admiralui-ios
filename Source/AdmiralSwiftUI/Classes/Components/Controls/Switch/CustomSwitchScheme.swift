@@ -12,11 +12,6 @@ import AdmiralUIResources
  CustomSwitchScheme - the visual scheme of CustomSwitch.
  You can create a by specifying the following parameters in init:
  - CustomSwitchScheme() - Initialize default CustomSwitchScheme with default themezation
- - CustomSwitchScheme(
-     font: AFont,
-     onTintColorColor: AColor,
-     textColor: AColor
-   )
  # Example to create CustomSwitchScheme:
  # Code
  ```
@@ -29,30 +24,20 @@ public struct CustomSwitchScheme: AppThemeScheme  {
     // MARK: - Properties
 
     /// The font of CustomSwitch
-    public let font: AFont
+    public var font: AFont
 
     /// The tint color of CustomSwitch
-    public let onTintColorColor: AColor
+    public var tintColor: AColor
 
     /// The text color of CustomSwitch
-    public let textColor: AColor
+    public var textColor: AColor
 
     // MARK: - Initializer
 
     public init(theme: AppTheme = .default) {
         font = theme.fonts.body1
-        onTintColorColor = theme.colors.elementAccent
+        tintColor = theme.colors.elementAccent
         textColor = theme.colors.textPrimary
-    }
-
-    public init(
-        font: AFont,
-        onTintColorColor: AColor,
-        textColor: AColor
-    ) {
-        self.font = font
-        self.onTintColorColor = onTintColorColor
-        self.textColor = textColor
     }
 
 }

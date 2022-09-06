@@ -63,9 +63,9 @@ public struct CustomSwitch: View {
 
     // MARK: - Internal Methods
 
-    func scheme(_ scheme: Binding<CustomSwitchScheme?>) -> some View {
+    func scheme(_ scheme: CustomSwitchScheme) -> some View {
         var view = self
-        view._scheme = scheme
+        view._scheme = .constant(scheme)
         return view.id(UUID())
     }
 
@@ -97,7 +97,7 @@ private struct CustomSwitchStyle: ToggleStyle {
             .font(scheme.font.swiftUIFont)
             .toggleStyle(
                 SwitchToggleStyle(
-                    tint: scheme.onTintColorColor.swiftUIColor
+                    tint: scheme.tintColor.swiftUIColor
                 )
             )
     }

@@ -49,7 +49,7 @@ public struct SwitchListView: View, TralingListViewComponent {
         HStack(alignment: .center) {
             Spacer()
             CustomSwitch(isOn: $isSwitchSelected)
-                .scheme(.constant(scheme.customSwitch))
+                .scheme(scheme.customSwitch)
         }
     }
     
