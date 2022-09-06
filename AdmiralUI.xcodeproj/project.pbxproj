@@ -815,6 +815,7 @@
 		E9BE41E927C8FD4500894224 /* SeveralPinSnapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE41E827C8FD4500894224 /* SeveralPinSnapshots.swift */; };
 		E9C79CB527BD14A20002EC49 /* ErrorViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C79CB427BD14A20002EC49 /* ErrorViewScheme.swift */; };
 		E9C79CB727BD14B50002EC49 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C79CB627BD14B50002EC49 /* ErrorView.swift */; };
+		E9DCD39428C72BBA00261612 /* TwoTitlePrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DCD39328C72BBA00261612 /* TwoTitlePrimaryButtonStyle.swift */; };
 		E9ECF207272A8EB000363E5E /* UploadImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ECF205272A8E7200363E5E /* UploadImageView.swift */; };
 		E9ECF20A272A8F6D00363E5E /* UploadImageViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ECF208272A8ED100363E5E /* UploadImageViewScheme.swift */; };
 /* End PBXBuildFile section */
@@ -1738,6 +1739,7 @@
 		E9BE41E827C8FD4500894224 /* SeveralPinSnapshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeveralPinSnapshots.swift; sourceTree = "<group>"; };
 		E9C79CB427BD14A20002EC49 /* ErrorViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewScheme.swift; sourceTree = "<group>"; };
 		E9C79CB627BD14B50002EC49 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		E9DCD39328C72BBA00261612 /* TwoTitlePrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoTitlePrimaryButtonStyle.swift; sourceTree = "<group>"; };
 		E9ECF205272A8E7200363E5E /* UploadImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageView.swift; sourceTree = "<group>"; };
 		E9ECF208272A8ED100363E5E /* UploadImageViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageViewScheme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -3157,6 +3159,7 @@
 			children = (
 				0E8151792694483C004E0B34 /* TwoTitlePrimaryButton.swift */,
 				0E81515D269447EA004E0B34 /* TwoTitlePrimaryButtonScheme.swift */,
+				E9DCD39328C72BBA00261612 /* TwoTitlePrimaryButtonStyle.swift */,
 			);
 			path = TwoTitlePrimaryButton;
 			sourceTree = "<group>";
@@ -7132,6 +7135,7 @@
 				0ED0837026CA661B000BE955 /* ChatInput.swift in Sources */,
 				0E2A62B826E7C64D009CE2C0 /* TitleSubtitleButtonListViewScheme.swift in Sources */,
 				E9B82B6227B40B9300FC7BB9 /* ActionBarControlSchemeSecondary.swift in Sources */,
+				E9DCD39428C72BBA00261612 /* TwoTitlePrimaryButtonStyle.swift in Sources */,
 				0E2A62E226E7CB5E009CE2C0 /* CalendarVerticalViewScheme.swift in Sources */,
 				0E2A62DC26E7CAB8009CE2C0 /* SearchBarColorScheme.swift in Sources */,
 				0E4BC8212681CDFE000FC891 /* ImageListView.swift in Sources */,
