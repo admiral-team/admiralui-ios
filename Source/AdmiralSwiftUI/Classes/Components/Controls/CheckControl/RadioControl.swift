@@ -20,39 +20,43 @@ import SwiftUI
  ```
  RadioControl(
             isSelected: .constant(true),
-            text: "Your name of RadioControl"
- )
+            text: "Your name of RadioControl")
+ 
  ```
 */
 @available(iOS 14.0, *)
 public struct RadioControl: View {
-
+    
     // MARK: - Public Properties
 
+    /// The selection flag
     @Binding public var isSelected: Bool
 
+    /// The text
     @State public var text: String = ""
+
+    /// The check state
     @State public var checkState: CheckControlState = .normal
-
+    
     // MARK: - Internal Properties
-
+    
     @Environment(\.manager) var manager
-
+    
     // MARK: - Private Properties
-
+    
     @Environment(\.isEnabled) private var isEnabled
-
+    
     @Binding private var scheme: CheckControlScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<CheckControlScheme>()
 
-    // MARK: - Computed Properties
+    // MARK: - Computed Properites
 
     private var image: Image {
         return isSelected ? Image(uiImage: PrivateAsset.Custom.Control.radioButtonOn.image) : Image(uiImage: PrivateAsset.Custom.Control.radioButtonOff.image)
     }
-
+    
     // MARK: - Initializer
-
+    
     public init(
         isSelected: Binding<Bool>,
         text: String = "",
@@ -85,13 +89,13 @@ public struct RadioControl: View {
             isSelected.toggle()
         }
     }
-
+    
     // MARK: - Internal Methods
-
-    func scheme(_ scheme: Binding<CheckControlScheme?>) -> some View {
+    
+    func scheme(_ scheme: CheckControlScheme) -> some View {
         var view = self
-        view._scheme = scheme
+        view._scheme = .constant(scheme)
         return view.id(UUID())
     }
-
+    
 }

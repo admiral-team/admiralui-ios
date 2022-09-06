@@ -15,7 +15,7 @@ import SwiftUI
  - rightText - value of String
  - leftAction - the callback action by tapping left action the button
  - rightAction - the callback action by tapping right action the button
-
+ 
  ## Example to create TwoTitleGhostButton:
  # Code
  ```
@@ -28,19 +28,25 @@ import SwiftUI
  */
 @available(iOS 14.0, *)
 public struct TwoTitleGhostButton: View {
+    
+    // MARK: - Internal Properties
 
+    /// The left text
+    var leftText: String
+
+    /// The right text
+    var rightText: String
+    
     // MARK: - Private Properties
-
+    
     @Binding private var scheme: TwoTitleGhostButtonScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<TwoTitleGhostButtonScheme>()
-
-    private var leftText: String
-    private var rightText: String
+    
     private let leftAction: () -> ()
     private let rightAction: () -> ()
-
+    
     // MARK: - Initializer
-
+    
     public init(
         leftText: String,
         rightText: String,
@@ -71,16 +77,16 @@ public struct TwoTitleGhostButton: View {
         }
 
     }
-
+    
     // MARK: - Public Methods
-
+    
     /// Install theme.
     /// - Parameter scheme: Scheme view.
     /// - Returns: view.
-    public func scheme(_ scheme: Binding<TwoTitleGhostButtonScheme?>) -> some View {
+    public func scheme(_ scheme: TwoTitleGhostButtonScheme) -> some View {
         var view = self
-        view._scheme = scheme
+        view._scheme = .constant(scheme)
         return view.id(UUID())
     }
-
+    
 }

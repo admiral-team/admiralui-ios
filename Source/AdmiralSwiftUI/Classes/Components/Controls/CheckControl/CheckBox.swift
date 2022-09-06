@@ -10,7 +10,7 @@ import AdmiralUIResources
 import SwiftUI
 /**
  CheckBox - A type of button that lets the user choose between two opposite states, actions, or values. A selected checkbox is considered on when it contains a checkmark and off when it's empty.
-
+ 
  You can create a CheckBox by specifying the following parameters in the initializer:
  ## Initializer parameters:
  - text - value of String. Your text will be shown to the right of checkbox
@@ -22,7 +22,7 @@ import SwiftUI
  CheckBox(
         isSelected: .constant(true),
         text: "Your name of checkbox")
-
+ 
  ```
 */
 @available(iOS 14.0, *)
@@ -35,15 +35,16 @@ public struct CheckBox: View {
     }
 
     // MARK: - Public Properties
-
+    
     @Binding public var isSelected: Bool
+    
     @State public var text: String = ""
     @State public var checkState: CheckControlState = .normal
-
+    
     // MARK: - Private Properties
-
+    
     @Environment(\.isEnabled) private var isEnabled
-
+    
     @Binding private var scheme: CheckControlScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<CheckControlScheme>()
 
@@ -52,9 +53,9 @@ public struct CheckBox: View {
     private var image: Image {
         return isSelected ? Image(uiImage: PrivateAsset.Custom.Control.checkBoxOn.image) : Image(uiImage: PrivateAsset.Custom.Control.checkBoxOff.image)
     }
-
+    
     // MARK: - Initializer
-
+    
     public init(
         isSelected: Binding<Bool>,
         text: String,
@@ -66,7 +67,7 @@ public struct CheckBox: View {
         self._checkState = .init(initialValue: checkState)
         self._scheme = scheme
     }
-
+    
     public init(
         isSelected: Binding<Bool>,
         text: String,
@@ -76,7 +77,7 @@ public struct CheckBox: View {
         self._text = .init(initialValue: text)
         self._scheme = scheme
     }
-
+    
     public init(
         isSelected: Binding<Bool>,
         scheme: Binding<CheckControlScheme?> = .constant(nil)
@@ -106,13 +107,14 @@ public struct CheckBox: View {
             isSelected.toggle()
         }
     }
-
+    
     // MARK: - Internal Methods
-
-    func scheme(_ scheme: Binding<CheckControlScheme?>) -> some View {
+    
+    func scheme(_ scheme: CheckControlScheme) -> some View {
         var view = self
-        view._scheme = scheme
+        view._scheme = .constant(scheme)
         return view.id(UUID())
     }
-
+    
 }
+

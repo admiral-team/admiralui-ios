@@ -7,9 +7,10 @@
 
 import Foundation
 
+/// The state of check control
 public enum CheckControlState: Int {
-     /// The normal state of CheckControl
-     case normal
-     /// The error state of CheckControl
-     case error
- }
+    /// The normal state
+    case normal
+    /// The error state
+    case error
+}
