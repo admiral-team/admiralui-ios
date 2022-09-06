@@ -10,14 +10,11 @@ import AdmiralTheme
 import AdmiralUIResources
 /**
  ErrorView - the component is used to attract the user's attention as a message.
-
  You can create a ZeroScreenView with the zero frame rectangle by specifying the following parameters in init:
-
  - text: String - Information text
  - button Title: String - Title for the button
  - isLoadingButton: Binding<Bool> - For button with an activity indicator
  - button Action: @escaping () -> () - Closure for processing button tap
-
  ## Example to create ErrorView
  # Code
  ```
@@ -101,9 +98,9 @@ public struct ErrorView: View {
 
     // MARK: - Internal Methods
 
-    func scheme(_ scheme: Binding<ErrorViewScheme?>) -> some View {
+    func scheme(_ scheme: ErrorViewScheme) -> some View {
         var view = self
-        view._scheme = scheme
+        view._scheme = .constant(scheme)
         return view.id(UUID())
     }
 

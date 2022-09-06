@@ -8,19 +8,9 @@
 import AdmiralTheme
 import AdmiralUIResources
 /**
- ProgressViewScheme - the visual scheme of UploadImageView.
+ ProgressViewScheme - the visual scheme of  ProgressView.
  You can create a by specifying the following parameters in init:
  - ProgressViewScheme() - Initialize default ProgressViewScheme with default themezation
- - ProgressViewScheme(
-     backgroundColorDefault: AColor,
-     backgroundColorAccent: AColor,
-     iconColorAccent: AColor,
-     iconColorDefault: AColor,
-     iconColorStaticWhite: AColor,
-     circleColorStaticWhite: AColor,
-     circleColorDefault: AColor,
-     circleColorAccent: AColor
- )
  # Example to create ProgressViewScheme:
  # Code
  ```
@@ -30,7 +20,7 @@ import AdmiralUIResources
 @available(iOS 14.0, *)
 public struct ProgressViewScheme: AppThemeScheme {
 
-    // MARK: - Properties
+    // MARK: - Public Properties
 
     /// The background color of ProgressView
     public var backgroundColor = ProgressViewSchemeParameters<AColor>()
@@ -43,7 +33,7 @@ public struct ProgressViewScheme: AppThemeScheme {
 
     // MARK: - Init/deinit
 
-    public init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         backgroundColor.set(parameter: theme.colors.backgroundAdditionalOne, style: .default)
         backgroundColor.set(parameter: theme.colors.backgroundAccent, style: .accent)
 
@@ -54,28 +44,6 @@ public struct ProgressViewScheme: AppThemeScheme {
         circleColor.set(parameter: theme.colors.elementStaticWhite, style: .default)
         circleColor.set(parameter: theme.colors.elementStaticWhite, style: .staticWhite)
         circleColor.set(parameter: theme.colors.backgroundAccent, style: .accent)
-    }
-
-    public init(
-        backgroundColorDefault: AColor,
-        backgroundColorAccent: AColor,
-        iconColorAccent: AColor,
-        iconColorDefault: AColor,
-        iconColorStaticWhite: AColor,
-        circleColorStaticWhite: AColor,
-        circleColorDefault: AColor,
-        circleColorAccent: AColor
-    ) {
-        backgroundColor.set(parameter: backgroundColorDefault, style: .default)
-        backgroundColor.set(parameter: backgroundColorAccent, style: .accent)
-
-        iconColor.set(parameter: iconColorAccent, style: .accent)
-        iconColor.set(parameter: iconColorDefault, style: .default)
-        iconColor.set(parameter: iconColorStaticWhite, style: .staticWhite)
-
-        circleColor.set(parameter: circleColorStaticWhite, style: .default)
-        circleColor.set(parameter: circleColorDefault, style: .staticWhite)
-        circleColor.set(parameter: circleColorAccent, style: .accent)
     }
 
 }
