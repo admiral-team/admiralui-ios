@@ -256,6 +256,9 @@
 		0EA2A8F325FF7F4A002A207F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6D91C802532094000DCE489 /* Images.xcassets */; };
 		0EA2A90B25FF81B5002A207F /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FB3118253DC2FA00314E00 /* Assets.swift */; };
 		0EA2A91625FF81B9002A207F /* PrivateAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2D856254193E400D7AAE2 /* PrivateAssets.swift */; };
+		0EA7BDCE28C7856A00BDE772 /* AppThemeScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA7BDCD28C7856A00BDE772 /* AppThemeScheme.swift */; };
+		0EA7BDD028C7879D00BDE772 /* ManualSchemeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA7BDCF28C7879D00BDE772 /* ManualSchemeProvider.swift */; };
+		0EA7BDD228C787BD00BDE772 /* AppThemeSchemeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA7BDD128C787BD00BDE772 /* AppThemeSchemeProvider.swift */; };
 		0EA943ED27686CD400E393DF /* UIKitPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA943EC27686CD400E393DF /* UIKitPickerView.swift */; };
 		0EA943EF27686CE200E393DF /* UIKitPickerViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA943EE27686CE200E393DF /* UIKitPickerViewScheme.swift */; };
 		0EA9F4A4262478D3009F4B5A /* SecondaryButtonScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA9F4A3262478D3009F4B5A /* SecondaryButtonScheme.swift */; };
@@ -1169,6 +1172,9 @@
 		0EA2D8522541932300D7AAE2 /* PrivateImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PrivateImages.xcassets; sourceTree = "<group>"; };
 		0EA2D856254193E400D7AAE2 /* PrivateAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateAssets.swift; sourceTree = "<group>"; };
 		0EA2D89125470B3D00D7AAE2 /* SegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
+		0EA7BDCD28C7856A00BDE772 /* AppThemeScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppThemeScheme.swift; sourceTree = "<group>"; };
+		0EA7BDCF28C7879D00BDE772 /* ManualSchemeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualSchemeProvider.swift; sourceTree = "<group>"; };
+		0EA7BDD128C787BD00BDE772 /* AppThemeSchemeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppThemeSchemeProvider.swift; sourceTree = "<group>"; };
 		0EA943EC27686CD400E393DF /* UIKitPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitPickerView.swift; sourceTree = "<group>"; };
 		0EA943EE27686CE200E393DF /* UIKitPickerViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitPickerViewScheme.swift; sourceTree = "<group>"; };
 		0EA9F4A3262478D3009F4B5A /* SecondaryButtonScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButtonScheme.swift; sourceTree = "<group>"; };
@@ -1807,8 +1813,11 @@
 		0E008ADB2743F585003D7882 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				0EA7BDCD28C7856A00BDE772 /* AppThemeScheme.swift */,
 				E6773FED2692F4080064AFA8 /* SchemeProvider.swift */,
 				0EB1AC382656B30C007D7795 /* SwiftUIThemeManager.swift */,
+				0EA7BDCF28C7879D00BDE772 /* ManualSchemeProvider.swift */,
+				0EA7BDD128C787BD00BDE772 /* AppThemeSchemeProvider.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -7011,14 +7020,17 @@
 			files = (
 				0E0E888525FBB2BC00127626 /* Disposable.swift in Sources */,
 				0E0E88BF25FBB45000127626 /* UIColor+Light.swift in Sources */,
+				0EA7BDD228C787BD00BDE772 /* AppThemeSchemeProvider.swift in Sources */,
 				0E0E885F25FBB2A900127626 /* AppTheme.swift in Sources */,
 				0E0E888825FBB2BC00127626 /* ThemeObserver.swift in Sources */,
 				0E0E888925FBB2BC00127626 /* ThemeManager.swift in Sources */,
 				0E0E886125FBB2A900127626 /* AppThemeStorage.swift in Sources */,
 				0E0E88E825FBB57800127626 /* String+Base64.swift in Sources */,
 				0E0E88BE25FBB45000127626 /* UIColor+Hex.swift in Sources */,
+				0EA7BDCE28C7856A00BDE772 /* AppThemeScheme.swift in Sources */,
 				0E0E888725FBB2BC00127626 /* Themeable.swift in Sources */,
 				0E0E888625FBB2BC00127626 /* Theme.swift in Sources */,
+				0EA7BDD028C7879D00BDE772 /* ManualSchemeProvider.swift in Sources */,
 				E6C6CFF5268C92AD00972A1B /* ParameterBox.swift in Sources */,
 				0EF8BE6B2742AD79005F7620 /* SchemeProvider.swift in Sources */,
 				0E0E889425FBB2C100127626 /* Appearance.swift in Sources */,
