@@ -15,7 +15,6 @@ public enum ToolBarType {
 }
 /**
  ToolBar - A control that displays one or more buttons vertically or horizontally.
-
  ToolBar can be vertical or horizontal. To create a horizontal or vertical ToolBar, you must specify type in the initializer.
  ## Initializer parameters:
  - items - array Items of ToolBar (ToolBarItem)
@@ -50,7 +49,8 @@ public struct ToolBar: View {
             top: 16.0,
             leading: 20.0,
             bottom: 16.0,
-            trailing: 20.0)
+            trailing: 20.0
+        )
         static let width: CGFloat = UIScreen.main.bounds.width - 72.0
         static let oneItemWidth: CGFloat = 140.0
     }
@@ -71,10 +71,7 @@ public struct ToolBar: View {
     private let onTap: (Int) -> ()
 
     @Binding private var scheme: ToolBarScheme?
-    private var itemScheme: ToolBarItemScheme?
-
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ToolBarScheme>()
-    @ObservedObject private var itemSchemeProvider = AppThemeSchemeProvider<ToolBarItemScheme>()
 
     // MARK: - Initializer
 
@@ -90,14 +87,12 @@ public struct ToolBar: View {
         selectedIndex: Binding<Int>,
         onTap: @escaping (Int) ->(),
         isSelectable: Bool = true,
-        scheme: Binding<ToolBarScheme?> = .constant(nil),
-        itemScheme: ToolBarItemScheme? = nil
+        scheme: Binding<ToolBarScheme?> = .constant(nil)
     ) {
         self._items = items
         self._type = type
         self._selectedIndex = selectedIndex
         self._scheme = scheme
-        self.itemScheme = itemScheme
         self.onTap = onTap
         self.isSelectable = isSelectable
     }
@@ -106,14 +101,13 @@ public struct ToolBar: View {
 
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
-        let itemScheme = self.itemScheme ?? itemSchemeProvider.scheme
         HStack {
             ForEach(0...items.count - 1, id: \.self) { i in
                 let item = items[i]
                 if items.count > 1 && isSelectable {
                     ToolBarItemSelectable(
                         viewRouter: viewRouter,
-                        scheme: itemScheme,
+                        scheme: scheme.itemScheme,
                         assignedPage: i,
                         image: item.image,
                         title: item.title,
@@ -129,7 +123,7 @@ public struct ToolBar: View {
                     }, label: {})
                     .buttonStyle(
                         ToolBarItemStyle(
-                            scheme: itemScheme,
+                            scheme: scheme.itemScheme,
                             image: item.image,
                             title: item.title,
                             badgeStyle: item.badgeStyle,

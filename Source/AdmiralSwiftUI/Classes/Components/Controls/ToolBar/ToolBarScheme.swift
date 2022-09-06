@@ -21,10 +21,6 @@ import AdmiralUIResources
  Code
  ```
  let scheme = ToolBarScheme()
- let customScheme = ToolBarScheme(
- backgroundColor: AppTheme.default.colors.specialExtra22,
- shadowColor: AColor(hexString: "#FFFFFF")
- )
  ```
  */
 @available(iOS 14.0.0, *)
@@ -38,21 +34,15 @@ public struct ToolBarScheme: AppThemeScheme {
     /// The shadow color of ToolBar
     public var shadowColor: AColor
 
+    /// The item scheme
+    public var itemScheme: ToolBarItemScheme
+
     // MARK: - Initializer
 
     public init(theme: AppTheme = .default) {
-        self.init(
-            backgroundColor: theme.colors.backgroundAccentDark,
-            shadowColor: theme.colors.backgroundShadow
-        )
-    }
-
-    public init(
-        backgroundColor: AColor,
-        shadowColor: AColor
-    ) {
-        self.backgroundColor = backgroundColor
-        self.shadowColor = shadowColor
+        self.backgroundColor = theme.colors.backgroundAccentDark
+        self.shadowColor = theme.colors.backgroundShadow
+        self.itemScheme = ToolBarItemScheme(theme: theme)
     }
 
 }
