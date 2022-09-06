@@ -11,19 +11,6 @@ import AdmiralUIResources
   TextOperationViewScheme - the visual scheme of TextOperationView.
    You can create a by specifying the following parameters in init:
    - TextOperationViewScheme() - Initialize default TextOperationViewScheme with default themezation
-   - TextOperationViewScheme(
-         backgroundColorDefault: AColor,
-         backgroundColorError: AColor,
-         backgroundColorSuccess: AColor,
-         titleColorDefault: AColor,
-         titleColorError: AColor,
-         titleColorSuccess: AColor,
-         desciptionColor: AColor,
-         timeColor: AColor,
-         titleFont: AFont,
-         desciptionFont: AFont,
-         timeFont: AFont
-     )
    # Example to create TextOperationViewScheme:
    # Code
    ```
@@ -73,35 +60,6 @@ public struct TextOperationViewScheme: AppThemeScheme {
         titleFont = theme.fonts.subhead1
         desciptionFont = theme.fonts.subhead3
         timeFont = theme.fonts.caption1
-    }
-
-    public init(
-        backgroundColorDefault: AColor,
-        backgroundColorError: AColor,
-        backgroundColorSuccess: AColor,
-        titleColorDefault: AColor,
-        titleColorError: AColor,
-        titleColorSuccess: AColor,
-        desciptionColor: AColor,
-        timeColor: AColor,
-        titleFont: AFont,
-        desciptionFont: AFont,
-        timeFont: AFont
-    ) {
-        backgroundColor.set(parameter: backgroundColorDefault, style: .default)
-        backgroundColor.set(parameter: backgroundColorError, style: .error)
-        backgroundColor.set(parameter: backgroundColorSuccess, style: .success)
-
-        titleColor.set(parameter: titleColorError, style: .default)
-        titleColor.set(parameter: titleColorSuccess, style: .error)
-        titleColor.set(parameter: desciptionColor, style: .success)
-
-        self.desciptionColor = desciptionColor
-        self.timeColor = timeColor
-
-        self.titleFont = titleFont
-        self.desciptionFont = desciptionFont
-        self.timeFont = timeFont
     }
 
 }

@@ -8,36 +8,15 @@
 import AdmiralTheme
 import AdmiralUIResources
 /**
-  UploadDocumentViewScheme - the visual scheme of UploadDocumentView.
-   You can create a by specifying the following parameters in init:
-   - UploadDocumentViewScheme() - Initialize default UploadDocumentViewScheme with default themezation
-   - UploadDocumentViewScheme(
-         sizeTextFont: AFont,
-         timeTextFont: AFont,
-         messageTextFont: AFont,
-         messageTextColor: AColor,
-         textFont: AFont,
-         backgroundColorLeft: AColor,
-         backgroundColorRight: AColor,
-         nameTextColorRight: AColor,
-         nameTextColorLeft: AColor,
-         timeTextColorRight: AColor,
-         timeTextColorLeft: AColor,
-         iconColorRight: AColor,
-         iconColorLeft: AColor,
-         sizeColorRight: AColor,
-         sizeColorLeft: AColor,
-         circleColorRight: AColor,
-         circleColorLeft: AColor,
-         chevronColorRight: AColor,
-         chevronColorLeft: AColor
-     )
-   # Example to create UploadDocumentViewScheme:
-   # Code
-   ```
-  let scheme = UploadDocumentViewScheme()
-   ```
-*/
+ UploadDocumentViewScheme - the visual scheme of UploadDocumentView.
+ You can create a by specifying the following parameters in init:
+ - UploadDocumentViewScheme() - Initialize default UploadDocumentViewScheme with default themezation
+ # Example to create UploadDocumentViewScheme:
+ # Code
+ ```
+ let scheme = UploadDocumentViewScheme()
+ ```
+ */
 @available(iOS 14.0, *)
 public struct UploadDocumentViewScheme: AppThemeScheme {
 
@@ -109,54 +88,6 @@ public struct UploadDocumentViewScheme: AppThemeScheme {
 
         chevronColor.set(parameter: theme.colors.elementAccent, style: .left)
         chevronColor.set(parameter: theme.colors.textStaticWhite, style: .right)
-    }
-
-    public init(
-        sizeTextFont: AFont,
-        timeTextFont: AFont,
-        messageTextFont: AFont,
-        messageTextColor: AColor,
-        textFont: AFont,
-        backgroundColorLeft: AColor,
-        backgroundColorRight: AColor,
-        nameTextColorRight: AColor,
-        nameTextColorLeft: AColor,
-        timeTextColorRight: AColor,
-        timeTextColorLeft: AColor,
-        iconColorRight: AColor,
-        iconColorLeft: AColor,
-        sizeColorRight: AColor,
-        sizeColorLeft: AColor,
-        circleColorRight: AColor,
-        circleColorLeft: AColor,
-        chevronColorRight: AColor,
-        chevronColorLeft: AColor
-    ) {
-        self.sizeTextFont = sizeTextFont
-        self.timeTextFont = timeTextFont
-        self.messageTextFont = messageTextFont
-        self.messageTextColor = messageTextColor
-        self.textFont = textFont
-        backgroundColor.set(parameter: backgroundColorLeft, style: .left)
-        backgroundColor.set(parameter: backgroundColorRight, style: .right)
-
-        nameTextColor.set(parameter: nameTextColorRight, style: .right)
-        nameTextColor.set(parameter: nameTextColorLeft, style: .left)
-
-        timeTextColor.set(parameter: timeTextColorRight, style: .right)
-        timeTextColor.set(parameter: timeTextColorLeft, style: .left)
-
-        iconColor.set(parameter: iconColorRight, style: .right)
-        iconColor.set(parameter: iconColorLeft, style: .left)
-
-        sizeColor.set(parameter: sizeColorRight, style: .right)
-        sizeColor.set(parameter: sizeColorLeft, style: .left)
-
-        circleColor.set(parameter: circleColorRight, style: .left)
-        circleColor.set(parameter: circleColorLeft, style: .right)
-
-        chevronColor.set(parameter: chevronColorRight, style: .left)
-        chevronColor.set(parameter: chevronColorLeft, style: .right)
     }
 
 }
