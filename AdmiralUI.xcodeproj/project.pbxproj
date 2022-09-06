@@ -628,6 +628,8 @@
 		3BCDD85828BE1BEA00D2D679 /* TestAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BCDD85628BE1BEA00D2D679 /* TestAssets.xcassets */; };
 		3BCDD85A28BE234800D2D679 /* TestAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCDD85928BE234800D2D679 /* TestAssets.swift */; };
 		3BCDD85B28BE234800D2D679 /* TestAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCDD85928BE234800D2D679 /* TestAssets.swift */; };
+		3BCDD85528BCFC2400D2D679 /* UploadingImageGridScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCDD85428BCFC2400D2D679 /* UploadingImageGridScheme.swift */; };
+		3BD1BDC028BCC8B3008090E8 /* UploadDocumentGridScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD1BDBF28BCC8B3008090E8 /* UploadDocumentGridScheme.swift */; };
 		3BD5ABB0273E964D0052D8C5 /* SubtitleTitleHeaderSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD5ABAF273E964D0052D8C5 /* SubtitleTitleHeaderSnapshotTests.swift */; };
 		3BD5ABB5273EB96F0052D8C5 /* TitleSubtitleHeaderSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD5ABB4273EB96F0052D8C5 /* TitleSubtitleHeaderSnapshotTests.swift */; };
 		3BD5ABB9273EC0310052D8C5 /* DropDownHeaderSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD5ABB8273EC0310052D8C5 /* DropDownHeaderSnapshotTests.swift */; };
@@ -1348,6 +1350,8 @@
 		3BCB3EAE27429D6C00ED192A /* PinCodeKeyboardSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeKeyboardSnapshotTests.swift; sourceTree = "<group>"; };
 		3BCDD85628BE1BEA00D2D679 /* TestAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TestAssets.xcassets; sourceTree = "<group>"; };
 		3BCDD85928BE234800D2D679 /* TestAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAssets.swift; sourceTree = "<group>"; };
+		3BCDD85428BCFC2400D2D679 /* UploadingImageGridScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingImageGridScheme.swift; sourceTree = "<group>"; };
+		3BD1BDBF28BCC8B3008090E8 /* UploadDocumentGridScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDocumentGridScheme.swift; sourceTree = "<group>"; };
 		3BD5ABAF273E964D0052D8C5 /* SubtitleTitleHeaderSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleTitleHeaderSnapshotTests.swift; sourceTree = "<group>"; };
 		3BD5ABB4273EB96F0052D8C5 /* TitleSubtitleHeaderSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSubtitleHeaderSnapshotTests.swift; sourceTree = "<group>"; };
 		3BD5ABB8273EC0310052D8C5 /* DropDownHeaderSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownHeaderSnapshotTests.swift; sourceTree = "<group>"; };
@@ -6378,6 +6382,7 @@
 			isa = PBXGroup;
 			children = (
 				E9A18D98273A4F4B00668C03 /* UploadingImageGrid.swift */,
+				3BCDD85428BCFC2400D2D679 /* UploadingImageGridScheme.swift */,
 				E9A18D9D273BE26200668C03 /* UploadingImageGroupModifier.swift */,
 			);
 			path = Group;
@@ -6528,6 +6533,7 @@
 			isa = PBXGroup;
 			children = (
 				E9B4D8182730398000B4DA98 /* UploadDocumentGrid.swift */,
+				3BD1BDBF28BCC8B3008090E8 /* UploadDocumentGridScheme.swift */,
 			);
 			path = Group;
 			sourceTree = "<group>";
@@ -7091,6 +7097,7 @@
 				0E6EA48B2701EE1E002EBBBC /* ParagraphView.swift in Sources */,
 				0E8B0F2C26DE2B7E00EEA0D3 /* PinCodeTextViewScheme.swift in Sources */,
 				0EF0308B26E7C51A00F888B7 /* ImageWithSubtitleListViewScheme.swift in Sources */,
+				3BD1BDC028BCC8B3008090E8 /* UploadDocumentGridScheme.swift in Sources */,
 				0E235A0726F25B1F0039BD04 /* CalendarHorizontalViewScheme.swift in Sources */,
 				0E81515E269447EA004E0B34 /* TwoTitlePrimaryButtonScheme.swift in Sources */,
 				0ECF1AFB265FAA850068F591 /* Slider.swift in Sources */,
@@ -7251,6 +7258,7 @@
 				0EA943EF27686CE200E393DF /* UIKitPickerViewScheme.swift in Sources */,
 				0E3DB3BF265D22FC00CA2F2A /* OTPTextFieldScheme.swift in Sources */,
 				E9A18DA2273C06F300668C03 /* PrimaryLinkControl.swift in Sources */,
+				3BCDD85528BCFC2400D2D679 /* UploadingImageGridScheme.swift in Sources */,
 				0E8B0F3A26DEAD4A00EEA0D3 /* ChatBubbleView.swift in Sources */,
 				E9B82B6027B40B9300FC7BB9 /* ActionBarButtonStyle.swift in Sources */,
 				3BFE8374278C482D0094A451 /* AlertViewScheme.swift in Sources */,

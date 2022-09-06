@@ -15,6 +15,8 @@ public struct ChatBubbleViewScheme: AppThemeScheme {
     public var textColor = ChatBubbleViewParameters<AColor>()
     public var backgroundColor = ChatBubbleViewParameters<AColor>()
     
+    public var errorImageColor: AColor
+    
     public var nameTextFont: AFont
     public var nameTextColor: AColor
     
@@ -24,6 +26,8 @@ public struct ChatBubbleViewScheme: AppThemeScheme {
 
         backgroundColor.set(parameter: theme.colors.backgroundAdditionalOne, style: .left)
         backgroundColor.set(parameter: theme.colors.backgroundAccent, style: .right)
+        
+        errorImageColor = theme.colors.elementError
         
         textFont = theme.fonts.body1
         
