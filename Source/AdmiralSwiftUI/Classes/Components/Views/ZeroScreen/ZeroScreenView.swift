@@ -10,15 +10,12 @@ import AdmiralTheme
 import AdmiralUIResources
 /**
  ZeroScreenView - the component is used to attract the user's attention as a message. A view with title, subtitle and image.
-
  You can create a ZeroScreenView with the zero frame rectangle by specifying the following parameters in init:
-
  - image: Image - The image displayed in the image view.
  - title: String - The text that the title label displays.
  - subtitle: String - The text that the subtitle label displays.
  - buttonTitle: String - The text that the button displays.
  - isLoadingButton: Binding<Bool> - For button with an activity indicator
-
  ## Example to create ZeroScreenView
  # Code
  ```
@@ -132,9 +129,9 @@ public struct ZeroScreenView: View {
 
     // MARK: - Internal Methods
 
-    func scheme(_ scheme: Binding<ZeroScreenViewScheme?>) -> some View {
+    func scheme(_ scheme: ZeroScreenViewScheme) -> some View {
         var view = self
-        view._scheme = scheme
+        view._scheme = .constant(nil)
         return view.id(UUID())
     }
 

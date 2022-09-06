@@ -2,13 +2,12 @@
 //  BadgeArrowListView.swift
 //  AdmiralUIResources
 //
-//  Created by Ivon Evgeniy on 18.11.2021.
+//  Created on 18.11.2021.
 //
 
 import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
-
 /**
  BadgeArrowListView - A view object with big title.
  
@@ -89,7 +88,7 @@ public struct BadgeArrowListView: View, TralingListViewComponent {
         HStack(spacing: Constants.cellItemsSpacing) {
             Spacer()
             BadgeView(badgeStyle: badgeStyle, text: textForBadge())
-                .scheme(.constant(scheme.badgeViewScheme))
+                .scheme(scheme.badgeViewScheme)
                 .fixedSize()
             Image(uiImage: AdmiralUIResources.PrivateAsset.Custom.Cell.arrow.image)
                 .frame(width: LayoutGrid.module, height: LayoutGrid.doubleModule)

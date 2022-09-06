@@ -34,7 +34,7 @@ public struct ZeroScreenViewScheme: AppThemeScheme {
 
     // MARK: - Initializer
 
-    public init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         titleColor = theme.colors.textPrimary
         titleFont = theme.fonts.title1
 
@@ -42,15 +42,4 @@ public struct ZeroScreenViewScheme: AppThemeScheme {
         subtitleFont = theme.fonts.body2
     }
 
-    public init(
-        titleColor: AColor,
-        titleFont: AFont,
-        subtitleColor: AColor,
-        subtitleFont: AFont
-    ) {
-        self.titleColor = titleColor
-        self.titleFont = titleFont
-        self.subtitleFont = subtitleFont
-        self.subtitleColor = subtitleColor
-    }
 }

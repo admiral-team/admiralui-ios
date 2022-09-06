@@ -8,7 +8,7 @@
 import AdmiralTheme
 import AdmiralUIResources
 /**
- BadgeViewScheme - the visual scheme of BadgeView.
+ BadgeViewScheme - the visual scheme .
  You can create a by specifying the following parameters in init:
  - BadgeViewScheme() - Initialize default BadgeViewScheme with default themezation
  # Example to create BadgeViewScheme:
@@ -21,16 +21,16 @@ public struct BadgeViewScheme: AppThemeScheme {
 
     // MARK: - Properties
 
-    /// The font of BadgeView
+    /// The font
     public var font: AFont
 
-    /// The border color  of BadgeView
+    /// The border color
     public var borderColor: AColor
 
-    /// The text color of BadgeView
+    /// The text color
     public var textColor = BadgeParameters<AColor>()
 
-    /// The background color of BadgeView
+    /// The background color
     public var backgroundColor = BadgeParameters<AColor>()
 
     // MARK: - Initializer

@@ -49,16 +49,16 @@ public enum BadgeStyle: Int {
  # Code
  ```
  BadgeView(
-     badgeStyle: .default,
-     value: 1,
-     content: {
-            Image("Your image")
-             .resizable()
-             .aspectRatio(contentMode: .fit)
-             .frame(width: 50.0, height: 50.0, alignment: .center)
-     })
+ badgeStyle: .default,
+ value: 1,
+ content: {
+ Image("Your image")
+ .resizable()
+ .aspectRatio(contentMode: .fit)
+ .frame(width: 50.0, height: 50.0, alignment: .center)
+ })
  ```
-*/
+ */
 @available(iOS 14.0, *)
 public struct BadgeView<Content>: View where Content: View {
 
@@ -96,12 +96,12 @@ public struct BadgeView<Content>: View where Content: View {
     // MARK: - Initializer
 
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-        /// - Parameters:
-        ///   - badgeStyle: Badge style.
-        ///   - value: Value for badge label.
-        ///   - borderColor: Border color.
-        ///   - offset: Offset badge.
-        ///   - content: Content.
+    /// - Parameters:
+    ///   - badgeStyle: Badge style.
+    ///   - value: Value for badge label.
+    ///   - borderColor: Border color.
+    ///   - offset: Offset badge.
+    ///   - content: Content.
     public init(
         badgeStyle: BadgeStyle,
         value: Int?,
@@ -156,37 +156,37 @@ public struct BadgeView<Content>: View where Content: View {
 
     // MARK: - Internal Methods
 
-    func scheme(_ scheme: Binding<BadgeViewScheme?>) -> some View {
+    func scheme(_ scheme: BadgeViewScheme) -> some View {
         var view = self
-        view._scheme = scheme
+        view._scheme = .constant(scheme)
         return view.id(UUID())
     }
 
     @ViewBuilder
-       func badgeView() -> some View {
-           let scheme = self.scheme ?? schemeProvider.scheme
-           let badgeForegroundColor = scheme.backgroundColor.parameter(for: isEnabled  ? .normal : .disabled, style: badgeStyle)?.swiftUIColor
-           let strokeColor = borderColor ?? scheme.borderColor.swiftUIColor
+    func badgeView() -> some View {
+        let scheme = self.scheme ?? schemeProvider.scheme
+        let badgeForegroundColor = scheme.backgroundColor.parameter(for: isEnabled  ? .normal : .disabled, style: badgeStyle)?.swiftUIColor
+        let strokeColor = borderColor ?? scheme.borderColor.swiftUIColor
 
-           if let text = textForTextView() {
-               if content != nil {
-                   textView(text, scheme: scheme)
-                       .modifier(SizeAwareViewModifier(viewSize: $segmentSize))
-                       .offset(x: max(segmentSize.width - LayoutGrid.halfModule * 5 + offset.x, offset.y))
-               } else {
-                   textView(text, scheme: scheme)
-                       .offset(x: offset.x, y: offset.y)
-               }
-           } else {
-               Rectangle()
-                   .frame(width: LayoutGrid.module, height: LayoutGrid.module)
-                   .foregroundColor(badgeForegroundColor)
-                   .cornerRadius(LayoutGrid.halfModule)
-                   .overlay(RoundedRectangle(cornerRadius: LayoutGrid.halfModule)
-                               .stroke(strokeColor, lineWidth: LayoutGrid.halfModule / 2))
-                   .offset(x: offset.x, y: offset.y)
-           }
-       }
+        if let text = textForTextView() {
+            if content != nil {
+                textView(text, scheme: scheme)
+                    .modifier(SizeAwareViewModifier(viewSize: $segmentSize))
+                    .offset(x: max(segmentSize.width - LayoutGrid.halfModule * 5 + offset.x, offset.y))
+            } else {
+                textView(text, scheme: scheme)
+                    .offset(x: offset.x, y: offset.y)
+            }
+        } else {
+            Rectangle()
+                .frame(width: LayoutGrid.module, height: LayoutGrid.module)
+                .foregroundColor(badgeForegroundColor)
+                .cornerRadius(LayoutGrid.halfModule)
+                .overlay(RoundedRectangle(cornerRadius: LayoutGrid.halfModule)
+                    .stroke(strokeColor, lineWidth: LayoutGrid.halfModule / 2))
+                .offset(x: offset.x, y: offset.y)
+        }
+    }
 
     func textForTextView() -> String? {
         var resultText: String?
@@ -209,7 +209,7 @@ public struct BadgeView<Content>: View where Content: View {
             .padding(.vertical, LayoutGrid.halfModule / 2)
             .frame(minWidth: LayoutGrid.halfModule * 5, minHeight: LayoutGrid.halfModule * 5)
             .overlay(RoundedRectangle(cornerRadius: LayoutGrid.halfModule * 5)
-                        .stroke(strokeColor, lineWidth: LayoutGrid.halfModule / 2))
+                .stroke(strokeColor, lineWidth: LayoutGrid.halfModule / 2))
             .background(
                 RoundedRectangle(cornerRadius: LayoutGrid.halfModule * 5)
                     .foregroundColor(badgeForegroundColor)
