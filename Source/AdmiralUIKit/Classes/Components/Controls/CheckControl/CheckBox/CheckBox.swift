@@ -15,8 +15,8 @@ public class CheckBox: CheckControl {
     
     override func commonInit() {
         super.commonInit()
-        selectedImage = PrivateAsset.Custom.Control.checkBoxOn.image
-        defaultImage = PrivateAsset.Custom.Control.checkBoxOff.image
+        selectedImage = SystemAsset.Custom.Control.checkBoxOn.image
+        defaultImage = SystemAsset.Custom.Control.checkBoxOff.image
         updateState()
     }
     
