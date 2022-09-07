@@ -8,22 +8,32 @@
 import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
-
-public typealias CheckControlParameters<P> = DoubleParameterBox<ControlState, CheckControlState, P>
-
+/**
+ CheckControlScheme - the visual scheme of CheckControl.
+ You can create a by specifying the following parameters in init:
+ - CheckControlScheme() - Initialize default CheckControlScheme with default themezation
+ # Example to create CheckControlScheme:
+ ```
+let scheme = CheckControlScheme()
+ ```
+ */
 @available(iOS 14.0.0, *)
 public struct CheckControlScheme: AppThemeScheme {
-    
+
+    // MARK: - Public Properties
+
+    /// The tint color
     public var tintColor = CheckControlParameters<AColor>()
+
+    /// The text color
     public var textColor = ControlParameter<AColor>()
+
+    /// The text font
+    public var textFont: AFont
+
+    // MARK: - Initializer
     
-    var textFont: AFont
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    public init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
         
         textFont = theme.fonts.body1
@@ -42,3 +52,5 @@ public struct CheckControlScheme: AppThemeScheme {
         textColor.set(parameter: theme.colors.textPrimary.withAlpha(alpha), for: .disabled)
     }
 }
+
+public typealias CheckControlParameters<P> = DoubleParameterBox<ControlState, CheckControlState, P>
