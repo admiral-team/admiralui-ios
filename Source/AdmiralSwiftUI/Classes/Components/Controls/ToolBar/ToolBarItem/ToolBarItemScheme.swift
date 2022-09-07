@@ -20,19 +20,19 @@ public struct ToolBarItemScheme: AppThemeScheme {
 
     // MARK: - Properties
 
-    /// The title color of ToolBarItem
+    /// The title color
     public var titleColor = ToolbarItemParameters<AColor>()
 
-    /// The image color of ToolBarItem
+    /// The image color
     public var imageColor = ToolbarItemParameters<AColor>()
 
-    /// The horizontal title label font of ToolBarItem
+    /// The horizontal title label font
     public var titleLabelHorizontalFont: AFont
 
-    /// The vertical title label font of ToolBarItem
+    /// The vertical title label font
     public var titleLabelVerticalFont: AFont
 
-    /// The border color of ToolBarItem
+    /// The border color
     public var borderColor: AColor
 
     // MARK: - Initializer

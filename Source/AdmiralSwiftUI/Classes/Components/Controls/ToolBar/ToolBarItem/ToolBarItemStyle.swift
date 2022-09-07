@@ -14,28 +14,28 @@ public struct ToolBarItemStyle: ButtonStyle {
 
     // MARK: - Properties
 
-    /// The image of ToolBarItem
+    /// The image
     public var image: Image
 
-    /// The title of ToolBarItem
+    /// The title
     public var title: String
 
-    /// The badge style of ToolBarItem
+    /// The badge style
     public var badgeStyle: ToolBarBadgeStyle?
 
-    /// The type of ToolBarItem
+    /// The type that can be horizontal or vertical
     public var type: ToolBarType
 
-    /// The scheme of ToolBarItem
+    /// The visual scheme
     public var scheme: ToolBarItemScheme
 
-    /// The selection flag of ToolBarItem
+    /// A Boolean value that indicates whether the view is enabled
     public var isSelected: Bool
 
-    /// The itemType of ToolBarItem
+    /// The value that controls an image color and title color
     public var itemType: ToolbarItemType
 
-    /// The enabled flag of ToolBarItem
+    /// A Boolean value that indicates whether the view is enabled
     public var isEnabled: Bool
 
     // MARK: - Initializer
@@ -76,8 +76,8 @@ public struct ToolBarItemStyle: ButtonStyle {
         if type == .horizontal {
             return ToolBarItemHorizontal(
                 content: { content })
-                .disabled(!isEnabled)
-                .eraseToAnyView()
+            .disabled(!isEnabled)
+            .eraseToAnyView()
         } else {
             return ToolBarItemVertical(
                 content: { content }
@@ -93,6 +93,13 @@ public struct ToolBarItemStyle: ButtonStyle {
 private extension ToolBarItemStyle {
 
     struct ToolBarItemContent: View {
+
+        // MARK: - Contants
+
+        private enum Constants {
+            static let imageSize: CGFloat = LayoutGrid.module * 4
+        }
+
         @Environment(\.isEnabled) private var isEnabled
 
         let configuration: Configuration
@@ -104,10 +111,12 @@ private extension ToolBarItemStyle {
         let itemType: ToolbarItemType
         let isSelected: Bool
 
+        // MARK: - Computed Properties
+
         private var imageColor: Color? {
             var imageColor = isSelected
-                ? scheme.imageColor.parameter(for: .highlighted, type: itemType)?.swiftUIColor
-                : scheme.imageColor.parameter(for: .normal, type: itemType)?.swiftUIColor
+            ? scheme.imageColor.parameter(for: .highlighted, type: itemType)?.swiftUIColor
+            : scheme.imageColor.parameter(for: .normal, type: itemType)?.swiftUIColor
             if !isEnabled {
                 imageColor = scheme.imageColor.parameter(for: .disabled, type: itemType)?.swiftUIColor
             }
@@ -116,57 +125,70 @@ private extension ToolBarItemStyle {
 
         private var titleColor: Color? {
             var titleColor = isSelected
-                ? scheme.titleColor.parameter(for: .highlighted, type: itemType)?.swiftUIColor
-                : scheme.titleColor.parameter(for: .normal, type: itemType)?.swiftUIColor
+            ? scheme.titleColor.parameter(for: .highlighted, type: itemType)?.swiftUIColor
+            : scheme.titleColor.parameter(for: .normal, type: itemType)?.swiftUIColor
             if !isEnabled {
                 titleColor = scheme.titleColor.parameter(for: .disabled, type: itemType)?.swiftUIColor
             }
             return titleColor
         }
 
+        // MARK: - Body
+
         var body: some View {
             if let badgeStyle = badgeStyle {
                 switch badgeStyle {
                 case .empty:
-                    BadgeView(badgeStyle: .error,
-                              value: nil,
-                              borderColor: scheme.borderColor.swiftUIColor) {
-                        image
-                            .renderingMode(.template)
-                            .foregroundColor(imageColor)
-                            .frame(width: 32.0, height: 32.0)
+                    BadgeView(
+                        badgeStyle: .error,
+                        value: nil,
+                        borderColor: scheme.borderColor.swiftUIColor
+                    ) {
+                        imageView
                     }
                 case .value(let value):
-                    BadgeView(badgeStyle: .error,
-                              value: value,
-                              borderColor: scheme.borderColor.swiftUIColor) {
-                        image
-                            .renderingMode(.template)
-                            .foregroundColor(imageColor)
-                            .frame(width: 32.0, height: 32.0)
+                    BadgeView(
+                        badgeStyle: .error,
+                        value: value,
+                        borderColor: scheme.borderColor.swiftUIColor
+                    ) {
+                        imageView
                     }
                 }
             } else {
-                image
-                    .renderingMode(.template)
-                    .foregroundColor(imageColor)
-                    .frame(width: 32.0, height: 32.0)
+                imageView
             }
             Text(title)
                 .font(type == .vertical ? scheme.titleLabelVerticalFont.swiftUIFont : scheme.titleLabelHorizontalFont.swiftUIFont)
                 .foregroundColor(titleColor)
         }
+
+        // MARK: - Layouts
+
+        private var imageView: some View {
+            image
+                .renderingMode(.template)
+                .foregroundColor(imageColor)
+                .frame(width: Constants.imageSize, height: Constants.imageSize)
+        }
+
     }
 
-    struct ToolBarItemVertical<Content>: View where Content: View {
+    private struct ToolBarItemVertical<Content>: View where Content: View {
+
+        // MARK: - Private Properties
 
         @Environment(\.isEnabled) private var isEnabled
 
-        let content: Content
+        private let content: Content
+
+        // MARK: - Initializer
 
         init(@ViewBuilder content: () -> Content) {
             self.content = content()
         }
+
+        // MARK: - Body
 
         var body: some View {
             Spacer()
@@ -177,19 +199,25 @@ private extension ToolBarItemStyle {
         }
     }
 
-    struct ToolBarItemHorizontal<Content>: View where Content: View {
+    private struct ToolBarItemHorizontal<Content>: View where Content: View {
+
+        // MARK: - Private Properties
 
         @Environment(\.isEnabled) private var isEnabled
 
-        let content: Content
+        private let content: Content
+
+        // MARK: - Initializer
 
         init(@ViewBuilder content: () -> Content) {
             self.content = content()
         }
 
+        // MARK: - Body
+
         var body: some View {
             Spacer()
-            HStack(spacing: 12.0) {
+            HStack(spacing: LayoutGrid.halfModule * 3) {
                 content
             }
             Spacer()

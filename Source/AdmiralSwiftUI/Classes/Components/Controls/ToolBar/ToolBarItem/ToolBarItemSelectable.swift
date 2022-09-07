@@ -2,12 +2,19 @@
 //  File.swift
 //  AdmiralSwiftUI
 //
-//  Created by Борисов Кирилл Анатольевич on 22.08.2022.
+//  Created on 22.08.2022.
 //
 import SwiftUI
 
 @available(iOS 14.0.0, *)
 public struct ToolBarItemSelectable: View {
+
+    // MARK: - Constants
+
+    private enum Constants {
+        static let imageSize: CGFloat = LayoutGrid.module * 4
+    }
+
 
     // MARK: - Internal Properties
 
@@ -54,28 +61,19 @@ public struct ToolBarItemSelectable: View {
                     BadgeView(badgeStyle: .error,
                               value: nil,
                               borderColor: scheme.borderColor.swiftUIColor) {
-                        image
-                            .renderingMode(.template)
-                            .foregroundColor(imageColor)
-                            .frame(width: 32.0, height: 32.0)
+                        imageView
                     }
                     .disabled(!isEnabled)
                 case .value(let value):
                     BadgeView(badgeStyle: .error,
                               value: value,
                               borderColor: scheme.borderColor.swiftUIColor) {
-                        image
-                            .renderingMode(.template)
-                            .foregroundColor(titleColor)
-                            .frame(width: 32.0, height: 32.0)
+                        imageView
                     }
                     .disabled(!isEnabled)
                 }
             } else {
-                image
-                    .renderingMode(.template)
-                    .foregroundColor(imageColor)
-                    .frame(width: 32.0, height: 32.0)
+                imageView
             }
             Text(title)
                 .font(scheme.titleLabelVerticalFont.swiftUIFont)
@@ -88,6 +86,22 @@ public struct ToolBarItemSelectable: View {
             viewRouter.currentPage = assignedPage
         }
         Spacer()
+    }
+
+    // MARK: - Layouts
+
+    private var imageView: some View {
+        var color: Color?
+        switch badgeStyle {
+        case .empty:
+            color = imageColor
+        default:
+            color = titleColor
+        }
+        return image
+            .renderingMode(.template)
+            .foregroundColor(color)
+            .frame(width: Constants.imageSize, height: Constants.imageSize)
     }
 
 }

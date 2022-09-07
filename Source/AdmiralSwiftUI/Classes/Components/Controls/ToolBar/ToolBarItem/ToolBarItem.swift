@@ -8,14 +8,20 @@
 import SwiftUI
 
 public enum ToolBarBadgeStyle {
+    /// The empty style
     case empty
+    /// The style witn initial value
     case value(Int)
 }
 
 public enum ToolbarItemType: String {
+    /// The default type
     case `default`
+    /// The error type
     case error
+    /// The success type
     case success
+    /// The attention type
     case attention
 }
 /**
@@ -44,19 +50,19 @@ public struct ToolBarItem: Hashable, Identifiable {
 
     public let id = UUID()
 
-    /// The title of ToolBar
+    /// The title
     public let title: String
 
-    /// The image of ToolBar
+    /// The image
     public let image: Image
 
-    /// The badge style of ToolBar
+    /// The badge style
     public var badgeStyle: ToolBarBadgeStyle? = nil
 
-    /// The type of ToolBar
+    /// The type
     public var type: ToolbarItemType = .default
 
-    /// The enabled flag of ToolBar
+    /// The enabled flag 
     public var isEnabled: Bool = true
 
     // MARK: - Initializer
