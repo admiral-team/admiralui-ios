@@ -10,17 +10,17 @@ import AdmiralUIResources
 import SwiftUI
 
 public enum TagStyle: Int {
-    /// The none style of TagControl
+    /// The none style
     case none
-    /// The default style of TagControl
+    /// The default style
     case `default`
-    /// The success style of TagControl
+    /// The success style
     case success
-    /// The additional style of TagControl
+    /// The additional style
     case additional
-    /// The error style of TagControl
+    /// The error style
     case error
-    /// The attention style of TagControl
+    /// The attention style
     case attention
 }
 

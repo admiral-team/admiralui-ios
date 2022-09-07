@@ -9,7 +9,7 @@ import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
 /**
- PrimaryLinkControlScheme - the visual scheme of PrimaryLinkControlStyle.
+ PrimaryLinkControlScheme - the visual scheme Style.
  You can create a by specifying the following parameters in init:
  - PrimaryLinkControlScheme() - Initialize default PrimaryLinkControlScheme with default themezation
  Example to create PrimaryLinkControlScheme:
@@ -23,10 +23,10 @@ public struct PrimaryLinkControlScheme: AppThemeScheme {
 
     // MARK: - Public properties
 
-    /// The font color of PrimaryLinkControl
+    /// The font color
     public var font = PrimaryLinkControlSchemeParameters<AFont>()
 
-    /// The text color of PrimaryLinkControl
+    /// The text color 
     public var textColor = ControlParameter<AColor>()
 
     // MARK: - Initializer

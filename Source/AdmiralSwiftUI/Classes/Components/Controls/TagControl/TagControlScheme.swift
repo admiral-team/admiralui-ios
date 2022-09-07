@@ -21,25 +21,25 @@ public struct TagControlScheme: AppThemeScheme {
 
     // MARK: - Properties
 
-    /// The font of TagControl
+    /// The font
     public var font: AFont
 
-    /// The text color of TagControl
+    /// The text color
     public var textColor = TagParameters<AColor>()
 
-    /// The background color of TagControl
+    /// The background color
     public var backgroundColor = TagParameters<AColor>()
 
-    /// The view tint color of TagControl
+    /// The view tint color
     public var viewTintColor = TagParameters<AColor>()
 
-    /// The link title color of TagControl
+    /// The link title color
     public var linkTitleFont: AFont
 
-    /// The link title color of TagControl
+    /// The link title color
     public var linkTitleFontAdidtional: AFont
 
-    /// The leading alpha color of TagControl
+    /// The leading alpha color
     public var leadingTrailingViewsAlpha = ControlParameter<Double>()
 
     // MARK: - Initializer

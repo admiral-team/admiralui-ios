@@ -9,7 +9,7 @@ import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
 /**
- PinButtonScheme - the visual scheme of PinButtonStyle.
+ PinButtonScheme - the visual scheme.
  You can create a by specifying the following parameters in init:
  - PinButtonScheme() - Initialize default PinButtonScheme with default themezation
 Example to create PinButtonScheme:
@@ -23,13 +23,13 @@ public struct PinButtonScheme: AppThemeScheme {
 
     // MARK: - Properties
 
-    /// The selected backgroundColor of PinButton
+    /// The selected backgroundColor
     public var selectedBackgroundColor: AColor
 
-    /// The background color of PinButton
+    /// The background color
     public var backgroundColor: AColor
 
-    /// The shadow color of PinButton
+    /// The shadow color
     public let shadowColor: AColor
 
     // MARK: - Initializer

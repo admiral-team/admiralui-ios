@@ -28,10 +28,10 @@ public struct PinButtonStyle: ButtonStyle {
 
     // MARK: - Public Properties
 
-    /// The selection flag of PinButtonStyle
+    /// The selection flag
     @Binding public var isSelected: Bool
 
-    /// The image of PinButtonStyle
+    /// The image
     @State public var image: Image
 
     // MARK: - Private Properties
