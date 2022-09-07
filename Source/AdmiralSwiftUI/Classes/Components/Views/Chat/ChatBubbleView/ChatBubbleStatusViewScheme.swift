@@ -22,13 +22,13 @@ public struct ChatBubbleStatusViewScheme: AppThemeScheme {
 
     // MARK: - Properties
 
-    /// The text font of ChatBubbleStatusViewScheme
+    /// The text font
     public var textFont: AFont
 
-    /// The text color of ChatBubbleStatusViewScheme
+    /// The text color
     public var textColor = ChatBubbleStatusViewParameters<AColor>()
 
-    /// The image color of ChatBubbleStatusViewScheme
+    /// The image color 
     public var imageColor = ChatBubbleStatusViewParameters<AColor>()
 
     // MARK: - Initializer

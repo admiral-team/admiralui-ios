@@ -8,11 +8,11 @@
 import AdmiralTheme
 import AdmiralUIResources
 import SwiftUI
-/// The style of ChatBubbleStatusView.
+/// The style .
 public enum ChatBubbleStatusStyle: Int {
-    /// The default style of ChatBubbleStatusView.
+    /// The default style .
     case `default`
-    /// The light style of ChatBubbleStatusView.
+    /// The light style .
     case light
 }
 /**
@@ -22,7 +22,7 @@ public enum ChatBubbleStatusStyle: Int {
 
  ## Initializer parameters:
 
- - time: String - Time text message
+ - time: String - Time text message. It located in the bottom right edge. The supported format of time is HH:mm
  - status: ChatStatus - A status ChatBubbleView. Can be in the following states: loading, error, sent, receive, read
  - direction: ChatDirection - A direction for text mesage. Can be: left, right
  - time: String - Time text message.
@@ -42,16 +42,16 @@ public struct ChatBubbleStatusView: View {
 
     // MARK: - Public Properties
 
-    /// The time of ChatBubbleStatusView
+    /// The time. It located in the bottom right edge. The supported format of time is HH:mm
     @State public var time: String
 
-    /// The status of ChatBubbleStatusView
+    /// The status of message. It controls the image type. It can be -  case loading, error, sent, receive, read and none
     @State public var status: ChatStatus?
 
-    /// The direction of ChatBubbleStatusView
+    /// The value that used in visal scheme to control foreground color of image. It can be left or right
     @State public var direction: ChatDirection
 
-    /// The style of ChatBubbleStatusView
+    /// The value that used in visal scheme to control foreground color of image and text. It can be light or default.
     @State public var style: ChatBubbleStatusStyle
 
     // MARK: - Private Properties
