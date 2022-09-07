@@ -8,7 +8,7 @@
 import AdmiralTheme
 import AdmiralUIResources
 /**
- ToastViewScheme - the visual scheme of ToastView.
+ ToastViewScheme - the visual scheme.
  You can create a by specifying the following parameters in init:
  - ToastViewScheme() - Initialize default ToastViewScheme with default themezation
  # Example to create ToastViewScheme:
@@ -21,30 +21,30 @@ public struct ToastViewScheme: AppThemeScheme {
 
     // MARK: - Properties
 
-    /// The title color of ToastView
+    /// The title color
     var titleTextColor = ToastViewParameters<AColor>()
 
-    /// The close tint color of ToastView
+    /// The close tint color
     var closeTintColor = ToastViewParameters<AColor>()
 
-    /// The close title color of ToastView
+    /// The close title color
     var closeTitleColor = ToastViewParameters<AColor>()
 
-    /// The background color of ToastView
+    /// The background color
     var backgroundColor = ToastViewParameters<AColor>()
 
-    /// The iamge tint color of ToastView
+    /// The iamge tint color
     var imageTintColor =  ToastImageParameters<AColor>()
 
-    /// The title font of ToastView
+    /// The title font
     var titleTextFont: AFont
 
-    /// The close title font of ToastView
+    /// The close title font
     var closeTitleFont: AFont
 
     // MARK: - Initializer
 
-    public init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
 
         let alpha = theme.colors.disabledAlpha
 
