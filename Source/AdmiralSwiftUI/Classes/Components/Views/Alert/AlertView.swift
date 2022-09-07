@@ -8,7 +8,6 @@
 import AdmiralTheme
 import AdmiralUIResources
 import SwiftUI
-
 /// Type size image from alert view.
 public enum AlertViewImageType {
     case illustration
@@ -244,9 +243,9 @@ public struct AlertView: View {
 
     // MARK: - Internal Methods
 
-    func scheme(_ scheme: Binding<AlertViewScheme?>) -> some View {
+    func scheme(_ scheme: AlertViewScheme) -> some View {
         var view = self
-        view._scheme = scheme
+        view._scheme = .constant(scheme)
         return view.id(UUID())
     }
 
