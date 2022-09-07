@@ -10,43 +10,43 @@
 #endif
 
 // Deprecated typealiases
-@available(*, deprecated, renamed: "PrivateImageAsset.Image", message: "This typealias will be removed in SwiftGen 7.0")
-public typealias PrivateAssetImageTypeAlias = PrivateImageAsset.Image
+@available(*, deprecated, renamed: "SystemImageAsset.Image", message: "This typealias will be removed in SwiftGen 7.0")
+public typealias SystemAssetImageTypeAlias = SystemImageAsset.Image
 
 // swiftlint:disable superfluous_disable_command file_length implicit_return
 
 // MARK: - Asset Catalogs
 
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
-public enum PrivateAsset {
+public enum SystemAsset {
   public enum Custom {
     public enum Cell {
-      public static let point = PrivateImageAsset(name: "Custom/Cell/point")
+      public static let point = SystemImageAsset(name: "Custom/Cell/point")
     }
     public enum Chat {
-      public static let read = PrivateImageAsset(name: "Custom/Chat/Read")
-      public static let sent = PrivateImageAsset(name: "Custom/Chat/Sent")
+      public static let read = SystemImageAsset(name: "Custom/Chat/Read")
+      public static let sent = SystemImageAsset(name: "Custom/Chat/Sent")
     }
     public enum CirclePageControl {
-      public static let arrowRight = PrivateImageAsset(name: "Custom/CirclePageControl/arrowRight")
+      public static let arrowRight = SystemImageAsset(name: "Custom/CirclePageControl/arrowRight")
     }
     public enum Control {
-      public static let checkBoxOff = PrivateImageAsset(name: "Custom/Control/checkBoxOff")
-      public static let checkBoxOn = PrivateImageAsset(name: "Custom/Control/checkBoxOn")
-      public static let radioButtonOff = PrivateImageAsset(name: "Custom/Control/radioButtonOff")
-      public static let radioButtonOn = PrivateImageAsset(name: "Custom/Control/radioButtonOn")
+      public static let checkBoxOff = SystemImageAsset(name: "Custom/Control/checkBoxOff")
+      public static let checkBoxOn = SystemImageAsset(name: "Custom/Control/checkBoxOn")
+      public static let radioButtonOff = SystemImageAsset(name: "Custom/Control/radioButtonOff")
+      public static let radioButtonOn = SystemImageAsset(name: "Custom/Control/radioButtonOn")
     }
     public enum Informers {
-      public static let question = PrivateImageAsset(name: "Custom/Informers/question")
+      public static let question = SystemImageAsset(name: "Custom/Informers/question")
     }
     public enum Segment {
-      public static let arrowDown = PrivateImageAsset(name: "Custom/Segment/arrowDown")
-      public static let arrowUp = PrivateImageAsset(name: "Custom/Segment/arrowUp")
+      public static let arrowDown = SystemImageAsset(name: "Custom/Segment/arrowDown")
+      public static let arrowUp = SystemImageAsset(name: "Custom/Segment/arrowUp")
     }
   }
 
   // swiftlint:disable trailing_comma
-  public static let allImages: [PrivateImageAsset] = [
+  public static let allImages: [SystemImageAsset] = [
     Custom.Cell.point,
     Custom.Chat.read,
     Custom.Chat.sent,
@@ -65,7 +65,7 @@ public enum PrivateAsset {
 
 // MARK: - Implementation Details
 
-public struct PrivateImageAsset {
+public struct SystemImageAsset {
   public fileprivate(set) var name: String
 
   #if os(macOS)
@@ -74,6 +74,7 @@ public struct PrivateImageAsset {
   public typealias Image = UIImage
   #endif
 
+  @available(iOS 8.0, tvOS 9.0, watchOS 2.0, macOS 10.7, *)
   public var image: Image {
     let bundle = BundleToken.bundle
     #if os(iOS) || os(tvOS)
@@ -89,12 +90,24 @@ public struct PrivateImageAsset {
     }
     return result
   }
+
+  #if os(iOS) || os(tvOS)
+  @available(iOS 8.0, tvOS 9.0, *)
+  public func image(compatibleWith traitCollection: UITraitCollection) -> Image {
+    let bundle = BundleToken.bundle
+    guard let result = Image(named: name, in: bundle, compatibleWith: traitCollection) else {
+      fatalError("Unable to load image asset named \(name).")
+    }
+    return result
+  }
+  #endif
 }
 
-public extension PrivateImageAsset.Image {
+public extension SystemImageAsset.Image {
+  @available(iOS 8.0, tvOS 9.0, watchOS 2.0, *)
   @available(macOS, deprecated,
-    message: "This initializer is unsafe on macOS, please use the PrivateImageAsset.image property")
-  convenience init?(asset: PrivateImageAsset) {
+    message: "This initializer is unsafe on macOS, please use the SystemImageAsset.image property")
+  convenience init?(asset: SystemImageAsset) {
     #if os(iOS) || os(tvOS)
     let bundle = BundleToken.bundle
     self.init(named: asset.name, in: bundle, compatibleWith: nil)

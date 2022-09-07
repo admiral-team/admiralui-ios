@@ -110,7 +110,7 @@ open class BigInformer: UIView, AnyAppThemable, AccessibilitySupport {
     // MARK: - Private Properties
     
     private enum Constants {
-        static let arrowImage = PrivateAsset.Custom.Segment.arrowUp.image
+        static let arrowImage = SystemAsset.Custom.Segment.arrowUp.image
         static let heightImageView: CGFloat = LayoutGrid.module
         static let widthImageView: CGFloat = LayoutGrid.doubleModule
     }
