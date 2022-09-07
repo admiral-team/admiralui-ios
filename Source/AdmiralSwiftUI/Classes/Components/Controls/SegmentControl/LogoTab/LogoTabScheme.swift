@@ -9,7 +9,7 @@ import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
 /**
- LogoTabScheme - the visual scheme of PlatformButtonStyle.
+ LogoTabScheme - the visual scheme of LogoTab.
  You can create a by specifying the following parameters in init:
  - LogoTabScheme() - Initialize default LogoTabScheme with default themezation
  # Example to create LogoTabScheme:

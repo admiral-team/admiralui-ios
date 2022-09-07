@@ -9,7 +9,7 @@ import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
 /**
- OutlineSliderTabScheme - the visual scheme of PlatformButtonStyle.
+ OutlineSliderTabScheme - the visual scheme of OutlineSliderTab.
  You can create a by specifying the following parameters in init:
  - OutlineSliderTabScheme() - Initialize default OutlineSliderTabScheme with default themezation
  # Example to create OutlineSliderTabScheme:
