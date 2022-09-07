@@ -8,7 +8,6 @@
 import AdmiralTheme
 import AdmiralUIResources
 import SwiftUI
-
 /**
  CheckBox - A type of button that lets the user choose between two opposite states, actions, or values. A selected checkbox is considered on when it contains a checkmark and off when it's empty.
  
@@ -46,9 +45,11 @@ public struct CheckBox: View {
     
     @Environment(\.isEnabled) private var isEnabled
     
-    @State private var scheme: CheckControlScheme? = nil
+    @Binding private var scheme: CheckControlScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<CheckControlScheme>()
-    
+
+    // MARK: - Computed Properties
+
     private var image: Image {
         return isSelected ? Image(uiImage: SystemAsset.Custom.Control.checkBoxOn.image) : Image(uiImage: SystemAsset.Custom.Control.checkBoxOff.image)
     }
@@ -58,23 +59,35 @@ public struct CheckBox: View {
     public init(
         isSelected: Binding<Bool>,
         text: String,
-        checkState: CheckControlState) {
+        checkState: CheckControlState,
+        scheme: Binding<CheckControlScheme?> = .constant(nil)
+    ) {
         self._isSelected = isSelected
         self._text = .init(initialValue: text)
         self._checkState = .init(initialValue: checkState)
+        self._scheme = scheme
     }
     
     public init(
         isSelected: Binding<Bool>,
-        text: String) {
+        text: String,
+        scheme: Binding<CheckControlScheme?> = .constant(nil)
+    ) {
         self._isSelected = isSelected
         self._text = .init(initialValue: text)
+        self._scheme = scheme
     }
     
-    public init(isSelected: Binding<Bool>) {
+    public init(
+        isSelected: Binding<Bool>,
+        scheme: Binding<CheckControlScheme?> = .constant(nil)
+    ) {
         self._isSelected = isSelected
+        self._scheme = scheme
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         let tintColor = scheme.tintColor.parameter(for: isEnabled ? .normal : .disabled, state: checkState)
@@ -99,7 +112,7 @@ public struct CheckBox: View {
     
     func scheme(_ scheme: CheckControlScheme) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = .constant(scheme)
         return view.id(UUID())
     }
     

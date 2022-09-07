@@ -13,9 +13,12 @@ import AdmiralUIResources
 @available(iOS 14.0.0, *)
 struct LinerSwiftUIView: View {
     @State private var selectionItem = 0
+    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
     
     var body: some View {
+        let scheme = schemeProvider.scheme
         NavigationContentView(navigationTitle: "Liner") {
+            scheme.backgroundColor.swiftUIColor
             ScrollView(.vertical) {
                 Spacer()
                     .frame(height: LayoutGrid.doubleModule)
