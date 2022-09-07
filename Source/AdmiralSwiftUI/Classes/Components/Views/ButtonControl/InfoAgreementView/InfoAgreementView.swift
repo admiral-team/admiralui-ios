@@ -151,9 +151,9 @@ public struct InfoAgreementView: View {
 
     // MARK: - Internal Methods
 
-    func scheme(_ scheme: Binding<InfoAgreementViewScheme?>) -> some View {
+    func scheme(_ scheme: InfoAgreementViewScheme) -> some View {
         var view = self
-        view._scheme = scheme
+        view._scheme = .constant(scheme)
         return view.id(UUID())
     }
 
