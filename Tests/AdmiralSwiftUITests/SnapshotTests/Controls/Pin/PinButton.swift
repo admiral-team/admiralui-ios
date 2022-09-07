@@ -70,6 +70,7 @@ final class PinButtonSnapshotTests: XCTestCase {
         SwiftUIThemeManager.shared.theme = .default
         var pinButtonScheme = PinButtonScheme()
         pinButtonScheme.backgroundColor = AColor(color: .systemPink)
+        pinButtonScheme.selectedbackgroundColor = AColor(color: .systemPink)
         let newSchemeProvider: SchemeProvider<PinButtonScheme> = SchemeProvider<PinButtonScheme>(scheme: pinButtonScheme)
 
         let pinButton = Button(
