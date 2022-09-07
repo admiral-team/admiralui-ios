@@ -18,7 +18,7 @@ public struct ToolBarItemSelectable: View {
 
     // MARK: - Internal Properties
 
-    @StateObject var viewRouter: ToolBarViewRouter
+    @Binding var currentPage: Int
     let scheme: ToolBarItemScheme
     let assignedPage: Int
     let image: Image
@@ -31,7 +31,7 @@ public struct ToolBarItemSelectable: View {
     // MARK: - Computed Properties
 
     private var imageColor: Color? {
-        var imageColor = viewRouter.currentPage == assignedPage
+        var imageColor = currentPage == assignedPage
         ? scheme.imageColor.parameter(for: .highlighted, type: itemType)?.swiftUIColor
         : scheme.imageColor.parameter(for: .normal, type: itemType)?.swiftUIColor
         if !isEnabled {
@@ -41,7 +41,7 @@ public struct ToolBarItemSelectable: View {
     }
 
     private var titleColor: Color? {
-        var titleColor = viewRouter.currentPage == assignedPage
+        var titleColor = currentPage == assignedPage
         ? scheme.titleColor.parameter(for: .highlighted, type: itemType)?.swiftUIColor
         : scheme.titleColor.parameter(for: .normal, type: itemType)?.swiftUIColor
         if !isEnabled {
@@ -87,7 +87,7 @@ public struct ToolBarItemSelectable: View {
             guard isEnabled else { return }
 
             onTap(assignedPage)
-            viewRouter.currentPage = assignedPage
+            currentPage = assignedPage
         }
         Spacer()
     }

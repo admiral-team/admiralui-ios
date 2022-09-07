@@ -7,16 +7,9 @@
 import AdmiralTheme
 import AdmiralUIResources
 /**
- ToolBarScheme - the visual scheme of MapButtonStyle.
+ ToolBarScheme - the visual scheme of ToolBar.
  You can create a by specifying the following parameters in init:
  - ToolBarScheme() - Initialize default ToolBarScheme with default themezation
- - ToolBarScheme(
-     backgroundColorNormal: AColor - the border color of MapButtonStyle,
-     backgroundColorHighlighted: AColor - the background color of MapButtonStyle,,
-     imageTintColor: AColor - the image tint color of MapButtonStyle,
-     shadowColor: AColor - the shadow color of MapButtonStyle
- )
-
  Example to create ToolBarScheme:
  Code
  ```
@@ -28,10 +21,10 @@ public struct ToolBarScheme: AppThemeScheme {
 
     // MARK: - Public properties
 
-    /// The background color of ToolBar
+    /// The background color
     public var backgroundColor: AColor
 
-    /// The shadow color of ToolBar
+    /// The shadow color
     public var shadowColor: AColor
 
     /// The item scheme

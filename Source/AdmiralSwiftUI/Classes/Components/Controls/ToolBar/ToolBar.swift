@@ -59,7 +59,7 @@ public struct ToolBar: View {
 
     @Environment(\.isEnabled) var isEnabled
 
-    @StateObject var viewRouter = ToolBarViewRouter()
+    @State var currentPage = 0
 
     // MARK: - Private Properties
 
@@ -106,7 +106,7 @@ public struct ToolBar: View {
                 let item = items[i]
                 if items.count > 1 && isSelectable {
                     ToolBarItemSelectable(
-                        viewRouter: viewRouter,
+                        currentPage: $currentPage,
                         scheme: scheme.itemScheme,
                         assignedPage: i,
                         image: item.image,
@@ -129,7 +129,7 @@ public struct ToolBar: View {
                             badgeStyle: item.badgeStyle,
                             type: type,
                             itemType: item.type,
-                            isSelected: viewRouter.currentPage == i,
+                            isSelected: currentPage == i,
                             isEnabled: item.isEnabled
                         )
                     )
@@ -156,7 +156,7 @@ public struct ToolBar: View {
     // MARK: - Private Methods
 
     private func tapItem(id: Int) {
-        viewRouter.currentPage = id
+        currentPage = id
         onTap(id)
     }
 
