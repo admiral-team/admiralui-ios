@@ -8,7 +8,27 @@
 import UIKit
 import AdmiralTheme
 
-/// The primary link component сan be used to show hyperlinks in user interface.
+/**
+ PrimaryLinkControl - The primary link component сan be used to show hyperlinks in user interface.
+ ## Internal Properties:
+ - fontStyle: FontStyle - Type font label. Default is body.
+ - leadingImage: UIImage? - Leading picture from text.
+ - trailingImage: UIImage? - Trailing picture from text.
+ 
+ # Code
+ ```
+ let linkControl = PrimaryLinkControl()
+ 
+ private func setUpLinkControl() {
+     linkControl.title = linkText
+     linkControl.fontStyle = .body
+     linkControl.style = .none
+     linkControl.addTarget(self, action: #selector(tapLink), for: .touchUpInside)
+ }
+ 
+ ```
+*/
+
 open class PrimaryLinkControl: BaseLinkControl {
     
     // MARK: - Internal methods

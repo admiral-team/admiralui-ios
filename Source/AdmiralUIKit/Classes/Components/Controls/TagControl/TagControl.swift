@@ -17,6 +17,29 @@ public enum TagStyle: Int {
     case attention
 }
 
+/**
+ A TagControl - A tag is a label that marks and catalogs information to facilitate the search process. When you click on a tag, all elements with this tag are loaded.
+
+ The TagControl has some internal properties for customizing the element:
+ 
+ ## Internal Properties:
+ - isSelected: Bool - A Boolean value indicating whether the control is in the selected state.
+ - isHighlighted: Bool - A Boolean value indicating whether the control draws a highlight.
+ - isEnabled: Bool - A Boolean value indicating whether the control is in the enabled state.
+ - shouldAnimateHighlighting: Bool - A Boolean value indicating whether the control highlight animated.
+ - animationDuration: TimeInterval - Highlight animation duration.
+ - leadingView: T? - Additional leading view. In this field, you can add any object from UIView.
+ - trailingView: V? - Additional trailing view. In this field, you can add any object from UIView.
+ - title: String? - The text in the middle.
+ - height: CGFloat - The height object.
+ # Code
+ ```
+ let tagView = TagControl()
+ tagView.isEnabled = state == .disabled ? false : true
+ tagView.style = .additional
+ ```
+*/
+
 /// A tag is a label that marks and catalogs information to facilitate the search process. When you click on a tag, all elements with this tag are loaded.
 open class TagControl<T: UIView, V: UIView>: UIControl, AnyAppThemable, AccessibilitySupport {
     
