@@ -15,7 +15,7 @@ import Foundation
      public let title: String
 
      /// Badge style. Default is none.
-     public var badgeStyle: BadgeStyle?
+     public let badgeStyle: BadgeStyle?
 
      // MARK: - Initializer
      public init(title: String, badgeStyle: BadgeStyle?) {
