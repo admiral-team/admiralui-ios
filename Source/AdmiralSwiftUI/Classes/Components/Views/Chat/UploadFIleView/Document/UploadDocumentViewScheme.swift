@@ -22,40 +22,40 @@ public struct UploadDocumentViewScheme: AppThemeScheme {
 
     // MARK: - Public properties
 
-    /// The font of size text label in UploadDocumentView
-    public let sizeTextFont: AFont
+    /// The font of size text label
+    public var sizeTextFont: AFont
 
-    /// The font of time text label in UploadDocumentView
-    public let timeTextFont: AFont
+    /// The font of time text label
+    public var timeTextFont: AFont
 
-    /// The font of message text label in UploadDocumentView
+    /// The font of message text label
     public var messageTextFont: AFont
 
-    /// The color of message text label in UploadDocumentView
+    /// The color of message text label
     public var messageTextColor: AColor
 
-    /// The text font of UploadDocumentView
-    public let textFont: AFont
+    /// The text font
+    public var textFont: AFont
 
-    /// The background color of  UploadDocumentView
+    /// The background color
     public var backgroundColor = UploadDocumentParameters<AColor>()
 
-    /// The name color of  UploadDocumentView
+    /// The name color
     public var nameTextColor = UploadDocumentParameters<AColor>()
 
-    /// The time  color of  UploadDocumentView
+    /// The time  color
     public var timeTextColor = UploadDocumentParameters<AColor>()
 
-    /// The icon color of  UploadDocumentView
+    /// The icon color
     public var iconColor = UploadDocumentParameters<AColor>()
 
-    /// The size color of  UploadDocumentView
+    /// The size color
     public var sizeColor = UploadDocumentParameters<AColor>()
 
-    /// The circle color of  UploadDocumentView
+    /// The circle color
     public var circleColor = UploadDocumentParameters<AColor>()
 
-    /// The chevron color of  UploadDocumentView
+    /// The chevron color
     public var chevronColor = UploadDocumentParameters<AColor>()
 
     // MARK: - Init/deinit
