@@ -7,7 +7,7 @@
 import AdmiralTheme
 import AdmiralUIResources
 /**
- StandardTabScheme - the visual scheme of PlatformButtonStyle.
+ StandardTabScheme - the visual scheme.
  You can create a by specifying the following parameters in init:
  - StandardTabScheme() - Initialize default StandardTabScheme with default themezation
  # Example to create StandardTabScheme:
@@ -21,19 +21,19 @@ public final class StandardTabScheme: AppThemeScheme {
 
     // MARK: - Public Properties
 
-    /// The backgorund color of StandardTab
+    /// The backgorund color
     public var backgroundColor: AColor
 
-    /// The thumb color of StandardTab
+    /// The thumb color
     public var thumbColor = ControlParameter<AColor>()
 
-    /// The border color of StandardTab
+    /// The border color
     public var borderColor = ControlParameter<AColor>()
 
-    /// The title color of StandardTab
+    /// The title color
     public var titleColor = ControlParameter<AColor>()
 
-    /// The title font of StandardTab
+    /// The title font
     public var titleFont = ControlParameter<AFont>()
 
     // MARK: - Initializer
