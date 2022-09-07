@@ -32,8 +32,8 @@ public struct ToolBarItemSelectable: View {
 
     private var imageColor: Color? {
         var imageColor = viewRouter.currentPage == assignedPage
-            ? scheme.imageColor.parameter(for: .highlighted, type: itemType)?.swiftUIColor
-            : scheme.imageColor.parameter(for: .normal, type: itemType)?.swiftUIColor
+        ? scheme.imageColor.parameter(for: .highlighted, type: itemType)?.swiftUIColor
+        : scheme.imageColor.parameter(for: .normal, type: itemType)?.swiftUIColor
         if !isEnabled {
             imageColor = scheme.imageColor.parameter(for: .disabled, type: itemType)?.swiftUIColor
         }
@@ -42,8 +42,8 @@ public struct ToolBarItemSelectable: View {
 
     private var titleColor: Color? {
         var titleColor = viewRouter.currentPage == assignedPage
-            ? scheme.titleColor.parameter(for: .highlighted, type: itemType)?.swiftUIColor
-            : scheme.titleColor.parameter(for: .normal, type: itemType)?.swiftUIColor
+        ? scheme.titleColor.parameter(for: .highlighted, type: itemType)?.swiftUIColor
+        : scheme.titleColor.parameter(for: .normal, type: itemType)?.swiftUIColor
         if !isEnabled {
             titleColor = scheme.titleColor.parameter(for: .disabled, type: itemType)?.swiftUIColor
         }
@@ -58,16 +58,20 @@ public struct ToolBarItemSelectable: View {
             if let badgeStyle = badgeStyle {
                 switch badgeStyle {
                 case .empty:
-                    BadgeView(badgeStyle: .error,
-                              value: nil,
-                              borderColor: scheme.borderColor.swiftUIColor) {
+                    BadgeView(
+                        badgeStyle: .error,
+                        value: nil,
+                        borderColor: scheme.borderColor.swiftUIColor
+                    ) {
                         imageView
                     }
                     .disabled(!isEnabled)
                 case .value(let value):
-                    BadgeView(badgeStyle: .error,
-                              value: value,
-                              borderColor: scheme.borderColor.swiftUIColor) {
+                    BadgeView(
+                        badgeStyle: .error,
+                        value: value,
+                        borderColor: scheme.borderColor.swiftUIColor
+                    ) {
                         imageView
                     }
                     .disabled(!isEnabled)

@@ -56,13 +56,13 @@ public struct ToolBarItem: Hashable, Identifiable {
     /// The image
     public let image: Image
 
-    /// The badge style
+    /// The value that controls bulding a BadgeView. Can be either empty or value (Int)
     public var badgeStyle: ToolBarBadgeStyle? = nil
 
-    /// The type
+    /// The parameter is responsible for the display style: `default`, error, success, attention
     public var type: ToolbarItemType = .default
 
-    /// The enabled flag 
+    /// A Boolean value that indicates whether the view is enabled
     public var isEnabled: Bool = true
 
     // MARK: - Initializer
