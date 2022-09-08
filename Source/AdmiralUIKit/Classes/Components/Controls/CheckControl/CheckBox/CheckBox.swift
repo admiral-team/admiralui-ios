@@ -8,7 +8,23 @@
 import UIKit
 import AdmiralUIResources
 
-/// Checkboxes is element a graphical user interface element allowing the user to control a parameter with two states - enabled and disabled.
+/**
+ Checkboxes is element a graphical user interface element allowing the user to control a parameter with two states - enabled and disabled.
+ 
+ The Checkboxes has some internal properties for customizing the element:
+ 
+ ## Internal Properties:
+ - checkState: CheckControlState - State control.
+ - isSelected: Bool - A Boolean value indicating whether the control is in the selected state.
+ - isEnabled: Bool - A Boolean value indicating whether the control is in the enabled state.
+ - isHighlighted: Bool - A Boolean value indicating whether the control is in the highlighted state.
+ # Code
+ ```
+ let checkBox = CheckBox()
+ checkBox.isSelected = true
+ ```
+*/
+
 public class CheckBox: CheckControl {
     
     // MARK: - Internal Methods

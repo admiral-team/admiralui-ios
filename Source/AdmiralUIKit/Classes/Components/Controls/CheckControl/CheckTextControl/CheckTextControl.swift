@@ -8,7 +8,38 @@
 import UIKit
 import AdmiralTheme
 
-/// Base class for checkbox or radiobutton and label.
+/**
+ CheckTextControl - Base class for checkbox or radiobutton and label.
+ 
+ The RadioControl has some internal properties for customizing the element:
+ 
+ ## Internal Properties:
+ 
+ - checkState: CheckControlState - State control.
+ - isSelected: Bool - A Boolean value indicating whether the control is in the selected state.
+ - isEnabled: Bool - A Boolean value indicating whether the control is in the enabled state.
+ - isHighlighted: Bool - A Boolean value indicating whether the control is in the highlighted state.
+ - text: String? - The text displayed in the text label.
+ - numberOfLines: Int - The maximum number of lines for rendering text text label.
+ 
+ # Create radio button with CheckTextControl Code
+ ```
+ let radioButton = CheckTextControl<RadioControl>(checkControl: RadioControl())
+ 
+ radioButton.text = nil
+ radioButton.isSelected = false
+ radioButton.checkState = .normal
+ let gesture = UITapGestureRecognizer(target: self, action: #selector(didTap(_:)))
+ radioButton.addGestureRecognizer(gesture)
+
+
+@objc private func didTap(_ tap: UITapGestureRecognizer) {
+ radioButton.isSelected = !radioButton.isSelected
+ didSelect?()
+}
+ ```
+*/
+
 final public class CheckTextControl<C: CheckControl>: UIControl, AnyAppThemable, AccessibilitySupport {
     
     // MARK: - Public Properties
