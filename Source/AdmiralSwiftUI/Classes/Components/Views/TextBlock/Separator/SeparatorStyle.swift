@@ -15,11 +15,11 @@ import Foundation
  */
 @available(iOS 14.0, *)
 public enum SeparatorStyle: String {
-    /// The long style of Separator
+    /// This style install long width for separator.
     case long
-    /// The short style of Separator
+    /// This style install short width for separator.
     case short
-    /// The empty style of Separator
+    /// This style install empty width for separator.
     case empty
 
     // MARK: - Computed Properties
