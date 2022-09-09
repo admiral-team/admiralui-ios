@@ -19,10 +19,10 @@ struct CalendarVerticalView: View {
 
     // MARK: - Public Properties
 
-    /// The start date of calendar.
+    /// The start date
     @State var startDate: Date
 
-    /// The end date of calendar.
+    /// The end date
     @State var endDate: Date
 
     /// Calendar loclole
@@ -37,10 +37,10 @@ struct CalendarVerticalView: View {
     /// Tells that the dates at the specified selected.
     @State var didSelectedDates: (([Date]) -> ())?
 
-    /// Selected start date of calendar.
+    /// Selected start date
     @Binding var selectedStartDate: Date?
 
-    /// Selected end date of calendar.
+    /// Selected end date 
     @Binding var selectedEndDate: Date?
 
     /// The date of moth and year.
@@ -138,9 +138,9 @@ struct CalendarVerticalView: View {
 
     // MARK: - Internal Methods
 
-    func scheme(_ scheme: Binding<CalendarVerticalViewScheme?>) -> some View {
+    func scheme(_ scheme: CalendarVerticalViewScheme) -> some View {
         var view = self
-        view._scheme = scheme
+        view._scheme = .constant(scheme)
         return view.id(UUID())
     }
 
