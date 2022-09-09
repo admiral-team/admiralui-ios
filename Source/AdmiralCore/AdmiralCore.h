@@ -2,7 +2,7 @@
 //  AdmiralCore.h
 //  AdmiralCore
 //
-//  Created by Борисов Кирилл Анатольевич on 01.09.2022.
+//  Created on 01.09.2022.
 //
 
 #import <Foundation/Foundation.h>
