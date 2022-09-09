@@ -4,7 +4,6 @@
 //
 //  Created on 27.09.2021.
 //
-
 /**
  HeaderStyle - Public enum for Headers AdmiralSwiftUI library
  HeaderStyle can be one of the following values:
@@ -15,14 +14,13 @@
  */
 @available(iOS 14.0, *)
 public enum HeaderStyle: String {
-
-    /// The title style of Headers
+    /// Set title font for label
     case title
-    /// The body style of Headers
+    /// Set body font for label
     case body
-    /// The headline style of Headers
+    /// Set headline font for label
     case headline
-    /// The headlineSecondary style of Headers
+    /// Set headlineSecondary font for label
     case headlineSecondary
 
     // MARK: - Computed Properties

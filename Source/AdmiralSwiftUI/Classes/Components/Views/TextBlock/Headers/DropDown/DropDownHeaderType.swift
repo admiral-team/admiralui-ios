@@ -9,7 +9,6 @@ import AdmiralUIResources
 import SwiftUI
 /**
  DropDownHeaderType - Public enum for DropDownHeader AdmiralSwiftUI library
-
  DropDownHeaderType can be one of the following values:
  - up
  - down
@@ -17,11 +16,11 @@ import SwiftUI
  */
 @available(iOS 14.0, *)
 public enum DropDownHeaderType {
-    /// The up type of DropDown
+    /// Set up arrow image in imageview
     case up
-    /// The down type of DropDown
+    /// Set down arrow image in imageview
     case down
-    /// The custom type of DropDown
+    /// Set custom image
     case custom(Image)
 
     // MARK: - Computed Properties
