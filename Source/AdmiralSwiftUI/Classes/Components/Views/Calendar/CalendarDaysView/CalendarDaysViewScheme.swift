@@ -11,27 +11,6 @@ import AdmiralUIResources
  CalendarViewCellColorScheme - the visual scheme of CalendarViewCellColorView.
  You can create a by specifying the following parameters in init:
  - CalendarViewCellColorScheme() - Initialize default CalendarViewCellColorScheme with default themezation
- - CalendarViewCellColorScheme(
-     titleLabelFont: AFont,
-     dayPointColor: AColor,
-     selectedColorNormal: AColor,
-     selectedColorTailSelected: AColor,
-     selectedColor: AColor,
-     selectedColorCurentDate: AColor,
-     textColorNormal: AColor,
-     textColorCurrentDate: AColor,
-     textColorSelected: AColor,
-     textColorTailSelected: AColor,
-     textColorInactive: AColor,
-     borderColorNormal: AColor,
-     borderColorCurrentDate: AColor,
-     borderColorSelected: AColor,
-     borderColorTailSelected: AColor,
-     backgroundColorNormal: AColor,
-     backgroundColorCurrentDate: AColor,
-     backgroundColorSelected: AColor,
-     backgroundColorTailSelected: AColor
- )
  # Example to create CalendarViewCellColorScheme:
  # Code
  ```
@@ -40,24 +19,24 @@ import AdmiralUIResources
  */
 public struct CalendarViewCellColorScheme: AppThemeScheme {
 
-    // MARK: - Properties
+    // MARK: - Public Properties
 
-    /// The background color of  CalendarViewCell
+    /// The background color
     public var backgroundColors = CalendarParameters<AColor>()
 
-    /// The text background color of  CalendarViewCell
+    /// The text background color
     public var textColors = CalendarParameters<AColor>()
 
-    /// The selected color of  CalendarViewCell
+    /// The selected color
     public var selectedBackgroundColors = CalendarParameters<AColor>()
 
-    /// The border color of  CalendarViewCell
+    /// The border color
     public var borderColors = CalendarParameters<AColor>()
 
-    /// The title label color of  CalendarViewCell
+    /// The title label color
     public var titleLabelFont: AFont
 
-    /// The day point color of  CalendarViewCell
+    /// The day point color
     public var dayPointColor: AColor
 
     // MARK: - Initializer
@@ -88,52 +67,6 @@ public struct CalendarViewCellColorScheme: AppThemeScheme {
         backgroundColors.set(parameter: theme.colors.backgroundBasic, for: .currentDate)
         backgroundColors.set(parameter: theme.colors.backgroundBasic, for: .selected)
         backgroundColors.set(parameter: theme.colors.backgroundBasic, for: .tailSelected)
-    }
-
-    public init(
-        titleLabelFont: AFont,
-        dayPointColor: AColor,
-        selectedColorNormal: AColor,
-        selectedColorTailSelected: AColor,
-        selectedColor: AColor,
-        selectedColorCurentDate: AColor,
-        textColorNormal: AColor,
-        textColorCurrentDate: AColor,
-        textColorSelected: AColor,
-        textColorTailSelected: AColor,
-        textColorInactive: AColor,
-        borderColorNormal: AColor,
-        borderColorCurrentDate: AColor,
-        borderColorSelected: AColor,
-        borderColorTailSelected: AColor,
-        backgroundColorNormal: AColor,
-        backgroundColorCurrentDate: AColor,
-        backgroundColorSelected: AColor,
-        backgroundColorTailSelected: AColor
-    ) {
-        self.titleLabelFont = titleLabelFont
-        self.dayPointColor = dayPointColor
-
-        selectedBackgroundColors.set(parameter: selectedColorNormal, for: .normal)
-        selectedBackgroundColors.set(parameter: selectedColorTailSelected, for: .tailSelected)
-        selectedBackgroundColors.set(parameter: selectedColor, for: .selected)
-        selectedBackgroundColors.set(parameter: selectedColorCurentDate, for: .currentDate)
-
-        textColors.set(parameter: textColorNormal, for: .normal)
-        textColors.set(parameter: textColorCurrentDate, for: .currentDate)
-        textColors.set(parameter: textColorSelected, for: .selected)
-        textColors.set(parameter: textColorTailSelected, for: .tailSelected)
-        textColors.set(parameter: textColorInactive, for: .inactive)
-
-        borderColors.set(parameter: borderColorNormal, for: .normal)
-        borderColors.set(parameter: borderColorCurrentDate, for: .currentDate)
-        borderColors.set(parameter: borderColorSelected, for: .selected)
-        borderColors.set(parameter: borderColorTailSelected, for: .tailSelected)
-
-        backgroundColors.set(parameter: backgroundColorNormal, for: .normal)
-        backgroundColors.set(parameter: backgroundColorCurrentDate, for: .currentDate)
-        backgroundColors.set(parameter: backgroundColorSelected, for: .selected)
-        backgroundColors.set(parameter: backgroundColorTailSelected, for: .tailSelected)
     }
 
 }
