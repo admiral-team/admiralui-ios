@@ -21,6 +21,7 @@ public struct SeparatorViewScheme: AppThemeScheme {
 
     // MARK: - Public Properties
 
+    /// The line tint color
     public var lineTintColor: AColor
 
     // MARK: - Initializer
