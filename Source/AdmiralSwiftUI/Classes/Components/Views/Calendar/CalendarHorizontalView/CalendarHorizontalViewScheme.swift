@@ -23,7 +23,7 @@ public struct CalendarHorizontalViewScheme: AppThemeScheme {
 
     // MARK: - Public Properties
 
-    /// The picker title color of CalendarHorizontalView
+    /// The picker title color
     public var pickerTitleColor: AColor
 
     // MARK: - Initializer
