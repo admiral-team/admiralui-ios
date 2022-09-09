@@ -14,13 +14,13 @@ public struct Month: Hashable, Identifiable {
 
     public let id = UUID()
 
-    /// The days of month
+    /// The days
     public var days: [CalendarDay]
 
-    /// The title of Month
+    /// The title
     public var title: String
 
-    /// The current date in Month
+    /// The current date
     public var date: Date
 
     // MARK: - Initializer

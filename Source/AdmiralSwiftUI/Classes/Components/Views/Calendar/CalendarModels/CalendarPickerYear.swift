@@ -12,12 +12,12 @@ public struct CalendarPickerYear {
 
     // MARK: - Public Properties
 
-    /// The title of CalendarPickerYear
+    /// The title
     public var title: String
 
-    /// The moths of CalendarPickerYear
+    /// The moths
     public var months: [CalendarPickerMonth]
 
-    /// The current date of CalendarPickerYear
+    /// The current date 
     public var date: Date = Date()
 }

@@ -14,7 +14,7 @@ public struct CalendarWeek: Hashable, Identifiable {
 
     public let id = UUID()
 
-    /// The days of weel
+    /// The days
     public var days: [CalendarDay]
 
     // MARK: - Initializer
