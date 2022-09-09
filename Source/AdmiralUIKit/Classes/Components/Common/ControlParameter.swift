@@ -6,7 +6,6 @@
 //
 
 import AdmiralCore
-import AdmiralTheme
 import UIKit
 
 typealias ControlParameter<P> = ParameterBox<UIControl.State,P>
