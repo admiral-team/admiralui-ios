@@ -9,7 +9,7 @@ import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
 /**
- CalendarVerticalViewScheme - the visual scheme of CalendarVerticalView.
+ CalendarVerticalViewScheme - the visual scheme of CalendarVerticalView .
  You can create a by specifying the following parameters in init:
  - CalendarVerticalViewScheme() - Initialize default CalendarVerticalViewScheme with default themezation
  - CalendarVerticalViewScheme(
@@ -27,10 +27,10 @@ public struct CalendarVerticalViewScheme: AppThemeScheme {
 
     // MARK: - Properties
 
-    /// The background color of CalendarVerticalView
+    /// The background color
     public var backgroundColor: AColor
 
-    /// The line background color of CalendarVerticalView
+    /// The line background color
     public var lineBackgroundColor: AColor
 
     // MARK: - Initializer
