@@ -76,7 +76,7 @@ public struct InputNumber: View {
     @Binding private var stepValue: Double
 
     @Binding private var scheme: InputNumberScheme?
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<InputNumberScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<InputNumberScheme>
 
     @State private var valueText: String?
 
@@ -104,7 +104,8 @@ public struct InputNumber: View {
         minimumValue: Binding<Double> = .constant(0.0),
         maximumValue: Binding<Double> = .constant(.infinity),
         stepValue: Binding<Double> = .constant(1.0),
-        scheme: Binding<InputNumberScheme?> = .constant(nil)
+        scheme: Binding<InputNumberScheme?> = .constant(nil),
+        schemeProvider: SchemeProvider<InputNumberScheme> = AppThemeSchemeProvider<InputNumberScheme>()
     ) {
         self._titleText = titleText
         self._value = value
@@ -112,6 +113,7 @@ public struct InputNumber: View {
         self._maximumValue = maximumValue
         self._stepValue = stepValue
         self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Body

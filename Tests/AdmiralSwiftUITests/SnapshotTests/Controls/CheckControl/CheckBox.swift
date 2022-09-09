@@ -84,6 +84,32 @@ final class CheckControlSnapshotTests: XCTestCase {
         checkControl(view: checkBox, named: "notSelectedDarkTheme", testName: "CheckBoxError")
     }
 
+    func testCheckBoxSchemeProvider() {
+        SwiftUIThemeManager.shared.theme = .default
+
+        var scheme = CheckControlScheme()
+        scheme.textColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        scheme.tintColor.set(parameter: AColor(color: .systemPink), for: .normal, state: .normal)
+        let newSchemeProvider: SchemeProvider<CheckControlScheme> = SchemeProvider<CheckControlScheme>(scheme: scheme)
+
+        let checkBox = CheckBox(
+            isSelected: .constant(false),
+            text: "CheckBox",
+            checkState: .normal,
+            schemeProvider: newSchemeProvider
+        )
+        checkControl(view: checkBox, named: "SchemeProvider", testName: "CheckBox")
+
+        SwiftUIThemeManager.shared.theme = .dark
+        let newCheckBox = CheckBox(
+            isSelected: .constant(false),
+            text: "CheckBox",
+            checkState: .normal,
+            schemeProvider: newSchemeProvider
+        )
+        checkControl(view: newCheckBox, named: "SchemeProvider", testName: "CheckBox")
+    }
+
 }
 
 private extension CheckControlSnapshotTests {
