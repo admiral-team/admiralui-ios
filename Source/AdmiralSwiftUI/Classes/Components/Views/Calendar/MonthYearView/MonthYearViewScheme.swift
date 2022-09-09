@@ -21,13 +21,13 @@ struct MonthYearViewScheme: AppThemeScheme {
 
     // MARK: - Properties
 
-    /// The title label color of MonthYearView
+    /// The title label color
     var titleLabelColor: AColor
 
-    /// The background color of MonthYearView
+    /// The background color
     var backgroundColor: AColor
 
-    /// The title label font of MonthYearView
+    /// The title label font
     var titleLabelFont: AFont
 
     // MARK: - Initializer
