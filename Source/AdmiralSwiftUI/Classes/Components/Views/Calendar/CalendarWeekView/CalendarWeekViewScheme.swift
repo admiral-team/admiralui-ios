@@ -27,33 +27,22 @@ public struct CalendarWeekViewScheme: AppThemeScheme {
 
     // MARK: - Properties
 
-    /// The title label color of CalendarWeekView
+    /// The title label color
     public var titleLabelColor: AColor
 
-    /// The background of CalendarWeekView
+    /// The background
     public var backgroundColor: AColor
 
-    /// The title label font of CalendarWeekView
+    /// The title label font
     public var titleLabelFont: AFont
 
     // MARK: - Initializer
 
-    public init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         titleLabelFont = theme.fonts.subhead2
 
         backgroundColor = theme.colors.backgroundBasic
         titleLabelColor = theme.colors.textSecondary
-    }
-
-    public init(
-        titleLabelColor: AColor,
-        backgroundColor: AColor,
-        titleLabelFont: AFont
-    ) {
-        self.titleLabelFont = titleLabelFont
-
-        self.backgroundColor = backgroundColor
-        self.titleLabelColor = titleLabelColor
     }
 
 }

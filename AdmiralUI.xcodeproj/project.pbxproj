@@ -812,13 +812,14 @@
 		E9BE41E527C8FD0B00894224 /* MapButtonsSnapShots.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE41E427C8FD0B00894224 /* MapButtonsSnapShots.swift */; };
 		E9BE41E727C8FD2C00894224 /* PinSnapShots.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE41E627C8FD2C00894224 /* PinSnapShots.swift */; };
 		E9BE41E927C8FD4500894224 /* SeveralPinSnapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE41E827C8FD4500894224 /* SeveralPinSnapshots.swift */; };
+		E9C6BF1E28C7A7F900213F5C /* CalendarWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C6BF1928C7A7F900213F5C /* CalendarWeek.swift */; };
+		E9C6BF1F28C7A7F900213F5C /* CalendarPickerYear.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C6BF1A28C7A7F900213F5C /* CalendarPickerYear.swift */; };
+		E9C6BF2028C7A7F900213F5C /* CalendarMonth.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C6BF1B28C7A7F900213F5C /* CalendarMonth.swift */; };
+		E9C6BF2128C7A7F900213F5C /* CalendarDays.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C6BF1C28C7A7F900213F5C /* CalendarDays.swift */; };
+		E9C6BF2228C7A7F900213F5C /* CalendarPickerMonth.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C6BF1D28C7A7F900213F5C /* CalendarPickerMonth.swift */; };
 		E9C79CB527BD14A20002EC49 /* ErrorViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C79CB427BD14A20002EC49 /* ErrorViewScheme.swift */; };
 		E9C79CB727BD14B50002EC49 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C79CB627BD14B50002EC49 /* ErrorView.swift */; };
-		E9E3CAAB28BF5E72008E161A /* CalendarDays.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E3CAAA28BF5E72008E161A /* CalendarDays.swift */; };
-		E9E3CAAD28BF5EF5008E161A /* CalendarWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E3CAAC28BF5EF5008E161A /* CalendarWeek.swift */; };
-		E9E3CAAF28BF5F43008E161A /* CalendarMonth.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E3CAAE28BF5F43008E161A /* CalendarMonth.swift */; };
-		E9E3CAB128BF5F84008E161A /* CalendarPickerMonth.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E3CAB028BF5F84008E161A /* CalendarPickerMonth.swift */; };
-		E9E3CAB328BF5FD9008E161A /* CalendarPickerYear.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E3CAB228BF5FD9008E161A /* CalendarPickerYear.swift */; };
+		E9DCD39428C72BBA00261612 /* TwoTitlePrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DCD39328C72BBA00261612 /* TwoTitlePrimaryButtonStyle.swift */; };
 		E9ECF207272A8EB000363E5E /* UploadImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ECF205272A8E7200363E5E /* UploadImageView.swift */; };
 		E9ECF20A272A8F6D00363E5E /* UploadImageViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ECF208272A8ED100363E5E /* UploadImageViewScheme.swift */; };
 /* End PBXBuildFile section */
@@ -1739,13 +1740,14 @@
 		E9BE41E427C8FD0B00894224 /* MapButtonsSnapShots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapButtonsSnapShots.swift; sourceTree = "<group>"; };
 		E9BE41E627C8FD2C00894224 /* PinSnapShots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinSnapShots.swift; sourceTree = "<group>"; };
 		E9BE41E827C8FD4500894224 /* SeveralPinSnapshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeveralPinSnapshots.swift; sourceTree = "<group>"; };
+		E9C6BF1928C7A7F900213F5C /* CalendarWeek.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarWeek.swift; sourceTree = "<group>"; };
+		E9C6BF1A28C7A7F900213F5C /* CalendarPickerYear.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarPickerYear.swift; sourceTree = "<group>"; };
+		E9C6BF1B28C7A7F900213F5C /* CalendarMonth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarMonth.swift; sourceTree = "<group>"; };
+		E9C6BF1C28C7A7F900213F5C /* CalendarDays.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDays.swift; sourceTree = "<group>"; };
+		E9C6BF1D28C7A7F900213F5C /* CalendarPickerMonth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarPickerMonth.swift; sourceTree = "<group>"; };
 		E9C79CB427BD14A20002EC49 /* ErrorViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewScheme.swift; sourceTree = "<group>"; };
 		E9C79CB627BD14B50002EC49 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
-		E9E3CAAA28BF5E72008E161A /* CalendarDays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDays.swift; sourceTree = "<group>"; };
-		E9E3CAAC28BF5EF5008E161A /* CalendarWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWeek.swift; sourceTree = "<group>"; };
-		E9E3CAAE28BF5F43008E161A /* CalendarMonth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMonth.swift; sourceTree = "<group>"; };
-		E9E3CAB028BF5F84008E161A /* CalendarPickerMonth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPickerMonth.swift; sourceTree = "<group>"; };
-		E9E3CAB228BF5FD9008E161A /* CalendarPickerYear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPickerYear.swift; sourceTree = "<group>"; };
+		E9DCD39328C72BBA00261612 /* TwoTitlePrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoTitlePrimaryButtonStyle.swift; sourceTree = "<group>"; };
 		E9ECF205272A8E7200363E5E /* UploadImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageView.swift; sourceTree = "<group>"; };
 		E9ECF208272A8ED100363E5E /* UploadImageViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageViewScheme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -2319,7 +2321,7 @@
 		0E38F2FA266F734D002AD565 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				E9E3CAA928BF5E4B008E161A /* CalendarModels */,
+				E9C6BF1828C7A7F900213F5C /* CalendarModels */,
 				0EA943EB27686CB900E393DF /* UIKitPickerView */,
 				0E16C78A26A1A8ED00C0E808 /* CalendarView */,
 				0E17A22E269DA6EF00F0A80B /* CalendarHorizontalView */,
@@ -3165,6 +3167,7 @@
 			children = (
 				0E8151792694483C004E0B34 /* TwoTitlePrimaryButton.swift */,
 				0E81515D269447EA004E0B34 /* TwoTitlePrimaryButtonScheme.swift */,
+				E9DCD39328C72BBA00261612 /* TwoTitlePrimaryButtonStyle.swift */,
 			);
 			path = TwoTitlePrimaryButton;
 			sourceTree = "<group>";
@@ -6725,6 +6728,18 @@
 			path = SeveralPin;
 			sourceTree = "<group>";
 		};
+		E9C6BF1828C7A7F900213F5C /* CalendarModels */ = {
+			isa = PBXGroup;
+			children = (
+				E9C6BF1928C7A7F900213F5C /* CalendarWeek.swift */,
+				E9C6BF1A28C7A7F900213F5C /* CalendarPickerYear.swift */,
+				E9C6BF1B28C7A7F900213F5C /* CalendarMonth.swift */,
+				E9C6BF1C28C7A7F900213F5C /* CalendarDays.swift */,
+				E9C6BF1D28C7A7F900213F5C /* CalendarPickerMonth.swift */,
+			);
+			path = CalendarModels;
+			sourceTree = "<group>";
+		};
 		E9C79CB327BD13EF0002EC49 /* ErrorView */ = {
 			isa = PBXGroup;
 			children = (
@@ -6732,18 +6747,6 @@
 				E9C79CB627BD14B50002EC49 /* ErrorView.swift */,
 			);
 			path = ErrorView;
-			sourceTree = "<group>";
-		};
-		E9E3CAA928BF5E4B008E161A /* CalendarModels */ = {
-			isa = PBXGroup;
-			children = (
-				E9E3CAAA28BF5E72008E161A /* CalendarDays.swift */,
-				E9E3CAAC28BF5EF5008E161A /* CalendarWeek.swift */,
-				E9E3CAAE28BF5F43008E161A /* CalendarMonth.swift */,
-				E9E3CAB028BF5F84008E161A /* CalendarPickerMonth.swift */,
-				E9E3CAB228BF5FD9008E161A /* CalendarPickerYear.swift */,
-			);
-			path = CalendarModels;
 			sourceTree = "<group>";
 		};
 		E9ECF204272A8E4900363E5E /* UploadFIleView */ = {
@@ -7058,7 +7061,6 @@
 				0E4BC7C62680CEEE000FC891 /* SubtitleWithImageListViewScheme.swift in Sources */,
 				0EC13704266E0B5000F4EB7E /* LeadingListViewComponent.swift in Sources */,
 				0E3A110026E14C83007062C5 /* ActivityIndicatorScheme.swift in Sources */,
-				E9E3CAAB28BF5E72008E161A /* CalendarDays.swift in Sources */,
 				0E008AE62747DA8F003D7882 /* BadgeArrowListViewScheme.swift in Sources */,
 				0EA2311F2704833F00FFF45E /* DoubleInputRangeTextField.swift in Sources */,
 				0E6EA4842701DF82002EBBBC /* TitleButtonDropDown.swift in Sources */,
@@ -7074,7 +7076,6 @@
 				0E8B0F3426DE517F00EEA0D3 /* CodeInputControl.swift in Sources */,
 				0E6EA49D2702669E002EBBBC /* HeaderStyle.swift in Sources */,
 				0E2A62CC26E7C830009CE2C0 /* IconListViewScheme.swift in Sources */,
-				E9E3CAAD28BF5EF5008E161A /* CalendarWeek.swift in Sources */,
 				0EA231212704835000FFF45E /* DoubleInputRangeTextFieldScheme.swift in Sources */,
 				0ED08A11266F943D00389A1A /* Date+Calendar.swift in Sources */,
 				E9B82B8127B40EFD00FC7BB9 /* ActionBarView.swift in Sources */,
@@ -7153,7 +7154,9 @@
 				0EA231242704836700FFF45E /* DoubleSlider.swift in Sources */,
 				0ED0837026CA661B000BE955 /* ChatInput.swift in Sources */,
 				0E2A62B826E7C64D009CE2C0 /* TitleSubtitleButtonListViewScheme.swift in Sources */,
+				E9C6BF1F28C7A7F900213F5C /* CalendarPickerYear.swift in Sources */,
 				E9B82B6227B40B9300FC7BB9 /* ActionBarControlSchemeSecondary.swift in Sources */,
+				E9DCD39428C72BBA00261612 /* TwoTitlePrimaryButtonStyle.swift in Sources */,
 				0E2A62E226E7CB5E009CE2C0 /* CalendarVerticalViewScheme.swift in Sources */,
 				0E2A62DC26E7CAB8009CE2C0 /* SearchBarColorScheme.swift in Sources */,
 				0E4BC8212681CDFE000FC891 /* ImageListView.swift in Sources */,
@@ -7201,7 +7204,6 @@
 				C6D5BD64266528FB00437808 /* ToolBar.swift in Sources */,
 				0E4BC73C267CF3A3000FC891 /* CheckBoxListViewScheme.swift in Sources */,
 				3BEDB3D028746EB900E2AD34 /* PlatformButtonAccessibilityIdentifiers.swift in Sources */,
-				E9E3CAB128BF5F84008E161A /* CalendarPickerMonth.swift in Sources */,
 				0EAD1D08270F16E20011B045 /* CountdownViewScheme.swift in Sources */,
 				0E4BC86D2681DFDE000FC891 /* ImageCardListViewScheme.swift in Sources */,
 				0E8B0F3626DE519C00EEA0D3 /* CodeInputControlScheme.swift in Sources */,
@@ -7209,6 +7211,7 @@
 				0E81517A2694483C004E0B34 /* TwoTitlePrimaryButton.swift in Sources */,
 				0E4BC7AC2680CED8000FC891 /* SubtitleWithImageListView.swift in Sources */,
 				0E2A62DE26E7CAF6009CE2C0 /* SmallInformerScheme.swift in Sources */,
+				E9C6BF2228C7A7F900213F5C /* CalendarPickerMonth.swift in Sources */,
 				0E6EA46F26FCF921002EBBBC /* TitleSubtitleHeader.swift in Sources */,
 				0E6EA4862701E407002EBBBC /* ButtonDropDown.swift in Sources */,
 				0E649979264C309500D03D5A /* InputNumber.swift in Sources */,
@@ -7241,7 +7244,7 @@
 				E9AA276627637B81007389CA /* ChatButtonScheme.swift in Sources */,
 				0E4BC94C26834F8E000FC891 /* SecondaryTitleListViewScheme.swift in Sources */,
 				0E59D35C26317A0D007B5CC1 /* OutlineSliderTabScheme.swift in Sources */,
-				E9E3CAAF28BF5F43008E161A /* CalendarMonth.swift in Sources */,
+				E9C6BF2028C7A7F900213F5C /* CalendarMonth.swift in Sources */,
 				0E2A62E626E8DBD8009CE2C0 /* SecondaryButtonStyle.swift in Sources */,
 				0E81516C269447FA004E0B34 /* TwoTitleGhostButtonScheme.swift in Sources */,
 				E9B82B5F27B40B9300FC7BB9 /* ActionBarControlView.swift in Sources */,
@@ -7284,12 +7287,12 @@
 				0EF044D127B529FE0095DD14 /* UnderlineTabItem.swift in Sources */,
 				E916F9F427677B0A00628C96 /* TextOperationView.swift in Sources */,
 				0EF044D327B52A0F0095DD14 /* OutlineSliderTabItem.swift in Sources */,
-				E9E3CAB328BF5FD9008E161A /* CalendarPickerYear.swift in Sources */,
 				E9ECF20A272A8F6D00363E5E /* UploadImageViewScheme.swift in Sources */,
 				0E4BC72E267CF392000FC891 /* CheckBoxListView.swift in Sources */,
 				0ED2A139274BEA2F00DF1315 /* SubtitleImageArrowListViewScheme.swift in Sources */,
 				0E8B0F3126DE346600EEA0D3 /* PinCodeKeyboardScheme.swift in Sources */,
 				0EAF71B9263875620041CA08 /* InformerTab.swift in Sources */,
+				E9C6BF1E28C7A7F900213F5C /* CalendarWeek.swift in Sources */,
 				0E6223A926BAF4D30012DB6E /* HideToastOperation.swift in Sources */,
 				0E38F2FC266F7361002AD565 /* CalendarVerticalView.swift in Sources */,
 				0E8151FD2695C745004E0B34 /* TextFieldInput.swift in Sources */,
@@ -7320,6 +7323,7 @@
 				3BB6609128452D68008322DC /* LinerPageControll.swift in Sources */,
 				0EC4D31127074B6F0024F2F6 /* AnimatingFontSize.swift in Sources */,
 				E9ECF207272A8EB000363E5E /* UploadImageView.swift in Sources */,
+				E9C6BF2128C7A7F900213F5C /* CalendarDays.swift in Sources */,
 				0E16C79326AEF50900C0E808 /* ToastViewScheme.swift in Sources */,
 				E9B4D816272FFF6200B4DA98 /* UploadDocumentViewScheme.swift in Sources */,
 				0ED08A2C266FE49400389A1A /* Array+ObservableObject.swift in Sources */,
