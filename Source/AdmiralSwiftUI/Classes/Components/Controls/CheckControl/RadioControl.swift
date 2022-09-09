@@ -8,7 +8,6 @@
 import AdmiralTheme
 import AdmiralUIResources
 import SwiftUI
-
 /**
  RadioControl - A type of button that lets the user choose between two opposite states, actions, or values. They are applied when there is a list of options from which the user can select only one option.
  You can create a RadioControl by specifying the following parameters in the initializer:
@@ -29,10 +28,14 @@ import SwiftUI
 public struct RadioControl: View {
     
     // MARK: - Public Properties
-    
+
+    /// The selection flag
     @Binding public var isSelected: Bool
-    
+
+    /// The text
     @State public var text: String = ""
+
+    /// The check state
     @State public var checkState: CheckControlState = .normal
     
     // MARK: - Internal Properties
@@ -43,9 +46,11 @@ public struct RadioControl: View {
     
     @Environment(\.isEnabled) private var isEnabled
     
-    @State private var scheme: CheckControlScheme? = nil
+    @Binding private var scheme: CheckControlScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<CheckControlScheme>()
-    
+
+    // MARK: - Computed Properites
+
     private var image: Image {
         return isSelected ? Image(uiImage: PrivateAsset.Custom.Control.radioButtonOn.image) : Image(uiImage: PrivateAsset.Custom.Control.radioButtonOff.image)
     }
@@ -55,12 +60,17 @@ public struct RadioControl: View {
     public init(
         isSelected: Binding<Bool>,
         text: String = "",
-        checkState: CheckControlState = .normal) {
+        checkState: CheckControlState = .normal,
+        scheme: Binding<CheckControlScheme?> = .constant(nil)
+    ) {
         self._isSelected = isSelected
         self._text = .init(initialValue: text)
         self._checkState = .init(initialValue: checkState)
+        self._scheme = scheme
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         let tintColor = scheme.tintColor.parameter(for: isEnabled ? .normal : .disabled, state: checkState)
@@ -84,7 +94,7 @@ public struct RadioControl: View {
     
     func scheme(_ scheme: CheckControlScheme) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = .constant(scheme)
         return view.id(UUID())
     }
     
