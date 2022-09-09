@@ -12,9 +12,6 @@ import AdmiralUIResources
  CalendarHorizontalViewScheme - the visual scheme of CalendarHorizontalView.
  You can create a by specifying the following parameters in init:
  - CalendarHorizontalViewScheme() - Initialize default CalendarHorizontalViewScheme with default themezation
- - CalendarHorizontalViewScheme(
-    pickerTitleColor: AColor
- )
  # Example to create CalendarHorizontalViewScheme:
  # Code
  ```
@@ -24,7 +21,7 @@ import AdmiralUIResources
 @available(iOS 14.0.0, *)
 public struct CalendarHorizontalViewScheme: AppThemeScheme {
 
-    // MARK: - Properties
+    // MARK: - Public Properties
 
     /// The picker title color of CalendarHorizontalView
     public var pickerTitleColor: AColor
@@ -33,10 +30,6 @@ public struct CalendarHorizontalViewScheme: AppThemeScheme {
 
     public init(theme: AppTheme = .default) {
         pickerTitleColor = theme.colors.textPrimary
-    }
-
-    public init(pickerTitleColor: AColor) {
-        self.pickerTitleColor = pickerTitleColor
     }
 
 }

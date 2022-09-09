@@ -9,15 +9,9 @@ import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
 /**
- CalendarHorizontalHeaderViewScheme - the visual scheme of CalendarHorizontalHeaderView.
+ CalendarHorizontalHeaderViewScheme - the visual scheme
  You can create a by specifying the following parameters in init:
  - CalendarHorizontalHeaderViewScheme() - Initialize default CalendarHorizontalHeaderViewScheme with default themezation
- - CalendarHorizontalHeaderViewScheme(
-     backgroundColor: AColor,
-     buttonColorNormal: AColor,
-     buttonColorHighlighted: AColor,
-     buttonColorDisabled: AColor
- )
  # Example to create CalendarHorizontalHeaderViewScheme:
  # Code
  ```
@@ -29,10 +23,10 @@ public struct CalendarHorizontalHeaderViewScheme: AppThemeScheme {
 
     // MARK: - Public Properties
 
-    /// The button color of CalendarHorizontalHeaderView.
+    /// The button color 
     public var buttonColor = ControlParameter<AColor>()
 
-    /// The background color of CalendarHorizontalHeaderView.
+    /// The background color
     public var backgroundColor: AColor
 
     // MARK: - Initializer
@@ -45,18 +39,6 @@ public struct CalendarHorizontalHeaderViewScheme: AppThemeScheme {
         buttonColor.set(parameter: theme.colors.textAccent, for: .normal)
         buttonColor.set(parameter: theme.colors.textAccentPressed, for: .highlighted)
         buttonColor.set(parameter: theme.colors.textAccent.withAlpha(alpha), for: .disabled)
-    }
-
-    public init(
-        backgroundColor: AColor,
-        buttonColorNormal: AColor,
-        buttonColorHighlighted: AColor,
-        buttonColorDisabled: AColor
-    ) {
-        self.backgroundColor = backgroundColor
-        buttonColor.set(parameter: buttonColorNormal, for: .normal)
-        buttonColor.set(parameter: buttonColorHighlighted, for: .highlighted)
-        buttonColor.set(parameter: buttonColorDisabled, for: .disabled)
     }
     
 }

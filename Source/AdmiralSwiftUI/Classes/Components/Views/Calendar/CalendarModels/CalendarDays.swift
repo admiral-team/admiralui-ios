@@ -2,7 +2,7 @@
 //  CalendarDays.swift
 //  AdmiralSwiftUI
 //
-//  Created by Борисов Кирилл Анатольевич on 31.08.2022.
+//  Created by on 31.08.2022.
 //
 
 import Foundation
