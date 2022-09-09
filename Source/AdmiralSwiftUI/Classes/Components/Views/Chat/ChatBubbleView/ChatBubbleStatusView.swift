@@ -8,20 +8,18 @@
 import AdmiralTheme
 import AdmiralUIResources
 import SwiftUI
+
 /// The style .
 public enum ChatBubbleStatusStyle: Int {
-    /// The default style .
+    /// Sets default style of fonts and colors.
     case `default`
-    /// The light style .
+    /// Sets light style of fonts and colors.
     case light
 }
 /**
  ChatBubbleStatusView - A view for chat message with time.
 
  You can create a ChatBubbleStatusView by specifying the following parameters in the initializer
-
- ## Initializer parameters:
-
  - time: String - Time text message. It located in the bottom right edge. The supported format of time is HH:mm
  - status: ChatStatus - A status ChatBubbleView. Can be in the following states: loading, error, sent, receive, read
  - direction: ChatDirection - A direction for text mesage. Can be: left, right
