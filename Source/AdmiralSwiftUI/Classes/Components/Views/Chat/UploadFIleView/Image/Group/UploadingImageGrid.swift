@@ -9,12 +9,12 @@ import SwiftUI
 import AdmiralUIResources
 /**
  UploadingImageGrid - the component that used to add imageViews to group
- 
+
  You can create a UploadingImageGroupView with the zero frame rectangle by specifying the following parameters in init:
- 
+
  - models: list of imageView models
  - direction: direction message
- 
+
  ## Example to create UploadingImageGrid
  # Code
  ```
@@ -30,9 +30,9 @@ import AdmiralUIResources
  */
 @available(iOS 14.0.0, *)
 public struct UploadingImageGrid: View {
-    
+
     // MARK: - Constants
-    
+
     private enum Constants {
         static let gridColumnsCount: Int = 2
         static let verticalSpacing: CGFloat = 10
@@ -44,11 +44,11 @@ public struct UploadingImageGrid: View {
 
     /// Tapped index of  element.
     public var tappedModel: ((UploadImageModel) -> ())?
-    
+
     // MARK: - Private properties
-    
+
     private var models: [UploadImageModel]
-    
+
     private let grid: [String: [[UploadImageViewCornerStyle]]] = [
         "1" : [[.allSides]],
         "2" : [[.leftSide, .rightSide]],
@@ -57,23 +57,23 @@ public struct UploadingImageGrid: View {
         "5" : [[.top], [.none, .none], [.bottomLeft, .bottomRight]],
         "6" : [[.topLeft, .topRight], [.none, .none], [.bottomLeft, .bottomRight]]
     ]
-    
+
     private var rows: [[UploadImageModel]] {
         models.chunks(Constants.gridColumnsCount)
     }
-    
+
     private var gridCount: Int {
         models.count <= Constants.maximumElemenetsInGrid ? models.count : Constants.maximumElemenetsInGrid
     }
-    
+
     /// Direction message.
     private let direction: ChatDirection
-    
+
     /// Action error button.
     private var errorAction: () -> ()
-    
+
     // MARK: - Init/deinit
-    
+
     public init(
         models: [UploadImageModel],
         direction: ChatDirection,
@@ -85,7 +85,7 @@ public struct UploadingImageGrid: View {
         self.tappedModel = tappedModel
         self.errorAction = errorAction
     }
-    
+
     public init(
         model: UploadImageModel,
         direction: ChatDirection,
@@ -97,13 +97,13 @@ public struct UploadingImageGrid: View {
         self.tappedModel = tappedModel
         self.errorAction = errorAction
     }
-    
+
     // MARK: - Layout
-    
+
     public var body: some View {
         contentView()
     }
-    
+
     // MARK: - Private methods
     @ViewBuilder
     private func contentView() -> some View {
@@ -114,7 +114,7 @@ public struct UploadingImageGrid: View {
                 Spacer()
             }
             .eraseToAnyView()
-            
+
         case .right:
             HStack(alignment: .bottom, spacing: LayoutGrid.halfModule) {
                 Spacer()
@@ -124,7 +124,7 @@ public struct UploadingImageGrid: View {
             .eraseToAnyView()
         }
     }
-    
+
     private func uploadImageViews() -> some View {
         VStack(spacing: LayoutGrid.module) {
             ForEach(rows.indices, id: \.self) { index in
@@ -145,7 +145,7 @@ public struct UploadingImageGrid: View {
             }
         }
     }
-    
+
     private func statusError() -> some View {
         return VStack {
             if isStatusError() {
@@ -158,7 +158,7 @@ public struct UploadingImageGrid: View {
             }
         }
     }
-    
+
     private func isStatusError() -> Bool {
         models.contains(where: {
             $0.uploadStatus == .error
@@ -176,7 +176,7 @@ private extension Array {
 
 @available(iOS 14.0, *)
 struct UploadingImageGroupView_Previews: PreviewProvider {
-    
+
     static var previews: some View {
         let testModel = UploadImageModel(
             isLoading: true,
@@ -189,5 +189,5 @@ struct UploadingImageGroupView_Previews: PreviewProvider {
         }
         .padding()
     }
-    
+
 }
