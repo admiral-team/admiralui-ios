@@ -7,7 +7,7 @@
 import AdmiralTheme
 import AdmiralUIResources
 /**
- ZeroScreenViewScheme - the visual scheme of BadgeView.
+ ZeroScreenViewScheme - the visual scheme of ZeroScreenView.
  You can create a by specifying the following parameters in init:
  - ZeroScreenViewScheme() - Initialize default ZeroScreenViewScheme with default themezation
  # Example to create ZeroScreenViewScheme:
@@ -20,16 +20,16 @@ public struct ZeroScreenViewScheme: AppThemeScheme {
 
     // MARK: - Properties
 
-    /// The title color of ZeroScreenView
+    /// The title color
     public var titleColor: AColor
 
-    /// The title font of ZeroScreenView
+    /// The title font
     public var titleFont: AFont
 
-    /// The subtitle color of ZeroScreenView
+    /// The subtitle color
     public var subtitleColor: AColor
 
-    /// The subtitle font of ZeroScreenView
+    /// The subtitle font
     public var subtitleFont: AFont
 
     // MARK: - Initializer
