@@ -10,7 +10,9 @@ import SwiftUI
 
 /// The style of ToolBar items.
 public enum ToolBarType {
+    /// The value that sets specific font and color of ToolBarItem
     case horizontal
+    /// The value that sets specific font and color of ToolBarItem
     case vertical
 }
 /**

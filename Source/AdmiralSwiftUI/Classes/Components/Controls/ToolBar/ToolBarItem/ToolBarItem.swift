@@ -8,25 +8,24 @@
 import SwiftUI
 
 public enum ToolBarBadgeStyle {
-    /// The empty style
+    /// Sets empty style of badge
     case empty
-    /// The style witn initial value
+    /// Sets badge style witn initial value
     case value(Int)
 }
 
 public enum ToolbarItemType: String {
-    /// The default type
+    /// Sets default image color of ToolBarItem
     case `default`
-    /// The error type
+    /// Sets error image color of ToolBarItem
     case error
-    /// The success type
+    /// Sets success image color of ToolBarItem
     case success
-    /// The attention type
+    /// Sets attention image color of ToolBarItem
     case attention
 }
 /**
  ToolBarItem - A model that represents an item which can be placed in the toolbar.
-
  You can create a ToolBarItem by specifying the following parameters in the initializer
  ## Initializer parameters:
  - name - text for ToolBarItem
