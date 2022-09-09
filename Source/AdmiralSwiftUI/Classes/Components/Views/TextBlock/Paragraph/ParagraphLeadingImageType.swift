@@ -16,11 +16,11 @@ import SwiftUI
  */
 @available(iOS 14.0, *)
 public enum ParagraphLeadingImageType {
-    /// The point type of ParagraphLeadingImage
+    /// Set point image in imageview
     case point
-    /// The check type of ParagraphLeadingImage
+    /// Set check image in imageview
     case check
-    /// The custom type of ParagraphLeadingImage
+    /// Set custom image in imageview
     case custom(Image)
 
     // MARK: - Computed Properties
