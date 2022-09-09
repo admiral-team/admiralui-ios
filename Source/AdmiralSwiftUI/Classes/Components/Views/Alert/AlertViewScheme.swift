@@ -7,25 +7,33 @@
 
 import AdmiralTheme
 import AdmiralUIResources
-import Foundation
-
+/**
+ ActivityIndicatorScheme - the visual scheme of AlertView.
+ You can create a by specifying the following parameters in init:
+ - AlertViewScheme() - Initialize default AlertViewScheme with default themezation
+ # Example to create AlertViewScheme:
+ # Code
+ ```
+ let scheme = AlertViewScheme()
+ ```
+ */
 public struct AlertViewScheme: AppThemeScheme {
 
     // MARK: - Public Properties
 
-    /// Styled font of title label that depends on AlertTitleFontStyle.
+    /// Styled font of title label that configurable with style
     public var titleFont = DefaultAlertViewCustomSchemeParameters<AFont, AlertTitleFontStyle>()
 
-    /// Styled font of message label that depends on AlertMessageFontStyle.
+    /// Styled font of message label that configurable with style
     public var messageFont = DefaultAlertViewCustomSchemeParameters<AFont, AlertMessageFontStyle>()
 
-    /// Styled color of title label that depends on AlertColorStyle.
+    /// Styled  color of title label that configurable with style
     public var titleColor = DefaultAlertViewCustomSchemeParameters<AColor, AlertColorStyle>()
 
-    /// Styled color of message label that depends on AlertColorStyle.
+    /// Styled  color of meesage label that configurable with style
     public var messageColor = DefaultAlertViewCustomSchemeParameters<AColor, AlertColorStyle>()
 
-    /// Background color of alert view.
+    /// The background color.
     public var backgroundColor: AColor
 
     // MARK: - Initializer

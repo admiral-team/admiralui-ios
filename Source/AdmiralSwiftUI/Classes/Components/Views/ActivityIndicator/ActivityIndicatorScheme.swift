@@ -8,7 +8,7 @@
 import AdmiralTheme
 import AdmiralUIResources
 /**
- ActivityIndicatorScheme - the visual scheme of PlatformButtonStyle.
+ ActivityIndicatorScheme - the visual scheme of ActivityIndicator.
   You can create a by specifying the following parameters in init:
   - ActivityIndicatorScheme() - Initialize default ActivityIndicatorScheme with default themezation
   # Example to create ArrowSegmentSliderScheme:
@@ -19,12 +19,12 @@ import AdmiralUIResources
 */
 public struct ActivityIndicatorScheme: AppThemeScheme {
 
-    // MARK: - Properties
+    // MARK: - Public Properties
 
-    /// The background color default
+    /// The background color that configure with state
     public var backgroundDefaultColor = ControlParameter<AColor>()
 
-    /// The background color constrast
+    /// The background color constrast that configure with state
     public var backgroundConstrastColor = ControlParameter<AColor>()
 
     // MARK: - Initializer
