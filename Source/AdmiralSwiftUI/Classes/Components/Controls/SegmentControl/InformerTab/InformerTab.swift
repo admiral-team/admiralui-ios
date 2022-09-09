@@ -11,13 +11,12 @@ import SwiftUI
 public struct InformerSegmentedItem {
     var title: String
     var subtitle: String
-    
+
     public init(title: String, subtitle: String) {
         self.title = title
         self.subtitle = subtitle
     }
 }
-
 /**
  InformerTab - A horizontal control that consists of multiple segments with custom view, each segment functioning as a discrete text button. The component is used to switch between two or three tabs. Custom View has - an expanded informer component, the position of which under InformerTab.
 
@@ -39,13 +38,15 @@ public struct InformerSegmentedItem {
                           customView: AnyView("Your View"),
                           selection: $isThreeItemControlsState,
                           offsetSegment: .constant(16.0))
- 
+
  ```
 */
 /// A horizontal control that consists of multiple segments, each segment functioning as a discrete text button.
 @available(iOS 14.0, *)
 public struct InformerTab: View {
-    
+
+    // MARK: - Constants
+
     enum Constants {
         static let segmentCornerRadius: CGFloat = 8.0
         static let animationDuration: Double = 0.1
@@ -57,20 +58,25 @@ public struct InformerTab: View {
         static let selectedLineWidth: CGFloat = 2.0
         static let cornerRadius: CGFloat = 8.0
     }
-    
+
     // MARK: - Internal Properties
-    
+
     @Environment(\.isEnabled) var isEnabled
-    
+
     // MARK: - Private Properties
-    
+
     @State private var segmentSize: CGSize = .zero
     @State private var arrowOffset: CGFloat = .zero
-    @State private var scheme: InformerTabScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<InformerTabScheme>()
-        
     @Binding private var selection: Int
     @Binding private var offsetSegment: CGFloat
+
+    @Binding private var scheme: InformerTabScheme?
+    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<InformerTabScheme>()
+
+    private var customView: AnyView
+    private let items: [InformerSegmentedItem]
+
+    // MARK: - Computed Properties
 
     private var activeSegmentView: AnyView {
         let scheme = self.scheme ?? schemeProvider.scheme
@@ -85,33 +91,36 @@ public struct InformerTab: View {
             .offset(x: self.computeActiveSegmentHorizontalOffset(), y: 0)
             .animation(Animation.linear(duration: Constants.animationDuration))
             .eraseToAnyView()
-        
+
     }
-    
+
     private var arrowSegmentSlider: AnyView {
         return
             ArrowSegmentSlider()
             .offset(x: computeActiveSegmentHorizontalOffset() + segmentSize.width / 2 - ArrowSegmentSlider.Constants.imageSize.width / 2, y: 0)
             .eraseToAnyView()
     }
-    
-    private var customView: AnyView
-    private let items: [InformerSegmentedItem]
-    
+
+
     // MARK: - Initializer
-    
+
     /// Initializes and returns a newly allocated view object.
     public init(
         items: [InformerSegmentedItem],
         customView: AnyView = AnyView(EmptyView()),
         selection: Binding<Int> = .constant(0),
-        offsetSegment: Binding<CGFloat> = .constant(0.0)) {
+        offsetSegment: Binding<CGFloat> = .constant(0.0),
+        scheme: Binding<InformerTabScheme?> = .constant(nil)
+    ) {
         self._selection = selection
         self._offsetSegment = offsetSegment
+        self._scheme = scheme
         self.customView = customView
         self.items = items
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         VStack(alignment: .leading, spacing: 0.0) {
             ZStack(alignment: .leading) {
@@ -132,7 +141,7 @@ public struct InformerTab: View {
         }
 
     }
-    
+
     // MARK: - Private Methods
 
     private func computeActiveSegmentHorizontalOffset() -> CGFloat {
@@ -163,7 +172,7 @@ public struct InformerTab: View {
                 .font(isSelected ?
                         scheme.titleFont.parameter(for: .selected)?.swiftUIFont : scheme.titleFont.parameter(for: .disabled)?.swiftUIFont)
                 .lineLimit(1)
-                
+
                 Text(items[index].subtitle)
                 .foregroundColor(isEnabled ?
                                     scheme.subtitleColor.parameter(for: .normal)?.swiftUIColor : scheme.subtitleColor.parameter(for: .disabled)?.swiftUIColor)
@@ -190,6 +199,5 @@ public struct InformerTab: View {
         }
         self.selection = index
     }
-    
-}
 
+}
