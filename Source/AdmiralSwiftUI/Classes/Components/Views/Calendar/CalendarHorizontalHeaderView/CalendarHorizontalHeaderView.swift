@@ -10,36 +10,44 @@ import AdmiralUIResources
 import SwiftUI
 
 @available(iOS 14.0.0, *)
-struct CalendarHorizontalHeaderView: View {
-    
+public struct CalendarHorizontalHeaderView: View {
+
+    // MARK: - Constants
+
     enum Constants {
         static let choiceText = "Выбрать"
     }
-    
+
     // MARK: - Internal Properties
-    
+
     @Environment(\.isEnabled) var isEnabled
-    
+
     @Binding var title: String
     @Binding var isOpen: Bool
-    
+
     var monthYearButtonTap: () -> Void
     var leftArrowTap: () -> Void
     var rightArrowTap: () -> Void
     var choiceTap: () -> Void
-    
-    @State private var scheme: CalendarHorizontalHeaderViewScheme? = nil
-    @State private var buttonScheme: MonthYearButtonScheme? = nil
+
+    // MARK: - Schemes
+
+    @Binding private var scheme: CalendarHorizontalHeaderViewScheme?
+    @Binding private var buttonScheme: MonthYearButtonScheme?
+
     @ObservedObject var schemeProvider = AppThemeSchemeProvider<CalendarHorizontalHeaderViewScheme>()
-    @ObservedObject var buttonSchemeProvider = AppThemeSchemeProvider<MonthYearButtonScheme>()
-    
-    init(
+
+    // MARK: - Initializer
+
+    public init(
         title: String,
         isOpen: Binding<Bool>,
         monthYearButtonTap: @escaping () -> Void,
         leftArrowTap: @escaping () -> Void,
         rightArrowTap: @escaping () -> Void,
-        choiceTap: @escaping () -> Void
+        choiceTap: @escaping () -> Void,
+        scheme: Binding<CalendarHorizontalHeaderViewScheme?> = .constant(nil),
+        buttonScheme: Binding<MonthYearButtonScheme?> = .constant(nil)
     ) {
         self._title = Binding(
             get: { title },
@@ -50,20 +58,22 @@ struct CalendarHorizontalHeaderView: View {
         self.leftArrowTap = leftArrowTap
         self.rightArrowTap = rightArrowTap
         self.choiceTap = choiceTap
+        self._scheme = scheme
+        self._buttonScheme = buttonScheme
     }
-    
-    var body: some View {
+
+    // MARK: - Body
+
+    public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         let buttonImage = isOpen ?
             Image(uiImage: PrivateAsset.Custom.Cell.arrowDown.image) :
             AssetSymbol.System.Outline.smallArrowUp.image
-        var buttonScheme = self.buttonScheme ?? buttonSchemeProvider.scheme
-        buttonScheme.image = buttonImage
         let buttonColor = scheme.buttonColor.parameter(for: isEnabled ? .normal : .disabled)
         return ZStack {
             HStack {
                 Button(title, action: monthYearButtonTaped)
-                    .buttonStyle(buttonScheme)
+                    .buttonStyle(MonthYearButtonStyle(image: buttonImage, scheme: $buttonScheme))
                 Spacer()
                 if isOpen {
                     Button(action: leftArrowTaped, label: {
@@ -84,21 +94,23 @@ struct CalendarHorizontalHeaderView: View {
                 }
             }
         }
-        
+
     }
-    
+
+    // MARK: - Private Methods
+
     private func monthYearButtonTaped() {
         monthYearButtonTap()
     }
-    
+
     private func leftArrowTaped() {
         leftArrowTap()
     }
-    
+
     private func rightArrowTaped() {
         rightArrowTap()
     }
-    
+
 }
 
 @available(iOS 14.0, *)
@@ -113,11 +125,10 @@ struct CalendarHorizontalHeaderView_Previews: PreviewProvider {
             rightArrowTap: {},
             choiceTap: {}
         )
-            .previewLayout(PreviewLayout.sizeThatFits)
-            .frame(height: 16.0)
-            .padding()
-            .environment(\.manager, SwiftUIThemeManager(theme: .light))
-            
+        .previewLayout(PreviewLayout.sizeThatFits)
+        .frame(height: 16.0)
+        .padding()
+        .environment(\.manager, SwiftUIThemeManager(theme: .light))
+
     }
 }
-
