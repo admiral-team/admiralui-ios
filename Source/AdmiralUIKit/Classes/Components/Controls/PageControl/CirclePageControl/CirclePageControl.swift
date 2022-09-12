@@ -26,15 +26,16 @@ public extension CirclePageControlDelegate {
  
  The CirclePageControl has some internal properties for customizing the element:
  
- ## Internal Properties:
+ Initializer parameters:
  - delegate: CirclePageControlDelegate? - CirclePageControl delegate. Deligate must implementation two function:
  func didTapCenterButton()
  func didChangePage(page: Int)
  - totalPages: Int - The number of pages of page control
  - duration: TimeInterval - The duration of page change
  - currentPage: Int - The current page of page control
+ Example create CirclePageControl:
  
- # Code
+ Code
  ```
  let pageControl = CirclePageControl()
  
@@ -43,7 +44,6 @@ public extension CirclePageControlDelegate {
  pageControl.currentPage = 0
  ```
 */
-
 public class CirclePageControl: UIView, AnyAppThemable {
     
     // MARK: - Public Properties

@@ -10,12 +10,15 @@ import AdmiralTheme
 
 /**
  PrimaryLinkControl - The primary link component сan be used to show hyperlinks in user interface.
- ## Internal Properties:
+ 
+ Internal Properties:
  - fontStyle: FontStyle - Type font label. Default is body.
  - leadingImage: UIImage? - Leading picture from text.
  - trailingImage: UIImage? - Trailing picture from text.
  
- # Code
+ Example to create PrimaryLinkControl:
+ 
+ Code
  ```
  let linkControl = PrimaryLinkControl()
  
@@ -25,10 +28,8 @@ import AdmiralTheme
      linkControl.style = .none
      linkControl.addTarget(self, action: #selector(tapLink), for: .touchUpInside)
  }
- 
  ```
 */
-
 open class PrimaryLinkControl: BaseLinkControl {
     
     // MARK: - Internal methods
