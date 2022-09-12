@@ -7,20 +7,33 @@
 
 import AdmiralTheme
 import AdmiralUIResources
-import CoreGraphics
-
+/**
+ ProgressViewScheme - the visual scheme of  ProgressView.
+ You can create a by specifying the following parameters in init:
+ - ProgressViewScheme() - Initialize default ProgressViewScheme with default themezation
+ # Example to create ProgressViewScheme:
+ # Code
+ ```
+ let scheme = ProgressViewScheme()
+ ```
+ */
 @available(iOS 14.0, *)
 public struct ProgressViewScheme: AppThemeScheme {
 
-    // MARK: - Properties
+    // MARK: - Public Properties
 
+    /// The background color
     public var backgroundColor = ProgressViewSchemeParameters<AColor>()
+
+    /// The circle color
     public var circleColor = ProgressViewSchemeParameters<AColor>()
+
+    /// The icon color
     public var iconColor = ProgressViewSchemeParameters<AColor>()
 
     // MARK: - Init/deinit
 
-    public init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         backgroundColor.set(parameter: theme.colors.backgroundAdditionalOne, style: .default)
         backgroundColor.set(parameter: theme.colors.backgroundAccent, style: .accent)
 

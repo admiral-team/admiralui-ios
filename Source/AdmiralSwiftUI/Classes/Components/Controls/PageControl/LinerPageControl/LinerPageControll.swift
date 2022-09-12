@@ -60,22 +60,23 @@ public struct LinerPageControll: View {
 
     /// Returns the current selected page of pafge control
     private var numberOfPages: Int
-
-    /// The visual scheme of LinerPageControll
     @Binding private var scheme: PageControlViewScheme?
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<PageControlViewScheme>()
-
+    
+    @ObservedObject private var schemeProvider: SchemeProvider<PageControlViewScheme>
+    
     // MARK: - Initializer
 
     public init(
-        currentPage: Binding<Int> = .constant(0),
-        numberOfPages: Int = 6,
-        displayedItems: Int = 5,
-        scheme: Binding<PageControlViewScheme?> = .constant(nil)
+            currentPage: Binding<Int> = .constant(0),
+            numberOfPages: Int = 6,
+            displayedItems: Int = 5,
+            scheme: Binding<PageControlViewScheme?> = .constant(nil),
+            schemeProvider: SchemeProvider<PageControlViewScheme> = AppThemeSchemeProvider<PageControlViewScheme>()
     ) {
         self._currentPage = currentPage
         self.numberOfPages = numberOfPages
         self.displayedItems = displayedItems
+        self.schemeProvider = schemeProvider
         self._scheme = scheme
     }
 

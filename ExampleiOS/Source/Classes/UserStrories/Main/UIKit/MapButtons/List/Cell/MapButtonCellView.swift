@@ -72,8 +72,6 @@ final class MapButtonCellView: UIView, AnyAppThemable, AccessibilitySupport {
     // MARK: - Private Methods
 
     private func configureUI() {
-        autoManage()
-
         addSubviews()
         configureConstraints()
         configureLabel()

@@ -8,10 +8,9 @@
 import AdmiralTheme
 import AdmiralUIResources
 import SwiftUI
-
 /**
  UploadDocumentState - Public enum for UploadDocumentView
- 
+
  UploadDocumentState can be one of the following values:
  - loading
  - description
@@ -26,7 +25,7 @@ public enum UploadDocumentState {
 
 /**
  UploadDocumentDirection - Public enum for UploadDocumentView
- 
+
  UploadDocumentDirection can be one of the following values:
  - right
  - left
@@ -93,7 +92,6 @@ public struct UploadDocument: Hashable {
     }
 
 }
-
 /**
  UploadDocumentView - the component that presents a view with loader for uploading and downloading tasks.
 
@@ -122,16 +120,17 @@ public struct UploadDocument: Hashable {
 @available(iOS 14.0.0, *)
 struct UploadDocumentView: View {
 
+    // MARK: - Constants
+
     private enum Constants {
-        // MARK: - Common constants
         static let width: CGFloat = 234
         static let height: CGFloat = 60
         static let cornerRadius: CGFloat = LayoutGrid.doubleModule
         static let spacing: CGFloat = LayoutGrid.doubleModule
+
         static let paddingHorizontal: CGFloat = LayoutGrid.module + 4
         static let paddingVertical: CGFloat = LayoutGrid.module
 
-        // MARK: - Circle view constants
         static let circleWidth: CGFloat = LayoutGrid.halfModule * 11
         static let circleHeight: CGFloat = LayoutGrid.halfModule * 11
     }
@@ -143,10 +142,11 @@ struct UploadDocumentView: View {
 
     // MARK: - Private properties
 
-    @State private var scheme: UploadDocumentViewScheme? = nil
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<UploadDocumentViewScheme>()
     private var cornersOfGroup: UIRectCorner? = nil
     private var direction: ChatDirection
+
+    @Binding private var scheme: UploadDocumentViewScheme?
+    @ObservedObject var schemeProvider = AppThemeSchemeProvider<UploadDocumentViewScheme>()
 
     // MARK: - Computed properties
 
@@ -168,11 +168,13 @@ struct UploadDocumentView: View {
     public init(
         model: UploadDocument,
         cornersOfGroup: UIRectCorner? = nil,
-        direction: ChatDirection
+        direction: ChatDirection,
+        scheme: Binding<UploadDocumentViewScheme?> = .constant(nil)
     ) {
         self.model = model
         self.cornersOfGroup = cornersOfGroup
         self.direction = direction
+        self._scheme = scheme
     }
 
     // MARK: - Layout
