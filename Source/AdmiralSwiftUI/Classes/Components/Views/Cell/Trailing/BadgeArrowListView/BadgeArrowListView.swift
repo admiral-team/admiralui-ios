@@ -91,7 +91,7 @@ public struct BadgeArrowListView: View, TralingListViewComponent {
             BadgeView(badgeStyle: badgeStyle, text: textForBadge())
                 .scheme(scheme.badgeViewScheme)
                 .fixedSize()
-            Image(uiImage: AdmiralUIResources.PrivateAsset.Custom.Cell.arrow.image)
+            Image(uiImage: Asset.System.Outline.chevronRightOutline.image)
                 .frame(width: LayoutGrid.module, height: LayoutGrid.doubleModule)
                 .foregroundColor(scheme.arrowListViewScheme.imageTintColor.parameter(for: isEnabled ? .normal : .disabled)?.swiftUIColor)
         }

@@ -138,7 +138,7 @@ public struct ZeroScreenView: View {
 struct ZeroScreenView_Previews: PreviewProvider {
 
     static var previews: some View {
-        let image = Image(uiImage: PrivateAsset.Custom.Informers.question.image)
+        let image = Image(uiImage: SystemAsset.Custom.Informers.question.image)
         ZeroScreenView(
             image: image,
             title: "Title Center",

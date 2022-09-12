@@ -88,7 +88,7 @@ final class UploadingImageGroupViewSnapshotTests: XCTestCase {
             models: [UploadImageModel(
                 isLoading: false,
                 time: "12:52",
-                backgroundImage: Image(uiImage: PrivateAsset.Custom.Chat.photo.image),
+                backgroundImage: Image(uiImage: TestAsset.Chat.photo.image),
                 uploadStatus: status
             )], direction: .right
         )

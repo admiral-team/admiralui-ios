@@ -153,7 +153,7 @@ public class CirclePageControl: UIView, AnyAppThemable {
     
     private func setupButtons() {
         centerButton.translatesAutoresizingMaskIntoConstraints = false
-        centerButton.setImage(PrivateAsset.Custom.CirclePageControl.arrowRight.image, for: [])
+        centerButton.setImage(SystemAsset.Custom.CirclePageControl.arrowRight.image, for: [])
         centerButton.addTarget(self, action: #selector(tapCenterButton), for: .touchUpInside)
     }
     

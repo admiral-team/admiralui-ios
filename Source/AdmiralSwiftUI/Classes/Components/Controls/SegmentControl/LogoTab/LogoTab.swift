@@ -51,7 +51,7 @@ public struct LogoTab: View {
     @State private var segmentSize: CGSize = .zero
     @State private var scheme: LogoTabScheme? = nil
     @State private var items: [Image] = []
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<LogoTabScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<LogoTabScheme>
     
     private var activeSegmentView: AnyView {
         let scheme = self.scheme ?? schemeProvider.scheme
@@ -72,9 +72,14 @@ public struct LogoTab: View {
     // MARK: - Initializer
     
     /// Initializes and returns a newly allocated view object with images and binding selection.
-    public init(images: [Image], selection: Binding<Int>) {
+    public init(
+        images: [Image],
+        selection: Binding<Int>,
+        schemeProvider: SchemeProvider<LogoTabScheme> = AppThemeSchemeProvider<LogoTabScheme>()
+    ) {
         self._selection = selection
         self._items = .init(initialValue: images)
+        self.schemeProvider = schemeProvider
     }
     
     public var body: some View {
