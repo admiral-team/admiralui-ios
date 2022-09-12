@@ -36,7 +36,7 @@ final class LinerPageControlSnapshotTests: XCTestCase {
     }
 
     func testLinerSchemeManualProvider() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         var pageControlViewScheme = PageControlViewScheme()
         pageControlViewScheme.backgroundColor.set(parameter: AColor(color: .systemPink), for: .normal)
         pageControlViewScheme.backgroundColor.set(parameter: AColor(color: .red), for: .selected)
@@ -45,11 +45,11 @@ final class LinerPageControlSnapshotTests: XCTestCase {
         var liner = LinerPageControll(currentPage: .constant(0), numberOfPages: 6, schemeProvider: newSchemeProvider)
         checkLinerPageControllControl(view: liner, named: "LinerNewProvider", testName: "PageControll")
 
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         var newLiner = LinerPageControll(currentPage: .constant(0), numberOfPages: 6, schemeProvider: newSchemeProvider)
         checkLinerPageControllControl(view: newLiner, named: "LinerNewProvider", testName: "PageControll")
 
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
 
         var newPageControlViewScheme = PageControlViewScheme()
         newPageControlViewScheme.backgroundColor.set(parameter: AColor(color: .black), for: .normal)
@@ -59,7 +59,7 @@ final class LinerPageControlSnapshotTests: XCTestCase {
         liner = LinerPageControll(currentPage: .constant(0), numberOfPages: 6, schemeProvider: newSchemeProvider)
         checkLinerPageControllControl(view: liner, named: "LinerNewSchemeProvider", testName: "PageControll")
 
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         newLiner = LinerPageControll(currentPage: .constant(0), numberOfPages: 6, schemeProvider: newSchemeProvider)
         checkLinerPageControllControl(view: newLiner, named: "LinerNewSchemeProvider", testName: "PageControll")
     }

@@ -85,7 +85,7 @@ final class CheckControlSnapshotTests: XCTestCase {
     }
 
     func testCheckBoxSchemeProvider() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
 
         var scheme = CheckControlScheme()
         scheme.textColor.set(parameter: AColor(color: .systemPink), for: .normal)
@@ -100,7 +100,7 @@ final class CheckControlSnapshotTests: XCTestCase {
         )
         checkControl(view: checkBox, named: "SchemeProvider", testName: "CheckBox")
 
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let newCheckBox = CheckBox(
             isSelected: .constant(false),
             text: "CheckBox",
