@@ -17,6 +17,9 @@ public struct ChatBubbleViewScheme: AppThemeScheme {
     
     public var nameTextFont: AFont
     public var nameTextColor: AColor
+
+    /// Scheme for status view.
+    public var chatBubbleStatusScheme: ChatBubbleStatusViewScheme
     
     public init(theme: AppTheme) {
         textColor.set(parameter: theme.colors.textPrimary, style: .left)
@@ -29,6 +32,8 @@ public struct ChatBubbleViewScheme: AppThemeScheme {
         
         nameTextFont = theme.fonts.caption1
         nameTextColor = theme.colors.textSecondary
+
+        chatBubbleStatusScheme = ChatBubbleStatusViewScheme(theme: theme)
     }
     
 }

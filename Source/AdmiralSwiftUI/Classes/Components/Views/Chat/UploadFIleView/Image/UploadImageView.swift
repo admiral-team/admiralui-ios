@@ -137,18 +137,20 @@ struct UploadImageView: View {
     @State private var scheme: UploadImageViewScheme? = nil
     private let cornersStyle: UploadImageViewCornerStyle
     private let direction: ChatDirection
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<UploadImageViewScheme>()
+    @ObservedObject var schemeProvider: SchemeProvider<UploadImageViewScheme>
 
     // MARK: - Initializer
 
     public init(
         model: UploadImageModel,
         direction: ChatDirection,
-        cornersStyle: UploadImageViewCornerStyle = .allSides
+        cornersStyle: UploadImageViewCornerStyle = .allSides,
+        schemeProvider: SchemeProvider<UploadImageViewScheme> = AppThemeSchemeProvider<UploadImageViewScheme>()
     ) {
         self.model = model
         self.direction = direction
         self.cornersStyle = cornersStyle
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Layout

@@ -61,7 +61,7 @@ public struct CheckboxTextbuttonView: View {
     // MARK: Internal Properties
     
     @State var scheme: CheckboxTextbuttonViewScheme?
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<CheckboxTextbuttonViewScheme>()
+    @ObservedObject var schemeProvider: SchemeProvider<CheckboxTextbuttonViewScheme>
     
     private enum Constants {
         // MARK: - Common constants
@@ -75,11 +75,14 @@ public struct CheckboxTextbuttonView: View {
         title: String,
         isSelected: Binding<Bool>,
         subtitleButtonTitle: String? = nil,
-        subtitleButtonAction: @escaping () -> () = {}) {
+        schemeProvider: SchemeProvider<CheckboxTextbuttonViewScheme> = AppThemeSchemeProvider<CheckboxTextbuttonViewScheme>(),
+        subtitleButtonAction: @escaping () -> () = {}
+    ) {
         self.title = title
         self._isSelected = isSelected
         self.subtitleButtonTitle = subtitleButtonTitle
         self.subtitleButtonAction = subtitleButtonAction
+        self.schemeProvider = schemeProvider
     }
     
     public var body: some View {

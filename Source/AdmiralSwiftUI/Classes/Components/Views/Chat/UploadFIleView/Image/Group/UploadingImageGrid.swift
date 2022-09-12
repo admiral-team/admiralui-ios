@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AdmiralTheme
 import AdmiralUIResources
 /**
  UploadingImageGrid - the component that used to add imageViews to group
@@ -71,6 +72,9 @@ public struct UploadingImageGrid: View {
     
     /// Action error button.
     private var errorAction: () -> ()
+
+    /// Scheme provider serves for changing scheme while change theme.
+    @ObservedObject private var schemeProvider: SchemeProvider<UploadImageViewScheme>
     
     // MARK: - Init/deinit
     
@@ -78,24 +82,30 @@ public struct UploadingImageGrid: View {
         models: [UploadImageModel],
         direction: ChatDirection,
         tappedModel: ((_ model: UploadImageModel) -> Void)? = nil,
+        schemeProvider: SchemeProvider<UploadImageViewScheme> = AppThemeSchemeProvider<UploadImageViewScheme>(),
         errorAction: @escaping () -> () = {}
     ) {
         self.models = models
         self.direction = direction
         self.tappedModel = tappedModel
         self.errorAction = errorAction
+        self.schemeProvider = schemeProvider
     }
     
     public init(
         model: UploadImageModel,
         direction: ChatDirection,
         tappedModel: ((_ model: UploadImageModel) -> Void)? = nil,
+        schemeProvider: SchemeProvider<UploadImageViewScheme> = AppThemeSchemeProvider<UploadImageViewScheme>(),
         errorAction: @escaping () -> () = {}
     ) {
-        self.models = [model]
-        self.direction = direction
-        self.tappedModel = tappedModel
-        self.errorAction = errorAction
+        self.init(
+            models: [model],
+            direction: direction,
+            tappedModel: tappedModel,
+            schemeProvider: schemeProvider,
+            errorAction: errorAction
+        )
     }
     
     // MARK: - Layout
@@ -134,7 +144,8 @@ public struct UploadingImageGrid: View {
                             UploadImageView(
                                 model: rows[index][modelIndex],
                                 direction: direction,
-                                cornersStyle: cornerList[index][modelIndex]
+                                cornersStyle: cornerList[index][modelIndex],
+                                schemeProvider: schemeProvider
                             )
                             .onTapGesture {
                                 tappedModel?(rows[index][modelIndex])
