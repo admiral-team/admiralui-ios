@@ -44,14 +44,19 @@ public struct ImageBackgroundListView: View, ImageListViewComponent {
     
     var renderingMode: Image.TemplateRenderingMode
     @State private var scheme: ImageBackgroundListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ImageBackgroundListViewScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<ImageBackgroundListViewScheme>
     
     // MARK: - Initializer
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-    public init(image: Image, renderingMode: Image.TemplateRenderingMode = .original) {
+    public init(
+        image: Image,
+        renderingMode: Image.TemplateRenderingMode = .original,
+        schemeProvider: SchemeProvider<ImageBackgroundListViewScheme> = AppThemeSchemeProvider<ImageBackgroundListViewScheme>()
+    ) {
         self._image = Binding(get: { return image }, set: { _ in })
         self.renderingMode = renderingMode
+        self.schemeProvider = schemeProvider
     }
 
     public var body: some View {

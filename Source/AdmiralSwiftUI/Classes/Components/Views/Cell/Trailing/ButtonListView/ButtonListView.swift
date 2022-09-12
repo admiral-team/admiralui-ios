@@ -41,14 +41,19 @@ public struct ButtonListView: View, TralingListViewComponent {
     var action: () -> ()
     
     @State private var scheme: ButtonListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ButtonListViewScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<ButtonListViewScheme>
     
     // MARK: - Initializer
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-    public init(text: String, action: @escaping () -> ()) {
+    public init(
+        text: String,
+        schemeProvider: SchemeProvider<ButtonListViewScheme> = AppThemeSchemeProvider<ButtonListViewScheme>(),
+        action: @escaping () -> ()
+    ) {
         self._text = Binding(get: { return text }, set: { _ in })
         self.action = action
+        self.schemeProvider = schemeProvider
     }
 
     public var body: some View {

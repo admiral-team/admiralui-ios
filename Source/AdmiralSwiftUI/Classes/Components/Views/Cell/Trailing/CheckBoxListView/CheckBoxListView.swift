@@ -47,13 +47,17 @@ public struct CheckBoxListView: View, TralingListViewComponent {
     @State var state: ControlState = .normal
     
     @State private var scheme: CheckBoxListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<CheckBoxListViewScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<CheckBoxListViewScheme>
     
     // MARK: - Initializer
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-    public init(isControlSelected: Binding<Bool>) {
+    public init(
+        isControlSelected: Binding<Bool>,
+        schemeProvider: SchemeProvider<CheckBoxListViewScheme> = AppThemeSchemeProvider<CheckBoxListViewScheme>()
+    ) {
         self._isControlSelected = isControlSelected
+        self.schemeProvider = schemeProvider
     }
 
     public var body: some View {

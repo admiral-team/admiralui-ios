@@ -75,7 +75,7 @@ public struct TitleListView: View, LeadingListViewComponent {
     private let lineLimit: Int?
 
     @State private var scheme: TitleListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<TitleListViewScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<TitleListViewScheme>
     
     // MARK: - Initializer
     
@@ -84,11 +84,14 @@ public struct TitleListView: View, LeadingListViewComponent {
         title: String?,
         textAligment: TextAlignment = .leading,
         lineLimit: Int? = nil,
-        titleListViewStyle: TitleListViewStyle? = nil) {
+        titleListViewStyle: TitleListViewStyle? = nil,
+        schemeProvider: SchemeProvider<TitleListViewScheme> = AppThemeSchemeProvider<TitleListViewScheme>()
+    ) {
         self._title = Binding(get: { return title }, set: { _ in })
         self.lineLimit = lineLimit
         self.textAligment = textAligment
         self.titleListViewStyle = titleListViewStyle
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Layout

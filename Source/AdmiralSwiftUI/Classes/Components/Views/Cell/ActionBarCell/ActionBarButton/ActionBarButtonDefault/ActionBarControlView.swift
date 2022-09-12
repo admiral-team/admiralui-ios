@@ -58,8 +58,7 @@ struct ActionBarControlView: View {
 
     // MARK: - Private Properties
 
-    @State private var scheme: ActionBarControlScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ActionBarControlScheme>()
+    @State private var scheme: ActionBarControlScheme
     
     // MARK: - Initializer
     
@@ -67,17 +66,18 @@ struct ActionBarControlView: View {
     init(
         image: Image,
         imageStyle: ActionBarItemImageStyle,
+        scheme: ActionBarControlScheme,
         tapActionBar: @escaping () -> ()
     ) {
         self.image = image
         self.imageStyle = imageStyle
         self.tapActionBar = tapActionBar
+        self._scheme = .init(initialValue: scheme)
     }
 
     // MARK: - Layout
 
     var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
         Button(action: tapActionBar, label: {})
             .buttonStyle(ActionBarButtonStyle(
                 image: image,
@@ -90,8 +90,8 @@ struct ActionBarControlView: View {
     // MARK: - Internal Methods
     
     func scheme(_ scheme: ActionBarControlScheme) -> some View {
-        var view = self
-        view._scheme = State(initialValue: scheme)
+        let view = self
+        view.scheme = scheme
         return view.id(UUID())
     }
     
@@ -104,6 +104,7 @@ struct ActionBarControlView_Previews: PreviewProvider {
         ActionBarControlView(
             image: Image(uiImage: Asset.Category.Outline.addCommentOutline.image),
             imageStyle: .accent,
+            scheme: ActionBarControlScheme(theme: .default),
             tapActionBar: {}
         )
     }

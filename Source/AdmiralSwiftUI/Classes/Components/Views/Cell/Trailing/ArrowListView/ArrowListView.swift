@@ -40,7 +40,7 @@ public struct ArrowListView: View, TralingListViewComponent {
     @State var state: ControlState = .normal
     
     @State private var scheme: ArrowListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ArrowListViewScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<ArrowListViewScheme>
     
     // MARK: - Private Properties
     
@@ -53,7 +53,9 @@ public struct ArrowListView: View, TralingListViewComponent {
     // MARK: - Initializer
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-    public init() {}
+    public init(schemeProvider: SchemeProvider<ArrowListViewScheme> = AppThemeSchemeProvider<ArrowListViewScheme>()) {
+        self.schemeProvider = schemeProvider
+    }
     
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
