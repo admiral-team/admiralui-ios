@@ -6,10 +6,9 @@
 //
 
 import SwiftUI
-
 /**
  TextBlockStyle - Public enum for TextBlock AdmiralSwiftUI library
- 
+
  TextBlockStyle can be one of the following values:
  - title
  - body
@@ -22,7 +21,7 @@ import SwiftUI
  - separator
  - separatorShort
  - separatorEmpty
- 
+
  Also TextBlockStyle has properties responsible for margins and absolute values of the size grid
  - minHeight: CGFloat
  - edgeInsets: EdgeInsets
@@ -40,7 +39,9 @@ public enum TextBlockStyle: String {
     case separator
     case separatorShort
     case separatorEmpty
-    
+
+    // MARK: - Computed Properties
+
     var minHeight: CGFloat {
         switch self {
         case .title, .dropDown:
@@ -55,7 +56,7 @@ public enum TextBlockStyle: String {
             return LayoutGrid.doubleModule
         }
     }
-    
+
     var edgeInsets: EdgeInsets {
         switch self {
         case .title, .dropDown:
