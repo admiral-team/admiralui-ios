@@ -245,7 +245,7 @@ open class ChatInputView: TextViewInput, AnyAppThemable, AccessibilitySupport {
     }
 
     private func configureChatButton() {
-        chatButton.setImage(PrivateAsset.Custom.CirclePageControl.arrowRight.image, for: .normal)
+        chatButton.setImage(SystemAsset.Custom.CirclePageControl.arrowRight.image, for: .normal)
         chatButton.addTarget(self, action: #selector(didTapSendButton), for: .touchUpInside)
         chatInputActionButton.tintColor = scheme.imageTintColor.uiColor
     }

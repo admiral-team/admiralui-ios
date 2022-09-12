@@ -72,6 +72,28 @@ final class MapButtonSnapshotTests: XCTestCase {
         checkMapButton(view: mapButton, named: "defaultDarkTheme", testName: "MapButtonLocation")
     }
 
+    func testSeveralPinButtonSchemeProvider() {
+        SwiftUIThemeManager.shared.theme = .default
+        var scheme = MapButtonScheme()
+        scheme.backgroundColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        let newSchemeProvider = SchemeProvider<MapButtonScheme>(scheme: scheme)
+
+        let mapButton = Button(
+            action: {},
+            label: {}
+        ).buttonStyle(MapButtonStyle(type: .location, schemeProvider: newSchemeProvider))
+
+        checkMapButton(view: mapButton, named: "NewSchemeProvider", testName: "MapButtonLocation")
+
+        SwiftUIThemeManager.shared.theme = .dark
+
+        let newMapButton = Button(
+            action: {},
+            label: {}
+        ).buttonStyle(MapButtonStyle(type: .location, schemeProvider: newSchemeProvider))
+        checkMapButton(view: newMapButton, named: "NewSchemeProvider", testName: "MapButtonLocation")
+    }
+
 }
 
 private extension MapButtonSnapshotTests {

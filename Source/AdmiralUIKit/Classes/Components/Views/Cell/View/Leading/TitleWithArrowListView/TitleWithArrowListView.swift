@@ -109,7 +109,7 @@ public class TitleWithArrowListView: BaseListView, LeadingListViewComponent, Any
         apply(theme: defaultTheme)
         titleLabel.numberOfLines = 1
         arrowImageView.contentMode = .center
-        arrowImageView.image = PrivateAsset.Custom.Cell.arrowDown.image
+        arrowImageView.image = Asset.System.Outline.chevronDownOutline.image
     }
     
 }

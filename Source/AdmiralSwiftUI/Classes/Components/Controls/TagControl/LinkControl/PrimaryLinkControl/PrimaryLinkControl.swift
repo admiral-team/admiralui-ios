@@ -44,21 +44,22 @@ public struct PrimaryLinkControlStyle: ButtonStyle {
     // MARK: - Private properties
 
     @State private var scheme: PrimaryLinkControlScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<PrimaryLinkControlScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<PrimaryLinkControlScheme> = AppThemeSchemeProvider<PrimaryLinkControlScheme>()
 
     public init(
         image: Image? = nil,
         text: String? = nil,
         direction: LinkControlDirection,
         style: LinkControlStyle,
-        scheme: PrimaryLinkControlScheme? = nil
+        scheme: PrimaryLinkControlScheme? = nil,
+        schemeProvider: SchemeProvider<PrimaryLinkControlScheme> = AppThemeSchemeProvider<PrimaryLinkControlScheme>()
     ) {
         self.image = image
         self.text = text
         self.direction = direction
         self.style = style
         self.scheme = scheme
-        self.schemeProvider = AppThemeSchemeProvider<PrimaryLinkControlScheme>()
+        self.schemeProvider = schemeProvider
     }
 
     public func makeBody(configuration: Self.Configuration) -> some View {

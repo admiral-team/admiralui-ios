@@ -97,7 +97,7 @@ final class UploadImageViewSnapshotTests: XCTestCase {
     }
     
     func createUploadImageView(status: ChatStatus) -> some View {
-        let view = UploadImageView(model: UploadImageModel(time: "12:53", backgroundImage: Image(uiImage: PrivateAsset.Custom.Chat.photo.image), uploadStatus: status), direction: .left)
+        let view = UploadImageView(model: UploadImageModel(time: "12:53", backgroundImage: Image(uiImage: TestAsset.Chat.photo.image), uploadStatus: status), direction: .left)
         return view
     }
     

@@ -71,7 +71,7 @@ public struct OutlineSliderTab: View {
     // MARK: - Private Properties
     
     @State private var scheme: OutlineSliderTabScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<OutlineSliderTabScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<OutlineSliderTabScheme>
     
     @Binding private var selection: Int
     @Binding private var offset: CGFloat
@@ -85,24 +85,28 @@ public struct OutlineSliderTab: View {
         items: [OutlineSliderTabItem],
         selection: Binding<Int>,
         offset: Binding<CGFloat> = .constant(0.0),
+        schemeProvider: SchemeProvider<OutlineSliderTabScheme> = AppThemeSchemeProvider<OutlineSliderTabScheme>(),
         onTapAction: (() -> Void)? = nil
     ) {
         self._selection = selection
         self._offset = offset
         self.items = items
         self.onTapAction = onTapAction
+        self.schemeProvider = schemeProvider
     }
     
     public init(
         items: [String],
         selection: Binding<Int>,
         offset: Binding<CGFloat> = .constant(0.0),
+        schemeProvider: SchemeProvider<OutlineSliderTabScheme> = AppThemeSchemeProvider<OutlineSliderTabScheme>(),
         onTapAction: (() -> Void)? = nil
     ) {
         self.init(
             items: items.map({ OutlineSliderTabItem(title: $0, badgeStyle: nil) }),
             selection: selection,
             offset: offset,
+            schemeProvider: schemeProvider,
             onTapAction: onTapAction)
     }
     

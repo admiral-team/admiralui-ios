@@ -42,13 +42,17 @@ public struct CustomSwitch: View {
     
     // MARK: - Private Properties
     
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<CustomSwitchScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<CustomSwitchScheme>
     @State private var scheme: CustomSwitchScheme? = nil
     
     // MARK: - Initializer
     
-    public init(isOn: Binding<Bool>) {
+    public init(
+        isOn: Binding<Bool>,
+        schemeProvider: SchemeProvider<CustomSwitchScheme> = AppThemeSchemeProvider<CustomSwitchScheme>()
+    ) {
         self._isOn = isOn
+        self.schemeProvider = schemeProvider
     }
     
     // MARK: - Internal Methods

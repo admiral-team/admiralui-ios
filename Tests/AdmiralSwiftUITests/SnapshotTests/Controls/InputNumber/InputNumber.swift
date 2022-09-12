@@ -46,6 +46,35 @@ final class InputNumberSnapshotTests: XCTestCase {
         return inputNumber
     }
 
+    func testInputNumberSchemeProvider() {
+        SwiftUIThemeManager.shared.theme = .default
+        
+        let scheme = InputNumberScheme()
+        scheme.backgroundColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        let newSchemeProvider: SchemeProvider<InputNumberScheme> = SchemeProvider<InputNumberScheme>(scheme: scheme)
+
+        let inputNumber = InputNumber(
+            titleText: .constant("InputNumber"),
+            value: .constant(5.0),
+            minimumValue: .constant(0.0),
+            maximumValue: .constant(10.0),
+            stepValue: .constant(1.0),
+            schemeProvider: newSchemeProvider
+        ).frame(width: 300, height: 60, alignment: .center)
+        checkInputNumber(view: inputNumber, named: "SchemeProvider", testName: "InputNumber")
+
+        SwiftUIThemeManager.shared.theme = .dark
+        let newInputNumber = InputNumber(
+            titleText: .constant("InputNumber"),
+            value: .constant(5.0),
+            minimumValue: .constant(0.0),
+            maximumValue: .constant(10.0),
+            stepValue: .constant(1.0),
+            schemeProvider: newSchemeProvider
+        ).frame(width: 300, height: 60, alignment: .center)
+        checkInputNumber(view: newInputNumber, named: "SchemeProvider", testName: "InputNumber")
+    }
+
 }
 
 private extension InputNumberSnapshotTests {
