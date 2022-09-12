@@ -84,6 +84,32 @@ final class RadioControlSnapshotTests: XCTestCase {
         checkRadioControl(view: radioControl, named: "notSelectedErrorDarkTheme", testName: "RadioControl")
     }
 
+    func testRadioControlSchemeProvider() {
+        SwiftUIThemeManager.shared.theme = .default
+
+        var scheme = CheckControlScheme()
+        scheme.textColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        scheme.tintColor.set(parameter: AColor(color: .systemPink), for: .normal, state: .normal)
+        let newSchemeProvider: SchemeProvider<CheckControlScheme> = SchemeProvider<CheckControlScheme>(scheme: scheme)
+
+        let radioControl = RadioControl(
+            isSelected: .constant(true),
+            text: "Text",
+            checkState: .normal,
+            schemeProvider: newSchemeProvider
+        )
+        checkRadioControl(view: radioControl, named: "SchemeProvider", testName: "RadioControl")
+
+        SwiftUIThemeManager.shared.theme = .dark
+        let newRadioControl = RadioControl(
+            isSelected: .constant(true),
+            text: "Text",
+            checkState: .normal,
+            schemeProvider: newSchemeProvider
+        )
+        checkRadioControl(view: newRadioControl, named: "SchemeProvider", testName: "RadioControl")
+    }
+
 }
 
 private extension RadioControlSnapshotTests {
