@@ -19,7 +19,7 @@ The visual component library for `iOS`<br/></br>
 - 📱 **Consistent style across platforms** - availible library for [Android](https://github.com/admiral-team/admiralui-android)
 
 ## Setup and connection
-Library connection details in [wiki](https://github.com/admiral-team/admiralui-ios/wiki/Repository-setup)
+Library connection details in [wiki](https://github.com/admiral-team/admiralui-ios/wiki)
 
 ## Demo app
 A live example of using the `AdmiralUI` library is our demo application, which is located in the `ExampleiOS` directory. With it, you can evaluate all the components implemented in the library in different states, with the ability to switch built-in color themes and create your own.

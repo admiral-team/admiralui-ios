@@ -77,6 +77,7 @@ final class UploadingFileCell: UITableViewCell, AnyAppThemable, AccessibilitySup
 
     func apply(theme: AppTheme) {
         scheme = UploadingFileCellScheme(theme: theme)
+        uploadDocumentView.apply(theme: theme)
     }
 
     // MARK: - Initializers

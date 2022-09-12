@@ -178,7 +178,6 @@ public final class TextOperationView: UIView, AnyAppThemable {
     // MARK: - Private methods
 
     private func commonInit() {
-        autoManage()
         addSubviews()
         setupViews()
         configureUI()

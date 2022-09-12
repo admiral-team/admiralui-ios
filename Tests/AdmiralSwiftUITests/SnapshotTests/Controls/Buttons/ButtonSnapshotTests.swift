@@ -32,10 +32,14 @@ final class ButtonSnapshotTests: XCTestCase {
 
     func testTwoTitlePrimaryButton() {
         SwiftUIThemeManager.shared.theme = .default
-        let twoTitlePrimaryButton = TwoTitlePrimaryButton(
-            leftText: "leftText",
-            rightText: "rightText",
-            action: {}
+        let twoTitlePrimaryButton = Button(
+            action: {},
+            label: {}
+        ).buttonStyle(
+            TwoTitlePrimaryButtonStyle(
+                leftTitle: "leftText",
+                rightTitle: "rightText"
+            )
         )
         checkButton(view: twoTitlePrimaryButton, named: "twoTitle", testName: "PrimaryButton")
     }
@@ -44,10 +48,14 @@ final class ButtonSnapshotTests: XCTestCase {
 
     func testTwoTitlePrimaryButtonDarkTheme() {
         SwiftUIThemeManager.shared.theme = .dark
-        let twoTitlePrimaryButton = TwoTitlePrimaryButton(
-            leftText: "leftText",
-            rightText: "rightText",
-            action: {}
+        let twoTitlePrimaryButton = Button(
+            action: {},
+            label: {}
+        ).buttonStyle(
+            TwoTitlePrimaryButtonStyle(
+                leftTitle: "leftText",
+                rightTitle: "rightText"
+            )
         )
         checkButton(view: twoTitlePrimaryButton, named: "twoTitleDarkTheme", testName: "PrimaryButton")
     }
