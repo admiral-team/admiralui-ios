@@ -18,12 +18,11 @@ public enum CheckControlState: Int {
  
  The CheckControl has some internal properties for customizing the element:
  
- ## Internal Properties:
+ Internal Properties:
  - checkState: CheckControlState - State control.
  - isSelected: Bool - A Boolean value indicating whether the control is in the selected state.
  - isEnabled: Bool - A Boolean value indicating whether the control is in the enabled state.
  - isHighlighted: Bool - A Boolean value indicating whether the control is in the highlighted state.
-
 */
 
 public class CheckControl: UIControl, AppThemeable {

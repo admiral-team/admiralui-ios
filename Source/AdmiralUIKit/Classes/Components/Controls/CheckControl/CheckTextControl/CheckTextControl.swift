@@ -13,7 +13,7 @@ import AdmiralTheme
  
  The RadioControl has some internal properties for customizing the element:
  
- ## Internal Properties:
+ Internal Properties:
  
  - checkState: CheckControlState - State control.
  - isSelected: Bool - A Boolean value indicating whether the control is in the selected state.
@@ -22,7 +22,8 @@ import AdmiralTheme
  - text: String? - The text displayed in the text label.
  - numberOfLines: Int - The maximum number of lines for rendering text text label.
  
- # Create radio button with CheckTextControl Code
+ Example for create radio button with CheckTextControl
+ Code
  ```
  let radioButton = CheckTextControl<RadioControl>(checkControl: RadioControl())
  
