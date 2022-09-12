@@ -14,13 +14,13 @@ public struct CalendarDay: Hashable, Identifiable {
 
     public let id = UUID()
 
-    /// The date of Day
+    /// The date
     public var date: Date
 
-    /// The number of Day
+    /// The number
     public var number: String
 
-    /// The selection flag of Day
+    /// The selection flag 
     public var isSelected: Bool
 
     /// The current day flag
