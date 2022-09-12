@@ -7,12 +7,28 @@
 
 import AdmiralTheme
 import AdmiralUIResources
-
+/**
+ SeparatorViewScheme - the visual scheme of SeparatorView.
+ You can create a by specifying the following parameters in init:
+ - SeparatorViewScheme() - Initialize default SeparatorViewScheme with default themezation
+ # Example to create SeparatorViewScheme:
+ # Code
+ ```
+ let scheme = SeparatorViewScheme()
+ ```
+ */
 public struct SeparatorViewScheme: AppThemeScheme {
-    
+
+    // MARK: - Public Properties
+
+    /// The line tint color
     public var lineTintColor: AColor
-    
-    public init(theme: AppTheme) {
+
+    // MARK: - Initializer
+
+    public init(theme: AppTheme = .default) {
         lineTintColor = theme.colors.elementAdditional
     }
+
 }
+

@@ -23,10 +23,10 @@ public struct MonthYearButtonScheme: AppThemeScheme {
 
     // MARK: - Properties
 
-    /// The font of MonthYearButton
+    /// The font
     public var font: AFont
 
-    /// The text color of MonthYearButton
+    /// The text color
     public var textColor = ControlParameter<AColor>()
 
     // MARK: - Initializer

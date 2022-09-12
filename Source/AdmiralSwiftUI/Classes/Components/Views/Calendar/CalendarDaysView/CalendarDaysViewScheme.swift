@@ -21,16 +21,16 @@ public struct CalendarViewCellColorScheme: AppThemeScheme {
 
     // MARK: - Public Properties
 
-    /// The background color
+    /// The background color that configure with style
     public var backgroundColors = CalendarParameters<AColor>()
 
-    /// The text background color
+    /// The text color that configure with style
     public var textColors = CalendarParameters<AColor>()
 
-    /// The selected color
+    /// The selected background color that configure with style
     public var selectedBackgroundColors = CalendarParameters<AColor>()
 
-    /// The border color
+    /// The border color that configure with style
     public var borderColors = CalendarParameters<AColor>()
 
     /// The title label color
