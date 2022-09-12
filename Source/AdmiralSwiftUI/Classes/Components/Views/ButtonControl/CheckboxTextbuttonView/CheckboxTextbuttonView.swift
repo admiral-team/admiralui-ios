@@ -4,23 +4,19 @@
 //
 //  Created on 26.11.2021.
 //
-
 import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
-
 /**
  CheckboxTextbuttonView - The component is used to inform users with the option to select in the checkBox. And also one interaction buttons.
- 
+
  You can create a CheckboxTextbuttonView by specifying the following parameters in the initializer:
- 
  ## Initializer parameters:
- 
  - isSelected: Bool - Flag select checkBox.
  - title: String - The text that the title label displays.
  - subtitleButtonTitle: String? - The text that the subtitle button displays.
  - subtitleButtonAction: () -> () - Action subtitleButton.
- 
+
  ## Example to create CheckboxTextbuttonView
  # Code
  ```
@@ -37,51 +33,55 @@ import AdmiralUIResources
  */
 @available(iOS 14.0, *)
 public struct CheckboxTextbuttonView: View {
-    
-    // MARK: - Internal Properties
-    
-    @Environment(\.isEnabled) private var isEnabled
-    
-    // MARK: - Public Properties
-    
-    /// Flag select checkBox.
-    @Binding public var isSelected: Bool
-    
-    // MARK: - Private properties
-    
-    /// The text that the title label displays.
-    private var title: String
-    
-    /// The text that the subtitle button displays.
-    private var subtitleButtonTitle: String?
-    
-    /// Action subtitleButton.
-    private var subtitleButtonAction: () -> ()
-    
-    // MARK: Internal Properties
-    
-    @State var scheme: CheckboxTextbuttonViewScheme?
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<CheckboxTextbuttonViewScheme>()
-    
+
+    // MARK: - Constants
+
     private enum Constants {
-        // MARK: - Common constants
         static let spacing: CGFloat = LayoutGrid.doubleModule
     }
-    
+
+    // MARK: - Internal Properties
+
+    @Environment(\.isEnabled) private var isEnabled
+
+    // MARK: - Public Properties
+
+    /// Flag select checkBox.
+    @Binding public var isSelected: Bool
+
+    // MARK: - Private properties
+
+    /// The text that the title label displays.
+    private var title: String
+
+    /// The text that the subtitle button displays.
+    private var subtitleButtonTitle: String?
+
+    /// Action subtitleButton.
+    private var subtitleButtonAction: () -> ()
+
+    @Binding private var scheme: CheckboxTextbuttonViewScheme?
+    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<CheckboxTextbuttonViewScheme>()
+
     // MARK: - Initializer
-    
+
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     public init (
         title: String,
         isSelected: Binding<Bool>,
         subtitleButtonTitle: String? = nil,
-        subtitleButtonAction: @escaping () -> () = {}) {
+        subtitleButtonAction: @escaping () -> () = {},
+        scheme: Binding<CheckboxTextbuttonViewScheme?> = .constant(nil)
+    ) {
         self.title = title
         self._isSelected = isSelected
         self.subtitleButtonTitle = subtitleButtonTitle
         self.subtitleButtonAction = subtitleButtonAction
+        self._scheme = scheme
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         let textColor = scheme.textColor.parameter(for: isEnabled ? .normal : .disabled)
@@ -106,15 +106,15 @@ public struct CheckboxTextbuttonView: View {
             }
         }
     }
-    
+
     // MARK: - Internal Methods
-    
+
     func scheme(_ scheme: CheckboxTextbuttonViewScheme) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = .constant(scheme)
         return view.id(UUID())
     }
-    
+
 }
 
 @available(iOS 14.0, *)

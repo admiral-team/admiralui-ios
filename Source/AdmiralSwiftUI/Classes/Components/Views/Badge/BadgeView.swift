@@ -8,10 +8,9 @@
 import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
-
 /**
  BadgeStyle - Public enum for style BadgeView
- 
+
  BadgeStyle can be one of the following values:
  - natural - The natural state of the badge
  - default - The default state of the badge
@@ -38,88 +37,87 @@ public enum BadgeStyle: Int {
 
 /**
  BadgeView - The Badge component shows a quantitative value, usually complements other components, for example, to show the number of alerts in the Bottom navigation or Toolbar section
-
  You can create a BadgeView by specifying the following parameters in the initializer
- 
  ## Initializer parameters:
- 
  - value: Int? - Integer value of the badge.
  - text: String? - Text value of the badge.
  - badgeStyle: BadgeStyle - Badge style to configure the badge with library styles or custom style.
  - content: () -> (Content) - Сlosure returning a new view containing content.
  - borderColor: Color? - Border color. Default from color style.
  - offset: CGPoint? - Badge offset. Default is zero.
- 
  ## Example to create BadgeView:
  # Code
  ```
  BadgeView(
-     badgeStyle: .default,
-     value: 1,
-     content: {
-            Image("Your image")
-             .resizable()
-             .aspectRatio(contentMode: .fit)
-             .frame(width: 50.0, height: 50.0, alignment: .center)
-     })
+ badgeStyle: .default,
+ value: 1,
+ content: {
+ Image("Your image")
+ .resizable()
+ .aspectRatio(contentMode: .fit)
+ .frame(width: 50.0, height: 50.0, alignment: .center)
+ })
  ```
-*/
+ */
 @available(iOS 14.0, *)
 public struct BadgeView<Content>: View where Content: View {
 
     // MARK: - Public Properties
-    
+
     /// Integer value of the badge.
     private var value: Int?
-    
+
     /// Text value of the badge.
     private var text: String?
-    
+
     /// Badge style to configure the badge with library styles or custom style.
     private let badgeStyle: BadgeStyle
-    
+
     /// Content.
     private var content: (() -> (Content))?
-    
+
     /// Border color. Default from color style.
     private let borderColor: Color?
-    
+
     /// Badge offset.
     private let offset: CGPoint
-    
+
     // MARK: - Internal Properties
-    
+
     @Environment(\.isEnabled) var isEnabled
-    
-    @State var scheme: BadgeViewScheme? = nil
-    
+
     // MARK: - Private Properties
-    
+
     @State private var segmentSize: CGSize = .zero
+
+    @Binding var scheme: BadgeViewScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<BadgeViewScheme>()
-    
+
     // MARK: - Initializer
-    
+
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-        /// - Parameters:
-        ///   - badgeStyle: Badge style.
-        ///   - value: Value for badge label.
-        ///   - borderColor: Border color.
-        ///   - offset: Offset badge.
-        ///   - content: Content.
+    /// - Parameters:
+    ///   - badgeStyle: Badge style.
+    ///   - value: Value for badge label.
+    ///   - borderColor: Border color.
+    ///   - offset: Offset badge.
+    ///   - content: Content.
     public init(
         badgeStyle: BadgeStyle,
         value: Int?,
         borderColor: Color? = nil,
         offset: CGPoint = .zero,
-        @ViewBuilder content: @escaping () -> (Content)) {
-            self.badgeStyle = badgeStyle
-            self.value = value
-            self.borderColor = borderColor
-            self.offset = offset
-            self.content = content
-        }
-    
+        @ViewBuilder content: @escaping () -> (Content),
+        scheme: Binding<BadgeViewScheme?> = .constant(nil)
+    ) {
+        self.badgeStyle = badgeStyle
+        self.value = value
+        self.borderColor = borderColor
+        self.offset = offset
+        self.content = content
+        self._scheme = scheme
+    }
+
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     /// - Parameters:
     ///   - badgeStyle: Badge style.
@@ -132,14 +130,19 @@ public struct BadgeView<Content>: View where Content: View {
         text: String?,
         borderColor: Color? = nil,
         offset: CGPoint = .zero,
-        @ViewBuilder content: @escaping () -> (Content)) {
-            self.badgeStyle = badgeStyle
-            self.text = text
-            self.borderColor = borderColor
-            self.content = content
-            self.offset = offset
-        }
-    
+        @ViewBuilder content: @escaping () -> (Content),
+        scheme: Binding<BadgeViewScheme?> = .constant(nil)
+    ) {
+        self.badgeStyle = badgeStyle
+        self.text = text
+        self.borderColor = borderColor
+        self.content = content
+        self.offset = offset
+        self._scheme = scheme
+    }
+
+    // MARK: - Body
+
     public var body: some View {
         if let content = content {
             ZStack(alignment: .topTrailing) {
@@ -150,41 +153,41 @@ public struct BadgeView<Content>: View where Content: View {
             badgeView()
         }
     }
-    
+
     // MARK: - Internal Methods
-    
+
     func scheme(_ scheme: BadgeViewScheme) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view._scheme = .constant(scheme)
         return view.id(UUID())
     }
-    
+
     @ViewBuilder
-       func badgeView() -> some View {
-           let scheme = self.scheme ?? schemeProvider.scheme
-           let badgeForegroundColor = scheme.backgroundColor.parameter(for: isEnabled  ? .normal : .disabled, style: badgeStyle)?.swiftUIColor
-           let strokeColor = borderColor ?? scheme.borderColor.swiftUIColor
-           
-           if let text = textForTextView() {
-               if content != nil {
-                   textView(text, scheme: scheme)
-                       .modifier(SizeAwareViewModifier(viewSize: $segmentSize))
-                       .offset(x: max(segmentSize.width - LayoutGrid.halfModule * 5 + offset.x, offset.y))
-               } else {
-                   textView(text, scheme: scheme)
-                       .offset(x: offset.x, y: offset.y)
-               }
-           } else {
-               Rectangle()
-                   .frame(width: LayoutGrid.module, height: LayoutGrid.module)
-                   .foregroundColor(badgeForegroundColor)
-                   .cornerRadius(LayoutGrid.halfModule)
-                   .overlay(RoundedRectangle(cornerRadius: LayoutGrid.halfModule)
-                               .stroke(strokeColor, lineWidth: LayoutGrid.halfModule / 2))
-                   .offset(x: offset.x, y: offset.y)
-           }
-       }
-    
+    func badgeView() -> some View {
+        let scheme = self.scheme ?? schemeProvider.scheme
+        let badgeForegroundColor = scheme.backgroundColor.parameter(for: isEnabled  ? .normal : .disabled, style: badgeStyle)?.swiftUIColor
+        let strokeColor = borderColor ?? scheme.borderColor.swiftUIColor
+
+        if let text = textForTextView() {
+            if content != nil {
+                textView(text, scheme: scheme)
+                    .modifier(SizeAwareViewModifier(viewSize: $segmentSize))
+                    .offset(x: max(segmentSize.width - LayoutGrid.halfModule * 5 + offset.x, offset.y))
+            } else {
+                textView(text, scheme: scheme)
+                    .offset(x: offset.x, y: offset.y)
+            }
+        } else {
+            Rectangle()
+                .frame(width: LayoutGrid.module, height: LayoutGrid.module)
+                .foregroundColor(badgeForegroundColor)
+                .cornerRadius(LayoutGrid.halfModule)
+                .overlay(RoundedRectangle(cornerRadius: LayoutGrid.halfModule)
+                    .stroke(strokeColor, lineWidth: LayoutGrid.halfModule / 2))
+                .offset(x: offset.x, y: offset.y)
+        }
+    }
+
     func textForTextView() -> String? {
         var resultText: String?
         if let value = value {
@@ -194,7 +197,7 @@ public struct BadgeView<Content>: View where Content: View {
         }
         return resultText
     }
-    
+
     func textView(_ text: String, scheme: BadgeViewScheme) -> some View {
         let badgeForegroundColor = scheme.backgroundColor.parameter(for: isEnabled  ? .normal : .disabled, style: badgeStyle)?.swiftUIColor
         let strokeColor = borderColor ?? scheme.borderColor.swiftUIColor
@@ -206,18 +209,18 @@ public struct BadgeView<Content>: View where Content: View {
             .padding(.vertical, LayoutGrid.halfModule / 2)
             .frame(minWidth: LayoutGrid.halfModule * 5, minHeight: LayoutGrid.halfModule * 5)
             .overlay(RoundedRectangle(cornerRadius: LayoutGrid.halfModule * 5)
-                        .stroke(strokeColor, lineWidth: LayoutGrid.halfModule / 2))
+                .stroke(strokeColor, lineWidth: LayoutGrid.halfModule / 2))
             .background(
                 RoundedRectangle(cornerRadius: LayoutGrid.halfModule * 5)
                     .foregroundColor(badgeForegroundColor)
             )
     }
-    
+
 }
 
 @available(iOS 14.0, *)
 extension BadgeView where Content == EmptyView {
-    
+
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     /// - Parameters:
     ///   - badgeStyle: Badge style.
@@ -228,13 +231,16 @@ extension BadgeView where Content == EmptyView {
         badgeStyle: BadgeStyle,
         value: Int?,
         borderColor: Color? = nil,
-        offset: CGPoint = .zero) {
-            self.badgeStyle = badgeStyle
-            self.value = value
-            self.borderColor = borderColor
-            self.offset = offset
-        }
-    
+        offset: CGPoint = .zero,
+        scheme: Binding<BadgeViewScheme?> = .constant(nil)
+    ) {
+        self.badgeStyle = badgeStyle
+        self.value = value
+        self.borderColor = borderColor
+        self.offset = offset
+        self._scheme = scheme
+    }
+
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     /// - Parameters:
     ///   - badgeStyle: Badge style.
@@ -245,17 +251,20 @@ extension BadgeView where Content == EmptyView {
         badgeStyle: BadgeStyle,
         text: String?,
         borderColor: Color? = nil,
-        offset: CGPoint = .zero) {
-            self.badgeStyle = badgeStyle
-            self.text = text
-            self.borderColor = borderColor
-            self.offset = offset
-        }
+        offset: CGPoint = .zero,
+        scheme: Binding<BadgeViewScheme?> = .constant(nil)
+    ) {
+        self.badgeStyle = badgeStyle
+        self.text = text
+        self.borderColor = borderColor
+        self.offset = offset
+        self._scheme = scheme
+    }
 }
 
 @available(iOS 14.0, *)
 struct BadgeView_Previews: PreviewProvider {
-    
+
     static var previews: some View {
         BadgeView(
             badgeStyle: .default,

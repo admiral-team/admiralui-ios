@@ -72,6 +72,7 @@ final class TextOperationCell: UITableViewCell, AnyAppThemable, AccessibilitySup
 
     func apply(theme: AppTheme) {
         scheme = TextOperationScheme(theme: theme)
+        textOperationView.apply(theme: theme)
     }
 
     // MARK: - Initializers
