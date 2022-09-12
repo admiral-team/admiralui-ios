@@ -6,10 +6,8 @@
 //
 
 import Foundation
-
 /**
  SeparatorStyle - Public enum for SeparatorView
- 
  SeparatorStyle can be one of the following values:
  - long
  - short
@@ -17,11 +15,16 @@ import Foundation
  */
 @available(iOS 14.0, *)
 public enum SeparatorStyle: String {
+    /// This style install long width for separator.
     case long
+    /// This style install short width for separator.
     case short
+    /// This style install empty width for separator.
     case empty
-    
-    var textBlockStyle: TextBlockStyle {
+
+    // MARK: - Computed Properties
+
+    public var textBlockStyle: TextBlockStyle {
         switch self {
         case .long:
             return .separator

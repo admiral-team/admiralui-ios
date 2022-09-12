@@ -188,7 +188,6 @@ public final class UploadDocumentView: UIView, AnyAppThemable {
     // MARK: - Private methods
 
     private func commonInit() {
-        autoManage()
         configureUI()
         addSubviews()
         setupConstraints()

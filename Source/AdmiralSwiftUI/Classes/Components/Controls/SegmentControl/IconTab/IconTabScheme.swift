@@ -9,22 +9,42 @@ import SwiftUI
 import Combine
 import AdmiralTheme
 import AdmiralUIResources
-
+/**
+ IconTabScheme - the visual scheme of PlatformButtonStyle.
+ You can create a by specifying the following parameters in init:
+ - IconTabScheme() - Initialize default IconTabScheme with default themezation
+ # Example to create IconTabScheme:
+ # Code
+ ```
+let scheme = IconTabScheme()
+ ```
+ */
 @available(iOS 14.0, *)
 public final class IconTabScheme: AppThemeScheme {
 
     // MARK: - Public properties
 
+    /// The background color of IconTab
     public var backgroundColor: AColor
+
+    /// The title color of IconTab
     public var titleColor = ControlParameter<AColor>()
+
+    /// The circle color of IconTab
     public var circleColor = ControlParameter<AColor>()
+
+    /// The alpha color of IconTab
     public var alphaColor = ControlParameter<Double>()
+
+    /// The icon color of IconTab
     public var iconColor = ControlParameter<AColor>()
+
+    /// The title color of IconTab
     public var titleFont = ControlParameter<AFont>()
 
     // MARK: - Initializer
 
-    public init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
         backgroundColor = theme.colors.backgroundBasic
 

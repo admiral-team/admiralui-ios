@@ -8,13 +8,9 @@
 import AdmiralTheme
 import AdmiralUIResources
 /**
- ClockScheme - the visual scheme of ClockView.
+ ClockScheme - the visual scheme.
  You can create a by specifying the following parameters in init:
  - ClockScheme() - Initialize default ClockScheme with default themezation
- - ClockScheme(
- textColor: AColor,
- textFont: AFont
- )
  # Example to create ClockScheme:
  # Code
  ```
@@ -25,10 +21,10 @@ struct ClockScheme: AppThemeScheme {
 
     // MARK: - Properties
 
-    /// The text color of ClockView
+    /// The text color
     var textColor: AColor
 
-    /// The text color of ClockView
+    /// The text color
     var textFont: AFont
 
     // MARK: - Initializer
@@ -38,11 +34,4 @@ struct ClockScheme: AppThemeScheme {
         textFont = theme.fonts.subhead3
     }
 
-    init(
-        textColor: AColor,
-        textFont: AFont
-    ) {
-        self.textColor = textColor
-        self.textFont = textFont
-    }
 }
