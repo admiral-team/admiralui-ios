@@ -7,7 +7,16 @@
 
 import AdmiralTheme
 import AdmiralUIResources
-
+/**
+  TextOperationViewScheme - the visual scheme of TextOperationView.
+   You can create a by specifying the following parameters in init:
+   - TextOperationViewScheme() - Initialize default TextOperationViewScheme with default themezation
+   # Example to create TextOperationViewScheme:
+   # Code
+   ```
+  let scheme = TextOperationViewScheme()
+   ```
+*/
 @available(iOS 14.0, *)
 public struct TextOperationViewScheme: AppThemeScheme {
 
@@ -36,7 +45,7 @@ public struct TextOperationViewScheme: AppThemeScheme {
 
     // MARK: - Initializer
 
-    public init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         backgroundColor.set(parameter: theme.colors.backgroundAdditionalOne, style: .default)
         backgroundColor.set(parameter: theme.colors.backgroundError, style: .error)
         backgroundColor.set(parameter: theme.colors.backgroundSuccess, style: .success)
