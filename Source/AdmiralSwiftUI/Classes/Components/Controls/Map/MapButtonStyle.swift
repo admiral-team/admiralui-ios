@@ -37,14 +37,17 @@ public struct MapButtonStyle: ButtonStyle {
     // MARK: - Private Properties
 
     @Binding private var scheme: MapButtonScheme?
+    @ObservedObject private var schemeProvider: SchemeProvider<MapButtonScheme>
 
     // MARK: - Initializer
 
     public init(
         type: MapButtonType,
-        scheme: Binding<MapButtonScheme?> = .constant(nil)
+        scheme: Binding<MapButtonScheme?> = .constant(nil),
+        schemeProvider: SchemeProvider<MapButtonScheme> = AppThemeSchemeProvider<MapButtonScheme>()
     ) {
         self._scheme = scheme
+        self.schemeProvider = schemeProvider
         switch type {
         case .plus:
             image = AssetSymbol.Service.Outline.plus.image
@@ -60,9 +63,10 @@ public struct MapButtonStyle: ButtonStyle {
     // MARK: - Public Methods
 
     public func makeBody(configuration: Self.Configuration) -> some View {
+        let scheme = scheme ?? schemeProvider.scheme
         MapButton(
             image: image,
-            scheme: $scheme,
+            scheme: scheme,
             configuration: configuration
         )
     }
@@ -81,27 +85,25 @@ private extension MapButtonStyle {
         @Environment(\.isEnabled) private var isEnabled
 
         let configuration: Configuration
-        @State var image: Image
+        var image: Image
 
-        @Binding private var scheme: MapButtonScheme?
-        @ObservedObject private var schemeProvider = AppThemeSchemeProvider<MapButtonScheme>()
+        private var scheme: MapButtonScheme
 
         // MARK: - Initializer
 
         init(
             image: Image,
-            scheme: Binding<MapButtonScheme?>,
+            scheme: MapButtonScheme,
             configuration: Configuration
         ) {
             self.configuration = configuration
-            self._scheme = scheme
-            self._image = .init(initialValue: image)
+            self.scheme = scheme
+            self.image = image
         }
 
         // MARK: - Body
 
         var body: some View {
-            let scheme = self.scheme ?? schemeProvider.scheme
             let backgroundColor = configuration.isPressed ? scheme.backgroundColor.parameter(for: .highlighted)?.swiftUIColor : scheme.backgroundColor.parameter(for: .normal)?.swiftUIColor
             image
                 .frame(width: LayoutGrid.halfModule * 10, height: LayoutGrid.halfModule * 10)
