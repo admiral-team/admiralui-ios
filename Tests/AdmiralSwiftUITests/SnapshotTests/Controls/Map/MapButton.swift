@@ -73,7 +73,7 @@ final class MapButtonSnapshotTests: XCTestCase {
     }
 
     func testSeveralPinButtonSchemeProvider() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         var scheme = MapButtonScheme()
         scheme.backgroundColor.set(parameter: AColor(color: .systemPink), for: .normal)
         let newSchemeProvider = SchemeProvider<MapButtonScheme>(scheme: scheme)
@@ -85,7 +85,7 @@ final class MapButtonSnapshotTests: XCTestCase {
 
         checkMapButton(view: mapButton, named: "NewSchemeProvider", testName: "MapButtonLocation")
 
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
 
         let newMapButton = Button(
             action: {},

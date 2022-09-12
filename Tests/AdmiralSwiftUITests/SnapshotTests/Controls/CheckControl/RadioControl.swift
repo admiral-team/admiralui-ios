@@ -85,7 +85,7 @@ final class RadioControlSnapshotTests: XCTestCase {
     }
 
     func testRadioControlSchemeProvider() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
 
         var scheme = CheckControlScheme()
         scheme.textColor.set(parameter: AColor(color: .systemPink), for: .normal)
@@ -100,7 +100,7 @@ final class RadioControlSnapshotTests: XCTestCase {
         )
         checkRadioControl(view: radioControl, named: "SchemeProvider", testName: "RadioControl")
 
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let newRadioControl = RadioControl(
             isSelected: .constant(true),
             text: "Text",

@@ -73,7 +73,7 @@ final class CodeInputControlSnapshotTests: XCTestCase {
     }
 
     func testCodeInputControlSchemeProvider() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         var scheme = CodeInputControlScheme()
         scheme.defaultColor = AColor(color: .systemPink)
         scheme.activeColor = AColor(color: .systemPink)
@@ -88,7 +88,7 @@ final class CodeInputControlSnapshotTests: XCTestCase {
         )
         checkCodeInputControl(view: codeInputControl, named: "SchemeProvider", testName: "CodeInputControl")
 
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let newCodeInputControl = CodeInputControl(
             text: .constant("CodeInputControl"),
             itemsCount: 4,

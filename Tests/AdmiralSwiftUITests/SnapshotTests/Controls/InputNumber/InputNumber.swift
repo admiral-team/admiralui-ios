@@ -47,7 +47,7 @@ final class InputNumberSnapshotTests: XCTestCase {
     }
 
     func testInputNumberSchemeProvider() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         
         let scheme = InputNumberScheme()
         scheme.backgroundColor.set(parameter: AColor(color: .systemPink), for: .normal)
@@ -63,7 +63,7 @@ final class InputNumberSnapshotTests: XCTestCase {
         ).frame(width: 300, height: 60, alignment: .center)
         checkInputNumber(view: inputNumber, named: "SchemeProvider", testName: "InputNumber")
 
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let newInputNumber = InputNumber(
             titleText: .constant("InputNumber"),
             value: .constant(5.0),
