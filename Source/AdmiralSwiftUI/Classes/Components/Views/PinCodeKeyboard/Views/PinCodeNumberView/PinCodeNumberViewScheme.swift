@@ -26,13 +26,13 @@ public struct PinCodeNumberViewScheme: AppThemeScheme {
     /// The background color
     public var backgroundColor = ControlParameter<AColor>()
 
-    /// The background color
+    /// The image color
     public var imageColor: AColor
 
-    /// The background color
+    /// The text color
     public var textColor: AColor
 
-    /// The background color
+    /// The text font
     public var textFont: SwiftUI.Font
 
     // MARK: - Initializer
