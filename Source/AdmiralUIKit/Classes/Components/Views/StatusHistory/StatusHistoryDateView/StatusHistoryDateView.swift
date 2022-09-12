@@ -61,7 +61,7 @@ class StatusHistoryDateView: UIView, AnyAppThemable {
     
     private func configureUI() {
         closeButton.addTarget(self, action: #selector(tapClose), for: .touchUpInside)
-        closeButton.setImage(PrivateAsset.Custom.BottomSheet.close.image, for: .normal)
+        closeButton.setImage(Asset.Service.Outline.closeOutline.image, for: .normal)
     }
     
     @objc private func tapClose() {

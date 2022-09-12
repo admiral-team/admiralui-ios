@@ -37,15 +37,18 @@ public struct PinButtonStyle: ButtonStyle {
     // MARK: - Private Properties
     
     @State private var scheme: PinButtonScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<PinButtonScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<PinButtonScheme>
     
     // MARK: - Initializer
     
     public init(
         image: Image,
-        isSelected: Binding<Bool>) {
+        isSelected: Binding<Bool>,
+        schemeProvider: SchemeProvider<PinButtonScheme> = AppThemeSchemeProvider<PinButtonScheme>()
+    ) {
         self.image = image
         self._isSelected = isSelected
+        self.schemeProvider = schemeProvider
     }
     
     // MARK: - Public Methods

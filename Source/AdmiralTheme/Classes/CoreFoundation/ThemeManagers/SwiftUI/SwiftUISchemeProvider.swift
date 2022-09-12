@@ -8,44 +8,28 @@
 import Combine
 import SwiftUI
 
-@available(iOS 14.0.0, *)
-public protocol AppThemeScheme {
-    init(theme: AppTheme)
-}
-
-@available(iOS 14.0.0, *)
-public class AppThemeSchemeProvider<S>: ObservableObject where S: AppThemeScheme {
-
-    // MARK: - Published Properties
-
-    @Published public private(set) var scheme: S
-
-    // MARK: - Private Properties
-
-    private let manager = Appearance.shared.swiftuiThemeManager
-    private var subscribers: Set<AnyCancellable> = []
-
-    // MARK: - Initializer
-
-    public init(manager: SwiftUIThemeManager = Appearance.shared.swiftuiThemeManager) {
-        self.scheme = S(theme: manager.theme)
-        manager.$theme.sink { [weak self] theme in
-            self?.scheme = S(theme: theme)
-        }.store(in: &subscribers)
-    }
-}
-
-@available(iOS 14.0.0, *)
-public final class SwiftUIConstantSchemeProvider<S> where S: AppThemeScheme {
+@available (iOS 14.0.0, *)
+/// Scheme provider is classs to store scheme.
+public class SchemeProvider<S>: ObservableObject where S: AppThemeScheme {
 
     // MARK: - Public Properties
 
-    public var scheme: S
+    /// Scheme element. It store colors and fonts details.
+    @Published public internal(set) var scheme: S
+
+    // MARK: - Public Methods
+
+    /// Get scheme provider.
+    /// - Parameter scheme: Scheme element. It store colors and fonts details.
+    /// - Returns: Scheme provider.
+    public static func constant(scheme: S) -> SchemeProvider<S> {
+        return SchemeProvider<S>(scheme: scheme)
+    }
 
     // MARK: - Initializer
 
     public init(scheme: S) {
         self.scheme = scheme
     }
-}
 
+}
