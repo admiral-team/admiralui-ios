@@ -67,6 +67,8 @@ public enum ChatDirection: String {
 */
 @available(iOS 14.0, *)
 public struct ChatBubbleView: View {
+    
+    // MARK: - Constants
 
     private enum Constants {
         static let minWidth: CGFloat = LayoutGrid.quadrupleModule * 3
@@ -175,7 +177,15 @@ public struct ChatBubbleView: View {
                             RoundedCorner(radius: LayoutGrid.halfModule * 3, corners: [.topRight, .topLeft, .bottomLeft])
                         )
                     if status == .error {
-                        errorImage
+                        Image(uiImage: Asset.Service.Solid.errorSolid.image)
+                            .resizable()
+                            .frame(width: LayoutGrid.halfModule * 7, height: LayoutGrid.halfModule * 7)
+                            .foregroundColor(scheme.errorImageColor.swiftUIColor)
+                            .padding(.top, LayoutGrid.module)
+                            .padding(.leading, LayoutGrid.module)
+                            .onTapGesture {
+                                errorAction()
+                            }
                     }
                 }
                 .frame(maxWidth: maxWidth ?? segmentSizeWidth, alignment: .trailing)
@@ -201,15 +211,6 @@ public struct ChatBubbleView: View {
         }
         .padding(.horizontal, LayoutGrid.halfModule * 3)
         .background(scheme.backgroundColor.parameter(for: direction)?.swiftUIColor)
-    }
-    
-    private var errorImage: some View {
-        return Image(uiImage: PrivateAsset.Custom.Chat.error.image)
-            .padding(.top, LayoutGrid.module)
-            .frame(width: LayoutGrid.module * 5, height: LayoutGrid.module * 5)
-            .onTapGesture {
-                errorAction()
-            }
     }
 
     private var spacerMinLength: CGFloat? {

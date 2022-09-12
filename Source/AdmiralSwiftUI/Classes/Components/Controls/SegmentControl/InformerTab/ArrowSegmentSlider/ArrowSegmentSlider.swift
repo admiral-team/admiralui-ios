@@ -8,22 +8,46 @@
 import AdmiralTheme
 import AdmiralUIResources
 import SwiftUI
-
+/**
+ ArrowSegmentSlider - the view that presents the arrow image in informerTab..
+ You can create a ArrowSegmentSlider by specifying the following parameters in the initializer
+ ## Initializer parameters:
+- scheme - Binding<ArrowSegmentSliderScheme?>.  - the visual scheme of ArrowSegmentSlider.
+ ## Example to create ArrowSegmentSlider:
+ # Code
+ ```
+ ArrowSegmentSlider()
+ ```
+*/
 @available(iOS 14.0.0, *)
-struct ArrowSegmentSlider: View {
-    
+public struct ArrowSegmentSlider: View {
+
+    // MARK: - Constants
+
     enum Constants {
         static let imageSize = CGSize(width: 32.0, height: 12.0)
-        static let arrowImage = PrivateAsset.Custom.Segment.arrowUp.image
+        static let arrowImage = SystemAsset.Custom.Segment.arrowUp.image
         static let animationDuration: Double = 0.3
     }
-    
+
     // MARK: - Private Properties
-    
-    @State private var scheme: ArrowSegmentSliderScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ArrowSegmentSliderScheme>()
-    
-    var body: some View {
+
+    @Binding private var scheme: ArrowSegmentSliderScheme?
+    @ObservedObject private var schemeProvider: SchemeProvider<ArrowSegmentSliderScheme>
+
+    // MARK: - Initializer
+
+    public init(
+        scheme: Binding<ArrowSegmentSliderScheme?> = .constant(nil),
+        schemeProvider: SchemeProvider<ArrowSegmentSliderScheme> = AppThemeSchemeProvider<ArrowSegmentSliderScheme>()
+    ) {
+        self._scheme = scheme
+        self.schemeProvider = schemeProvider
+    }
+
+    // MARK: - Body
+
+    public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         Image(uiImage: Constants.arrowImage)
             .frame(width: Constants.imageSize.width)
@@ -31,5 +55,5 @@ struct ArrowSegmentSlider: View {
             .animation(Animation.easeInOut(duration: Constants.animationDuration))
             .foregroundColor(scheme.imageTintColor.swiftUIColor)
     }
-    
+
 }

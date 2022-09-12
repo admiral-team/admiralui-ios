@@ -8,7 +8,6 @@
 import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
-
 /**
  IconTab - A horizontal control that consists of multiple segments, each segment functioning as a  image with text. The component is used to switch between two or three tabs. It is presented in two versions without additional indentation.
 
@@ -38,14 +37,21 @@ import AdmiralUIResources
 @available(iOS 14.0, *)
 public struct IconTabModel {
 
+    // MARK: - Properties
+
+    /// The image of IconTabModel
     public let image: Image
+
+    /// The text of IconTabModel
     public let text: String
+
+    // MARK: - Initializer
 
     public init(image: Image, text: String) {
         self.image = image
         self.text = text
     }
-    
+
 }
 
 @available(iOS 14.0, *)
@@ -68,14 +74,22 @@ public struct IconTab: View {
 
     @Binding private var selection: Int
     private var models: [IconTabModel] = []
-    @State private var scheme: IconTabScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<IconTabScheme>()
+
+    @Binding private var scheme: IconTabScheme?
+    @ObservedObject private var schemeProvider: SchemeProvider<IconTabScheme>
 
     // MARK: - Initializer
 
-    public init(models: [IconTabModel], selection: Binding<Int>) {
+    public init(
+        models: [IconTabModel],
+        selection: Binding<Int>,
+        scheme: Binding<IconTabScheme?> = .constant(nil),
+        schemeProvider: SchemeProvider<IconTabScheme> = AppThemeSchemeProvider<IconTabScheme>()
+    ) {
         self._selection = selection
         self.models = models
+        self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Layout
@@ -146,4 +160,3 @@ struct IconTab_Previews: PreviewProvider {
     }
 
 }
-

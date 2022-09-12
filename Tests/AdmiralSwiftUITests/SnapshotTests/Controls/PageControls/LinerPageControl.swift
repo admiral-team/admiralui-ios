@@ -35,6 +35,35 @@ final class LinerPageControlSnapshotTests: XCTestCase {
         checkLinerPageControllControl(view: liner, named: "LinerDarkTheme", testName: "PageControll")
     }
 
+    func testLinerSchemeManualProvider() {
+        SwiftUIThemeManager.shared.theme = .default
+        var pageControlViewScheme = PageControlViewScheme()
+        pageControlViewScheme.backgroundColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        pageControlViewScheme.backgroundColor.set(parameter: AColor(color: .red), for: .selected)
+        let newSchemeProvider = ManualSchemeProvider<PageControlViewScheme>(scheme: pageControlViewScheme)
+
+        var liner = LinerPageControll(currentPage: .constant(0), numberOfPages: 6, schemeProvider: newSchemeProvider)
+        checkLinerPageControllControl(view: liner, named: "LinerNewProvider", testName: "PageControll")
+
+        SwiftUIThemeManager.shared.theme = .dark
+        var newLiner = LinerPageControll(currentPage: .constant(0), numberOfPages: 6, schemeProvider: newSchemeProvider)
+        checkLinerPageControllControl(view: newLiner, named: "LinerNewProvider", testName: "PageControll")
+
+        SwiftUIThemeManager.shared.theme = .default
+
+        var newPageControlViewScheme = PageControlViewScheme()
+        newPageControlViewScheme.backgroundColor.set(parameter: AColor(color: .black), for: .normal)
+        newPageControlViewScheme.backgroundColor.set(parameter: AColor(color: .darkGray), for: .selected)
+        newSchemeProvider.update(scheme: newPageControlViewScheme)
+
+        liner = LinerPageControll(currentPage: .constant(0), numberOfPages: 6, schemeProvider: newSchemeProvider)
+        checkLinerPageControllControl(view: liner, named: "LinerNewSchemeProvider", testName: "PageControll")
+
+        SwiftUIThemeManager.shared.theme = .dark
+        newLiner = LinerPageControll(currentPage: .constant(0), numberOfPages: 6, schemeProvider: newSchemeProvider)
+        checkLinerPageControllControl(view: newLiner, named: "LinerNewSchemeProvider", testName: "PageControll")
+    }
+
 }
 
 private extension LinerPageControlSnapshotTests {
