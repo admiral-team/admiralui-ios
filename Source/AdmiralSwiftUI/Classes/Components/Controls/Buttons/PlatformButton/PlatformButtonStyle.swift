@@ -39,14 +39,17 @@ public struct PlatformButtonStyle: ButtonStyle {
     private var accessibilityIdentifier: String?
 
     @Binding private var scheme: PlatformButtonScheme?
+    @ObservedObject private var schemeProvider: SchemeProvider<PlatformButtonScheme>
 
     // MARK: - Initializer
 
     public init(
         scheme: Binding<PlatformButtonScheme?> = .constant(nil),
+        schemeProvider: SchemeProvider<PlatformButtonScheme> = AppThemeSchemeProvider<PlatformButtonScheme>(),
         accessibilityIdentifier: String? = nil
     ) {
         self._scheme = scheme
+        self.schemeProvider = schemeProvider
         self.accessibilityIdentifier = accessibilityIdentifier
     }
 
@@ -55,6 +58,7 @@ public struct PlatformButtonStyle: ButtonStyle {
     public func makeBody(configuration: Self.Configuration) -> some View {
         PrimaryButton(
             scheme: $scheme,
+            schemeProvider: schemeProvider,
             configuration: configuration,
             accessibilityIdentifier: accessibilityIdentifier
         )
@@ -74,17 +78,18 @@ private extension PlatformButtonStyle {
 
         let configuration: Configuration
         @Binding private var scheme: PlatformButtonScheme?
-
-        @ObservedObject private var schemeProvider = AppThemeSchemeProvider<PlatformButtonScheme>()
+        private var schemeProvider: SchemeProvider<PlatformButtonScheme>
 
         init(
             scheme: Binding<PlatformButtonScheme?> = .constant(nil),
+            schemeProvider: SchemeProvider<PlatformButtonScheme>,
             configuration: Configuration,
             accessibilityIdentifier: String? = nil
         ) {
 
             self.configuration = configuration
             self._scheme = scheme
+            self.schemeProvider = schemeProvider
             self.accessibilityIdentifier = accessibilityIdentifier
         }
 

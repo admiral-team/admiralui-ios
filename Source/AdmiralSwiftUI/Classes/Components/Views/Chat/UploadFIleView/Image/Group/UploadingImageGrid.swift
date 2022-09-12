@@ -5,9 +5,9 @@
 //  Created on 09.11.2021.
 //
 
-import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
+import SwiftUI
 /**
  UploadingImageGrid - the component that used to add imageViews to group
  
@@ -45,6 +45,11 @@ public struct UploadingImageGrid: View {
 
     /// Tapped index of  element.
     public var tappedModel: ((UploadImageModel) -> ())?
+    
+    // MARK: Internal Properties
+    
+    @State var scheme: UploadingImageGridScheme?
+    @ObservedObject var schemeProvider = AppThemeSchemeProvider<UploadingImageGridScheme>()
     
     // MARK: - Private properties
     
@@ -117,6 +122,7 @@ public struct UploadingImageGrid: View {
     // MARK: - Private methods
     @ViewBuilder
     private func contentView() -> some View {
+        let scheme = self.scheme ?? schemeProvider.scheme
         switch direction {
         case .left:
             HStack(alignment: .bottom, spacing: LayoutGrid.halfModule) {
@@ -129,9 +135,26 @@ public struct UploadingImageGrid: View {
             HStack(alignment: .bottom, spacing: LayoutGrid.halfModule) {
                 Spacer()
                 uploadImageViews()
-                statusError()
+
+                statusError(scheme: scheme)
             }
             .eraseToAnyView()
+        }
+    }
+    
+    private func statusError(scheme: UploadingImageGridScheme) -> some View {
+        return VStack {
+            if isStatusError() {
+                Image(uiImage: Asset.Service.Solid.errorSolid.image)
+                    .resizable()
+                    .frame(width: LayoutGrid.halfModule * 7, height: LayoutGrid.halfModule * 7)
+                    .foregroundColor(scheme.errorImageColor.swiftUIColor)
+                    .padding(.top, LayoutGrid.module)
+                    .padding(.leading, LayoutGrid.module)
+                    .onTapGesture {
+                        errorAction()
+                    }
+            }
         }
     }
     
@@ -153,19 +176,6 @@ public struct UploadingImageGrid: View {
                         }
                     }
                 }
-            }
-        }
-    }
-    
-    private func statusError() -> some View {
-        return VStack {
-            if isStatusError() {
-                Image(uiImage: PrivateAsset.Custom.Chat.error.image)
-                    .padding(.top, LayoutGrid.module)
-                    .frame(width: LayoutGrid.module * 5, height: LayoutGrid.module * 5)
-                    .onTapGesture {
-                        errorAction()
-                    }
             }
         }
     }

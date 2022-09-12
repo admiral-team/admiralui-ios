@@ -78,7 +78,7 @@ public struct UnderlineTab: View {
     @State private var isShowStartPositionActiveSegment: Bool = false
     
     @State private var scheme: UnderlineTabScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<UnderlineTabScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<UnderlineTabScheme>
     
     private var activeSegmentView: AnyView {
         let scheme = self.scheme ?? schemeProvider.scheme
@@ -101,12 +101,14 @@ public struct UnderlineTab: View {
         items: [UnderlineTabItem],
         selection: Binding<Int>,
         offset: Binding<CGFloat> = .constant(0.0),
-        isStaticTabs: Binding<Bool> = .constant(false)
+        isStaticTabs: Binding<Bool> = .constant(false),
+        schemeProvider: SchemeProvider<UnderlineTabScheme> = AppThemeSchemeProvider<UnderlineTabScheme>()
     ) {
         self._selection = selection
         self._offset = offset
         self.items = items
         self._isStaticTabs = isStaticTabs
+        self.schemeProvider = schemeProvider
     }
     
     /// Initializes and returns a newly allocated view object with items.
@@ -114,9 +116,16 @@ public struct UnderlineTab: View {
         items: [String],
         selection: Binding<Int>,
         offset: Binding<CGFloat> = .constant(0.0),
-        isStaticTabs: Binding<Bool> = .constant(false)
+        isStaticTabs: Binding<Bool> = .constant(false),
+        schemeProvider: SchemeProvider<UnderlineTabScheme> = AppThemeSchemeProvider<UnderlineTabScheme>()
     ) {
-        self.init(items: items.map({ UnderlineTabItem(title: $0, badgeStyle: nil) }), selection: selection, offset: offset, isStaticTabs: isStaticTabs)
+        self.init(
+            items: items.map({ UnderlineTabItem(title: $0, badgeStyle: nil) }),
+            selection: selection,
+            offset: offset,
+            isStaticTabs: isStaticTabs,
+            schemeProvider: schemeProvider
+        )
     }
     
     // MARK: - Layout

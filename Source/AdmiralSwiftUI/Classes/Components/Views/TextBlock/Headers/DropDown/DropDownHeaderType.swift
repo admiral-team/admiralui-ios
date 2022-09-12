@@ -25,9 +25,9 @@ public enum DropDownHeaderType {
     var image: Image {
         switch self {
         case .up:
-            return Image(uiImage: AdmiralUIResources.PrivateAsset.Custom.Cell.arrowUp.image)
+            return Image(uiImage: AdmiralUIResources.Asset.System.Outline.chevronUpOutline.image)
         case .down:
-            return Image(uiImage: AdmiralUIResources.PrivateAsset.Custom.Cell.arrowDown.image)
+            return Image(uiImage: AdmiralUIResources.Asset.System.Outline.chevronDownOutline.image)
         case .custom(let image):
             return image
         }

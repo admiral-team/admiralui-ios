@@ -46,12 +46,12 @@ public struct CheckBox: View {
     @Environment(\.isEnabled) private var isEnabled
     
     @Binding private var scheme: CheckControlScheme?
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<CheckControlScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<CheckControlScheme>
 
     // MARK: - Computed Properties
 
     private var image: Image {
-        return isSelected ? Image(uiImage: PrivateAsset.Custom.Control.checkBoxOn.image) : Image(uiImage: PrivateAsset.Custom.Control.checkBoxOff.image)
+        return isSelected ? Image(uiImage: SystemAsset.Custom.Control.checkBoxOn.image) : Image(uiImage: SystemAsset.Custom.Control.checkBoxOff.image)
     }
     
     // MARK: - Initializer
@@ -60,30 +60,36 @@ public struct CheckBox: View {
         isSelected: Binding<Bool>,
         text: String,
         checkState: CheckControlState,
-        scheme: Binding<CheckControlScheme?> = .constant(nil)
+        scheme: Binding<CheckControlScheme?> = .constant(nil),
+        schemeProvider: SchemeProvider<CheckControlScheme> = AppThemeSchemeProvider<CheckControlScheme>()
     ) {
         self._isSelected = isSelected
         self._text = .init(initialValue: text)
         self._checkState = .init(initialValue: checkState)
         self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
     
     public init(
         isSelected: Binding<Bool>,
         text: String,
-        scheme: Binding<CheckControlScheme?> = .constant(nil)
+        scheme: Binding<CheckControlScheme?> = .constant(nil),
+        schemeProvider: SchemeProvider<CheckControlScheme> = AppThemeSchemeProvider<CheckControlScheme>()
     ) {
         self._isSelected = isSelected
         self._text = .init(initialValue: text)
         self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
     
     public init(
         isSelected: Binding<Bool>,
-        scheme: Binding<CheckControlScheme?> = .constant(nil)
+        scheme: Binding<CheckControlScheme?> = .constant(nil),
+        schemeProvider: SchemeProvider<CheckControlScheme> = AppThemeSchemeProvider<CheckControlScheme>()
     ) {
         self._isSelected = isSelected
         self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Body

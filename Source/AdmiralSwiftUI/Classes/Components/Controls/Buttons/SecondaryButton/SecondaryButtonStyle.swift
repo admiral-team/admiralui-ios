@@ -34,26 +34,29 @@ public struct SecondaryButtonStyle: ButtonStyle {
 
     // MARK: - Public Properties
 
-    /// The loading flag of SecondaryButton
+    /// The loading flag
     @Binding public var isLoading: Bool
 
-    /// The size type of SecondaryButton
+    /// The size type
     public var sizeType: ButtonSizeType?
 
     // MARK: - Private Properties
 
     @Binding private var scheme: SecondaryButtonScheme?
+    @ObservedObject private var schemeProvider: SchemeProvider<SecondaryButtonScheme>
 
     // MARK: - Initializer
 
     public init(
         isLoading: Binding<Bool> = .constant(false),
         sizeType: ButtonSizeType? = nil,
-        scheme: Binding<SecondaryButtonScheme?> = .constant(nil)
+        scheme: Binding<SecondaryButtonScheme?> = .constant(nil),
+        schemeProvider: SchemeProvider<SecondaryButtonScheme> = AppThemeSchemeProvider<SecondaryButtonScheme>()
     ) {
         self._isLoading = isLoading
         self.sizeType = sizeType
         self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
 
     public func makeBody(configuration: Self.Configuration) -> some View {
@@ -61,6 +64,7 @@ public struct SecondaryButtonStyle: ButtonStyle {
             isLoading: $isLoading,
             sizeType: sizeType,
             scheme: $scheme,
+            schemeProvider: schemeProvider,
             configuration: configuration
         )
     }
@@ -77,7 +81,7 @@ private extension SecondaryButtonStyle {
 
         let configuration: Configuration
 
-        @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SecondaryButtonScheme>()
+        private var schemeProvider: SchemeProvider<SecondaryButtonScheme>
         @Binding var scheme: SecondaryButtonScheme?
 
         // MARK: - Initializer
@@ -86,12 +90,14 @@ private extension SecondaryButtonStyle {
             isLoading: Binding<Bool>,
             sizeType: ButtonSizeType?,
             scheme: Binding<SecondaryButtonScheme?> = .constant(nil),
+            schemeProvider: SchemeProvider<SecondaryButtonScheme>,
             configuration: Configuration
         ) {
 
             self.sizeType = sizeType
             self.configuration = configuration
             self._scheme = scheme
+            self.schemeProvider = schemeProvider
             self._isLoading = isLoading
         }
 
