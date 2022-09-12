@@ -214,7 +214,9 @@ public struct AlertView: View {
                 if let buttonTitle = buttonTitle,
                    let buttonAction = buttonAction {
                     Button(buttonTitle, action: buttonAction)
-                        .buttonStyle(PrimaryButtonStyle(isLoading: $isLoading))
+                        .buttonStyle(PrimaryButtonStyle(
+                            isLoading: $isLoading,
+                            scheme: scheme.buttonScheme))
                 }
                 if let additionalButtonTitle = additionalButtonTitle,
                    let additionalButtonAction = additionalButtonAction {

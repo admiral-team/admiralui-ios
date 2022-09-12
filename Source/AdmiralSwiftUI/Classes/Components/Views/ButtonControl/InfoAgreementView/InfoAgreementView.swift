@@ -131,7 +131,9 @@ public struct InfoAgreementView: View {
             }
             if let buttonTitle = buttonTitle {
                 Button(buttonTitle, action: buttonAction)
-                    .buttonStyle(PrimaryButtonStyle(isLoading: $isLoading))
+                    .buttonStyle(PrimaryButtonStyle(
+                        isLoading: $isLoading,
+                        scheme: scheme.buttonScheme))
             }
             if let additionalButtonTitle = additionalButtonTitle {
                 HStack {

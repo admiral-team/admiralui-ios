@@ -15,6 +15,8 @@ public struct ZeroScreenViewScheme: AppThemeScheme {
     
     public var subtitleColor: AColor
     public var subtitleFont: AFont
+
+    public var buttonScheme: PrimaryButtonScheme
     
     public init(theme: AppTheme) {
         titleColor = theme.colors.textPrimary
@@ -22,5 +24,7 @@ public struct ZeroScreenViewScheme: AppThemeScheme {
         
         subtitleColor = theme.colors.textSecondary
         subtitleFont = theme.fonts.body2
+
+        buttonScheme = PrimaryButtonScheme(theme: theme)
     }
 }

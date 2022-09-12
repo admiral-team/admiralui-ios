@@ -46,7 +46,7 @@ public struct PrimaryButtonStyle: ButtonStyle {
 
     private var accessibilityIdentifier: String?
 
-    @Binding private var scheme: PrimaryButtonScheme?
+    private var scheme: PrimaryButtonScheme?
     @ObservedObject private var schemeProvider: SchemeProvider<PrimaryButtonScheme>
 
     // MARK: - Initializer
@@ -54,13 +54,13 @@ public struct PrimaryButtonStyle: ButtonStyle {
     public init(
         isLoading: Binding<Bool> = .constant(false),
         sizeType: ButtonSizeType? = nil,
-        scheme: Binding<PrimaryButtonScheme?> = .constant(nil),
+        scheme: PrimaryButtonScheme? = nil,
         schemeProvider: SchemeProvider<PrimaryButtonScheme> = AppThemeSchemeProvider<PrimaryButtonScheme>(),
         accessibilityIdentifier: String? = nil
     ) {
         self._isLoading = isLoading
         self.sizeType = sizeType
-        self._scheme = scheme
+        self.scheme = scheme
         self.schemeProvider = schemeProvider
         self.accessibilityIdentifier = accessibilityIdentifier
     }
@@ -73,7 +73,7 @@ public struct PrimaryButtonStyle: ButtonStyle {
             sizeType: sizeType,
             configuration: configuration,
             accessibilityIdentifier: accessibilityIdentifier,
-            scheme: $scheme,
+            scheme: scheme,
             schemeProvider: schemeProvider
         )
     }
@@ -96,19 +96,19 @@ private extension PrimaryButtonStyle {
         let configuration: Configuration
 
         private var schemeProvider: SchemeProvider<PrimaryButtonScheme>
-        @Binding var scheme: PrimaryButtonScheme?
+        var scheme: PrimaryButtonScheme?
 
         init(
             isLoading: Binding<Bool>,
             sizeType: ButtonSizeType?,
             configuration: Configuration,
             accessibilityIdentifier: String? = nil,
-            scheme: Binding<PrimaryButtonScheme?>,
+            scheme: PrimaryButtonScheme?,
             schemeProvider: SchemeProvider<PrimaryButtonScheme>
         ) {
             self.configuration = configuration
             self.sizeType = sizeType
-            self._scheme = scheme
+            self.scheme = scheme
             self.schemeProvider = schemeProvider
             self._isLoading = isLoading
             self.accessibilityIdentifier = accessibilityIdentifier
@@ -201,6 +201,6 @@ struct PrimaryButton_Previews: PreviewProvider {
 
     static var previews: some View {
         Button("Text", action: {})
-            .buttonStyle(PrimaryButtonStyle(isLoading: .constant(false)))
+            .buttonStyle(PrimaryButtonStyle(isLoading: .constant(false), scheme: PrimaryButtonScheme(theme: .default)))
     }
 }

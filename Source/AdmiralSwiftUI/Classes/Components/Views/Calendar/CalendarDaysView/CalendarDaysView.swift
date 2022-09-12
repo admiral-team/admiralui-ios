@@ -13,8 +13,7 @@ public struct CalendarDaysView: View {
     
     // MARK: - Internal Properties
     
-    @State private var scheme: CalendarViewCellColorScheme? = nil
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<CalendarViewCellColorScheme>()
+    private var scheme: CalendarViewCellColorScheme
 
     // MARK: - Private Properties
     
@@ -35,13 +34,16 @@ public struct CalendarDaysView: View {
         startDate: Binding<Date?>,
         endDate: Binding<Date?>,
         notActiveAfterDate: Date?,
-        pointDates: [Date]) {
+        pointDates: [Date],
+        scheme: CalendarViewCellColorScheme
+    ) {
         self.date = date
         self._isMutlipleSelectionAllowed = .init(initialValue: isMutlipleSelectionAllowed)
         self._startDate = startDate
         self._endDate = endDate
         self.pointDates = pointDates.map( { $0.removeTimeStamp() })
         self.notActiveAfterDate = notActiveAfterDate
+        self.scheme = scheme
     }
     
     public var body: some View {
@@ -69,7 +71,6 @@ public struct CalendarDaysView: View {
     
     @ViewBuilder
     private func dayView(day: Day) -> some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
         VStack(spacing: LayoutGrid.halfModule) {
             textView(day: day)
             if Set(pointDates).contains(day.date), day.isDisplayedInMonth {
@@ -112,7 +113,6 @@ public struct CalendarDaysView: View {
     }
     
     private func selectedTextView(day: Day) -> some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
         let startDate = startDate.removeTimeStamp()
         let endDate = endDate.removeTimeStamp()
         
@@ -150,7 +150,6 @@ public struct CalendarDaysView: View {
     }
     
     private func currentTextView(day: Day) -> some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
         let date = day.date.copyDate()
         return Button(action: {
             tapDate(date)
@@ -167,7 +166,6 @@ public struct CalendarDaysView: View {
     }
     
     private func inactiveTextView(day: Day) -> some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
         return Text(day.isDisplayedInMonth ? day.number : "")
             .frame(width: LayoutGrid.halfModule * 9, height: LayoutGrid.halfModule * 9)
             .font(scheme.titleLabelFont.swiftUIFont)
@@ -176,7 +174,6 @@ public struct CalendarDaysView: View {
     }
     
     private func basicTextView(day: Day) -> some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
         let date = day.date.copyDate()
         if day.isDisplayedInMonth {
             return Button(action: {

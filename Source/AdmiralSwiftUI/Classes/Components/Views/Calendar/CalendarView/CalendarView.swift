@@ -5,6 +5,7 @@
 //  Created on 16.07.2021.
 //
 
+import AdmiralTheme
 import SwiftUI
 
 /// Calendar view type. Is presented in two versions: Vertical Mode and Horizontal Mode.
@@ -104,6 +105,12 @@ public struct CalendarView: View {
     
     /// Type calendar.
     private let type: CalendarViewType
+
+    /// Horizontal calendar scheme provider serves for changing scheme while change theme.
+    private let horizontalSchemeProvider: SchemeProvider<CalendarHorizontalViewScheme>
+
+    /// Vertical calendar scheme provider serves for changing scheme while change theme.
+    private let verticalSchemeProvider: SchemeProvider<CalendarVerticalViewScheme>
     
     // MARK: - Initializer
     
@@ -119,16 +126,19 @@ public struct CalendarView: View {
     ///   - notActiveAfterDate: Not active after date.
     ///   - isMutlipleSelectionAllowed: The state selection.
     ///   - pointDates: Dates with a dot at the bottom.
-    public init(type: CalendarViewType,
-         startDate: Date? = nil,
-         endDate: Date? = nil,
-         locale: Locale? = nil,
-         selectedStartDate: Binding<Date?>,
-         selectedEndDate: Binding<Date?>,
-         monthYearDate: Date? = nil,
-         notActiveAfterDate: Date? = nil,
-         isMutlipleSelectionAllowed: Bool = true,
-         pointDates: [Date] = []
+    public init(
+        type: CalendarViewType,
+        startDate: Date? = nil,
+        endDate: Date? = nil,
+        locale: Locale? = nil,
+        selectedStartDate: Binding<Date?>,
+        selectedEndDate: Binding<Date?>,
+        monthYearDate: Date? = nil,
+        notActiveAfterDate: Date? = nil,
+        isMutlipleSelectionAllowed: Bool = true,
+        pointDates: [Date] = [],
+        horizontalSchemeProvider: SchemeProvider<CalendarHorizontalViewScheme> = AppThemeSchemeProvider<CalendarHorizontalViewScheme>(),
+        verticalSchemeProvider: SchemeProvider<CalendarVerticalViewScheme> = AppThemeSchemeProvider<CalendarVerticalViewScheme>()
     ) {
         self.startDate = startDate
         self.endDate = endDate
@@ -140,6 +150,8 @@ public struct CalendarView: View {
         self.isMutlipleSelectionAllowed = isMutlipleSelectionAllowed
         self.type = type
         self.pointDates = pointDates
+        self.horizontalSchemeProvider = horizontalSchemeProvider
+        self.verticalSchemeProvider = verticalSchemeProvider
     }
     
     public var body: some View {
@@ -154,7 +166,9 @@ public struct CalendarView: View {
                 monthYearDate: monthYearDate,
                 notActiveAfterDate: notActiveAfterDate,
                 isMutlipleSelectionAllowed: isMutlipleSelectionAllowed,
-                pointDates: pointDates)
+                pointDates: pointDates,
+                schemeProvider: horizontalSchemeProvider
+            )
                 .eraseToAnyView()
         case .vertical:
             return CalendarVerticalView(
@@ -166,7 +180,9 @@ public struct CalendarView: View {
                 monthYearDate: monthYearDate,
                 notActiveAfterDate: notActiveAfterDate,
                 isMutlipleSelectionAllowed: isMutlipleSelectionAllowed,
-                pointDates: pointDates)
+                pointDates: pointDates,
+                schemeProvider: verticalSchemeProvider
+            )
                 .eraseToAnyView()
         }
         

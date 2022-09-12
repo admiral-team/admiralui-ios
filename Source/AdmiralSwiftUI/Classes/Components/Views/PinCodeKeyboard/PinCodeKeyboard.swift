@@ -58,7 +58,7 @@ public struct PinCodeKeyboard: View {
     private let didTapNumber: (Int) -> ()
     private let didTapLeftButton: () -> ()
     private let didTapRightButton: () -> ()
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<PinCodeTextViewScheme>()
+    @ObservedObject var schemeProvider: SchemeProvider<PinCodeTextViewScheme>
     
     private enum Constants {
         static let keyboardInsets: EdgeInsets = EdgeInsets(
@@ -82,14 +82,17 @@ public struct PinCodeKeyboard: View {
     public init(
         leftButtonTitle: String = "",
         rightButtonImage: Image = AssetSymbol.Security.Outline.faceID.image,
+        schemeProvider: SchemeProvider<PinCodeTextViewScheme> = AppThemeSchemeProvider<PinCodeTextViewScheme>(),
         didTapNumber: @escaping (Int) -> (),
         didTapLeftButton: @escaping () -> (),
-        didTapRightButton: @escaping () -> ()) {
+        didTapRightButton: @escaping () -> ()
+    ) {
         self.leftButtonTitle = leftButtonTitle
         self.rightButtonImage = rightButtonImage
         self.didTapNumber = didTapNumber
         self.didTapLeftButton = didTapLeftButton
         self.didTapRightButton = didTapRightButton
+        self.schemeProvider = schemeProvider
     }
     
     public var body: some View {

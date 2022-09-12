@@ -39,18 +39,43 @@ final class ZeroScreenSnapshotTests: XCTestCase {
         checkZeroScreen(view: view, named: "DefaultTheme", testName: "ZeroScreen")
     }
     
-    // MARK: DarkTheme
+    // MARK: - DarkTheme
 
     func testZeroScreenDarkTheme() {
         SwiftUIThemeManager.shared.theme = .dark
         let view = createZeroScreen()
         checkZeroScreen(view: view, named: "DarkTheme", testName: "ZeroScreen")
     }
+
+    // MARK: - Scheme Provider
+
+    func testZeroScreenSchemeProvider() {
+        SwiftUIThemeManager.shared.theme = .default
+        var scheme = ZeroScreenViewScheme(theme: .default)
+        scheme.titleColor = AColor(color: .systemPink)
+        let newSchemeProvider = SchemeProvider<ZeroScreenViewScheme>(scheme: scheme)
+
+        let view = createZeroScreen(schemeProvider: newSchemeProvider)
+        checkZeroScreen(view: view, named: "SchemeProvider", testName: "ZeroScreen")
+
+        SwiftUIThemeManager.shared.theme = .dark
+        let newView = createZeroScreen(schemeProvider: newSchemeProvider)
+        checkZeroScreen(view: newView, named: "SchemeProvider", testName: "ZeroScreen")
+    }
     
     func createZeroScreen() -> some View {
         let zeroScreenView = ZeroScreenView(title: "ZeroScreen",
                                         subtitle: "CheckMe",
                                         buttonTitle: "Button",
+                                        buttonAction: {})
+        return zeroScreenView
+    }
+
+    func createZeroScreen(schemeProvider: SchemeProvider<ZeroScreenViewScheme>) -> some View {
+        let zeroScreenView = ZeroScreenView(title: "ZeroScreen",
+                                        subtitle: "CheckMe",
+                                        buttonTitle: "Button",
+                                        schemeProvider: schemeProvider,
                                         buttonAction: {})
         return zeroScreenView
     }
