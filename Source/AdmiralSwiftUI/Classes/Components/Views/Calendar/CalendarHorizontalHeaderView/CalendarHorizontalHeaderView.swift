@@ -55,7 +55,7 @@ struct CalendarHorizontalHeaderView: View {
     var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         let buttonImage = isOpen ?
-            Image(uiImage: PrivateAsset.Custom.Cell.arrowDown.image) :
+            Image(uiImage: Asset.System.Outline.chevronDownOutline.image) :
             AssetSymbol.System.Outline.smallArrowUp.image
         var buttonScheme = self.buttonScheme ?? buttonSchemeProvider.scheme
         buttonScheme.image = buttonImage

@@ -17,6 +17,9 @@ public struct TextOperationViewScheme: AppThemeScheme {
 
     /// The title  label color.
     public var titleColor = TextOperationViewSchemeParameters<AColor>()
+    
+    /// A color of Error Image.
+    public var errorImageColor: AColor
 
     /// The desciption label color.
     public var desciptionColor: AColor
@@ -50,6 +53,7 @@ public struct TextOperationViewScheme: AppThemeScheme {
 
         desciptionColor = theme.colors.textPrimary
         timeColor = theme.colors.textSecondary
+        errorImageColor = theme.colors.elementError
 
         titleFont = theme.fonts.subhead1
         desciptionFont = theme.fonts.subhead3
