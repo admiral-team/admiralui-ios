@@ -8,12 +8,9 @@
 import AdmiralUIResources
 import AdmiralTheme
 import SwiftUI
-
 /**
  CodeInputControl - A control of the entered user characters. Used for secure password entry.
- 
  You can create a PrimaryButton by specifying the following parameters in the initializer:
- ## Initializer parameters:
  - text - Binding<String> Observable property for control count input text
  - itemsCount - value of Int. The property is responsible for the possible number of input characters
  - status - this parameter is responsible for the display style CodeInputControl. Can be in three states: normal, success, error. Default state is a normal.
@@ -23,7 +20,8 @@ import SwiftUI
  CodeInputControl(
                 text: .constant("1234"),
                 itemsCount: 5,
-                status: .normal)
+                status: .normal
+ )
  ```
  */
 /// Code input control.
@@ -32,8 +30,11 @@ public struct CodeInputControl: View {
     
     /// Status.
     public enum Status: Int {
+        /// The normal status
         case normal
+        /// The success status
         case success
+        /// The error status
         case error
     }
     
@@ -49,7 +50,8 @@ public struct CodeInputControl: View {
     // MARK: - Private Properties
     
     private var cursorPosition = 0
-    @State private var scheme: CodeInputControlScheme? = nil
+
+    @Binding private var scheme: CodeInputControlScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<CodeInputControlScheme>()
     
     // MARK: - Initializer
@@ -57,8 +59,11 @@ public struct CodeInputControl: View {
     public init(
         text: Binding<String>,
         itemsCount: Int = 4,
-        status: CodeInputControl.Status = .normal) {
+        status: CodeInputControl.Status = .normal,
+        scheme: Binding<CodeInputControlScheme?> = .constant(nil)
+    ) {
         self._text = text
+        self._scheme = scheme
         self._itemsCount = Binding(get: {
             return itemsCount
         }, set: { _ in })
@@ -67,6 +72,8 @@ public struct CodeInputControl: View {
         }, set: { _ in })
         self.cursorPosition = min(text.wrappedValue.count, itemsCount)
     }
+
+    // MARK: - Body
     
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme

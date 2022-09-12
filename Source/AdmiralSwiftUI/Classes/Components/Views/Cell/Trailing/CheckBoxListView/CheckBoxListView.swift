@@ -29,8 +29,8 @@ import AdmiralUIResources
 public struct CheckBoxListView: View, TralingListViewComponent {
     
     enum Constants {
-        static let selectedImage = PrivateAsset.Custom.Control.radioButtonOn.image
-        static let defaultImage = PrivateAsset.Custom.Control.radioButtonOff.image
+        static let selectedImage = SystemAsset.Custom.Control.radioButtonOn.image
+        static let defaultImage = SystemAsset.Custom.Control.radioButtonOff.image
     }
     
     // MARK: - Public Properties
