@@ -72,6 +72,32 @@ final class CodeInputControlSnapshotTests: XCTestCase {
         checkCodeInputControl(view: codeInputControl, named: "SuccessDarkTheme", testName: "CodeInputControl")
     }
 
+    func testCodeInputControlSchemeProvider() {
+        SwiftUIThemeManager.shared.theme = .default
+        var scheme = CodeInputControlScheme()
+        scheme.defaultColor = AColor(color: .systemPink)
+        scheme.activeColor = AColor(color: .systemPink)
+        scheme.successColor = AColor(color: .systemPink)
+        let newSchemeProvider = SchemeProvider<CodeInputControlScheme>(scheme: scheme)
+
+        let codeInputControl = CodeInputControl(
+            text: .constant("CodeInputControl"),
+            itemsCount: 4,
+            status: .normal,
+            schemeProvider: newSchemeProvider
+        )
+        checkCodeInputControl(view: codeInputControl, named: "SchemeProvider", testName: "CodeInputControl")
+
+        SwiftUIThemeManager.shared.theme = .dark
+        let newCodeInputControl = CodeInputControl(
+            text: .constant("CodeInputControl"),
+            itemsCount: 4,
+            status: .normal,
+            schemeProvider: newSchemeProvider
+        )
+        checkCodeInputControl(view: newCodeInputControl, named: "SchemeProvider", testName: "CodeInputControl")
+    }
+
 }
 
 private extension CodeInputControlSnapshotTests {

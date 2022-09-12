@@ -36,10 +36,10 @@ public struct PrimaryButtonStyle: ButtonStyle {
 
     // MARK: - Public Properties
 
-    /// The loading flag of PrimaryButton
+    /// The loading flag
     @Binding public var isLoading: Bool
 
-    /// The size type of PrimaryButton
+    /// The size type
     public var sizeType: ButtonSizeType?
 
     // MARK: - Private Properties
@@ -47,6 +47,7 @@ public struct PrimaryButtonStyle: ButtonStyle {
     private var accessibilityIdentifier: String?
 
     @Binding private var scheme: PrimaryButtonScheme?
+    @ObservedObject private var schemeProvider: SchemeProvider<PrimaryButtonScheme>
 
     // MARK: - Initializer
 
@@ -54,11 +55,13 @@ public struct PrimaryButtonStyle: ButtonStyle {
         isLoading: Binding<Bool> = .constant(false),
         sizeType: ButtonSizeType? = nil,
         scheme: Binding<PrimaryButtonScheme?> = .constant(nil),
+        schemeProvider: SchemeProvider<PrimaryButtonScheme> = AppThemeSchemeProvider<PrimaryButtonScheme>(),
         accessibilityIdentifier: String? = nil
     ) {
         self._isLoading = isLoading
         self.sizeType = sizeType
         self._scheme = scheme
+        self.schemeProvider = schemeProvider
         self.accessibilityIdentifier = accessibilityIdentifier
     }
 
@@ -70,7 +73,8 @@ public struct PrimaryButtonStyle: ButtonStyle {
             sizeType: sizeType,
             configuration: configuration,
             accessibilityIdentifier: accessibilityIdentifier,
-            scheme: $scheme
+            scheme: $scheme,
+            schemeProvider: schemeProvider
         )
     }
 }
@@ -91,7 +95,7 @@ private extension PrimaryButtonStyle {
 
         let configuration: Configuration
 
-        @ObservedObject private var schemeProvider = AppThemeSchemeProvider<PrimaryButtonScheme>()
+        private var schemeProvider: SchemeProvider<PrimaryButtonScheme>
         @Binding var scheme: PrimaryButtonScheme?
 
         init(
@@ -99,11 +103,13 @@ private extension PrimaryButtonStyle {
             sizeType: ButtonSizeType?,
             configuration: Configuration,
             accessibilityIdentifier: String? = nil,
-            scheme: Binding<PrimaryButtonScheme?>
+            scheme: Binding<PrimaryButtonScheme?>,
+            schemeProvider: SchemeProvider<PrimaryButtonScheme>
         ) {
             self.configuration = configuration
             self.sizeType = sizeType
             self._scheme = scheme
+            self.schemeProvider = schemeProvider
             self._isLoading = isLoading
             self.accessibilityIdentifier = accessibilityIdentifier
         }

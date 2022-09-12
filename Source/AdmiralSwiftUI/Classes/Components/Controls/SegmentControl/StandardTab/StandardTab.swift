@@ -51,16 +51,21 @@ public struct StandardTab: View {
     @State private var segmentSize: CGSize = .zero
     @State private var activeSegmentOffset: CGFloat = Constants.separatorWidth
     @State private var scheme: StandardTabScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<StandardTabScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<StandardTabScheme>
     
     private let items: [String]
     
     // MARK: - Initializer
     
     /// Initializes and returns a newly allocated view object with titles and binding selection.
-    public init(items: [String], selection: Binding<Int>) {
+    public init(
+        items: [String],
+        selection: Binding<Int>,
+        schemeProvider: SchemeProvider<StandardTabScheme> = AppThemeSchemeProvider<StandardTabScheme>()
+    ) {
         self._selection = selection
         self.items = items
+        self.schemeProvider = schemeProvider
     }
     
     public var body: some View {

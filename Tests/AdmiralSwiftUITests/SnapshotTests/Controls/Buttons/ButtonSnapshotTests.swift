@@ -228,6 +228,31 @@ final class ButtonSnapshotTests: XCTestCase {
             .buttonStyle(PlatformButtonStyle())
         checkButton(view: platfotmButton, named: "platformDarkTheme", testName: "Button")
     }
+
+    func testCustomSwitchSchemeProvider() {
+        SwiftUIThemeManager.shared.theme = .default
+        var scheme = PrimaryButtonScheme(theme: .default)
+        scheme.backgroundColor = AColor(color: .systemPink)
+        scheme.buttonBackgroundColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        let newSchemeProvider = SchemeProvider<PrimaryButtonScheme>(scheme: scheme)
+
+        let primaryButton =  Button("Text", action: {})
+            .buttonStyle(PrimaryButtonStyle(
+                isLoading: .constant(false),
+                sizeType: .big,
+                schemeProvider: newSchemeProvider)
+            )
+        checkButton(view: primaryButton, named: "SchemeProvider", testName: "Button")
+
+        SwiftUIThemeManager.shared.theme = .dark
+        let newPrimaryButton =  Button("Text", action: {})
+            .buttonStyle(PrimaryButtonStyle(
+                isLoading: .constant(false),
+                sizeType: .big,
+                schemeProvider: newSchemeProvider)
+            )
+        checkButton(view: newPrimaryButton, named: "SchemeProvider", testName: "Button")
+    }
 }
 
 private extension ButtonSnapshotTests {
