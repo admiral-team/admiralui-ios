@@ -2878,8 +2878,8 @@
 			isa = PBXGroup;
 			children = (
 				0E59D34D263179FB007B5CC1 /* OutlineSliderTab.swift */,
-				0EF044D227B52A0F0095DD14 /* OutlineSliderTabItem.swift */,
 				0E59D35B26317A0D007B5CC1 /* OutlineSliderTabScheme.swift */,
+				0EF044D227B52A0F0095DD14 /* OutlineSliderTabItem.swift */,
 			);
 			path = OutlineSliderTab;
 			sourceTree = "<group>";

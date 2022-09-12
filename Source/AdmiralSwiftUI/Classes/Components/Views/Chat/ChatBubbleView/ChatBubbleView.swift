@@ -8,10 +8,9 @@
 import AdmiralTheme
 import AdmiralUIResources
 import SwiftUI
-
 /**
  ChatStatus - Public enum for status ChatBubbleView
- 
+
  ChatStatus can be one of the following values:
  - loading
  - error
@@ -30,7 +29,7 @@ public enum ChatStatus: String {
 
 /**
  ChatDirection - Public enum for dirction ChatBubbleView
- 
+
  ChatDirection can be one of the following values:
  - right
  - left
@@ -44,16 +43,16 @@ public enum ChatDirection: String {
  ChatBubbleView - A view for chat message.
 
  You can create a ChatBubbleView by specifying the following parameters in the initializer
- 
+
  ## Initializer parameters:
- 
+
  - text: String - Text message.
  - direction: ChatDirection - A direction for text mesage. Can be: left, right
  - time: String - Time text message.
  - status: ChatStatus - A status ChatBubbleView. Can be in the following states: loading, error, sent, receive, read
  - name: String - Name text on up message.
  - isRoundAllCorners: Bool - Flag for round all corners.
- 
+
  ## Example to create ChatBubbleView:
  # Code
  ```
@@ -74,31 +73,31 @@ public struct ChatBubbleView: View {
     }
 
     // MARK: - Public Properties
-    
+
     /// Text message.
     public let text: String
-    
+
     /// Direction message.
     public var direction: ChatDirection
-    
+
     /// Time text message.
     public var time: String
-    
+
     /// Status message.
     public var status: ChatStatus?
-    
+
     /// Name text on up message.
     public var name: String?
-    
+
     /// Flag for round all corners.
     public var isRoundAllCorners: Bool = false
 
     /// Max width message view.
     public let maxWidth: CGFloat?
-    
+
     /// Action error button.
     private var errorAction: () -> ()
-    
+
     // MARK: - Private Properties
 
     private var segmentSizeWidth: CGFloat {
@@ -106,10 +105,10 @@ public struct ChatBubbleView: View {
     }
 
     @State private var segmentSize: CGSize = .zero
-    
-    @State private var scheme: ChatBubbleViewScheme? = nil
+
+    @Binding private var scheme: ChatBubbleViewScheme?
     @ObservedObject var schemeProvider = AppThemeSchemeProvider<ChatBubbleViewScheme>()
-    
+
     // MARK: - Initializer
 
     public init(
@@ -120,7 +119,9 @@ public struct ChatBubbleView: View {
         name: String? = nil,
         isRoundAllCorners: Bool = false,
         maxWidth: CGFloat? = nil,
-        errorAction: @escaping ()->() = {}) {
+        errorAction: @escaping ()->() = {},
+        scheme: Binding<ChatBubbleViewScheme?> = .constant(nil)
+    ) {
         self.text = text
         self.direction = direction
         self.time = time
@@ -129,8 +130,11 @@ public struct ChatBubbleView: View {
         self.isRoundAllCorners = isRoundAllCorners
         self.maxWidth = maxWidth
         self.errorAction = errorAction
+        self._scheme = scheme
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         switch direction {
@@ -184,9 +188,9 @@ public struct ChatBubbleView: View {
             .eraseToAnyView()
         }
     }
-    
+
     // MARK: - Private Methods
-    
+
     private func contentView(scheme: ChatBubbleViewScheme) -> some View {
         VStack(alignment: .trailing, spacing: LayoutGrid.module) {
             HStack {
@@ -202,7 +206,7 @@ public struct ChatBubbleView: View {
         .padding(.horizontal, LayoutGrid.halfModule * 3)
         .background(scheme.backgroundColor.parameter(for: direction)?.swiftUIColor)
     }
-    
+
     private var errorImage: some View {
         return Image(uiImage: PrivateAsset.Custom.Chat.error.image)
             .padding(.top, LayoutGrid.module)
@@ -221,12 +225,12 @@ public struct ChatBubbleView: View {
             return Constants.ratioWidth * segmentSize.width
         }
     }
-    
+
 }
 
 @available(iOS 14.0, *)
 struct ChatBubbleView_Previews: PreviewProvider {
-    
+
     static var previews: some View {
         VStack {
             ChatBubbleView(text: "Hi, Andrey", direction: .left, time: "12:34", status: .error, name: "Антон")
