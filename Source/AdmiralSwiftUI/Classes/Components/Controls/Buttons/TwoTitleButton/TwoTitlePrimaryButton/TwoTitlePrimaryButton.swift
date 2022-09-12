@@ -39,6 +39,7 @@ public struct TwoTitlePrimaryButton: View {
     private let action: () -> ()
 
     @Binding private var scheme: TwoTitlePrimaryButtonScheme?
+    @ObservedObject private var schemeProvider: SchemeProvider<TwoTitlePrimaryButtonScheme>
     
     // MARK: - Initializer
     
@@ -46,12 +47,14 @@ public struct TwoTitlePrimaryButton: View {
         leftText: String,
         rightText: String,
         action: @escaping () -> (),
-        scheme: Binding<TwoTitlePrimaryButtonScheme?> = .constant(nil)
+        scheme: Binding<TwoTitlePrimaryButtonScheme?> = .constant(nil),
+        schemeProvider: SchemeProvider<TwoTitlePrimaryButtonScheme> = AppThemeSchemeProvider<TwoTitlePrimaryButtonScheme>()
     ) {
         self.leftText = leftText
         self.rightText = rightText
         self.action = action
         self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Body
@@ -62,7 +65,8 @@ public struct TwoTitlePrimaryButton: View {
                 TwoTitlePrimaryButtonStyle(
                     leftTitle: leftText,
                     rightTitle: rightText,
-                    scheme: $scheme
+                    scheme: $scheme,
+                    schemeProvider: schemeProvider
                 )
             )
     }

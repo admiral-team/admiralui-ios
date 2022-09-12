@@ -12,9 +12,9 @@ import AdmiralUIResources
 @available(iOS 14.0.0, *)
 public struct CustomSwitchScheme: ToggleStyle, AppThemeScheme  {
     
-    public let font: AFont
-    public let onTintColorColor: AColor
-    public let textColor: AColor
+    public var font: AFont
+    public var onTintColorColor: AColor
+    public var textColor: AColor
     
     public init() {
         self.init(theme: AppTheme.default)

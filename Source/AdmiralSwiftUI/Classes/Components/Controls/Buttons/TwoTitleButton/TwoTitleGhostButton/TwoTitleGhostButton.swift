@@ -40,7 +40,7 @@ public struct TwoTitleGhostButton: View {
     // MARK: - Private Properties
     
     @Binding private var scheme: TwoTitleGhostButtonScheme?
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<TwoTitleGhostButtonScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<TwoTitleGhostButtonScheme>
     
     private let leftAction: () -> ()
     private let rightAction: () -> ()
@@ -52,13 +52,15 @@ public struct TwoTitleGhostButton: View {
         rightText: String,
         leftAction: @escaping () -> (),
         rightAction: @escaping () -> (),
-        scheme: Binding<TwoTitleGhostButtonScheme?> = .constant(nil)
+        scheme: Binding<TwoTitleGhostButtonScheme?> = .constant(nil),
+        schemeProvider: SchemeProvider<TwoTitleGhostButtonScheme> = AppThemeSchemeProvider<TwoTitleGhostButtonScheme>()
     ) {
         self.leftText = leftText
         self.rightText = rightText
         self.leftAction = leftAction
         self.rightAction = rightAction
         self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Body
@@ -69,10 +71,10 @@ public struct TwoTitleGhostButton: View {
             scheme.backgroundColor.swiftUIColor
             HStack(spacing: LayoutGrid.doubleModule) {
                 Button(leftText, action: leftAction)
-                    .buttonStyle(GhostButtonStyle())
+                    .buttonStyle(GhostButtonStyle(scheme: .constant(scheme.leftGhostButtonScheme)))
                 Spacer()
                 Button(rightText, action: rightAction)
-                    .buttonStyle(GhostButtonStyle())
+                    .buttonStyle(GhostButtonStyle(scheme: .constant(scheme.rightGhostButtonScheme)))
             }
         }
 

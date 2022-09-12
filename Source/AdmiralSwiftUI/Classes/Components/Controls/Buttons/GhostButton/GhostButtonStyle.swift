@@ -43,17 +43,20 @@ public struct GhostButtonStyle: ButtonStyle {
     // MARK: - Private Properties
 
     @Binding private var scheme: GhostButtonScheme?
+    @ObservedObject private var schemeProvider: SchemeProvider<GhostButtonScheme>
 
     // MARK: - Inializer
 
     public init(
         isLoading: Binding<Bool> = .constant(false),
         sizeType: ButtonSizeType? = nil,
-        scheme: Binding<GhostButtonScheme?> = .constant(nil)
+        scheme: Binding<GhostButtonScheme?> = .constant(nil),
+        schemeProvider: SchemeProvider<GhostButtonScheme> = AppThemeSchemeProvider<GhostButtonScheme>()
     ) {
         self._isLoading = isLoading
         self.sizeType = sizeType
         self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Body
@@ -62,6 +65,7 @@ public struct GhostButtonStyle: ButtonStyle {
         GhostButton(
             isLoading: $isLoading,
             scheme: $scheme,
+            schemeProvider: schemeProvider,
             sizeType: sizeType,
             configuration: configuration
         )
@@ -82,14 +86,15 @@ private extension GhostButtonStyle {
         var sizeType: ButtonSizeType?
         let configuration: Configuration
 
-        @ObservedObject private var schemeProvider = AppThemeSchemeProvider<GhostButtonScheme>()
         @Binding var scheme: GhostButtonScheme?
+        private var schemeProvider: SchemeProvider<GhostButtonScheme>
 
         // MARK: - Initializer
 
         init(
             isLoading: Binding<Bool>,
             scheme: Binding<GhostButtonScheme?>,
+            schemeProvider: SchemeProvider<GhostButtonScheme>,
             sizeType: ButtonSizeType?,
             configuration: Configuration
         ) {
@@ -98,6 +103,7 @@ private extension GhostButtonStyle {
             self.configuration = configuration
             self._isLoading = isLoading
             self._scheme = scheme
+            self.schemeProvider = schemeProvider
         }
 
         // MARK: - Body

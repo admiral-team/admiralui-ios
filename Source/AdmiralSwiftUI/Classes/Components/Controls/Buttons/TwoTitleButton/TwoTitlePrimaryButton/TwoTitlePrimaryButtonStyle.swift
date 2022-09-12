@@ -38,17 +38,20 @@ public struct TwoTitlePrimaryButtonStyle: ButtonStyle {
     private let rightTitle: String
 
     @Binding private var scheme: TwoTitlePrimaryButtonScheme?
+    @ObservedObject private var schemeProvider: SchemeProvider<TwoTitlePrimaryButtonScheme>
 
     // MARK: - Initializier
 
     public init(
         leftTitle: String = "",
         rightTitle: String = "",
-        scheme: Binding<TwoTitlePrimaryButtonScheme?> = .constant(nil)
+        scheme: Binding<TwoTitlePrimaryButtonScheme?> = .constant(nil),
+        schemeProvider: SchemeProvider<TwoTitlePrimaryButtonScheme> = AppThemeSchemeProvider<TwoTitlePrimaryButtonScheme>()
     ) {
         self.leftTitle = leftTitle
         self.rightTitle = rightTitle
         self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Public methods
@@ -58,7 +61,8 @@ public struct TwoTitlePrimaryButtonStyle: ButtonStyle {
             configuration: configuration,
             leftTitle: leftTitle,
             rightTitle: rightTitle,
-            scheme: $scheme
+            scheme: $scheme,
+            schemeProvider: schemeProvider
         )
     }
 }
@@ -76,7 +80,7 @@ private extension TwoTitlePrimaryButtonStyle {
         @Environment(\.isEnabled) private var isEnabled
 
         @Binding private var scheme: TwoTitlePrimaryButtonScheme?
-        @ObservedObject private var schemeProvider = AppThemeSchemeProvider<TwoTitlePrimaryButtonScheme>()
+        private var schemeProvider: SchemeProvider<TwoTitlePrimaryButtonScheme>
 
         // MARK: - Initializer
 
@@ -84,9 +88,11 @@ private extension TwoTitlePrimaryButtonStyle {
             configuration: Configuration,
             leftTitle: String,
             rightTitle: String,
-            scheme: Binding<TwoTitlePrimaryButtonScheme?>
+            scheme: Binding<TwoTitlePrimaryButtonScheme?>,
+            schemeProvider: SchemeProvider<TwoTitlePrimaryButtonScheme>
         ) {
             self._scheme = scheme
+            self.schemeProvider = schemeProvider
             self.configuration = configuration
             self.leftTitle = leftTitle
             self.rightTitle = rightTitle
