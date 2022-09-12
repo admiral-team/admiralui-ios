@@ -62,6 +62,36 @@ final class SeveralPinButtonSnapshotTests: XCTestCase {
         checkMapButton(view: severalPinButton, named: "defaultDarkTheme", testName: "severalPinButtonDisabled", disabled: true)
     }
 
+    func testSeveralPinButtonSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = SeveralPinButtonScheme(theme: .default)
+        scheme.backgroundColor = AColor(color: .systemPink)
+        let newSchemeProvider: SchemeProvider<SeveralPinButtonScheme> = SchemeProvider<SeveralPinButtonScheme>(scheme: scheme)
+
+        let severalPinButton = Button(
+            action: {},
+            label: {}
+        ).buttonStyle(
+            SeveralPinButtonStyle(
+                value: .constant(""),
+                schemeProvider: newSchemeProvider
+            ))
+
+        checkMapButton(view: severalPinButton, named: "NewSchemeProvider", testName: "severalPinButton")
+
+        Appearance.shared.theme = .dark
+
+        let newSeveralPinButton = Button(
+            action: {},
+            label: {}
+        ).buttonStyle(
+            SeveralPinButtonStyle(
+                value: .constant(""),
+                schemeProvider: newSchemeProvider
+            ))
+        checkMapButton(view: newSeveralPinButton, named: "NewSchemeProvider", testName: "severalPinButton")
+    }
+
 }
 
 private extension SeveralPinButtonSnapshotTests {

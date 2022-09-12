@@ -14,6 +14,9 @@ public struct UploadImageGridViewScheme: AppThemeScheme {
 
     /// A color of ChatBubbleView.
     public var chatBubbleColor: AColor
+    
+    /// A color of Error Image.
+    public var errorImageColor: AColor
 
     /// A child schema of UploadImageGridView.
     public var uploadImageViewScheme: UploadImageViewScheme
@@ -33,6 +36,7 @@ public struct UploadImageGridViewScheme: AppThemeScheme {
         chatBubbleStatusScheme = ChatBubbleStatusViewScheme(theme: theme)
         
         chatBubbleColor = theme.colors.backgroundModalView.withAlpha(alpha)
+        errorImageColor = theme.colors.elementError
         uploadImageViewScheme = UploadImageViewScheme(theme: theme)
     }
 

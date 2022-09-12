@@ -66,6 +66,39 @@ final class PinButtonSnapshotTests: XCTestCase {
         checkPinButton(view: pinButton, named: "defaultDarkTheme", testName: "PinButtonDisabled", disabled: true)
     }
 
+    func testPinProviderSchemeProvider() {
+        Appearance.shared.theme = .default
+        var pinButtonScheme = PinButtonScheme()
+        pinButtonScheme.backgroundColor = AColor(color: .systemPink)
+        pinButtonScheme.selectedbackgroundColor = AColor(color: .systemPink)
+        let newSchemeProvider: SchemeProvider<PinButtonScheme> = SchemeProvider<PinButtonScheme>(scheme: pinButtonScheme)
+
+        let pinButton = Button(
+            action: {},
+            label: {}
+        ).buttonStyle(
+            PinButtonStyle(
+                image: AssetSymbol.Category.Outline.acuringModern.image,
+                isSelected: .constant(true),
+                schemeProvider: newSchemeProvider
+            )
+        )
+        checkPinButton(view: pinButton, named: "NewSchemeProvider", testName: "PinButton")
+
+        Appearance.shared.theme = .dark
+        let newPinButton = Button(
+            action: {},
+            label: {}
+        ).buttonStyle(
+            PinButtonStyle(
+                image: AssetSymbol.Category.Outline.acuringModern.image,
+                isSelected: .constant(true),
+                schemeProvider: newSchemeProvider
+            )
+        )
+        checkPinButton(view: newPinButton, named: "NewSchemeProvider", testName: "PinButton")
+    }
+
 }
 
 private extension PinButtonSnapshotTests {

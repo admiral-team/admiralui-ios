@@ -37,6 +37,23 @@ final class CirclePageControlSnapshotTests: XCTestCase {
         checkCirclePageControllControl(view: liner, named: "CircleDarkTheme", testName: "PageControll")
     }
 
+    func testLinerSchemeProvider() {
+        Appearance.shared.theme = .default
+        var circleScheme = CirclePageControlScheme()
+        circleScheme.backgroundColor.set(parameter: AColor(color: .systemPink), for: false, style: .default)
+        circleScheme.backgroundColor.set(parameter: AColor(color: .systemPink), for: true, style: .default)
+        let newSchemeProvider: SchemeProvider<CirclePageControlScheme> = SchemeProvider<CirclePageControlScheme>(scheme: circleScheme)
+
+        let liner = Button(action: {}, label: {})
+            .buttonStyle(CirclePageControlStyle(step: .constant(0), totalPages: 7, style: .default, schemeProvider: newSchemeProvider))
+        checkCirclePageControllControl(view: liner, named: "CircleNewSchemeProvider", testName: "PageControll")
+
+        Appearance.shared.theme = .dark
+        let newLiner = Button(action: {}, label: {})
+            .buttonStyle(CirclePageControlStyle(step: .constant(0), totalPages: 7, style: .default, schemeProvider: newSchemeProvider))
+        checkCirclePageControllControl(view: newLiner, named: "CircleNewSchemeProvider", testName: "PageControll")
+    }
+
 }
 
 private extension CirclePageControlSnapshotTests {

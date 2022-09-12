@@ -153,6 +153,48 @@ final class TagControlSnapshotTests: XCTestCase {
         checkTagControl(view: tagControl, named: "defaultDarkTheme", testName: "TagControl")
     }
 
+    func testTagControlSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = TagControlScheme(theme: .default)
+        scheme.backgroundColor.set(parameter: AColor(color: .systemPink), for: .normal, style: .default)
+        let newSchemeProvider: SchemeProvider<TagControlScheme> = SchemeProvider<TagControlScheme>(scheme: scheme)
+
+        let tagControl = TagControl(
+            title: "Title",
+            tagStyle: .default,
+            schemeProvider: newSchemeProvider,
+            leadingView: {
+                Button(action: {}, label: {
+                    Image(uiImage: Asset.Category.Outline.bankOutline.image)
+                }) },
+            trailingView: {
+                Button(action: {}, label: {
+                    Image(uiImage: Asset.Category.Outline.bankOutline.image)
+                }) }) {
+
+                }
+
+        checkTagControl(view: tagControl, named: "NewSchemeProvider", testName: "TagControl")
+
+        Appearance.shared.theme = .dark
+
+        let newTagControl = TagControl(
+            title: "Title",
+            tagStyle: .default,
+            schemeProvider: newSchemeProvider,
+            leadingView: {
+                Button(action: {}, label: {
+                    Image(uiImage: Asset.Category.Outline.bankOutline.image)
+                }) },
+            trailingView: {
+                Button(action: {}, label: {
+                    Image(uiImage: Asset.Category.Outline.bankOutline.image)
+                }) }) {
+
+                }
+        checkTagControl(view: newTagControl, named: "NewSchemeProvider", testName: "PageControll")
+    }
+
 }
 
 private extension TagControlSnapshotTests {

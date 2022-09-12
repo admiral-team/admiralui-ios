@@ -32,10 +32,14 @@ final class ButtonSnapshotTests: XCTestCase {
 
     func testTwoTitlePrimaryButton() {
         Appearance.shared.theme = .default
-        let twoTitlePrimaryButton = TwoTitlePrimaryButton(
-            leftText: "leftText",
-            rightText: "rightText",
-            action: {}
+        let twoTitlePrimaryButton = Button(
+            action: {},
+            label: {}
+        ).buttonStyle(
+            TwoTitlePrimaryButtonStyle(
+                leftTitle: "leftText",
+                rightTitle: "rightText"
+            )
         )
         checkButton(view: twoTitlePrimaryButton, named: "twoTitle", testName: "PrimaryButton")
     }
@@ -44,10 +48,14 @@ final class ButtonSnapshotTests: XCTestCase {
 
     func testTwoTitlePrimaryButtonDarkTheme() {
         Appearance.shared.theme = .dark
-        let twoTitlePrimaryButton = TwoTitlePrimaryButton(
-            leftText: "leftText",
-            rightText: "rightText",
-            action: {}
+        let twoTitlePrimaryButton = Button(
+            action: {},
+            label: {}
+        ).buttonStyle(
+            TwoTitlePrimaryButtonStyle(
+                leftTitle: "leftText",
+                rightTitle: "rightText"
+            )
         )
         checkButton(view: twoTitlePrimaryButton, named: "twoTitleDarkTheme", testName: "PrimaryButton")
     }
@@ -219,6 +227,31 @@ final class ButtonSnapshotTests: XCTestCase {
         let platfotmButton = Button("Text", action: {})
             .buttonStyle(PlatformButtonStyle())
         checkButton(view: platfotmButton, named: "platformDarkTheme", testName: "Button")
+    }
+
+    func testCustomSwitchSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = PrimaryButtonScheme(theme: .default)
+        scheme.backgroundColor = AColor(color: .systemPink)
+        scheme.buttonBackgroundColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        let newSchemeProvider = SchemeProvider<PrimaryButtonScheme>(scheme: scheme)
+
+        let primaryButton =  Button("Text", action: {})
+            .buttonStyle(PrimaryButtonStyle(
+                isLoading: .constant(false),
+                sizeType: .big,
+                schemeProvider: newSchemeProvider)
+            )
+        checkButton(view: primaryButton, named: "SchemeProvider", testName: "Button")
+
+        Appearance.shared.theme = .dark
+        let newPrimaryButton =  Button("Text", action: {})
+            .buttonStyle(PrimaryButtonStyle(
+                isLoading: .constant(false),
+                sizeType: .big,
+                schemeProvider: newSchemeProvider)
+            )
+        checkButton(view: newPrimaryButton, named: "SchemeProvider", testName: "Button")
     }
 }
 

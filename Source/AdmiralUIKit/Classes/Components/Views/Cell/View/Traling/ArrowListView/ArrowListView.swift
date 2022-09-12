@@ -98,7 +98,7 @@ public class ArrowListView: BaseListView, TralingListViewComponent, AnyAppThemab
     private func configureUI() {
         apply(theme: defaultTheme)
         
-        arrowImageView.image = PrivateAsset.Custom.Cell.arrow.image
+        arrowImageView.image = Asset.System.Outline.chevronRightOutline.image
         arrowImageView.contentMode = .right
     }
     

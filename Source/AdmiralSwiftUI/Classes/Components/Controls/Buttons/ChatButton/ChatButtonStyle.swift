@@ -14,20 +14,27 @@ public struct ChatButtonStyle: ButtonStyle {
 
     // MARK: - Private Properties
 
-    private var scheme: ChatButtonScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ChatButtonScheme>()
+    @Binding private var scheme: ChatButtonScheme?
+    @ObservedObject private var schemeProvider: SchemeProvider<ChatButtonScheme>
 
     // MARK: - Initialiazer
 
-    public init(scheme: ChatButtonScheme? = nil) {
-        self.scheme = scheme
+    public init(
+        scheme: Binding<ChatButtonScheme?> = .constant(nil),
+        schemeProvider: SchemeProvider<ChatButtonScheme> = AppThemeSchemeProvider<ChatButtonScheme>()
+    ) {
+        self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
 
-    // MARK: - Public methods
+    // MARK: - Body
 
     public func makeBody(configuration: Self.Configuration) -> some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
-        return ChatButton(scheme: scheme, configuration: configuration)
+        return ChatButton(
+            scheme: $scheme,
+            schemeProvider: schemeProvider,
+            configuration: configuration
+        )
     }
 }
 
@@ -46,19 +53,27 @@ private extension ChatButtonStyle {
 
         @Environment(\.isEnabled) private var isEnabled
         private let configuration: Configuration
-        private let scheme: ChatButtonScheme
+
+        @Binding private var scheme: ChatButtonScheme?
+        private var schemeProvider: SchemeProvider<ChatButtonScheme>
 
         // MARK: - Initializer
 
-        init(scheme: ChatButtonScheme, configuration: Configuration) {
+        init(
+            scheme: Binding<ChatButtonScheme?> = .constant(nil),
+            schemeProvider: SchemeProvider<ChatButtonScheme>,
+            configuration: Configuration
+        ) {
             self.configuration = configuration
-            self.scheme = scheme
+            self._scheme = scheme
+            self.schemeProvider = schemeProvider
         }
 
         // MARK: - Layout
 
         var body: some View {
             let content = configuration.label.eraseToAnyView()
+            let scheme = self.scheme ?? schemeProvider.scheme
             contentView(content: content, scheme: scheme)
         }
 

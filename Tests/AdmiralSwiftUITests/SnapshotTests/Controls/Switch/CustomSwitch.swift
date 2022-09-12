@@ -35,6 +35,26 @@ final class CustomSwitchSnapshotTests: XCTestCase {
         checkSwitch(view: customSwitch, named: "CustomDarkTheme", testName: "Switch")
     }
 
+    func testCustomSwitchSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = CustomSwitchScheme()
+        scheme.onTintColorColor = AColor(color: .systemPink)
+        let newSchemeProvider = SchemeProvider<CustomSwitchScheme>(scheme: scheme)
+
+        let customSwitch = CustomSwitch(
+            isOn: .constant(true),
+            schemeProvider: newSchemeProvider
+        ).frame(width: 60, height: 60)
+        checkSwitch(view: customSwitch, named: "SchemeProvider", testName: "Switch")
+
+        Appearance.shared.theme = .dark
+        let newCustomSwitch = CustomSwitch(
+            isOn: .constant(true),
+            schemeProvider: newSchemeProvider
+        ).frame(width: 60, height: 60)
+        checkSwitch(view: newCustomSwitch, named: "SchemeProvider", testName: "Switch")
+    }
+
 }
 
 private extension CustomSwitchSnapshotTests {

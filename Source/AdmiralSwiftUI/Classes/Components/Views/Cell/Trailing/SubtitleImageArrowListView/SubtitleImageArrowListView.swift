@@ -73,7 +73,7 @@ public struct SubtitleImageArrowListView: View, TralingListViewComponent {
             if let image = self.image {
                 imageView(image: image, scheme: scheme)
             }
-            Image(uiImage: AdmiralUIResources.PrivateAsset.Custom.Cell.arrow.image)
+            Image(uiImage: Asset.System.Outline.chevronRightOutline.image)
                 .frame(width: LayoutGrid.module, height: LayoutGrid.doubleModule)
                 .foregroundColor(scheme.arrowTintColor.parameter(for: isEnabled ? .normal : .disabled)?.swiftUIColor)
         }
