@@ -55,6 +55,7 @@ public struct ToolBar: View {
         )
         static let width: CGFloat = UIScreen.main.bounds.width - 72.0
         static let oneItemWidth: CGFloat = 140.0
+        static let overlayRadius: CGFloat = 14
     }
 
     // MARK: - Internal Properties
@@ -147,7 +148,7 @@ public struct ToolBar: View {
             RoundedRectangle(cornerRadius: Constants.cornerRadius)
                 .shadow(
                     color: scheme.shadowColor.swiftUIColor,
-                    radius: 14.0,
+                    radius: Constants.overlayRadius,
                     x: 0,
                     y: LayoutGrid.halfModule
                 )

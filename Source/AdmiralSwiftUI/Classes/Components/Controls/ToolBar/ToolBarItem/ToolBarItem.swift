@@ -15,13 +15,13 @@ public enum ToolBarBadgeStyle {
 }
 
 public enum ToolbarItemType: String {
-    /// Sets default image color of ToolBarItem
+    /// Sets default image color
     case `default`
-    /// Sets error image color of ToolBarItem
+    /// Sets error image color
     case error
-    /// Sets success image color of ToolBarItem
+    /// Sets success image color
     case success
-    /// Sets attention image color of ToolBarItem
+    /// Sets attention image color 
     case attention
 }
 /**
