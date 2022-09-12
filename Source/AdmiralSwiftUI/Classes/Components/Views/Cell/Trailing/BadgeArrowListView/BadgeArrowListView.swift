@@ -2,13 +2,12 @@
 //  BadgeArrowListView.swift
 //  AdmiralUIResources
 //
-//  Created by Ivon Evgeniy on 18.11.2021.
+//  Created on 18.11.2021.
 //
 
 import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
-
 /**
  BadgeArrowListView - A view object with big title.
  
