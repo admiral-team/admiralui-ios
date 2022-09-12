@@ -8,7 +8,6 @@
 import AdmiralTheme
 import AdmiralUIResources
 import SwiftUI
-
 /**
  UploadDocumentGrid - the component that presents a view container for UploadDocumentView.
 
@@ -50,15 +49,15 @@ public struct UploadDocumentGrid: View {
 
     /// Tapped index of  element.
     public var tappedIndex: ((_ index: Int) -> Void)?
-    
+
     // MARK: - Private properties
-    
+
     /// An array with documentsList models
     private var models: [UploadDocument]
-    
+
     /// Direction message.
     private let direction: ChatDirection
-    
+
     /// Action error button.
     private var errorAction: () -> ()
 
@@ -75,7 +74,7 @@ public struct UploadDocumentGrid: View {
         self.tappedIndex = tappedIndex
         self.errorAction = errorAction
     }
-    
+
     public init(
         model: UploadDocument,
         direction: ChatDirection,
@@ -105,7 +104,9 @@ public struct UploadDocumentGrid: View {
             }.eraseToAnyView()
         }
     }
-    
+
+    // MARK: - Layouts
+
     private func uploadDocumentView() -> some View {
         VStack(spacing: .zero) {
             if !models.isEmpty {
@@ -122,7 +123,7 @@ public struct UploadDocumentGrid: View {
             }
         }
     }
-    
+
     private func statusError() -> some View {
         VStack(spacing: 0) {
             if isStatusError() {
@@ -136,11 +137,9 @@ public struct UploadDocumentGrid: View {
         }
     }
 
-private func isStatusError() -> Bool {
-    models.contains(where: {
-        $0.status == .error
-    })
-}
+    private func isStatusError() -> Bool {
+        models.contains(where: {$0.status == .error })
+    }
 
 }
 

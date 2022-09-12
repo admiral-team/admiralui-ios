@@ -8,7 +8,6 @@
 import AdmiralTheme
 import AdmiralUIResources
 import SwiftUI
-
 /**
  TextOperationView - the component that presents a rounded view with title, description and chatBubbleStatusView.
 
@@ -77,13 +76,13 @@ public struct TextOperationView: View {
 
     /// A description text of TextOperationView.
     public var description: String
-    
+
     /// Action error button.
     public var errorAction: () -> ()
 
     // MARK: - Private properties
 
-    @State private var scheme: TextOperationViewScheme? = nil
+    @Binding private var scheme: TextOperationViewScheme?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<TextOperationViewScheme>()
 
     // MARK: - Initializer
@@ -95,7 +94,8 @@ public struct TextOperationView: View {
         time: String,
         title: String,
         description: String,
-        errorAction: @escaping () -> () = {}
+        errorAction: @escaping () -> () = {},
+        scheme: Binding<TextOperationViewScheme?> = .constant(nil)
     ) {
         self._style = .init(initialValue: style)
         self.chatStatus = chatStatus
@@ -106,6 +106,7 @@ public struct TextOperationView: View {
         self.chatStatus = chatStatus
         self.direction = direction
         self.errorAction = errorAction
+        self._scheme = scheme
     }
 
     // MARK: - Layout
@@ -119,7 +120,7 @@ public struct TextOperationView: View {
                 Spacer()
             }
             .eraseToAnyView()
- 
+
         case .right:
             HStack(spacing: .zero) {
                 Spacer()
@@ -127,7 +128,7 @@ public struct TextOperationView: View {
             }
             .eraseToAnyView()
         }
-  
+
     }
 
     // MARK: - Private methods
@@ -163,7 +164,7 @@ public struct TextOperationView: View {
                 RoundedCorner(radius: Constants.cornerRadius, corners: [.allCorners])
             )
             .frame(width: Constants.width)
-            
+
             if chatStatus == .error && direction == .right {
                 Image(uiImage: PrivateAsset.Custom.Chat.error.image)
                     .padding(.top, LayoutGrid.module)
@@ -208,5 +209,4 @@ struct TextOperationView_Previews: PreviewProvider {
             )
         }
     }
-
 }
