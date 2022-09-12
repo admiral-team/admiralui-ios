@@ -57,7 +57,7 @@ public struct CalendarDaysView: View {
             GridItem(.flexible()),
             GridItem(.flexible())]
         let generator = CalendarGenerator()
-        var days = [Day]()
+        var days = [CalendarDay]()
         if let monthMetadata = generator.monthMetadata(for: date) {
             days = generator.generateDaysInMonth(metadata: monthMetadata)
         }
@@ -71,7 +71,7 @@ public struct CalendarDaysView: View {
     // MARK: - Priate Methods
 
     @ViewBuilder
-    private func dayView(day: Day) -> some View {
+    private func dayView(day: CalendarDay) -> some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         VStack(spacing: LayoutGrid.halfModule) {
             textView(day: day)
@@ -87,7 +87,7 @@ public struct CalendarDaysView: View {
     }
 
     @ViewBuilder
-    private func textView(day: Day) -> some View {
+    private func textView(day: CalendarDay) -> some View {
         if let notActiveAfterDate = notActiveAfterDate.removeTimeStamp(), notActiveAfterDate < day.date, day.isDisplayedInMonth {
             inactiveTextView(day: day)
         } else if checkSelect(date: day.date), day.isDisplayedInMonth {
@@ -114,7 +114,7 @@ public struct CalendarDaysView: View {
         return false
     }
 
-    private func selectedTextView(day: Day) -> some View {
+    private func selectedTextView(day: CalendarDay) -> some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         let startDate = startDate.removeTimeStamp()
         let endDate = endDate.removeTimeStamp()
@@ -152,7 +152,7 @@ public struct CalendarDaysView: View {
         }
     }
 
-    private func currentTextView(day: Day) -> some View {
+    private func currentTextView(day: CalendarDay) -> some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         let date = day.date.copyDate()
         return Button(action: {
@@ -169,7 +169,7 @@ public struct CalendarDaysView: View {
         }
     }
 
-    private func inactiveTextView(day: Day) -> some View {
+    private func inactiveTextView(day: CalendarDay) -> some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         return Text(day.isDisplayedInMonth ? day.number : "")
             .frame(width: LayoutGrid.halfModule * 9, height: LayoutGrid.halfModule * 9)
@@ -178,7 +178,7 @@ public struct CalendarDaysView: View {
             .eraseToAnyView()
     }
 
-    private func basicTextView(day: Day) -> some View {
+    private func basicTextView(day: CalendarDay) -> some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         let date = day.date.copyDate()
         if day.isDisplayedInMonth {

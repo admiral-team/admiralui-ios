@@ -13,10 +13,10 @@ public struct CalendarVerticalDaysView: View {
 
     // MARK: - Private Properties
 
-    @Binding private var days: [Day]
+    @Binding private var days: [CalendarDay]
     @Binding private var startDate: Date?
     @Binding private var endDate: Date?
-    @Binding private var updateBlock: (Day) -> ()
+    @Binding private var updateBlock: (CalendarDay) -> ()
     private var notActiveAfterDate: Date?
     private var pointDates: [Date]
 
@@ -26,12 +26,12 @@ public struct CalendarVerticalDaysView: View {
     // MARK: - Initializer
 
     public init(
-        days: [Day],
+        days: [CalendarDay],
         startDate: Date?,
         endDate: Date?,
         notActiveAfterDate: Date?,
         pointDates: [Date],
-        updateBlock: @escaping (Day) -> (),
+        updateBlock: @escaping (CalendarDay) -> (),
         scheme: Binding<CalendarViewCellColorScheme?> = .constant(nil)
     ) {
         self._days = Binding(
@@ -58,7 +58,7 @@ public struct CalendarVerticalDaysView: View {
     // MARK: - Body
 
     public var body: some View {
-        let weekDays: [[Day]] = weeks()
+        let weekDays: [[CalendarDay]] = weeks()
         return VStack(spacing: LayoutGrid.halfModule * 5) {
             ForEach(weekDays, id: \.self) { week in
                 HStack(spacing: 0.0) {
@@ -77,7 +77,7 @@ public struct CalendarVerticalDaysView: View {
     // MARK: - Private Methods
 
     @ViewBuilder
-    private func dayView(day: Day) -> some View {
+    private func dayView(day: CalendarDay) -> some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         VStack(spacing: LayoutGrid.halfModule) {
             textView(day: day)
@@ -93,7 +93,7 @@ public struct CalendarVerticalDaysView: View {
     }
 
     @ViewBuilder
-    private func textView(day: Day) -> some View {
+    private func textView(day: CalendarDay) -> some View {
         if checkInactive(incativeDate: notActiveAfterDate, day: day) {
             inactiveTextView(day: day)
         } else if let startDate = startDate,
@@ -113,14 +113,14 @@ public struct CalendarVerticalDaysView: View {
         }
     }
 
-    private func checkInactive(incativeDate: Date?, day: Day) -> Bool {
+    private func checkInactive(incativeDate: Date?, day: CalendarDay) -> Bool {
         if let notActiveAfterDate = incativeDate.removeTimeStamp(), notActiveAfterDate < day.date.removeTimeStamp(), day.isDisplayedInMonth {
             return true
         }
         return false
     }
 
-    private func selectedTextView(day: Day) -> some View {
+    private func selectedTextView(day: CalendarDay) -> some View {
         let style = self.scheme ?? schemeProvider.scheme
         if day.date == startDate || day.date == endDate {
             return Text(day.isDisplayedInMonth  ? day.number : "")
@@ -145,7 +145,7 @@ public struct CalendarVerticalDaysView: View {
         }
     }
 
-    private func currentTextView(day: Day) -> some View {
+    private func currentTextView(day: CalendarDay) -> some View {
         let style = self.scheme ?? schemeProvider.scheme
         return Text(day.isDisplayedInMonth  ? day.number : "")
             .frame(width: LayoutGrid.halfModule * 9, height: LayoutGrid.halfModule * 9)
@@ -160,7 +160,7 @@ public struct CalendarVerticalDaysView: View {
             )
     }
 
-    private func inactiveTextView(day: Day) -> some View {
+    private func inactiveTextView(day: CalendarDay) -> some View {
         let scheme = self.scheme ?? schemeProvider.scheme
         return Text(day.isDisplayedInMonth ? day.number : "")
             .frame(width: LayoutGrid.halfModule * 9, height: LayoutGrid.halfModule * 9)
@@ -169,7 +169,7 @@ public struct CalendarVerticalDaysView: View {
             .eraseToAnyView()
     }
 
-    private func basicTextView(day: Day) -> some View {
+    private func basicTextView(day: CalendarDay) -> some View {
         let style = self.scheme ?? schemeProvider.scheme
         return Text(day.isDisplayedInMonth ? day.number : "")
             .frame(width: LayoutGrid.halfModule * 9, height: LayoutGrid.halfModule * 9)
@@ -182,8 +182,8 @@ public struct CalendarVerticalDaysView: View {
             }
     }
 
-    private func weeks() -> [[Day]] {
-        var weekDays: [[Day]] = []
+    private func weeks() -> [[CalendarDay]] {
+        var weekDays: [[CalendarDay]] = []
         var startIndex = 0
         var endIndex = 6
         let max = (Double(self.days.count) / 7).rounded(.up)
@@ -196,12 +196,14 @@ public struct CalendarVerticalDaysView: View {
                     for index in days.count..<7 {
                         if let nextDay = Calendar.current.date(byAdding: .day, value: index, to: lastDate) {
                             days.append(
-                                Day(
+                                CalendarDay(
                                     date: nextDay,
                                     number: "",
                                     isSelected: false,
                                     isCurrentDay: false,
-                                    isDisplayedInMonth: false))
+                                    isDisplayedInMonth: false
+                                )
+                            )
                         }
                     }
                 }
@@ -213,7 +215,7 @@ public struct CalendarVerticalDaysView: View {
         return weekDays
     }
 
-    private func tapDay(_ day: Day) {
+    private func tapDay(_ day: CalendarDay) {
         self.updateBlock(day)
     }
 
