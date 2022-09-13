@@ -37,14 +37,14 @@ final class PinButtonSnapshotTests: XCTestCase {
     // MARK: Default Theme
 
     func testSeveralPinButton() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let pinButton =  Button(action: {}, label: {})
             .buttonStyle(PinButtonStyle(image: AssetSymbol.Category.Outline.acuringModern.image, isSelected: .constant(false)))
         checkPinButton(view: pinButton, named: "default", testName: "PinButton")
     }
 
     func testSeveralPinButtonDisabled() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let pinButton = Button(action: {}, label: {})
             .buttonStyle(PinButtonStyle(image: AssetSymbol.Category.Outline.acuringModern.image, isSelected: .constant(true)))
         checkPinButton(view: pinButton, named: "default", testName: "PinButtonDisabled", disabled: true)
@@ -53,21 +53,21 @@ final class PinButtonSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testSeveralPinButtonDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let pinButton =  Button(action: {}, label: {})
             .buttonStyle(PinButtonStyle(image: AssetSymbol.Category.Outline.acuringModern.image, isSelected: .constant(false)))
         checkPinButton(view: pinButton, named: "defaultDarkTheme", testName: "PinButton")
     }
 
     func testSeveralPinButtonDisabledDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let pinButton = Button(action: {}, label: {})
             .buttonStyle(PinButtonStyle(image: AssetSymbol.Category.Outline.acuringModern.image, isSelected: .constant(true)))
         checkPinButton(view: pinButton, named: "defaultDarkTheme", testName: "PinButtonDisabled", disabled: true)
     }
 
     func testPinProviderSchemeProvider() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         var pinButtonScheme = PinButtonScheme()
         pinButtonScheme.backgroundColor = AColor(color: .systemPink)
         pinButtonScheme.selectedbackgroundColor = AColor(color: .systemPink)
@@ -85,7 +85,7 @@ final class PinButtonSnapshotTests: XCTestCase {
         )
         checkPinButton(view: pinButton, named: "NewSchemeProvider", testName: "PinButton")
 
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let newPinButton = Button(
             action: {},
             label: {}

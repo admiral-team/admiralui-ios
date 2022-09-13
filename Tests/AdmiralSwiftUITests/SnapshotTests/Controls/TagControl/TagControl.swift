@@ -154,7 +154,7 @@ final class TagControlSnapshotTests: XCTestCase {
     }
 
     func testTagControlSchemeProvider() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         var scheme = TagControlScheme(theme: .default)
         scheme.backgroundColor.set(parameter: AColor(color: .systemPink), for: .normal, style: .default)
         let newSchemeProvider: SchemeProvider<TagControlScheme> = SchemeProvider<TagControlScheme>(scheme: scheme)
@@ -176,7 +176,7 @@ final class TagControlSnapshotTests: XCTestCase {
 
         checkTagControl(view: tagControl, named: "NewSchemeProvider", testName: "TagControl")
 
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
 
         let newTagControl = TagControl(
             title: "Title",

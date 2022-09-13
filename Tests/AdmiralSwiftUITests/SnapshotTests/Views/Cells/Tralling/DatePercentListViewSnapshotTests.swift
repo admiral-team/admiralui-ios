@@ -35,7 +35,7 @@ final class DatePercentListViewSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testDatePercentListViewDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createDatePercentListView()
         checkDatePercentListView(view: view, named: "DefaultTheme", testName: "DatePercentListView")
     }
@@ -43,7 +43,7 @@ final class DatePercentListViewSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testDatePercentListViewDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createDatePercentListView()
         checkDatePercentListView(view: view, named: "DarkTheme", testName: "DatePercentListView")
     }

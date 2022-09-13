@@ -35,31 +35,31 @@ final class SecurityTextFieldSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testSecurityTextFieldDefaultStateDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createSecurityTextField(state: .default)
         checkSecurityTextField(view: view, named: "DefaultStateDefaultTheme", testName: "SecurityTextField")
     }
     
     func testSecurityTextFieldNormalStateDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createSecurityTextField(state: .normal)
         checkSecurityTextField(view: view, named: "NormalStateDefaultTheme", testName: "SecurityTextField")
     }
     
     func testSecurityTextFieldErrorStateDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createSecurityTextField(state: .error)
         checkSecurityTextField(view: view, named: "ErrorStateDefaultTheme", testName: "SecurityTextField")
     }
     
     func testSecurityTextFieldDisabledStateDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createSecurityTextField(state: .disabled)
         checkSecurityTextField(view: view, named: "DisabledStateDefaultTheme", testName: "SecurityTextField")
     }
     
     func testSecurityTextFieldReadOnlyStateDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createSecurityTextField(state: .readOnly)
         checkSecurityTextField(view: view, named: "ReadOnlyStateDefaultTheme", testName: "SecurityTextField")
     }
@@ -67,31 +67,31 @@ final class SecurityTextFieldSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testSecurityTextFieldDefaultStateDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createSecurityTextField(state: .default)
         checkSecurityTextField(view: view, named: "DefaultStateDarkTheme", testName: "SecurityTextField")
     }
     
     func testSecurityTextFieldNormalStateDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createSecurityTextField(state: .normal)
         checkSecurityTextField(view: view, named: "NormalStateDarkTheme", testName: "SecurityTextField")
     }
     
     func testSecurityTextFieldErrorStateDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createSecurityTextField(state: .error)
         checkSecurityTextField(view: view, named: "ErrorStateDarkTheme", testName: "SecurityTextField")
     }
     
     func testSecurityTextFieldDisabledStateDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createSecurityTextField(state: .disabled)
         checkSecurityTextField(view: view, named: "DisabledStateDarkTheme", testName: "SecurityTextField")
     }
     
     func testSecurityTextFieldReadOnlyStateDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createSecurityTextField(state: .readOnly)
         checkSecurityTextField(view: view, named: "ReadOnlyStateDarkTheme", testName: "SecurityTextField")
     }

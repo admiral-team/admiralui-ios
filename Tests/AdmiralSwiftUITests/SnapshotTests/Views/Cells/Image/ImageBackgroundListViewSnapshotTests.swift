@@ -22,7 +22,7 @@ final class ImageBackgroundListViewSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testImageBackgroundListViewDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createImageBackgroundListView()
         checkImageBackgroundListView(view: view, named: "DefaultTheme", testName: "ImageBackgroundListView")
     }
@@ -30,7 +30,7 @@ final class ImageBackgroundListViewSnapshotTests: XCTestCase {
     // MARK: Dark Theme
 
     func testImageBackgroundListViewDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createImageBackgroundListView()
         checkImageBackgroundListView(view: view, named: "DarkTheme", testName: "ImageBackgroundListView")
     }

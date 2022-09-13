@@ -63,7 +63,7 @@ final class SeveralPinButtonSnapshotTests: XCTestCase {
     }
 
     func testSeveralPinButtonSchemeProvider() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         var scheme = SeveralPinButtonScheme(theme: .default)
         scheme.backgroundColor = AColor(color: .systemPink)
         let newSchemeProvider: SchemeProvider<SeveralPinButtonScheme> = SchemeProvider<SeveralPinButtonScheme>(scheme: scheme)
@@ -79,7 +79,7 @@ final class SeveralPinButtonSnapshotTests: XCTestCase {
 
         checkMapButton(view: severalPinButton, named: "NewSchemeProvider", testName: "severalPinButton")
 
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
 
         let newSeveralPinButton = Button(
             action: {},

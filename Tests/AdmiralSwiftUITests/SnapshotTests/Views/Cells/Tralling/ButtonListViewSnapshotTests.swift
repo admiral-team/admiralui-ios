@@ -35,7 +35,7 @@ final class ButtonListViewSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testButtonListViewDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createButtonListView()
         checkButtonListView(view: view, named: "DefaultTheme", testName: "ButtonListView")
     }
@@ -43,7 +43,7 @@ final class ButtonListViewSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testButtonListViewDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createButtonListView()
         checkButtonListView(view: view, named: "DarkTheme", testName: "ButtonListView")
     }

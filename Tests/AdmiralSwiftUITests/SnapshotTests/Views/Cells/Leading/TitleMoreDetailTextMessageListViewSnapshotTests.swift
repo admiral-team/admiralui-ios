@@ -35,7 +35,7 @@ final class TitleMoreDetailTextMessageListViewSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testTitleMoreDetailTextMessageListViewDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createTitleMoreDetailTextMessageListView()
         checkTitleMoreDetailTextMessageListView(view: view, named: "DefaultTheme", testName: "TitleMoreDetailTextMessageListView")
     }
@@ -43,7 +43,7 @@ final class TitleMoreDetailTextMessageListViewSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testTitleMoreDetailTextMessageListViewDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createTitleMoreDetailTextMessageListView()
         checkTitleMoreDetailTextMessageListView(view: view, named: "DarkTheme", testName: "TitleMoreDetailTextMessageListView")
     }
