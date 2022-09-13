@@ -28,7 +28,7 @@ extension AppThemeable {
     /// Use this function to autosubscribe object to theme.
     @discardableResult
     public func autoManage() -> Self {
-        Appearance.shared.themeManager.manage(theme: AppTheme.self, for: self)
+        Appearance.shared.uikitThemeManager.manage(theme: AppTheme.self, for: self)
         return self
     }
     

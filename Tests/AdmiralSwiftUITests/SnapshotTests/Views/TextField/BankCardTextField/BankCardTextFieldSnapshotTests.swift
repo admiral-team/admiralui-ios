@@ -35,7 +35,7 @@ final class BankCardTextFieldSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testBankCardTextFieldDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createBankCardTextField()
         checkBankCardTextField(view: view, named: "DefaultTheme", testName: "BankCardTextField")
     }
@@ -43,7 +43,7 @@ final class BankCardTextFieldSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testBankCardTextFieldDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createBankCardTextField()
         checkBankCardTextField(view: view, named: "DarkTheme", testName: "BankCardTextField")
     }

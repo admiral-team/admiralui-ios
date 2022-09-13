@@ -35,7 +35,7 @@ final class PinCodeKeyboardSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testPinCodeKeyboardDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createPinCodeKeyboard()
         checkPinCodeKeyboard(view: view, named: "DefaultTheme", testName: "PinCodeKeyboard")
     }
@@ -43,7 +43,7 @@ final class PinCodeKeyboardSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testPinCodeKeyboardDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createPinCodeKeyboard()
         checkPinCodeKeyboard(view: view, named: "DarkTheme", testName: "PinCodeKeyboard")
     }

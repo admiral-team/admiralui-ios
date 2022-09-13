@@ -35,25 +35,25 @@ final class ChatBubbleStatusViewSnapshotTests: XCTestCase {
     // MARK: Default Theme & Left
     
     func testChatBubbleViewSentDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createChatBubbleStatusView(status: .none)
         checkChatBubbleStatusView(view: view, named: "Sent.DefaultTheme.Left", testName: "ChatBubbleStatusView")
     }
     
     func testChatBubbleViewReciveDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createChatBubbleStatusView(status: .none)
         checkChatBubbleStatusView(view: view, named: "Recive.DefaultTheme.Left", testName: "ChatBubbleStatusView")
     }
     
     func testChatBubbleViewReadDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createChatBubbleStatusView(status: .none)
         checkChatBubbleStatusView(view: view, named: "Read.DefaultTheme.Left", testName: "ChatBubbleStatusView")
     }
     
     func testChatBubbleViewLoadingDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createChatBubbleStatusView(status: .none)
         checkChatBubbleStatusView(view: view, named: "Loading.DefaultTheme.Left", testName: "ChatBubbleStatusView")
     }
@@ -61,25 +61,25 @@ final class ChatBubbleStatusViewSnapshotTests: XCTestCase {
     // MARK: Default Theme & Right
 
     func testChatBubbleViewSentDefaultThemeRight() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createChatBubbleStatusViewRight(status: .sent)
         checkChatBubbleStatusView(view: view, named: "Sent.DefaultTheme.Right", testName: "ChatBubbleStatusView")
     }
 
     func testChatBubbleViewReciveDefaultThemeRight() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createChatBubbleStatusViewRight(status: .receive)
         checkChatBubbleStatusView(view: view, named: "Recive.DefaultTheme.Right", testName: "ChatBubbleStatusView")
     }
 
     func testChatBubbleViewReadDefaultThemeRight() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createChatBubbleStatusViewRight(status: .read)
         checkChatBubbleStatusView(view: view, named: "Read.DefaultTheme.Right", testName: "ChatBubbleStatusView")
     }
 
     func testChatBubbleViewLoadingDefaultThemeRight() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createChatBubbleStatusViewRight(status: .loading)
         checkChatBubbleStatusView(view: view, named: "Loading.DefaultTheme.Right", testName: "ChatBubbleStatusView")
     }
@@ -88,25 +88,25 @@ final class ChatBubbleStatusViewSnapshotTests: XCTestCase {
     // MARK: Dark Theme & Left
     
     func testChatBubbleViewSentDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createChatBubbleStatusView(status: .none)
         checkChatBubbleStatusView(view: view, named: "Sent.DarkTheme.Left", testName: "ChatBubbleStatusView")
     }
     
     func testChatBubbleViewReciveDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createChatBubbleStatusView(status: .none)
         checkChatBubbleStatusView(view: view, named: "Recive.DarkTheme.Left", testName: "ChatBubbleStatusView")
     }
     
     func testChatBubbleViewReadDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createChatBubbleStatusView(status: .none)
         checkChatBubbleStatusView(view: view, named: "Read.DarkTheme.Left", testName: "ChatBubbleStatusView")
     }
     
     func testChatBubbleViewLoadingDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createChatBubbleStatusView(status: .none)
         checkChatBubbleStatusView(view: view, named: "Loading.DarkTheme.Left", testName: "ChatBubbleStatusView")
     }
@@ -114,25 +114,25 @@ final class ChatBubbleStatusViewSnapshotTests: XCTestCase {
     // MARK: Dark Theme & Right
 
     func testChatBubbleViewSentDarkThemeRight() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createChatBubbleStatusViewRight(status: .sent)
         checkChatBubbleStatusView(view: view, named: "Sent.DarkTheme.Right", testName: "ChatBubbleStatusView")
     }
 
     func testChatBubbleViewReciveDarkThemeRight() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createChatBubbleStatusViewRight(status: .receive)
         checkChatBubbleStatusView(view: view, named: "Recive.DarkTheme.Right", testName: "ChatBubbleStatusView")
     }
 
     func testChatBubbleViewReadDarkThemeRight() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createChatBubbleStatusViewRight(status: .read)
         checkChatBubbleStatusView(view: view, named: "Read.DarkTheme.Right", testName: "ChatBubbleStatusView")
     }
 
     func testChatBubbleViewLoadingDarkThemeRight() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createChatBubbleStatusViewRight(status: .loading)
         checkChatBubbleStatusView(view: view, named: "Loading.DarkTheme.Right", testName: "ChatBubbleStatusView")
     }

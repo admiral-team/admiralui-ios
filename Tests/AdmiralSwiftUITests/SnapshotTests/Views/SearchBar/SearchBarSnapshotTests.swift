@@ -35,7 +35,7 @@ final class SearchBarSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testSearchBarDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createSearchBar()
         checkSearchBar(view: view, named: "DefaultTheme", testName: "SearchBar")
     }
@@ -43,7 +43,7 @@ final class SearchBarSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testSearchBarDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createSearchBar()
         checkSearchBar(view: view, named: "DarkTheme", testName: "SearchBar")
     }

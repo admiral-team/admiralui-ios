@@ -20,7 +20,7 @@ struct ChatSwiftUIView: View {
 
     // MARK: - Properties
 
-    @ObservedObject private var manager = SwiftUIThemeManager.shared
+    @ObservedObject private var manager = Appearance.shared.swiftuiThemeManager
     private let navigationStyle: NavigationBarStyle
 
     // MARK: - Initializer

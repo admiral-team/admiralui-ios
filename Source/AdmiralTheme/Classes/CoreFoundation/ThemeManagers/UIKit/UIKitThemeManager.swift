@@ -8,7 +8,7 @@
 import UIKit
 
 /// Application theme manager.
-public class AppThemeManager {
+public class UIKitThemeManager {
     
     /// Current application theme
     public var theme: AppTheme {

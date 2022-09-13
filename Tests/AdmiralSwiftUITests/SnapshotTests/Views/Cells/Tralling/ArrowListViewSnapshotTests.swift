@@ -22,7 +22,7 @@ final class ArrowListViewSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testArrowListViewDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createArrowListView()
         checkArrowListView(view: view, named: "DefaultTheme", testName: "ArrowListView")
     }
@@ -30,7 +30,7 @@ final class ArrowListViewSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testArrowListViewDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createArrowListView()
         checkArrowListView(view: view, named: "DarkTheme", testName: "ArrowListView")
     }

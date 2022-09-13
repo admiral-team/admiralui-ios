@@ -35,13 +35,13 @@ final class CheckBoxListViewSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testCheckBoxListViewSelectedDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createCheckBoxListView(isSelected: true)
         checkCheckBoxListView(view: view, named: "IsSelectedDefaultTheme", testName: "CheckBoxListView")
     }
     
     func testCheckBoxListViewNotSelectedDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createCheckBoxListView(isSelected: false)
         checkCheckBoxListView(view: view, named: "NotSelectedDefaultTheme", testName: "CheckBoxListView")
     }
@@ -49,13 +49,13 @@ final class CheckBoxListViewSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testCheckBoxListViewSelectedDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createCheckBoxListView(isSelected: true)
         checkCheckBoxListView(view: view, named: "SelectedDarkTheme", testName: "CheckBoxListView")
     }
     
     func testCheckBoxListViewNotSelectedDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createCheckBoxListView(isSelected: false)
         checkCheckBoxListView(view: view, named: "NotSelectedDarkTheme", testName: "CheckBoxListView")
     }

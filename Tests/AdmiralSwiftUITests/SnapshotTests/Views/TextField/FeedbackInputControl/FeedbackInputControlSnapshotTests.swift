@@ -22,7 +22,7 @@ final class FeedbackInputControlSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testFeedbackInputControlDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createFeedbackInputControl()
         checkFeedbackInputControl(view: view, named: "DefaultTheme", testName: "FeedbackInputControl")
     }
@@ -30,7 +30,7 @@ final class FeedbackInputControlSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testFeedbackInputControlDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createFeedbackInputControl()
         checkFeedbackInputControl(view: view, named: "DarkTheme", testName: "FeedbackInputControl")
     }
