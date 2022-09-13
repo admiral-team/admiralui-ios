@@ -70,7 +70,7 @@ public struct TitleSubtitleButtonListView: View, LeadingListViewComponent {
     // MARK: - Private Properties
 
     @State private var scheme: TitleSubtitleButtonListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<TitleSubtitleButtonListViewScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<TitleSubtitleButtonListViewScheme>
     private let subtitleLineLimit: Int?
 
     // MARK: - Initializer
@@ -83,7 +83,8 @@ public struct TitleSubtitleButtonListView: View, LeadingListViewComponent {
         subtitle: String?,
         subtitleLineLimit: Int? = nil,
         buttonTitle: String?,
-        buttonAction: (() -> ())?
+        buttonAction: (() -> ())?,
+        schemeProvider: SchemeProvider<TitleSubtitleButtonListViewScheme> = AppThemeSchemeProvider<TitleSubtitleButtonListViewScheme>()
     ) {
         self._title = Binding(get: { return title }, set: { _ in })
         self._tagSubtitle = Binding(get: { return tagSubtitle }, set: { _ in })
@@ -92,6 +93,7 @@ public struct TitleSubtitleButtonListView: View, LeadingListViewComponent {
         self._buttonTitle = Binding(get: { return buttonTitle }, set: { _ in })
         self.buttonAction = buttonAction ?? {}
         self.subtitleLineLimit = subtitleLineLimit
+        self.schemeProvider = schemeProvider
     }
     
     public var body: some View {

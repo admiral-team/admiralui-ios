@@ -46,14 +46,19 @@ public struct DatePercentListView: View, TralingListViewComponent {
     @Environment(\.isEnabled) var isEnabled
     
     @State private var scheme: DatePercentListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<DatePercentListViewScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<DatePercentListViewScheme>
     
     // MARK: - Initializer
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-    public init(date: String?, percent: String?) {
+    public init(
+        date: String?,
+        percent: String?,
+        schemeProvider: SchemeProvider<DatePercentListViewScheme> = AppThemeSchemeProvider<DatePercentListViewScheme>()
+    ) {
         self._date = Binding(get: { return date }, set: { _ in })
         self._percent = Binding(get: { return percent }, set: { _ in })
+        self.schemeProvider = schemeProvider
     }
 
     public var body: some View {

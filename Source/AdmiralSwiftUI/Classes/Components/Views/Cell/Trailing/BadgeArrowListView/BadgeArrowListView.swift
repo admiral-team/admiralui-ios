@@ -56,7 +56,7 @@ public struct BadgeArrowListView: View, TralingListViewComponent {
     // MARK: - Private Properties
     
     @State private var scheme: BadgeArrowListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<BadgeArrowListViewScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<BadgeArrowListViewScheme>
     
     @State private var viewSize: CGSize = .zero
 
@@ -70,18 +70,28 @@ public struct BadgeArrowListView: View, TralingListViewComponent {
     /// - Parameters:
     ///   - badgeStyle: Badge style.
     ///   - value: Text on badge.
-    public init(badgeStyle: BadgeStyle, value: Int?) {
+    public init(
+        badgeStyle: BadgeStyle,
+        value: Int?,
+        schemeProvider: SchemeProvider<BadgeArrowListViewScheme> = AppThemeSchemeProvider<BadgeArrowListViewScheme>()
+    ) {
         self.badgeStyle = badgeStyle
         self.value = value
+        self.schemeProvider = schemeProvider
     }
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     /// - Parameters:
     ///   - badgeStyle: Badge style.
     ///   - text: Text on badge.
-    public init(badgeStyle: BadgeStyle, text: String?) {
+    public init(
+        badgeStyle: BadgeStyle,
+        text: String?,
+        schemeProvider: SchemeProvider<BadgeArrowListViewScheme> = AppThemeSchemeProvider<BadgeArrowListViewScheme>()
+    ) {
         self.badgeStyle = badgeStyle
         self.text = text
+        self.schemeProvider = schemeProvider
     }
 
     public var body: some View {

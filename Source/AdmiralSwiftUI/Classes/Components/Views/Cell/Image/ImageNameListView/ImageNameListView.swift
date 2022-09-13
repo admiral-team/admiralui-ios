@@ -39,13 +39,17 @@ public struct ImageNameListView: View, ImageListViewComponent {
     @Environment(\.manager) var manager
     
     @State private var scheme: ImageNameListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ImageNameListViewScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<ImageNameListViewScheme>
     
     // MARK: - Initializer
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-    public init(text: String) {
+    public init(
+        text: String,
+        schemeProvider: SchemeProvider<ImageNameListViewScheme> = AppThemeSchemeProvider<ImageNameListViewScheme>()
+    ) {
         self._text = Binding(get: { return text }, set: { _ in })
+        self.schemeProvider = schemeProvider
     }
 
     public var body: some View {
