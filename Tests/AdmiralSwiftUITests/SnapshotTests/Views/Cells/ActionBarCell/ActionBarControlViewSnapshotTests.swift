@@ -53,7 +53,7 @@ final class ActionBarControlViewSnapshotTests: XCTestCase {
         let view = ActionBarControlView(
             image: Image(uiImage: Asset.Category.Outline.addCommentOutline.image),
             imageStyle: .accent,
-            schemeProvider: .constant(scheme: ActionBarControlScheme(theme: SwiftUIThemeManager.shared.theme)),
+            schemeProvider: .constant(scheme: ActionBarControlScheme(theme: Appearance.shared.theme)),
             tapActionBar: {}
         )
         return view

@@ -86,7 +86,7 @@ final class UploadingImageGroupViewSnapshotTests: XCTestCase {
     // MARK: - SchemeProvider
 
     func testLeftChatBubbleSchemeProvider() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         var scheme = UploadingImageGridScheme(theme: .default)
         scheme.uploadImageScheme.textColor = AColor(color: .systemPink)
         let newSchemeProvider = SchemeProvider<UploadingImageGridScheme>(scheme: scheme)
@@ -94,7 +94,7 @@ final class UploadingImageGroupViewSnapshotTests: XCTestCase {
         let view = createUploadingImageGroupView(status: .sent, schemeProvider: newSchemeProvider)
         checkUploadingImageGroupView(view: view, named: "NewSchemeProvider", testName: "UploadingImageGroupView")
 
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let newView = createUploadingImageGroupView(status: .sent, schemeProvider: newSchemeProvider)
         checkUploadingImageGroupView(view: newView, named: "NewSchemeProvider", testName: "UploadingImageGroupView")
     }

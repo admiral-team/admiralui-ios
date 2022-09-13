@@ -103,7 +103,7 @@ final class UploadImageViewSnapshotTests: XCTestCase {
                 backgroundImage: Image(uiImage: TestAsset.Chat.photo.image),
                 uploadStatus: status),
             direction: .left,
-            scheme: UploadImageViewScheme(theme: SwiftUIThemeManager.shared.theme)
+            scheme: UploadImageViewScheme(theme: Appearance.shared.theme)
         )
         return view
     }

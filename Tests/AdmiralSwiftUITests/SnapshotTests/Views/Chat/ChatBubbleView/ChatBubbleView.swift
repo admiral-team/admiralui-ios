@@ -163,7 +163,7 @@ final class ChatBubbleViewSnapshotTests: XCTestCase {
     // MARK: - SchemeProvider
 
     func testLeftChatBubbleSchemeProvider() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         var scheme = ChatBubbleViewScheme(theme: .default)
         scheme.backgroundColor.set(parameter: AColor(color: .systemPink), style: .left)
         let newSchemeProvider = SchemeProvider<ChatBubbleViewScheme>(scheme: scheme)
@@ -171,13 +171,13 @@ final class ChatBubbleViewSnapshotTests: XCTestCase {
         let view = createLeftChatBubbleView(status: .none, schemeProvider: newSchemeProvider)
         checkChatBubbleView(view: view, named: "NewSchemeProvider", testName: "ChatBubbleView")
 
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let newView = createLeftChatBubbleView(status: .none, schemeProvider: newSchemeProvider)
         checkChatBubbleView(view: newView, named: "NewSchemeProvider", testName: "ChatBubbleView")
     }
 
     func testRightChatBubbleSchemeProvider() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         var scheme = ChatBubbleViewScheme(theme: .default)
         scheme.backgroundColor.set(parameter: AColor(color: .systemPink), style: .right)
         let newSchemeProvider = SchemeProvider<ChatBubbleViewScheme>(scheme: scheme)
@@ -185,7 +185,7 @@ final class ChatBubbleViewSnapshotTests: XCTestCase {
         let view = createRightChatBubbleView(status: .none, schemeProvider: newSchemeProvider)
         checkChatBubbleView(view: view, named: "Right.NewSchemeProvider", testName: "ChatBubbleView")
 
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let newView = createRightChatBubbleView(status: .none, schemeProvider: newSchemeProvider)
         checkChatBubbleView(view: newView, named: "Right.NewSchemeProvider", testName: "ChatBubbleView")
     }

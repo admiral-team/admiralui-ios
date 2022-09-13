@@ -85,7 +85,7 @@ final class CalendarViewSnapshotTests: XCTestCase {
     }
 
     func testCalendarSchemeProvider() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         var scheme = CalendarHorizontalViewScheme(theme: .default)
         scheme.headerViewScheme.backgroundColor = AColor(color: .systemPink)
 
@@ -102,7 +102,7 @@ final class CalendarViewSnapshotTests: XCTestCase {
         let view = createCalendarView(type: .horizontal, schemeProvider: newSchemeProvider)
         checkCalendarView(view: view, named: "Horizontal.SchemeProvider", testName: "CalendarView")
 
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let newView = createCalendarView(type: .horizontal, schemeProvider: newSchemeProvider)
         checkCalendarView(view: newView, named: "Horizontal.SchemeProvider", testName: "CalendarView")
     }
