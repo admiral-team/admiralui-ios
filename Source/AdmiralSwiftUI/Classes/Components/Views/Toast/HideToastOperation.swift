@@ -23,7 +23,8 @@ class HideToastOperation: Operation {
     
     init(
         cancelAnimationDuration: Double = Constants.hideAnimationDuration,
-        finishOperation: @escaping () -> Void) {
+        finishOperation: @escaping () -> Void
+    ) {
         self.cancelAnimationDuration = cancelAnimationDuration
         self.finishOperation = finishOperation
     }

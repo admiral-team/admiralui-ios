@@ -82,7 +82,7 @@ public struct SearchBar: View, AccessabilitySupportUIKit {
     @State private var isTextFieldResponder = false
     
     @State private var scheme: SearchBarColorScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SearchBarColorScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<SearchBarColorScheme>
     private var accessibilityIdentifier: String?
     
     // MARK: - Initializer
@@ -104,16 +104,19 @@ public struct SearchBar: View, AccessabilitySupportUIKit {
         autocorrectionType: UITextAutocorrectionType = .no,
         isResponder: Binding<Bool>? = nil,
         placeholder: String = "",
-        searchImage: SwiftUI.Image? = AssetSymbol.System.Outline.search.image) {
-            self._content = content
-            self.contentType = contentType
-            self.returnKeyType = returnKeyType
-            self.autocapitalizationType = autocapitalizationType
-            self.autocorrectionType = autocorrectionType
-            self.isResponder = isResponder
-            self.placeholder = placeholder
-            self.searchImage = searchImage
-        }
+        searchImage: SwiftUI.Image? = AssetSymbol.System.Outline.search.image,
+        schemeProvider: SchemeProvider<SearchBarColorScheme> = AppThemeSchemeProvider<SearchBarColorScheme>()
+    ) {
+        self._content = content
+        self.contentType = contentType
+        self.returnKeyType = returnKeyType
+        self.autocapitalizationType = autocapitalizationType
+        self.autocorrectionType = autocorrectionType
+        self.isResponder = isResponder
+        self.placeholder = placeholder
+        self.searchImage = searchImage
+        self.schemeProvider = schemeProvider
+    }
     
     public var body: some View {
         let style = scheme ?? schemeProvider.scheme

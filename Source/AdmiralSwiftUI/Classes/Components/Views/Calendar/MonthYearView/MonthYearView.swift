@@ -14,15 +14,17 @@ struct MonthYearView: View {
     // MARK: - Internal Properties
     
     @State var title: String
-    @State private var scheme: MonthYearViewScheme? = nil
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<MonthYearViewScheme>()
+    private var scheme: MonthYearViewScheme
     
-    init(title: String) {
+    init(
+        title: String,
+        scheme: MonthYearViewScheme
+    ) {
         self._title = .init(initialValue: title)
+        self.scheme = scheme
     }
     
     var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
         return ZStack {
             scheme.backgroundColor.swiftUIColor
             HStack {
@@ -40,11 +42,13 @@ struct MonthYearView: View {
 struct MonthYearView_Previews: PreviewProvider {
 
     static var previews: some View {
-        MonthYearView(title: "Май 2021")
+        MonthYearView(
+            title: "Май 2021",
+            scheme: MonthYearViewScheme(theme: .default))
             .previewLayout(PreviewLayout.sizeThatFits)
             .frame(height: 16.0)
             .padding()
             .environment(\.manager, SwiftUIThemeManager(theme: .light))
-            
+
     }
 }

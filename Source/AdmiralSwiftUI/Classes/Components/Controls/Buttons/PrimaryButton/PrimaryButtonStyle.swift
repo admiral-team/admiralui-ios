@@ -46,7 +46,6 @@ public struct PrimaryButtonStyle: ButtonStyle {
 
     private var accessibilityIdentifier: String?
 
-    @Binding private var scheme: PrimaryButtonScheme?
     @ObservedObject private var schemeProvider: SchemeProvider<PrimaryButtonScheme>
 
     // MARK: - Initializer
@@ -54,13 +53,11 @@ public struct PrimaryButtonStyle: ButtonStyle {
     public init(
         isLoading: Binding<Bool> = .constant(false),
         sizeType: ButtonSizeType? = nil,
-        scheme: Binding<PrimaryButtonScheme?> = .constant(nil),
         schemeProvider: SchemeProvider<PrimaryButtonScheme> = AppThemeSchemeProvider<PrimaryButtonScheme>(),
         accessibilityIdentifier: String? = nil
     ) {
         self._isLoading = isLoading
         self.sizeType = sizeType
-        self._scheme = scheme
         self.schemeProvider = schemeProvider
         self.accessibilityIdentifier = accessibilityIdentifier
     }
@@ -73,8 +70,7 @@ public struct PrimaryButtonStyle: ButtonStyle {
             sizeType: sizeType,
             configuration: configuration,
             accessibilityIdentifier: accessibilityIdentifier,
-            scheme: $scheme,
-            schemeProvider: schemeProvider
+            scheme: schemeProvider.scheme
         )
     }
 }
@@ -95,27 +91,23 @@ private extension PrimaryButtonStyle {
 
         let configuration: Configuration
 
-        private var schemeProvider: SchemeProvider<PrimaryButtonScheme>
-        @Binding var scheme: PrimaryButtonScheme?
+        var scheme: PrimaryButtonScheme
 
         init(
             isLoading: Binding<Bool>,
             sizeType: ButtonSizeType?,
             configuration: Configuration,
             accessibilityIdentifier: String? = nil,
-            scheme: Binding<PrimaryButtonScheme?>,
-            schemeProvider: SchemeProvider<PrimaryButtonScheme>
+            scheme: PrimaryButtonScheme
         ) {
             self.configuration = configuration
             self.sizeType = sizeType
-            self._scheme = scheme
-            self.schemeProvider = schemeProvider
+            self.scheme = scheme
             self._isLoading = isLoading
             self.accessibilityIdentifier = accessibilityIdentifier
         }
 
         var body: some View {
-            let scheme = self.scheme ?? schemeProvider.scheme
             let content = isLoading ?
             activityIndicator().eraseToAnyView()
             : lable(scheme: scheme).eraseToAnyView()
@@ -201,6 +193,11 @@ struct PrimaryButton_Previews: PreviewProvider {
 
     static var previews: some View {
         Button("Text", action: {})
-            .buttonStyle(PrimaryButtonStyle(isLoading: .constant(false)))
+            .buttonStyle(
+                PrimaryButtonStyle(
+                    isLoading: .constant(false),
+                    schemeProvider: .constant(scheme: PrimaryButtonScheme(theme: .default))
+                )
+            )
     }
 }
