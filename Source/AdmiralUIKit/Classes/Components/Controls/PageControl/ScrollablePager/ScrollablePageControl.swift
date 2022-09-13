@@ -8,6 +8,28 @@
 import UIKit
 import AdmiralTheme
 
+/**
+ ScrollablePageControl - A horizontal page control logically corresponds to the Circle option, while there is an additional option to switch pages using a swipe of the whole page. Additionally, when using this option, it is necessary to provide for the use of the “Next” button.
+ 
+ The ScrollablePageControl has some internal properties for customizing the element:
+ 
+ Internal Properties:
+ - currentPage: Int - Returns the current selected page of pafge control
+ - numberOfPages: Int - The total number of pages of page control
+ - hidesForSinglePage: Bool - The boolean valued indicates if page control isHidden if numberOfPages == 0
+ - displayedItems: Int - The number of page control items that are currently displayed
+ 
+ Example to create ScrollablePageControl:
+ 
+ Code
+ ```
+ let pageControl = ScrollablePageControl()
+ pageControl.numberOfPages = 5
+ pageControl.setCurrentPage(at: 0)
+ 
+ ```
+ */
+
 public class ScrollablePageControl: UIView, AppThemeable {
     
     // MARK: - Internal Properties

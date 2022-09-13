@@ -19,7 +19,31 @@ public extension CirclePageControlDelegate {
     func didChangePage(page: Int) {}
 }
 
-/// CirclePageControl to show pages progress in a circle
+/**
+ CirclePageControl - control to show pages progress in a circle
+ The central element with the icon works as a button, when clicked, the user goes to a new page. Outer circle - shows the number of completed and upcoming pages (steps) as a percentage.
+ The minimum number of steps is 2, the maximum is 8. It is often used in the center of the page.
+ 
+ The CirclePageControl has some internal properties for customizing the element:
+ 
+ Initializer parameters:
+ - delegate: CirclePageControlDelegate? - CirclePageControl delegate. Deligate must implementation two function:
+ func didTapCenterButton()
+ func didChangePage(page: Int)
+ - totalPages: Int - The number of pages of page control
+ - duration: TimeInterval - The duration of page change
+ - currentPage: Int - The current page of page control
+ Example create CirclePageControl:
+ 
+ Code
+ ```
+ let pageControl = CirclePageControl()
+ 
+ pageControl.delegate = self
+ pageControl.duration = 0.3
+ pageControl.currentPage = 0
+ ```
+*/
 public class CirclePageControl: UIView, AnyAppThemable {
     
     // MARK: - Public Properties
