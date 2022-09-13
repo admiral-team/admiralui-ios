@@ -84,7 +84,7 @@ public struct TextOperationView: View {
     // MARK: - Private properties
 
     @State private var scheme: TextOperationViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<TextOperationViewScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<TextOperationViewScheme>
 
     // MARK: - Initializer
 
@@ -95,6 +95,7 @@ public struct TextOperationView: View {
         time: String,
         title: String,
         description: String,
+        schemeProvider: SchemeProvider<TextOperationViewScheme> = AppThemeSchemeProvider<TextOperationViewScheme>(),
         errorAction: @escaping () -> () = {}
     ) {
         self._style = .init(initialValue: style)
@@ -106,6 +107,7 @@ public struct TextOperationView: View {
         self.chatStatus = chatStatus
         self.direction = direction
         self.errorAction = errorAction
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Layout

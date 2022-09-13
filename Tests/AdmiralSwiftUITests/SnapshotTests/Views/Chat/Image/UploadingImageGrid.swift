@@ -82,6 +82,22 @@ final class UploadingImageGroupViewSnapshotTests: XCTestCase {
         let view = createUploadingImageGroupView(status: .error)
         checkUploadingImageGroupView(view: view, named: "Error.DarkTheme", testName: "UploadingImageGroupView")
     }
+
+    // MARK: - SchemeProvider
+
+    func testLeftChatBubbleSchemeProvider() {
+        SwiftUIThemeManager.shared.theme = .dark
+        var scheme = UploadingImageGridScheme(theme: .default)
+        scheme.uploadImageScheme.textColor = AColor(color: .systemPink)
+        let newSchemeProvider = SchemeProvider<UploadingImageGridScheme>(scheme: scheme)
+
+        let view = createUploadingImageGroupView(status: .sent, schemeProvider: newSchemeProvider)
+        checkUploadingImageGroupView(view: view, named: "NewSchemeProvider", testName: "UploadingImageGroupView")
+
+        SwiftUIThemeManager.shared.theme = .default
+        let newView = createUploadingImageGroupView(status: .sent, schemeProvider: newSchemeProvider)
+        checkUploadingImageGroupView(view: newView, named: "NewSchemeProvider", testName: "UploadingImageGroupView")
+    }
     
     func createUploadingImageGroupView(status: ChatStatus) -> some View {
         UploadingImageGrid(
@@ -91,6 +107,20 @@ final class UploadingImageGroupViewSnapshotTests: XCTestCase {
                 backgroundImage: Image(uiImage: TestAsset.Chat.photo.image),
                 uploadStatus: status
             )], direction: .right
+        )
+        .frame(width: 300, height: 200)
+    }
+
+    func createUploadingImageGroupView(status: ChatStatus, schemeProvider: SchemeProvider<UploadingImageGridScheme>) -> some View {
+        UploadingImageGrid(
+            models: [UploadImageModel(
+                isLoading: false,
+                time: "12:52",
+                backgroundImage: Image(uiImage: TestAsset.Chat.photo.image),
+                uploadStatus: status
+            )],
+            direction: .right,
+            schemeProvider: schemeProvider
         )
         .frame(width: 300, height: 200)
     }

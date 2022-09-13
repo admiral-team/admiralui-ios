@@ -47,6 +47,22 @@ final class ChatInputSnapshotTests: XCTestCase {
         let view = createChatInput()
         checkChatInput(view: view, named: "DarkTheme", testName: "ChatInput")
     }
+
+    // MARK: - SchemeProvider
+
+    func testChatInputSchemeProvider() {
+        SwiftUIThemeManager.shared.theme = .default
+        var scheme = ChatInputScheme(theme: .default)
+        scheme.backgroundColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        let newSchemeProvider = SchemeProvider<ChatInputScheme>(scheme: scheme)
+
+        let view = createChatInput(schemeProvider: newSchemeProvider)
+        checkChatInput(view: view, named: "NewSchemeProvider", testName: "ChatInput")
+
+        SwiftUIThemeManager.shared.theme = .dark
+        let newView = createChatInput(schemeProvider: newSchemeProvider)
+        checkChatInput(view: newView, named: "NewSchemeProvider", testName: "ChatInput")
+    }
     
     func createChatInput() -> some View {
         let view = ChatInput(
@@ -57,6 +73,20 @@ final class ChatInputSnapshotTests: XCTestCase {
             autocorrectionType: .default,
             placeholder: "Введите сообщение",
             isShowFileButton: true
+        )
+        return view
+    }
+
+    func createChatInput(schemeProvider: SchemeProvider<ChatInputScheme>) -> some View {
+        let view = ChatInput(
+            .constant("ChatInput"),
+            contentType: .default,
+            returnKeyType: .emergencyCall,
+            autocapitalizationType: .none,
+            autocorrectionType: .default,
+            placeholder: "Введите сообщение",
+            isShowFileButton: true,
+            schemeProvider: schemeProvider
         )
         return view
     }
