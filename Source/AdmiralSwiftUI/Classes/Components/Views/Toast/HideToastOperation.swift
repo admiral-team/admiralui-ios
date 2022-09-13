@@ -8,7 +8,7 @@
 import SwiftUI
 
 @available(iOS 14.0, *)
-class HideToastOperation: Operation {
+final class HideToastOperation: Operation {
 
     // MARK: - Constants
 
@@ -16,7 +16,7 @@ class HideToastOperation: Operation {
         static let hideAnimationDuration = 7.0
     }
 
-    // MARK: - Properties
+    // MARK: - Internal Properties
 
     var timer = Timer()
     var currentCount: Double = 0

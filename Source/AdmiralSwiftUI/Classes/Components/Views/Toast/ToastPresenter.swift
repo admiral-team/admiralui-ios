@@ -23,6 +23,8 @@ import SwiftUI
 @available(iOS 14.0.0, *)
 public class ToastPresenter: ObservableObject {
 
+    // MARK: - Constants
+
     public enum Constants {
         public static let hideAnimationDuration: Double = 5.0
     }

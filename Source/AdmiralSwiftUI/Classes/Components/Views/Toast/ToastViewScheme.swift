@@ -21,25 +21,25 @@ public struct ToastViewScheme: AppThemeScheme {
 
     // MARK: - Properties
 
-    /// The title color
+    /// The title label color
     var titleTextColor = ToastViewParameters<AColor>()
 
-    /// The close tint color
+    /// The close button tint color
     var closeTintColor = ToastViewParameters<AColor>()
 
-    /// The close title color
+    /// The close button title color
     var closeTitleColor = ToastViewParameters<AColor>()
 
     /// The background color
     var backgroundColor = ToastViewParameters<AColor>()
 
-    /// The iamge tint color
+    /// The image tint color
     var imageTintColor =  ToastImageParameters<AColor>()
 
-    /// The title font
+    /// The title label font
     var titleTextFont: AFont
 
-    /// The close title font
+    /// The close button title font
     var closeTitleFont: AFont
 
     // MARK: - Initializer
