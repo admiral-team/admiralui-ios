@@ -35,7 +35,7 @@ final class CardListViewSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testCardListViewDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createCardListView()
         checkCardListView(view: view, named: "DefaultTheme", testName: "CardListView")
     }
@@ -43,7 +43,7 @@ final class CardListViewSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testCardListViewDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createCardListView()
         checkCardListView(view: view, named: "DarkTheme", testName: "CardListView")
     }

@@ -9,12 +9,12 @@
 Pod::Spec.new do |spec|
 
   spec.platform = :ios
-  spec.name         = "AdmiralUIResources"
+  spec.name         = "AdmiralCore"
   spec.version      = "0.0.0"
   spec.summary      = "Team UI Components."
 
   spec.description  = <<-DESC
-  ui components library.
+  UI components library.
                    DESC
 
   spec.homepage     = "https://github.com/admiral-team/admiralui-ios"
@@ -45,10 +45,9 @@ Pod::Spec.new do |spec|
   spec.author             = { "AdmiralTeam" => "tonwork252@gmail.com" }
   spec.source       = { :git => "https://github.com/admiral-team/admiralui-ios.git", :tag => "#{spec.version}" }
 
-  spec.ios.deployment_target = "11.0"
+  spec.ios.deployment_target = "14.0"
   spec.swift_version = "5.3"
-  
-  spec.source_files  = "Source/AdmiralUIResources/**/*.{h,m,swift}"
-  spec.resources = "Source/AdmiralUIResources/Resources/**/*.{storyboard,xib,xcassets,ttf,otf}"
+
+  spec.source_files          = "Source/AdmiralCore/**/*.{h,m,swift}"
 
 end

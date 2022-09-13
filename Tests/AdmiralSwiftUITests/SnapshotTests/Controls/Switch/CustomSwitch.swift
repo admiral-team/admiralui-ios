@@ -36,7 +36,7 @@ final class CustomSwitchSnapshotTests: XCTestCase {
     }
 
     func testCustomSwitchSchemeProvider() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         var scheme = CustomSwitchScheme()
         scheme.onTintColorColor = AColor(color: .systemPink)
         let newSchemeProvider = SchemeProvider<CustomSwitchScheme>(scheme: scheme)
@@ -47,7 +47,7 @@ final class CustomSwitchSnapshotTests: XCTestCase {
         ).frame(width: 60, height: 60)
         checkSwitch(view: customSwitch, named: "SchemeProvider", testName: "Switch")
 
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let newCustomSwitch = CustomSwitch(
             isOn: .constant(true),
             schemeProvider: newSchemeProvider
