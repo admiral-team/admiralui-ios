@@ -97,7 +97,7 @@ struct ActionBarView: View {
             ActionBarControlView(
                 image: action.image,
                 imageStyle: action.imageStyle ?? .accent,
-                scheme: scheme.actionBarConrolScheme,
+                schemeProvider: .constant(scheme: scheme.actionBarConrolScheme),
                 tapActionBar: action.handler
             )
         case .secondary:
@@ -108,7 +108,7 @@ struct ActionBarView: View {
                 imageTintColor: action.imageTintColor,
                 style: action.style,
                 text: action.text,
-                scheme: scheme.actionBarConrolSchemeTwo,
+                schemeProvider: .constant(scheme: scheme.actionBarConrolSchemeTwo),
                 tapActionBar: action.handler
             )
         }
