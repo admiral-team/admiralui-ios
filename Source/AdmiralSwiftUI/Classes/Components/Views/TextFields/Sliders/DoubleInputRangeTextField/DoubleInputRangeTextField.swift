@@ -155,7 +155,7 @@ public struct DoubleInputRangeTextField: AccessabilitySupportUIKit, Identifiable
     @State private var scheme: DoubleInputRangeTextFieldScheme? = nil
     private var accessibilityIdentifierFirst: String?
     private var accessibilityIdentifierSecond: String?
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<DoubleInputRangeTextFieldScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<DoubleInputRangeTextFieldScheme>
     
     @State private var textViewFromWidth: CGFloat = LayoutGrid.tripleModule
     @State private var textViewWidth: CGFloat = LayoutGrid.tripleModule
@@ -204,36 +204,39 @@ public struct DoubleInputRangeTextField: AccessabilitySupportUIKit, Identifiable
         returnKeyType: UIReturnKeyType = .default,
         autocapitalizationType: UITextAutocapitalizationType = .none,
         autocorrectionType: UITextAutocorrectionType = .no,
-        onSubmit: (() -> Void)? = nil) {
-            self._contentFrom = contentFrom
-            self._contentTo = contentTo
-            self.placeholderFrom = placeholderFrom
-            self.placeholderTo = placeholderTo
-            self.name = name
-            self.formatter = formatter
-            self._state = state
-            self._info = info
-            self._leadingText = leadingText
-            self._trailingText = trailingText
-            self.onSubmit = onSubmit
-            self.infoNumberOfLines = infoNumberOfLines
-            self._sliderValueFrom = .init(initialValue: sliderValueFrom)
-            self._sliderValueTo = .init(initialValue: sliderValueTo)
-            self._maxValue = .init(initialValue: maxValue)
-            self._minValue = .init(initialValue: minValue)
-            self._isFilledFrom = .init(initialValue: !(contentFrom.wrappedValue ?? "").isEmpty)
-            self._isFilledTo = .init(initialValue: !(contentTo.wrappedValue ?? "").isEmpty)
-            self.contentType = contentType
-            self.returnKeyType = returnKeyType
-            self.autocapitalizationType = autocapitalizationType
-            self.autocorrectionType = autocorrectionType
-            self.isResponderFrom = isResponderFrom
-            self.isResponderTo = isResponderTo
-            self._isFocusedFrom = .init(initialValue: isResponderFrom?.wrappedValue ?? false)
-            self._isFocusedTo = .init(initialValue: isResponderTo?.wrappedValue ?? false)
-            self.accessibilityIdentifierFirst = accessibilityIdentifierFirst
-            self.accessibilityIdentifierSecond = accessibilityIdentifierSecond
-        }
+        schemeProvider: SchemeProvider<DoubleInputRangeTextFieldScheme> = AppThemeSchemeProvider<DoubleInputRangeTextFieldScheme>(),
+        onSubmit: (() -> Void)? = nil
+    ) {
+        self._contentFrom = contentFrom
+        self._contentTo = contentTo
+        self.placeholderFrom = placeholderFrom
+        self.placeholderTo = placeholderTo
+        self.name = name
+        self.formatter = formatter
+        self._state = state
+        self._info = info
+        self._leadingText = leadingText
+        self._trailingText = trailingText
+        self.onSubmit = onSubmit
+        self.infoNumberOfLines = infoNumberOfLines
+        self._sliderValueFrom = .init(initialValue: sliderValueFrom)
+        self._sliderValueTo = .init(initialValue: sliderValueTo)
+        self._maxValue = .init(initialValue: maxValue)
+        self._minValue = .init(initialValue: minValue)
+        self._isFilledFrom = .init(initialValue: !(contentFrom.wrappedValue ?? "").isEmpty)
+        self._isFilledTo = .init(initialValue: !(contentTo.wrappedValue ?? "").isEmpty)
+        self.contentType = contentType
+        self.returnKeyType = returnKeyType
+        self.autocapitalizationType = autocapitalizationType
+        self.autocorrectionType = autocorrectionType
+        self.isResponderFrom = isResponderFrom
+        self.isResponderTo = isResponderTo
+        self._isFocusedFrom = .init(initialValue: isResponderFrom?.wrappedValue ?? false)
+        self._isFocusedTo = .init(initialValue: isResponderTo?.wrappedValue ?? false)
+        self.accessibilityIdentifierFirst = accessibilityIdentifierFirst
+        self.accessibilityIdentifierSecond = accessibilityIdentifierSecond
+        self.schemeProvider = schemeProvider
+    }
 
     
     public var body: some View {
@@ -294,6 +297,7 @@ public struct DoubleInputRangeTextField: AccessabilitySupportUIKit, Identifiable
                     minValue: minValue,
                     maxValue: maxValue,
                     segmentSize: $sizeModifier,
+                    scheme: globalScheme.slider,
                     gestureChange: {
                         DispatchQueue.main.async {
                             self.finishAfterChangeSlider = true

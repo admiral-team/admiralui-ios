@@ -88,7 +88,7 @@ public struct SmallInformer: View {
     }
     
     @State private var scheme: SmallInformerScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SmallInformerScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<SmallInformerScheme>
     
     // MARK: - Initializer
     
@@ -104,13 +104,15 @@ public struct SmallInformer: View {
         informerStyle: InformerStyleSwiftUI = .default,
         arrowDirection: SmallInformerArrowDirection = .top,
         arrowOffset: CGFloat = LayoutGrid.halfModule * 3,
-        cornerRadius: CornerRadius = .module
+        cornerRadius: CornerRadius = .module,
+        schemeProvider: SchemeProvider<SmallInformerScheme> = AppThemeSchemeProvider<SmallInformerScheme>()
     ) {
         self.title = title
         self.informerStyle = informerStyle
         self.arrowDirection = arrowDirection
         self.arrowOffset = arrowOffset
         self.cornerRadius = cornerRadius.rawValue
+        self.schemeProvider = schemeProvider
     }
     
     // MARK: - Layout

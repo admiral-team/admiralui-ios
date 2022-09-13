@@ -121,7 +121,7 @@ public struct InputRangeTextField<T>: TextFieldInput, AccessabilitySupportUIKit,
     
     @State private var scheme: InputRangeTextFieldScheme? = nil
     @State private var finishAfterChangeSlider: Bool = false
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<InputRangeTextFieldScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<InputRangeTextFieldScheme>
     private var accessibilityIdentifier: String?
     
     // MARK: - Initializer
@@ -158,8 +158,10 @@ public struct InputRangeTextField<T>: TextFieldInput, AccessabilitySupportUIKit,
         returnKeyType: UIReturnKeyType = .default,
         autocapitalizationType: UITextAutocapitalizationType = .none,
         autocorrectionType: UITextAutocorrectionType = .no,
+        schemeProvider: SchemeProvider<InputRangeTextFieldScheme> = AppThemeSchemeProvider<InputRangeTextFieldScheme>(),
         onSubmit: (() -> Void)? = nil,
-        @ViewBuilder trailingView: @escaping () -> T) {
+        @ViewBuilder trailingView: @escaping () -> T
+    ) {
         self._content = Binding(get: {
             if let value = value.wrappedValue {
                 return String(describing: value)
@@ -187,6 +189,7 @@ public struct InputRangeTextField<T>: TextFieldInput, AccessabilitySupportUIKit,
         self.autocapitalizationType = autocapitalizationType
         self.autocorrectionType = autocorrectionType
         self.isResponder = isResponder
+        self.schemeProvider = schemeProvider
         self._isFocused = .init(initialValue: isResponder?.wrappedValue ?? false)
         self.trailingView = trailingView
         self._isFilled = .init(initialValue: !($content.wrappedValue ?? "").isEmpty)
@@ -223,8 +226,10 @@ public struct InputRangeTextField<T>: TextFieldInput, AccessabilitySupportUIKit,
         returnKeyType: UIReturnKeyType = .default,
         autocapitalizationType: UITextAutocapitalizationType = .none,
         autocorrectionType: UITextAutocorrectionType = .no,
+        schemeProvider: SchemeProvider<InputRangeTextFieldScheme> = AppThemeSchemeProvider<InputRangeTextFieldScheme>(),
         onSubmit: (() -> Void)? = nil,
-        @ViewBuilder trailingView: @escaping () -> T) {
+        @ViewBuilder trailingView: @escaping () -> T
+    ) {
         self.init(
             value: content,
             accessibilityIdentifier: accessibilityIdentifier,
@@ -243,6 +248,7 @@ public struct InputRangeTextField<T>: TextFieldInput, AccessabilitySupportUIKit,
             returnKeyType: returnKeyType,
             autocapitalizationType: autocapitalizationType,
             autocorrectionType: autocorrectionType,
+            schemeProvider: schemeProvider,
             onSubmit: onSubmit,
             trailingView: trailingView)
     }
@@ -299,6 +305,7 @@ public struct InputRangeTextField<T>: TextFieldInput, AccessabilitySupportUIKit,
                     value: $sliderValue,
                     minValue: minValue,
                     maxValue: maxValue,
+                    scheme: globalScheme.slider,
                     gestureChange: {
                         DispatchQueue.main.async {
                             self.finishAfterChangeSlider = true
@@ -543,7 +550,9 @@ extension InputRangeTextField where T == EmptyView {
         returnKeyType: UIReturnKeyType = .default,
         autocapitalizationType: UITextAutocapitalizationType = .none,
         autocorrectionType: UITextAutocorrectionType = .no,
-        onSubmit: (() -> Void)? = nil) {
+        schemeProvider: SchemeProvider<InputRangeTextFieldScheme> = AppThemeSchemeProvider<InputRangeTextFieldScheme>(),
+        onSubmit: (() -> Void)? = nil
+    ) {
         self._content = Binding(get: {
             if let value = value.wrappedValue {
                 return String(describing: value)
@@ -573,6 +582,7 @@ extension InputRangeTextField where T == EmptyView {
         self.isResponder = isResponder
         self.accessibilityIdentifier = accessibilityIdentifier
         self.trailingView = { EmptyView() }
+        self.schemeProvider = schemeProvider
         self._isFocused = .init(initialValue: isResponder?.wrappedValue ?? false)
         self._isFilled = .init(initialValue: !($content.wrappedValue ?? "").isEmpty)
     }
@@ -607,6 +617,7 @@ extension InputRangeTextField where T == EmptyView {
         returnKeyType: UIReturnKeyType = .default,
         autocapitalizationType: UITextAutocapitalizationType = .none,
         autocorrectionType: UITextAutocorrectionType = .no,
+        schemeProvider: SchemeProvider<InputRangeTextFieldScheme> = AppThemeSchemeProvider<InputRangeTextFieldScheme>(),
         onSubmit: (() -> Void)? = nil) {
             self.init(
                 value: content,
@@ -626,6 +637,7 @@ extension InputRangeTextField where T == EmptyView {
                 returnKeyType: returnKeyType,
                 autocapitalizationType: autocapitalizationType,
                 autocorrectionType: autocorrectionType,
+                schemeProvider: schemeProvider,
                 onSubmit: onSubmit)
     }
     
