@@ -133,7 +133,7 @@ public struct InfoAgreementView: View {
                 Button(buttonTitle, action: buttonAction)
                     .buttonStyle(PrimaryButtonStyle(
                         isLoading: $isLoading,
-                        scheme: scheme.buttonScheme))
+                        schemeProvider: .constant(scheme: scheme.buttonScheme)))
             }
             if let additionalButtonTitle = additionalButtonTitle {
                 HStack {

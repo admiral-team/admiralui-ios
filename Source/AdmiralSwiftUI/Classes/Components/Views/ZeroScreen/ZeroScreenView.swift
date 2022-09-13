@@ -121,7 +121,7 @@ public struct ZeroScreenView: View {
                 Button(buttonTitle, action: buttonAction)
                     .buttonStyle(PrimaryButtonStyle(
                         isLoading: $isLoadingButton,
-                        scheme: scheme.buttonScheme
+                        schemeProvider: .constant(scheme: scheme.buttonScheme)
                     ))
             }
             Spacer()
