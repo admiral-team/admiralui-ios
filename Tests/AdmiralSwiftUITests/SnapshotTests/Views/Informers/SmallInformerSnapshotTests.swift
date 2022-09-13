@@ -35,49 +35,49 @@ final class SmallInformerSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testSmallInformerDefaultTopDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createSmallInformer(style: .default, arrowDirection: .top)
         checkSmallInformer(view: view, named: "DefaultTop.DefaultTheme", testName: "SmallInformer")
     }
     
     func testSmallInformerDefaultBottomDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createSmallInformer(style: .default, arrowDirection: .bottom)
         checkSmallInformer(view: view, named: "DefaultBottom.DefaultTheme", testName: "SmallInformer")
     }
     
     func testSmallInformerAttentionTopDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createSmallInformer(style: .attention, arrowDirection: .top)
         checkSmallInformer(view: view, named: "AttentionTop.DefaultTheme", testName: "SmallInformer")
     }
     
     func testSmallInformerAttentionBottomDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createSmallInformer(style: .attention, arrowDirection: .bottom)
         checkSmallInformer(view: view, named: "AttentionBottom.DefaultTheme", testName: "SmallInformer")
     }
     
     func testSmallInformerSuccessTopDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createSmallInformer(style: .success, arrowDirection: .top)
         checkSmallInformer(view: view, named: "SuccessTop.DefaultTheme", testName: "SmallInformer")
     }
     
     func testSmallInformerSuccessBottomDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createSmallInformer(style: .success, arrowDirection: .bottom)
         checkSmallInformer(view: view, named: "SuccessBottom.DefaultTheme", testName: "SmallInformer")
     }
     
     func testSmallInformerErrorTopDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createSmallInformer(style: .error, arrowDirection: .top)
         checkSmallInformer(view: view, named: "ErrorTop.DefaultTheme", testName: "SmallInformer")
     }
     
     func testSmallInformerErrorBottomDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createSmallInformer(style: .error, arrowDirection: .bottom)
         checkSmallInformer(view: view, named: "ErrorBottom.DefaultTheme", testName: "SmallInformer")
     }
@@ -85,49 +85,49 @@ final class SmallInformerSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testSmallInformerDefaultTopDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createSmallInformer(style: .default, arrowDirection: .top)
         checkSmallInformer(view: view, named: "DefaultTop.DarkTheme", testName: "SmallInformer")
     }
     
     func testSmallInformerDefaultBottomDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createSmallInformer(style: .default, arrowDirection: .bottom)
         checkSmallInformer(view: view, named: "DefaultBottom.DarkTheme", testName: "SmallInformer")
     }
     
     func testSmallInformerAttentionTopDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createSmallInformer(style: .attention, arrowDirection: .top)
         checkSmallInformer(view: view, named: "AttentionTop.DarkTheme", testName: "SmallInformer")
     }
     
     func testSmallInformerAttentionBottomDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createSmallInformer(style: .attention, arrowDirection: .bottom)
         checkSmallInformer(view: view, named: "AttentionBottom.DarkTheme", testName: "SmallInformer")
     }
     
     func testSmallInformerSuccessTopDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createSmallInformer(style: .success, arrowDirection: .top)
         checkSmallInformer(view: view, named: "SuccessTop.DarkTheme", testName: "SmallInformer")
     }
     
     func testSmallInformerSuccessBottomDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createSmallInformer(style: .success, arrowDirection: .bottom)
         checkSmallInformer(view: view, named: "SuccessBottom.DarkTheme", testName: "SmallInformer")
     }
     
     func testSmallInformerErrorTopDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createSmallInformer(style: .error, arrowDirection: .top)
         checkSmallInformer(view: view, named: "ErrorTop.DarkTheme", testName: "SmallInformer")
     }
     
     func testSmallInformerErrorBottomDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createSmallInformer(style: .error, arrowDirection: .bottom)
         checkSmallInformer(view: view, named: "ErrorBottom.DarkTheme", testName: "SmallInformer")
     }

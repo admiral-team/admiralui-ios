@@ -35,7 +35,7 @@ final class ActionBarControlViewSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testActionBarControlViewDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createActionBarControlView()
         checkActionBarControlView(view: view, named: "DefaultTheme", testName: "ActionBarControlView")
     }
@@ -43,7 +43,7 @@ final class ActionBarControlViewSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testActionBarControlViewDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createActionBarControlView()
         checkActionBarControlView(view: view, named: "DarkTheme", testName: "ActionBarControlView")
     }

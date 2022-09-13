@@ -35,7 +35,7 @@ final class ChatInputSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testChatInputDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createChatInput()
         checkChatInput(view: view, named: "DefaultTheme", testName: "ChatInput")
     }
@@ -43,7 +43,7 @@ final class ChatInputSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testChatInputDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createChatInput()
         checkChatInput(view: view, named: "DarkTheme", testName: "ChatInput")
     }

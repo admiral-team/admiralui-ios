@@ -35,25 +35,25 @@ final class TextViewSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testTextViewNormalDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createTextView(state: .normal)
         checkTextView(view: view, named: "Normal.DefaultTheme", testName: "TextView")
     }
     
     func testTextViewReadOnlyDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createTextView(state: .readOnly)
         checkTextView(view: view, named: "ReadOnly.DefaultTheme", testName: "TextView")
     }
     
     func testTextViewDisabledDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createTextView(state: .disabled)
         checkTextView(view: view, named: "Disabled.DefaultTheme", testName: "TextView")
     }
     
     func testTextViewErrorDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createTextView(state: .error)
         checkTextView(view: view, named: "Error.DefaultTheme", testName: "TextView")
     }
@@ -61,25 +61,25 @@ final class TextViewSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testTextViewNormalDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createTextView(state: .normal)
         checkTextView(view: view, named: "Normal.DarkTheme", testName: "TextView")
     }
     
     func testTextViewReadOnlyDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createTextView(state: .readOnly)
         checkTextView(view: view, named: "ReadOnly.DarkTheme", testName: "TextView")
     }
     
     func testTextViewDisabledDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createTextView(state: .disabled)
         checkTextView(view: view, named: "Disabled.DarkTheme", testName: "TextView")
     }
     
     func testTextViewErrorDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createTextView(state: .error)
         checkTextView(view: view, named: "Error.DarkTheme", testName: "TextView")
     }
