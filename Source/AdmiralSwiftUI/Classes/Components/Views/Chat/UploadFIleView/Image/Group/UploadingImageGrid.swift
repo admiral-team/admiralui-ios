@@ -49,7 +49,9 @@ public struct UploadingImageGrid: View {
     // MARK: Internal Properties
     
     @State var scheme: UploadingImageGridScheme?
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<UploadingImageGridScheme>()
+
+    /// Scheme provider serves for changing scheme while change theme.
+    @ObservedObject var schemeProvider: SchemeProvider<UploadingImageGridScheme>
     
     // MARK: - Private properties
     
@@ -77,9 +79,6 @@ public struct UploadingImageGrid: View {
     
     /// Action error button.
     private var errorAction: () -> ()
-
-    /// Scheme provider serves for changing scheme while change theme.
-    @ObservedObject private var schemeProvider: SchemeProvider<UploadImageViewScheme>
     
     // MARK: - Init/deinit
     
@@ -87,7 +86,7 @@ public struct UploadingImageGrid: View {
         models: [UploadImageModel],
         direction: ChatDirection,
         tappedModel: ((_ model: UploadImageModel) -> Void)? = nil,
-        schemeProvider: SchemeProvider<UploadImageViewScheme> = AppThemeSchemeProvider<UploadImageViewScheme>(),
+        schemeProvider: SchemeProvider<UploadingImageGridScheme> = AppThemeSchemeProvider<UploadingImageGridScheme>(),
         errorAction: @escaping () -> () = {}
     ) {
         self.models = models
@@ -101,7 +100,7 @@ public struct UploadingImageGrid: View {
         model: UploadImageModel,
         direction: ChatDirection,
         tappedModel: ((_ model: UploadImageModel) -> Void)? = nil,
-        schemeProvider: SchemeProvider<UploadImageViewScheme> = AppThemeSchemeProvider<UploadImageViewScheme>(),
+        schemeProvider: SchemeProvider<UploadingImageGridScheme> = AppThemeSchemeProvider<UploadingImageGridScheme>(),
         errorAction: @escaping () -> () = {}
     ) {
         self.init(
@@ -159,7 +158,8 @@ public struct UploadingImageGrid: View {
     }
     
     private func uploadImageViews() -> some View {
-        VStack(spacing: LayoutGrid.module) {
+        let scheme = scheme ?? schemeProvider.scheme
+        return VStack(spacing: LayoutGrid.module) {
             ForEach(rows.indices, id: \.self) { index in
                 if let cornerList = grid[String(gridCount)] {
                     HStack(spacing: LayoutGrid.module) {
@@ -168,9 +168,8 @@ public struct UploadingImageGrid: View {
                                 model: rows[index][modelIndex],
                                 direction: direction,
                                 cornersStyle: cornerList[index][modelIndex],
-                                schemeProvider: schemeProvider
-                            )
-                            .onTapGesture {
+                                scheme: scheme.uploadImageScheme
+                            ).onTapGesture {
                                 tappedModel?(rows[index][modelIndex])
                             }
                         }

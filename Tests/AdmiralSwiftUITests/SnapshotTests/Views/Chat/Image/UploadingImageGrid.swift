@@ -87,9 +87,9 @@ final class UploadingImageGroupViewSnapshotTests: XCTestCase {
 
     func testLeftChatBubbleSchemeProvider() {
         SwiftUIThemeManager.shared.theme = .dark
-        var scheme = UploadImageViewScheme(theme: .default)
-        scheme.textColor = AColor(color: .systemPink)
-        let newSchemeProvider = SchemeProvider<UploadImageViewScheme>(scheme: scheme)
+        var scheme = UploadingImageGridScheme(theme: .default)
+        scheme.uploadImageScheme.textColor = AColor(color: .systemPink)
+        let newSchemeProvider = SchemeProvider<UploadingImageGridScheme>(scheme: scheme)
 
         let view = createUploadingImageGroupView(status: .sent, schemeProvider: newSchemeProvider)
         checkUploadingImageGroupView(view: view, named: "NewSchemeProvider", testName: "UploadingImageGroupView")
@@ -111,12 +111,12 @@ final class UploadingImageGroupViewSnapshotTests: XCTestCase {
         .frame(width: 300, height: 200)
     }
 
-    func createUploadingImageGroupView(status: ChatStatus, schemeProvider: SchemeProvider<UploadImageViewScheme>) -> some View {
+    func createUploadingImageGroupView(status: ChatStatus, schemeProvider: SchemeProvider<UploadingImageGridScheme>) -> some View {
         UploadingImageGrid(
             models: [UploadImageModel(
                 isLoading: false,
                 time: "12:52",
-                backgroundImage: Image(uiImage: PrivateAsset.Custom.Chat.photo.image),
+                backgroundImage: Image(uiImage: TestAsset.Chat.photo.image),
                 uploadStatus: status
             )],
             direction: .right,
