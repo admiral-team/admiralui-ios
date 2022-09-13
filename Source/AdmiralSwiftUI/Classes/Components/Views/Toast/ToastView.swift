@@ -131,7 +131,7 @@ public struct ToastView: View {
     // MARK: - Private Properties
     
     @State private var scheme: ToastViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ToastViewScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<ToastViewScheme>
     private var accessibilityIdentifier: String?
     
     // MARK: - Initializer
@@ -155,6 +155,7 @@ public struct ToastView: View {
         image: Image? = nil,
         imageType: ToastImageType? = nil,
         imageColorType: ToastImageType? = nil,
+        schemeProvider: SchemeProvider<ToastViewScheme> = AppThemeSchemeProvider<ToastViewScheme>(),
         accessibilityIdentifier: String? = nil,
         closeAction: (() -> ())? = nil,
         imageAction: (() -> ())? = nil,
@@ -186,6 +187,7 @@ public struct ToastView: View {
         self.imageAction = imageAction
         self.closeAction = closeAction
         self.type = type
+        self.schemeProvider = schemeProvider
         self.closeView = { return closeView()?.eraseToAnyView() }
     }
     
@@ -196,6 +198,7 @@ public struct ToastView: View {
         image: Image? = nil,
         imageType: ToastImageType? = nil,
         imageColorType: ToastImageType? = nil,
+        schemeProvider: SchemeProvider<ToastViewScheme> = AppThemeSchemeProvider<ToastViewScheme>(),
         accessibilityIdentifier: String? = nil,
         closeAction: (() -> ())? = nil,
         imageAction: (() -> ())? = nil,
@@ -226,6 +229,7 @@ public struct ToastView: View {
         self.imageAction = imageAction
         self.closeAction = closeAction
         self.type = type
+        self.schemeProvider = schemeProvider
         self.closeView = { return nil }
     }
     
@@ -234,6 +238,7 @@ public struct ToastView: View {
         linkText: String? = nil,
         linkAction: (() -> ())? = nil,
         timerDuration: Int?,
+        schemeProvider: SchemeProvider<ToastViewScheme> = AppThemeSchemeProvider<ToastViewScheme>(),
         accessibilityIdentifier: String? = nil,
         closeAction: (() -> ())? = nil,
         @ViewBuilder closeView: @escaping () -> (T?) = { return nil },
@@ -250,6 +255,7 @@ public struct ToastView: View {
         self.closeAction = closeAction
         self.imageAction = nil
         self.type = type
+        self.schemeProvider = schemeProvider
         self.closeView = { return closeView()?.eraseToAnyView() }
     }
     

@@ -47,11 +47,34 @@ final class ErrorViewSnapshotTests: XCTestCase {
         let view = createErrorView()
         checkErrorView(view: view, named: "DarkTheme", testName: "ErrorView")
     }
+
+    func testErrorViewSchemeProvider() {
+        SwiftUIThemeManager.shared.theme = .default
+        var scheme = ErrorViewScheme(theme: .default)
+        scheme.titleColor = AColor(color: .systemPink)
+        let newSchemeProvider = SchemeProvider<ErrorViewScheme>(scheme: scheme)
+
+        let view = createErrorView(schemeProvider: newSchemeProvider)
+        checkErrorView(view: view, named: "NewSchemeProvider", testName: "ErrorView")
+
+        SwiftUIThemeManager.shared.theme = .dark
+        let newView = createErrorView(schemeProvider: newSchemeProvider)
+        checkErrorView(view: newView, named: "NewSchemeProvider", testName: "ErrorView")
+    }
     
     func createErrorView() -> some View {
         let errorView = ErrorView(
             text: "ErrorView",
             buttonTitle: "Button",
+            buttonAction: {})
+        return errorView
+    }
+
+    func createErrorView(schemeProvider: SchemeProvider<ErrorViewScheme>) -> some View {
+        let errorView = ErrorView(
+            text: "ErrorView",
+            buttonTitle: "Button",
+            schemeProvider: schemeProvider,
             buttonAction: {})
         return errorView
     }

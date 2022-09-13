@@ -83,6 +83,29 @@ final class CalendarViewSnapshotTests: XCTestCase {
         let view = createCalendarView(type: .vertical)
         checkCalendarView(view: view, named: "Vertical.DarkTheme", testName: "CalendarView")
     }
+
+    func testCalendarSchemeProvider() {
+        SwiftUIThemeManager.shared.theme = .default
+        var scheme = CalendarHorizontalViewScheme(theme: .default)
+        scheme.headerViewScheme.backgroundColor = AColor(color: .systemPink)
+
+        scheme.calendarViewCellColorScheme.backgroundColors.set(parameter: AColor(color: .systemPink), for: .normal)
+        scheme.calendarViewCellColorScheme.backgroundColors.set(parameter: AColor(color: .systemPink), for: .selected)
+        scheme.calendarViewCellColorScheme.backgroundColors.set(parameter: AColor(color: .systemPink), for: .tailSelected)
+
+        scheme.calendarViewCellColorScheme.selectedBackgroundColors.set(parameter: AColor(color: .systemPink), for: .normal)
+        scheme.calendarViewCellColorScheme.selectedBackgroundColors.set(parameter: AColor(color: .systemPink), for: .selected)
+        scheme.calendarViewCellColorScheme.selectedBackgroundColors.set(parameter: AColor(color: .systemPink), for: .tailSelected)
+
+        let newSchemeProvider = SchemeProvider<CalendarHorizontalViewScheme>(scheme: scheme)
+
+        let view = createCalendarView(type: .horizontal, schemeProvider: newSchemeProvider)
+        checkCalendarView(view: view, named: "Horizontal.SchemeProvider", testName: "CalendarView")
+
+        SwiftUIThemeManager.shared.theme = .dark
+        let newView = createCalendarView(type: .horizontal, schemeProvider: newSchemeProvider)
+        checkCalendarView(view: newView, named: "Horizontal.SchemeProvider", testName: "CalendarView")
+    }
     
     func createCalendarView(type: CalendarViewType) -> some View {
         let view = CalendarView(
@@ -93,6 +116,20 @@ final class CalendarViewSnapshotTests: XCTestCase {
             selectedStartDate: .constant(startDate),
             selectedEndDate: .constant(endDate),
             monthYearDate: midlDate)
+        return view
+    }
+
+    func createCalendarView(type: CalendarViewType, schemeProvider: SchemeProvider<CalendarHorizontalViewScheme>) -> some View {
+        let view = CalendarView(
+            type: type,
+            startDate: startDate,
+            endDate: endDate,
+            locale: Locale(identifier: "ru"),
+            selectedStartDate: .constant(startDate),
+            selectedEndDate: .constant(endDate),
+            monthYearDate: midlDate,
+            horizontalSchemeProvider: schemeProvider
+        )
         return view
     }
     

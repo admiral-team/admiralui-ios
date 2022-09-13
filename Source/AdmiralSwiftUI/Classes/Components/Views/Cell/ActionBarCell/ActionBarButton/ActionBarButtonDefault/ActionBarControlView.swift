@@ -58,8 +58,7 @@ struct ActionBarControlView: View {
 
     // MARK: - Private Properties
 
-    @State private var scheme: ActionBarControlScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ActionBarControlScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<ActionBarControlScheme>
     
     // MARK: - Initializer
     
@@ -67,34 +66,26 @@ struct ActionBarControlView: View {
     init(
         image: Image,
         imageStyle: ActionBarItemImageStyle,
+        schemeProvider: SchemeProvider<ActionBarControlScheme> = AppThemeSchemeProvider<ActionBarControlScheme>(),
         tapActionBar: @escaping () -> ()
     ) {
         self.image = image
         self.imageStyle = imageStyle
         self.tapActionBar = tapActionBar
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Layout
 
     var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
         Button(action: tapActionBar, label: {})
             .buttonStyle(ActionBarButtonStyle(
                 image: image,
                 imageStyle: imageStyle,
-                actionBarControlParameters: scheme.actionBarControl
+                actionBarControlParameters: schemeProvider.scheme.actionBarControl
             )
         )
     }
-    
-    // MARK: - Internal Methods
-    
-    func scheme(_ scheme: ActionBarControlScheme) -> some View {
-        var view = self
-        view._scheme = State(initialValue: scheme)
-        return view.id(UUID())
-    }
-    
 }
 
 @available(iOS 14.0, *)

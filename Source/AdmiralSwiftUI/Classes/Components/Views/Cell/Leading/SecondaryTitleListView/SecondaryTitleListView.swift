@@ -43,16 +43,21 @@ public struct SecondaryTitleListView: View, LeadingListViewComponent {
     // MARK: - Private Properties
     
     @State private var scheme: SecondaryTitleListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SecondaryTitleListViewScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<SecondaryTitleListViewScheme>
     private let lineLimit: Int?
 
 
     // MARK: - Initializer
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-    public init(title: String?, lineLimit: Int? = nil) {
+    public init(
+        title: String?,
+        lineLimit: Int? = nil,
+        schemeProvider: SchemeProvider<SecondaryTitleListViewScheme> = AppThemeSchemeProvider<SecondaryTitleListViewScheme>()
+    ) {
         self._title = Binding(get: { return title }, set: { _ in })
         self.lineLimit = lineLimit
+        self.schemeProvider = schemeProvider
     }
     
     public var body: some View {

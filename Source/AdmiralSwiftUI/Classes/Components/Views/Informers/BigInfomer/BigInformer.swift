@@ -57,7 +57,7 @@ public struct BigInformer: View {
     private var informerStyle: InformerStyleSwiftUI = .default
     private let onDetail: (() -> Void)?
     
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<BigInformerScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<BigInformerScheme>
     
     private enum Constants {
         static let cornerRadius: CGFloat = LayoutGrid.halfModule * 3
@@ -83,11 +83,14 @@ public struct BigInformer: View {
         subtitle: String? = nil,
         link: String? = nil,
         informerStyle: InformerStyleSwiftUI = .default,
-        onDetail: (() -> Void)? = nil) {
+        schemeProvider: SchemeProvider<BigInformerScheme> = AppThemeSchemeProvider<BigInformerScheme>(),
+        onDetail: (() -> Void)? = nil
+    ) {
         self.title = title
         self.subtitle = subtitle
         self.link = link
         self.informerStyle = informerStyle
+        self.schemeProvider = schemeProvider
         self.onDetail = onDetail
     }
     

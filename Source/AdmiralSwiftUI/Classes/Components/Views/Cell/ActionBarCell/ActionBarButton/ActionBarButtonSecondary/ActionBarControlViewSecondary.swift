@@ -38,8 +38,7 @@ struct ActionBarControlViewSecondary: View {
 
     @Environment(\.isEnabled) var isEnabled
 
-    @State private var scheme: ActionBarControlSchemeTwo? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ActionBarControlSchemeTwo>()
+    @ObservedObject private var schemeProvider: SchemeProvider<ActionBarControlSchemeTwo>
 
     // MARK: - Private  Properties
 
@@ -61,6 +60,7 @@ struct ActionBarControlViewSecondary: View {
         imageTintColor: Color?,
         style: ActionBarItemStyle = .default,
         text: String?,
+        schemeProvider: SchemeProvider<ActionBarControlSchemeTwo> = AppThemeSchemeProvider<ActionBarControlSchemeTwo>(),
         tapActionBar: @escaping () -> ()
     ) {
         self.image = image
@@ -69,13 +69,13 @@ struct ActionBarControlViewSecondary: View {
         self.imageTintColor = imageTintColor
         self.style = style
         self.text = text
+        self.schemeProvider = schemeProvider
         self.tapActionBar = tapActionBar
     }
 
     // MARK: - Layout
 
     var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
         Button(action: tapActionBar, label: {})
             .buttonStyle(ActionBarButtonStyleSecondary(
                 image: image,
@@ -84,19 +84,10 @@ struct ActionBarControlViewSecondary: View {
                 backgroundColor: backgroundColor,
                 imageTintColor: imageTintColor,
                 text: text,
-                actionBarControlScheme: scheme
+                actionBarControlScheme: schemeProvider.scheme
             )
         )
     }
-
-    // MARK: - Internal Methods
-
-    func scheme(_ scheme: ActionBarControlSchemeTwo) -> some View {
-        var view = self
-        view._scheme = State(initialValue: scheme)
-        return view.id(UUID())
-    }
-
 }
 
 @available(iOS 14.0, *)

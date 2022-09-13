@@ -50,15 +50,21 @@ public struct SubtitleImageArrowListView: View, TralingListViewComponent {
     
     var renderingMode: Image.TemplateRenderingMode
     @State private var scheme: SubtitleImageArrowListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SubtitleImageArrowListViewScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<SubtitleImageArrowListViewScheme>
     
     // MARK: - Initializer
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-    public init(subtitle: String?, image: Image?, renderingMode: Image.TemplateRenderingMode = .original) {
+    public init(
+        subtitle: String?,
+        image: Image?,
+        renderingMode: Image.TemplateRenderingMode = .original,
+        schemeProvider: SchemeProvider<SubtitleImageArrowListViewScheme> = AppThemeSchemeProvider<SubtitleImageArrowListViewScheme>()
+    ) {
         self._subtitle = Binding(get: { return subtitle }, set: { _ in })
         self._image = Binding(get: { return image }, set: { _ in })
         self.renderingMode = renderingMode
+        self.schemeProvider = schemeProvider
     }
 
     public var body: some View {

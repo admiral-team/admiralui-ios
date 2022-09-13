@@ -159,6 +159,36 @@ final class ChatBubbleViewSnapshotTests: XCTestCase {
         let view = createRightChatBubbleView(status: .error)
         checkChatBubbleView(view: view, named: "Right.Error.DarkTheme", testName: "ChatBubbleView")
     }
+
+    // MARK: - SchemeProvider
+
+    func testLeftChatBubbleSchemeProvider() {
+        SwiftUIThemeManager.shared.theme = .dark
+        var scheme = ChatBubbleViewScheme(theme: .default)
+        scheme.backgroundColor.set(parameter: AColor(color: .systemPink), style: .left)
+        let newSchemeProvider = SchemeProvider<ChatBubbleViewScheme>(scheme: scheme)
+
+        let view = createLeftChatBubbleView(status: .none, schemeProvider: newSchemeProvider)
+        checkChatBubbleView(view: view, named: "NewSchemeProvider", testName: "ChatBubbleView")
+
+        SwiftUIThemeManager.shared.theme = .default
+        let newView = createLeftChatBubbleView(status: .none, schemeProvider: newSchemeProvider)
+        checkChatBubbleView(view: newView, named: "NewSchemeProvider", testName: "ChatBubbleView")
+    }
+
+    func testRightChatBubbleSchemeProvider() {
+        SwiftUIThemeManager.shared.theme = .dark
+        var scheme = ChatBubbleViewScheme(theme: .default)
+        scheme.backgroundColor.set(parameter: AColor(color: .systemPink), style: .right)
+        let newSchemeProvider = SchemeProvider<ChatBubbleViewScheme>(scheme: scheme)
+
+        let view = createRightChatBubbleView(status: .none, schemeProvider: newSchemeProvider)
+        checkChatBubbleView(view: view, named: "Right.NewSchemeProvider", testName: "ChatBubbleView")
+
+        SwiftUIThemeManager.shared.theme = .default
+        let newView = createRightChatBubbleView(status: .none, schemeProvider: newSchemeProvider)
+        checkChatBubbleView(view: newView, named: "Right.NewSchemeProvider", testName: "ChatBubbleView")
+    }
     
     func createLeftChatBubbleView(status: ChatStatus) -> some View {
         let view = ChatBubbleView(
@@ -171,6 +201,20 @@ final class ChatBubbleViewSnapshotTests: XCTestCase {
             .padding()
         return view
     }
+
+    func createLeftChatBubbleView(status: ChatStatus, schemeProvider: SchemeProvider<ChatBubbleViewScheme>) -> some View {
+        let view = ChatBubbleView(
+            text: "ChatBubbleView",
+            direction: .left,
+            time: "12:53",
+            status: status,
+            name: "ChatBubble",
+            maxWidth: 200.0,
+            schemeProvider: schemeProvider
+        )
+            .padding()
+        return view
+    }
     
     func createRightChatBubbleView(status: ChatStatus) -> some View {
         let view = ChatBubbleView(
@@ -180,6 +224,20 @@ final class ChatBubbleViewSnapshotTests: XCTestCase {
             status: status,
             name: "ChatBubble",
             maxWidth: 200.0)
+            .padding()
+        return view
+    }
+
+    func createRightChatBubbleView(status: ChatStatus, schemeProvider: SchemeProvider<ChatBubbleViewScheme>) -> some View {
+        let view = ChatBubbleView(
+            text: "ChatBubbleView",
+            direction: .right,
+            time: "12:53",
+            status: status,
+            name: "ChatBubble",
+            maxWidth: 200.0,
+            schemeProvider: schemeProvider
+        )
             .padding()
         return view
     }

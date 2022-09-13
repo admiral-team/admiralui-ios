@@ -118,7 +118,7 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
     }
     
     @State private var scheme: ChatInputScheme? = nil
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<ChatInputScheme>()
+    @ObservedObject var schemeProvider: SchemeProvider<ChatInputScheme>
 
     // MARK: - Initializer
     
@@ -140,6 +140,7 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
         isSendButtonDisabled: Bool? = nil,
         maxNumberOfLines: Int? = nil,
         maxHeight: CGFloat? = nil,
+        schemeProvider: SchemeProvider<ChatInputScheme> = AppThemeSchemeProvider<ChatInputScheme>(),
         onCursorPosition: ((Int, Int, String) -> (Int))? = nil
     ) {
         self._content = Binding(get: {
@@ -167,6 +168,7 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
         self.isSendButtonDisabled = isSendButtonDisabled
         self.onCursorPosition = onCursorPosition
         self.canPerformActionPaste = canPerformActionPaste
+        self.schemeProvider = schemeProvider
 
         updateMaxHeight(maxNumberOfLines: maxNumberOfLines, maxHeight: maxHeight)
     }
@@ -189,6 +191,7 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
         isSendButtonDisabled: Bool? = nil,
         maxNumberOfLines: Int? = nil,
         maxHeight: CGFloat? = nil,
+        schemeProvider: SchemeProvider<ChatInputScheme> = AppThemeSchemeProvider<ChatInputScheme>(),
         onCursorPosition: ((Int, Int, String) -> (Int))? = nil
     ) {
         self.init(
@@ -208,6 +211,7 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
             isSendButtonDisabled: isSendButtonDisabled,
             maxNumberOfLines: maxNumberOfLines,
             maxHeight: maxHeight,
+            schemeProvider: schemeProvider,
             onCursorPosition: onCursorPosition
         )
     }

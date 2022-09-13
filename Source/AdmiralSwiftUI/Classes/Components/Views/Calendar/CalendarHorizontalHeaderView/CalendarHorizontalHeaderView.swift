@@ -28,14 +28,12 @@ struct CalendarHorizontalHeaderView: View {
     var rightArrowTap: () -> Void
     var choiceTap: () -> Void
     
-    @State private var scheme: CalendarHorizontalHeaderViewScheme? = nil
-    @State private var buttonScheme: MonthYearButtonScheme? = nil
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<CalendarHorizontalHeaderViewScheme>()
-    @ObservedObject var buttonSchemeProvider = AppThemeSchemeProvider<MonthYearButtonScheme>()
+    private var scheme: CalendarHorizontalHeaderViewScheme
     
     init(
         title: String,
         isOpen: Binding<Bool>,
+        scheme: CalendarHorizontalHeaderViewScheme,
         monthYearButtonTap: @escaping () -> Void,
         leftArrowTap: @escaping () -> Void,
         rightArrowTap: @escaping () -> Void,
@@ -50,14 +48,14 @@ struct CalendarHorizontalHeaderView: View {
         self.leftArrowTap = leftArrowTap
         self.rightArrowTap = rightArrowTap
         self.choiceTap = choiceTap
+        self.scheme = scheme
     }
     
     var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
         let buttonImage = isOpen ?
             Image(uiImage: Asset.System.Outline.chevronDownOutline.image) :
             AssetSymbol.System.Outline.smallArrowUp.image
-        var buttonScheme = self.buttonScheme ?? buttonSchemeProvider.scheme
+        var buttonScheme = scheme.monthYearButtonScheme
         buttonScheme.image = buttonImage
         let buttonColor = scheme.buttonColor.parameter(for: isEnabled ? .normal : .disabled)
         return ZStack {
@@ -108,6 +106,7 @@ struct CalendarHorizontalHeaderView_Previews: PreviewProvider {
         CalendarHorizontalHeaderView(
             title: "Май 2021",
             isOpen: .constant(true),
+            scheme: CalendarHorizontalHeaderViewScheme(theme: .default),
             monthYearButtonTap: {},
             leftArrowTap: {},
             rightArrowTap: {},

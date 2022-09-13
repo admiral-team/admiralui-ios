@@ -44,14 +44,19 @@ public struct CardListView: View, TralingListViewComponent {
     
     var renderingMode: Image.TemplateRenderingMode
     @State private var scheme: CardListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<CardListViewScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<CardListViewScheme>
     
     // MARK: - Initializer
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-    public init(image: Image, renderingMode: Image.TemplateRenderingMode = .original) {
+    public init(
+        image: Image,
+        renderingMode: Image.TemplateRenderingMode = .original,
+        schemeProvider: SchemeProvider<CardListViewScheme> = AppThemeSchemeProvider<CardListViewScheme>()
+    ) {
         self._image = Binding(get: { return image }, set: { _ in })
         self.renderingMode = renderingMode
+        self.schemeProvider = schemeProvider
     }
 
     public var body: some View {

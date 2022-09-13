@@ -78,7 +78,7 @@ public struct AlertView: View {
     @Binding var isLoading: Bool
     
     @State var scheme: AlertViewScheme?
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<AlertViewScheme>()
+    @ObservedObject var schemeProvider: SchemeProvider<AlertViewScheme>
 
     // MARK: - Private properties
     
@@ -159,9 +159,11 @@ public struct AlertView: View {
         messageLabelFontStyle: AlertMessageFontStyle = .subhead3,
         titleLabelFontStyle: AlertTitleFontStyle = .title1,
         buttonTitle: String? = nil,
+        schemeProvider: SchemeProvider<AlertViewScheme> = AppThemeSchemeProvider<AlertViewScheme>(),
         buttonAction: (() -> ())? = nil,
         additionalButtonTitle: String? = nil,
-        additionalButtonAction: (() -> ())? = nil) {
+        additionalButtonAction: (() -> ())? = nil
+    ) {
         self._isLoading = isLoading
         self.imageType = imageType
         self.titleTextLabelColor = titleTextLabelColor
@@ -175,6 +177,7 @@ public struct AlertView: View {
         self.buttonAction = buttonAction
         self.additionalButtonTitle = additionalButtonTitle
         self.additionalButtonAction = additionalButtonAction
+        self.schemeProvider = schemeProvider
     }
     
     public var body: some View {
@@ -214,7 +217,9 @@ public struct AlertView: View {
                 if let buttonTitle = buttonTitle,
                    let buttonAction = buttonAction {
                     Button(buttonTitle, action: buttonAction)
-                        .buttonStyle(PrimaryButtonStyle(isLoading: $isLoading))
+                        .buttonStyle(PrimaryButtonStyle(
+                            isLoading: $isLoading,
+                            schemeProvider: .constant(scheme: scheme.buttonScheme)))
                 }
                 if let additionalButtonTitle = additionalButtonTitle,
                    let additionalButtonAction = additionalButtonAction {

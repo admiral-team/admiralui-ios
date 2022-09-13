@@ -78,7 +78,7 @@ public struct ProgressView: View {
     private var closeAction: () -> ()
     @State private var scheme: ProgressViewScheme? = nil
     @State private var animate: Bool = false
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<ProgressViewScheme>()
+    @ObservedObject var schemeProvider: SchemeProvider<ProgressViewScheme>
 
     // MARK: - Computed properties
 
@@ -109,11 +109,13 @@ public struct ProgressView: View {
     public init(
         style: ProgressViewStyle = .default,
         progressViewSize: ProgressViewSize = .medium,
+        schemeProvider: SchemeProvider<ProgressViewScheme> = AppThemeSchemeProvider<ProgressViewScheme>(),
         closeAction: @escaping () -> () = {}
     ) {
         self.style = style
         self.progressViewSize = progressViewSize
         self.closeAction = closeAction
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Layout

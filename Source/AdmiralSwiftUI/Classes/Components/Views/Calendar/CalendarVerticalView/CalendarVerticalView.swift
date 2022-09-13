@@ -57,7 +57,7 @@ struct CalendarVerticalView: View {
     @State private var scheme: CalendarVerticalViewScheme? = nil
     @State private var currentMonthDate: Date?
     @State private var isScrollCalendar: Bool = false
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<CalendarVerticalViewScheme>()
+    @ObservedObject var schemeProvider: SchemeProvider<CalendarVerticalViewScheme>
 
     // MARK: - Initializer
     
@@ -72,29 +72,32 @@ struct CalendarVerticalView: View {
         isMutlipleSelectionAllowed: Bool = true,
         didSelectedDate: ((Date?) -> ())? = nil,
         didSelectedDates: (([Date]) -> ())? = nil,
-        pointDates: [Date]) {
-            if let startDate = startDate {
-                self._startDate = .init(initialValue: startDate)
-            } else {
-                self._startDate = .init(initialValue: Calendar.current.date(byAdding: .year, value: -10, to: Date()) ?? Date())
-            }
-            
-            if let endDate = endDate {
-                self._endDate = .init(initialValue: endDate)
-            } else {
-                self._endDate = .init(initialValue: Calendar.current.date(byAdding: .year, value: 10, to: Date()) ?? Date())
-            }
-            
-            self.pointDates = pointDates
-            self.locale = locale
-            self._selectedStartDate = selectedStartDate
-            self._selectedEndDate = selectedEndDate
-            
-            self.notActiveAfterDate = notActiveAfterDate
-            self._isMutlipleSelectionAllowed = .init(initialValue: isMutlipleSelectionAllowed)
-            self._didSelectedDate = .init(initialValue: didSelectedDate)
-            self._didSelectedDates = .init(initialValue: didSelectedDates)
+        pointDates: [Date],
+        schemeProvider: SchemeProvider<CalendarVerticalViewScheme> = AppThemeSchemeProvider<CalendarVerticalViewScheme>()
+    ) {
+        if let startDate = startDate {
+            self._startDate = .init(initialValue: startDate)
+        } else {
+            self._startDate = .init(initialValue: Calendar.current.date(byAdding: .year, value: -10, to: Date()) ?? Date())
         }
+
+        if let endDate = endDate {
+            self._endDate = .init(initialValue: endDate)
+        } else {
+            self._endDate = .init(initialValue: Calendar.current.date(byAdding: .year, value: 10, to: Date()) ?? Date())
+        }
+
+        self.pointDates = pointDates
+        self.locale = locale
+        self._selectedStartDate = selectedStartDate
+        self._selectedEndDate = selectedEndDate
+        self.schemeProvider = schemeProvider
+
+        self.notActiveAfterDate = notActiveAfterDate
+        self._isMutlipleSelectionAllowed = .init(initialValue: isMutlipleSelectionAllowed)
+        self._didSelectedDate = .init(initialValue: didSelectedDate)
+        self._didSelectedDates = .init(initialValue: didSelectedDates)
+    }
     
     var body: some View {
         let scheme = self.scheme ?? schemeProvider.scheme
@@ -195,17 +198,21 @@ struct CalendarVerticalView: View {
         let scheme = self.scheme ?? schemeProvider.scheme
         let title = date.dateToString(dateFormat: "LLLL yyyy", locale).capitalized
         return VStack(alignment: .leading, spacing: 0) {
-            MonthYearView(title: title)
+            MonthYearView(title: title, scheme: scheme.monthYearViewScheme)
             Spacer()
                 .frame(height: LayoutGrid.halfModule * 5)
-            CalendarWeekView(locale)
+            CalendarWeekView(
+                locale,
+                scheme: scheme.calendarWeekViewScheme)
             CalendarDaysView(
                 date: date,
                 isMutlipleSelectionAllowed: isMutlipleSelectionAllowed,
                 startDate: $selectedStartDate,
                 endDate: $selectedEndDate,
                 notActiveAfterDate: notActiveAfterDate,
-                pointDates: pointDates)
+                pointDates: pointDates,
+                scheme: scheme.calendarViewCellColorScheme
+            )
             Spacer()
                 .frame(height: LayoutGrid.halfModule)
             Line()

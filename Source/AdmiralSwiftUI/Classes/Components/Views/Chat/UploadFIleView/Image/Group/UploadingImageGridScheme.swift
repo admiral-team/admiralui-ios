@@ -16,9 +16,13 @@ public struct UploadingImageGridScheme: AppThemeScheme {
     /// The error image color.
     public var errorImageColor: AColor
 
+    /// Upload image scheme.
+    public var uploadImageScheme: UploadImageViewScheme
+
     // MARK: - Initializer
 
     public init(theme: AppTheme) {
         errorImageColor = theme.colors.elementError
+        uploadImageScheme = UploadImageViewScheme(theme: theme)
     }
 }

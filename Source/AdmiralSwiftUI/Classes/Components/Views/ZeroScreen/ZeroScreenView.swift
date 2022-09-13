@@ -64,7 +64,7 @@ public struct ZeroScreenView: View {
     // MARK: Internal Properties
 
     @State var scheme: ZeroScreenViewScheme?
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<ZeroScreenViewScheme>()
+    @ObservedObject var schemeProvider: SchemeProvider<ZeroScreenViewScheme>
     
     // MARK: - Initializer
     
@@ -75,12 +75,15 @@ public struct ZeroScreenView: View {
         subtitle: String? = nil,
         buttonTitle: String? = nil,
         isLoadingButton: Binding<Bool> = .constant(false),
-        buttonAction: @escaping () -> () = {}) {
+        schemeProvider: SchemeProvider<ZeroScreenViewScheme> = AppThemeSchemeProvider<ZeroScreenViewScheme>(),
+        buttonAction: @escaping () -> () = {}
+    ) {
         self.image = image
         self.title = title
         self.subtitle = subtitle
         self.buttonTitle = buttonTitle
         self.buttonAction = buttonAction
+        self.schemeProvider = schemeProvider
         self._isLoadingButton = isLoadingButton
     }
 
@@ -116,7 +119,10 @@ public struct ZeroScreenView: View {
             Spacer()
             if let buttonTitle = buttonTitle {
                 Button(buttonTitle, action: buttonAction)
-                    .buttonStyle(PrimaryButtonStyle(isLoading: $isLoadingButton))
+                    .buttonStyle(PrimaryButtonStyle(
+                        isLoading: $isLoadingButton,
+                        schemeProvider: .constant(scheme: scheme.buttonScheme)
+                    ))
             }
             Spacer()
                 .frame(height: LayoutGrid.doubleModule)

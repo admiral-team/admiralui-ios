@@ -14,6 +14,9 @@ public struct CalendarHorizontalHeaderViewScheme: AppThemeScheme {
     
     public var buttonColor = ControlParameter<AColor>()
     public var backgroundColor: AColor
+
+    /// Month year button scheme.
+    public var monthYearButtonScheme: MonthYearButtonScheme
     
     public init(theme: AppTheme) {
         let alpha = theme.colors.disabledAlpha
@@ -23,6 +26,8 @@ public struct CalendarHorizontalHeaderViewScheme: AppThemeScheme {
         buttonColor.set(parameter: theme.colors.textAccent, for: .normal)
         buttonColor.set(parameter: theme.colors.textAccentPressed, for: .highlighted)
         buttonColor.set(parameter: theme.colors.textAccent.withAlpha(alpha), for: .disabled)
+
+        monthYearButtonScheme = MonthYearButtonScheme(theme: theme)
     }
     
 }

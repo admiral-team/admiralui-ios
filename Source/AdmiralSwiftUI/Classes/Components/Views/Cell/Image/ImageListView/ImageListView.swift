@@ -62,24 +62,32 @@ public struct ImageListView: View, ImageListViewComponent {
     
     var renderingMode: Image.TemplateRenderingMode
     @State private var scheme: ImageListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ImageListViewScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<ImageListViewScheme>
     
     // MARK: - Initializer
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-    public init(image: Image, renderingMode: Image.TemplateRenderingMode = .original) {
+    public init(
+        image: Image,
+        renderingMode: Image.TemplateRenderingMode = .original,
+        schemeProvider: SchemeProvider<ImageListViewScheme> = AppThemeSchemeProvider<ImageListViewScheme>()
+    ) {
         self._image = Binding(get: { return image }, set: { _ in })
         self.renderingMode = renderingMode
+        self.schemeProvider = schemeProvider
     }
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     public init(
         image: Image,
         renderingMode: Image.TemplateRenderingMode = .original,
-        imageListViewStyle: ImageListViewStyle) {
+        imageListViewStyle: ImageListViewStyle,
+        schemeProvider: SchemeProvider<ImageListViewScheme> = AppThemeSchemeProvider<ImageListViewScheme>()
+    ) {
         self._image = Binding(get: { return image }, set: { _ in })
         self.renderingMode = renderingMode
         self._imageListViewStyle = .init(initialValue: imageListViewStyle)
+        self.schemeProvider = schemeProvider
     }
     
     public var body: some View {

@@ -27,6 +27,9 @@ public struct AlertViewScheme: AppThemeScheme {
     /// Background color of alert view.
     public var backgroundColor: AColor
 
+    /// Button scheme.
+    public var buttonScheme: PrimaryButtonScheme
+
     // MARK: - Initializer
 
     init() {
@@ -56,6 +59,8 @@ public struct AlertViewScheme: AppThemeScheme {
         messageColor.set(parameter: theme.colors.textSecondary, style: .secondary)
         
         backgroundColor = theme.colors.backgroundExtraSurface
+
+        buttonScheme = PrimaryButtonScheme(theme: theme)
     }
     
 }

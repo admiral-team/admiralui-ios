@@ -81,7 +81,7 @@ public struct InfoAgreementView: View {
     // MARK: Internal Properties
     
     @State var scheme: InfoAgreementViewScheme?
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<InfoAgreementViewScheme>()
+    @ObservedObject var schemeProvider: SchemeProvider<InfoAgreementViewScheme>
     
     private enum Constants {
         // MARK: - Common constants
@@ -96,11 +96,13 @@ public struct InfoAgreementView: View {
         isSelected: Binding<Bool>,
         isLoading: Binding<Bool>,
         subtitleButtonTitle: String? = nil,
+        schemeProvider: SchemeProvider<InfoAgreementViewScheme> = AppThemeSchemeProvider<InfoAgreementViewScheme>(),
         subtitleButtonAction: @escaping () -> () = {},
         buttonTitle: String? = nil,
         buttonAction: @escaping () -> () = {},
         additionalButtonTitle: String? = nil,
-        additionalButtonAction: @escaping () -> () = {}) {
+        additionalButtonAction: @escaping () -> () = {}
+    ) {
         self.title = title
         self._isSelected = isSelected
         self._isLoading = isLoading
@@ -110,6 +112,7 @@ public struct InfoAgreementView: View {
         self.buttonAction = buttonAction
         self.additionalButtonTitle = additionalButtonTitle
         self.additionalButtonAction = additionalButtonAction
+        self.schemeProvider = schemeProvider
     }
     
     public var body: some View {
@@ -131,7 +134,9 @@ public struct InfoAgreementView: View {
             }
             if let buttonTitle = buttonTitle {
                 Button(buttonTitle, action: buttonAction)
-                    .buttonStyle(PrimaryButtonStyle(isLoading: $isLoading))
+                    .buttonStyle(PrimaryButtonStyle(
+                        isLoading: $isLoading,
+                        schemeProvider: .constant(scheme: scheme.buttonScheme)))
             }
             if let additionalButtonTitle = additionalButtonTitle {
                 HStack {

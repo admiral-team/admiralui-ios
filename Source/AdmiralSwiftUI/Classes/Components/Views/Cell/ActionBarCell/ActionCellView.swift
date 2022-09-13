@@ -74,7 +74,7 @@ public struct ActionCellView<T>: View where T: ListViewCell {
     @State private var scheme: ActionCellViewScheme? = nil
     private var style: ActionBarViewStyle
     @State private var cellViewOffset: CGFloat = 0.0
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ActionCellViewScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<ActionCellViewScheme>
 
     private var isOpen: Bool = false
     
@@ -83,16 +83,23 @@ public struct ActionCellView<T>: View where T: ListViewCell {
     public init(
         cellView: T,
         actions: [ActionItemBarAction],
-        style: ActionBarViewStyle = .default
+        style: ActionBarViewStyle = .default,
+        schemeProvider: SchemeProvider<ActionCellViewScheme> = AppThemeSchemeProvider<ActionCellViewScheme>()
     ) {
         self.cellView = cellView
         self.style = style
         self.actions = actions
+        self.schemeProvider = schemeProvider
     }
 
-    public init(cellView: T,  style: ActionBarViewStyle = .default) {
+    public init(
+        cellView: T,
+        style: ActionBarViewStyle = .default,
+        schemeProvider: SchemeProvider<ActionCellViewScheme> = AppThemeSchemeProvider<ActionCellViewScheme>()
+    ) {
         self.cellView = cellView
         self.style = style
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Layout

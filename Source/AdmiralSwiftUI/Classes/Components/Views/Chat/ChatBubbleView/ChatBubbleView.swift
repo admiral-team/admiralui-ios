@@ -110,7 +110,7 @@ public struct ChatBubbleView: View {
     @State private var segmentSize: CGSize = .zero
     
     @State private var scheme: ChatBubbleViewScheme? = nil
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<ChatBubbleViewScheme>()
+    @ObservedObject var schemeProvider: SchemeProvider<ChatBubbleViewScheme>
     
     // MARK: - Initializer
 
@@ -122,7 +122,9 @@ public struct ChatBubbleView: View {
         name: String? = nil,
         isRoundAllCorners: Bool = false,
         maxWidth: CGFloat? = nil,
-        errorAction: @escaping ()->() = {}) {
+        schemeProvider: SchemeProvider<ChatBubbleViewScheme> = AppThemeSchemeProvider<ChatBubbleViewScheme>(),
+        errorAction: @escaping ()->() = {}
+    ) {
         self.text = text
         self.direction = direction
         self.time = time
@@ -131,6 +133,7 @@ public struct ChatBubbleView: View {
         self.isRoundAllCorners = isRoundAllCorners
         self.maxWidth = maxWidth
         self.errorAction = errorAction
+        self.schemeProvider = schemeProvider
     }
     
     public var body: some View {
@@ -206,7 +209,7 @@ public struct ChatBubbleView: View {
             }
             .padding(.top, LayoutGrid.module)
             .padding(.bottom, LayoutGrid.halfModule)
-            ChatBubbleStatusView(time: time, status: status, direction: direction)
+            ChatBubbleStatusView(time: time, status: status, direction: direction, scheme: scheme.chatBubbleStatusScheme)
                 .padding(.bottom, LayoutGrid.module)
         }
         .padding(.horizontal, LayoutGrid.halfModule * 3)
