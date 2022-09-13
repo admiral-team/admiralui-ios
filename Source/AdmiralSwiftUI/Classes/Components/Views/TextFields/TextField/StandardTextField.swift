@@ -161,7 +161,7 @@ public struct StandardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
     @State private var segmentSize: CGSize = .zero
     @State private var scheme: StandardTextFieldScheme? = nil
     
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<StandardTextFieldScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<StandardTextFieldScheme>
 
     private var accessibilityIdentifier: String?
     
@@ -201,9 +201,11 @@ public struct StandardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
         info: Binding<String> = .constant(""),
         infoNumberOfLines: Int? = nil,
         isResponder: Binding<Bool>? = nil,
+        schemeProvider: SchemeProvider<StandardTextFieldScheme> = AppThemeSchemeProvider<StandardTextFieldScheme>(),
         onSubmit: (() -> Void)? = nil,
         onCursorPosition: ((Int, Int, String) -> (Int))? = nil,
-        @ViewBuilder trailingView: @escaping () -> T) {
+        @ViewBuilder trailingView: @escaping () -> T
+    ) {
         self.accessibilityIdentifier = accessibilityIdentifier
         self._content = Binding(get: {
             if let value = value.wrappedValue {
@@ -231,6 +233,7 @@ public struct StandardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
         self.textContentType = textContentType
         self.isResponder = isResponder
         self.formatter = formatter
+        self.schemeProvider = schemeProvider
         self.onCursorPosition = onCursorPosition
         self._isFocused = .init(initialValue: isResponder?.wrappedValue ?? false)
         self._isFilled = .init(initialValue: !($content.wrappedValue ?? "").isEmpty)
@@ -268,6 +271,7 @@ public struct StandardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
         info: Binding<String> = .constant(""),
         infoNumberOfLines: Int? = nil,
         isResponder: Binding<Bool>? = nil,
+        schemeProvider: SchemeProvider<StandardTextFieldScheme> = AppThemeSchemeProvider<StandardTextFieldScheme>(),
         onSubmit: (() -> Void)? = nil,
         onCursorPosition: ((Int, Int, String) -> (Int))? = nil,
         @ViewBuilder trailingView: @escaping () -> T) {
@@ -287,6 +291,7 @@ public struct StandardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
             info: info,
             infoNumberOfLines: infoNumberOfLines,
             isResponder: isResponder,
+            schemeProvider: schemeProvider,
             onSubmit: onSubmit,
             onCursorPosition: onCursorPosition,
             trailingView: trailingView)
@@ -493,8 +498,10 @@ extension StandardTextField where T == EmptyView {
         info: Binding<String> = .constant(""),
         infoNumberOfLines: Int? = nil,
         isResponder: Binding<Bool>? = nil,
+        schemeProvider: SchemeProvider<StandardTextFieldScheme> = AppThemeSchemeProvider<StandardTextFieldScheme>(),
         onSubmit: (() -> Void)? = nil,
-        onCursorPosition: ((Int, Int, String) -> (Int))? = nil) {
+        onCursorPosition: ((Int, Int, String) -> (Int))? = nil
+    ) {
         self.accessibilityIdentifier = accessibilityIdentifier
         self._content = Binding(get: {
             if let value = value.wrappedValue {
@@ -523,6 +530,7 @@ extension StandardTextField where T == EmptyView {
         self.canPerformActionPaste = canPerformActionPaste
         self.isResponder = isResponder
         self.formatter = formatter
+        self.schemeProvider = schemeProvider
         self.onCursorPosition = onCursorPosition
         self._isFocused = .init(initialValue: isResponder?.wrappedValue ?? false)
         self._isFilled = .init(initialValue: !($content.wrappedValue ?? "").isEmpty)
@@ -559,6 +567,7 @@ extension StandardTextField where T == EmptyView {
         info: Binding<String> = .constant(""),
         infoNumberOfLines: Int? = nil,
         isResponder: Binding<Bool>? = nil,
+        schemeProvider: SchemeProvider<StandardTextFieldScheme> = AppThemeSchemeProvider<StandardTextFieldScheme>(),
         onSubmit: (() -> Void)? = nil,
         onCursorPosition: ((Int, Int, String) -> (Int))? = nil) {
             self.init(value: content,
@@ -576,6 +585,7 @@ extension StandardTextField where T == EmptyView {
                       info: info,
                       infoNumberOfLines: infoNumberOfLines,
                       isResponder: isResponder,
+                      schemeProvider: schemeProvider,
                       onSubmit: onSubmit,
                       onCursorPosition: onCursorPosition)
     }

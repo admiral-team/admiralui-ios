@@ -45,7 +45,7 @@ public struct FeedbackInputControl: View {
     // MARK: - Private Properties
     
     @State private var scheme: FeedbackInputControlScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<FeedbackInputControlScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<FeedbackInputControlScheme>
     
     // MARK: - Initializer
     
@@ -53,9 +53,14 @@ public struct FeedbackInputControl: View {
     /// - Parameters:
     ///   - cursorPosition: Current cursor position.
     ///   - itemsCount: Number of items in control.
-    public init(cursorPosition: Binding<Int>, itemsCount: Int = 5) {
+    public init(
+        cursorPosition: Binding<Int>,
+        itemsCount: Int = 5,
+        schemeProvider: SchemeProvider<FeedbackInputControlScheme> = AppThemeSchemeProvider<FeedbackInputControlScheme>()
+    ) {
         self._cursorPosition = cursorPosition
         self.itemsCount = itemsCount
+        self.schemeProvider = schemeProvider
     }
     
     public var body: some View {

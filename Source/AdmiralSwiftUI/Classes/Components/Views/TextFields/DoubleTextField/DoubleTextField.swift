@@ -69,7 +69,7 @@ public struct DoubleTextField<T1, T2>: View where T1: TextFieldInput, T2: TextFi
     @State private var isPresentTextField = false
     @State private var scheme: DoubleTextFieldScheme? = nil
     private var accessibilityIdentifier: String?
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<DoubleTextFieldScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<DoubleTextFieldScheme>
     
     // MARK: - Initializer
     
@@ -85,7 +85,8 @@ public struct DoubleTextField<T1, T2>: View where T1: TextFieldInput, T2: TextFi
         alignment: Alignment,
         info: String = "",
         infoNumberOfLines: Int? = nil,
-        state: Binding<TextInputState> = .constant(.normal)
+        state: Binding<TextInputState> = .constant(.normal),
+        schemeProvider: SchemeProvider<DoubleTextFieldScheme> = AppThemeSchemeProvider<DoubleTextFieldScheme>()
     ) {
         self.firstTextField = firstTextField
         self.secondTextField = secondTextField
@@ -94,7 +95,7 @@ public struct DoubleTextField<T1, T2>: View where T1: TextFieldInput, T2: TextFi
         self.infoNumberOfLines = infoNumberOfLines
         self._state = state
         self.accessibilityIdentifier = accessibilityIdentifier
-        self.schemeProvider = AppThemeSchemeProvider<DoubleTextFieldScheme>()
+        self.schemeProvider = schemeProvider
     }
     
     public var body: some View {

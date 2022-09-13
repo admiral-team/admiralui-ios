@@ -32,7 +32,7 @@ public struct SliderView: View {
     // MARK: - Private Properties
     
     @State private var scheme: SliderScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SliderScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<SliderScheme>
     
     // MARK: - Initializer
     
@@ -40,8 +40,13 @@ public struct SliderView: View {
         value: Binding<Double>,
         minValue: Double = 0.0,
         maxValue: Double = 1.0,
-        gestureChange: @escaping () -> ()) {
+        scheme: SliderScheme? = nil,
+        schemeProvider: SchemeProvider<SliderScheme> = AppThemeSchemeProvider<SliderScheme>(),
+        gestureChange: @escaping () -> ()
+    ) {
         self._value = value
+        self._scheme = .init(initialValue: scheme)
+        self.schemeProvider = schemeProvider
         self.gestureChange = gestureChange
         guard maxValue > minValue else { return }
         

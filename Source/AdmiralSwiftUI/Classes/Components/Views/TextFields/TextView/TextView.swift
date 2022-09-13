@@ -120,7 +120,7 @@ public struct TextView<T>: TextFieldInput, AccessabilitySupportUIKit, Identifiab
         width: 30.0,
         height: LayoutGrid.halfModule * 6)
     
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<StandardTextFieldScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<StandardTextFieldScheme>
     
     private let rightOffset = LayoutGrid.module
     private let labelOffset: CGFloat = 30.0
@@ -163,9 +163,11 @@ public struct TextView<T>: TextFieldInput, AccessabilitySupportUIKit, Identifiab
         info: Binding<String> = .constant(""),
         infoNumberOfLines: Int? = nil,
         isResponder: Binding<Bool>? = nil,
+        schemeProvider: SchemeProvider<StandardTextFieldScheme> = AppThemeSchemeProvider<StandardTextFieldScheme>(),
         onSubmit: (() -> Void)? = nil,
         onCursorPosition: ((Int, Int, String) -> (Int))? = nil,
-        @ViewBuilder trailingView: @escaping () -> T) {
+        @ViewBuilder trailingView: @escaping () -> T
+    ) {
         self._content = Binding(get: {
             if let value = value.wrappedValue {
                 return String(describing: value)
@@ -193,6 +195,7 @@ public struct TextView<T>: TextFieldInput, AccessabilitySupportUIKit, Identifiab
         self.onCursorPosition = onCursorPosition
         self._isFocused = .init(initialValue: isResponder?.wrappedValue ?? false)
         self.trailingView = trailingView
+        self.schemeProvider = schemeProvider
         self._isFilled = .init(initialValue: !($content.wrappedValue ?? "").isEmpty)
         self.accessibilityIdentifier = accessibilityIdentifier
     }
@@ -229,6 +232,7 @@ public struct TextView<T>: TextFieldInput, AccessabilitySupportUIKit, Identifiab
         info: Binding<String> = .constant(""),
         infoNumberOfLines: Int? = nil,
         isResponder: Binding<Bool>? = nil,
+        schemeProvider: SchemeProvider<StandardTextFieldScheme> = AppThemeSchemeProvider<StandardTextFieldScheme>(),
         onSubmit: (() -> Void)? = nil,
         onCursorPosition: ((Int, Int, String) -> (Int))? = nil,
         @ViewBuilder trailingView: @escaping () -> T) {
@@ -247,6 +251,7 @@ public struct TextView<T>: TextFieldInput, AccessabilitySupportUIKit, Identifiab
             info: info,
             infoNumberOfLines: infoNumberOfLines,
             isResponder: isResponder,
+            schemeProvider: schemeProvider,
             onSubmit: onSubmit,
             onCursorPosition: onCursorPosition,
             trailingView: trailingView)
@@ -473,8 +478,10 @@ extension TextView where T == EmptyView {
         info: Binding<String> = .constant(""),
         infoNumberOfLines: Int? = nil,
         isResponder: Binding<Bool>? = nil,
+        schemeProvider: SchemeProvider<StandardTextFieldScheme> = AppThemeSchemeProvider<StandardTextFieldScheme>(),
         onSubmit: (() -> Void)? = nil,
-        onCursorPosition: ((Int, Int, String) -> (Int))? = nil) {
+        onCursorPosition: ((Int, Int, String) -> (Int))? = nil
+    ) {
         self._content = Binding(get: {
             if let value = value.wrappedValue {
                 return String(describing: value)
@@ -500,6 +507,7 @@ extension TextView where T == EmptyView {
         self.canPerformActionPaste = canPerformActionPaste
         self.isResponder = isResponder
         self.onCursorPosition = onCursorPosition
+        self.schemeProvider = schemeProvider
         self._isFocused = .init(initialValue: isResponder?.wrappedValue ?? false)
         self.trailingView = { EmptyView() }
         self._isFilled = .init(initialValue: !($content.wrappedValue ?? "").isEmpty)
@@ -538,6 +546,7 @@ extension TextView where T == EmptyView {
         info: Binding<String> = .constant(""),
         infoNumberOfLines: Int? = nil,
         isResponder: Binding<Bool>? = nil,
+        schemeProvider: SchemeProvider<StandardTextFieldScheme> = AppThemeSchemeProvider<StandardTextFieldScheme>(),
         onSubmit: (() -> Void)? = nil,
         onCursorPosition: ((Int, Int, String) -> (Int))? = nil) {
         self.init(
@@ -555,6 +564,7 @@ extension TextView where T == EmptyView {
             info: info,
             infoNumberOfLines: infoNumberOfLines,
             isResponder: isResponder,
+            schemeProvider: schemeProvider,
             onSubmit: onSubmit,
             onCursorPosition: onCursorPosition)
     }
