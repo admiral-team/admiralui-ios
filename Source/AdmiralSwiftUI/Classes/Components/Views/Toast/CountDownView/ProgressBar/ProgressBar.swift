@@ -11,18 +11,25 @@ import SwiftUI
 @available(iOS 14.0, *)
 struct ProgressBar: View {
 
+    // MARK: - Internal Properties
+
     var counter: Int
     var countTo: Int
 
     // MARK: - Private Properties
 
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<ProgressBarScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<ProgressBarScheme>
 
     // MARK: - Initiazer
 
-    init(counter: Int, countTo: Int) {
+    init(
+        counter: Int,
+        countTo: Int,
+        schemeProvider: SchemeProvider<ProgressBarScheme> = AppThemeSchemeProvider<ProgressBarScheme>()
+    ) {
         self.counter = counter
         self.countTo = countTo
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Body
