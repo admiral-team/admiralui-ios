@@ -35,25 +35,25 @@ final class CheckControlSnapshotTests: XCTestCase {
     // MARK: Default Theme
 
     func testSelectedCheckBox() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let checkBox = CheckBox(isSelected: .constant(true), text: "CheckBox", checkState: .normal)
         checkControl(view: checkBox, named: "selected", testName: "CheckBoxNormal")
     }
 
     func testNotSelectedCheckBox() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let checkBox = CheckBox(isSelected: .constant(false), text: "CheckBox", checkState: .normal)
         checkControl(view: checkBox, named: "notSelected", testName: "CheckBoxNormal")
     }
 
     func testSelectedCheckBoxError() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let checkBox = CheckBox(isSelected: .constant(true), text: "CheckBox", checkState: .error)
         checkControl(view: checkBox, named: "selected", testName: "CheckBoxError")
     }
 
     func testNotSelectedCheckBoxError() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let checkBox = CheckBox(isSelected: .constant(false), text: "CheckBox", checkState: .error)
         checkControl(view: checkBox, named: "notSelected", testName: "CheckBoxError")
     }
@@ -61,27 +61,53 @@ final class CheckControlSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testSelectedCheckBoxDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let checkBox = CheckBox(isSelected: .constant(true), text: "CheckBox", checkState: .normal)
         checkControl(view: checkBox, named: "selectedDarkTheme", testName: "CheckBoxNormal")
     }
 
     func testNotSelectedCheckBoxDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let checkBox = CheckBox(isSelected: .constant(false), text: "CheckBox", checkState: .normal)
         checkControl(view: checkBox, named: "notSelectedDarkTheme", testName: "CheckBoxNormal")
     }
 
     func testSelectedCheckBoxErrorDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let checkBox = CheckBox(isSelected: .constant(true), text: "CheckBox", checkState: .error)
         checkControl(view: checkBox, named: "selectedDarkTheme", testName: "CheckBoxError")
     }
 
     func testNotSelectedCheckBoxErrorDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let checkBox = CheckBox(isSelected: .constant(false), text: "CheckBox", checkState: .error)
         checkControl(view: checkBox, named: "notSelectedDarkTheme", testName: "CheckBoxError")
+    }
+
+    func testCheckBoxSchemeProvider() {
+        Appearance.shared.theme = .default
+
+        var scheme = CheckControlScheme()
+        scheme.textColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        scheme.tintColor.set(parameter: AColor(color: .systemPink), for: .normal, state: .normal)
+        let newSchemeProvider: SchemeProvider<CheckControlScheme> = SchemeProvider<CheckControlScheme>(scheme: scheme)
+
+        let checkBox = CheckBox(
+            isSelected: .constant(false),
+            text: "CheckBox",
+            checkState: .normal,
+            schemeProvider: newSchemeProvider
+        )
+        checkControl(view: checkBox, named: "SchemeProvider", testName: "CheckBox")
+
+        Appearance.shared.theme = .dark
+        let newCheckBox = CheckBox(
+            isSelected: .constant(false),
+            text: "CheckBox",
+            checkState: .normal,
+            schemeProvider: newSchemeProvider
+        )
+        checkControl(view: newCheckBox, named: "SchemeProvider", testName: "CheckBox")
     }
 
 }

@@ -1,5 +1,5 @@
 //
-//  DoubleSliderScheme.swift
+//  DoubleDoubleSliderScheme.swift
 //  AdmiralSwiftUI
 //
 //  Created on 29.09.2021.
@@ -7,18 +7,36 @@
 
 import AdmiralTheme
 import AdmiralUIResources
-
+/**
+ DoubleSliderScheme - the visual scheme of Slider.
+ You can create a by specifying the following parameters in init:
+ - DoubleSliderScheme() - Initialize default DoubleSliderScheme with default themezation
+ # Example to create DoubleSliderScheme:
+ # Code
+ ```
+ let scheme = DoubleSliderScheme()
+ ```
+ */
+@available(iOS 14.0, *)
 public struct DoubleSliderScheme: AppThemeScheme {
+
+    // MARK: - Public Properties
+
+    /// The parameter that sets tint color with state
     public var tintColor = ControlParameter<AColor>()
+
+    /// The parameter that sets thumb color with state
     public var thumbColor = ControlParameter<AColor>()
+
+    /// The parameter that sets thumb border color with state
     public var thumbBorderColor = ControlParameter<AColor>()
+
+    /// The parameter that sets background color with state
     public var backgroundColor = ControlParameter<AColor>()
-    
-    public init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    public init(theme: AppTheme) {
+
+    // MARK: - Initializer
+
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         tintColor.set(parameter: theme.colors.backgroundAccent, for: .normal)

@@ -35,13 +35,13 @@ final class DropDownHeaderSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testDropDownHeaderDownTypeDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createDropDownHeader(type: .down)
         checkDropDownHeader(view: view, named: "DropDownHeaderDownType.DefaultTheme", testName: "DropDownHeader")
     }
     
     func testDropDownHeaderUpTypeDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createDropDownHeader(type: .up)
         checkDropDownHeader(view: view, named: "DropDownHeaderUpType.DefaultTheme", testName: "DropDownHeader")
     }
@@ -49,13 +49,13 @@ final class DropDownHeaderSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testDropDownHeaderDownTypeDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createDropDownHeader(type: .down)
         checkDropDownHeader(view: view, named: "DropDownHeaderDownType.DarkTheme", testName: "DropDownHeader")
     }
     
     func testDropDownHeaderUpTypeDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createDropDownHeader(type: .up)
         checkDropDownHeader(view: view, named: "DropDownHeaderUpType.DarkTheme", testName: "DropDownHeader")
     }

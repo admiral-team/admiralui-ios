@@ -17,22 +17,22 @@ import AdmiralUIResources
  ```
  */
 @available(iOS 14.0.0, *)
-struct MonthYearViewScheme: AppThemeScheme {
+public struct MonthYearViewScheme: AppThemeScheme {
 
-    // MARK: - Properties
+    // MARK: - Public Properties
 
     /// The title label color
-    var titleLabelColor: AColor
+    public var titleLabelColor: AColor
 
     /// The background color
-    var backgroundColor: AColor
+    public var backgroundColor: AColor
 
     /// The title label font
-    var titleLabelFont: AFont
+    public var titleLabelFont: AFont
 
     // MARK: - Initializer
 
-    init(theme: AppTheme = .default) {
+    public init(theme: AppTheme = .default) {
         titleLabelFont = theme.fonts.subtitle1
 
         backgroundColor = theme.colors.backgroundBasic

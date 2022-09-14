@@ -54,8 +54,7 @@ public struct ChatBubbleStatusView: View {
 
     // MARK: - Private Properties
 
-    @Binding private var scheme: ChatBubbleStatusViewScheme?
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<ChatBubbleStatusViewScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<ChatBubbleStatusViewScheme>
 
     // MARK: - Initializer
 
@@ -64,29 +63,29 @@ public struct ChatBubbleStatusView: View {
         status: ChatStatus? = nil,
         direction: ChatDirection,
         style: ChatBubbleStatusStyle = .default,
-        scheme: Binding<ChatBubbleStatusViewScheme?> = .constant(nil)
+        schemeProvider: SchemeProvider<ChatBubbleStatusViewScheme> = AppThemeSchemeProvider<ChatBubbleStatusViewScheme>()
     ) {
         self._time = .init(initialValue: time)
         self._status = .init(initialValue: status)
         self._direction = .init(initialValue: direction)
         self._style = .init(initialValue: style)
-        self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Body
 
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         var image: Image?
         switch status {
         case .loading:
             image = AssetSymbol.System.Outline.time.image
         case .sent:
-            image = Image(uiImage: PrivateAsset.Custom.Chat.sent.image)
+            image = Image(uiImage: SystemAsset.Custom.Chat.sent.image)
         case .receive:
-            image = Image(uiImage: PrivateAsset.Custom.Chat.sent.image)
+            image = Image(uiImage: SystemAsset.Custom.Chat.sent.image)
         case .read:
-            image = Image(uiImage: PrivateAsset.Custom.Chat.read.image)
+            image = Image(uiImage: SystemAsset.Custom.Chat.read.image)
         default:
             image = nil
         }

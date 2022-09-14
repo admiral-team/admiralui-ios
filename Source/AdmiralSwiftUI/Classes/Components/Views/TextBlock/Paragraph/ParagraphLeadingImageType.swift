@@ -25,10 +25,10 @@ public enum ParagraphLeadingImageType {
 
     // MARK: - Computed Properties
 
-    var image: Image {
+    public var image: Image {
         switch self {
         case .point:
-            return Image(uiImage: AdmiralUIResources.PrivateAsset.Custom.Cell.point.image)
+            return Image(uiImage: AdmiralUIResources.SystemAsset.Custom.Cell.point.image)
         case .check:
             return AdmiralUIResources.AssetSymbol.Service.Outline.checkClear.image
         case .custom(let image):

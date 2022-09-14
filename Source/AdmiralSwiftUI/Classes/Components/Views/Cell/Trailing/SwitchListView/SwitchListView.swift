@@ -33,19 +33,24 @@ public struct SwitchListView: View, TralingListViewComponent {
     @State public var isHighlightedEnabled: Bool = true
     
     // MARK: Internal Properties
-    
-    @State private var scheme: SwitchListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwitchListViewScheme>()
+
+    @ObservedObject private var schemeProvider: SchemeProvider<SwitchListViewScheme>
     
     // MARK: - Initializer
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-    public init(isSwitchSelected: Binding<Bool>) {
+    public init(
+        isSwitchSelected: Binding<Bool>,
+        schemeProvider: SchemeProvider<SwitchListViewScheme> = AppThemeSchemeProvider<SwitchListViewScheme>()
+    ) {
         self._isSwitchSelected = isSwitchSelected
+        self.schemeProvider = schemeProvider
     }
 
+    // MARK: - Body
+
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         HStack(alignment: .center) {
             Spacer()
             CustomSwitch(isOn: $isSwitchSelected)

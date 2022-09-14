@@ -144,8 +144,8 @@ struct UploadImageView: View {
     private let cornersStyle: UploadImageViewCornerStyle
     private let direction: ChatDirection
 
-    @Binding private var scheme: UploadImageViewScheme?
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<UploadImageViewScheme>()
+    /// Scheme provider serves for changing scheme while change theme.
+    @ObservedObject var schemeProvider: SchemeProvider<UploadImageViewScheme>
 
     // MARK: - Initializer
 
@@ -153,19 +153,18 @@ struct UploadImageView: View {
         model: UploadImageModel,
         direction: ChatDirection,
         cornersStyle: UploadImageViewCornerStyle = .allSides,
-        scheme: Binding<UploadImageViewScheme?> = .constant(nil)
+        schemeProvider: SchemeProvider<UploadImageViewScheme> = AppThemeSchemeProvider<UploadImageViewScheme>()
     ) {
         self.model = model
         self.direction = direction
         self.cornersStyle = cornersStyle
-        self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Layout
 
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
-        contentView(scheme: scheme)
+        contentView(scheme: schemeProvider.scheme)
             .background(
                 model
                     .backgroundImage?
@@ -226,7 +225,7 @@ struct UploadImageView: View {
 
     func scheme(_ scheme: UploadImageViewScheme) -> some View {
         var view = self
-        view._scheme = .constant(scheme)
+        view.schemeProvider = SchemeProvider.constant(scheme: scheme)
         return view.id(UUID())
     }
 

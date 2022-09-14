@@ -35,13 +35,13 @@ final class RadioButtonListViewSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testRadioButtonListViewSelectedDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createRadioButtonListView(isSelected: true)
         checkRadioButtonListView(view: view, named: "SelectedDefaultTheme", testName: "RadioButtonListView")
     }
     
     func testRadioButtonListViewNotSelectedDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createRadioButtonListView(isSelected: false)
         checkRadioButtonListView(view: view, named: "NotSelectedDefaultTheme", testName: "RadioButtonListView")
     }
@@ -49,13 +49,13 @@ final class RadioButtonListViewSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testRadioButtonListViewSelectedDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createRadioButtonListView(isSelected: true)
         checkRadioButtonListView(view: view, named: "SelectedDarkTheme", testName: "RadioButtonListView")
     }
     
     func testRadioButtonListViewNotSelectedDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createRadioButtonListView(isSelected: false)
         checkRadioButtonListView(view: view, named: "NotSelectedDarkTheme", testName: "RadioButtonListView")
     }

@@ -83,8 +83,7 @@ public struct InfoAgreementView: View {
 
     // MARK: Internal Properties
 
-    @Binding var scheme: InfoAgreementViewScheme?
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<InfoAgreementViewScheme>()
+    @ObservedObject var schemeProvider: SchemeProvider<InfoAgreementViewScheme>
 
     // MARK: - Initializer
 
@@ -94,12 +93,12 @@ public struct InfoAgreementView: View {
         isSelected: Binding<Bool>,
         isLoading: Binding<Bool>,
         subtitleButtonTitle: String? = nil,
+        schemeProvider: SchemeProvider<InfoAgreementViewScheme> = AppThemeSchemeProvider<InfoAgreementViewScheme>(),
         subtitleButtonAction: @escaping () -> () = {},
         buttonTitle: String? = nil,
         buttonAction: @escaping () -> () = {},
         additionalButtonTitle: String? = nil,
-        additionalButtonAction: @escaping () -> () = {},
-        scheme: Binding<InfoAgreementViewScheme?> = .constant(nil)
+        additionalButtonAction: @escaping () -> () = {}
     ) {
         self.title = title
         self._isSelected = isSelected
@@ -110,13 +109,13 @@ public struct InfoAgreementView: View {
         self.buttonAction = buttonAction
         self.additionalButtonTitle = additionalButtonTitle
         self.additionalButtonAction = additionalButtonAction
-        self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Body
 
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         VStack(alignment: .leading) {
             HStack(alignment: .top, spacing: 0){
                 CheckBox(isSelected: $isSelected)
@@ -134,7 +133,9 @@ public struct InfoAgreementView: View {
             }
             if let buttonTitle = buttonTitle {
                 Button(buttonTitle, action: buttonAction)
-                    .buttonStyle(PrimaryButtonStyle(isLoading: $isLoading))
+                    .buttonStyle(PrimaryButtonStyle(
+                        isLoading: $isLoading,
+                        schemeProvider: .constant(scheme: scheme.buttonScheme)))
             }
             if let additionalButtonTitle = additionalButtonTitle {
                 HStack {
@@ -153,7 +154,7 @@ public struct InfoAgreementView: View {
 
     func scheme(_ scheme: InfoAgreementViewScheme) -> some View {
         var view = self
-        view._scheme = .constant(scheme)
+        view.schemeProvider = SchemeProvider.constant(scheme: scheme)
         return view.id(UUID())
     }
 

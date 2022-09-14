@@ -54,8 +54,7 @@ public struct BadgeArrowListView: View, TralingListViewComponent {
 
     // MARK: - Private Properties
     
-    @State private var scheme: BadgeArrowListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<BadgeArrowListViewScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<BadgeArrowListViewScheme>
     
     @State private var viewSize: CGSize = .zero
 
@@ -69,28 +68,38 @@ public struct BadgeArrowListView: View, TralingListViewComponent {
     /// - Parameters:
     ///   - badgeStyle: Badge style.
     ///   - value: Text on badge.
-    public init(badgeStyle: BadgeStyle, value: Int?) {
+    public init(
+        badgeStyle: BadgeStyle,
+        value: Int?,
+        schemeProvider: SchemeProvider<BadgeArrowListViewScheme> = AppThemeSchemeProvider<BadgeArrowListViewScheme>()
+    ) {
         self.badgeStyle = badgeStyle
         self.value = value
+        self.schemeProvider = schemeProvider
     }
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     /// - Parameters:
     ///   - badgeStyle: Badge style.
     ///   - text: Text on badge.
-    public init(badgeStyle: BadgeStyle, text: String?) {
+    public init(
+        badgeStyle: BadgeStyle,
+        text: String?,
+        schemeProvider: SchemeProvider<BadgeArrowListViewScheme> = AppThemeSchemeProvider<BadgeArrowListViewScheme>()
+    ) {
         self.badgeStyle = badgeStyle
         self.text = text
+        self.schemeProvider = schemeProvider
     }
 
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         HStack(spacing: Constants.cellItemsSpacing) {
             Spacer()
             BadgeView(badgeStyle: badgeStyle, text: textForBadge())
                 .scheme(scheme.badgeViewScheme)
                 .fixedSize()
-            Image(uiImage: AdmiralUIResources.PrivateAsset.Custom.Cell.arrow.image)
+            Image(uiImage: Asset.System.Outline.chevronRightOutline.image)
                 .frame(width: LayoutGrid.module, height: LayoutGrid.doubleModule)
                 .foregroundColor(scheme.arrowListViewScheme.imageTintColor.parameter(for: isEnabled ? .normal : .disabled)?.swiftUIColor)
         }
@@ -100,7 +109,7 @@ public struct BadgeArrowListView: View, TralingListViewComponent {
     
     func scheme(_ scheme: BadgeArrowListViewScheme) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view.schemeProvider = .constant(scheme: scheme)
         return view.id(UUID())
     }
     

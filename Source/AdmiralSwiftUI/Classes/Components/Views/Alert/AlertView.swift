@@ -129,8 +129,7 @@ public struct AlertView: View {
     /// Action additionalButtonAction.
     private var additionalButtonAction: (() -> ())?
 
-    @Binding private var scheme: AlertViewScheme?
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<AlertViewScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<AlertViewScheme>
 
     // MARK: - Computed Properties
 
@@ -160,10 +159,10 @@ public struct AlertView: View {
         messageLabelFontStyle: AlertMessageFontStyle = .subhead3,
         titleLabelFontStyle: AlertTitleFontStyle = .title1,
         buttonTitle: String? = nil,
+        schemeProvider: SchemeProvider<AlertViewScheme> = AppThemeSchemeProvider<AlertViewScheme>(),
         buttonAction: (() -> ())? = nil,
         additionalButtonTitle: String? = nil,
-        additionalButtonAction: (() -> ())? = nil,
-        scheme: Binding<AlertViewScheme?> = .constant(nil)
+        additionalButtonAction: (() -> ())? = nil
     ) {
         self._isLoading = isLoading
         self.imageType = imageType
@@ -178,13 +177,14 @@ public struct AlertView: View {
         self.buttonAction = buttonAction
         self.additionalButtonTitle = additionalButtonTitle
         self.additionalButtonAction = additionalButtonAction
-        self._scheme = scheme
+        self.schemeProvider = schemeProvider
+
     }
 
     // MARK: - Body
 
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         VStack(alignment: .center, spacing: 0) {
             Spacer()
                 .frame(height: LayoutGrid.quadrupleModule)
@@ -220,7 +220,9 @@ public struct AlertView: View {
                 if let buttonTitle = buttonTitle,
                    let buttonAction = buttonAction {
                     Button(buttonTitle, action: buttonAction)
-                        .buttonStyle(PrimaryButtonStyle(isLoading: $isLoading))
+                        .buttonStyle(PrimaryButtonStyle(
+                            isLoading: $isLoading,
+                            schemeProvider: .constant(scheme: scheme.buttonScheme)))
                 }
                 if let additionalButtonTitle = additionalButtonTitle,
                    let additionalButtonAction = additionalButtonAction {
@@ -245,7 +247,7 @@ public struct AlertView: View {
 
     func scheme(_ scheme: AlertViewScheme) -> some View {
         var view = self
-        view._scheme = .constant(scheme)
+        view.schemeProvider = SchemeProvider.constant(scheme: scheme)
         return view.id(UUID())
     }
 

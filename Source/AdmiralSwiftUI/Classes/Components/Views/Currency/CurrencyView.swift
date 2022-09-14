@@ -80,8 +80,7 @@ public struct CurrencyView: View {
 
     // MARK: Internal Properties
 
-    @Binding private var scheme: CurrencyViewScheme?
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<CurrencyViewScheme>()
+    @ObservedObject var schemeProvider: SchemeProvider<CurrencyViewScheme>
 
     // MARK: - Initializer
 
@@ -93,7 +92,7 @@ public struct CurrencyView: View {
         image: Image? = nil,
         firstCellType: CurrencyCellType = .none,
         secondCellType: CurrencyCellType = .none,
-        scheme: Binding<CurrencyViewScheme?> = .constant(nil)
+        schemeProvider: SchemeProvider<CurrencyViewScheme> = AppThemeSchemeProvider<CurrencyViewScheme>()
     ) {
         self._currencyText = Binding(get: { return currencyText }, set: { _ in})
         self._buyText = Binding(get: { return buyText }, set: { _ in})
@@ -101,13 +100,13 @@ public struct CurrencyView: View {
         self._image = Binding(get: { return image }, set: { _ in })
         self._firstCellType = Binding(get: { return firstCellType }, set: { _ in })
         self._secondCellType = Binding(get: { return secondCellType }, set: { _ in })
-        self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Layout
 
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         HStack(alignment: .center, spacing: .zero) {
             currencyView(scheme: scheme)
             Spacer()
@@ -122,7 +121,7 @@ public struct CurrencyView: View {
 
     func scheme(_ scheme: CurrencyViewScheme) -> some View {
         var view = self
-        view._scheme = .constant(scheme)
+        view.schemeProvider = SchemeProvider.constant(scheme: scheme)
         return view.id(UUID())
     }
 

@@ -76,8 +76,7 @@ public struct ProgressView: View {
     private var closeAction: () -> ()
     @State private var animate: Bool = false
 
-    @Binding private var scheme: ProgressViewScheme?
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<ProgressViewScheme>()
+    @ObservedObject var schemeProvider: SchemeProvider<ProgressViewScheme>
 
     // MARK: - Computed properties
 
@@ -109,18 +108,18 @@ public struct ProgressView: View {
         style: ProgressViewStyle = .default,
         progressViewSize: ProgressViewSize = .medium,
         closeAction: @escaping () -> () = {},
-        scheme: Binding<ProgressViewScheme?> = .constant(nil)
+        schemeProvider: SchemeProvider<ProgressViewScheme> = AppThemeSchemeProvider<ProgressViewScheme>()
     ) {
         self.style = style
         self.progressViewSize = progressViewSize
         self.closeAction = closeAction
-        self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Layout
 
     public var body: some View {
-        let scheme = scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         ZStack {
             Circle()
                 .trim(from: 0, to: 1.0)

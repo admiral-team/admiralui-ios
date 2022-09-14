@@ -40,10 +40,9 @@ public struct CurrencyHeaderView: View {
 
     // MARK: - Private properties
 
-    private let isTextSpacingEnabled: Bool
+    @ObservedObject var schemeProvider: SchemeProvider<CurrencyHeaderViewScheme>
 
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<CurrencyHeaderViewScheme>()
-    @Binding var scheme: CurrencyHeaderViewScheme?
+    private let isTextSpacingEnabled: Bool
 
     // MARK: - Initializer
 
@@ -53,19 +52,19 @@ public struct CurrencyHeaderView: View {
         buyText: String,
         sellText: String,
         isTextSpacingEnabled: Bool = false,
-        scheme: Binding<CurrencyHeaderViewScheme?> = .constant(nil)
+        schemeProvider: SchemeProvider<CurrencyHeaderViewScheme> = AppThemeSchemeProvider<CurrencyHeaderViewScheme>()
     ) {
         self._currencyText = .init(initialValue: currencyText)
         self._buyText = .init(initialValue: buyText)
         self._sellText = .init(initialValue: sellText)
         self.isTextSpacingEnabled = isTextSpacingEnabled
-        self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Layout
 
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         HStack(alignment: .center, spacing: 0.0, content: {
             Text(currencyText)
             Spacer()
@@ -82,7 +81,7 @@ public struct CurrencyHeaderView: View {
 
     func scheme(_ scheme: CurrencyHeaderViewScheme) -> some View {
         var view = self
-        view._scheme = .constant(scheme)
+        view.schemeProvider = SchemeProvider.constant(scheme: scheme)
         return view.id(UUID())
     }
 

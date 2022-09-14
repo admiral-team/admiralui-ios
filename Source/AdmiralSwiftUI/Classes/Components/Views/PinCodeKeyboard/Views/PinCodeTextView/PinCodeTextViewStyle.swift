@@ -11,32 +11,55 @@ import AdmiralTheme
 import AdmiralUIResources
 
 @available(iOS 14.0.0, *)
-struct PinCodeTextViewStyle: ButtonStyle {
-    
-    @State private var scheme: PinCodeTextViewScheme? = nil
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<PinCodeTextViewScheme>()
-    
+public struct PinCodeTextViewStyle: ButtonStyle {
+
+    // MARK: - Private Properties
+
+    @ObservedObject private var schemeProvider: SchemeProvider<PinCodeTextViewScheme>
+
+    // MARK: - Initializer
+
+    public init(
+        schemeProvider: SchemeProvider<PinCodeTextViewScheme> = AppThemeSchemeProvider<PinCodeTextViewScheme>()
+    ) {
+        self.schemeProvider = schemeProvider
+    }
+
+    // MARK: - Body
+
     public func makeBody(configuration: Self.Configuration) -> some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
-        PinCodeTextView(configuration: configuration, scheme: scheme)
+        PinCodeTextView(
+            configuration: configuration,
+            schemeProvider: schemeProvider
+        )
     }
 }
 
 @available(iOS 14.0.0, *)
 private extension PinCodeTextViewStyle {
     struct PinCodeTextView: View {
-        @Environment(\.isEnabled) private var isEnabled
+
+        // MARK: - Internal Properties
 
         let configuration: Configuration
-        var scheme: PinCodeTextViewScheme
-        
-        init(configuration: Configuration, scheme: PinCodeTextViewScheme) {
+
+        // MARK: - Private Properties
+
+        @Environment(\.isEnabled) private var isEnabled
+
+        private var schemeProvider: SchemeProvider<PinCodeTextViewScheme>
+
+        // MARK: - Initializer
+
+        init(configuration: Configuration, schemeProvider: SchemeProvider<PinCodeTextViewScheme>) {
             self.configuration = configuration
-            self.scheme = scheme
+            self.schemeProvider = schemeProvider
         }
-        
+
+        // MARK: - Body
+
         var body: some View {
-            
+            let scheme = schemeProvider.scheme
             configuration.label
                 .lineLimit(2)
                 .multilineTextAlignment(.center)

@@ -9,15 +9,33 @@
 import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
-
+/**
+ ToolBarScheme - the visual scheme of ToolBar.
+ You can create a by specifying the following parameters in init:
+ - ToolBarScheme() - Initialize default ToolBarScheme with default themezation
+ # Example to create ToolBarScheme:
+ # Code
+ ```
+let scheme = ToolBarScheme()
+ ```
+ */
 @available(iOS 14.0.0, *)
 public struct ToolBarScheme: AppThemeScheme {
-    
+
+    // MARK: - Public Properties
+
+    /// The background color
     public var backgroundColor: AColor
+
+    /// The shadow color
     public var shadowColor: AColor
+
+    /// The item scheme
     public var itemScheme: ItemScheme
-    
-    public init(theme: AppTheme) {
+
+    // MARK: - Initializer
+
+    public init(theme: AppTheme = .default) {
         itemScheme = ItemScheme(theme: theme)
         backgroundColor = theme.colors.backgroundAccentDark
         shadowColor = theme.colors.backgroundShadow

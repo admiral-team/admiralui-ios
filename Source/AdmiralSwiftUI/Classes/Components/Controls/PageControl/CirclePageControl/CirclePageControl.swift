@@ -45,7 +45,6 @@ public struct CirclePageControlStyle: ButtonStyle {
 
     // MARK: - Private properties
 
-    @Binding private var scheme: CirclePageControlScheme?
     @ObservedObject private var schemeProvider: SchemeProvider<CirclePageControlScheme>
 
     // MARK: - Initializier
@@ -55,13 +54,11 @@ public struct CirclePageControlStyle: ButtonStyle {
         totalPages: Int,
         style: CirclePageSliderStyle = .default,
         action: (() -> Void)? = nil,
-        scheme: Binding<CirclePageControlScheme?> = .constant(nil),
         schemeProvider: SchemeProvider<CirclePageControlScheme> = AppThemeSchemeProvider<CirclePageControlScheme>()
     ) {
         self.totalPages = totalPages
         self.style = style
         self._step = step
-        self._scheme = scheme
         self.action = action
         self.schemeProvider = schemeProvider
     }
@@ -73,7 +70,6 @@ public struct CirclePageControlStyle: ButtonStyle {
             totalPages: totalPages,
             step: $step,
             style: style,
-            scheme: $scheme,
             schemeProvider: schemeProvider,
             action: action,
             configuration: configuration
@@ -109,7 +105,6 @@ private extension CirclePageControlStyle {
         private let configuration: Configuration
         private let stepLength: CGFloat
         private let action: (() -> Void)?
-        @Binding private var scheme: CirclePageControlScheme?
         private let schemeProvider: SchemeProvider<CirclePageControlScheme>
 
         // MARK: - Initializer
@@ -118,12 +113,10 @@ private extension CirclePageControlStyle {
             totalPages: Int,
             step: Binding<Int>,
             style: CirclePageSliderStyle,
-            scheme: Binding<CirclePageControlScheme?> = .constant(nil),
             schemeProvider: SchemeProvider<CirclePageControlScheme>,
             action: (() -> Void)?,
             configuration: Configuration
         ) {
-            self._scheme = scheme
             self._step = step
             self.configuration = configuration
             self.totalPages = totalPages
@@ -149,7 +142,7 @@ private extension CirclePageControlStyle {
 
         private func contentView() -> some View {
             ZStack {
-                let scheme = self.scheme ?? schemeProvider.scheme
+                let scheme = schemeProvider.scheme
                 Circle()
                     .trim(from: .zero, to: CGFloat(step) * stepLength)
                     .stroke(style: StrokeStyle(lineWidth: Constants.circleLineWidth, lineCap: .round, lineJoin: .round))

@@ -38,15 +38,15 @@ public struct PlatformButtonStyle: ButtonStyle {
 
     private var accessibilityIdentifier: String?
 
-    @Binding private var scheme: PlatformButtonScheme?
+    @ObservedObject private var schemeProvider: SchemeProvider<PlatformButtonScheme>
 
     // MARK: - Initializer
 
     public init(
-        scheme: Binding<PlatformButtonScheme?> = .constant(nil),
+        schemeProvider: SchemeProvider<PlatformButtonScheme> = AppThemeSchemeProvider<PlatformButtonScheme>(),
         accessibilityIdentifier: String? = nil
     ) {
-        self._scheme = scheme
+        self.schemeProvider = schemeProvider
         self.accessibilityIdentifier = accessibilityIdentifier
     }
 
@@ -54,7 +54,7 @@ public struct PlatformButtonStyle: ButtonStyle {
 
     public func makeBody(configuration: Self.Configuration) -> some View {
         PrimaryButton(
-            scheme: $scheme,
+            schemeProvider: schemeProvider,
             configuration: configuration,
             accessibilityIdentifier: accessibilityIdentifier
         )
@@ -73,23 +73,25 @@ private extension PlatformButtonStyle {
         // MARK: - Internal Properties
 
         let configuration: Configuration
-        @Binding private var scheme: PlatformButtonScheme?
+        private var schemeProvider: SchemeProvider<PlatformButtonScheme>
 
-        @ObservedObject private var schemeProvider = AppThemeSchemeProvider<PlatformButtonScheme>()
+        // MARK: - Initializer
 
         init(
-            scheme: Binding<PlatformButtonScheme?> = .constant(nil),
+            schemeProvider: SchemeProvider<PlatformButtonScheme>,
             configuration: Configuration,
             accessibilityIdentifier: String? = nil
         ) {
 
             self.configuration = configuration
-            self._scheme = scheme
+            self.schemeProvider = schemeProvider
             self.accessibilityIdentifier = accessibilityIdentifier
         }
 
+        // MARK: - Body
+
         var body: some View {
-            let scheme = self.scheme ?? schemeProvider.scheme
+            let scheme = schemeProvider.scheme
             let backgroundNormal = scheme.buttonBackgroundColor.parameter(for: .normal)?.swiftUIColor
             let backgroundDisabled = scheme.buttonBackgroundColor.parameter(for: .disabled)?.swiftUIColor
             let backgroundHighlighted = scheme.buttonBackgroundColor.parameter(for: .highlighted)?.swiftUIColor

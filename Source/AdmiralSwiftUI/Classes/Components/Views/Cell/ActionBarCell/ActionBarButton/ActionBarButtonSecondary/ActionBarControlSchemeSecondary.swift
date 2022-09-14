@@ -1,5 +1,5 @@
 //
-//  ActionBarControlSchemeTwo.swift
+//  ActionBarControlSchemeTwoTwo.swift
 //  AdmiralSwiftUI
 //
 //  Created on 08.02.2022.
@@ -7,18 +7,25 @@
 
 import AdmiralTheme
 import AdmiralUIResources
-import CoreGraphics
-
+/**
+ ActionBarControlSchemeTwo - the visual scheme of ListCell.
+ You can create a by specifying the following parameters in init:
+ - ActionBarControlSchemeTwo() - Initialize default ActionBarControlSchemeTwo with default themezation
+ # Example to create ActionBarControlSchemeTwo:
+ # Code
+ ```
+ let scheme = ActionBarControlSchemeTwo()
+ ```
+ */
 @available(iOS 14.0.0, *)
-/// The scheme of ActionBarControl.
-public struct ActionBarControlSchemeTwo: AppThemeScheme {
+public struct ActionBarControlSchemeSecondary: AppThemeScheme {
 
     // MARK: - Public properties
 
     /// The settings of ActionBarButtonStyle.
     public struct ActionBarControl {
         var imageViewAlpha = ControlParameter<Double>()
-        var backgroundColor = ActionBarControlSchemeTwoParameters<AColor>()
+        var backgroundColor = ActionBarControlSchemeTwoTwoParameters<AColor>()
     }
 
     public var actionBarControl = ActionBarControl()
@@ -33,7 +40,7 @@ public struct ActionBarControlSchemeTwo: AppThemeScheme {
     public var imageTintColor: AColor
 
     /// The alpha of custom color.
-    public let alpha: CGFloat
+    public let alpha: Double
 
     // MARK: - Initializer
 
@@ -71,7 +78,7 @@ public struct ActionBarControlSchemeTwo: AppThemeScheme {
 }
 
 @available(iOS 14.0, *)
-public struct ActionBarControlSchemeTwoParameters<P> {
+public struct ActionBarControlSchemeTwoTwoParameters<P> {
 
     public var parameters: [String: P?] = [:]
 

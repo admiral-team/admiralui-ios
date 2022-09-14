@@ -48,20 +48,28 @@ public struct ImageWithSubtitleListView: View, TralingListViewComponent {
     @Environment(\.isEnabled) var isEnabled
     
     var renderingMode: Image.TemplateRenderingMode
-    @State private var scheme: ImageWithSubtitleListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ImageWithSubtitleListViewScheme>()
+    
+    @ObservedObject private var schemeProvider: SchemeProvider<ImageWithSubtitleListViewScheme>
     
     // MARK: - Initializer
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-    public init(subtitle: String?, image: Image?, renderingMode: Image.TemplateRenderingMode = .original) {
+    public init(
+        subtitle: String?,
+        image: Image?,
+        renderingMode: Image.TemplateRenderingMode = .original,
+        schemeProvider: SchemeProvider<ImageWithSubtitleListViewScheme> = AppThemeSchemeProvider<ImageWithSubtitleListViewScheme>()
+    ) {
         self._subtitle = Binding(get: { return subtitle }, set: { _ in })
         self._image = Binding(get: { return image }, set: { _ in })
         self.renderingMode = renderingMode
+        self.schemeProvider = schemeProvider
     }
 
+    // MARK: - Body
+
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         HStack(spacing: LayoutGrid.module) {
             Spacer()
             if let image = self.image {

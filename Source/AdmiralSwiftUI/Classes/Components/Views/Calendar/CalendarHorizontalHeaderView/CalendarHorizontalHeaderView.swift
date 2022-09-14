@@ -32,10 +32,7 @@ public struct CalendarHorizontalHeaderView: View {
 
     // MARK: - Schemes
 
-    @Binding private var scheme: CalendarHorizontalHeaderViewScheme?
-    @Binding private var buttonScheme: MonthYearButtonScheme?
-
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<CalendarHorizontalHeaderViewScheme>()
+    @ObservedObject var schemeProvider: SchemeProvider<CalendarHorizontalHeaderViewScheme>
 
     // MARK: - Initializer
 
@@ -46,8 +43,7 @@ public struct CalendarHorizontalHeaderView: View {
         leftArrowTap: @escaping () -> Void,
         rightArrowTap: @escaping () -> Void,
         choiceTap: @escaping () -> Void,
-        scheme: Binding<CalendarHorizontalHeaderViewScheme?> = .constant(nil),
-        buttonScheme: Binding<MonthYearButtonScheme?> = .constant(nil)
+        schemeProvider: SchemeProvider<CalendarHorizontalHeaderViewScheme> = AppThemeSchemeProvider<CalendarHorizontalHeaderViewScheme>()
     ) {
         self._title = Binding(
             get: { title },
@@ -58,22 +54,26 @@ public struct CalendarHorizontalHeaderView: View {
         self.leftArrowTap = leftArrowTap
         self.rightArrowTap = rightArrowTap
         self.choiceTap = choiceTap
-        self._scheme = scheme
-        self._buttonScheme = buttonScheme
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Body
 
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         let buttonImage = isOpen ?
-            Image(uiImage: PrivateAsset.Custom.Cell.arrowDown.image) :
-            AssetSymbol.System.Outline.smallArrowUp.image
+        Image(uiImage: Asset.System.Outline.chevronDownOutline.image) :
+        AssetSymbol.System.Outline.smallArrowUp.image
         let buttonColor = scheme.buttonColor.parameter(for: isEnabled ? .normal : .disabled)
         return ZStack {
             HStack {
                 Button(title, action: monthYearButtonTaped)
-                    .buttonStyle(MonthYearButtonStyle(image: buttonImage, scheme: $buttonScheme))
+                    .buttonStyle(
+                        MonthYearButtonStyle(
+                            image: buttonImage,
+                            schemeProvider: SchemeProvider.constant(scheme: scheme.monthYearButtonScheme)
+                        )
+                    )
                 Spacer()
                 if isOpen {
                     Button(action: leftArrowTaped, label: {
@@ -129,6 +129,5 @@ struct CalendarHorizontalHeaderView_Previews: PreviewProvider {
         .frame(height: 16.0)
         .padding()
         .environment(\.manager, SwiftUIThemeManager(theme: .light))
-
     }
 }

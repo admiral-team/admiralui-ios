@@ -75,8 +75,7 @@ public struct CalendarHorizontalView: View {
     @State private var selectionYear: Int = 0
     @State private var pickerSelections: [Int] = [0, 0]
 
-    @Binding private var scheme: CalendarHorizontalViewScheme?
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<CalendarHorizontalViewScheme>()
+    @ObservedObject var schemeProvider: SchemeProvider<CalendarHorizontalViewScheme>
 
     @State private var calendarPickerYears = [CalendarPickerYear]()
 
@@ -92,9 +91,8 @@ public struct CalendarHorizontalView: View {
         notActiveAfterDate: Date?,
         isMutlipleSelectionAllowed: Bool = true,
         pointDates: [Date],
-        scheme: Binding<CalendarHorizontalViewScheme?> = .constant(nil)
+        schemeProvider: SchemeProvider<CalendarHorizontalViewScheme> = AppThemeSchemeProvider<CalendarHorizontalViewScheme>()
     ) {
-
         self.startDate = startDate
         self.endDate = endDate
 
@@ -108,7 +106,7 @@ public struct CalendarHorizontalView: View {
         self._selectedEndDate = selectedEndDate
         self.monthYearDate = monthYearDate.removeTimeStamp()
         self.notActiveAfterDate = notActiveAfterDate
-        self._scheme = scheme
+        self.schemeProvider = schemeProvider
 
         let preInitDates = preInitDate()
         var generator = CalendarGenerator()
@@ -125,6 +123,7 @@ public struct CalendarHorizontalView: View {
     // MARK: - Body
 
     public var body: some View {
+        let scheme = schemeProvider.scheme
         var title = ""
 
         if isHeaderOpen {
@@ -188,13 +187,17 @@ public struct CalendarHorizontalView: View {
                         withAnimation(.easeIn(duration: 0.5)) {
                             isHeaderOpen.toggle()
                         }
-                    }
+                    },
+                    schemeProvider: SchemeProvider.constant(scheme: scheme.headerViewScheme)
                 )
                 .animation(nil)
                 .frame(height: LayoutGrid.quadrupleModule)
 
                 if isHeaderOpen {
-                    CalendarWeekView(locale)
+                    CalendarWeekView(
+                        locale,
+                        schemeProvider: SchemeProvider.constant(scheme: scheme.calendarWeekViewScheme)
+                    )
                         .frame(height: LayoutGrid.halfModule * 9)
                     Spacer()
                         .frame(height: LayoutGrid.halfModule * 5)
@@ -234,7 +237,7 @@ public struct CalendarHorizontalView: View {
     }
 
     private func pickerViews() -> some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
 
         var data = [[String]]()
         let months = calendarPickerYears[selectionYear].months.map({ $0.title })
@@ -409,6 +412,7 @@ public struct CalendarHorizontalView: View {
     }
 
     private func monthViews() -> some View {
+        let scheme = schemeProvider.scheme
         let generator = CalendarGenerator()
         let preMonthDate = generator.calculatePreviousMonthData(currentDate: currentDate, startDate: startDate)
         let nextMonthdate = generator.calculateNextMonthData(currentDate: currentDate, endDate: endDate)
@@ -422,7 +426,9 @@ public struct CalendarHorizontalView: View {
                         startDate: $selectedStartDate,
                         endDate: $selectedEndDate,
                         notActiveAfterDate: notActiveAfterDate,
-                        pointDates: pointDates)
+                        pointDates: pointDates,
+                        schemeProvider: SchemeProvider.constant(scheme: scheme.calendarViewCellColorScheme)
+                    )
                         .frame(height: Constants.calendarHorizontalViewHeight, alignment: .top)
                         .offset(x: backViewOffset(
                                     width: geometry.size.width,
@@ -443,7 +449,9 @@ public struct CalendarHorizontalView: View {
                     startDate: $selectedStartDate,
                     endDate: $selectedEndDate,
                     notActiveAfterDate: notActiveAfterDate,
-                    pointDates: pointDates)
+                    pointDates: pointDates,
+                    schemeProvider: SchemeProvider.constant(scheme: scheme.calendarViewCellColorScheme)
+                )
                     .frame(height: Constants.calendarHorizontalViewHeight, alignment: .top)
                     .offset(x: currentViewOffset(
                                 width: geometry.size.width,
@@ -456,7 +464,9 @@ public struct CalendarHorizontalView: View {
                         startDate: $selectedStartDate,
                         endDate: $selectedEndDate,
                         notActiveAfterDate: notActiveAfterDate,
-                        pointDates: pointDates)
+                        pointDates: pointDates,
+                        schemeProvider: SchemeProvider.constant(scheme: scheme.calendarViewCellColorScheme)
+                    )
                         .frame(height: Constants.calendarHorizontalViewHeight, alignment: .top)
                         .offset(x: nextViewOffset(
                                     width: geometry.size.width,

@@ -59,8 +59,7 @@ struct CalendarVerticalView: View {
     @State private var currentMonthDate: Date?
     @State private var isScrollCalendar: Bool = false
 
-    @Binding private var scheme: CalendarVerticalViewScheme?
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<CalendarVerticalViewScheme>()
+    @ObservedObject var schemeProvider: SchemeProvider<CalendarVerticalViewScheme>
 
     // MARK: - Initializer
 
@@ -76,7 +75,7 @@ struct CalendarVerticalView: View {
         didSelectedDate: ((Date?) -> ())? = nil,
         didSelectedDates: (([Date]) -> ())? = nil,
         pointDates: [Date],
-        scheme: Binding<CalendarVerticalViewScheme?> = .constant(nil)
+        schemeProvider: SchemeProvider<CalendarVerticalViewScheme> = AppThemeSchemeProvider<CalendarVerticalViewScheme>()
     ) {
         if let startDate = startDate {
             self._startDate = .init(initialValue: startDate)
@@ -94,18 +93,17 @@ struct CalendarVerticalView: View {
         self.locale = locale
         self._selectedStartDate = selectedStartDate
         self._selectedEndDate = selectedEndDate
-
+        self.schemeProvider = schemeProvider
         self.notActiveAfterDate = notActiveAfterDate
         self._isMutlipleSelectionAllowed = .init(initialValue: isMutlipleSelectionAllowed)
         self._didSelectedDate = .init(initialValue: didSelectedDate)
         self._didSelectedDates = .init(initialValue: didSelectedDates)
-        self._scheme = scheme
     }
 
     // MARK: - Body
 
     var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         return ZStack {
             scheme.backgroundColor.swiftUIColor
             ScrollViewReader { scrollView in
@@ -140,7 +138,7 @@ struct CalendarVerticalView: View {
 
     func scheme(_ scheme: CalendarVerticalViewScheme) -> some View {
         var view = self
-        view._scheme = .constant(scheme)
+        view.schemeProvider = SchemeProvider.constant(scheme: scheme)
         return view.id(UUID())
     }
 
@@ -201,20 +199,27 @@ struct CalendarVerticalView: View {
     }
 
     private func monthView(date: Date) -> some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         let title = date.dateToString(dateFormat: "LLLL yyyy", locale).capitalized
         return VStack(alignment: .leading, spacing: 0) {
-            MonthYearView(title: title)
+            MonthYearView(
+                title: title,
+                schemeProvider: SchemeProvider.constant(scheme: scheme.monthYearViewScheme)
+            )
             Spacer()
                 .frame(height: LayoutGrid.halfModule * 5)
-            CalendarWeekView(locale)
+            CalendarWeekView(
+                locale,
+                schemeProvider: SchemeProvider.constant(scheme: scheme.calendarWeekViewScheme)
+            )
             CalendarDaysView(
                 date: date,
                 isMutlipleSelectionAllowed: isMutlipleSelectionAllowed,
                 startDate: $selectedStartDate,
                 endDate: $selectedEndDate,
                 notActiveAfterDate: notActiveAfterDate,
-                pointDates: pointDates
+                pointDates: pointDates,
+                schemeProvider: SchemeProvider.constant(scheme: scheme.calendarViewCellColorScheme)
             )
             Spacer()
                 .frame(height: LayoutGrid.halfModule)

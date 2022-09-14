@@ -69,8 +69,7 @@ public struct OutlineSliderTab: View {
 
     // MARK: - Private Properties
 
-    @Binding private var scheme: OutlineSliderTabScheme?
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<OutlineSliderTabScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<OutlineSliderTabScheme>
 
     @Binding private var selection: Int
     @Binding private var offset: CGFloat
@@ -85,26 +84,29 @@ public struct OutlineSliderTab: View {
         selection: Binding<Int>,
         offset: Binding<CGFloat> = .constant(0.0),
         onTapAction: (() -> Void)? = nil,
-        scheme: Binding<OutlineSliderTabScheme?> = .constant(nil)
+        schemeProvider: SchemeProvider<OutlineSliderTabScheme> = AppThemeSchemeProvider<OutlineSliderTabScheme>()
     ) {
         self._selection = selection
         self._offset = offset
         self.items = items
         self.onTapAction = onTapAction
-        self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
 
     public init(
         items: [String],
         selection: Binding<Int>,
         offset: Binding<CGFloat> = .constant(0.0),
+        schemeProvider: SchemeProvider<OutlineSliderTabScheme> = AppThemeSchemeProvider<OutlineSliderTabScheme>(),
         onTapAction: (() -> Void)? = nil
     ) {
         self.init(
             items: items.map({ OutlineSliderTabItem(title: $0, badgeStyle: nil) }),
             selection: selection,
             offset: offset,
-            onTapAction: onTapAction)
+            onTapAction: onTapAction,
+            schemeProvider: schemeProvider
+        )
     }
 
     // MARK: - Body
@@ -133,7 +135,7 @@ public struct OutlineSliderTab: View {
     // MARK: - Private Methods
 
     private func getSegmentView(for index: Int) -> some View {
-        let scheme = scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
 
         guard index < items.count else {
             return EmptyView().eraseToAnyView()

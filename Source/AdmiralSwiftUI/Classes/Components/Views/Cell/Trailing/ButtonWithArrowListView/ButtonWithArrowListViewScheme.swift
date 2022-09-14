@@ -8,19 +8,32 @@
 import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
-
+/**
+ ButtonWithArrowListViewScheme - the visual scheme of ButtonListView.
+ You can create a by specifying the following parameters in init:
+ - ButtonWithArrowListViewScheme() - Initialize default ButtonWithArrowListViewScheme with default themezation
+ # Example to create ButtonWithArrowListViewScheme:
+ # Code
+ ```
+ let scheme = ButtonWithArrowListViewScheme()
+ ```
+ */
 @available(iOS 14.0.0, *)
-public class ButtonWithArrowListViewScheme: AppThemeScheme {
-    
+public struct ButtonWithArrowListViewScheme: AppThemeScheme {
+
+    // MARK: - Public Properties
+
+    /// The  parameter that sets view background color with state
     public var backgroundColor = ControlParameter<AColor>()
-    public var button: GhostButtonWithImageScheme
-    public var image: Image? {
-        didSet { button.image = image }
-    }
-    
-    required public init(theme: AppTheme) {
+
+    /// The ghost button visual scheme
+    public var ghostButtonScheme: GhostButtonWithImageScheme
+
+    // MARK: - Initializer
+
+    public init(theme: AppTheme = .default) {
         backgroundColor.set(parameter: theme.colors.backgroundSelected, for: .highlighted)
         backgroundColor.set(parameter: theme.colors.backgroundBasic, for: .normal)
-        button = GhostButtonWithImageScheme(theme: theme)
+        ghostButtonScheme = GhostButtonWithImageScheme(theme: theme)
     }
 }

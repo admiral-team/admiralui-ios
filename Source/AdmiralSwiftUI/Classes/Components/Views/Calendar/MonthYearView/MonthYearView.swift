@@ -15,25 +15,27 @@ struct MonthYearView: View {
 
     @State var title: String
 
-    @State private var scheme: MonthYearViewScheme?
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<MonthYearViewScheme>()
-
+    @ObservedObject private var schemeProvider: SchemeProvider<MonthYearViewScheme>
+    
     // MARK: - Initializer
 
-    init(title: String) {
+    init(
+        title: String,
+        schemeProvider: SchemeProvider<MonthYearViewScheme> = AppThemeSchemeProvider<MonthYearViewScheme>()
+    ) {
         self._title = .init(initialValue: title)
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Body
 
     var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
-        return ZStack {
-            scheme.backgroundColor.swiftUIColor
+        ZStack {
+            schemeProvider.scheme.backgroundColor.swiftUIColor
             HStack {
                 Text(title)
-                    .font(scheme.titleLabelFont.swiftUIFont)
-                    .foregroundColor(scheme.titleLabelColor.swiftUIColor)
+                    .font(schemeProvider.scheme.titleLabelFont.swiftUIFont)
+                    .foregroundColor(schemeProvider.scheme.titleLabelColor.swiftUIColor)
                 Spacer()
             }
         }
@@ -50,6 +52,5 @@ struct MonthYearView_Previews: PreviewProvider {
             .frame(height: 16.0)
             .padding()
             .environment(\.manager, SwiftUIThemeManager(theme: .light))
-
     }
 }

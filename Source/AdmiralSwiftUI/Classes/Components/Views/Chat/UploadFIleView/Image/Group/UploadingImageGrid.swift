@@ -5,8 +5,9 @@
 //  Created on 09.11.2021.
 //
 
-import SwiftUI
+import AdmiralTheme
 import AdmiralUIResources
+import SwiftUI
 /**
  UploadingImageGrid - the component that used to add imageViews to group
 
@@ -44,6 +45,11 @@ public struct UploadingImageGrid: View {
 
     /// Tapped index of  element.
     public var tappedModel: ((UploadImageModel) -> ())?
+    
+    // MARK: Internal Properties
+
+    /// Scheme provider serves for changing scheme while change theme.
+    @ObservedObject var schemeProvider: SchemeProvider<UploadingImageGridScheme>
 
     // MARK: - Private properties
 
@@ -78,24 +84,30 @@ public struct UploadingImageGrid: View {
         models: [UploadImageModel],
         direction: ChatDirection,
         tappedModel: ((_ model: UploadImageModel) -> Void)? = nil,
+        schemeProvider: SchemeProvider<UploadingImageGridScheme> = AppThemeSchemeProvider<UploadingImageGridScheme>(),
         errorAction: @escaping () -> () = {}
     ) {
         self.models = models
         self.direction = direction
         self.tappedModel = tappedModel
         self.errorAction = errorAction
+        self.schemeProvider = schemeProvider
     }
 
     public init(
         model: UploadImageModel,
         direction: ChatDirection,
         tappedModel: ((_ model: UploadImageModel) -> Void)? = nil,
+        schemeProvider: SchemeProvider<UploadingImageGridScheme> = AppThemeSchemeProvider<UploadingImageGridScheme>(),
         errorAction: @escaping () -> () = {}
     ) {
-        self.models = [model]
-        self.direction = direction
-        self.tappedModel = tappedModel
-        self.errorAction = errorAction
+        self.init(
+            models: [model],
+            direction: direction,
+            tappedModel: tappedModel,
+            schemeProvider: schemeProvider,
+            errorAction: errorAction
+        )
     }
 
     // MARK: - Layout
@@ -107,6 +119,7 @@ public struct UploadingImageGrid: View {
     // MARK: - Private methods
     @ViewBuilder
     private func contentView() -> some View {
+        let scheme = schemeProvider.scheme
         switch direction {
         case .left:
             HStack(alignment: .bottom, spacing: LayoutGrid.halfModule) {
@@ -119,13 +132,32 @@ public struct UploadingImageGrid: View {
             HStack(alignment: .bottom, spacing: LayoutGrid.halfModule) {
                 Spacer()
                 uploadImageViews()
-                statusError()
+
+                statusError(scheme: scheme)
             }
             .eraseToAnyView()
         }
     }
+    
+    private func statusError(scheme: UploadingImageGridScheme) -> some View {
+        return VStack {
+            if isStatusError() {
+                Image(uiImage: Asset.Service.Solid.errorSolid.image)
+                    .resizable()
+                    .frame(width: LayoutGrid.halfModule * 7, height: LayoutGrid.halfModule * 7)
+                    .foregroundColor(scheme.errorImageColor.swiftUIColor)
+                    .padding(.top, LayoutGrid.module)
+                    .padding(.leading, LayoutGrid.module)
+                    .onTapGesture {
+                        errorAction()
+                    }
+            }
+        }
+    }
 
+    @ViewBuilder
     private func uploadImageViews() -> some View {
+        let scheme = schemeProvider.scheme
         VStack(spacing: LayoutGrid.module) {
             ForEach(rows.indices, id: \.self) { index in
                 if let cornerList = grid[String(gridCount)] {
@@ -134,27 +166,14 @@ public struct UploadingImageGrid: View {
                             UploadImageView(
                                 model: rows[index][modelIndex],
                                 direction: direction,
-                                cornersStyle: cornerList[index][modelIndex]
-                            )
-                            .onTapGesture {
+                                cornersStyle: cornerList[index][modelIndex],
+                                schemeProvider: SchemeProvider.constant(scheme: scheme.uploadImageScheme)
+                            ).onTapGesture {
                                 tappedModel?(rows[index][modelIndex])
                             }
                         }
                     }
                 }
-            }
-        }
-    }
-
-    private func statusError() -> some View {
-        return VStack {
-            if isStatusError() {
-                Image(uiImage: PrivateAsset.Custom.Chat.error.image)
-                    .padding(.top, LayoutGrid.module)
-                    .frame(width: LayoutGrid.module * 5, height: LayoutGrid.module * 5)
-                    .onTapGesture {
-                        errorAction()
-                    }
             }
         }
     }

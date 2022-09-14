@@ -18,7 +18,7 @@ import AdmiralUIResources
  */
 public struct ZeroScreenViewScheme: AppThemeScheme {
 
-    // MARK: - Properties
+    // MARK: - Public Properties
 
     /// The title color
     public var titleColor: AColor
@@ -32,6 +32,9 @@ public struct ZeroScreenViewScheme: AppThemeScheme {
     /// The subtitle font
     public var subtitleFont: AFont
 
+    /// Button scheme
+    public var buttonScheme: PrimaryButtonScheme
+
     // MARK: - Initializer
 
     public init(theme: AppTheme = .default) {
@@ -40,6 +43,8 @@ public struct ZeroScreenViewScheme: AppThemeScheme {
 
         subtitleColor = theme.colors.textSecondary
         subtitleFont = theme.fonts.body2
+
+        buttonScheme = PrimaryButtonScheme(theme: theme)
     }
 
 }

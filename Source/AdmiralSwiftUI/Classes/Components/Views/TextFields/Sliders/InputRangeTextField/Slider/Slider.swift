@@ -10,7 +10,9 @@ import SwiftUI
 
 @available(iOS 14.0.0, *)
 public struct SliderView: View {
-    
+
+    // MARK: - Constants
+
     enum Constants {
         static let circleXOffset: CGFloat = 5.0
         static let circleWidth: CGFloat = 10.0
@@ -30,9 +32,8 @@ public struct SliderView: View {
     @Environment(\.isEnabled) var isEnabled
     
     // MARK: - Private Properties
-    
-    @State private var scheme: SliderScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SliderScheme>()
+
+    @ObservedObject private var schemeProvider: SchemeProvider<SliderScheme>
     
     // MARK: - Initializer
     
@@ -40,18 +41,23 @@ public struct SliderView: View {
         value: Binding<Double>,
         minValue: Double = 0.0,
         maxValue: Double = 1.0,
-        gestureChange: @escaping () -> ()) {
+        schemeProvider: SchemeProvider<SliderScheme> = AppThemeSchemeProvider<SliderScheme>(),
+        gestureChange: @escaping () -> ()
+    ) {
         self._value = value
+        self.schemeProvider = schemeProvider
         self.gestureChange = gestureChange
         guard maxValue > minValue else { return }
         
         self._minValue = .init(initialValue: minValue)
         self._maxValue = .init(initialValue: maxValue)
     }
-    
+
+    // MARK: - Body
+
     /// `Slider` view setup
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         let val = CGFloat((min(max(Double(value), minValue), maxValue) - minValue) / (maxValue - minValue))
         let thumbBorderColor = scheme.thumbBorderColor.parameter(for: isEnabled ? .normal : .disabled)?.swiftUIColor ?? .clear
         let backgroundColor = scheme.backgroundColor.parameter(for: isEnabled ? .normal : .disabled)?.swiftUIColor ?? .clear

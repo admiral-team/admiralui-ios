@@ -40,19 +40,25 @@ public struct ImageCardListView: View, ImageListViewComponent {
     @Environment(\.isEnabled) var isEnabled
     
     var renderingMode: Image.TemplateRenderingMode
-    @State private var scheme: ImageCardListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ImageCardListViewScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<ImageCardListViewScheme>
     
     // MARK: - Initializer
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-    public init(cardImage: Image, renderingMode: Image.TemplateRenderingMode = .original) {
+    public init(
+        cardImage: Image,
+        renderingMode: Image.TemplateRenderingMode = .original,
+        schemeProvider: SchemeProvider<ImageCardListViewScheme> = AppThemeSchemeProvider<ImageCardListViewScheme>()
+    ) {
         self._cardImage = Binding(get: { return cardImage }, set: { _ in })
         self.renderingMode = renderingMode
+        self.schemeProvider = schemeProvider
     }
 
+    // MARK: - Body
+
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         switch renderingMode {
         case .original:
             cardImage
@@ -73,7 +79,7 @@ public struct ImageCardListView: View, ImageListViewComponent {
     
     func scheme(_ scheme: ImageCardListViewScheme) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view.schemeProvider = .constant(scheme: scheme)
         return view.id(UUID())
     }
     

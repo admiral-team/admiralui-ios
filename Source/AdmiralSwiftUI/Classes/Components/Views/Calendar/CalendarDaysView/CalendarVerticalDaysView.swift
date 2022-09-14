@@ -20,8 +20,7 @@ public struct CalendarVerticalDaysView: View {
     private var notActiveAfterDate: Date?
     private var pointDates: [Date]
 
-    @Binding private var scheme: CalendarViewCellColorScheme?
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<CalendarViewCellColorScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<CalendarViewCellColorScheme> = AppThemeSchemeProvider<CalendarViewCellColorScheme>()
 
     // MARK: - Initializer
 
@@ -32,7 +31,7 @@ public struct CalendarVerticalDaysView: View {
         notActiveAfterDate: Date?,
         pointDates: [Date],
         updateBlock: @escaping (CalendarDay) -> (),
-        scheme: Binding<CalendarViewCellColorScheme?> = .constant(nil)
+        schemeProvider: SchemeProvider<CalendarViewCellColorScheme> = AppThemeSchemeProvider<CalendarViewCellColorScheme>()
     ) {
         self._days = Binding(
             get: { days },
@@ -52,7 +51,7 @@ public struct CalendarVerticalDaysView: View {
         )
         self.pointDates = pointDates.map( { $0.removeTimeStamp() })
         self.notActiveAfterDate = notActiveAfterDate
-        self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Body
@@ -78,7 +77,7 @@ public struct CalendarVerticalDaysView: View {
 
     @ViewBuilder
     private func dayView(day: CalendarDay) -> some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         VStack(spacing: LayoutGrid.halfModule) {
             textView(day: day)
             if Set(pointDates).contains(day.date), day.isDisplayedInMonth {
@@ -121,7 +120,7 @@ public struct CalendarVerticalDaysView: View {
     }
 
     private func selectedTextView(day: CalendarDay) -> some View {
-        let style = self.scheme ?? schemeProvider.scheme
+        let style = schemeProvider.scheme
         if day.date == startDate || day.date == endDate {
             return Text(day.isDisplayedInMonth  ? day.number : "")
                 .frame(width: LayoutGrid.halfModule * 9, height: LayoutGrid.halfModule * 9)
@@ -146,7 +145,7 @@ public struct CalendarVerticalDaysView: View {
     }
 
     private func currentTextView(day: CalendarDay) -> some View {
-        let style = self.scheme ?? schemeProvider.scheme
+        let style = schemeProvider.scheme
         return Text(day.isDisplayedInMonth  ? day.number : "")
             .frame(width: LayoutGrid.halfModule * 9, height: LayoutGrid.halfModule * 9)
             .font(style.titleLabelFont.swiftUIFont)
@@ -161,7 +160,7 @@ public struct CalendarVerticalDaysView: View {
     }
 
     private func inactiveTextView(day: CalendarDay) -> some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         return Text(day.isDisplayedInMonth ? day.number : "")
             .frame(width: LayoutGrid.halfModule * 9, height: LayoutGrid.halfModule * 9)
             .font(scheme.titleLabelFont.swiftUIFont)
@@ -170,7 +169,7 @@ public struct CalendarVerticalDaysView: View {
     }
 
     private func basicTextView(day: CalendarDay) -> some View {
-        let style = self.scheme ?? schemeProvider.scheme
+        let style = schemeProvider.scheme
         return Text(day.isDisplayedInMonth ? day.number : "")
             .frame(width: LayoutGrid.halfModule * 9, height: LayoutGrid.halfModule * 9)
             .font(style.titleLabelFont.swiftUIFont)

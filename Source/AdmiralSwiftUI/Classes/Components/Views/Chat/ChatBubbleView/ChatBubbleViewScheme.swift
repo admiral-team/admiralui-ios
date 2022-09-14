@@ -20,7 +20,7 @@ import AdmiralUIResources
 @available(iOS 14.0, *)
 public struct ChatBubbleViewScheme: AppThemeScheme {
 
-    // MARK: - Properties
+    // MARK: - Public Properties
 
     /// The text font
     public var textFont: AFont
@@ -31,11 +31,17 @@ public struct ChatBubbleViewScheme: AppThemeScheme {
     /// The background color
     public var backgroundColor = ChatBubbleViewParameters<AColor>()
 
+    /// THe eror image tint color
+    public var errorImageColor: AColor
+
     /// The font of name text label
     public var nameTextFont: AFont
 
     /// The color of name text label
     public var nameTextColor: AColor
+
+    /// Scheme for status view.
+    public var chatBubbleStatusScheme: ChatBubbleStatusViewScheme
 
     // MARK: - Initializer
 
@@ -45,11 +51,15 @@ public struct ChatBubbleViewScheme: AppThemeScheme {
 
         backgroundColor.set(parameter: theme.colors.backgroundAdditionalOne, style: .left)
         backgroundColor.set(parameter: theme.colors.backgroundAccent, style: .right)
+        
+        errorImageColor = theme.colors.elementError
 
         textFont = theme.fonts.body1
 
         nameTextFont = theme.fonts.caption1
         nameTextColor = theme.colors.textSecondary
+
+        chatBubbleStatusScheme = ChatBubbleStatusViewScheme(theme: theme)
     }
 
 }

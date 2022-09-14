@@ -21,7 +21,7 @@ let scheme = CustomSwitchScheme()
 @available(iOS 14.0.0, *)
 public struct CustomSwitchScheme: AppThemeScheme  {
 
-    // MARK: - Properties
+    // MARK: - Public Properties
 
     /// The font
     public var font: AFont

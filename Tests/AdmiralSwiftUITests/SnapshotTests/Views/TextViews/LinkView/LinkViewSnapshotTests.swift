@@ -35,7 +35,7 @@ final class LinkViewSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testLinkViewDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createLinkView()
         checkLinkView(view: view, named: "DefaultTheme", testName: "LinkView")
     }
@@ -43,7 +43,7 @@ final class LinkViewSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testLinkViewDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createLinkView()
         checkLinkView(view: view, named: "DarkTheme", testName: "LinkView")
     }

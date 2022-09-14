@@ -7,17 +7,39 @@
 
 import AdmiralTheme
 import AdmiralUIResources
-
+/**
+ DatePercentListViewScheme - the visual scheme of DatePercentListView.
+ You can create a by specifying the following parameters in init:
+ - DatePercentListViewScheme() - Initialize default DatePercentListViewScheme with default themezation
+ # Example to create DatePercentListViewScheme:
+ # Code
+ ```
+ let scheme = DatePercentListViewScheme()
+ ```
+ */
+@available(iOS 14.0, *)
 public struct DatePercentListViewScheme: AppThemeScheme {
-    
+
+    // MARK: - Public Properties
+
+    /// The  parameter that sets view background color with state
     public var backgroundColor = ControlParameter<AColor>()
+
+    /// The  parameter that sets title label color with state
     public var titleColor = ControlParameter<AColor>()
+
+    /// The  parameter that sets subtitle color label with state
     public var subtitleColor = ControlParameter<AColor>()
-    
+
+    /// The  title font label
     public var titleFont: AFont
+
+    /// The subtitle font label
     public var subtitleFont: AFont
-    
-    public init(theme: AppTheme) {
+
+    // MARK: - Initializer
+
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         backgroundColor.set(parameter: theme.colors.backgroundSelected, for: .highlighted)

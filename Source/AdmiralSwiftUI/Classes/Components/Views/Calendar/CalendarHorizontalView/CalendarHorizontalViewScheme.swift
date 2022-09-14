@@ -26,10 +26,23 @@ public struct CalendarHorizontalViewScheme: AppThemeScheme {
     /// The picker title color
     public var pickerTitleColor: AColor
 
+    /// Header view scheme
+    public var headerViewScheme: CalendarHorizontalHeaderViewScheme
+
+    /// Week view scheme
+    public var calendarWeekViewScheme: CalendarWeekViewScheme
+
+    /// Days view scheme.
+    public var calendarViewCellColorScheme: CalendarViewCellColorScheme
+
     // MARK: - Initializer
 
     public init(theme: AppTheme = .default) {
         pickerTitleColor = theme.colors.textPrimary
+
+        headerViewScheme = CalendarHorizontalHeaderViewScheme(theme: theme)
+        calendarWeekViewScheme = CalendarWeekViewScheme(theme: theme)
+        calendarViewCellColorScheme = CalendarViewCellColorScheme(theme: theme)
     }
 
 }

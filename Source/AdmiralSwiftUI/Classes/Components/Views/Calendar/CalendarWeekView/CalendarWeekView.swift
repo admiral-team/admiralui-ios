@@ -16,23 +16,22 @@ public struct CalendarWeekView: View {
     private let dateFormatter = DateFormatter()
     private var weakDays: [String]
 
-    @Binding private var scheme: CalendarWeekViewScheme?
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<CalendarWeekViewScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<CalendarWeekViewScheme>
 
     // MARK: - Initializer
 
     public init(
         _ locale: Locale? = nil,
-        scheme: Binding<CalendarWeekViewScheme?> = .constant(nil)
+        schemeProvider: SchemeProvider<CalendarWeekViewScheme> = AppThemeSchemeProvider<CalendarWeekViewScheme>()
     ) {
         self.weakDays = dateFormatter.getShortWeekdaySymbols(locale)
-        self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Body
 
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         return HStack {
             ForEach(0..<weakDays.count, id: \.self) { index in
                 Group {
