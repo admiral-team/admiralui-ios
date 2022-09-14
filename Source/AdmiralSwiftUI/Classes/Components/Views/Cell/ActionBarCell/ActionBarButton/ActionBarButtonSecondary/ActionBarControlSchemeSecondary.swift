@@ -7,6 +7,7 @@
 
 import AdmiralTheme
 import AdmiralUIResources
+import CoreGraphics
 /**
  ActionBarControlSchemeTwo - the visual scheme of ListCell.
  You can create a by specifying the following parameters in init:
@@ -40,7 +41,7 @@ public struct ActionBarControlSchemeSecondary: AppThemeScheme {
     public var imageTintColor: AColor
 
     /// The alpha of custom color.
-    public let alpha: Double
+    public let alpha: CGFloat
 
     // MARK: - Initializer
 
