@@ -18,25 +18,24 @@ struct Clock: View {
 
     // MARK: - Private Properties
 
-    @Binding private var scheme: ClockScheme?
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<ClockScheme>()
+    @ObservedObject var schemeProvider: SchemeProvider<ClockScheme>
 
     // MARK: - Initializer
 
     init(
         counter: Int,
         countTo: Int,
-        scheme: Binding<ClockScheme?> = .constant(nil)
+        schemeProvider: SchemeProvider<ClockScheme> = AppThemeSchemeProvider<ClockScheme>()
     ) {
         self.counter = counter
         self.countTo = countTo
-        self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Body
 
     var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         VStack {
             Text(counterToMinutes())
                 .foregroundColor(scheme.textColor.swiftUIColor)
@@ -44,11 +43,12 @@ struct Clock: View {
         }
     }
 
-    // MARK: - Internal Properties
+    // MARK: - Internal Methods
 
     func counterToMinutes() -> String {
         let currentTime = countTo - counter
         let seconds = currentTime % 60
+
         return "\(seconds)"
     }
 

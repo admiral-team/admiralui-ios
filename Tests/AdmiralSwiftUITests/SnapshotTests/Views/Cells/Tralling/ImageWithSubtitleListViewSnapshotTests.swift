@@ -35,7 +35,7 @@ final class ImageWithSubtitleListViewSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testImageWithSubtitleListViewDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createImageWithSubtitleListView()
         checkImageWithSubtitleListView(view: view, named: "DefaultTheme", testName: "ImageWithSubtitleListView")
     }
@@ -43,7 +43,7 @@ final class ImageWithSubtitleListViewSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testImageWithSubtitleListViewDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createImageWithSubtitleListView()
         checkImageWithSubtitleListView(view: view, named: "DarkTheme", testName: "ImageWithSubtitleListView")
     }

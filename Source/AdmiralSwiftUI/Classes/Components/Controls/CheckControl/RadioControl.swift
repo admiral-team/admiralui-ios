@@ -45,14 +45,13 @@ public struct RadioControl: View {
     // MARK: - Private Properties
     
     @Environment(\.isEnabled) private var isEnabled
-    
-    @Binding private var scheme: CheckControlScheme?
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<CheckControlScheme>()
+
+    @ObservedObject private var schemeProvider: SchemeProvider<CheckControlScheme>
 
     // MARK: - Computed Properites
 
     private var image: Image {
-        return isSelected ? Image(uiImage: PrivateAsset.Custom.Control.radioButtonOn.image) : Image(uiImage: PrivateAsset.Custom.Control.radioButtonOff.image)
+        return isSelected ? Image(uiImage: SystemAsset.Custom.Control.radioButtonOn.image) : Image(uiImage: SystemAsset.Custom.Control.radioButtonOff.image)
     }
     
     // MARK: - Initializer
@@ -61,18 +60,18 @@ public struct RadioControl: View {
         isSelected: Binding<Bool>,
         text: String = "",
         checkState: CheckControlState = .normal,
-        scheme: Binding<CheckControlScheme?> = .constant(nil)
+        schemeProvider: SchemeProvider<CheckControlScheme> = AppThemeSchemeProvider<CheckControlScheme>()
     ) {
         self._isSelected = isSelected
         self._text = .init(initialValue: text)
         self._checkState = .init(initialValue: checkState)
-        self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Body
 
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         let tintColor = scheme.tintColor.parameter(for: isEnabled ? .normal : .disabled, state: checkState)
         let textColor = scheme.textColor.parameter(for: isEnabled ? .normal : .disabled)
         HStack {
@@ -94,7 +93,7 @@ public struct RadioControl: View {
     
     func scheme(_ scheme: CheckControlScheme) -> some View {
         var view = self
-        view._scheme = .constant(scheme)
+        view.schemeProvider = .constant(scheme: scheme)
         return view.id(UUID())
     }
     

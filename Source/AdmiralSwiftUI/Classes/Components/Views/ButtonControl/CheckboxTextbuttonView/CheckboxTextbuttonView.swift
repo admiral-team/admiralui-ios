@@ -60,8 +60,9 @@ public struct CheckboxTextbuttonView: View {
     /// Action subtitleButton.
     private var subtitleButtonAction: () -> ()
 
-    @Binding private var scheme: CheckboxTextbuttonViewScheme?
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<CheckboxTextbuttonViewScheme>()
+    // MARK: Internal Properties
+
+    @ObservedObject var schemeProvider: SchemeProvider<CheckboxTextbuttonViewScheme>
 
     // MARK: - Initializer
 
@@ -71,19 +72,19 @@ public struct CheckboxTextbuttonView: View {
         isSelected: Binding<Bool>,
         subtitleButtonTitle: String? = nil,
         subtitleButtonAction: @escaping () -> () = {},
-        scheme: Binding<CheckboxTextbuttonViewScheme?> = .constant(nil)
+        schemeProvider: SchemeProvider<CheckboxTextbuttonViewScheme> = AppThemeSchemeProvider<CheckboxTextbuttonViewScheme>()
     ) {
         self.title = title
         self._isSelected = isSelected
         self.subtitleButtonTitle = subtitleButtonTitle
         self.subtitleButtonAction = subtitleButtonAction
-        self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Body
 
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         let textColor = scheme.textColor.parameter(for: isEnabled ? .normal : .disabled)
 
         VStack(alignment: .leading) {
@@ -111,7 +112,7 @@ public struct CheckboxTextbuttonView: View {
 
     func scheme(_ scheme: CheckboxTextbuttonViewScheme) -> some View {
         var view = self
-        view._scheme = .constant(scheme)
+        view.schemeProvider = SchemeProvider.constant(scheme: scheme)
         return view.id(UUID())
     }
 

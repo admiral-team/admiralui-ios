@@ -10,13 +10,13 @@ import SwiftUI
 /// The button size type
 public enum ButtonSizeType: String {
 
-    /// The small size of Button
+    /// The small size
     case small
 
-    /// The medium size of Button
+    /// The medium size
     case medium
 
-    /// The big size of Button
+    /// The big size
     case big
 
     // MARK: - Computed Properties

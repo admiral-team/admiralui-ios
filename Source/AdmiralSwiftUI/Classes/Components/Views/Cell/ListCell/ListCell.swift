@@ -111,8 +111,7 @@ public struct ListCell<L, C, T>: ListViewCell where L: View , C: View, T: View {
         return trailingLayoutPriority == 0
     }
     
-    @State private var scheme: ListCellScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ListCellScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<ListCellScheme>
     
     // MARK: - Initializer
     
@@ -132,16 +131,19 @@ public struct ListCell<L, C, T>: ListViewCell where L: View , C: View, T: View {
         isSelected: Binding<Bool?> = .constant(nil),
         centerLayoutPriority: Double = 1.0,
         trailingLayoutPriority: Double = 0.0,
-        cornerRadius: CornerRadius = .zero) {
-            self.centerView = centerView
-            self.trailingView = trailingView
-            self.leadingView = leadingView
-            self._isHighlighted = isHighlighted
-            self._isSelected = isSelected
-            self.centerLayoutPriority = centerLayoutPriority
-            self.trailingLayoutPriority = trailingLayoutPriority
-            self.cornerRadius = cornerRadius.rawValue
-        }
+        cornerRadius: CornerRadius = .zero,
+        schemeProvider: SchemeProvider<ListCellScheme> = AppThemeSchemeProvider<ListCellScheme>()
+    ) {
+        self.centerView = centerView
+        self.trailingView = trailingView
+        self.leadingView = leadingView
+        self._isHighlighted = isHighlighted
+        self._isSelected = isSelected
+        self.centerLayoutPriority = centerLayoutPriority
+        self.trailingLayoutPriority = trailingLayoutPriority
+        self.cornerRadius = cornerRadius.rawValue
+        self.schemeProvider = schemeProvider
+    }
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     /// - Parameters:
@@ -159,19 +161,22 @@ public struct ListCell<L, C, T>: ListViewCell where L: View , C: View, T: View {
         isSelected: Binding<Bool?> = .constant(nil),
         centerLayoutPriority: Double = 1.0,
         trailingLayoutPriority: Double = 0.0,
-        cornerRadius: CornerRadius = .zero) {
-            self.centerView = centerView
-            self.trailingView = trailingView
-            self.leadingView = leadingView
-            self._isHighlighted = isHighlighted
-            self._isSelected = isSelected
-            self.centerLayoutPriority = centerLayoutPriority
-            self.trailingLayoutPriority = trailingLayoutPriority
-            self.cornerRadius = cornerRadius.rawValue
-        }
+        cornerRadius: CornerRadius = .zero,
+        schemeProvider: SchemeProvider<ListCellScheme> = AppThemeSchemeProvider<ListCellScheme>()
+    ) {
+        self.centerView = centerView
+        self.trailingView = trailingView
+        self.leadingView = leadingView
+        self._isHighlighted = isHighlighted
+        self._isSelected = isSelected
+        self.centerLayoutPriority = centerLayoutPriority
+        self.trailingLayoutPriority = trailingLayoutPriority
+        self.cornerRadius = cornerRadius.rawValue
+        self.schemeProvider = schemeProvider
+    }
     
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         if isSelected != nil {
             contentView(scheme: scheme)
                 .frame(minHeight: minHeight)

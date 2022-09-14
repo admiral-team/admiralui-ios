@@ -39,8 +39,7 @@ public struct ArrowListView: View, TralingListViewComponent {
     /// The state of the view. Default is normal.
     @State var state: ControlState = .normal
     
-    @State private var scheme: ArrowListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ArrowListViewScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<ArrowListViewScheme>
     
     // MARK: - Private Properties
     
@@ -53,17 +52,19 @@ public struct ArrowListView: View, TralingListViewComponent {
     // MARK: - Initializer
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-    public init() {}
+    public init(schemeProvider: SchemeProvider<ArrowListViewScheme> = AppThemeSchemeProvider<ArrowListViewScheme>()) {
+        self.schemeProvider = schemeProvider
+    }
     
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         VStack {
             if alignment == .center {
                 Spacer(minLength: .zero)
             }
             HStack {
                 Spacer()
-                Image(uiImage: AdmiralUIResources.PrivateAsset.Custom.Cell.arrow.image)
+                Image(uiImage: Asset.System.Outline.chevronRightOutline.image)
                     .frame(width: LayoutGrid.module, height: LayoutGrid.doubleModule)
                     .foregroundColor(isEnabled ? scheme.imageTintColor.parameter(for: .normal)?.swiftUIColor : scheme.imageTintColor.parameter(for: .disabled)?.swiftUIColor)
             }
@@ -77,7 +78,7 @@ public struct ArrowListView: View, TralingListViewComponent {
     
     func scheme(_ scheme: ArrowListViewScheme) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view.schemeProvider = .constant(scheme: scheme)
         return view.id(UUID())
     }
     

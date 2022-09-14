@@ -7,17 +7,39 @@
 
 import AdmiralTheme
 import AdmiralUIResources
-
+/**
+ ImageWithSubtitleListViewScheme - the visual scheme of ImageWithSubtitleListView.
+ You can create a by specifying the following parameters in init:
+ - ImageWithSubtitleListViewScheme() - Initialize default ImageWithSubtitleListViewScheme with default themezation
+ # Example to create ImageWithSubtitleListViewScheme:
+ # Code
+ ```
+ let scheme = ImageWithSubtitleListViewScheme()
+ ```
+ */
+@available(iOS 14.0, *)
 public struct ImageWithSubtitleListViewScheme: AppThemeScheme {
-    
+
+    // MARK: - Public Properties
+
+    /// The  parameter that sets view background color with state
     public var backgroundColor = ControlParameter<AColor>()
+
+    /// The  parameter that sets image tint color with state
     public var imageTintColor = ControlParameter<AColor>()
+
+    /// The  parameter that sets image view aplha with state
     public var imageViewAlpha = ControlParameter<Double>()
+
+    /// The  parameter that sets subtitle labe text color with state
     public var subtitleLabelTextColor = ControlParameter<AColor>()
-    
+
+    /// The subtitle font
     public var subtitleFont: AFont
 
-    public init(theme: AppTheme) {
+    // MARK: - Initializer
+
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
         
         backgroundColor.set(parameter: theme.colors.backgroundSelected, for: .highlighted)

@@ -35,19 +35,19 @@ final class SeparatorViewSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testSeparatorViewEmptyStyleDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createSeparatorView(style: .empty)
         checkSeparatorView(view: view, named: "EmptyStyle.DefaultTheme", testName: "SeparatorView")
     }
     
     func testSeparatorViewLongStyleDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createSeparatorView(style: .long)
         checkSeparatorView(view: view, named: "LongStyle.DefaultTheme", testName: "SeparatorView")
     }
     
     func testSeparatorViewShortStyleDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createSeparatorView(style: .short)
         checkSeparatorView(view: view, named: "ShortStyle.DefaultTheme", testName: "SeparatorView")
     }
@@ -55,19 +55,19 @@ final class SeparatorViewSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testSeparatorViewEmptyStyleDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createSeparatorView(style: .empty)
         checkSeparatorView(view: view, named: "EmptyStyle.DarkTheme", testName: "SeparatorView")
     }
     
     func testSeparatorViewLongStyleDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createSeparatorView(style: .long)
         checkSeparatorView(view: view, named: "LongStyle.DarkTheme", testName: "SeparatorView")
     }
     
     func testSeparatorViewShortStyleDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createSeparatorView(style: .short)
         checkSeparatorView(view: view, named: "ShortStyle.DarkTheme", testName: "SeparatorView")
     }

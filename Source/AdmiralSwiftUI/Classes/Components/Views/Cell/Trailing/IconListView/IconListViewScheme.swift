@@ -7,15 +7,33 @@
 
 import AdmiralTheme
 import AdmiralUIResources
-
+/**
+ IconListViewScheme - the visual scheme of IconListView.
+ You can create a by specifying the following parameters in init:
+ - IconListViewScheme() - Initialize default IconListViewScheme with default themezation
+ # Example to create IconListViewScheme:
+ # Code
+ ```
+ let scheme = IconListViewScheme()
+ ```
+ */
 @available(iOS 14.0, *)
 public struct IconListViewScheme: AppThemeScheme {
-    
+
+    // MARK: - Public Properties
+
+    /// The  parameter that sets view background color with state
     public var backgroundColor = ControlParameter<AColor>()
+
+    /// The  parameter that sets image tint color with state
     public var imageTintColor = IconListViewParameters<AColor>()
+
+    /// The  parameter that sets image view alpha with state
     public var imageViewAlpha = ControlParameter<Double>()
-    
-    public init(theme: AppTheme) {
+
+    // MARK: - Initializer
+
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         backgroundColor.set(parameter: theme.colors.backgroundSelected, for: .highlighted)

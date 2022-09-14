@@ -42,7 +42,7 @@ Pod::Spec.new do |spec|
     LICENSE
   }
 
-  spec.author             = { "" => "" }
+  spec.author             = { "AdmiralTeam" => "tonwork252@gmail.com" }
   spec.source       = { :git => "https://github.com/admiral-team/admiralui-ios.git", :tag => "#{spec.version}" }
 
   spec.ios.deployment_target = "11.0"
@@ -51,5 +51,6 @@ Pod::Spec.new do |spec|
   spec.source_files          = "Source/AdmiralUIKit/**/*.{h,m,swift}"
   spec.dependency "AdmiralTheme"
   spec.dependency "AdmiralUIResources"
+  spec.dependency "AdmiralCore"
   
 end

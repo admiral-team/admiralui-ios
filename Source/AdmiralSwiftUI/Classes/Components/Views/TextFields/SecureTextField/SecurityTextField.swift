@@ -132,9 +132,8 @@ public struct SecurityTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
     // MARK: - Private Properties
     
     @State private var segmentSize: CGSize = .zero
-    @State private var scheme: StandardTextFieldScheme? = nil
     
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<StandardTextFieldScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<StandardTextFieldScheme>
     
     private let eyeOff = AdmiralUIResources.AssetSymbol.Service.Outline.eyeClose.image
     private let eyeOn = AdmiralUIResources.AssetSymbol.Service.Outline.eye.image
@@ -178,9 +177,11 @@ public struct SecurityTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
         info: Binding<String> = .constant(""),
         infoNumberOfLines: Int? = nil,
         isResponder: Binding<Bool>? = nil,
+        schemeProvider: SchemeProvider<StandardTextFieldScheme> = AppThemeSchemeProvider<StandardTextFieldScheme>(),
         onSubmit: (() -> Void)? = nil,
         onCursorPosition: ((Int, Int, String) -> (Int))? = nil,
-        @ViewBuilder trailingView: @escaping () -> T) {
+        @ViewBuilder trailingView: @escaping () -> T
+    ) {
         self._content = Binding(get: {
             if let value = value.wrappedValue {
                 return String(describing: value)
@@ -208,6 +209,7 @@ public struct SecurityTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
         self.canPerformActionPaste = canPerformActionPaste
         self.isResponder = isResponder
         self.onCursorPosition = onCursorPosition
+        self.schemeProvider = schemeProvider
         self._isFocused = .init(initialValue: isResponder?.wrappedValue ?? false)
         self._isSetTrailingView = .init(initialValue: true)
         self._isFilled = .init(initialValue: !($content.wrappedValue ?? "").isEmpty)
@@ -248,6 +250,7 @@ public struct SecurityTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
         info: Binding<String> = .constant(""),
         infoNumberOfLines: Int? = nil,
         isResponder: Binding<Bool>? = nil,
+        schemeProvider: SchemeProvider<StandardTextFieldScheme> = AppThemeSchemeProvider<StandardTextFieldScheme>(),
         onSubmit: (() -> Void)? = nil,
         onCursorPosition: ((Int, Int, String) -> (Int))? = nil,
         @ViewBuilder trailingView: @escaping () -> T) {
@@ -267,6 +270,7 @@ public struct SecurityTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
             info: info,
             infoNumberOfLines: infoNumberOfLines,
             isResponder: isResponder,
+            schemeProvider: schemeProvider,
             onSubmit: onSubmit,
             onCursorPosition: onCursorPosition,
             trailingView: trailingView)
@@ -275,7 +279,7 @@ public struct SecurityTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
     public var body: some View {
         let isTextFieldDisabled = !isEnabled || (state == .disabled || state == .readOnly)
         
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         let placeholderColor = scheme.placeholderColor.parameter(for: state == .disabled ? .disabled : .normal)
         var underlineColor = scheme.underlineColor
         var textColor = scheme.textColor
@@ -352,7 +356,7 @@ public struct SecurityTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
     
     func scheme(_ scheme: StandardTextFieldScheme) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view.schemeProvider = .constant(scheme: scheme)
         return view.id(UUID())
     }
     
@@ -489,8 +493,10 @@ extension SecurityTextField where T == EmptyView {
         info: Binding<String> = .constant(""),
         infoNumberOfLines: Int? = nil,
         isResponder: Binding<Bool>? = nil,
+        schemeProvider: SchemeProvider<StandardTextFieldScheme> = AppThemeSchemeProvider<StandardTextFieldScheme>(),
         onSubmit: (() -> Void)? = nil,
-        onCursorPosition: ((Int, Int, String) -> (Int))? = nil) {
+        onCursorPosition: ((Int, Int, String) -> (Int))? = nil
+    ) {
         self._content = Binding(get: {
             if let value = value.wrappedValue {
                 return String(describing: value)
@@ -518,6 +524,7 @@ extension SecurityTextField where T == EmptyView {
         self.canPerformActionPaste = canPerformActionPaste
         self.isResponder = isResponder
         self.onCursorPosition = onCursorPosition
+        self.schemeProvider = schemeProvider
         self._isFocused = .init(initialValue: isResponder?.wrappedValue ?? false)
         self._isFilled = .init(initialValue: !($content.wrappedValue ?? "").isEmpty)
         self._isSetTrailingView = .init(initialValue: false)
@@ -557,6 +564,7 @@ extension SecurityTextField where T == EmptyView {
         info: Binding<String> = .constant(""),
         infoNumberOfLines: Int? = nil,
         isResponder: Binding<Bool>? = nil,
+        schemeProvider: SchemeProvider<StandardTextFieldScheme> = AppThemeSchemeProvider<StandardTextFieldScheme>(),
         onSubmit: (() -> Void)? = nil,
         onCursorPosition: ((Int, Int, String) -> (Int))? = nil) {
         self.init(
@@ -575,6 +583,7 @@ extension SecurityTextField where T == EmptyView {
             info: info,
             infoNumberOfLines: infoNumberOfLines,
             isResponder: isResponder,
+            schemeProvider: schemeProvider,
             onSubmit: onSubmit,
             onCursorPosition: onCursorPosition)
     }

@@ -50,7 +50,7 @@ public struct PrimaryLinkControlStyle: ButtonStyle {
 
     // MARK: - Private properties
 
-    @Binding private var scheme: PrimaryLinkControlScheme?
+    @ObservedObject private var schemeProvider: SchemeProvider<PrimaryLinkControlScheme> = AppThemeSchemeProvider<PrimaryLinkControlScheme>()
 
     // MARK: - Initializer
 
@@ -59,13 +59,13 @@ public struct PrimaryLinkControlStyle: ButtonStyle {
         text: String? = nil,
         direction: LinkControlDirection,
         style: LinkControlStyle,
-        scheme: Binding<PrimaryLinkControlScheme?> = .constant(nil)
+        schemeProvider: SchemeProvider<PrimaryLinkControlScheme> = AppThemeSchemeProvider<PrimaryLinkControlScheme>()
     ) {
         self.image = image
         self.text = text
         self.direction = direction
         self.style = style
-        self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Body
@@ -76,7 +76,7 @@ public struct PrimaryLinkControlStyle: ButtonStyle {
             text: text,
             direction: direction,
             style: style,
-            scheme: $scheme,
+            schemeProvider: schemeProvider,
             configuration: configuration
         )
     }
@@ -110,8 +110,7 @@ private extension PrimaryLinkControlStyle {
 
         private let configuration: Configuration
 
-        @Binding private var scheme: PrimaryLinkControlScheme?
-        @ObservedObject private var schemeProvider = AppThemeSchemeProvider<PrimaryLinkControlScheme>()
+        private var schemeProvider: SchemeProvider<PrimaryLinkControlScheme>
 
         @Environment(\.isEnabled) private var isEnabled
 
@@ -122,7 +121,7 @@ private extension PrimaryLinkControlStyle {
             text: String? = nil,
             direction: LinkControlDirection,
             style: LinkControlStyle,
-            scheme: Binding<PrimaryLinkControlScheme?> = .constant(nil),
+            schemeProvider: SchemeProvider<PrimaryLinkControlScheme>,
             configuration: Configuration
         ) {
             self.image = image
@@ -130,7 +129,7 @@ private extension PrimaryLinkControlStyle {
             self.direction = direction
             self.style = style
             self.configuration = configuration
-            self._scheme = scheme
+            self.schemeProvider = schemeProvider
         }
 
         // MARK: - Layout
@@ -142,7 +141,7 @@ private extension PrimaryLinkControlStyle {
         // MARK: - Private methods
 
         @ViewBuilder private func contentView() -> some View {
-            let scheme = scheme ?? schemeProvider.scheme
+            let scheme = schemeProvider.scheme
             let backgroundNormal = scheme.textColor.parameter(for: .normal)?.swiftUIColor
             let backgroundDisabled = scheme.textColor.parameter(for: .disabled)?.swiftUIColor
             let backgroundHighlighted = scheme.textColor.parameter(for: .highlighted)?.swiftUIColor

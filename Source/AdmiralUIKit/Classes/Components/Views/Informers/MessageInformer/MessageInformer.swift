@@ -80,7 +80,7 @@ open class MessageInformer: UIView, AnyAppThemable, AccessibilitySupport {
     // MARK: - Private Properties
     
     private enum Constants {
-        static let arrowImage: UIImage = PrivateAsset.Custom.Segment.arrowUp.image
+        static let arrowImage: UIImage = SystemAsset.Custom.Segment.arrowUp.image
         static let heightImageView: CGFloat = LayoutGrid.module
         static let widthImageView: CGFloat = LayoutGrid.doubleModule
         static let questionImage: UIImage = Asset.Service.Solid.helpSolid.image

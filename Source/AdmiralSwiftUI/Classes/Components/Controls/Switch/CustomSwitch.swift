@@ -40,17 +40,17 @@ public struct CustomSwitch: View {
     @Binding var isOn: Bool
 
     // MARK: - Private Properties
-
-    @Binding private var scheme: CustomSwitchScheme?
-
+    
+    @ObservedObject private var schemeProvider: SchemeProvider<CustomSwitchScheme>
+    
     // MARK: - Initializer
-
+    
     public init(
         isOn: Binding<Bool>,
-        scheme: Binding<CustomSwitchScheme?> = .constant(nil)
+        schemeProvider: SchemeProvider<CustomSwitchScheme> = AppThemeSchemeProvider<CustomSwitchScheme>()
     ) {
         self._isOn = isOn
-        self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Body
@@ -58,14 +58,16 @@ public struct CustomSwitch: View {
     public var body: some View {
         Toggle(isOn: $isOn, label: {})
             .labelsHidden()
-            .toggleStyle(CustomSwitchStyle(scheme: $scheme))
+            .toggleStyle(
+                CustomSwitchStyle(schemeProvider: schemeProvider)
+            )
     }
 
     // MARK: - Internal Methods
 
     func scheme(_ scheme: CustomSwitchScheme) -> some View {
         var view = self
-        view._scheme = .constant(scheme)
+        view.schemeProvider = SchemeProvider.constant(scheme: scheme)
         return view.id(UUID())
     }
 
@@ -76,28 +78,25 @@ private struct CustomSwitchStyle: ToggleStyle {
 
     // MARK: - Private Properties
 
-    @Binding private var scheme: CustomSwitchScheme?
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<CustomSwitchScheme>()
+    private var schemeProvider: SchemeProvider<CustomSwitchScheme>
 
     // MARK: - Inializer
 
     public init(
-        scheme: Binding<CustomSwitchScheme?> = .constant(nil)
+        schemeProvider: SchemeProvider<CustomSwitchScheme>
     ) {
-        self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Body
 
     public func makeBody(configuration: Self.Configuration) -> some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
-
         Toggle(configuration)
-            .foregroundColor(scheme.textColor.swiftUIColor)
-            .font(scheme.font.swiftUIFont)
+            .foregroundColor(schemeProvider.scheme.textColor.swiftUIColor)
+            .font(schemeProvider.scheme.font.swiftUIFont)
             .toggleStyle(
                 SwitchToggleStyle(
-                    tint: scheme.tintColor.swiftUIColor
+                    tint: schemeProvider.scheme.tintColor.swiftUIColor
                 )
             )
     }

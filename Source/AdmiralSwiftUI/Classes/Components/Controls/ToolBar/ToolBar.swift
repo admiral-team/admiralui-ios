@@ -51,13 +51,13 @@ public struct ToolBar: View {
     @StateObject var viewRouter = ViewRouter()
     
     // MARK: - Private Properties
-    
-    @State private var scheme: ToolBarScheme? = nil
+
     @Binding  private var items: [ToolBarItem]
     @Binding private var type: ToolBarType
     @Binding private var selectedIndex: Int
-    
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ToolBarScheme>()
+
+    @ObservedObject private var schemeProvider: SchemeProvider<ToolBarScheme> = AppThemeSchemeProvider<ToolBarScheme>()
+
     private let isSelectable: Bool
     private let onTap: (Int) -> ()
 
@@ -81,20 +81,25 @@ public struct ToolBar: View {
     ///   - type: Type of ToolBar items horizontal or vertical, vertical by default
     ///   - onTap: The callback action by tapping the button
     ///   - isSelectable: Defines ToolBar item behavior on tap: highllight or select
-    public init(items: Binding<[ToolBarItem]>,
-                type: Binding<ToolBarType>,
-                selectedIndex: Binding<Int>,
-                onTap: @escaping (Int) ->(),
-                isSelectable: Bool = true) {
+    ///   - schemeProvider: Sheme provider serves for change theme.
+    public init(
+        items: Binding<[ToolBarItem]>,
+        type: Binding<ToolBarType>,
+        selectedIndex: Binding<Int>,
+        onTap: @escaping (Int) ->(),
+        isSelectable: Bool = true,
+        schemeProvider: SchemeProvider<ToolBarScheme> = AppThemeSchemeProvider<ToolBarScheme>()
+    ) {
         self._items = items
         self._type = type
         self._selectedIndex = selectedIndex
         self.onTap = onTap
         self.isSelectable = isSelectable
+        self.schemeProvider = schemeProvider
     }
     
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         HStack {
             ForEach(0...items.count - 1, id: \.self) { i in
                 let item = items[i]

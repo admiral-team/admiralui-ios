@@ -11,20 +11,16 @@ import SwiftUI
 @available(iOS 14.0, *)
 struct ProgressBar: View {
 
-    // MARK: - Internal Properties
-
     var counter: Int
     var countTo: Int
 
     // MARK: - Private Properties
 
-    @State private var scheme: ProgressBarScheme?
     @ObservedObject var schemeProvider = AppThemeSchemeProvider<ProgressBarScheme>()
 
-    init(
-        counter: Int,
-        countTo: Int
-    ) {
+    // MARK: - Initiazer
+
+    init(counter: Int, countTo: Int) {
         self.counter = counter
         self.countTo = countTo
     }
@@ -32,7 +28,7 @@ struct ProgressBar: View {
     // MARK: - Body
 
     var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         Circle()
             .trim(from: progress(), to: 1)
             .stroke(
@@ -56,7 +52,6 @@ struct ProgressBar: View {
         return (CGFloat(counter) / CGFloat(countTo - 1))
     }
 }
-
 
 @available(iOS 14.0, *)
 struct ProgressBar_Previews: PreviewProvider {

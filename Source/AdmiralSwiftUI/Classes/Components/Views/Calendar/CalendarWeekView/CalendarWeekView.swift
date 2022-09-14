@@ -9,22 +9,29 @@ import AdmiralTheme
 import SwiftUI
 
 @available(iOS 14.0.0, *)
-struct CalendarWeekView: View {
-    
-    // MARK: - Internal Properties
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<CalendarWeekViewScheme>()
-    
+public struct CalendarWeekView: View {
+
     // MARK: - Private Properties
-    @State private var scheme: CalendarWeekViewScheme? = nil
+
     private let dateFormatter = DateFormatter()
     private var weakDays: [String]
-    
-    init(_ locale: Locale? = nil) {
+
+    @ObservedObject private var schemeProvider: SchemeProvider<CalendarWeekViewScheme>
+
+    // MARK: - Initializer
+
+    public init(
+        _ locale: Locale? = nil,
+        schemeProvider: SchemeProvider<CalendarWeekViewScheme> = AppThemeSchemeProvider<CalendarWeekViewScheme>()
+    ) {
         self.weakDays = dateFormatter.getShortWeekdaySymbols(locale)
+        self.schemeProvider = schemeProvider
     }
-    
-    var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+
+    // MARK: - Body
+
+    public var body: some View {
+        let scheme = schemeProvider.scheme
         return HStack {
             ForEach(0..<weakDays.count, id: \.self) { index in
                 Group {
@@ -50,7 +57,6 @@ struct CalendarWeekView_Previews: PreviewProvider {
             .previewLayout(PreviewLayout.sizeThatFits)
             .frame(height: 16.0)
             .padding()
-            
+
     }
 }
-

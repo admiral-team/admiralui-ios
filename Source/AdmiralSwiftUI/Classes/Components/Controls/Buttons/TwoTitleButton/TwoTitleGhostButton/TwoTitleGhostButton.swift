@@ -38,9 +38,8 @@ public struct TwoTitleGhostButton: View {
     var rightText: String
     
     // MARK: - Private Properties
-    
-    @Binding private var scheme: TwoTitleGhostButtonScheme?
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<TwoTitleGhostButtonScheme>()
+
+    @ObservedObject private var schemeProvider: SchemeProvider<TwoTitleGhostButtonScheme>
     
     private let leftAction: () -> ()
     private let rightAction: () -> ()
@@ -52,27 +51,35 @@ public struct TwoTitleGhostButton: View {
         rightText: String,
         leftAction: @escaping () -> (),
         rightAction: @escaping () -> (),
-        scheme: Binding<TwoTitleGhostButtonScheme?> = .constant(nil)
+        schemeProvider: SchemeProvider<TwoTitleGhostButtonScheme> = AppThemeSchemeProvider<TwoTitleGhostButtonScheme>()
     ) {
         self.leftText = leftText
         self.rightText = rightText
         self.leftAction = leftAction
         self.rightAction = rightAction
-        self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Body
 
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         ZStack {
             scheme.backgroundColor.swiftUIColor
             HStack(spacing: LayoutGrid.doubleModule) {
                 Button(leftText, action: leftAction)
-                    .buttonStyle(GhostButtonStyle())
+                    .buttonStyle(
+                        GhostButtonStyle(
+                            schemeProvider: .constant(scheme: scheme.leftGhostButtonScheme)
+                        )
+                    )
                 Spacer()
                 Button(rightText, action: rightAction)
-                    .buttonStyle(GhostButtonStyle())
+                    .buttonStyle(
+                        GhostButtonStyle(
+                            schemeProvider: .constant(scheme: scheme.rightGhostButtonScheme)
+                        )
+                    )
             }
         }
 
@@ -85,7 +92,7 @@ public struct TwoTitleGhostButton: View {
     /// - Returns: view.
     public func scheme(_ scheme: TwoTitleGhostButtonScheme) -> some View {
         var view = self
-        view._scheme = .constant(scheme)
+        view.schemeProvider = .constant(scheme: scheme)
         return view.id(UUID())
     }
     

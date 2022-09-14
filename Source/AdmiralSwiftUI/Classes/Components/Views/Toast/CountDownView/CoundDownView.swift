@@ -37,11 +37,9 @@ public struct CountdownView: View {
         startTimer()
     }
 
-    // MARK: - Body
-
     public var body: some View {
         VStack{
-            ZStack {
+            ZStack{
                 ProgressBar(counter: counter, countTo: countTo)
                 Clock(counter: counter, countTo: countTo)
             }
@@ -76,4 +74,3 @@ struct CountdownView_Previews: PreviewProvider {
         CountdownView(countTo: 5)
     }
 }
-

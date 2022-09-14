@@ -92,7 +92,7 @@ public class BottomSheetHeaderSubtitleTitleView: UIView, AnyAppThemable, Accessi
     
     private func setupButtons() {
         rightButtonItem.isHidden = false
-        rightButtonItem.setImage(PrivateAsset.Custom.BottomSheet.close.image, for: [])
+        rightButtonItem.setImage(Asset.Service.Outline.closeOutline.image, for: [])
         rightButtonItem.addTarget(self, action: #selector(tapRightButtonItem(sender:)), for: .touchUpInside)
     }
     

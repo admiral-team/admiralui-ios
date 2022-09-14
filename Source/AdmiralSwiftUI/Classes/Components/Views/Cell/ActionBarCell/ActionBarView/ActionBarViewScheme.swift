@@ -7,27 +7,35 @@
 
 import AdmiralTheme
 import AdmiralUIResources
-
-/// The scheme of ActionBarView.
+/**
+ ActionBarViewScheme - the visual scheme of ActionBarView.
+ You can create a by specifying the following parameters in init:
+ - ActionBarViewScheme() - Initialize default ActionBarViewScheme with default themezation
+ # Example to create ActionBarViewScheme:
+ # Code
+ ```
+ let scheme = ActionBarViewScheme()
+ ```
+ */
 @available(iOS 14.0.0, *)
 public struct ActionBarViewScheme: AppThemeScheme {
 
-    /// The background color of ActionBarView.
+    // MARK: - Public Properties
+
+    /// The background color
     public var backgroundColor = ControlParameter<AColor>()
 
-    /// The scheme of ActionBarControl.
+    /// The action bar control scheme
     public var actionBarConrolScheme: ActionBarControlScheme
 
-    /// The scheme of ActionBarControTwol.
-    public var actionBarConrolSchemeTwo: ActionBarControlSchemeTwo
+    /// The second action bar control scheme
+    public var actionBarControlSchemeTwo: ActionBarControlSchemeSecondary
 
     // MARK: - Initializer
 
-    public init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         backgroundColor.set(parameter: theme.colors.backgroundAdditionalOne, for: .normal)
-
         actionBarConrolScheme = ActionBarControlScheme(theme: theme)
-
-        actionBarConrolSchemeTwo = ActionBarControlSchemeTwo(theme: theme)
+        actionBarControlSchemeTwo = ActionBarControlSchemeSecondary(theme: theme)
     }
 }
