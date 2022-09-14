@@ -7,18 +7,42 @@
 
 import AdmiralTheme
 import AdmiralUIResources
-
+/**
+ SubtitleWithImageListViewScheme - the visual scheme of SubtitleImageArrowListView.
+ You can create a by specifying the following parameters in init:
+ - SubtitleWithImageListViewScheme() - Initialize default SubtitleWithImageListViewScheme with default themezation
+ # Example to create SubtitleWithImageListViewScheme:
+ # Code
+ ```
+ let scheme = SubtitleWithImageListViewScheme()
+ ```
+ */
+@available(iOS 14.0, *)
 public struct SubtitleImageArrowListViewScheme: AppThemeScheme {
-    
+
+    // MARK: - Public Properties
+
+    /// The  parameter that sets view background color with state
     public var backgroundColor = ControlParameter<AColor>()
+
+    /// The  parameter that sets image tint color with state
     public var imageTintColor = ControlParameter<AColor>()
+
+    /// The  parameter that sets image view aplha with state
     public var imageViewAlpha = ControlParameter<Double>()
+
+    /// The  parameter that sets subtitle labe text color with state
     public var subtitleLabelTextColor = ControlParameter<AColor>()
+
+    /// The  parameter that sets arrow image tint color with state
     public var arrowTintColor = ControlParameter<AColor>()
-    
+
+    /// The subtitle font
     public var subtitleFont: AFont
-    
-    public init(theme: AppTheme) {
+
+    // MARK: - Initializer
+
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
         
         backgroundColor.set(parameter: theme.colors.backgroundSelected, for: .highlighted)

@@ -35,7 +35,7 @@ final class ChatInputSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testChatInputDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createChatInput()
         checkChatInput(view: view, named: "DefaultTheme", testName: "ChatInput")
     }
@@ -43,9 +43,25 @@ final class ChatInputSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testChatInputDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createChatInput()
         checkChatInput(view: view, named: "DarkTheme", testName: "ChatInput")
+    }
+
+    // MARK: - SchemeProvider
+
+    func testChatInputSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = ChatInputScheme(theme: .default)
+        scheme.backgroundColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        let newSchemeProvider = SchemeProvider<ChatInputScheme>(scheme: scheme)
+
+        let view = createChatInput(schemeProvider: newSchemeProvider)
+        checkChatInput(view: view, named: "NewSchemeProvider", testName: "ChatInput")
+
+        Appearance.shared.theme = .dark
+        let newView = createChatInput(schemeProvider: newSchemeProvider)
+        checkChatInput(view: newView, named: "NewSchemeProvider", testName: "ChatInput")
     }
     
     func createChatInput() -> some View {
@@ -57,6 +73,20 @@ final class ChatInputSnapshotTests: XCTestCase {
             autocorrectionType: .default,
             placeholder: "Введите сообщение",
             isShowFileButton: true
+        )
+        return view
+    }
+
+    func createChatInput(schemeProvider: SchemeProvider<ChatInputScheme>) -> some View {
+        let view = ChatInput(
+            .constant("ChatInput"),
+            contentType: .default,
+            returnKeyType: .emergencyCall,
+            autocapitalizationType: .none,
+            autocorrectionType: .default,
+            placeholder: "Введите сообщение",
+            isShowFileButton: true,
+            schemeProvider: schemeProvider
         )
         return view
     }

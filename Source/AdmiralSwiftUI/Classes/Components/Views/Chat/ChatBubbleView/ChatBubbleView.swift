@@ -66,6 +66,8 @@ public enum ChatDirection: String {
 */
 @available(iOS 14.0, *)
 public struct ChatBubbleView: View {
+    
+    // MARK: - Constants
 
     private enum Constants {
         static let minWidth: CGFloat = LayoutGrid.quadrupleModule * 3
@@ -106,8 +108,7 @@ public struct ChatBubbleView: View {
 
     @State private var segmentSize: CGSize = .zero
 
-    @Binding private var scheme: ChatBubbleViewScheme?
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<ChatBubbleViewScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<ChatBubbleViewScheme>
 
     // MARK: - Initializer
 
@@ -120,7 +121,7 @@ public struct ChatBubbleView: View {
         isRoundAllCorners: Bool = false,
         maxWidth: CGFloat? = nil,
         errorAction: @escaping ()->() = {},
-        scheme: Binding<ChatBubbleViewScheme?> = .constant(nil)
+        schemeProvider: SchemeProvider<ChatBubbleViewScheme> = AppThemeSchemeProvider<ChatBubbleViewScheme>()
     ) {
         self.text = text
         self.direction = direction
@@ -130,13 +131,13 @@ public struct ChatBubbleView: View {
         self.isRoundAllCorners = isRoundAllCorners
         self.maxWidth = maxWidth
         self.errorAction = errorAction
-        self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Body
 
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         switch direction {
         case .left:
             return HStack(spacing: .zero) {
@@ -179,7 +180,15 @@ public struct ChatBubbleView: View {
                             RoundedCorner(radius: LayoutGrid.halfModule * 3, corners: [.topRight, .topLeft, .bottomLeft])
                         )
                     if status == .error {
-                        errorImage
+                        Image(uiImage: Asset.Service.Solid.errorSolid.image)
+                            .resizable()
+                            .frame(width: LayoutGrid.halfModule * 7, height: LayoutGrid.halfModule * 7)
+                            .foregroundColor(scheme.errorImageColor.swiftUIColor)
+                            .padding(.top, LayoutGrid.module)
+                            .padding(.leading, LayoutGrid.module)
+                            .onTapGesture {
+                                errorAction()
+                            }
                     }
                 }
                 .frame(maxWidth: maxWidth ?? segmentSizeWidth, alignment: .trailing)
@@ -200,17 +209,25 @@ public struct ChatBubbleView: View {
             }
             .padding(.top, LayoutGrid.module)
             .padding(.bottom, LayoutGrid.halfModule)
-            ChatBubbleStatusView(time: time, status: status, direction: direction)
-                .padding(.bottom, LayoutGrid.module)
+            ChatBubbleStatusView(
+                time: time,
+                status: status,
+                direction: direction,
+                schemeProvider: SchemeProvider.constant(scheme: scheme.chatBubbleStatusScheme)
+            )
+            .padding(.bottom, LayoutGrid.module)
         }
         .padding(.horizontal, LayoutGrid.halfModule * 3)
         .background(scheme.backgroundColor.parameter(for: direction)?.swiftUIColor)
     }
 
     private var errorImage: some View {
-        return Image(uiImage: PrivateAsset.Custom.Chat.error.image)
+        Image(uiImage: Asset.Service.Solid.errorSolid.image)
+            .resizable()
+            .frame(width: LayoutGrid.halfModule * 7, height: LayoutGrid.halfModule * 7)
+            .foregroundColor(schemeProvider.scheme.errorImageColor.swiftUIColor)
             .padding(.top, LayoutGrid.module)
-            .frame(width: LayoutGrid.module * 5, height: LayoutGrid.module * 5)
+            .padding(.leading, LayoutGrid.module)
             .onTapGesture {
                 errorAction()
             }

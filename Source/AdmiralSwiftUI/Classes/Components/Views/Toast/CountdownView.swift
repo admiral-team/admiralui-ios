@@ -10,28 +10,40 @@ import SwiftUI
 
 @available(iOS 14.0, *)
 struct Clock: View {
-    
+
+    // MARK: - Internal Properties
+
     var counter: Int
     var countTo: Int
     
     // MARK: - Private Properties
-    
-    @State private var scheme: ClockScheme? = nil
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<ClockScheme>()
-    
-    init(counter: Int, countTo: Int) {
+
+    @ObservedObject var schemeProvider: SchemeProvider<ClockScheme>
+
+    // MARK: - Initializer
+
+    init(
+        counter: Int,
+        countTo: Int,
+        schemeProvider: SchemeProvider<ClockScheme> = AppThemeSchemeProvider<ClockScheme>()
+    ) {
         self.counter = counter
         self.countTo = countTo
+        self.schemeProvider = schemeProvider
     }
-    
+
+    // MARK: - Body
+
     var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         VStack {
             Text(counterToMinutes())
                 .foregroundColor(scheme.textColor.swiftUIColor)
                 .font(scheme.textFont.swiftUIFont)
         }
     }
+
+    // MARK: - Internal Methods
     
     func counterToMinutes() -> String {
         let currentTime = countTo - counter
@@ -49,17 +61,20 @@ struct ProgressBar: View {
     var countTo: Int
     
     // MARK: - Private Properties
-    
-    @State private var scheme: ProgressBarScheme? = nil
+
     @ObservedObject var schemeProvider = AppThemeSchemeProvider<ProgressBarScheme>()
-    
+
+    // MARK: - Initiazer
+
     init(counter: Int, countTo: Int) {
         self.counter = counter
         self.countTo = countTo
     }
+
+    // MARK: - Body
     
     var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         Circle()
             .trim(from: progress(), to: 1)
             .stroke(
@@ -72,7 +87,9 @@ struct ProgressBar: View {
             .foregroundColor(scheme.tintColor.swiftUIColor)
             .animation(counter == 0 ? nil : .linear(duration: 1))
     }
-    
+
+    // MARK: - Internal Methods
+
     func completed() -> Bool {
         return progress() == 1
     }

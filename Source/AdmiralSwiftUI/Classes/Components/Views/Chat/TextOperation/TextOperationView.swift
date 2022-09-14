@@ -24,15 +24,15 @@ import SwiftUI
  ## Example to create TextOperationView
  # Code
  ```
-     TextOperationView(
-         style: .success,
-         chatStatus: .receive,
-         direction: .left,
-         time: "21:21",
-         title: "+ 35 000 ₽",
-         description: "НПО «Ромашка»"
-     )
-```
+ TextOperationView(
+ style: .success,
+ chatStatus: .receive,
+ direction: .left,
+ time: "21:21",
+ title: "+ 35 000 ₽",
+ description: "НПО «Ромашка»"
+ )
+ ```
  */
 
 public enum TextOperationViewStyle: Int {
@@ -82,8 +82,7 @@ public struct TextOperationView: View {
 
     // MARK: - Private properties
 
-    @Binding private var scheme: TextOperationViewScheme?
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<TextOperationViewScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<TextOperationViewScheme>
 
     // MARK: - Initializer
 
@@ -95,7 +94,7 @@ public struct TextOperationView: View {
         title: String,
         description: String,
         errorAction: @escaping () -> () = {},
-        scheme: Binding<TextOperationViewScheme?> = .constant(nil)
+        schemeProvider: SchemeProvider<TextOperationViewScheme> = AppThemeSchemeProvider<TextOperationViewScheme>()
     ) {
         self._style = .init(initialValue: style)
         self.chatStatus = chatStatus
@@ -106,13 +105,13 @@ public struct TextOperationView: View {
         self.chatStatus = chatStatus
         self.direction = direction
         self.errorAction = errorAction
-        self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Layout
 
     public var body: some View {
-        let scheme = scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         switch direction {
         case .left:
             HStack(spacing: .zero) {
@@ -164,18 +163,25 @@ public struct TextOperationView: View {
                 RoundedCorner(radius: Constants.cornerRadius, corners: [.allCorners])
             )
             .frame(width: Constants.width)
-
+            statusError(scheme: scheme)
+        }
+    }
+    
+    private func statusError(scheme: TextOperationViewScheme) -> some View {
+        return VStack {
             if chatStatus == .error && direction == .right {
-                Image(uiImage: PrivateAsset.Custom.Chat.error.image)
+                Image(uiImage: Asset.Service.Solid.errorSolid.image)
+                    .resizable()
+                    .frame(width: LayoutGrid.halfModule * 7, height: LayoutGrid.halfModule * 7)
+                    .foregroundColor(scheme.errorImageColor.swiftUIColor)
                     .padding(.top, LayoutGrid.module)
-                    .frame(width: LayoutGrid.module * 5, height: LayoutGrid.module * 5)
+                    .padding(.leading, LayoutGrid.module)
                     .onTapGesture {
                         errorAction()
                     }
             }
         }
     }
-
 }
 
 @available(iOS 14.0, *)

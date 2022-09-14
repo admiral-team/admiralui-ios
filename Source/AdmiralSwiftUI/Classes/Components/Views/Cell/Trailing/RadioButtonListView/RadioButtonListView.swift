@@ -29,8 +29,8 @@ import AdmiralUIResources
 public struct RadioButtonListView: View, TralingListViewComponent {
     
     enum Constants {
-        static let selectedImage = PrivateAsset.Custom.Control.radioButtonOn.image
-        static let defaultImage = PrivateAsset.Custom.Control.radioButtonOff.image
+        static let selectedImage = SystemAsset.Custom.Control.radioButtonOn.image
+        static let defaultImage = SystemAsset.Custom.Control.radioButtonOff.image
     }
     
     // MARK: - Public Properties
@@ -45,19 +45,24 @@ public struct RadioButtonListView: View, TralingListViewComponent {
     
     /// The state of the view. Default is normal.
     @State var state: ControlState = .normal
-    
-    @State private var scheme: RadioButtonListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<RadioButtonListViewScheme>()
+
+    @ObservedObject private var schemeProvider: SchemeProvider<RadioButtonListViewScheme>
     
     // MARK: - Initializer
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-    public init(isControlSelected: Binding<Bool>) {
+    public init(
+        isControlSelected: Binding<Bool>,
+        schemeProvider: SchemeProvider<RadioButtonListViewScheme> = AppThemeSchemeProvider<RadioButtonListViewScheme>()
+    ) {
         self._isControlSelected = isControlSelected
+        self.schemeProvider = schemeProvider
     }
 
+    // MARK: - Body
+
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         RadioControl(isSelected: $isControlSelected)
             .scheme(scheme.radioButtonView)
     }

@@ -35,7 +35,7 @@ final class InputRangeTextFieldSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testInputRangeTextFieldDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createInputRangeTextField()
         checkInputRangeTextField(view: view, named: "DefaultTheme", testName: "InputRangeTextField")
     }
@@ -43,7 +43,7 @@ final class InputRangeTextFieldSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testInputRangeTextFieldDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createInputRangeTextField()
         checkInputRangeTextField(view: view, named: "DarkTheme", testName: "InputRangeTextField")
     }

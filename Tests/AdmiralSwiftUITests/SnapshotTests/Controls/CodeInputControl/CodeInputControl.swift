@@ -35,19 +35,19 @@ final class CodeInputControlSnapshotTests: XCTestCase {
     // MARK: Default Theme
 
     func testCodeInputControlNormal() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let codeInputControl = CodeInputControl(text: .constant("CodeInputControl"), itemsCount: 4, status: .normal)
         checkCodeInputControl(view: codeInputControl, named: "Normal", testName: "CodeInputControl")
     }
 
     func testCodeInputControlError() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let codeInputControl = CodeInputControl(text: .constant("CodeInputControl"), itemsCount: 4, status: .error)
         checkCodeInputControl(view: codeInputControl, named: "Error", testName: "CodeInputControl")
     }
 
     func testCodeInputControlSuccess() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let codeInputControl = CodeInputControl(text: .constant("CodeInputControl"), itemsCount: 4, status: .success)
         checkCodeInputControl(view: codeInputControl, named: "Success", testName: "CodeInputControl")
     }
@@ -55,21 +55,47 @@ final class CodeInputControlSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testCodeInputControlNormalDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let codeInputControl = CodeInputControl(text: .constant("CodeInputControl"), itemsCount: 4, status: .normal)
         checkCodeInputControl(view: codeInputControl, named: "NormalDarkTheme", testName: "CodeInputControl")
     }
 
     func testCodeInputControlErrorDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let codeInputControl = CodeInputControl(text: .constant("CodeInputControl"), itemsCount: 4, status: .error)
         checkCodeInputControl(view: codeInputControl, named: "ErrorDarkTheme", testName: "CodeInputControl")
     }
 
     func testCodeInputControlSuccessDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let codeInputControl = CodeInputControl(text: .constant("CodeInputControl"), itemsCount: 4, status: .success)
         checkCodeInputControl(view: codeInputControl, named: "SuccessDarkTheme", testName: "CodeInputControl")
+    }
+
+    func testCodeInputControlSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = CodeInputControlScheme()
+        scheme.defaultColor = AColor(color: .systemPink)
+        scheme.activeColor = AColor(color: .systemPink)
+        scheme.successColor = AColor(color: .systemPink)
+        let newSchemeProvider = SchemeProvider<CodeInputControlScheme>(scheme: scheme)
+
+        let codeInputControl = CodeInputControl(
+            text: .constant("CodeInputControl"),
+            itemsCount: 4,
+            status: .normal,
+            schemeProvider: newSchemeProvider
+        )
+        checkCodeInputControl(view: codeInputControl, named: "SchemeProvider", testName: "CodeInputControl")
+
+        Appearance.shared.theme = .dark
+        let newCodeInputControl = CodeInputControl(
+            text: .constant("CodeInputControl"),
+            itemsCount: 4,
+            status: .normal,
+            schemeProvider: newSchemeProvider
+        )
+        checkCodeInputControl(view: newCodeInputControl, named: "SchemeProvider", testName: "CodeInputControl")
     }
 
 }

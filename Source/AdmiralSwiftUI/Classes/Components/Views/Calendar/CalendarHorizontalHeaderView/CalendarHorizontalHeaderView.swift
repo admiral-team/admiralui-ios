@@ -10,36 +10,40 @@ import AdmiralUIResources
 import SwiftUI
 
 @available(iOS 14.0.0, *)
-struct CalendarHorizontalHeaderView: View {
-    
+public struct CalendarHorizontalHeaderView: View {
+
+    // MARK: - Constants
+
     enum Constants {
         static let choiceText = "Выбрать"
     }
-    
+
     // MARK: - Internal Properties
-    
+
     @Environment(\.isEnabled) var isEnabled
-    
+
     @Binding var title: String
     @Binding var isOpen: Bool
-    
+
     var monthYearButtonTap: () -> Void
     var leftArrowTap: () -> Void
     var rightArrowTap: () -> Void
     var choiceTap: () -> Void
-    
-    @State private var scheme: CalendarHorizontalHeaderViewScheme? = nil
-    @State private var buttonScheme: MonthYearButtonScheme? = nil
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<CalendarHorizontalHeaderViewScheme>()
-    @ObservedObject var buttonSchemeProvider = AppThemeSchemeProvider<MonthYearButtonScheme>()
-    
-    init(
+
+    // MARK: - Schemes
+
+    @ObservedObject var schemeProvider: SchemeProvider<CalendarHorizontalHeaderViewScheme>
+
+    // MARK: - Initializer
+
+    public init(
         title: String,
         isOpen: Binding<Bool>,
         monthYearButtonTap: @escaping () -> Void,
         leftArrowTap: @escaping () -> Void,
         rightArrowTap: @escaping () -> Void,
-        choiceTap: @escaping () -> Void
+        choiceTap: @escaping () -> Void,
+        schemeProvider: SchemeProvider<CalendarHorizontalHeaderViewScheme> = AppThemeSchemeProvider<CalendarHorizontalHeaderViewScheme>()
     ) {
         self._title = Binding(
             get: { title },
@@ -50,20 +54,26 @@ struct CalendarHorizontalHeaderView: View {
         self.leftArrowTap = leftArrowTap
         self.rightArrowTap = rightArrowTap
         self.choiceTap = choiceTap
+        self.schemeProvider = schemeProvider
     }
-    
-    var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+
+    // MARK: - Body
+
+    public var body: some View {
+        let scheme = schemeProvider.scheme
         let buttonImage = isOpen ?
-            Image(uiImage: PrivateAsset.Custom.Cell.arrowDown.image) :
-            AssetSymbol.System.Outline.smallArrowUp.image
-        var buttonScheme = self.buttonScheme ?? buttonSchemeProvider.scheme
-        buttonScheme.image = buttonImage
+        Image(uiImage: Asset.System.Outline.chevronDownOutline.image) :
+        AssetSymbol.System.Outline.smallArrowUp.image
         let buttonColor = scheme.buttonColor.parameter(for: isEnabled ? .normal : .disabled)
         return ZStack {
             HStack {
                 Button(title, action: monthYearButtonTaped)
-                    .buttonStyle(buttonScheme)
+                    .buttonStyle(
+                        MonthYearButtonStyle(
+                            image: buttonImage,
+                            schemeProvider: SchemeProvider.constant(scheme: scheme.monthYearButtonScheme)
+                        )
+                    )
                 Spacer()
                 if isOpen {
                     Button(action: leftArrowTaped, label: {
@@ -84,21 +94,23 @@ struct CalendarHorizontalHeaderView: View {
                 }
             }
         }
-        
+
     }
-    
+
+    // MARK: - Private Methods
+
     private func monthYearButtonTaped() {
         monthYearButtonTap()
     }
-    
+
     private func leftArrowTaped() {
         leftArrowTap()
     }
-    
+
     private func rightArrowTaped() {
         rightArrowTap()
     }
-    
+
 }
 
 @available(iOS 14.0, *)
@@ -113,11 +125,9 @@ struct CalendarHorizontalHeaderView_Previews: PreviewProvider {
             rightArrowTap: {},
             choiceTap: {}
         )
-            .previewLayout(PreviewLayout.sizeThatFits)
-            .frame(height: 16.0)
-            .padding()
-            .environment(\.manager, SwiftUIThemeManager(theme: .light))
-            
+        .previewLayout(PreviewLayout.sizeThatFits)
+        .frame(height: 16.0)
+        .padding()
+        .environment(\.manager, SwiftUIThemeManager(theme: .light))
     }
 }
-

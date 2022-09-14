@@ -34,16 +34,16 @@ public struct SeveralPinButtonStyle: ButtonStyle {
 
     // MARK: - Private Properties
 
-    @Binding private var scheme: SeveralPinButtonScheme?
+    @ObservedObject private var schemeProvider: SchemeProvider<SeveralPinButtonScheme>
 
     // MARK: - Initializer
 
     public init(
         value: Binding<String>,
-        scheme: Binding<SeveralPinButtonScheme?> = .constant(nil)
+        schemeProvider: SchemeProvider<SeveralPinButtonScheme> = AppThemeSchemeProvider<SeveralPinButtonScheme>()
     ) {
-        self._scheme = scheme
         self._value = value
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Public Methods
@@ -51,7 +51,7 @@ public struct SeveralPinButtonStyle: ButtonStyle {
     public func makeBody(configuration: Self.Configuration) -> some View {
         SeveralPinButton(
             value: $value,
-            scheme: $scheme,
+            schemeProvider: schemeProvider,
             configuration: configuration
         )
     }
@@ -74,27 +74,26 @@ private extension SeveralPinButtonStyle {
         let configuration: Configuration
         @Binding var value: String
 
-        // MARK: - Body
+        // MARK: - Private Properties
 
-        @Binding private var scheme: SeveralPinButtonScheme?
-        @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SeveralPinButtonScheme>()
+        private var schemeProvider: SchemeProvider<SeveralPinButtonScheme>
 
         // MARK: - Initializer
 
         init(
             value: Binding<String>,
-            scheme: Binding<SeveralPinButtonScheme?>,
+            schemeProvider: SchemeProvider<SeveralPinButtonScheme>,
             configuration: Configuration
         ) {
             self.configuration = configuration
             self._value = value
-            self._scheme = scheme
+            self.schemeProvider = schemeProvider
         }
 
         // MARK: - Body
 
         var body: some View {
-            let scheme = self.scheme ?? schemeProvider.scheme
+            let scheme = schemeProvider.scheme
             Text(value)
                 .padding(LayoutGrid.halfModule * CGFloat(value.count))
                 .frame(minWidth: LayoutGrid.tripleModule, minHeight: LayoutGrid.tripleModule)

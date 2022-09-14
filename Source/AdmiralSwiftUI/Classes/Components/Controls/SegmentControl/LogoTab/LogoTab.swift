@@ -52,13 +52,12 @@ public struct LogoTab: View {
     @State private var segmentSize: CGSize = .zero
     @State private var items: [Image] = []
 
-    @Binding private var scheme: LogoTabScheme?
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<LogoTabScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<LogoTabScheme>
 
     // MARK: - Private Computed Properties
 
     private var activeSegmentView: AnyView {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         let isInitialized: Bool = segmentSize != .zero
         if !isInitialized { return EmptyView().eraseToAnyView() }
         return
@@ -79,17 +78,17 @@ public struct LogoTab: View {
     public init(
         images: [Image],
         selection: Binding<Int>,
-        scheme: Binding<LogoTabScheme?> = .constant(nil)
+        schemeProvider: SchemeProvider<LogoTabScheme> = AppThemeSchemeProvider<LogoTabScheme>()
     ) {
         self._selection = selection
         self._items = .init(initialValue: images)
-        self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Body
 
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         ZStack(alignment: .leading) {
             HStack(spacing: 0.0) {
                 ForEach(0..<self.items.count, id: \.self) { index in
@@ -127,7 +126,7 @@ public struct LogoTab: View {
     }
 
     private func getSegmentView(for index: Int) -> some View {
-        let scheme = scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         guard index < items.count else {
             return EmptyView().eraseToAnyView()
         }

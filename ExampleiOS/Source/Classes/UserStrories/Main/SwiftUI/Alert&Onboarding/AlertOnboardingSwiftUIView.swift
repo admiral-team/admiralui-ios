@@ -14,7 +14,7 @@ struct AlertOnboardingSwiftUIView: View {
 
     // MARK: - Properties
 
-    @ObservedObject private var manager = SwiftUIThemeManager.shared
+    @ObservedObject private var manager = Appearance.shared.swiftuiThemeManager
 
     // MARK: - Layout
 

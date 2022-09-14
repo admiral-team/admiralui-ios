@@ -4,20 +4,35 @@
 //
 //  Created on 07.06.2021.
 //
-
-import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
-
+/**
+ TitleListViewScheme - the visual scheme of TitleListView.
+ You can create a by specifying the following parameters in init:
+ - TitleListViewScheme() - Initialize default TitleListViewScheme with default themezation
+ # Example to create TitleListViewScheme:
+ # Code
+ ```
+ let scheme = TitleListViewScheme()
+ ```
+ */
 @available(iOS 14.0.0, *)
 public struct TitleListViewScheme: AppThemeScheme {
-    
+
+    // MARK: - Public Properties
+
+    /// The background color
     public var backgroundColor = ControlParameter<AColor>()
+
+    /// The text color
     public var textColor = TitleListViewParameters<AColor>()
-    
+
+    /// The title font label
     public var titleFont = TitleListViewParameters<AFont>()
-    
-    public init(theme: AppTheme) {
+
+    // MARK: - Initializer
+
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         backgroundColor.set(parameter: theme.colors.backgroundSelected, for: .highlighted)

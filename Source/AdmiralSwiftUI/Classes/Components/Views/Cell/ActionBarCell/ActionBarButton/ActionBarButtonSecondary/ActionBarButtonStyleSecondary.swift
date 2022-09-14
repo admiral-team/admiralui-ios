@@ -17,7 +17,7 @@ struct ActionBarButtonStyleSecondary: ButtonStyle {
     private let image: Image
     private let imageStyle: ActionBarItemImageStyle?
     private let style: ActionBarItemStyle
-    private let actionBarControlScheme: ActionBarControlSchemeTwo
+    private let actionBarControlScheme: ActionBarControlSchemeSecondary
     private let backgroundColor: Color?
     private let imageTintColor: Color?
     private let text: String?
@@ -31,7 +31,7 @@ struct ActionBarButtonStyleSecondary: ButtonStyle {
         backgroundColor: Color?,
         imageTintColor: Color?,
         text: String?,
-        actionBarControlScheme: ActionBarControlSchemeTwo
+        actionBarControlScheme: ActionBarControlSchemeSecondary
     ) {
         self.image = image
         self.imageStyle = imageStyle
@@ -76,7 +76,7 @@ private extension ActionBarButtonStyleSecondary {
         // MARK: - Properties
 
         let configuration: Configuration
-        let scheme: ActionBarControlSchemeTwo
+        let scheme: ActionBarControlSchemeSecondary
         let image: Image
         let imageStyle: ActionBarItemImageStyle?
         let style: ActionBarItemStyle

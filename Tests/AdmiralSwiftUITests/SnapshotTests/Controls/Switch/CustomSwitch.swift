@@ -22,7 +22,7 @@ final class CustomSwitchSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testCustomSwitch() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let customSwitch = CustomSwitch(isOn: .constant(true)).frame(width: 60, height: 60)
         checkSwitch(view: customSwitch, named: "Custom", testName: "Switch")
     }
@@ -30,9 +30,29 @@ final class CustomSwitchSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testCustomSwitchDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let customSwitch = CustomSwitch(isOn: .constant(true)).frame(width: 60, height: 60)
         checkSwitch(view: customSwitch, named: "CustomDarkTheme", testName: "Switch")
+    }
+
+    func testCustomSwitchSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = CustomSwitchScheme()
+        scheme.tintColor = AColor(color: .systemPink)
+        let newSchemeProvider = SchemeProvider<CustomSwitchScheme>(scheme: scheme)
+
+        let customSwitch = CustomSwitch(
+            isOn: .constant(true),
+            schemeProvider: newSchemeProvider
+        ).frame(width: 60, height: 60)
+        checkSwitch(view: customSwitch, named: "SchemeProvider", testName: "Switch")
+
+        Appearance.shared.theme = .dark
+        let newCustomSwitch = CustomSwitch(
+            isOn: .constant(true),
+            schemeProvider: newSchemeProvider
+        ).frame(width: 60, height: 60)
+        checkSwitch(view: newCustomSwitch, named: "SchemeProvider", testName: "Switch")
     }
 
 }

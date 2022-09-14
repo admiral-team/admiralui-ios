@@ -37,18 +37,18 @@ public struct TwoTitlePrimaryButtonStyle: ButtonStyle {
     private let leftTitle: String
     private let rightTitle: String
 
-    @Binding private var scheme: TwoTitlePrimaryButtonScheme?
+    @ObservedObject private var schemeProvider: SchemeProvider<TwoTitlePrimaryButtonScheme>
 
     // MARK: - Initializier
 
     public init(
         leftTitle: String = "",
         rightTitle: String = "",
-        scheme: Binding<TwoTitlePrimaryButtonScheme?> = .constant(nil)
+        schemeProvider: SchemeProvider<TwoTitlePrimaryButtonScheme> = AppThemeSchemeProvider<TwoTitlePrimaryButtonScheme>()
     ) {
         self.leftTitle = leftTitle
         self.rightTitle = rightTitle
-        self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Public methods
@@ -58,7 +58,7 @@ public struct TwoTitlePrimaryButtonStyle: ButtonStyle {
             configuration: configuration,
             leftTitle: leftTitle,
             rightTitle: rightTitle,
-            scheme: $scheme
+            schemeProvider: schemeProvider
         )
     }
 }
@@ -75,8 +75,7 @@ private extension TwoTitlePrimaryButtonStyle {
 
         @Environment(\.isEnabled) private var isEnabled
 
-        @Binding private var scheme: TwoTitlePrimaryButtonScheme?
-        @ObservedObject private var schemeProvider = AppThemeSchemeProvider<TwoTitlePrimaryButtonScheme>()
+        private var schemeProvider: SchemeProvider<TwoTitlePrimaryButtonScheme>
 
         // MARK: - Initializer
 
@@ -84,9 +83,9 @@ private extension TwoTitlePrimaryButtonStyle {
             configuration: Configuration,
             leftTitle: String,
             rightTitle: String,
-            scheme: Binding<TwoTitlePrimaryButtonScheme?>
+            schemeProvider: SchemeProvider<TwoTitlePrimaryButtonScheme>
         ) {
-            self._scheme = scheme
+            self.schemeProvider = schemeProvider
             self.configuration = configuration
             self.leftTitle = leftTitle
             self.rightTitle = rightTitle
@@ -95,7 +94,7 @@ private extension TwoTitlePrimaryButtonStyle {
         // MARK: - Body
 
         var body: some View {
-            let scheme = scheme ?? schemeProvider.scheme
+            let scheme = schemeProvider.scheme
             let state = twoTitlePrimaryState(configuration)
             return ZStack {
                 scheme.buttonBackgroundColor.parameter(for: state)?.swiftUIColor

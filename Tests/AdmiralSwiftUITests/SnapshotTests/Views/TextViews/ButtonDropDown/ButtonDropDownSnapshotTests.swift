@@ -35,7 +35,7 @@ final class ButtonDropDownSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testButtonDropDownDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createButtonDropDown()
         checkButtonDropDown(view: view, named: "DefaultTheme", testName: "ButtonDropDown")
     }
@@ -43,7 +43,7 @@ final class ButtonDropDownSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testButtonDropDownDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createButtonDropDown()
         checkButtonDropDown(view: view, named: "DarkTheme", testName: "ButtonDropDown")
     }

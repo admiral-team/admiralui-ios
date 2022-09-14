@@ -129,7 +129,7 @@ public class ButtonWithArrowListView: BaseListView, TralingListViewComponent, An
         ghostButton.titleLabel?.textAlignment = .right
         ghostButton.contentMode = .right
         arrowImageView.contentMode = .center
-        arrowImageView.image = PrivateAsset.Custom.Cell.arrowDown.image
+        arrowImageView.image = Asset.System.Outline.chevronDownOutline.image
         
         ghostButton.addTarget(self, action: #selector(buttonDidSelect(_:)), for: .touchUpInside)
     }

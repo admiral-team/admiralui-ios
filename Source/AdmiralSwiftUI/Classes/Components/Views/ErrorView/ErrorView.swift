@@ -52,8 +52,7 @@ public struct ErrorView: View {
 
     // MARK: Private Properties
 
-    @Binding private var scheme: ErrorViewScheme?
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ErrorViewScheme>()
+    @ObservedObject var schemeProvider: SchemeProvider<ErrorViewScheme>
 
     // MARK: - Initializer
 
@@ -63,19 +62,19 @@ public struct ErrorView: View {
         buttonTitle: String? = nil,
         isLoadingButton: Binding<Bool> = .constant(false),
         buttonAction: @escaping () -> () = {},
-        scheme: Binding<ErrorViewScheme?> = .constant(nil)
+        schemeProvider: SchemeProvider<ErrorViewScheme> = AppThemeSchemeProvider<ErrorViewScheme>()
     ) {
         self.text = text
         self.buttonTitle = buttonTitle
         self.buttonAction = buttonAction
         self._isLoadingButton = isLoadingButton
-        self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Body
 
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         VStack(alignment: .center, spacing: 0.0, content: {
             Spacer()
             if let text = text {
@@ -100,7 +99,7 @@ public struct ErrorView: View {
 
     func scheme(_ scheme: ErrorViewScheme) -> some View {
         var view = self
-        view._scheme = .constant(scheme)
+        view.schemeProvider = SchemeProvider.constant(scheme: scheme)
         return view.id(UUID())
     }
 

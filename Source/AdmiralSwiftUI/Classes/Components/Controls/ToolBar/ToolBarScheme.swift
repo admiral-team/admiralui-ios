@@ -13,6 +13,9 @@ import AdmiralUIResources
  Example to create ToolBarScheme:
  Code
  ```
+ # Example to create ToolBarScheme:
+ # Code
+ ```
  let scheme = ToolBarScheme()
  ```
  */
@@ -33,9 +36,10 @@ public struct ToolBarScheme: AppThemeScheme {
     // MARK: - Initializer
 
     public init(theme: AppTheme = .default) {
-        self.backgroundColor = theme.colors.backgroundAccentDark
-        self.shadowColor = theme.colors.backgroundShadow
-        self.itemScheme = ToolBarItemScheme(theme: theme)
+        itemScheme = ToolBarItemScheme(theme: theme)
+        backgroundColor = theme.colors.backgroundAccentDark
+        shadowColor = theme.colors.backgroundShadow
+        itemScheme = ToolBarItemScheme(theme: theme)
     }
 
 }

@@ -18,6 +18,7 @@ import AdmiralUIResources
  let scheme = BadgeArrowListViewScheme()
  ```
  */
+@available(iOS 14.0, *)
 public struct BadgeArrowListViewScheme: AppThemeScheme {
 
     // MARK: - Public Properties

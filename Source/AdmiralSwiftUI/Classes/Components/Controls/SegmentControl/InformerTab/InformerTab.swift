@@ -70,8 +70,7 @@ public struct InformerTab: View {
     @Binding private var selection: Int
     @Binding private var offsetSegment: CGFloat
 
-    @Binding private var scheme: InformerTabScheme?
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<InformerTabScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<InformerTabScheme>
 
     private var customView: AnyView
     private let items: [InformerSegmentedItem]
@@ -79,7 +78,7 @@ public struct InformerTab: View {
     // MARK: - Computed Properties
 
     private var activeSegmentView: AnyView {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         let isInitialized: Bool = segmentSize != .zero
         if !isInitialized { return EmptyView().eraseToAnyView() }
         return
@@ -110,13 +109,13 @@ public struct InformerTab: View {
         customView: AnyView = AnyView(EmptyView()),
         selection: Binding<Int> = .constant(0),
         offsetSegment: Binding<CGFloat> = .constant(0.0),
-        scheme: Binding<InformerTabScheme?> = .constant(nil)
+        schemeProvider: SchemeProvider<InformerTabScheme> = AppThemeSchemeProvider<InformerTabScheme>()
     ) {
         self._selection = selection
         self._offsetSegment = offsetSegment
-        self._scheme = scheme
         self.customView = customView
         self.items = items
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Body
@@ -153,7 +152,7 @@ public struct InformerTab: View {
     }
 
     private func getSegmentView(for index: Int) -> some View {
-        let scheme = scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
 
         guard index < items.count else {
             return EmptyView().eraseToAnyView()

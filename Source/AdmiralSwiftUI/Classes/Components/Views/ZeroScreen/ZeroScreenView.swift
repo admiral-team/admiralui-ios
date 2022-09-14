@@ -61,8 +61,7 @@ public struct ZeroScreenView: View {
 
     // MARK: Internal Properties
 
-    @Binding var scheme: ZeroScreenViewScheme?
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<ZeroScreenViewScheme>()
+    @ObservedObject var schemeProvider: SchemeProvider<ZeroScreenViewScheme>
 
     // MARK: - Initializer
 
@@ -74,21 +73,21 @@ public struct ZeroScreenView: View {
         buttonTitle: String? = nil,
         isLoadingButton: Binding<Bool> = .constant(false),
         buttonAction: @escaping () -> () = {},
-        scheme: Binding<ZeroScreenViewScheme?> = .constant(nil)
+        schemeProvider: SchemeProvider<ZeroScreenViewScheme> = AppThemeSchemeProvider<ZeroScreenViewScheme>()
     ) {
         self.image = image
         self.title = title
         self.subtitle = subtitle
         self.buttonTitle = buttonTitle
         self.buttonAction = buttonAction
+        self.schemeProvider = schemeProvider
         self._isLoadingButton = isLoadingButton
-        self._scheme = scheme
     }
 
     // MARK: - Body
 
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         VStack(alignment: .center, spacing: 0.0) {
             Spacer()
             if let image = image {
@@ -119,7 +118,10 @@ public struct ZeroScreenView: View {
             Spacer()
             if let buttonTitle = buttonTitle {
                 Button(buttonTitle, action: buttonAction)
-                    .buttonStyle(PrimaryButtonStyle(isLoading: $isLoadingButton))
+                    .buttonStyle(PrimaryButtonStyle(
+                        isLoading: $isLoadingButton,
+                        schemeProvider: .constant(scheme: scheme.buttonScheme)
+                    ))
             }
             Spacer()
                 .frame(height: LayoutGrid.doubleModule)
@@ -131,7 +133,7 @@ public struct ZeroScreenView: View {
 
     func scheme(_ scheme: ZeroScreenViewScheme) -> some View {
         var view = self
-        view._scheme = .constant(nil)
+        view.schemeProvider = SchemeProvider.constant(scheme: scheme)
         return view.id(UUID())
     }
 
@@ -141,7 +143,7 @@ public struct ZeroScreenView: View {
 struct ZeroScreenView_Previews: PreviewProvider {
 
     static var previews: some View {
-        let image = Image(uiImage: PrivateAsset.Custom.Informers.question.image)
+        let image = Image(uiImage: SystemAsset.Custom.Informers.question.image)
         ZeroScreenView(
             image: image,
             title: "Title Center",

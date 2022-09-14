@@ -35,25 +35,25 @@ final class TitleHeaderSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testTitleSubtitleHeaderTitleStyleDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createTitleHeader(style: .title)
         checkTitleHeader(view: view, named: "TitleStyle.DefaultTheme", testName: "TitleHeader")
     }
     
     func testTitleSubtitleHeaderBodyStyleDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createTitleHeader(style: .body)
         checkTitleHeader(view: view, named: "BodyStyle.DefaultTheme", testName: "TitleHeader")
     }
     
     func testTitleSubtitleHeaderHeadlineStyleDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createTitleHeader(style: .headline)
         checkTitleHeader(view: view, named: "Headline.DefaultTheme", testName: "TitleHeader")
     }
     
     func testTitleSubtitleHeaderHeadlineSecondaryStyleDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createTitleHeader(style: .headlineSecondary)
         checkTitleHeader(view: view, named: "HeadlineSecondary.DefaultTheme", testName: "TitleHeader")
     }
@@ -61,25 +61,25 @@ final class TitleHeaderSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testTitleSubtitleHeaderTitleStyleDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createTitleHeader(style: .title)
         checkTitleHeader(view: view, named: "TitleStyle.DarkTheme", testName: "TitleHeader")
     }
     
     func testTitleSubtitleHeaderBodyStyleDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createTitleHeader(style: .body)
         checkTitleHeader(view: view, named: "BodyStyle.DarkTheme", testName: "TitleHeader")
     }
     
     func testTitleSubtitleHeaderHeadlineStyleDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createTitleHeader(style: .headline)
         checkTitleHeader(view: view, named: "Headline.DarkTheme", testName: "TitleHeader")
     }
     
     func testTitleSubtitleHeaderHeadlineSecondaryStyleDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createTitleHeader(style: .headlineSecondary)
         checkTitleHeader(view: view, named: "HeadlineSecondary.DarkTheme", testName: "TitleHeader")
     }

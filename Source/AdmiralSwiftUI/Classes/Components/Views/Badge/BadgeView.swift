@@ -90,8 +90,7 @@ public struct BadgeView<Content>: View where Content: View {
 
     @State private var segmentSize: CGSize = .zero
 
-    @Binding var scheme: BadgeViewScheme?
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<BadgeViewScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<BadgeViewScheme>
 
     // MARK: - Initializer
 
@@ -108,14 +107,14 @@ public struct BadgeView<Content>: View where Content: View {
         borderColor: Color? = nil,
         offset: CGPoint = .zero,
         @ViewBuilder content: @escaping () -> (Content),
-        scheme: Binding<BadgeViewScheme?> = .constant(nil)
+        schemeProvider: SchemeProvider<BadgeViewScheme> = AppThemeSchemeProvider<BadgeViewScheme>()
     ) {
         self.badgeStyle = badgeStyle
         self.value = value
         self.borderColor = borderColor
         self.offset = offset
         self.content = content
-        self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
 
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
@@ -131,14 +130,14 @@ public struct BadgeView<Content>: View where Content: View {
         borderColor: Color? = nil,
         offset: CGPoint = .zero,
         @ViewBuilder content: @escaping () -> (Content),
-        scheme: Binding<BadgeViewScheme?> = .constant(nil)
+        schemeProvider: SchemeProvider<BadgeViewScheme> = AppThemeSchemeProvider<BadgeViewScheme>()
     ) {
         self.badgeStyle = badgeStyle
         self.text = text
         self.borderColor = borderColor
         self.content = content
         self.offset = offset
-        self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Body
@@ -158,13 +157,13 @@ public struct BadgeView<Content>: View where Content: View {
 
     func scheme(_ scheme: BadgeViewScheme) -> some View {
         var view = self
-        view._scheme = .constant(scheme)
+        view.schemeProvider = SchemeProvider.constant(scheme: scheme)
         return view.id(UUID())
     }
 
     @ViewBuilder
     func badgeView() -> some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         let badgeForegroundColor = scheme.backgroundColor.parameter(for: isEnabled  ? .normal : .disabled, style: badgeStyle)?.swiftUIColor
         let strokeColor = borderColor ?? scheme.borderColor.swiftUIColor
 
@@ -232,13 +231,13 @@ extension BadgeView where Content == EmptyView {
         value: Int?,
         borderColor: Color? = nil,
         offset: CGPoint = .zero,
-        scheme: Binding<BadgeViewScheme?> = .constant(nil)
+        schemeProvider: SchemeProvider<BadgeViewScheme> = AppThemeSchemeProvider<BadgeViewScheme>()
     ) {
         self.badgeStyle = badgeStyle
         self.value = value
         self.borderColor = borderColor
         self.offset = offset
-        self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
 
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
@@ -252,13 +251,13 @@ extension BadgeView where Content == EmptyView {
         text: String?,
         borderColor: Color? = nil,
         offset: CGPoint = .zero,
-        scheme: Binding<BadgeViewScheme?> = .constant(nil)
+        schemeProvider: SchemeProvider<BadgeViewScheme> = AppThemeSchemeProvider<BadgeViewScheme>()
     ) {
         self.badgeStyle = badgeStyle
         self.text = text
         self.borderColor = borderColor
         self.offset = offset
-        self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
 }
 

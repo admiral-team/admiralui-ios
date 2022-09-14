@@ -7,18 +7,36 @@
 
 import AdmiralTheme
 import AdmiralUIResources
-
+/**
+ SliderScheme - the visual scheme of Slider.
+ You can create a by specifying the following parameters in init:
+ - SliderScheme() - Initialize default SliderScheme with default themezation
+ # Example to create SliderScheme:
+ # Code
+ ```
+ let scheme = SliderScheme()
+ ```
+ */
+@available(iOS 14.0, *)
 public struct SliderScheme: AppThemeScheme {
+
+    // MARK: - Public Properties
+
+    /// The parameter that sets tint label color with state
     public var tintColor = ControlParameter<AColor>()
+
+    /// The parameter that sets thumb color with state
     public var thumbColor = ControlParameter<AColor>()
+
+    /// The parameter that sets thumb border color with state
     public var thumbBorderColor = ControlParameter<AColor>()
+
+    /// The parameter that sets background color with state
     public var backgroundColor = ControlParameter<AColor>()
-    
-    public init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    public init(theme: AppTheme) {
+
+    // MARK: - Initializer
+
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         tintColor.set(parameter: theme.colors.backgroundAccent, for: .normal)

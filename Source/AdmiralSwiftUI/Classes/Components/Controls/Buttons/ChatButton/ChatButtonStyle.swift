@@ -14,18 +14,23 @@ public struct ChatButtonStyle: ButtonStyle {
 
     // MARK: - Private Properties
 
-    @Binding private var scheme: ChatButtonScheme?
+    @ObservedObject private var schemeProvider: SchemeProvider<ChatButtonScheme>
 
     // MARK: - Initialiazer
 
-    public init(scheme: Binding<ChatButtonScheme?> = .constant(nil)) {
-        self._scheme = scheme
+    public init(
+        schemeProvider: SchemeProvider<ChatButtonScheme> = AppThemeSchemeProvider<ChatButtonScheme>()
+    ) {
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Body
 
     public func makeBody(configuration: Self.Configuration) -> some View {
-        return ChatButton(scheme: $scheme, configuration: configuration)
+        return ChatButton(
+            schemeProvider: schemeProvider,
+            configuration: configuration
+        )
     }
 }
 
@@ -45,24 +50,23 @@ private extension ChatButtonStyle {
         @Environment(\.isEnabled) private var isEnabled
         private let configuration: Configuration
 
-        @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ChatButtonScheme>()
-        @Binding private var scheme: ChatButtonScheme?
+        private var schemeProvider: SchemeProvider<ChatButtonScheme>
 
         // MARK: - Initializer
 
         init(
-            scheme: Binding<ChatButtonScheme?> = .constant(nil),
+            schemeProvider: SchemeProvider<ChatButtonScheme>,
             configuration: Configuration
         ) {
             self.configuration = configuration
-            self._scheme = scheme
+            self.schemeProvider = schemeProvider
         }
 
         // MARK: - Layout
 
         var body: some View {
             let content = configuration.label.eraseToAnyView()
-            let scheme = self.scheme ?? schemeProvider.scheme
+            let scheme = schemeProvider.scheme
             contentView(content: content, scheme: scheme)
         }
 

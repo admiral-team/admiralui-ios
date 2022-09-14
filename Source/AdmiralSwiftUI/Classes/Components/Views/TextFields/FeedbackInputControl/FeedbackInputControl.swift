@@ -43,9 +43,8 @@ public struct FeedbackInputControl: View {
     @Environment(\.isEnabled) private var isEnabled
     
     // MARK: - Private Properties
-    
-    @State private var scheme: FeedbackInputControlScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<FeedbackInputControlScheme>()
+
+    @ObservedObject private var schemeProvider: SchemeProvider<FeedbackInputControlScheme>
     
     // MARK: - Initializer
     
@@ -53,13 +52,20 @@ public struct FeedbackInputControl: View {
     /// - Parameters:
     ///   - cursorPosition: Current cursor position.
     ///   - itemsCount: Number of items in control.
-    public init(cursorPosition: Binding<Int>, itemsCount: Int = 5) {
+    public init(
+        cursorPosition: Binding<Int>,
+        itemsCount: Int = 5,
+        schemeProvider: SchemeProvider<FeedbackInputControlScheme> = AppThemeSchemeProvider<FeedbackInputControlScheme>()
+    ) {
         self._cursorPosition = cursorPosition
         self.itemsCount = itemsCount
+        self.schemeProvider = schemeProvider
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         
         return ZStack {
             HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 16.0, content: {
@@ -83,7 +89,7 @@ public struct FeedbackInputControl: View {
     
     func scheme(_ scheme: FeedbackInputControlScheme) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view.schemeProvider = .constant(scheme: scheme)
         return view.id(UUID())
     }
     

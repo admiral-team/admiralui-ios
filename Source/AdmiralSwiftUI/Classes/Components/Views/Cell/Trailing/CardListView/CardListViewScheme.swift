@@ -8,14 +8,33 @@
 import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
-
+/**
+ CardListViewScheme - the visual scheme of CardListView.
+ You can create a by specifying the following parameters in init:
+ - CardListViewScheme() - Initialize default CardListViewScheme with default themezation
+ # Example to create CardListViewScheme:
+ # Code
+ ```
+ let scheme = CardListViewScheme()
+ ```
+ */
+@available(iOS 14.0, *)
 public struct CardListViewScheme: AppThemeScheme {
-    
+
+    // MARK: - Public Properties
+
+    /// The  parameter that sets view background color with state
     public var backgroundColor = ControlParameter<AColor>()
+
+    /// The  parameter that sets image tint color with state
     public var imageTintColor = ControlParameter<AColor>()
+
+    /// The  parameter that sets image view alpha with state
     public var imageViewAlpha = ControlParameter<Double>()
-    
-    public init(theme: AppTheme) {
+
+    // MARK: - Initializer
+
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         backgroundColor.set(parameter: theme.colors.backgroundSelected, for: .highlighted)

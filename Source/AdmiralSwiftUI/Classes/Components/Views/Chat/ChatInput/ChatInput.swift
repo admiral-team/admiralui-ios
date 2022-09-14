@@ -118,8 +118,7 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
         return maxHeight ?? Constants.maxHeightInput
     }
 
-    @Binding private var scheme: ChatInputScheme?
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<ChatInputScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<ChatInputScheme>
 
     // MARK: - Initializer
 
@@ -142,7 +141,7 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
         maxNumberOfLines: Int? = nil,
         maxHeight: CGFloat? = nil,
         onCursorPosition: ((Int, Int, String) -> (Int))? = nil,
-        scheme: Binding<ChatInputScheme?> = .constant(nil)
+        schemeProvider: SchemeProvider<ChatInputScheme> = AppThemeSchemeProvider<ChatInputScheme>()
     ) {
         self._content = Binding(get: {
             if let value = value.wrappedValue {
@@ -169,7 +168,7 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
         self.isSendButtonDisabled = isSendButtonDisabled
         self.onCursorPosition = onCursorPosition
         self.canPerformActionPaste = canPerformActionPaste
-        self._scheme = scheme
+        self.schemeProvider = schemeProvider
         updateMaxHeight(maxNumberOfLines: maxNumberOfLines, maxHeight: maxHeight)
     }
 
@@ -192,7 +191,7 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
         maxNumberOfLines: Int? = nil,
         maxHeight: CGFloat? = nil,
         onCursorPosition: ((Int, Int, String) -> (Int))? = nil,
-        scheme: Binding<ChatInputScheme?> = .constant(nil)
+        schemeProvider: SchemeProvider<ChatInputScheme> = AppThemeSchemeProvider<ChatInputScheme>()
     ) {
         self.init(
             value: content,
@@ -212,14 +211,14 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
             maxNumberOfLines: maxNumberOfLines,
             maxHeight: maxHeight,
             onCursorPosition: onCursorPosition,
-            scheme: scheme
+            schemeProvider: schemeProvider
         )
     }
 
     // MARK: - Body
 
     public var body: some View {
-        let scheme = scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
 
         return VStack(spacing: .zero) {
             HStack(alignment: .bottom) {
@@ -295,13 +294,13 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
 
     func scheme(_ scheme: ChatInputScheme) -> some View {
         var view = self
-        view._scheme = .constant(scheme)
+        view.schemeProvider = SchemeProvider.constant(scheme: scheme)
         return view.id(UUID())
     }
 
     @ViewBuilder
     func textView() -> some View {
-        let scheme = scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         GeometryReader { geo in
             if initGeometryReader {
                 UIKitTextView(
@@ -343,7 +342,7 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
 
     @ViewBuilder
     func textField() -> some View {
-        let scheme = scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         UIKitTextField(
             text: $content,
             isResponder: isResponder,
@@ -380,7 +379,7 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
             return
         }
 
-        let scheme = scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         let lineHeight = scheme.textFont.size
         self.maxHeight = (lineHeight + Constants.lineSpacing) * CGFloat(maxNumberOfLines)
     }

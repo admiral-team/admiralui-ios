@@ -7,7 +7,6 @@
 import AdmiralTheme
 import AdmiralUIResources
 import SwiftUI
-
 /// The style of ToolBar items.
 public enum ToolBarType {
     /// The value that sets specific font and color
@@ -57,24 +56,25 @@ public struct ToolBar: View {
         static let oneItemWidth: CGFloat = 140.0
         static let overlayRadius: CGFloat = 14
     }
-
+    
     // MARK: - Internal Properties
-
+    
     @Environment(\.isEnabled) var isEnabled
-
-    @State var currentPage = 0
-
+    
     // MARK: - Private Properties
 
-    @Binding private var items: [ToolBarItem]
+    @Binding  private var items: [ToolBarItem]
     @Binding private var type: ToolBarType
     @Binding private var selectedIndex: Int
+
+    @ObservedObject private var schemeProvider: SchemeProvider<ToolBarScheme> = AppThemeSchemeProvider<ToolBarScheme>()
 
     private let isSelectable: Bool
     private let onTap: (Int) -> ()
 
-    @Binding private var scheme: ToolBarScheme?
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ToolBarScheme>()
+    // MARK: - Internal Properties
+
+    @State var currentPage = 0
 
     // MARK: - Initializer
 
@@ -84,26 +84,27 @@ public struct ToolBar: View {
     ///   - type: Type of ToolBar items horizontal or vertical, vertical by default
     ///   - onTap: The callback action by tapping the button
     ///   - isSelectable: Defines ToolBar item behavior on tap: highllight or select
+    ///   - schemeProvider: Sheme provider serves for change theme.
     public init(
         items: Binding<[ToolBarItem]>,
         type: Binding<ToolBarType>,
         selectedIndex: Binding<Int>,
         onTap: @escaping (Int) ->(),
         isSelectable: Bool = true,
-        scheme: Binding<ToolBarScheme?> = .constant(nil)
+        schemeProvider: SchemeProvider<ToolBarScheme> = AppThemeSchemeProvider<ToolBarScheme>()
     ) {
         self._items = items
         self._type = type
         self._selectedIndex = selectedIndex
-        self._scheme = scheme
         self.onTap = onTap
         self.isSelectable = isSelectable
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Body
 
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         HStack {
             ForEach(0...items.count - 1, id: \.self) { i in
                 let item = items[i]

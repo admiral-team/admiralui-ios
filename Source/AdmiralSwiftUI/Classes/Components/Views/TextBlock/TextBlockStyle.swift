@@ -42,7 +42,7 @@ public enum TextBlockStyle: String {
 
     // MARK: - Computed Properties
 
-    var minHeight: CGFloat {
+    public var minHeight: CGFloat {
         switch self {
         case .title, .dropDown:
             return LayoutGrid.halfModule * 16
@@ -57,7 +57,7 @@ public enum TextBlockStyle: String {
         }
     }
 
-    var edgeInsets: EdgeInsets {
+    public var edgeInsets: EdgeInsets {
         switch self {
         case .title, .dropDown:
             return EdgeInsets(
