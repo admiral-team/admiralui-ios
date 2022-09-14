@@ -2,7 +2,7 @@
 //  ManualSchemeProvider.swift
 //  AdmiralTheme
 //
-//  Created by ADyatkov on 06.09.2022.
+//  Created on 06.09.2022.
 //
 
 import Combine

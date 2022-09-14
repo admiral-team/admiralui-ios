@@ -35,7 +35,7 @@ final class StandardTextFieldSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testStandardTextFieldDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createStandardTextField()
         checkStandardTextField(view: view, named: "DefaultTheme", testName: "StandardTextField")
     }
@@ -43,7 +43,7 @@ final class StandardTextFieldSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testStandardTextFieldDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createStandardTextField()
         checkStandardTextField(view: view, named: "DarkTheme", testName: "StandardTextField")
     }

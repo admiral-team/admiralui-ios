@@ -35,7 +35,7 @@ final class SecondaryTitleListViewSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testSecondaryTitleListViewDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createSecondaryTitleListView()
         checkSecondaryTitleListView(view: view, named: "DefaultTheme", testName: "SecondaryTitleListView")
     }
@@ -43,7 +43,7 @@ final class SecondaryTitleListViewSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testSecondaryTitleListViewDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createSecondaryTitleListView()
         checkSecondaryTitleListView(view: view, named: "DarkTheme", testName: "SecondaryTitleListView")
     }

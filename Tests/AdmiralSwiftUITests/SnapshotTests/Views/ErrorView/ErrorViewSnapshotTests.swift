@@ -35,7 +35,7 @@ final class ErrorViewSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testErrorViewDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createErrorView()
         checkErrorView(view: view, named: "DefaultTheme", testName: "ErrorView")
     }
@@ -43,13 +43,13 @@ final class ErrorViewSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testErrorViewDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createErrorView()
         checkErrorView(view: view, named: "DarkTheme", testName: "ErrorView")
     }
 
     func testErrorViewSchemeProvider() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         var scheme = ErrorViewScheme(theme: .default)
         scheme.titleColor = AColor(color: .systemPink)
         let newSchemeProvider = SchemeProvider<ErrorViewScheme>(scheme: scheme)
@@ -57,7 +57,7 @@ final class ErrorViewSnapshotTests: XCTestCase {
         let view = createErrorView(schemeProvider: newSchemeProvider)
         checkErrorView(view: view, named: "NewSchemeProvider", testName: "ErrorView")
 
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let newView = createErrorView(schemeProvider: newSchemeProvider)
         checkErrorView(view: newView, named: "NewSchemeProvider", testName: "ErrorView")
     }

@@ -59,13 +59,13 @@ final class CalendarViewSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testCalendarViewHorizontalDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createCalendarView(type: .horizontal)
         checkCalendarView(view: view, named: "Horizontal.DefaultTheme", testName: "CalendarView")
     }
     
     func testCalendarViewVerticalDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createCalendarView(type: .vertical)
         checkCalendarView(view: view, named: "Vertical.DefaultTheme", testName: "CalendarView")
     }
@@ -73,19 +73,19 @@ final class CalendarViewSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testCalendarViewHorizontalDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createCalendarView(type: .horizontal)
         checkCalendarView(view: view, named: "Horizontal.DarkTheme", testName: "CalendarView")
     }
     
     func testCalendarViewVerticalDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createCalendarView(type: .vertical)
         checkCalendarView(view: view, named: "Vertical.DarkTheme", testName: "CalendarView")
     }
 
     func testCalendarSchemeProvider() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         var scheme = CalendarHorizontalViewScheme(theme: .default)
         scheme.headerViewScheme.backgroundColor = AColor(color: .systemPink)
 
@@ -102,7 +102,7 @@ final class CalendarViewSnapshotTests: XCTestCase {
         let view = createCalendarView(type: .horizontal, schemeProvider: newSchemeProvider)
         checkCalendarView(view: view, named: "Horizontal.SchemeProvider", testName: "CalendarView")
 
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let newView = createCalendarView(type: .horizontal, schemeProvider: newSchemeProvider)
         checkCalendarView(view: newView, named: "Horizontal.SchemeProvider", testName: "CalendarView")
     }

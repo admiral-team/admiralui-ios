@@ -46,7 +46,7 @@ struct NavBarAccessor: UIViewControllerRepresentable {
 struct CustomSwiftUIView: View {
 
     @ObservedObject var viewModel: CustomSwiftUIViewModel
-    @ObservedObject var manager = SwiftUIThemeManager.shared
+    @ObservedObject var manager = Appearance.shared.swiftuiThemeManager
     @ObservedObject var toastManager = ToastNotificationsManager.shared
 
     init(viewModel: CustomSwiftUIViewModel) {

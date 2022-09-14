@@ -2,7 +2,7 @@
 //  AppThemeSchemeProvider.swift
 //  AdmiralTheme
 //
-//  Created by ADyatkov on 06.09.2022.
+//  Created on 06.09.2022.
 //
 
 import Combine
@@ -19,7 +19,7 @@ public final class AppThemeSchemeProvider<S>: SchemeProvider<S> where S: AppThem
 
     // MARK: - Initializer
 
-    public init(manager: SwiftUIThemeManager = .shared) {
+    public init(manager: SwiftUIThemeManager = Appearance.shared.swiftuiThemeManager) {
         self.manager = manager
         super.init(scheme: S(theme: manager.theme))
         manager.$theme.sink { [weak self] theme in

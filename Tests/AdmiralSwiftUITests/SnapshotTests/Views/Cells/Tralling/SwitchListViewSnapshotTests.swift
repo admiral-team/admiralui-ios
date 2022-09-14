@@ -35,13 +35,13 @@ final class SwitchListViewSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testSwitchListViewSelectedDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createSwitchListView(isSelected: true)
         checkSwitchListView(view: view, named: "SelectedDefaultTheme", testName: "SwitchListView")
     }
     
     func testSwitchListViewNotSelectedDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createSwitchListView(isSelected: false)
         checkSwitchListView(view: view, named: "NotSelectedDefaultTheme", testName: "SwitchListView")
     }
@@ -49,13 +49,13 @@ final class SwitchListViewSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testSwitchListViewSelectedDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createSwitchListView(isSelected: true)
         checkSwitchListView(view: view, named: "SelectedDarkTheme", testName: "SwitchListView")
     }
     
     func testSwitchListViewNotSelectedDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createSwitchListView(isSelected: false)
         checkSwitchListView(view: view, named: "NotSelectedDarkTheme", testName: "SwitchListView")
     }
