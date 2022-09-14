@@ -10,32 +10,51 @@ import AdmiralTheme
 import AdmiralUIResources
 
 @available(iOS 14.0.0, *)
-struct PinCodeNumberViewStyle: ButtonStyle {
-    
-    @State private var scheme: PinCodeNumberViewScheme? = nil
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<PinCodeNumberViewScheme>()
-    
+public struct PinCodeNumberViewStyle: ButtonStyle {
+
+    // MARK: - Private Properties
+
+    @ObservedObject private var schemeProvider: SchemeProvider<PinCodeNumberViewScheme>
+
+    // MARK: - Initializer
+
+    public init(schemeProvider: SchemeProvider<PinCodeNumberViewScheme> = AppThemeSchemeProvider<PinCodeNumberViewScheme>()) {
+        self.schemeProvider = schemeProvider
+    }
+
     public func makeBody(configuration: Self.Configuration) -> some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
-        PinCodeNumberView(configuration: configuration, scheme: scheme)
+        PinCodeNumberView(
+            configuration: configuration,
+            schemeProvider: schemeProvider
+        )
     }
 }
 
 @available(iOS 14.0.0, *)
 private extension PinCodeNumberViewStyle {
     struct PinCodeNumberView: View {
+
+        // MARK: - Internal Properties
+
         @Environment(\.isEnabled) private var isEnabled
 
         let configuration: Configuration
-        var scheme: PinCodeNumberViewScheme
 
-        
-        init(configuration: Configuration, scheme: PinCodeNumberViewScheme) {
+        // MARK: - Private Properties
+
+        private var schemeProvider: SchemeProvider<PinCodeNumberViewScheme>
+
+        // MARK: - Initializer
+
+        init(configuration: Configuration, schemeProvider: SchemeProvider<PinCodeNumberViewScheme>) {
             self.configuration = configuration
-            self.scheme = scheme
+            self.schemeProvider = schemeProvider
         }
+
+        // MARK: - Body
         
         var body: some View {
+            let scheme = schemeProvider.scheme
             configuration.label
                 .font(scheme.textFont)
                 .foregroundColor(scheme.textColor.swiftUIColor)

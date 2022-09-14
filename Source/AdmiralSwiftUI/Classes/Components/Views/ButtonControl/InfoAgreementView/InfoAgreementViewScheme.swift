@@ -19,18 +19,22 @@ import AdmiralUIResources
  */
 public struct InfoAgreementViewScheme: AppThemeScheme {
 
-     // MARK: - Public Properties
+    // MARK: - Public Properties
 
-     /// The title color
-     public var titleColor: AColor
+    /// The title color
+    public var titleColor: AColor
 
-     /// The title font 
-     public var titleFont: AFont
+    /// The title font 
+    public var titleFont: AFont
 
-     // MARK: - Initializer
+    /// Button scheme.
+    public var buttonScheme: PrimaryButtonScheme
 
-     public init(theme: AppTheme = .default) {
-         titleColor = theme.colors.textPrimary
-         titleFont = theme.fonts.subhead4
-     }
- }
+    // MARK: - Initializer
+
+    public init(theme: AppTheme = .default) {
+        titleColor = theme.colors.textPrimary
+        titleFont = theme.fonts.subhead4
+        buttonScheme = PrimaryButtonScheme(theme: theme)
+    }
+}

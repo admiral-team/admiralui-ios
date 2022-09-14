@@ -5,8 +5,7 @@
 //  Created on 30.06.2021.
 //
 
-import SwiftUI
-import AdmiralTheme
+import AdmiralCore
 
 // MARK: - Control State
 /**

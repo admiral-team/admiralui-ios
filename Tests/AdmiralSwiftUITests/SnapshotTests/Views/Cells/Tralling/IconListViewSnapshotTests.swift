@@ -35,7 +35,7 @@ final class IconListViewSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testIconListViewDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createIconListView()
         checkIconListView(view: view, named: "DefaultTheme", testName: "IconListView")
     }
@@ -43,7 +43,7 @@ final class IconListViewSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testIconListViewDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createIconListView()
         checkIconListView(view: view, named: "DarkTheme", testName: "IconListView")
     }

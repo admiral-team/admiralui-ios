@@ -22,7 +22,7 @@ final class TagControlSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testTagControlAttention() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let tagControl = TagControl(title: "Title",
                                     tagStyle: .attention,
                                     leadingView: { Button(action: {}, label: {
@@ -38,7 +38,7 @@ final class TagControlSnapshotTests: XCTestCase {
     }
 
     func testTagControlSuccess() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let tagControl = TagControl(title: "Title",
                                     tagStyle: .success,
                                     leadingView: { Button(action: {}, label: {
@@ -54,7 +54,7 @@ final class TagControlSnapshotTests: XCTestCase {
     }
 
     func testTagControlAdditional() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let tagControl = TagControl(title: "Title",
                                     tagStyle: .additional,
                                     leadingView: { Button(action: {}, label: {
@@ -71,7 +71,7 @@ final class TagControlSnapshotTests: XCTestCase {
 
 
     func testTagControlDefault() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let tagControl = TagControl(title: "Title",
                                     tagStyle: .default,
                                     leadingView: { Button(action: {}, label: {
@@ -89,7 +89,7 @@ final class TagControlSnapshotTests: XCTestCase {
     // MARK: - DarkTheme
     
     func testTagControlAttentionDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let tagControl = TagControl(title: "Title",
                                     tagStyle: .attention,
                                     leadingView: { Button(action: {}, label: {
@@ -105,7 +105,7 @@ final class TagControlSnapshotTests: XCTestCase {
     }
 
     func testTagControlSuccessDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let tagControl = TagControl(title: "Title",
                                     tagStyle: .success,
                                     leadingView: { Button(action: {}, label: {
@@ -121,7 +121,7 @@ final class TagControlSnapshotTests: XCTestCase {
     }
 
     func testTagControlAdditionalDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let tagControl = TagControl(title: "Title",
                                     tagStyle: .additional,
                                     leadingView: { Button(action: {}, label: {
@@ -138,7 +138,7 @@ final class TagControlSnapshotTests: XCTestCase {
 
 
     func testTagControlDefaultDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let tagControl = TagControl(title: "Title",
                                     tagStyle: .default,
                                     leadingView: { Button(action: {}, label: {
@@ -151,6 +151,48 @@ final class TagControlSnapshotTests: XCTestCase {
 
             }
         checkTagControl(view: tagControl, named: "defaultDarkTheme", testName: "TagControl")
+    }
+
+    func testTagControlSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = TagControlScheme(theme: .default)
+        scheme.backgroundColor.set(parameter: AColor(color: .systemPink), for: .normal, style: .default)
+        let newSchemeProvider: SchemeProvider<TagControlScheme> = SchemeProvider<TagControlScheme>(scheme: scheme)
+
+        let tagControl = TagControl(
+            title: "Title",
+            tagStyle: .default,
+            schemeProvider: newSchemeProvider,
+            leadingView: {
+                Button(action: {}, label: {
+                    Image(uiImage: Asset.Category.Outline.bankOutline.image)
+                }) },
+            trailingView: {
+                Button(action: {}, label: {
+                    Image(uiImage: Asset.Category.Outline.bankOutline.image)
+                }) }) {
+
+                }
+
+        checkTagControl(view: tagControl, named: "NewSchemeProvider", testName: "TagControl")
+
+        Appearance.shared.theme = .dark
+
+        let newTagControl = TagControl(
+            title: "Title",
+            tagStyle: .default,
+            schemeProvider: newSchemeProvider,
+            leadingView: {
+                Button(action: {}, label: {
+                    Image(uiImage: Asset.Category.Outline.bankOutline.image)
+                }) },
+            trailingView: {
+                Button(action: {}, label: {
+                    Image(uiImage: Asset.Category.Outline.bankOutline.image)
+                }) }) {
+
+                }
+        checkTagControl(view: newTagControl, named: "NewSchemeProvider", testName: "PageControll")
     }
 
 }

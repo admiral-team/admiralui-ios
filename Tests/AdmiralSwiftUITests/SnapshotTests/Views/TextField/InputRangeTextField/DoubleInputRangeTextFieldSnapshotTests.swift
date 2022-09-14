@@ -35,7 +35,7 @@ final class DoubleInputRangeTextFieldSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testDoubleInputRangeTextFieldDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createDoubleInputRangeTextField()
         checkDoubleInputRangeTextField(view: view, named: "DefaultTheme", testName: "DoubleInputRangeTextField")
     }
@@ -43,7 +43,7 @@ final class DoubleInputRangeTextFieldSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testDoubleInputRangeTextFieldDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createDoubleInputRangeTextField()
         checkDoubleInputRangeTextField(view: view, named: "DarkTheme", testName: "DoubleInputRangeTextField")
     }

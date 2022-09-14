@@ -36,18 +36,18 @@ public struct PinButtonStyle: ButtonStyle {
 
     // MARK: - Private Properties
 
-    @Binding private var scheme: PinButtonScheme?
+    @ObservedObject private var schemeProvider: SchemeProvider<PinButtonScheme>
 
     // MARK: - Initializer
 
     public init(
         image: Image,
         isSelected: Binding<Bool>,
-        scheme: Binding<PinButtonScheme?> = .constant(nil)
+        schemeProvider: SchemeProvider<PinButtonScheme> = AppThemeSchemeProvider<PinButtonScheme>()
     ) {
         self._image = .init(initialValue: image)
         self._isSelected = isSelected
-        self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Public Methods
@@ -56,7 +56,7 @@ public struct PinButtonStyle: ButtonStyle {
         PinButton(
             image: $image,
             isSelected: $isSelected,
-            scheme: $scheme,
+            schemeProvider: schemeProvider,
             configuration: configuration
         )
     }
@@ -80,24 +80,22 @@ private extension PinButtonStyle {
 
         let configuration: Configuration
 
-        // MARK: - Internal Properties
+        // MARK: - Private Properties
 
         @Binding private var image: Image
         @Binding private var isSelected: Bool
-
-        @Binding private var scheme: PinButtonScheme?
-        @ObservedObject private var schemeProvider = AppThemeSchemeProvider<PinButtonScheme>()
+        private var schemeProvider: SchemeProvider<PinButtonScheme>
 
         // MARK: - Initializer
 
         init(
             image: Binding<Image>,
             isSelected: Binding<Bool>,
-            scheme: Binding<PinButtonScheme?>,
+            schemeProvider: SchemeProvider<PinButtonScheme>,
             configuration: Configuration
         ) {
             self.configuration = configuration
-            self._scheme = scheme
+            self.schemeProvider = schemeProvider
             self._image = image
             self._isSelected = isSelected
         }
@@ -105,7 +103,7 @@ private extension PinButtonStyle {
         // MARK: - Body
 
         var body: some View {
-            let scheme = self.scheme ?? schemeProvider.scheme
+            let scheme = schemeProvider.scheme
             if isSelected {
                 ZStack {
                     RoundedRectangle(cornerRadius: LayoutGrid.halfModule * 9 / 2)

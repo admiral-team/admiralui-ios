@@ -61,19 +61,18 @@ public struct ActivityIndicator: View {
 
     @State private var animatableParameter: Double = 0
 
-    @Binding private var scheme: ActivityIndicatorScheme?
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<ActivityIndicatorScheme>()
+    @ObservedObject var schemeProvider: SchemeProvider<ActivityIndicatorScheme>
 
     // MARK: - Initializer
-
+    
     public init(
         style: Style = .default,
         size: Size = .medium,
-        scheme: Binding<ActivityIndicatorScheme?> = .constant(nil)
+        schemeProvider: SchemeProvider<ActivityIndicatorScheme> = AppThemeSchemeProvider<ActivityIndicatorScheme>()
     ) {
         self.style = style
         self.size = size
-        self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Body
@@ -82,7 +81,7 @@ public struct ActivityIndicator: View {
         let animation = Animation
             .easeIn(duration: Constants.duration)
             .repeatForever(autoreverses: false)
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         var backroundColor: Color
         var sizeItem: CGSize
         var lineWidth: CGFloat

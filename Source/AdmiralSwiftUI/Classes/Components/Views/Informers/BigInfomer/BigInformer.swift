@@ -42,23 +42,9 @@ public enum InformerStyleSwiftUI: Int {
  */
 @available(iOS 14.0, *)
 public struct BigInformer: View {
-    
-    // MARK: - Internal Properties
-    
-    @Environment(\.isEnabled) private var isEnabled
-    
-    // MARK: - Private Properties
-    
-    @State private var scheme: BigInformerScheme? = nil
-    
-    private var title: String?
-    private var subtitle: String?
-    private var link: String?
-    private var informerStyle: InformerStyleSwiftUI = .default
-    private let onDetail: (() -> Void)?
-    
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<BigInformerScheme>()
-    
+
+    // MARK: - Constants
+
     private enum Constants {
         static let cornerRadius: CGFloat = LayoutGrid.halfModule * 3
         static let labelWidth: CGFloat = UIScreen.main.bounds.width - LayoutGrid.quadrupleModule
@@ -66,8 +52,24 @@ public struct BigInformer: View {
             top: 0.0,
             leading: LayoutGrid.doubleModule,
             bottom: 0.0,
-            trailing: LayoutGrid.doubleModule)
+            trailing: LayoutGrid.doubleModule
+        )
     }
+    
+    // MARK: - Internal Properties
+    
+    @Environment(\.isEnabled) private var isEnabled
+    
+    // MARK: - Private Properties
+
+    
+    private var title: String?
+    private var subtitle: String?
+    private var link: String?
+    private var informerStyle: InformerStyleSwiftUI = .default
+    private let onDetail: (() -> Void)?
+    
+    @ObservedObject private var schemeProvider: SchemeProvider<BigInformerScheme>
     
     // MARK: - Initializer
     
@@ -83,16 +85,21 @@ public struct BigInformer: View {
         subtitle: String? = nil,
         link: String? = nil,
         informerStyle: InformerStyleSwiftUI = .default,
-        onDetail: (() -> Void)? = nil) {
+        schemeProvider: SchemeProvider<BigInformerScheme> = AppThemeSchemeProvider<BigInformerScheme>(),
+        onDetail: (() -> Void)? = nil
+    ) {
         self.title = title
         self.subtitle = subtitle
         self.link = link
         self.informerStyle = informerStyle
+        self.schemeProvider = schemeProvider
         self.onDetail = onDetail
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         let titleFont = Font(scheme.titleLabelFont.uiFont)
         let titleColor = Color(
             scheme.titleLabelTextColors.parameter(

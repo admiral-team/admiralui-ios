@@ -26,25 +26,26 @@ public struct ArrowSegmentSlider: View {
 
     enum Constants {
         static let imageSize = CGSize(width: 32.0, height: 12.0)
-        static let arrowImage = PrivateAsset.Custom.Segment.arrowUp.image
+        static let arrowImage = SystemAsset.Custom.Segment.arrowUp.image
         static let animationDuration: Double = 0.3
     }
 
     // MARK: - Private Properties
 
-    @Binding private var scheme: ArrowSegmentSliderScheme?
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ArrowSegmentSliderScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<ArrowSegmentSliderScheme>
 
     // MARK: - Initializer
 
-    public init(scheme: Binding<ArrowSegmentSliderScheme?> = .constant(nil)) {
-        self._scheme = scheme
+    public init(
+        schemeProvider: SchemeProvider<ArrowSegmentSliderScheme> = AppThemeSchemeProvider<ArrowSegmentSliderScheme>()
+    ) {
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Body
 
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         Image(uiImage: Constants.arrowImage)
             .frame(width: Constants.imageSize.width)
             .frame(height: Constants.imageSize.height)

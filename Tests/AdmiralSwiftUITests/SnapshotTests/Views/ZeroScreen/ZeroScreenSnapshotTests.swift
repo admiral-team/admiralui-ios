@@ -34,24 +34,51 @@ final class ZeroScreenSnapshotTests: XCTestCase {
     
     // MARK: DefaultTheme
     func testZeroScreenDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createZeroScreen()
         checkZeroScreen(view: view, named: "DefaultTheme", testName: "ZeroScreen")
     }
     
-    // MARK: DarkTheme
+    // MARK: - DarkTheme
 
     func testZeroScreenDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createZeroScreen()
         checkZeroScreen(view: view, named: "DarkTheme", testName: "ZeroScreen")
     }
+
+    // MARK: - Scheme Provider
+
+    func testZeroScreenSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = ZeroScreenViewScheme(theme: .default)
+        scheme.titleColor = AColor(color: .systemPink)
+        let newSchemeProvider = SchemeProvider<ZeroScreenViewScheme>(scheme: scheme)
+
+        let view = createZeroScreen(schemeProvider: newSchemeProvider)
+        checkZeroScreen(view: view, named: "SchemeProvider", testName: "ZeroScreen")
+
+        Appearance.shared.theme = .dark
+        let newView = createZeroScreen(schemeProvider: newSchemeProvider)
+        checkZeroScreen(view: newView, named: "SchemeProvider", testName: "ZeroScreen")
+    }
     
     func createZeroScreen() -> some View {
-        let zeroScreenView = ZeroScreenView(title: "ZeroScreen",
-                                        subtitle: "CheckMe",
-                                        buttonTitle: "Button",
-                                        buttonAction: {})
+        let zeroScreenView = ZeroScreenView(
+            title: "ZeroScreen",
+            subtitle: "CheckMe",
+            buttonTitle: "Button",
+            buttonAction: {})
+        return zeroScreenView
+    }
+
+    func createZeroScreen(schemeProvider: SchemeProvider<ZeroScreenViewScheme>) -> some View {
+        let zeroScreenView = ZeroScreenView(
+            title: "ZeroScreen",
+            subtitle: "CheckMe",
+            buttonTitle: "Button",
+            buttonAction: {},
+            schemeProvider: schemeProvider)
         return zeroScreenView
     }
     

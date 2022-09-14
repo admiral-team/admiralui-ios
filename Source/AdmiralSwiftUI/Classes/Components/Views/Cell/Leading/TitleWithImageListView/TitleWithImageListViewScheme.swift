@@ -7,23 +7,39 @@
 
 import AdmiralTheme
 import AdmiralUIResources
-
+/**
+ TitleWithImageListViewScheme - the visual scheme of TitleSubtitleButtonListView.
+ You can create a by specifying the following parameters in init:
+ - TitleWithImageListViewScheme() - Initialize default TitleWithImageListViewScheme with default themezation
+ # Example to create TitleWithImageListViewScheme:
+ # Code
+ ```
+ let scheme = TitleWithImageListViewScheme()
+ ```
+ */
 @available(iOS 14.0, *)
 public struct TitleWithImageListViewScheme: AppThemeScheme {
-    
+
+    // MARK: - Public Properties
+
+    /// The  parameter that sets view background color with state
     public var viewBackgroundColor = ControlParameter<AColor>()
+
+    /// The  parameter that sets title label text color with state
     public var titleLabelTextColor = ControlParameter<AColor>()
-    
+
+    /// The  parameter that sets image tint color with state
     public var imageTintColor = ControlParameter<AColor>()
+
+    /// The  parameter that sets image view alpha with state
     public var imageViewAlpha = ControlParameter<Double>()
-    
+
+    /// The  parameter that sets title font with state
     public var titleFont = TitleWithImageListViewParameters<AFont>()
-    
-    public init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    public init(theme: AppTheme) {
+
+    // MARK: - Initializer
+
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         viewBackgroundColor.set(parameter: theme.colors.backgroundSelected, for: .highlighted)

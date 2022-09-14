@@ -34,8 +34,8 @@ public struct DoubleSliderView: View {
     // MARK: - Private Properties
     
     @State private var isFromLastTouch: Bool = true
-    @State private var scheme: SliderScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SliderScheme>()
+
+    @ObservedObject private var schemeProvider: SchemeProvider<SliderScheme>
     
     // MARK: - Initializer
     
@@ -45,20 +45,27 @@ public struct DoubleSliderView: View {
         minValue: Double = 0.0,
         maxValue: Double = 1.0,
         segmentSize: Binding<CGSize>,
-        gestureChange: @escaping () -> ()) {
+        scheme: SliderScheme? = nil,
+        schemeProvider: SchemeProvider<SliderScheme> = AppThemeSchemeProvider<SliderScheme>(),
+        gestureChange: @escaping () -> ()
+    ) {
         self._valueFrom = valueFrom
         self._valueTo = valueTo
         self.gestureChange = gestureChange
         self._segmentSize = segmentSize
+        self.schemeProvider = schemeProvider
+        self.schemeProvider = schemeProvider
         guard maxValue > minValue else { return }
         
         self._minValue = .init(initialValue: minValue)
         self._maxValue = .init(initialValue: maxValue)
     }
-    
+
+    // MARK: - Body
+
     /// `Slider` view setup
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         var valFrom = CGFloat((min(max(Double(valueFrom), minValue), maxValue) - minValue) / (maxValue - minValue))
         var valTo = CGFloat((min(max(Double(valueTo), minValue), maxValue) - minValue) / (maxValue - minValue))
         if valueFrom > valueTo {

@@ -10,57 +10,59 @@ import SwiftUI
 
 @available(iOS 14.0, *)
 struct CalendarVerticalView: View {
-    
+
+    // MARK: - Constants
+
     enum Constants {
         static let offsetY: CGFloat = -0.03
     }
-    
+
     // MARK: - Public Properties
-    
-    /// The start date of calendar.
+
+    /// The start date
     @State var startDate: Date
-    
-    /// The end date of calendar.
+
+    /// The end date
     @State var endDate: Date
-    
+
     /// Calendar loclole
     var locale: Locale?
-    
+
     /// The state selection.
     @State var isMutlipleSelectionAllowed: Bool = true
-    
+
     /// Tells that the date at the specified selected.
     @State var didSelectedDate: ((Date?) -> ())?
-    
+
     /// Tells that the dates at the specified selected.
     @State var didSelectedDates: (([Date]) -> ())?
-    
-    /// Selected start date of calendar.
+
+    /// Selected start date
     @Binding var selectedStartDate: Date?
-    
-    /// Selected end date of calendar.
+
+    /// Selected end date 
     @Binding var selectedEndDate: Date?
-    
+
     /// The date of moth and year.
     var monthYearDate: Date?
-    
+
     /// Not active after date.
     var notActiveAfterDate: Date?
-    
+
     /// Dates with a dot at the bottom.
     let pointDates: [Date]
-    
+
     // MARK: - Private Properties
-    
+
     @State private var dates = [Date]()
-    
-    @State private var scheme: CalendarVerticalViewScheme? = nil
+
     @State private var currentMonthDate: Date?
     @State private var isScrollCalendar: Bool = false
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<CalendarVerticalViewScheme>()
+
+    @ObservedObject var schemeProvider: SchemeProvider<CalendarVerticalViewScheme>
 
     // MARK: - Initializer
-    
+
     init(
         startDate: Date? = nil,
         endDate: Date? = nil,
@@ -72,32 +74,36 @@ struct CalendarVerticalView: View {
         isMutlipleSelectionAllowed: Bool = true,
         didSelectedDate: ((Date?) -> ())? = nil,
         didSelectedDates: (([Date]) -> ())? = nil,
-        pointDates: [Date]) {
-            if let startDate = startDate {
-                self._startDate = .init(initialValue: startDate)
-            } else {
-                self._startDate = .init(initialValue: Calendar.current.date(byAdding: .year, value: -10, to: Date()) ?? Date())
-            }
-            
-            if let endDate = endDate {
-                self._endDate = .init(initialValue: endDate)
-            } else {
-                self._endDate = .init(initialValue: Calendar.current.date(byAdding: .year, value: 10, to: Date()) ?? Date())
-            }
-            
-            self.pointDates = pointDates
-            self.locale = locale
-            self._selectedStartDate = selectedStartDate
-            self._selectedEndDate = selectedEndDate
-            
-            self.notActiveAfterDate = notActiveAfterDate
-            self._isMutlipleSelectionAllowed = .init(initialValue: isMutlipleSelectionAllowed)
-            self._didSelectedDate = .init(initialValue: didSelectedDate)
-            self._didSelectedDates = .init(initialValue: didSelectedDates)
+        pointDates: [Date],
+        schemeProvider: SchemeProvider<CalendarVerticalViewScheme> = AppThemeSchemeProvider<CalendarVerticalViewScheme>()
+    ) {
+        if let startDate = startDate {
+            self._startDate = .init(initialValue: startDate)
+        } else {
+            self._startDate = .init(initialValue: Calendar.current.date(byAdding: .year, value: -10, to: Date()) ?? Date())
         }
-    
+
+        if let endDate = endDate {
+            self._endDate = .init(initialValue: endDate)
+        } else {
+            self._endDate = .init(initialValue: Calendar.current.date(byAdding: .year, value: 10, to: Date()) ?? Date())
+        }
+
+        self.pointDates = pointDates
+        self.locale = locale
+        self._selectedStartDate = selectedStartDate
+        self._selectedEndDate = selectedEndDate
+        self.schemeProvider = schemeProvider
+        self.notActiveAfterDate = notActiveAfterDate
+        self._isMutlipleSelectionAllowed = .init(initialValue: isMutlipleSelectionAllowed)
+        self._didSelectedDate = .init(initialValue: didSelectedDate)
+        self._didSelectedDates = .init(initialValue: didSelectedDates)
+    }
+
+    // MARK: - Body
+
     var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         return ZStack {
             scheme.backgroundColor.swiftUIColor
             ScrollViewReader { scrollView in
@@ -114,7 +120,7 @@ struct CalendarVerticalView: View {
                         startDate: self.startDate,
                         endDate: self.endDate,
                         monthDate: monthYearDate)
-                    
+
                     self.dates = monthsData.0
                     self.currentMonthDate = monthsData.1
                     // WORKAROUND: Work for solve problem with scroll.
@@ -127,15 +133,15 @@ struct CalendarVerticalView: View {
             }
         }
     }
-    
+
     // MARK: - Internal Methods
-    
+
     func scheme(_ scheme: CalendarVerticalViewScheme) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view.schemeProvider = SchemeProvider.constant(scheme: scheme)
         return view.id(UUID())
     }
-    
+
     func contentListCell(scheme: CalendarVerticalViewScheme, scrollView: ScrollViewProxy) -> some View {
         ForEach(dates, id: \.self) { date in
             monthView(date: date)
@@ -145,23 +151,23 @@ struct CalendarVerticalView: View {
         .background(scheme.backgroundColor.swiftUIColor)
         .listRowBackground(scheme.backgroundColor.swiftUIColor)
     }
-    
+
     // MARK: - Private Methods
-    
+
     private func getDates(
         generator: CalendarGenerator,
         startDate: Date,
         endDate: Date,
         monthDate: Date?) -> ([Date],Date?) {
-        let dates = generator.calculateDates(
-            startDate: startDate,
-            endDate: endDate,
-            monthDate: monthDate)
-        return dates
-    }
-    
-    private func weeks(days: [Day]) -> [Week] {
-        var weekDays: [Week] = []
+            let dates = generator.calculateDates(
+                startDate: startDate,
+                endDate: endDate,
+                monthDate: monthDate)
+            return dates
+        }
+
+    private func weeks(days: [CalendarDay]) -> [CalendarWeek] {
+        var weekDays: [CalendarWeek] = []
         var startIndex = 0
         var endIndex = 6
         let max = (Double(days.count) / 7).rounded(.up)
@@ -174,38 +180,47 @@ struct CalendarVerticalView: View {
                     for index in days.count..<7 {
                         if let nextDay = Calendar.current.date(byAdding: .day, value: index, to: lastDate) {
                             days.append(
-                                Day(
+                                CalendarDay(
                                     date: nextDay,
                                     number: "",
                                     isSelected: false,
                                     isCurrentDay: false,
-                                    isDisplayedInMonth: false))
+                                    isDisplayedInMonth: false)
+                            )
                         }
                     }
                 }
             }
-            weekDays.append(Week(days: days))
+            weekDays.append(CalendarWeek(days: days))
             startIndex += 7
             endIndex += 7
         }
         return weekDays
     }
-    
+
     private func monthView(date: Date) -> some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         let title = date.dateToString(dateFormat: "LLLL yyyy", locale).capitalized
         return VStack(alignment: .leading, spacing: 0) {
-            MonthYearView(title: title)
+            MonthYearView(
+                title: title,
+                schemeProvider: SchemeProvider.constant(scheme: scheme.monthYearViewScheme)
+            )
             Spacer()
                 .frame(height: LayoutGrid.halfModule * 5)
-            CalendarWeekView(locale)
+            CalendarWeekView(
+                locale,
+                schemeProvider: SchemeProvider.constant(scheme: scheme.calendarWeekViewScheme)
+            )
             CalendarDaysView(
                 date: date,
                 isMutlipleSelectionAllowed: isMutlipleSelectionAllowed,
                 startDate: $selectedStartDate,
                 endDate: $selectedEndDate,
                 notActiveAfterDate: notActiveAfterDate,
-                pointDates: pointDates)
+                pointDates: pointDates,
+                schemeProvider: SchemeProvider.constant(scheme: scheme.calendarViewCellColorScheme)
+            )
             Spacer()
                 .frame(height: LayoutGrid.halfModule)
             Line()
@@ -214,9 +229,8 @@ struct CalendarVerticalView: View {
                 .frame(height: LayoutGrid.halfModule * 3)
         }
     }
-    
-}
 
+}
 
 @available(iOS 14.0, *)
 struct CalendarView_Previews: PreviewProvider {
@@ -227,7 +241,7 @@ struct CalendarView_Previews: PreviewProvider {
             endDate: Calendar.current.date(byAdding: .weekOfYear, value: 10, to: Date())!,
             notActiveAfterDate: Date(),
             pointDates: [])
-            .padding()
-            .environment(\.manager, SwiftUIThemeManager(theme: .dark))
+        .padding()
+        .environment(\.manager, SwiftUIThemeManager(theme: .dark))
     }
 }

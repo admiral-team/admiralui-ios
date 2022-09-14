@@ -49,20 +49,28 @@ public struct SubtitleImageArrowListView: View, TralingListViewComponent {
     @Environment(\.manager) var manager
     
     var renderingMode: Image.TemplateRenderingMode
-    @State private var scheme: SubtitleImageArrowListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SubtitleImageArrowListViewScheme>()
+
+    @ObservedObject private var schemeProvider: SchemeProvider<SubtitleImageArrowListViewScheme>
     
     // MARK: - Initializer
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-    public init(subtitle: String?, image: Image?, renderingMode: Image.TemplateRenderingMode = .original) {
+    public init(
+        subtitle: String?,
+        image: Image?,
+        renderingMode: Image.TemplateRenderingMode = .original,
+        schemeProvider: SchemeProvider<SubtitleImageArrowListViewScheme> = AppThemeSchemeProvider<SubtitleImageArrowListViewScheme>()
+    ) {
         self._subtitle = Binding(get: { return subtitle }, set: { _ in })
         self._image = Binding(get: { return image }, set: { _ in })
         self.renderingMode = renderingMode
+        self.schemeProvider = schemeProvider
     }
 
+    // MARK: - Body
+
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         HStack(alignment: .center, spacing: LayoutGrid.module) {
             Spacer()
             if let subtitle = subtitle {
@@ -73,7 +81,7 @@ public struct SubtitleImageArrowListView: View, TralingListViewComponent {
             if let image = self.image {
                 imageView(image: image, scheme: scheme)
             }
-            Image(uiImage: AdmiralUIResources.PrivateAsset.Custom.Cell.arrow.image)
+            Image(uiImage: Asset.System.Outline.chevronRightOutline.image)
                 .frame(width: LayoutGrid.module, height: LayoutGrid.doubleModule)
                 .foregroundColor(scheme.arrowTintColor.parameter(for: isEnabled ? .normal : .disabled)?.swiftUIColor)
         }

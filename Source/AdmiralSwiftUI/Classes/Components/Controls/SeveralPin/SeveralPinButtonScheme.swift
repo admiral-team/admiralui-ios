@@ -19,7 +19,7 @@ Code
 @available(iOS 14.0.0, *)
 public struct SeveralPinButtonScheme: AppThemeScheme {
 
-    // MARK: - Properties
+    // MARK: - Public Properties
 
     /// The border color
     public var borderColor: AColor

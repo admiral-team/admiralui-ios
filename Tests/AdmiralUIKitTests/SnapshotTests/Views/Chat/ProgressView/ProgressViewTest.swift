@@ -19,7 +19,7 @@ class ProgressViewTest: XCTestCase {
     }()
 
     func testProgressDefault() {
-        let progress = createProgressView(style: .default, trackStyle: .accent, image: PrivateAsset.Custom.Cell.arrowDown.image, isAnimating: false)
+        let progress = createProgressView(style: .default, trackStyle: .accent, image: Asset.System.Outline.chevronDownOutline.image, isAnimating: false)
         checkView(view: progress, named: "Default", testName: "ProgressView")
     }
 
@@ -29,17 +29,17 @@ class ProgressViewTest: XCTestCase {
     }
 
     func testProgressLoading() {
-        let progress = createProgressView(style: .default, trackStyle: .accent, image: PrivateAsset.Custom.Cell.arrowDown.image, isAnimating: true)
+        let progress = createProgressView(style: .default, trackStyle: .accent, image: Asset.System.Outline.chevronDownOutline.image, isAnimating: true)
         checkView(view: progress, named: "Loading", testName: "ProgressView")
     }
 
     func testProgressAccent() {
-        let progress = createProgressView(style: .accent, trackStyle: .default, image: PrivateAsset.Custom.Cell.arrowDown.image, isAnimating: false)
+        let progress = createProgressView(style: .accent, trackStyle: .default, image: Asset.System.Outline.chevronDownOutline.image, isAnimating: false)
         checkView(view: progress, named: "Accent", testName: "ProgressView")
     }
 
     func testProgressAccentLoading() {
-        let progress = createProgressView(style: .accent, trackStyle: .default, image: PrivateAsset.Custom.Cell.arrowDown.image, isAnimating: true)
+        let progress = createProgressView(style: .accent, trackStyle: .default, image: Asset.System.Outline.chevronDownOutline.image, isAnimating: true)
         checkView(view: progress, named: "AccentLoading", testName: "ProgressView")
     }
 

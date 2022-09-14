@@ -53,8 +53,7 @@ public struct StandardTab: View {
     @State private var segmentSize: CGSize = .zero
     @State private var activeSegmentOffset: CGFloat = Constants.separatorWidth
 
-    @Binding private var scheme: StandardTabScheme?
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<StandardTabScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<StandardTabScheme>
 
     private let items: [String]
 
@@ -64,17 +63,17 @@ public struct StandardTab: View {
     public init(
         items: [String],
         selection: Binding<Int>,
-        scheme: Binding<StandardTabScheme?> = .constant(nil)
+        schemeProvider: SchemeProvider<StandardTabScheme> = AppThemeSchemeProvider<StandardTabScheme>()
     ) {
         self._selection = selection
         self.items = items
-        self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Body
 
     public var body: some View {
-        let scheme = scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         ZStack(alignment: .leading) {
             GeometryReader { geo in
                 HStack(spacing: 0.0) {
@@ -120,7 +119,7 @@ public struct StandardTab: View {
     private func activeSegmentView(width: CGFloat) -> AnyView {
         guard !items.isEmpty else { return EmptyView().eraseToAnyView() }
 
-        let scheme = scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         return
             RoundedRectangle(cornerRadius: Constants.segmentCornerRadius)
             .stroke((isEnabled ?
@@ -153,7 +152,7 @@ public struct StandardTab: View {
         guard index < items.count else {
             return EmptyView().eraseToAnyView()
         }
-        let scheme = scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         let isSelected = tabSelection == index
         return Text(items[index])
             .foregroundColor(isEnabled ?

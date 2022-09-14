@@ -22,7 +22,7 @@ final class CirclePageControlSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testLinerControlAttention() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let liner = Button(action: {}, label: {})
             .buttonStyle(CirclePageControlStyle(step: .constant(0), totalPages: 7, style: .default))
         checkCirclePageControllControl(view: liner, named: "Circle", testName: "PageControll")
@@ -31,14 +31,14 @@ final class CirclePageControlSnapshotTests: XCTestCase {
     // MARK: - DarkTheme
     
     func testLinerDarkThemeControlAttention() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let liner = Button(action: {}, label: {})
             .buttonStyle(CirclePageControlStyle(step: .constant(0), totalPages: 7, style: .default))
         checkCirclePageControllControl(view: liner, named: "CircleDarkTheme", testName: "PageControll")
     }
 
     func testLinerSchemeProvider() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         var circleScheme = CirclePageControlScheme()
         circleScheme.backgroundColor.set(parameter: AColor(color: .systemPink), for: false, style: .default)
         circleScheme.backgroundColor.set(parameter: AColor(color: .systemPink), for: true, style: .default)
@@ -48,7 +48,7 @@ final class CirclePageControlSnapshotTests: XCTestCase {
             .buttonStyle(CirclePageControlStyle(step: .constant(0), totalPages: 7, style: .default, schemeProvider: newSchemeProvider))
         checkCirclePageControllControl(view: liner, named: "CircleNewSchemeProvider", testName: "PageControll")
 
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let newLiner = Button(action: {}, label: {})
             .buttonStyle(CirclePageControlStyle(step: .constant(0), totalPages: 7, style: .default, schemeProvider: newSchemeProvider))
         checkCirclePageControllControl(view: newLiner, named: "CircleNewSchemeProvider", testName: "PageControll")

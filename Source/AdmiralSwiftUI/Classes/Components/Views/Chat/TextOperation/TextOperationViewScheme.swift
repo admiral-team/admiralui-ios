@@ -24,6 +24,9 @@ public struct TextOperationViewScheme: AppThemeScheme {
 
     /// The main view background color.
     public var backgroundColor = TextOperationViewSchemeParameters<AColor>()
+    
+    /// The error image color.
+    public var errorImageColor: AColor
 
     /// The title  label color.
     public var titleColor = TextOperationViewSchemeParameters<AColor>()
@@ -49,6 +52,8 @@ public struct TextOperationViewScheme: AppThemeScheme {
         backgroundColor.set(parameter: theme.colors.backgroundAdditionalOne, style: .default)
         backgroundColor.set(parameter: theme.colors.backgroundError, style: .error)
         backgroundColor.set(parameter: theme.colors.backgroundSuccess, style: .success)
+        
+        errorImageColor = theme.colors.elementError
 
         titleColor.set(parameter: theme.colors.textPrimary, style: .default)
         titleColor.set(parameter: theme.colors.textError, style: .error)

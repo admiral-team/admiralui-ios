@@ -22,7 +22,7 @@ final class InputNumberSnapshotTests: XCTestCase {
     // MARK: Default Theme
 
     func testInputNumber() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createInputNumber()
         checkInputNumber(view: view, named: "default", testName: "InputNumber")
     }
@@ -30,7 +30,7 @@ final class InputNumberSnapshotTests: XCTestCase {
     // MARK: Dark Theme
 
     func testInputNumberDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createInputNumber()
         checkInputNumber(view: view, named: "defaultDarkTheme", testName: "InputNumber")
     }
@@ -44,6 +44,35 @@ final class InputNumberSnapshotTests: XCTestCase {
             stepValue: .constant(1.0)
         ).frame(width: 300, height: 60, alignment: .center)
         return inputNumber
+    }
+
+    func testInputNumberSchemeProvider() {
+        Appearance.shared.theme = .default
+        
+        let scheme = InputNumberScheme()
+        scheme.backgroundColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        let newSchemeProvider: SchemeProvider<InputNumberScheme> = SchemeProvider<InputNumberScheme>(scheme: scheme)
+
+        let inputNumber = InputNumber(
+            titleText: .constant("InputNumber"),
+            value: .constant(5.0),
+            minimumValue: .constant(0.0),
+            maximumValue: .constant(10.0),
+            stepValue: .constant(1.0),
+            schemeProvider: newSchemeProvider
+        ).frame(width: 300, height: 60, alignment: .center)
+        checkInputNumber(view: inputNumber, named: "SchemeProvider", testName: "InputNumber")
+
+        Appearance.shared.theme = .dark
+        let newInputNumber = InputNumber(
+            titleText: .constant("InputNumber"),
+            value: .constant(5.0),
+            minimumValue: .constant(0.0),
+            maximumValue: .constant(10.0),
+            stepValue: .constant(1.0),
+            schemeProvider: newSchemeProvider
+        ).frame(width: 300, height: 60, alignment: .center)
+        checkInputNumber(view: newInputNumber, named: "SchemeProvider", testName: "InputNumber")
     }
 
 }

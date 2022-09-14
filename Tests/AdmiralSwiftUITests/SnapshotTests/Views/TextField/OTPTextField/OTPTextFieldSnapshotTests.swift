@@ -35,7 +35,7 @@ final class OTPTextFieldSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testOTPTextFieldDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createOTPTextField()
         checkOTPTextField(view: view, named: "DefaultTheme", testName: "OTPTextField")
     }
@@ -43,7 +43,7 @@ final class OTPTextFieldSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testOTPTextFieldDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createOTPTextField()
         checkOTPTextField(view: view, named: "DarkTheme", testName: "OTPTextField")
     }

@@ -37,18 +37,23 @@ public struct SeparatorView: View {
 
     // MARK: - Private Properties
 
-    @State private var scheme: SeparatorViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SeparatorViewScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<SeparatorViewScheme>
 
     // MARK: - Initializer
 
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-    public init(paddingStyle: SeparatorStyle = .short) {
+    public init(
+        paddingStyle: SeparatorStyle = .short,
+        schemeProvider: SchemeProvider<SeparatorViewScheme> = AppThemeSchemeProvider<SeparatorViewScheme>()
+    ) {
         self.textBlockStyle = paddingStyle.textBlockStyle
+        self.schemeProvider = schemeProvider
     }
 
+    // MARK: - Body
+
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         return ListCell(
             centerView: {
                 if textBlockStyle != .separatorEmpty {

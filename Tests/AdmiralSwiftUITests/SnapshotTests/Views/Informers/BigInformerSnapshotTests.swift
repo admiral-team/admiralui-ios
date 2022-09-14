@@ -35,25 +35,25 @@ final class BigInformerSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testBigInformerDefaultStateDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createBigInformer(style: .default)
         checkBigInformer(view: view, named: "Default.DefaultTheme", testName: "BigInformer")
     }
     
     func testBigInformerSuccessStateDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createBigInformer(style: .success)
         checkBigInformer(view: view, named: "Success.DefaultTheme", testName: "BigInformer")
     }
     
     func testBigInformerAttentionStateDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createBigInformer(style: .attention)
         checkBigInformer(view: view, named: "Attention.DefaultTheme", testName: "BigInformer")
     }
     
     func testBigInformerErrorStateDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createBigInformer(style: .error)
         checkBigInformer(view: view, named: "Error.DefaultTheme", testName: "BigInformer")
     }
@@ -61,25 +61,25 @@ final class BigInformerSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testBigInformerDefaultStateDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createBigInformer(style: .default)
         checkBigInformer(view: view, named: "Default.DarkTheme", testName: "BigInformer")
     }
     
     func testBigInformerSuccessStateDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createBigInformer(style: .success)
         checkBigInformer(view: view, named: "Success.DarkTheme", testName: "BigInformer")
     }
     
     func testBigInformerAttentionStateDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createBigInformer(style: .attention)
         checkBigInformer(view: view, named: "Attention.DarkTheme", testName: "BigInformer")
     }
     
     func testBigInformerErrorStateDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createBigInformer(style: .error)
         checkBigInformer(view: view, named: "Error.DarkTheme", testName: "BigInformer")
     }
