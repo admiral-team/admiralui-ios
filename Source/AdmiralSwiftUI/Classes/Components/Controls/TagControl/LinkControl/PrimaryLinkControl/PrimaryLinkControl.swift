@@ -8,7 +8,6 @@
 import AdmiralTheme
 import AdmiralUIResources
 import SwiftUI
-
 /**
  PrimaryLinkControlStyle - the button style that presents button with image and text.
  You can create a PrimaryLinkControlStyle with the zero frame rectangle by specifying the following parameters in init:
@@ -32,44 +31,52 @@ import SwiftUI
  }
 ```
  */
-
 @available(iOS 14.0.0, *)
 public struct PrimaryLinkControlStyle: ButtonStyle {
 
+    // MARK: - Public properties
+
+    /// The image
     public let image: Image?
+
+    /// The text
     public let text: String?
+
+    /// The direction
     public let direction: LinkControlDirection
+
+    /// The style
     public let style: LinkControlStyle
 
     // MARK: - Private properties
 
-    @State private var scheme: PrimaryLinkControlScheme? = nil
     @ObservedObject private var schemeProvider: SchemeProvider<PrimaryLinkControlScheme> = AppThemeSchemeProvider<PrimaryLinkControlScheme>()
+
+    // MARK: - Initializer
 
     public init(
         image: Image? = nil,
         text: String? = nil,
         direction: LinkControlDirection,
         style: LinkControlStyle,
-        scheme: PrimaryLinkControlScheme? = nil,
         schemeProvider: SchemeProvider<PrimaryLinkControlScheme> = AppThemeSchemeProvider<PrimaryLinkControlScheme>()
     ) {
         self.image = image
         self.text = text
         self.direction = direction
         self.style = style
-        self.scheme = scheme
         self.schemeProvider = schemeProvider
     }
 
+    // MARK: - Body
+
     public func makeBody(configuration: Self.Configuration) -> some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
         PrimaryLinkControl(
             image: image,
             text: text,
             direction: direction,
             style: style,
-            scheme: scheme,
+            schemeProvider: schemeProvider,
             configuration: configuration
         )
     }
@@ -87,7 +94,6 @@ public enum LinkControlStyle: Int {
     case `default`
 }
 
-
 @available(iOS 14.0.0, *)
 private extension PrimaryLinkControlStyle {
 
@@ -103,7 +109,8 @@ private extension PrimaryLinkControlStyle {
         // MARK: - Private properties
 
         private let configuration: Configuration
-        private let scheme: PrimaryLinkControlScheme
+
+        private var schemeProvider: SchemeProvider<PrimaryLinkControlScheme>
 
         @Environment(\.isEnabled) private var isEnabled
 
@@ -114,7 +121,7 @@ private extension PrimaryLinkControlStyle {
             text: String? = nil,
             direction: LinkControlDirection,
             style: LinkControlStyle,
-            scheme: PrimaryLinkControlScheme,
+            schemeProvider: SchemeProvider<PrimaryLinkControlScheme>,
             configuration: Configuration
         ) {
             self.image = image
@@ -122,7 +129,7 @@ private extension PrimaryLinkControlStyle {
             self.direction = direction
             self.style = style
             self.configuration = configuration
-            self.scheme = scheme
+            self.schemeProvider = schemeProvider
         }
 
         // MARK: - Layout
@@ -134,6 +141,7 @@ private extension PrimaryLinkControlStyle {
         // MARK: - Private methods
 
         @ViewBuilder private func contentView() -> some View {
+            let scheme = schemeProvider.scheme
             let backgroundNormal = scheme.textColor.parameter(for: .normal)?.swiftUIColor
             let backgroundDisabled = scheme.textColor.parameter(for: .disabled)?.swiftUIColor
             let backgroundHighlighted = scheme.textColor.parameter(for: .highlighted)?.swiftUIColor
@@ -157,7 +165,6 @@ private extension PrimaryLinkControlStyle {
                     .font(scheme.font.parameter(style: style, isEnabled: isEnabled)?.swiftUIFont)
             }
         }
-
     }
 
 }

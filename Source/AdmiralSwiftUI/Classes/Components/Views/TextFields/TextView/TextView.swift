@@ -113,7 +113,6 @@ public struct TextView<T>: TextFieldInput, AccessabilitySupportUIKit, Identifiab
     // MARK: - Private Properties
     
     @State private var segmentSize: CGSize = .zero
-    @State private var scheme: StandardTextFieldScheme? = nil
     @State private var textViewHeight: CGFloat = 36.0
     @State private var textViewWidth: CGFloat?
     @State private var trailingViewSize: CGSize = CGSize(
@@ -256,11 +255,13 @@ public struct TextView<T>: TextFieldInput, AccessabilitySupportUIKit, Identifiab
             onCursorPosition: onCursorPosition,
             trailingView: trailingView)
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         let isTextFieldDisabled = !isEnabled || (state == .disabled || state == .readOnly)
         
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         let placeholderColor = scheme.placeholderColor.parameter(for: state == .disabled ? .disabled : .normal)
         var underlineColor = scheme.underlineColor.swiftUIColor
         var textColor = scheme.textColor
@@ -340,7 +341,7 @@ public struct TextView<T>: TextFieldInput, AccessabilitySupportUIKit, Identifiab
     
     func scheme(_ scheme: StandardTextFieldScheme) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view.schemeProvider = .constant(scheme: scheme)
         return view.id(UUID())
     }
     

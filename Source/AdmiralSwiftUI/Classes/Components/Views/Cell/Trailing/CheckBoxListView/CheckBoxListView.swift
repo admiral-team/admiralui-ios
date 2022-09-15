@@ -8,7 +8,6 @@
 import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
-
 /**
  CheckBoxListView - A view object with check box view.
  
@@ -45,8 +44,7 @@ public struct CheckBoxListView: View, TralingListViewComponent {
 
     /// The state of the view. Default is normal.
     @State var state: ControlState = .normal
-    
-    @State private var scheme: CheckBoxListViewScheme? = nil
+
     @ObservedObject private var schemeProvider: SchemeProvider<CheckBoxListViewScheme>
     
     // MARK: - Initializer
@@ -60,8 +58,10 @@ public struct CheckBoxListView: View, TralingListViewComponent {
         self.schemeProvider = schemeProvider
     }
 
+    // MARK: - Body
+
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         CheckBox(isSelected: $isControlSelected)
             .scheme(scheme.checkBoxView)
     }

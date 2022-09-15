@@ -5,17 +5,14 @@
 //  Created on 22.11.2021.
 //
 
-import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
-
+import SwiftUI
 /**
  InfoAgreementView - The component is used to inform users with the option to select in the checkBox. And also three interaction buttons.
- 
  You can create a InfoAgreementView by specifying the following parameters in the initializer:
- 
  ## Initializer parameters:
- 
+
  - isSelected: Bool - Flag select checkBox.
  - title: String - The text that the title label displays.
  - subtitleButtonTitle: String? - The text that the subtitle button displays.
@@ -25,7 +22,7 @@ import AdmiralUIResources
  - buttonAction: () -> () - Action button.
  - additionalButtonTitle: String? - The text that the additionalButtonTitle displays.
  - additionalButtonAction: () -> () - Action additionalButtonAction.
- 
+
  ## Example to create InfoAgreementView
  # Code
  ```
@@ -46,50 +43,50 @@ import AdmiralUIResources
  */
 @available(iOS 14.0, *)
 public struct InfoAgreementView: View {
-    
-    // MARK: - Public Properties
-    
-    /// Flag select checkBox.
-    @Binding public var isSelected: Bool
-    
-    /// Flag loading button.
-    @Binding public var isLoading: Bool
-    
-    // MARK: - Private properties
-    
-    /// The text that the title label displays.
-    private var title: String
-    
-    /// The text that the subtitle button displays.
-    private var subtitleButtonTitle: String?
-    
-    /// Action subtitleButton.
-    private var subtitleButtonAction: () -> ()
-    
-    /// The text that the button displays.
-    private var buttonTitle: String?
-    
-    /// Action button.
-    private var buttonAction: () -> ()
-    
-    /// The text that the additionalButtonTitle displays.
-    private var additionalButtonTitle: String?
-    
-    /// Action additionalButtonAction.
-    private var additionalButtonAction: () -> ()
-    
-    // MARK: Internal Properties
-    
-    @State var scheme: InfoAgreementViewScheme?
-    @ObservedObject var schemeProvider: SchemeProvider<InfoAgreementViewScheme>
-    
+
+    // MARK: - Constants
+
     private enum Constants {
-        // MARK: - Common constants
         static let spacing: CGFloat = LayoutGrid.doubleModule
     }
-    
+
+    // MARK: - Public Properties
+
+    /// Flag select checkBox.
+    @Binding public var isSelected: Bool
+
+    /// Flag loading button.
+    @Binding public var isLoading: Bool
+
+    // MARK: - Private properties
+
+    /// The text that the title label displays.
+    private var title: String
+
+    /// The text that the subtitle button displays.
+    private var subtitleButtonTitle: String?
+
+    /// Action subtitleButton.
+    private var subtitleButtonAction: () -> ()
+
+    /// The text that the button displays.
+    private var buttonTitle: String?
+
+    /// Action button.
+    private var buttonAction: () -> ()
+
+    /// The text that the additionalButtonTitle displays.
+    private var additionalButtonTitle: String?
+
+    /// Action additionalButtonAction.
+    private var additionalButtonAction: () -> ()
+
+    // MARK: Internal Properties
+
+    @ObservedObject var schemeProvider: SchemeProvider<InfoAgreementViewScheme>
+
     // MARK: - Initializer
-    
+
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     public init (
         title: String,
@@ -114,9 +111,11 @@ public struct InfoAgreementView: View {
         self.additionalButtonAction = additionalButtonAction
         self.schemeProvider = schemeProvider
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         VStack(alignment: .leading) {
             HStack(alignment: .top, spacing: 0){
                 CheckBox(isSelected: $isSelected)
@@ -145,20 +144,20 @@ public struct InfoAgreementView: View {
                         .buttonStyle(GhostButtonStyle())
                     Spacer()
                 }
-                
+
             }
         }
-        
+
     }
-    
+
     // MARK: - Internal Methods
-    
+
     func scheme(_ scheme: InfoAgreementViewScheme) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view.schemeProvider = SchemeProvider.constant(scheme: scheme)
         return view.id(UUID())
     }
-    
+
 }
 
 @available(iOS 14.0, *)

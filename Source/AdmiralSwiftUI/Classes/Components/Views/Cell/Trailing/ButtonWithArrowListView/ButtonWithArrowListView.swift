@@ -25,10 +25,10 @@ import AdmiralUIResources
  # Code
  ```
  ButtonWithArrowListView(
-     text: "ButtonWithArrowListView",
-     image: Image("Your image"),
-     action: {})
-```
+ text: "ButtonWithArrowListView",
+ image: Image("Your image"),
+ action: {})
+ ```
  */
 /// A view object with button and arrow image view.
 @available(iOS 14.0, *)
@@ -44,7 +44,9 @@ public struct ButtonWithArrowListView: View, LeadingListViewComponent, TralingLi
     @Binding var image: Image
     @Binding var text: String
     var action: () -> ()
-    
+
+    // MARK: - Private Properties
+
     @ObservedObject private var schemeProvider: SchemeProvider<ButtonWithArrowListViewScheme>
     
     // MARK: - Initializer
@@ -62,13 +64,17 @@ public struct ButtonWithArrowListView: View, LeadingListViewComponent, TralingLi
         self.schemeProvider = schemeProvider
     }
 
+    // MARK: - Body
+
     public var body: some View {
         let scheme = schemeProvider.scheme
-        return Button(text, action: action)
-                .buttonStyle(GhostButtonWithImageStyle(
+        Button(text, action: action)
+            .buttonStyle(
+                GhostButtonWithImageStyle(
                     image: image,
                     schemeProvider: .constant(scheme: scheme.button)
-                ))
+                )
+            )
     }
-    
+
 }

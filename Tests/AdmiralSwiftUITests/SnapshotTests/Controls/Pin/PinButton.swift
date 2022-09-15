@@ -70,7 +70,7 @@ final class PinButtonSnapshotTests: XCTestCase {
         Appearance.shared.theme = .default
         var pinButtonScheme = PinButtonScheme()
         pinButtonScheme.backgroundColor = AColor(color: .systemPink)
-        pinButtonScheme.selectedbackgroundColor = AColor(color: .systemPink)
+        pinButtonScheme.selectedBackgroundColor = AColor(color: .systemPink)
         let newSchemeProvider: SchemeProvider<PinButtonScheme> = SchemeProvider<PinButtonScheme>(scheme: pinButtonScheme)
 
         let pinButton = Button(

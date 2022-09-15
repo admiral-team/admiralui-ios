@@ -312,13 +312,13 @@ public struct CalendarGenerator: CalendarGeneratorDelegate {
                              firstDayWeekday: firstDayWeekday)
     }
     
-    public func generateDaysInMonth(metadata: MonthMetadata) -> [Day] {
+    public func generateDaysInMonth(metadata: MonthMetadata) -> [CalendarDay] {
         let numberOfDaysInMonth = metadata.numberOfDays
         let offsetInInitialRow = metadata.firstDayWeekday
         let firstDayOfMonth = metadata.firstDay
         
         let totalDays = numberOfDaysInMonth + offsetInInitialRow
-        var days: [Day] = []
+        var days: [CalendarDay] = []
         for i in 1..<totalDays {
             let isWithinDisplayedMonth = i >= offsetInInitialRow
             let dayOffset = isWithinDisplayedMonth ? i - offsetInInitialRow : -(offsetInInitialRow - i)
@@ -331,7 +331,11 @@ public struct CalendarGenerator: CalendarGeneratorDelegate {
         return days
     }
     
-    private func generateDay(offsetBy dayOffset: Int, for baseDate: Date, isWithinDisplayedMonth: Bool) -> Day {
+    private func generateDay(
+        offsetBy dayOffset: Int,
+        for baseDate: Date,
+        isWithinDisplayedMonth: Bool
+    ) -> CalendarDay {
         
         let date = calendar.date(byAdding: .day,
                                  value: dayOffset,
@@ -339,11 +343,13 @@ public struct CalendarGenerator: CalendarGeneratorDelegate {
             ?? baseDate
         
         let isCurrentDay = calendar.isDate(date, equalTo: Date(), toGranularity: .day)
-        return Day(date: date,
-                   number: dateFormatter.string(from: date),
-                   isSelected: false,
-                   isCurrentDay: isCurrentDay,
-                   isDisplayedInMonth: isWithinDisplayedMonth)
+        return CalendarDay(
+            date: date,
+            number: dateFormatter.string(from: date),
+            isSelected: false,
+            isCurrentDay: isCurrentDay,
+            isDisplayedInMonth: isWithinDisplayedMonth
+        )
     }
     
     private mutating func calculateMonth() {

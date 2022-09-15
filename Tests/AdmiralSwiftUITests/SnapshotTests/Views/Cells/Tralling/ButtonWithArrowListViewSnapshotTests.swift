@@ -52,7 +52,7 @@ final class ButtonWithArrowListViewSnapshotTests: XCTestCase {
 
     func testSchemeProvider() {
         Appearance.shared.theme = .default
-        let scheme = ButtonWithArrowListViewScheme(theme: .default)
+        var scheme = ButtonWithArrowListViewScheme(theme: .default)
         scheme.button.textColor.set(parameter: AColor(color: .systemPink), for: .normal)
         scheme.button.imageColor.set(parameter: AColor(color: .systemPink), for: .normal)
         let newSchemeProvider = SchemeProvider<ButtonWithArrowListViewScheme>(scheme: scheme)

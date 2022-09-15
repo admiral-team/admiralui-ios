@@ -40,7 +40,6 @@ public struct ImageCardListView: View, ImageListViewComponent {
     @Environment(\.isEnabled) var isEnabled
     
     var renderingMode: Image.TemplateRenderingMode
-    @State private var scheme: ImageCardListViewScheme? = nil
     @ObservedObject private var schemeProvider: SchemeProvider<ImageCardListViewScheme>
     
     // MARK: - Initializer
@@ -56,8 +55,10 @@ public struct ImageCardListView: View, ImageListViewComponent {
         self.schemeProvider = schemeProvider
     }
 
+    // MARK: - Body
+
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         switch renderingMode {
         case .original:
             cardImage
@@ -78,7 +79,7 @@ public struct ImageCardListView: View, ImageListViewComponent {
     
     func scheme(_ scheme: ImageCardListViewScheme) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view.schemeProvider = .constant(scheme: scheme)
         return view.id(UUID())
     }
     

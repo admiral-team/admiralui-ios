@@ -61,7 +61,7 @@ public struct ImageListView: View, ImageListViewComponent {
     @State var imageListViewStyle: ImageListViewStyle = .primary
     
     var renderingMode: Image.TemplateRenderingMode
-    @State private var scheme: ImageListViewScheme? = nil
+
     @ObservedObject private var schemeProvider: SchemeProvider<ImageListViewScheme>
     
     // MARK: - Initializer
@@ -91,7 +91,7 @@ public struct ImageListView: View, ImageListViewComponent {
     }
     
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         switch renderingMode {
         case .original:
             image
@@ -108,7 +108,7 @@ public struct ImageListView: View, ImageListViewComponent {
     
     func scheme(_ scheme: ImageListViewScheme) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view.schemeProvider = .constant(scheme: scheme)
         return view.id(UUID())
     }
     

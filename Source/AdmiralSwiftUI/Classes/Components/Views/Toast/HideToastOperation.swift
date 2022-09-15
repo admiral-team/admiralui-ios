@@ -8,19 +8,24 @@
 import SwiftUI
 
 @available(iOS 14.0, *)
-class HideToastOperation: Operation {
-    
+final class HideToastOperation: Operation {
+
+    // MARK: - Constants
+
     private enum Constants {
         static let hideAnimationDuration = 7.0
     }
-    
-    var timer = Timer()
 
+    // MARK: - Internal Properties
+
+    var timer = Timer()
     var currentCount: Double = 0
     var finishOperation: () -> Void
     var hideAnimationDuration: Double = Constants.hideAnimationDuration
     var cancelAnimationDuration: Double
-    
+
+    // MARK: - Initializer
+
     init(
         cancelAnimationDuration: Double = Constants.hideAnimationDuration,
         finishOperation: @escaping () -> Void
@@ -28,17 +33,23 @@ class HideToastOperation: Operation {
         self.cancelAnimationDuration = cancelAnimationDuration
         self.finishOperation = finishOperation
     }
-    
+
+    // MARK: - Overriden Methods
+
     override func main() {
-        self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
-            guard !self.isCancelled else { return }
-            
-            self.currentCount += 0.1
-            if self.currentCount == self.cancelAnimationDuration {
-                DispatchQueue.main.async {
-                    self.finishOperation()
+        timer = Timer.scheduledTimer(
+            withTimeInterval: 1,
+            repeats: true,
+            block: { _ in
+                guard !self.isCancelled else { return }
+
+                self.currentCount += 0.1
+                if self.currentCount == self.cancelAnimationDuration {
+                    DispatchQueue.main.async {
+                        self.finishOperation()
+                    }
                 }
             }
-        })
+        )
     }
 }

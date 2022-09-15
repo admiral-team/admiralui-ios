@@ -42,14 +42,26 @@ public enum InformerStyleSwiftUI: Int {
  */
 @available(iOS 14.0, *)
 public struct BigInformer: View {
+
+    // MARK: - Constants
+
+    private enum Constants {
+        static let cornerRadius: CGFloat = LayoutGrid.halfModule * 3
+        static let labelWidth: CGFloat = UIScreen.main.bounds.width - LayoutGrid.quadrupleModule
+        static let labelEdgeInsets: EdgeInsets = EdgeInsets(
+            top: 0.0,
+            leading: LayoutGrid.doubleModule,
+            bottom: 0.0,
+            trailing: LayoutGrid.doubleModule
+        )
+    }
     
     // MARK: - Internal Properties
     
     @Environment(\.isEnabled) private var isEnabled
     
     // MARK: - Private Properties
-    
-    @State private var scheme: BigInformerScheme? = nil
+
     
     private var title: String?
     private var subtitle: String?
@@ -58,16 +70,6 @@ public struct BigInformer: View {
     private let onDetail: (() -> Void)?
     
     @ObservedObject private var schemeProvider: SchemeProvider<BigInformerScheme>
-    
-    private enum Constants {
-        static let cornerRadius: CGFloat = LayoutGrid.halfModule * 3
-        static let labelWidth: CGFloat = UIScreen.main.bounds.width - LayoutGrid.quadrupleModule
-        static let labelEdgeInsets: EdgeInsets = EdgeInsets(
-            top: 0.0,
-            leading: LayoutGrid.doubleModule,
-            bottom: 0.0,
-            trailing: LayoutGrid.doubleModule)
-    }
     
     // MARK: - Initializer
     
@@ -93,9 +95,11 @@ public struct BigInformer: View {
         self.schemeProvider = schemeProvider
         self.onDetail = onDetail
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         let titleFont = Font(scheme.titleLabelFont.uiFont)
         let titleColor = Color(
             scheme.titleLabelTextColors.parameter(

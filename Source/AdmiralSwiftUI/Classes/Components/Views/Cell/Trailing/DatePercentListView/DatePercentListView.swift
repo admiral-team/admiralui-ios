@@ -44,8 +44,7 @@ public struct DatePercentListView: View, TralingListViewComponent {
     // MARK: Internal Properties
     
     @Environment(\.isEnabled) var isEnabled
-    
-    @State private var scheme: DatePercentListViewScheme? = nil
+
     @ObservedObject private var schemeProvider: SchemeProvider<DatePercentListViewScheme>
     
     // MARK: - Initializer
@@ -61,8 +60,10 @@ public struct DatePercentListView: View, TralingListViewComponent {
         self.schemeProvider = schemeProvider
     }
 
+    // MARK: - Body
+
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         HStack(alignment: .center) {
             Spacer()
             VStack(spacing: LayoutGrid.module) {

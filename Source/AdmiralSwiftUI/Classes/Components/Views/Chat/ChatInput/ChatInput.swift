@@ -8,12 +8,11 @@
 import AdmiralTheme
 import AdmiralUIResources
 import SwiftUI
-
 /**
  ChatInput - A view for chat input message and add files.
 
  You can create a ChatInput by specifying the following parameters in the initializer
- 
+
  - content: Binding<String - The text that the text field displays.
  - contentType: UIKeyboardType - The semantic meaning for a text input area.
  - returnKeyType: UIReturnKeyType - The visible title of the Return key.
@@ -29,7 +28,7 @@ import SwiftUI
  - maxNumberOfLines: Int? - Max number of lines input.
  - maxHeight: CGFloat? - Max height input
  - onCursorPosition: An action to perform change cursor position. On enter 3 parameters - startCursor, currentCursor, text. Return cursor position.
- 
+
  ## Example to create ChatInput:
  # Code
  ```
@@ -49,35 +48,37 @@ import SwiftUI
 */
 @available(iOS 14.0, *)
 public struct ChatInput: View, AccessabilitySupportUIKit {
-    
+
+    // MARK: - Constants
+
     enum Constants {
         static let maxHeightInput: CGFloat = 306.0
         static let lineSpacing = LayoutGrid.halfModule
     }
-    
+
     // MARK: - Private Properties
-    
+
     /// The text that the text field displays.
     @Binding private var content: String?
-    
+
     /// Flag disabled send button.
     private var isSendButtonDisabled: Bool?
 
     /// The semantic meaning for a text input area.
     private let contentType: UIKeyboardType
-    
+
     /// The visible title of the Return key.
     private let returnKeyType: UIReturnKeyType
-    
+
     /// The autocapitalization style for the text object.
     private let autocapitalizationType: UITextAutocapitalizationType
-    
+
     /// The autocorrection style for the text object.
     private let autocorrectionType: UITextAutocorrectionType
-    
+
     /// The string that displays when there is no other text in the text field.
     private let placeholder: String
-    
+
     /// Flag show file button
     private let isShowFileButton: Bool
 
@@ -92,22 +93,22 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
 
     /// Tap file button.
     private let tapFileButton: () -> ()
-    
+
     /// Adds an action to perform change cursor position. On enter 3 parameters - startCursor, currentCursor, text. Return cursor position.
     private let onCursorPosition: ((Int, Int, String) -> (Int))?
-    
+
     // Flag is disable pasting. If flasg is true pasting is enabled.
     private let canPerformActionPaste: Bool
-    
+
     @Environment(\.isEnabled) private var isEnabled
-    
+
     @State private var isScrollEnabled: Bool = false
     @State private var isTextFieldResponder: Bool = false
     @State private var segmentSize: CGSize = .zero
     @State private var textViewHeight: CGFloat = 0.0
     @State private var initGeometryReader = false
     @State private var isSendButtonEnabled = true
-    
+
     private var maxHeight: CGFloat?
     private var isResponder: Binding<Bool>?
     private var maxNumberOfLines: Int?
@@ -116,12 +117,11 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
     private var maxHeightInput: CGFloat {
         return maxHeight ?? Constants.maxHeightInput
     }
-    
-    @State private var scheme: ChatInputScheme? = nil
-    @ObservedObject var schemeProvider: SchemeProvider<ChatInputScheme>
+
+    @ObservedObject private var schemeProvider: SchemeProvider<ChatInputScheme>
 
     // MARK: - Initializer
-    
+
     /// Initializes and returns a newly allocated view object
     public init<V>(
         value: Binding<V?>,
@@ -140,8 +140,8 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
         isSendButtonDisabled: Bool? = nil,
         maxNumberOfLines: Int? = nil,
         maxHeight: CGFloat? = nil,
-        schemeProvider: SchemeProvider<ChatInputScheme> = AppThemeSchemeProvider<ChatInputScheme>(),
-        onCursorPosition: ((Int, Int, String) -> (Int))? = nil
+        onCursorPosition: ((Int, Int, String) -> (Int))? = nil,
+        schemeProvider: SchemeProvider<ChatInputScheme> = AppThemeSchemeProvider<ChatInputScheme>()
     ) {
         self._content = Binding(get: {
             if let value = value.wrappedValue {
@@ -169,10 +169,9 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
         self.onCursorPosition = onCursorPosition
         self.canPerformActionPaste = canPerformActionPaste
         self.schemeProvider = schemeProvider
-
         updateMaxHeight(maxNumberOfLines: maxNumberOfLines, maxHeight: maxHeight)
     }
-    
+
     /// Initializes and returns a newly allocated view object
     public init(
         _ content: Binding<String?>,
@@ -191,8 +190,8 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
         isSendButtonDisabled: Bool? = nil,
         maxNumberOfLines: Int? = nil,
         maxHeight: CGFloat? = nil,
-        schemeProvider: SchemeProvider<ChatInputScheme> = AppThemeSchemeProvider<ChatInputScheme>(),
-        onCursorPosition: ((Int, Int, String) -> (Int))? = nil
+        onCursorPosition: ((Int, Int, String) -> (Int))? = nil,
+        schemeProvider: SchemeProvider<ChatInputScheme> = AppThemeSchemeProvider<ChatInputScheme>()
     ) {
         self.init(
             value: content,
@@ -211,14 +210,16 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
             isSendButtonDisabled: isSendButtonDisabled,
             maxNumberOfLines: maxNumberOfLines,
             maxHeight: maxHeight,
-            schemeProvider: schemeProvider,
-            onCursorPosition: onCursorPosition
+            onCursorPosition: onCursorPosition,
+            schemeProvider: schemeProvider
         )
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
-        let scheme = scheme ?? schemeProvider.scheme
-        
+        let scheme = schemeProvider.scheme
+
         return VStack(spacing: .zero) {
             HStack(alignment: .bottom) {
                 HStack(alignment: .bottom, spacing: .zero) {
@@ -231,7 +232,7 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
                         .padding(.vertical, LayoutGrid.halfModule * 3)
                         .padding(.leading, LayoutGrid.halfModule * 3)
                     }
-                    
+
                     ZStack {
                         HStack(spacing: 0.0) {
                             Text(placeholder)
@@ -249,7 +250,7 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
                             textView()
                         }
                     }
-                    
+
                 }
                 .frame(height: min(max(textViewHeight, LayoutGrid.halfModule * 10), maxHeightInput + LayoutGrid.doubleModule))
                 .background(scheme.backgroundColor.parameter(for: isEnabled ? .normal : .disabled)?.swiftUIColor)
@@ -272,15 +273,15 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
 
         }
     }
-    
+
     // MARK: - Public Methods
-    
+
     public func accessibility(identifierUIKit: String) -> Self {
         var view = self
         view.accessibilityIdentifier = identifierUIKit
         return view
     }
-    
+
     /// Clear text in text input.
     public func clear() {
         withAnimation(.easeInOut) {
@@ -288,18 +289,18 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
             textViewHeight = LayoutGrid.halfModule * 9
         }
     }
-    
+
     // MARK: - Internal Methods
-    
+
     func scheme(_ scheme: ChatInputScheme) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view.schemeProvider = SchemeProvider.constant(scheme: scheme)
         return view.id(UUID())
     }
-    
+
     @ViewBuilder
     func textView() -> some View {
-        let scheme = scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         GeometryReader { geo in
             if initGeometryReader {
                 UIKitTextView(
@@ -338,10 +339,10 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
             initGeometryReader = true
         }
     }
-    
+
     @ViewBuilder
     func textField() -> some View {
-        let scheme = scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         UIKitTextField(
             text: $content,
             isResponder: isResponder,
@@ -363,24 +364,24 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
                 isSendButtonEnabled = text.isEmpty && isEnabled
             }
     }
-    
+
     mutating func updateMaxHeight(maxNumberOfLines: Int?, maxHeight: CGFloat?) {
         if let maxHeight = maxHeight {
             self.maxHeight = maxHeight
             self.maxNumberOfLines = nil
             return
         }
-        
+
         self.maxNumberOfLines = maxNumberOfLines
-        
+
         guard let maxNumberOfLines = maxNumberOfLines, maxNumberOfLines > 0 else {
             self.maxHeight = nil
             return
         }
-        
-        let scheme = scheme ?? schemeProvider.scheme
+
+        let scheme = schemeProvider.scheme
         let lineHeight = scheme.textFont.size
         self.maxHeight = (lineHeight + Constants.lineSpacing) * CGFloat(maxNumberOfLines)
     }
-    
+
 }

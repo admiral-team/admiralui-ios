@@ -9,17 +9,25 @@ import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
 
+@available(iOS 14.0.0, *)
 public struct GhostButtonWithImageScheme: AppThemeScheme {
-    
-    public let font: AFont
+
+    // MARK: - Public Properties
+
+    /// The font
+    public var font: AFont
+
+    /// The  parameter that sets text color with state
     public var textColor = ControlParameter<AColor>()
+
+    /// The  parameter that sets image tint color with state
     public var imageColor = ControlParameter<AColor>()
-    
-    public init(theme: AppTheme) {
+
+    // MARK: - Initializer
+
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
-        
         font = theme.fonts.body1
-        
         textColor.set(parameter: theme.colors.textAccent, for: .normal)
         textColor.set(parameter: theme.colors.textAccentPressed, for: .highlighted)
         textColor.set(parameter: theme.colors.textAccent.withAlpha(alpha), for: .disabled)

@@ -92,7 +92,7 @@ struct GhostButtonWithImage_Previews: PreviewProvider {
 
     static var previews: some View {
         Button("Text", action: {})
-            .buttonStyle(GhostButtonStyle(isLoading: .constant(false)))
+            .buttonStyle(GhostButtonWithImageStyle(image: nil))
     }
 }
 

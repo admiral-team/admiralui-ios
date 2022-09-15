@@ -7,19 +7,33 @@
 
 import AdmiralTheme
 import AdmiralUIResources
-
+/**
+ SecondaryTitleListViewScheme - the visual scheme of SecondaryTitleListView.
+ You can create a by specifying the following parameters in init:
+ - SecondaryTitleListViewScheme() - Initialize default SecondaryTitleListViewScheme with default themezation
+ # Example to create SecondaryTitleListViewScheme:
+ # Code
+ ```
+ let scheme = SecondaryTitleListViewScheme()
+ ```
+ */
+@available(iOS 14.0, *)
 public struct SecondaryTitleListViewScheme: AppThemeScheme {
-    
+
+    // MARK: - Public Properties
+
+    /// The  parameter that sets view background color with state
     public var backgroundColor = ControlParameter<AColor>()
+
+    /// The  parameter that sets text color with state
     public var textColor = ControlParameter<AColor>()
-    
+
+    /// The  title font
     public var titleFont: AFont
-    
-    public init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    public init(theme: AppTheme) {
+
+    // MARK: - Initializer
+
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         backgroundColor.set(parameter: theme.colors.backgroundSelected, for: .highlighted)

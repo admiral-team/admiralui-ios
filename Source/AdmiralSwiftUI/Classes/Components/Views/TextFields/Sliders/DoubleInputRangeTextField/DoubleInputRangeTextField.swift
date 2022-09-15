@@ -151,10 +151,10 @@ public struct DoubleInputRangeTextField: AccessabilitySupportUIKit, Identifiable
     
     /// Text field formatter.
     private let formatter: Formatter?
-    
-    @State private var scheme: DoubleInputRangeTextFieldScheme? = nil
+
     private var accessibilityIdentifierFirst: String?
     private var accessibilityIdentifierSecond: String?
+    
     @ObservedObject private var schemeProvider: SchemeProvider<DoubleInputRangeTextFieldScheme>
     
     @State private var textViewFromWidth: CGFloat = LayoutGrid.tripleModule
@@ -238,9 +238,10 @@ public struct DoubleInputRangeTextField: AccessabilitySupportUIKit, Identifiable
         self.schemeProvider = schemeProvider
     }
 
+    // MARK: - Body
     
     public var body: some View {
-        let globalScheme = self.scheme ?? schemeProvider.scheme
+        let globalScheme = schemeProvider.scheme
         let style = globalScheme.textField
         let isTextFieldDisabled = state == .disabled || state == .readOnly
         
@@ -358,7 +359,7 @@ public struct DoubleInputRangeTextField: AccessabilitySupportUIKit, Identifiable
     
     func scheme(_ scheme: DoubleInputRangeTextFieldScheme) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view.schemeProvider = .constant(scheme: scheme)
         return view.id(UUID())
     }
     

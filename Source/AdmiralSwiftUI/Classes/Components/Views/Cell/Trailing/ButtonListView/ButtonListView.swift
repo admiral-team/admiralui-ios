@@ -40,6 +40,8 @@ public struct ButtonListView: View, TralingListViewComponent {
     @Binding var text: String
     var action: () -> ()
 
+    // MARK: - Private Properties
+
     @ObservedObject private var schemeProvider: SchemeProvider<ButtonListViewScheme>
     
     // MARK: - Initializer
@@ -54,6 +56,8 @@ public struct ButtonListView: View, TralingListViewComponent {
         self.action = action
         self.schemeProvider = schemeProvider
     }
+
+    // MARK: - Body
 
     public var body: some View {
         HStack(alignment: .center) {

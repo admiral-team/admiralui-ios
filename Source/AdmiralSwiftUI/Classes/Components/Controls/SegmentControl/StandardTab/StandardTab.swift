@@ -22,13 +22,15 @@ import SwiftUI
  StandardTab(
             items: ["Default", "Disabled"],
             selection: $isEnabledControlsState)
- 
+
  ```
 */
 /// A horizontal control that consists of multiple segments, each segment functioning as a discrete text button.
 @available(iOS 14.0, *)
 public struct StandardTab: View {
-    
+
+    // MARK: - Constants
+
     enum Constants {
         static let segmentCornerRadius: CGFloat = LayoutGrid.module
         static let pickerPadding: CGFloat = LayoutGrid.halfModule
@@ -39,24 +41,24 @@ public struct StandardTab: View {
         static let segmentOffset: CGFloat = 3.0
         static let separatorWidth: CGFloat = 1.0
     }
-    
+
     // MARK: - Internal Properties
-    
+
     @Environment(\.isEnabled) var isEnabled
 
     // MARK: - Private Properties
-    
+
     @Binding private var selection: Int
     @State private var tabSelection: Int = 0
     @State private var segmentSize: CGSize = .zero
     @State private var activeSegmentOffset: CGFloat = Constants.separatorWidth
-    @State private var scheme: StandardTabScheme? = nil
+
     @ObservedObject private var schemeProvider: SchemeProvider<StandardTabScheme>
-    
+
     private let items: [String]
-    
+
     // MARK: - Initializer
-    
+
     /// Initializes and returns a newly allocated view object with titles and binding selection.
     public init(
         items: [String],
@@ -67,9 +69,11 @@ public struct StandardTab: View {
         self.items = items
         self.schemeProvider = schemeProvider
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
-        let scheme = scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         ZStack(alignment: .leading) {
             GeometryReader { geo in
                 HStack(spacing: 0.0) {
@@ -109,21 +113,13 @@ public struct StandardTab: View {
         .background(Color.clear)
         .clipShape(RoundedRectangle(cornerRadius: Constants.segmentCornerRadius))
     }
-    
-    // MARK: - Internal Methods
-    
-    func scheme(_ scheme: StandardTabScheme) -> some View {
-        var view = self
-        view._scheme = State(initialValue: scheme)
-        return view.id(UUID())
-    }
-    
+
     // MARK: - Private Methods
-    
+
     private func activeSegmentView(width: CGFloat) -> AnyView {
         guard !items.isEmpty else { return EmptyView().eraseToAnyView() }
-        
-        let scheme = scheme ?? schemeProvider.scheme
+
+        let scheme = schemeProvider.scheme
         return
             RoundedRectangle(cornerRadius: Constants.segmentCornerRadius)
             .stroke((isEnabled ?
@@ -138,12 +134,12 @@ public struct StandardTab: View {
                 selection = tabSelection
             }
             .eraseToAnyView()
-        
+
     }
-    
+
     private func computeActiveSegmentHorizontalOffset(segmentWidth: CGFloat) -> CGFloat {
         guard !items.isEmpty else { return 0.0 }
-        
+
         var width: CGFloat = Constants.segmentOffset
         for _ in 0..<tabSelection {
             width += (segmentWidth / CGFloat(items.count))
@@ -156,7 +152,7 @@ public struct StandardTab: View {
         guard index < items.count else {
             return EmptyView().eraseToAnyView()
         }
-        let scheme = scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         let isSelected = tabSelection == index
         return Text(items[index])
             .foregroundColor(isEnabled ?
@@ -183,7 +179,7 @@ public struct StandardTab: View {
             activeSegmentOffset = computeActiveSegmentHorizontalOffset(segmentWidth: width)
         }
     }
-    
+
 }
 
 @available(iOS 14.0, *)

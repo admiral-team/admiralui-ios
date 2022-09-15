@@ -15,7 +15,6 @@ public enum MapButtonType {
     case location
     case custom(image: Image)
 }
-
 /**
  The style for creating the Map Button. The presented style is used to create buttons on the map
  To configure the current button style for a view hierarchy, use the buttonStyle(_:) modifier.
@@ -36,17 +35,14 @@ public struct MapButtonStyle: ButtonStyle {
 
     // MARK: - Private Properties
 
-    @Binding private var scheme: MapButtonScheme?
     @ObservedObject private var schemeProvider: SchemeProvider<MapButtonScheme>
 
     // MARK: - Initializer
 
     public init(
         type: MapButtonType,
-        scheme: Binding<MapButtonScheme?> = .constant(nil),
         schemeProvider: SchemeProvider<MapButtonScheme> = AppThemeSchemeProvider<MapButtonScheme>()
     ) {
-        self._scheme = scheme
         self.schemeProvider = schemeProvider
         switch type {
         case .plus:
@@ -63,10 +59,9 @@ public struct MapButtonStyle: ButtonStyle {
     // MARK: - Public Methods
 
     public func makeBody(configuration: Self.Configuration) -> some View {
-        let scheme = scheme ?? schemeProvider.scheme
         MapButton(
             image: image,
-            scheme: scheme,
+            schemeProvider: schemeProvider,
             configuration: configuration
         )
     }
@@ -87,23 +82,24 @@ private extension MapButtonStyle {
         let configuration: Configuration
         var image: Image
 
-        private var scheme: MapButtonScheme
+        private var schemeProvider: SchemeProvider<MapButtonScheme>
 
         // MARK: - Initializer
 
         init(
             image: Image,
-            scheme: MapButtonScheme,
+            schemeProvider: SchemeProvider<MapButtonScheme>,
             configuration: Configuration
         ) {
             self.configuration = configuration
-            self.scheme = scheme
+            self.schemeProvider = schemeProvider
             self.image = image
         }
 
         // MARK: - Body
 
         var body: some View {
+            let scheme = schemeProvider.scheme
             let backgroundColor = configuration.isPressed ? scheme.backgroundColor.parameter(for: .highlighted)?.swiftUIColor : scheme.backgroundColor.parameter(for: .normal)?.swiftUIColor
             image
                 .frame(width: LayoutGrid.halfModule * 10, height: LayoutGrid.halfModule * 10)

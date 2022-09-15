@@ -108,8 +108,7 @@ public struct OTPTextField: TextFieldInput, AccessabilitySupportUIKit, Identifia
     
     // Flag is disable pasting. If flasg is true pasting is enabled.
     private let canPerformActionPaste: Bool
-    
-    @State private var scheme: OTPTextFieldScheme? = nil
+
     @ObservedObject private var schemeProvider: SchemeProvider<OTPTextFieldScheme>
     private var accessibilityIdentifier: String?
     
@@ -232,11 +231,13 @@ public struct OTPTextField: TextFieldInput, AccessabilitySupportUIKit, Identifia
             onSubmit: onSubmit,
             onCursorPosition: onCursorPosition)
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         let isTextFieldDisabled = !isEnabled || (state == .disabled || state == .readOnly)
         
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         let placeholderColor = scheme.placeholderColor
         var underlineColor = scheme.underlineColor.swiftUIColor
         var textColor = scheme.textColor
@@ -309,7 +310,7 @@ public struct OTPTextField: TextFieldInput, AccessabilitySupportUIKit, Identifia
     
     func scheme(_ scheme: OTPTextFieldScheme) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view.schemeProvider = .constant(scheme: scheme)
         return view.id(UUID())
     }
     

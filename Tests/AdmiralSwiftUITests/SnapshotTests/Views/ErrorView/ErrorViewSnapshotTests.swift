@@ -74,8 +74,9 @@ final class ErrorViewSnapshotTests: XCTestCase {
         let errorView = ErrorView(
             text: "ErrorView",
             buttonTitle: "Button",
-            schemeProvider: schemeProvider,
-            buttonAction: {})
+            buttonAction: {},
+            schemeProvider: schemeProvider
+        )
         return errorView
     }
     

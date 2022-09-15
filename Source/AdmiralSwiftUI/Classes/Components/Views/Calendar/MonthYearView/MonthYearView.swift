@@ -10,31 +10,36 @@ import SwiftUI
 
 @available(iOS 14.0.0, *)
 struct MonthYearView: View {
-    
+
     // MARK: - Internal Properties
-    
+
     @State var title: String
-    private var scheme: MonthYearViewScheme
+
+    @ObservedObject private var schemeProvider: SchemeProvider<MonthYearViewScheme>
     
+    // MARK: - Initializer
+
     init(
         title: String,
-        scheme: MonthYearViewScheme
+        schemeProvider: SchemeProvider<MonthYearViewScheme> = AppThemeSchemeProvider<MonthYearViewScheme>()
     ) {
         self._title = .init(initialValue: title)
-        self.scheme = scheme
+        self.schemeProvider = schemeProvider
     }
-    
+
+    // MARK: - Body
+
     var body: some View {
-        return ZStack {
-            scheme.backgroundColor.swiftUIColor
+        ZStack {
+            schemeProvider.scheme.backgroundColor.swiftUIColor
             HStack {
                 Text(title)
-                    .font(scheme.titleLabelFont.swiftUIFont)
-                    .foregroundColor(scheme.titleLabelColor.swiftUIColor)
+                    .font(schemeProvider.scheme.titleLabelFont.swiftUIFont)
+                    .foregroundColor(schemeProvider.scheme.titleLabelColor.swiftUIColor)
                 Spacer()
             }
         }
-        
+
     }
 }
 
@@ -42,13 +47,10 @@ struct MonthYearView: View {
 struct MonthYearView_Previews: PreviewProvider {
 
     static var previews: some View {
-        MonthYearView(
-            title: "Май 2021",
-            scheme: MonthYearViewScheme(theme: .default))
+        MonthYearView(title: "Май 2021")
             .previewLayout(PreviewLayout.sizeThatFits)
             .frame(height: 16.0)
             .padding()
             .environment(\.manager, SwiftUIThemeManager(theme: .light))
-
     }
 }

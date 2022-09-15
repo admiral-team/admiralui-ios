@@ -129,8 +129,7 @@ public struct ToastView: View {
     let closeView: () -> (AnyView?)
     
     // MARK: - Private Properties
-    
-    @State private var scheme: ToastViewScheme? = nil
+
     @ObservedObject private var schemeProvider: SchemeProvider<ToastViewScheme>
     private var accessibilityIdentifier: String?
     
@@ -260,7 +259,7 @@ public struct ToastView: View {
     }
     
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         HStack(alignment: .top, spacing: 0.0) {
             if let image = image {
                 Button(action: imageAction ?? {}, label: {

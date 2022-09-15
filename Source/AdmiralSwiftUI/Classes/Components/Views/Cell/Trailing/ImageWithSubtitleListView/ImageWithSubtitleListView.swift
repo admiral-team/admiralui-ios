@@ -48,7 +48,7 @@ public struct ImageWithSubtitleListView: View, TralingListViewComponent {
     @Environment(\.isEnabled) var isEnabled
     
     var renderingMode: Image.TemplateRenderingMode
-    @State private var scheme: ImageWithSubtitleListViewScheme? = nil
+    
     @ObservedObject private var schemeProvider: SchemeProvider<ImageWithSubtitleListViewScheme>
     
     // MARK: - Initializer
@@ -66,8 +66,10 @@ public struct ImageWithSubtitleListView: View, TralingListViewComponent {
         self.schemeProvider = schemeProvider
     }
 
+    // MARK: - Body
+
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         HStack(spacing: LayoutGrid.module) {
             Spacer()
             if let image = self.image {

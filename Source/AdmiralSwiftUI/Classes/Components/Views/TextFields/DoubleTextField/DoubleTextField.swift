@@ -67,8 +67,8 @@ public struct DoubleTextField<T1, T2>: View where T1: TextFieldInput, T2: TextFi
     
     @State private var segmentedSize: CGSize = .zero
     @State private var isPresentTextField = false
-    @State private var scheme: DoubleTextFieldScheme? = nil
     private var accessibilityIdentifier: String?
+
     @ObservedObject private var schemeProvider: SchemeProvider<DoubleTextFieldScheme>
     
     // MARK: - Initializer
@@ -97,9 +97,11 @@ public struct DoubleTextField<T1, T2>: View where T1: TextFieldInput, T2: TextFi
         self.accessibilityIdentifier = accessibilityIdentifier
         self.schemeProvider = schemeProvider
     }
+
+    // MARK: - Body
     
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         let isShowInfo = firstTextField.info.isEmpty && secondTextField.info.isEmpty && !info.isEmpty
         var infoColor = scheme.underlineColor.swiftUIColor
         switch state {

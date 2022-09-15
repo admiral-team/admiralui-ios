@@ -7,9 +7,17 @@
 
 import AdmiralTheme
 import AdmiralUIResources
-
+/**
+ ActionBarControlScheme - the visual scheme of ListCell.
+ You can create a by specifying the following parameters in init:
+ - ActionBarControlScheme() - Initialize default ActionBarControlScheme with default themezation
+ # Example to create ActionBarControlScheme:
+ # Code
+ ```
+ let scheme = ActionBarControlScheme()
+ ```
+ */
 @available(iOS 14.0.0, *)
-/// The scheme of ActionBarControl.
 public struct ActionBarControlScheme: AppThemeScheme {
 
     // MARK: - Public properties
@@ -21,6 +29,7 @@ public struct ActionBarControlScheme: AppThemeScheme {
         var imageTintColor = ActionBarControlSchemeParameters<AColor, ActionBarItemImageStyle>()
     }
 
+    /// The number of parametes that serve colors and fonts
     public var actionBarControl = ActionBarControl()
 
     /// The backgroundColor of ActionBarControl.
@@ -28,7 +37,7 @@ public struct ActionBarControlScheme: AppThemeScheme {
 
     // MARK: - Initializer
 
-    public init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         backgroundColor.set(parameter: theme.colors.backgroundAdditionalOne, for: .normal)
         
         actionBarControl.backgroundColor.set(parameter: theme.colors.backgroundBasic, for: .normal)
