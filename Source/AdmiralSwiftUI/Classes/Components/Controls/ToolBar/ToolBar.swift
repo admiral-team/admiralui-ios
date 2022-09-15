@@ -9,9 +9,9 @@ import AdmiralUIResources
 import SwiftUI
 /// The style of ToolBar items.
 public enum ToolBarType {
-    /// The value that sets specific font and color
+    /// The value that sets potion of the text at the right edge
     case horizontal
-    /// The value that sets specific font and color
+    /// The value that sets postion of text under the image
     case vertical
 }
 /**
@@ -44,17 +44,17 @@ public struct ToolBar: View {
     // MARK: - Constants
 
     private enum Constants {
-        static let height: CGFloat = 48.0
-        static let cornerRadius: CGFloat = 16.0
+        static let height: CGFloat = LayoutGrid.doubleModule * 3
+        static let cornerRadius: CGFloat = LayoutGrid.doubleModule
         static let edgeInsets: EdgeInsets = EdgeInsets(
-            top: 16.0,
-            leading: 20.0,
-            bottom: 16.0,
-            trailing: 20.0
+            top: LayoutGrid.doubleModule,
+            leading: LayoutGrid.halfModule * 5,
+            bottom: LayoutGrid.doubleModule,
+            trailing: LayoutGrid.halfModule * 5
         )
         static let width: CGFloat = UIScreen.main.bounds.width - 72.0
-        static let oneItemWidth: CGFloat = 140.0
-        static let overlayRadius: CGFloat = 14
+        static let oneItemWidth: CGFloat = LayoutGrid.halfModule * 35
+        static let overlayRadius: CGFloat = LayoutGrid.doubleModule - 2
     }
     
     // MARK: - Internal Properties

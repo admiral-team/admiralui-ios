@@ -7,10 +7,9 @@
 
 import SwiftUI
 import UIKit
-
 /**
  ToastNotificationsDirection - Public enum for direction ZToastNotificationsView
- 
+
  ToastNotificationsDirection can be one of the following values:
  - up - Toast show from up.
  - down - Toast show from dowm.
@@ -36,17 +35,17 @@ public enum ToastNotificationsDirection {
 /// View for show toast.
 @available(iOS 14.0.0, *)
 public struct ZToastNotificationsView<Content>: View where Content: View {
-    
+
     // MARK: - Public Properties
-    
+
     /// Toast presenter.
     @StateObject public var toastPresenter = ToastPresenter()
-    
+
     /// Content.
     public var content: (ToastPresenter) -> (Content)
-    
+
     // MARK: - Private Properties
-    
+
     private var direction: ToastNotificationsDirection = .up
     private var isAfterTouchUpdateTimer: Bool = true
     @State private var toastOffset: CGFloat = 0.0
@@ -54,13 +53,13 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
     @State private var topOffset: CGFloat = UIApplication.shared.statusBarFrame.height
     @State private var bottomOffset: CGFloat = 0.0
     private var toastsDidDisappear: () -> () = {}
-    
+
     private var defaultToastYOffset: CGFloat {
         return UIScreen.main.bounds.height - ToastView.Constants.maxHeight - bottomOffset
     }
-    
+
     // MARK: - Initializer
-    
+
     /// Initializes and returns a newly allocated view object with the specified frame rectangle.
     /// - Parameters:
     ///   - animationDuration: Animation duration.
@@ -81,13 +80,15 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
         self.isAfterTouchUpdateTimer = isAfterTouchUpdateTimer
         self._bottomOffset = .init(initialValue: bottomOffset)
         self.toastsDidDisappear = toastsDidDisappear
-        
+
         self._toastPresenter = StateObject<ToastPresenter>(
             wrappedValue: ToastPresenter(
                 animationDuration: animationDuration,
                 hideAnimationDuration: hideAnimationDuration))
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         ZStack {
             content(toastPresenter)
@@ -135,7 +136,9 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
             .padding(.horizontal, LayoutGrid.doubleModule)
         }
     }
-    
+
+    // MARK: - Layouts
+
     private func toastView() -> some View {
         toastPresenter.toast
             .transition(AnyTransition
@@ -168,7 +171,7 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
             .offset(x: 0.0, y: toastOffset)
             .animation(.easeInOut(duration: toastPresenter.animationDuration))
     }
-    
+
     private func toastDownView() -> some View {
         toastPresenter.toast
             .transition(AnyTransition
@@ -203,7 +206,7 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
             .offset(x: 0.0, y: defaultToastYOffset + toastOffset)
             .animation(.easeInOut(duration: toastPresenter.animationDuration))
     }
-    
+
     private func toastDownNextView() -> some View {
         toastPresenter.toastNext
             .transition(AnyTransition
@@ -238,7 +241,7 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
             .offset(x: 0.0, y: defaultToastYOffset + toastNextOffset)
             .animation(.easeInOut(duration: toastPresenter.animationDuration))
     }
-    
+
     private func toastNextView() -> some View {
         toastPresenter.toastNext
             .transition(AnyTransition
@@ -274,12 +277,12 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
             .offset(x: 0.0, y: toastNextOffset)
             .animation(.easeInOut(duration: toastPresenter.animationDuration))
     }
-    
+
     private func removeTostsFromModel() {
         if toastPresenter.isToastDisappear, toastPresenter.isNextToastDisappear {
             toastsDidDisappear()
         }
     }
-    
+
 }
 
