@@ -18,12 +18,12 @@ import AdmiralUIResources
  */
 public struct ToolBarItemScheme: AppThemeScheme {
 
-    // MARK: - Properties
+    // MARK: - Public Properties
 
-    /// The title color
+    /// The parameter that sets title color by state and item style
     public var titleColor = ToolbarItemParameters<AColor>()
 
-    /// The image color
+    /// The parameter that sets image tint color by state and item style
     public var imageColor = ToolbarItemParameters<AColor>()
 
     /// The horizontal title label font
