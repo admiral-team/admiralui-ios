@@ -656,8 +656,6 @@
 		C6C7D279265BB2B7006F4106 /* SmallInformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C7D274265BAE7E006F4106 /* SmallInformer.swift */; };
 		C6D5BD64266528FB00437808 /* ToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D5BD602665288D00437808 /* ToolBar.swift */; };
 		C6D5BD65266528FE00437808 /* ToolBarScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D5BD622665289800437808 /* ToolBarScheme.swift */; };
-		C6D5BD6B26655C2100437808 /* ToolBarItemScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D5BD6A26655C2100437808 /* ToolBarItemScheme.swift */; };
-		C6D5BD6D26666FC800437808 /* ToolBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D5BD6C26666FC800437808 /* ToolBarItem.swift */; };
 		C6D5BD7F266A51F400437808 /* PinCodeKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D5BD7E266A51F400437808 /* PinCodeKeyboard.swift */; };
 		C6D5BD83266FF91000437808 /* PinCodeNumberViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D5BD82266FF91000437808 /* PinCodeNumberViewStyle.swift */; };
 		C6DCBFD026316EEA00754365 /* GhostButtonCustomScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DCBFCF26316EEA00754365 /* GhostButtonCustomScheme.swift */; };
@@ -727,6 +725,10 @@
 		E94A448B28D1E79A006625F5 /* CoundDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A448528D1E79A006625F5 /* CoundDownView.swift */; };
 		E94A448C28D1E79A006625F5 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A448728D1E79A006625F5 /* ProgressBar.swift */; };
 		E94A448D28D1E79A006625F5 /* ProgressBarScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A448828D1E79A006625F5 /* ProgressBarScheme.swift */; };
+		E94A449C28D32335006625F5 /* ToolBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A449828D32335006625F5 /* ToolBarItem.swift */; };
+		E94A449D28D32335006625F5 /* ToolBarItemScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A449928D32335006625F5 /* ToolBarItemScheme.swift */; };
+		E94A449E28D32335006625F5 /* ToolBarItemSelectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A449A28D32335006625F5 /* ToolBarItemSelectable.swift */; };
+		E94A449F28D32335006625F5 /* ToolBarItemStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A449B28D32335006625F5 /* ToolBarItemStyle.swift */; };
 		E95553D827ABEE6F00A14BCA /* ChatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95553D727ABEE6F00A14BCA /* ChatBubbleView.swift */; };
 		E95553DA27ABF35500A14BCA /* ChatBubbleStatusViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95553D927ABF35500A14BCA /* ChatBubbleStatusViewTest.swift */; };
 		E95553DD27ABF7F100A14BCA /* ChatInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95553DC27ABF7F100A14BCA /* ChatInputView.swift */; };
@@ -1512,8 +1514,6 @@
 		C6D2BB4D2576AFBF0058E754 /* ToolbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarItem.swift; sourceTree = "<group>"; };
 		C6D5BD602665288D00437808 /* ToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBar.swift; sourceTree = "<group>"; };
 		C6D5BD622665289800437808 /* ToolBarScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarScheme.swift; sourceTree = "<group>"; };
-		C6D5BD6A26655C2100437808 /* ToolBarItemScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarItemScheme.swift; sourceTree = "<group>"; };
-		C6D5BD6C26666FC800437808 /* ToolBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarItem.swift; sourceTree = "<group>"; };
 		C6D5BD7E266A51F400437808 /* PinCodeKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeKeyboard.swift; sourceTree = "<group>"; };
 		C6D5BD82266FF91000437808 /* PinCodeNumberViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeNumberViewStyle.swift; sourceTree = "<group>"; };
 		C6DCBFCF26316EEA00754365 /* GhostButtonCustomScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostButtonCustomScheme.swift; sourceTree = "<group>"; };
@@ -1712,6 +1712,10 @@
 		E94A448528D1E79A006625F5 /* CoundDownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoundDownView.swift; sourceTree = "<group>"; };
 		E94A448728D1E79A006625F5 /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		E94A448828D1E79A006625F5 /* ProgressBarScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBarScheme.swift; sourceTree = "<group>"; };
+		E94A449828D32335006625F5 /* ToolBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolBarItem.swift; sourceTree = "<group>"; };
+		E94A449928D32335006625F5 /* ToolBarItemScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolBarItemScheme.swift; sourceTree = "<group>"; };
+		E94A449A28D32335006625F5 /* ToolBarItemSelectable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolBarItemSelectable.swift; sourceTree = "<group>"; };
+		E94A449B28D32335006625F5 /* ToolBarItemStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolBarItemStyle.swift; sourceTree = "<group>"; };
 		E95553D727ABEE6F00A14BCA /* ChatBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleView.swift; sourceTree = "<group>"; };
 		E95553D927ABF35500A14BCA /* ChatBubbleStatusViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleStatusViewTest.swift; sourceTree = "<group>"; };
 		E95553DC27ABF7F100A14BCA /* ChatInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInputView.swift; sourceTree = "<group>"; };
@@ -5033,10 +5037,9 @@
 		C6D5BD5F2665287200437808 /* ToolBar */ = {
 			isa = PBXGroup;
 			children = (
+				E94A449728D32335006625F5 /* ToolBarItem */,
 				C6D5BD602665288D00437808 /* ToolBar.swift */,
 				C6D5BD622665289800437808 /* ToolBarScheme.swift */,
-				C6D5BD6C26666FC800437808 /* ToolBarItem.swift */,
-				C6D5BD6A26655C2100437808 /* ToolBarItemScheme.swift */,
 			);
 			path = ToolBar;
 			sourceTree = "<group>";
@@ -6308,6 +6311,17 @@
 			path = ProgressBar;
 			sourceTree = "<group>";
 		};
+		E94A449728D32335006625F5 /* ToolBarItem */ = {
+			isa = PBXGroup;
+			children = (
+				E94A449828D32335006625F5 /* ToolBarItem.swift */,
+				E94A449928D32335006625F5 /* ToolBarItemScheme.swift */,
+				E94A449A28D32335006625F5 /* ToolBarItemSelectable.swift */,
+				E94A449B28D32335006625F5 /* ToolBarItemStyle.swift */,
+			);
+			path = ToolBarItem;
+			sourceTree = "<group>";
+		};
 		E95553D427ABEE1100A14BCA /* Chat */ = {
 			isa = PBXGroup;
 			children = (
@@ -7254,6 +7268,7 @@
 				0E008AE62747DA8F003D7882 /* BadgeArrowListViewScheme.swift in Sources */,
 				0EA2311F2704833F00FFF45E /* DoubleInputRangeTextField.swift in Sources */,
 				0E6EA4842701DF82002EBBBC /* TitleButtonDropDown.swift in Sources */,
+				E94A449D28D32335006625F5 /* ToolBarItemScheme.swift in Sources */,
 				0E6223B026BC03B30012DB6E /* ZeroScreenView.swift in Sources */,
 				3B22201C274BADAD001099DB /* InfoAgreementView.swift in Sources */,
 				E94A448A28D1E79A006625F5 /* ClockViewScheme.swift in Sources */,
@@ -7311,7 +7326,6 @@
 				0EB053FC2638C0F800238CB7 /* ArrowSegmentSliderScheme.swift in Sources */,
 				0E4BC82F2681CE07000FC891 /* ImageListViewScheme.swift in Sources */,
 				0EA9F4A4262478D3009F4B5A /* SecondaryButtonScheme.swift in Sources */,
-				C6D5BD6B26655C2100437808 /* ToolBarItemScheme.swift in Sources */,
 				0E4BC8872681E6EB000FC891 /* ImageNameListView.swift in Sources */,
 				0EC13720266E0B6A00F4EB7E /* ImageListViewComponent.swift in Sources */,
 				0E4561122686090A003F588D /* ShimmerView.swift in Sources */,
@@ -7369,6 +7383,7 @@
 				0E2A62C026E7C6EF009CE2C0 /* FeedbackInputControlScheme.swift in Sources */,
 				E9B82B6427B40B9300FC7BB9 /* ActionBarButtonStyleSecondary.swift in Sources */,
 				0E6EA4A327026A2E002EBBBC /* LinkView.swift in Sources */,
+				E94A449F28D32335006625F5 /* ToolBarItemStyle.swift in Sources */,
 				0EC136942667B1BC00F4EB7E /* DoubleTextFieldScheme.swift in Sources */,
 				E9A18D9E273BE26300668C03 /* UploadingImageGroupModifier.swift in Sources */,
 				E94A448C28D1E79A006625F5 /* ProgressBar.swift in Sources */,
@@ -7427,6 +7442,8 @@
 				0E8B0F2926DD70A300EEA0D3 /* PinCodeNumberViewScheme.swift in Sources */,
 				0EADA9CA268A14A4003FF903 /* CustomSwitch.swift in Sources */,
 				0E6FCA70266E43CF00761EB1 /* SubtitleTitleListView.swift in Sources */,
+				E94A449C28D32335006625F5 /* ToolBarItem.swift in Sources */,
+				E94A449E28D32335006625F5 /* ToolBarItemSelectable.swift in Sources */,
 				0E4BC94426834F87000FC891 /* SecondaryTitleListView.swift in Sources */,
 				0E94D05626FCE7E10051BBC2 /* DropDownHeader.swift in Sources */,
 				0E4BC87E2681E1B5000FC891 /* ImageBackgroundListViewScheme.swift in Sources */,
@@ -7450,7 +7467,6 @@
 				0E4BC74D2680AA7F000FC891 /* SwitchListViewScheme.swift in Sources */,
 				E94A448D28D1E79A006625F5 /* ProgressBarScheme.swift in Sources */,
 				0EC136ED266E0AD700F4EB7E /* ListCell.swift in Sources */,
-				C6D5BD6D26666FC800437808 /* ToolBarItem.swift in Sources */,
 				0EF0308626E7C24F00F888B7 /* TitleMoreDetailTextMessageListView.swift in Sources */,
 				0EF0308D26E7C58B00F888B7 /* TitleSubtitleListViewScheme.swift in Sources */,
 				0EB8532D267387FA008FC0FD /* SecurityTextField.swift in Sources */,

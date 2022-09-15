@@ -8,20 +8,24 @@
 import SwiftUI
 
 public enum ToolBarBadgeStyle {
+    /// Sets empty style of badge
     case empty
+    /// Sets badge style witn initial value
     case value(Int)
 }
 
 public enum ToolbarItemType: String {
+    /// Sets default image color
     case `default`
+    /// Sets error image color
     case error
+    /// Sets success image color
     case success
+    /// Sets attention image color 
     case attention
 }
-
 /**
  ToolBarItem - A model that represents an item which can be placed in the toolbar.
-
  You can create a ToolBarItem by specifying the following parameters in the initializer
  ## Initializer parameters:
  - name - text for ToolBarItem
@@ -41,23 +45,23 @@ public enum ToolbarItemType: String {
 @available(iOS 14.0.0, *)
 public struct ToolBarItem: Hashable, Identifiable {
 
-    // MARK: - Public Propeties
+    // MARK: - Public Properties
 
     public let id = UUID()
 
     /// The title
-    public var title: String
+    public let title: String
 
     /// The image
-    public var image: Image
+    public let image: Image
 
-    /// The value that serve font and color of badge view
+    /// The value that controls bulding a BadgeView. Can be either empty or value (Int)
     public var badgeStyle: ToolBarBadgeStyle? = nil
 
-    /// The value that set colors and fonts
+    /// The parameter is responsible for the display style: `default`, error, success, attention
     public var type: ToolbarItemType = .default
 
-    /// The flag that controls disable and enable
+    /// A Boolean value that indicates whether the view is enabled
     public var isEnabled: Bool = true
 
     // MARK: - Initializer
@@ -76,14 +80,14 @@ public struct ToolBarItem: Hashable, Identifiable {
         self.isEnabled = isEnabled
     }
 
-    // MARK: - Public Propeties
-    
+    // MARK: - Public Methods
+
     public func hash(into hasher: inout Hasher) {
         hasher.combine(title)
     }
-    
+
     public static func == (lhs: ToolBarItem, rhs: ToolBarItem) -> Bool {
         lhs.id == rhs.id
     }
-    
+
 }
