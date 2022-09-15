@@ -42,21 +42,25 @@ struct ActionBarView: View {
 
     // MARK: - Private Properties
 
-    @State private var scheme: ActionBarViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ActionBarViewScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<ActionBarViewScheme>
 
     // MARK: - Initializer
 
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-    init(actions: [ActionItemBarAction], style: ActionBarViewStyle = .default) {
+    init(
+        actions: [ActionItemBarAction],
+        style: ActionBarViewStyle = .default,
+        schemeProvider: SchemeProvider<ActionBarViewScheme> = AppThemeSchemeProvider<ActionBarViewScheme>()
+    ) {
         self.actions = actions
         self.style = style
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Layout
 
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         contentView(scheme: scheme)
             .background(scheme.backgroundColor.parameter(for: .normal)?.swiftUIColor)
     }

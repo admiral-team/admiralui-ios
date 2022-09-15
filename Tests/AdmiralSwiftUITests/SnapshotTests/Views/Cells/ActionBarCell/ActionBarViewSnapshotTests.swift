@@ -56,17 +56,52 @@ final class ActionBarViewSnapshotTests: XCTestCase {
         checkActionBarView(view: view, named: "DarkTheme", testName: "ActionBarView")
     }
 
-//    func testActionBarSecondaryDefaultTheme() {
-//        Appearance.shared.theme = .default
-//        let view = createActionBarViewSecondary()
-//        checkActionBarView(view: view, named: "DefaultTheme", testName: "ActionBarViewSecondary", style: .secondary)
-//    }
-//
-//    func testActionBarSecondaryDarkTheme() {
-//        Appearance.shared.theme = .dark
-//        let view = createActionBarViewSecondary()
-//        checkActionBarView(view: view, named: "DarkTheme", testName: "ActionBarViewSecondary", style: .secondary)
-//    }
+    func testActionBarSecondaryDefaultTheme() {
+        Appearance.shared.theme = .default
+        let view = createActionBarViewSecondary()
+        checkActionBarView(view: view, named: "DefaultTheme", testName: "ActionBarViewSecondary", style: .secondary)
+    }
+
+    func testActionBarSecondaryDarkTheme() {
+        Appearance.shared.theme = .dark
+        let view = createActionBarViewSecondary()
+        checkActionBarView(view: view, named: "DarkTheme", testName: "ActionBarViewSecondary", style: .secondary)
+    }
+
+    // MARK: - Scheme Providers
+
+    func testActionBarSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = ActionBarViewScheme(theme: .default)
+        var actionBarConrolScheme = ActionBarControlScheme(theme: .default)
+        actionBarConrolScheme.actionBarControl.imageTintColor.set(parameter: AColor(color: .systemPink), style: .accent)
+        scheme.actionBarConrolScheme = actionBarConrolScheme
+        let newSchemeProvider = SchemeProvider<ActionBarViewScheme>(scheme: scheme)
+
+        let view = createActionBarView(schemeProvider: newSchemeProvider)
+        checkActionBarView(view: view, named: "SchemeProvider", testName: "ActionBarView")
+
+        Appearance.shared.theme = .dark
+        let newView = createActionBarView(schemeProvider: newSchemeProvider)
+        checkActionBarView(view: newView, named: "SchemeProvider", testName: "ActionBarView")
+    }
+
+    func testActionBarSchemeSecondaryProvider() {
+        Appearance.shared.theme = .default
+        var scheme = ActionBarViewScheme(theme: .default)
+        var actionBarConrolScheme = ActionBarControlSchemeTwo(theme: .default)
+        actionBarConrolScheme.actionBarControl.backgroundColor.set(parameter: AColor(color: .systemPink), style: .accent, control: .normal)
+        scheme.actionBarConrolSchemeTwo = actionBarConrolScheme
+        let newSchemeProvider = SchemeProvider<ActionBarViewScheme>(scheme: scheme)
+
+        let view = createActionBarViewSecondary(schemeProvider: newSchemeProvider)
+        checkActionBarView(view: view, named: "SchemeProvider", testName: "ActionBarViewSecondary", style: .secondary)
+
+        Appearance.shared.theme = .dark
+        let newView = createActionBarViewSecondary(schemeProvider: newSchemeProvider)
+        checkActionBarView(view: newView, named: "SchemeProvider", testName: "ActionBarViewSecondary", style: .secondary)
+    }
+
 
     func createActionBarViewSecondary() -> some View {
         let view = ActionBarView(actions: [
@@ -115,6 +150,62 @@ final class ActionBarViewSnapshotTests: XCTestCase {
                 )
             ],
             style: .default
+        )
+        return view
+    }
+
+    func createActionBarView(schemeProvider: SchemeProvider<ActionBarViewScheme>) -> some View {
+        let view = ActionBarView(
+            actions: [
+                ActionItemBarAction(
+                    image: Image(uiImage: Asset.Category.Outline.acceptOutline.image),
+                    imageStyle: .accent,
+                    handler: {}
+                ),
+                ActionItemBarAction(
+                    image: Image(uiImage: Asset.Category.Outline.acceptOutline.image),
+                    imageStyle: .accent,
+                    handler: {}
+                ),
+                ActionItemBarAction(
+                    image: Image(uiImage: Asset.Category.Outline.acceptOutline.image),
+                    imageStyle: .accent,
+                    handler: {}
+                )
+            ],
+            style: .default,
+            schemeProvider: schemeProvider
+        )
+        return view
+    }
+
+    func createActionBarViewSecondary(schemeProvider: SchemeProvider<ActionBarViewScheme>) -> some View {
+        let view = ActionBarView(
+            actions: [
+                ActionItemBarAction(
+                    image: Image(uiImage: Asset.Category.Outline.acceptOutline.image),
+                    imageStyle: .attention,
+                    style: .secondary,
+                    text: "Secondary",
+                    handler: {}
+                ),
+                ActionItemBarAction(
+                    image: Image(uiImage: Asset.Category.Outline.acceptOutline.image),
+                    imageStyle: .accent,
+                    style: .secondary,
+                    text: "Secondary",
+                    handler: {}
+                ),
+                ActionItemBarAction(
+                    image: Image(uiImage: Asset.Category.Outline.acceptOutline.image),
+                    imageStyle: .error,
+                    style: .secondary,
+                    text: "Secondary",
+                    handler: {}
+                )
+            ],
+            style: .secondary,
+            schemeProvider: schemeProvider
         )
         return view
     }
