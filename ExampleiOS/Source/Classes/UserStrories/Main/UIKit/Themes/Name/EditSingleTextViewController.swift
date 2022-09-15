@@ -97,6 +97,7 @@ final class EditSingleTextViewController: UIViewController {
         updateBottonButtonEnable()
         
         bottomButton.addTarget(self, action: #selector(didTapBottomButton), for: .touchUpInside)
+        textField.accessibilityIdentifier = "ThemeName"
     }
     
     private func configureConstraints() {

@@ -4,26 +4,38 @@
 //
 //  Created on 24.05.2021.
 //
-
-import SwiftUI
-import Combine
 import AdmiralTheme
 import AdmiralUIResources
-
+/**
+ SmallInformerScheme - the visual scheme of SmallInformer.
+ You can create a by specifying the following parameters in init:
+ - SmallInformerScheme() - Initialize default SmallInformerScheme with default themezation
+ # Example to create SmallInformerScheme:
+ # Code
+ ```
+ let scheme = SmallInformerScheme()
+ ```
+ */
 @available(iOS 14.0, *)
 public struct SmallInformerScheme: AppThemeScheme {
     
     // MARK: - Public Properties
-    
+
+    /// The parameter that sets title label text color with state
     public var titleLabelTextColors = InformerParameters<AColor>()
+
+    /// The parameter that sets wrap view background color with state
     public var wrapViewBackgroundColors = InformerParameters<AColor>()
+
+    /// The parameter that sets background color with state
     public var backgroundColors = InformerParameters<AColor>()
+
+    /// The title label font
+    public var titleLabelFont: AFont
     
-    public var titleLabelFont: AFont = AppTheme.default.fonts.body2
+    // MARK: - Initializer
     
-    // MARK: - Initilizers
-    
-    public init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         titleLabelFont = theme.fonts.body2

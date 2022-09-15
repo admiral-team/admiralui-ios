@@ -63,8 +63,8 @@ public struct SmallInformer: View {
             bottom: LayoutGrid.module,
             trailing: LayoutGrid.halfModule * 3
         )
-        static let topArrowImage = PrivateAsset.Custom.Segment.arrowUp.image
-        static let bottomArrowImage = PrivateAsset.Custom.Segment.arrowDown.image
+        static let topArrowImage = SystemAsset.Custom.Segment.arrowUp.image
+        static let bottomArrowImage = SystemAsset.Custom.Segment.arrowDown.image
         static let imageSize = CGSize(width: LayoutGrid.doubleModule, height: LayoutGrid.module)
         static let informerMaxWidth: CGFloat = LayoutGrid.quadrupleModule * 9
     }
@@ -87,8 +87,7 @@ public struct SmallInformer: View {
         return arrowDirection == .top || arrowDirection == .topRight ? -LayoutGrid.module : LayoutGrid.module
     }
     
-    @State private var scheme: SmallInformerScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SmallInformerScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<SmallInformerScheme>
     
     // MARK: - Initializer
     
@@ -104,19 +103,21 @@ public struct SmallInformer: View {
         informerStyle: InformerStyleSwiftUI = .default,
         arrowDirection: SmallInformerArrowDirection = .top,
         arrowOffset: CGFloat = LayoutGrid.halfModule * 3,
-        cornerRadius: CornerRadius = .module
+        cornerRadius: CornerRadius = .module,
+        schemeProvider: SchemeProvider<SmallInformerScheme> = AppThemeSchemeProvider<SmallInformerScheme>()
     ) {
         self.title = title
         self.informerStyle = informerStyle
         self.arrowDirection = arrowDirection
         self.arrowOffset = arrowOffset
         self.cornerRadius = cornerRadius.rawValue
+        self.schemeProvider = schemeProvider
     }
     
     // MARK: - Layout
     
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         let titleFont = Font(scheme.titleLabelFont.uiFont)
         let titleColor = scheme.titleLabelTextColors.parameter(
             isEnabled: isEnabled,

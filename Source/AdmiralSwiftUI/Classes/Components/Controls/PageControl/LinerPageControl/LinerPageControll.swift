@@ -8,38 +8,35 @@
 import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
-
 /**
  Liner - A horizontal page control logically corresponds to the Circle option, while there is an additional option to switch pages using a swipe of the whole page. Additionally, when using this option, it is necessary to provide for the use of the “Next” button.
  
  You can create a Liner by specifying the following parameters in the initializer:
- ## Initializer parameters:
+ 
  - currentPage - Binding property  of UnderlineTabItem. Each element of the array is a tab of Segment Control with title and badge style.
  - selection - the number of page control items that are currently displayed
  - displayedItems - the number of page control items that are currently displayed
  
- ## Example to create Liner:
- # Code
+ Example to create Liner:
+ Code
  ```
  @State private var selectionItem = 0
  
  VStack(alignment: .center, spacing: LayoutGrid.tripleModule * 3) {
-     LinerPageControll(currentPage: $selectionItem, numberOfPages: -5, displayedItems: 5)
-     
-     SwiftUI.Button {
-         selectionItem += 1
-     } label: {
-         HStack {
-             Text("Next")
-             AdmiralUIResources.AssetSymbol.System.Outline.arrowRight.image
-         }
-     }
-     .buttonStyle(PrimaryButtonStyle(isLoading: .constant(false), sizeType: .small))
- }
+ LinerPageControll(currentPage: $selectionItem, numberOfPages: -5, displayedItems: 5)
  
+ SwiftUI.Button {
+ selectionItem += 1
+ } label: {
+ HStack {
+ Text("Next")
+ AdmiralUIResources.AssetSymbol.System.Outline.arrowRight.image
+ }
+ }
+ .buttonStyle(PrimaryButtonStyle(isLoading: .constant(false), sizeType: .small))
+ }
  ```
  */
-
 @available(iOS 14.0.0, *)
 public struct LinerPageControll: View {
     
@@ -60,22 +57,24 @@ public struct LinerPageControll: View {
     
     /// The number of page control items that are currently displayed
     private var displayedItems: Int
+    
     /// Returns the current selected page of pafge control
     private var numberOfPages: Int
-    private var scheme: PageControlViewScheme? = nil
     
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<PageControlViewScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<PageControlViewScheme>
     
     // MARK: - Initializer
     
     public init(
-            currentPage: Binding<Int> = .constant(0),
-            numberOfPages: Int = 6,
-            displayedItems: Int = 5
+        currentPage: Binding<Int> = .constant(0),
+        numberOfPages: Int = 6,
+        displayedItems: Int = 5,
+        schemeProvider: SchemeProvider<PageControlViewScheme> = AppThemeSchemeProvider<PageControlViewScheme>()
     ) {
         self._currentPage = currentPage
         self.numberOfPages = numberOfPages
         self.displayedItems = displayedItems
+        self.schemeProvider = schemeProvider
     }
     
     // MARK: - Layout
@@ -105,7 +104,7 @@ public struct LinerPageControll: View {
     // MARK: - Private methods
     
     private func getlinerItemView(for index: Int) -> some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         let selectedPage = currentPage >= numberOfPages ? numberOfPages - 1 : currentPage
         let isSelected = selectedPage == index
         
@@ -133,6 +132,9 @@ public struct LinerPageControll: View {
 @available(iOS 14.0.0, *)
 struct LinerPageControll_Previews: PreviewProvider {
     static var previews: some View {
-        LinerPageControll(currentPage: .constant(0), numberOfPages: 6)
+        LinerPageControll(
+            currentPage: .constant(0),
+            numberOfPages: 6
+        )
     }
 }

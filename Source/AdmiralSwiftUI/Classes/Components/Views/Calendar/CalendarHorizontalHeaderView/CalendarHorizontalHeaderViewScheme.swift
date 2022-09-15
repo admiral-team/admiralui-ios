@@ -8,14 +8,33 @@
 import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
-
+/**
+ CalendarHorizontalHeaderViewScheme - the visual scheme
+ You can create a by specifying the following parameters in init:
+ - CalendarHorizontalHeaderViewScheme() - Initialize default CalendarHorizontalHeaderViewScheme with default themezation
+ # Example to create CalendarHorizontalHeaderViewScheme:
+ # Code
+ ```
+ let scheme = CalendarHorizontalHeaderViewScheme()
+ ```
+ */
 @available(iOS 14.0.0, *)
 public struct CalendarHorizontalHeaderViewScheme: AppThemeScheme {
-    
+
+    // MARK: - Public Properties
+
+    /// The button color 
     public var buttonColor = ControlParameter<AColor>()
+
+    /// The background color
     public var backgroundColor: AColor
-    
-    public init(theme: AppTheme) {
+
+    /// Month year button scheme.
+    public var monthYearButtonScheme: MonthYearButtonScheme
+
+    // MARK: - Initializer
+
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
         
         backgroundColor = theme.colors.backgroundBasic
@@ -23,6 +42,8 @@ public struct CalendarHorizontalHeaderViewScheme: AppThemeScheme {
         buttonColor.set(parameter: theme.colors.textAccent, for: .normal)
         buttonColor.set(parameter: theme.colors.textAccentPressed, for: .highlighted)
         buttonColor.set(parameter: theme.colors.textAccent.withAlpha(alpha), for: .disabled)
+
+        monthYearButtonScheme = MonthYearButtonScheme(theme: theme)
     }
     
 }

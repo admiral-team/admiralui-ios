@@ -8,7 +8,6 @@
 import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
-
 /**
  ImageNameListView - A view object with card image view.
  
@@ -37,33 +36,30 @@ public struct ImageNameListView: View, ImageListViewComponent {
     
     @Environment(\.isEnabled) var isEnabled
     @Environment(\.manager) var manager
-    
-    @State private var scheme: ImageNameListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ImageNameListViewScheme>()
+
+    @ObservedObject private var schemeProvider: SchemeProvider<ImageNameListViewScheme>
     
     // MARK: - Initializer
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-    public init(text: String) {
+    public init(
+        text: String,
+        schemeProvider: SchemeProvider<ImageNameListViewScheme> = AppThemeSchemeProvider<ImageNameListViewScheme>()
+    ) {
         self._text = Binding(get: { return text }, set: { _ in })
+        self.schemeProvider = schemeProvider
     }
 
+    // MARK: - Body
+
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         Text(text)
             .foregroundColor(scheme.titleLabelTextColor.parameter(for: isEnabled ? .normal : .disabled)?.swiftUIColor)
             .font(scheme.titleFont.swiftUIFont)
             .frame(width: LayoutGrid.halfModule * 11, height: LayoutGrid.halfModule * 11)
             .background(scheme.backgroundNameViewColor.parameter(for: isEnabled ? .normal : .disabled)?.swiftUIColor)
             .cornerRadius((LayoutGrid.halfModule * 11) / 2)
-    }
-    
-    // MARK: - Internal Methods
-    
-    func scheme(_ scheme: ImageNameListViewScheme) -> some View {
-        var view = self
-        view._scheme = State(initialValue: scheme)
-        return view.id(UUID())
     }
     
 }

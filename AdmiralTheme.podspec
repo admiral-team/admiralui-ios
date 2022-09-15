@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
 
   spec.platform = :ios
   spec.name         = "AdmiralTheme"
-  spec.version      = "10.1.0"
+  spec.version      = "11.0.0"
   spec.summary      = "Team UI Components."
 
   spec.description  = <<-DESC
@@ -39,7 +39,7 @@ Pod::Spec.new do |spec|
     LICENSE
   }
 
-  spec.author             = { "" => "" }
+  spec.author             = { "AdmiralTeam" => "tonwork252@gmail.com" }
   spec.source       = { :git => "https://github.com/admiral-team/admiralui-ios.git", :tag => "#{spec.version}" }
 
   spec.ios.deployment_target = "11.0"

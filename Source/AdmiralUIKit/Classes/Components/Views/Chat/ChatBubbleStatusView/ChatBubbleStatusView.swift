@@ -91,11 +91,11 @@ public class ChatBubbleStatusView: UIView, AnyAppThemable {
         case .error:
             return Asset.Service.Outline.errorOutline.image
         case .sent:
-            return PrivateAsset.Custom.Chat.sent.image
+            return SystemAsset.Custom.Chat.sent.image
         case .receive:
-            return PrivateAsset.Custom.Chat.sent.image
+            return SystemAsset.Custom.Chat.sent.image
         case .read:
-            return PrivateAsset.Custom.Chat.read.image
+            return SystemAsset.Custom.Chat.read.image
         case nil:
             return nil
         default:
@@ -153,7 +153,6 @@ public class ChatBubbleStatusView: UIView, AnyAppThemable {
     // MARK: - Private methods
 
     private func commonInit() {
-        autoManage()
         addSubviews()
         setupConstraints()
     }

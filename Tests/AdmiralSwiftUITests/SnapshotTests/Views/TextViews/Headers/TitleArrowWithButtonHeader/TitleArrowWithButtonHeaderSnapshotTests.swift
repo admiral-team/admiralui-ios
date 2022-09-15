@@ -35,7 +35,7 @@ final class TitleArrowWithButtonHeaderSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testTitleArrowWithButtonHeaderDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createTitleArrowWithButtonHeader()
         checkTitleArrowWithButtonHeader(view: view, named: "DefaultTheme", testName: "TitleArrowWithButtonHeader")
     }
@@ -43,7 +43,7 @@ final class TitleArrowWithButtonHeaderSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testTitleArrowWithButtonHeaderDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createTitleArrowWithButtonHeader()
         checkTitleArrowWithButtonHeader(view: view, named: "DarkTheme", testName: "TitleArrowWithButtonHeader")
     }

@@ -35,7 +35,7 @@ final class LineSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testLineDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createLine()
         checkLine(view: view, named: "DefaultTheme", testName: "Line")
     }
@@ -43,7 +43,7 @@ final class LineSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testLineDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createLine()
         checkLine(view: view, named: "DarkTheme", testName: "Line")
     }

@@ -35,7 +35,7 @@ final class DoubleTextFieldSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testDoubleTextFieldDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createDoubleTextField()
         checkDoubleTextField(view: view, named: "DefaultTheme", testName: "DoubleTextField")
     }
@@ -43,7 +43,7 @@ final class DoubleTextFieldSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testDoubleTextFieldDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createDoubleTextField()
         checkDoubleTextField(view: view, named: "DarkTheme", testName: "DoubleTextField")
     }

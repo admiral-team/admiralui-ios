@@ -44,7 +44,7 @@ public final class UploadImageGridView: UIView, AnyAppThemable {
     private enum Constants {
         static let width: CGFloat = 114
         static let height: CGFloat = 114
-        static let imageSize: CGFloat = 21
+        static let imageSize: CGFloat = LayoutGrid.halfModule * 7
         static let cornerRadius: CGFloat = LayoutGrid.module
         static let padding: CGFloat = LayoutGrid.doubleModule
         static let chatBubbleBoxWidth: CGFloat = 53
@@ -107,7 +107,7 @@ public final class UploadImageGridView: UIView, AnyAppThemable {
 
     private let errorView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = PrivateAsset.Custom.Chat.error.image
+        imageView.image = Asset.Service.Solid.errorSolid.image
         return imageView
     }()
 
@@ -167,7 +167,6 @@ public final class UploadImageGridView: UIView, AnyAppThemable {
     // MARK: - Private methods
 
     private func commonInit() {
-        autoManage()
         addSubviews()
         setupConstraints()
         configureUI()
@@ -229,6 +228,7 @@ public final class UploadImageGridView: UIView, AnyAppThemable {
     private func configureUI() {
         chatBubbleBox.layer.cornerRadius = Constants.cornerRadius
         chatBubbleBox.backgroundColor = scheme.chatBubbleColor.uiColor
+        errorView.tintColor = scheme.errorImageColor.uiColor
         chatBubbleStatusView.style = .light
     }
 

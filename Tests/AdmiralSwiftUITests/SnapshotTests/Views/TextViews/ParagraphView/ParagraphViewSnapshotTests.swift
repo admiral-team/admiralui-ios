@@ -35,7 +35,7 @@ final class ParagraphViewSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func test_DefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createParagraphView()
         checkParagraphView(view: view, named: "DefaultTheme", testName: "ParagraphView")
     }
@@ -43,7 +43,7 @@ final class ParagraphViewSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func test_DarkTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createParagraphView()
         checkParagraphView(view: view, named: "DarkTheme", testName: "ParagraphView")
     }

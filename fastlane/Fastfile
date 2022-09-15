@@ -82,7 +82,7 @@ lane :deploy_appcenter_dev do |options|
       clean: true,
       output_directory: "Release/AdmiralUI-Example/Dev",
       export_method: "enterprise",
-      output_name: "admiralui-example.ipa",
+      output_name: "admiralui-example.ipa"
     )
 
     increment_app_build(build_number: previous_build_number)
@@ -140,7 +140,7 @@ end
 
 lane :run_tests_app do |options|
   scheme = options[:scheme]
-  devices = options[:devices] || ['iPhone 8 (14.5)']
+  devices = ['iPhone 8 (14.5)']
 
   run_tests(
     workspace: ENV['PROJECT_WORKSPACE_PATH'],
@@ -270,6 +270,10 @@ lane :increment_app_version do |options|
   )
   increment_podspec_version(
     path: File.join(Dir.pwd, '../AdmiralUIResources.podspec'), 
+    version: version_number
+  )
+  increment_podspec_version(
+    path: File.join(Dir.pwd, '../AdmiralCore.podspec'), 
     version: version_number
   )
 end

@@ -8,7 +8,6 @@
 import AdmiralTheme
 import AdmiralUIResources
 import SwiftUI
-
 /**
  RadioControl - A type of button that lets the user choose between two opposite states, actions, or values. They are applied when there is a list of options from which the user can select only one option.
  You can create a RadioControl by specifying the following parameters in the initializer:
@@ -29,10 +28,14 @@ import SwiftUI
 public struct RadioControl: View {
     
     // MARK: - Public Properties
-    
+
+    /// The selection flag
     @Binding public var isSelected: Bool
-    
+
+    /// The text
     @State public var text: String = ""
+
+    /// The check state
     @State public var checkState: CheckControlState = .normal
     
     // MARK: - Internal Properties
@@ -42,12 +45,13 @@ public struct RadioControl: View {
     // MARK: - Private Properties
     
     @Environment(\.isEnabled) private var isEnabled
-    
-    @State private var scheme: CheckControlScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<CheckControlScheme>()
-    
+
+    @ObservedObject private var schemeProvider: SchemeProvider<CheckControlScheme>
+
+    // MARK: - Computed Properites
+
     private var image: Image {
-        return isSelected ? Image(uiImage: PrivateAsset.Custom.Control.radioButtonOn.image) : Image(uiImage: PrivateAsset.Custom.Control.radioButtonOff.image)
+        return isSelected ? Image(uiImage: SystemAsset.Custom.Control.radioButtonOn.image) : Image(uiImage: SystemAsset.Custom.Control.radioButtonOff.image)
     }
     
     // MARK: - Initializer
@@ -55,14 +59,19 @@ public struct RadioControl: View {
     public init(
         isSelected: Binding<Bool>,
         text: String = "",
-        checkState: CheckControlState = .normal) {
+        checkState: CheckControlState = .normal,
+        schemeProvider: SchemeProvider<CheckControlScheme> = AppThemeSchemeProvider<CheckControlScheme>()
+    ) {
         self._isSelected = isSelected
         self._text = .init(initialValue: text)
         self._checkState = .init(initialValue: checkState)
+        self.schemeProvider = schemeProvider
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         let tintColor = scheme.tintColor.parameter(for: isEnabled ? .normal : .disabled, state: checkState)
         let textColor = scheme.textColor.parameter(for: isEnabled ? .normal : .disabled)
         HStack {
@@ -78,14 +87,6 @@ public struct RadioControl: View {
         }.onTapGesture {
             isSelected.toggle()
         }
-    }
-    
-    // MARK: - Internal Methods
-    
-    func scheme(_ scheme: CheckControlScheme) -> some View {
-        var view = self
-        view._scheme = State(initialValue: scheme)
-        return view.id(UUID())
     }
     
 }

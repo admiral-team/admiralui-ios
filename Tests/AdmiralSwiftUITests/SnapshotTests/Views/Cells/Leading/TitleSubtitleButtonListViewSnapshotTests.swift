@@ -35,7 +35,7 @@ final class TitleSubtitleButtonListViewSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testTitleSubtitleButtonListViewDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createTitleSubtitleButtonListView()
         checkTitleSubtitleButtonListView(view: view, named: "DefaultTheme", testName: "TitleSubtitleButtonListView")
     }
@@ -43,7 +43,7 @@ final class TitleSubtitleButtonListViewSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testTitleSubtitleButtonListViewDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createTitleSubtitleButtonListView()
         checkTitleSubtitleButtonListView(view: view, named: "DarkTheme", testName: "TitleSubtitleButtonListView")
     }

@@ -4,7 +4,6 @@
 //
 //  Created on 13.08.2021.
 //
-
 import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
@@ -16,11 +15,9 @@ public enum MapButtonType {
     case location
     case custom(image: Image)
 }
-
 /**
  The style for creating the Map Button. The presented style is used to create buttons on the map
-
- To configure the current button style for a view hierarchy, use the buttonStyle(_:) modifier.
+ To configure the current button style for a view hierarchy, use the buttonStyle(_:) modifier.
  You can create buttons of the following types: (plus, minus, location and custom by specifying your own image) by specifying the size type in the initial button style
  ## Example to create button with MapButtonStyle:
  # Code
@@ -31,19 +28,22 @@ public enum MapButtonType {
 */
 @available(iOS 14.0.0, *)
 public struct MapButtonStyle: ButtonStyle {
-    
+
     // MARK: - Public Properties
-    
+
     public let image: Image
-    
+
     // MARK: - Private Properties
-    
-    @State private var scheme: MapButtonScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<MapButtonScheme>()
-    
+
+    @ObservedObject private var schemeProvider: SchemeProvider<MapButtonScheme>
+
     // MARK: - Initializer
-    
-    public init(type: MapButtonType) {
+
+    public init(
+        type: MapButtonType,
+        schemeProvider: SchemeProvider<MapButtonScheme> = AppThemeSchemeProvider<MapButtonScheme>()
+    ) {
+        self.schemeProvider = schemeProvider
         switch type {
         case .plus:
             image = AssetSymbol.Service.Outline.plus.image
@@ -55,43 +55,63 @@ public struct MapButtonStyle: ButtonStyle {
             self.image = image
         }
     }
-    
+
     // MARK: - Public Methods
-    
+
     public func makeBody(configuration: Self.Configuration) -> some View {
-        let scheme = scheme ?? schemeProvider.scheme
-        MapButton(image: image, scheme: scheme, configuration: configuration)
+        MapButton(
+            image: image,
+            schemeProvider: schemeProvider,
+            configuration: configuration
+        )
     }
 }
 
 @available(iOS 14.0.0, *)
 private extension MapButtonStyle {
     struct MapButton: View {
-        
+
+        // MARK: - Constants
         enum Constants {
             static let cornerRadius: CGFloat = LayoutGrid.module
         }
-        
+
+        // MARK: - Environment
         @Environment(\.isEnabled) private var isEnabled
 
         let configuration: Configuration
-        var scheme: MapButtonScheme
-        @State var image: Image
-        
-        init(image: Image, scheme: MapButtonScheme, configuration: Configuration) {
+        var image: Image
+
+        private var schemeProvider: SchemeProvider<MapButtonScheme>
+
+        // MARK: - Initializer
+
+        init(
+            image: Image,
+            schemeProvider: SchemeProvider<MapButtonScheme>,
+            configuration: Configuration
+        ) {
             self.configuration = configuration
-            self.scheme = scheme
-            self._image = .init(initialValue: image)
+            self.schemeProvider = schemeProvider
+            self.image = image
         }
-        
+
+        // MARK: - Body
+
         var body: some View {
+            let scheme = schemeProvider.scheme
             let backgroundColor = configuration.isPressed ? scheme.backgroundColor.parameter(for: .highlighted)?.swiftUIColor : scheme.backgroundColor.parameter(for: .normal)?.swiftUIColor
             image
                 .frame(width: LayoutGrid.halfModule * 10, height: LayoutGrid.halfModule * 10)
                 .foregroundColor(scheme.imageTintColor.swiftUIColor)
                 .background(
                     RoundedRectangle(cornerRadius: LayoutGrid.halfModule * 10)
-                        .shadow(color: scheme.shadowColor.swiftUIColor, radius: Constants.cornerRadius, x: 0, y: LayoutGrid.halfModule)
+                        .shadow(
+                            color: scheme.shadowColor.swiftUIColor,
+                            radius: Constants.cornerRadius,
+                            x: 0,
+                            y: LayoutGrid.halfModule
+                        )
                         .foregroundColor(backgroundColor)
                 )
         }
@@ -100,7 +120,6 @@ private extension MapButtonStyle {
 
 @available(iOS 14.0, *)
 struct MapButton_Previews: PreviewProvider {
-    
     static var previews: some View {
         Button(action: {}, label: {})
             .buttonStyle(MapButtonStyle(type: .plus))

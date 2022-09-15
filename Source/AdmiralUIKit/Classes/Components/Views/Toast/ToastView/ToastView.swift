@@ -217,6 +217,8 @@ open class ToastView: UIView, AnyAppThemable {
     
     open func apply(theme: AppTheme) {
         scheme = ToastViewScheme(theme: theme)
+        countDownTimer.apply(theme: theme)
+        linkControl.apply(theme: theme)
     }
     
     // MARK: - Private Methods
@@ -239,7 +241,6 @@ open class ToastView: UIView, AnyAppThemable {
     
     private func commonInit() {
         apply(theme: defaultTheme)
-        autoManage()
         
         setupLabels()
         addSubviews()

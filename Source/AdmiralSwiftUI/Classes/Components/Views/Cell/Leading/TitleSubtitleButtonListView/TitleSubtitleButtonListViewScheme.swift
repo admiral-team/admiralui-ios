@@ -7,23 +7,54 @@
 
 import AdmiralTheme
 import AdmiralUIResources
-
+/**
+ TitleSubtitleButtonListViewScheme - the visual scheme of TitleSubtitleButtonListView.
+ You can create a by specifying the following parameters in init:
+ - TitleSubtitleButtonListViewScheme() - Initialize default TitleSubtitleButtonListViewScheme with default themezation
+ # Example to create TitleSubtitleButtonListViewScheme:
+ # Code
+ ```
+ let scheme = TitleSubtitleButtonListViewScheme()
+ ```
+ */
 public struct TitleSubtitleButtonListViewScheme: AppThemeScheme {
-    
+
+    /// The  parameter that sets background color with state
     public var backgroundColor = ControlParameter<AColor>()
+
+    /// The  parameter that sets title label text color with state
     public var titleLabelTextColor = ControlParameter<AColor>()
+
+    /// The  parameter that sets subtitleTag label text color with state
     public var subtitleTagLabelTextColor = ControlParameter<AColor>()
+
+    /// The  parameter that sets button title color with state
     public var buttonTitleColor = ControlParameter<AColor>()
+
+    /// The  parameter that sets subtitle label text color with state
     public var subtitleLabelTextColor = ControlParameter<AColor>()
+
+    /// The  parameter that sets tag view background color with state
     public var tagViewBackgroundColor = ControlParameter<AColor>()
-    
+
+    /// The title font
     public var titleFont: AFont
+
+    /// The subtitle tag font
     public var subtitleTagFont: AFont
+
+    /// The subtitle font
     public var subtitleFont: AFont
+
+    /// The tag view font
     public var tagViewFont: AFont
+
+    /// The ghost button font
     public var ghostButtonFont: AFont
-    
-    public init(theme: AppTheme) {
+
+    // MARK: - Initializer
+
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         backgroundColor.set(parameter: theme.colors.backgroundSelected, for: .highlighted)

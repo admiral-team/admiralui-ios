@@ -14,20 +14,23 @@ public struct ChatButtonStyle: ButtonStyle {
 
     // MARK: - Private Properties
 
-    private var scheme: ChatButtonScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ChatButtonScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<ChatButtonScheme>
 
     // MARK: - Initialiazer
 
-    public init(scheme: ChatButtonScheme? = nil) {
-        self.scheme = scheme
+    public init(
+        schemeProvider: SchemeProvider<ChatButtonScheme> = AppThemeSchemeProvider<ChatButtonScheme>()
+    ) {
+        self.schemeProvider = schemeProvider
     }
 
-    // MARK: - Public methods
+    // MARK: - Body
 
     public func makeBody(configuration: Self.Configuration) -> some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
-        return ChatButton(scheme: scheme, configuration: configuration)
+        return ChatButton(
+            schemeProvider: schemeProvider,
+            configuration: configuration
+        )
     }
 }
 
@@ -46,19 +49,24 @@ private extension ChatButtonStyle {
 
         @Environment(\.isEnabled) private var isEnabled
         private let configuration: Configuration
-        private let scheme: ChatButtonScheme
+
+        private var schemeProvider: SchemeProvider<ChatButtonScheme>
 
         // MARK: - Initializer
 
-        init(scheme: ChatButtonScheme, configuration: Configuration) {
+        init(
+            schemeProvider: SchemeProvider<ChatButtonScheme>,
+            configuration: Configuration
+        ) {
             self.configuration = configuration
-            self.scheme = scheme
+            self.schemeProvider = schemeProvider
         }
 
         // MARK: - Layout
 
         var body: some View {
             let content = configuration.label.eraseToAnyView()
+            let scheme = schemeProvider.scheme
             contentView(content: content, scheme: scheme)
         }
 

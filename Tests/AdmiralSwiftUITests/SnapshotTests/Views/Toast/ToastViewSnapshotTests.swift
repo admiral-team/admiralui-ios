@@ -35,7 +35,7 @@ final class ToastViewSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testToastViewDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createToastView()
         checkToastView(view: view, named: "DefaultTheme", testName: "ToastView")
     }
@@ -43,7 +43,7 @@ final class ToastViewSnapshotTests: XCTestCase {
     // MARK: Dark Theme
 
     func testToastViewDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createToastView()
         checkToastView(view: view, named: "DarkTheme", testName: "ToastView")
     }

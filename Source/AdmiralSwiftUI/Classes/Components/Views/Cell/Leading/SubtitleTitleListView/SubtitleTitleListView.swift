@@ -59,10 +59,10 @@ public struct SubtitleTitleListView: View, LeadingListViewComponent {
     var titleSubtitleListViewStyle: TitleSubtitleListViewStyle?
 
     // MARK: - Private Properties
-    
-    @State private var scheme: SubtitleTitleListViewScheme? = nil
+
     private let lineLimit: Int?
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SubtitleTitleListViewScheme>()
+    
+    @ObservedObject private var schemeProvider: SchemeProvider<SubtitleTitleListViewScheme>
 
     // MARK: - Initializer
     
@@ -71,15 +71,18 @@ public struct SubtitleTitleListView: View, LeadingListViewComponent {
         title: String?,
         subtitle: String?,
         lineLimit: Int? = nil,
-        titleSubtitleListViewStyle: TitleSubtitleListViewStyle? = nil) {
+        titleSubtitleListViewStyle: TitleSubtitleListViewStyle? = nil,
+        schemeProvider: SchemeProvider<SubtitleTitleListViewScheme> = AppThemeSchemeProvider<SubtitleTitleListViewScheme>()
+    ) {
         self._title = Binding(get: { return title }, set: { _ in })
         self._subtitle = Binding(get: { return subtitle }, set: { _ in })
         self.lineLimit = lineLimit
         self.titleSubtitleListViewStyle = titleSubtitleListViewStyle
+        self.schemeProvider = schemeProvider
     }
     
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         HStack(spacing: 0.0) {
             VStack(alignment: .leading, spacing: 4.0) {
                 if let subtitle = subtitle {
@@ -98,14 +101,6 @@ public struct SubtitleTitleListView: View, LeadingListViewComponent {
             }
             Spacer(minLength: 0.0)
         }
-    }
-    
-    // MARK: - Internal Methods
-    
-    func scheme(_ scheme: SubtitleTitleListViewScheme) -> some View {
-        var view = self
-        view._scheme = State(initialValue: scheme)
-        return view.id(UUID())
     }
     
 }

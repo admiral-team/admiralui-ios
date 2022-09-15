@@ -55,9 +55,8 @@ public struct IconListView: View, TralingListViewComponent {
     var iconListViewStyle: IconListViewStyle?
     
     var renderingMode: Image.TemplateRenderingMode
-    
-    @State private var scheme: IconListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<IconListViewScheme>()
+
+    @ObservedObject private var schemeProvider: SchemeProvider<IconListViewScheme>
     
     // MARK: - Initializer
     
@@ -65,14 +64,19 @@ public struct IconListView: View, TralingListViewComponent {
     public init(
         image: Image,
         renderingMode: Image.TemplateRenderingMode = .original,
-        iconListViewStyle: IconListViewStyle? = nil) {
+        iconListViewStyle: IconListViewStyle? = nil,
+        schemeProvider: SchemeProvider<IconListViewScheme> = AppThemeSchemeProvider<IconListViewScheme>()
+    ) {
         self._image = Binding(get: { return image }, set: { _ in })
         self.renderingMode = renderingMode
         self.iconListViewStyle = iconListViewStyle
+        self.schemeProvider = schemeProvider
     }
 
+    // MARK: - Body
+
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         switch renderingMode {
         case .original:
             image

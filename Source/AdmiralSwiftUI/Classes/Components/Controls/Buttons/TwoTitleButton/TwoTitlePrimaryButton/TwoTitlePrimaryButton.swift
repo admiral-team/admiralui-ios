@@ -7,10 +7,9 @@
 
 import AdmiralTheme
 import SwiftUI
-
 /**
  A TwoTitlePrimaryButton with two text headers (left and right). PrimaryButton - the main button for the most important actions
- 
+
  You can create a TwoTitlePrimaryButton by specifying the following parameters in the initializer
  ## Initializer parameters:
  - leftText - value of String
@@ -23,8 +22,8 @@ import SwiftUI
  TwoTitlePrimaryButton(
                     leftText: "left Text",
                     rightText: "right Text",
-                    action: {})
- 
+                    action: {}
+ )
  ```
  */
 @available(iOS 14.0, *)
@@ -36,37 +35,36 @@ public struct TwoTitlePrimaryButton: View {
     var rightText: String
     
     // MARK: - Private Properties
-    
-    @State private var scheme: TwoTitlePrimaryButtonScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<TwoTitlePrimaryButtonScheme>()
-    
+
     private let action: () -> ()
+
+    @ObservedObject private var schemeProvider: SchemeProvider<TwoTitlePrimaryButtonScheme>
     
     // MARK: - Initializer
     
-    public init(leftText: String, rightText: String, action: @escaping () -> ()) {
+    public init(
+        leftText: String,
+        rightText: String,
+        action: @escaping () -> (),
+        schemeProvider: SchemeProvider<TwoTitlePrimaryButtonScheme> = AppThemeSchemeProvider<TwoTitlePrimaryButtonScheme>()
+    ) {
         self.leftText = leftText
         self.rightText = rightText
         self.action = action
+        self.schemeProvider = schemeProvider
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
-        var scheme = self.scheme ?? schemeProvider.scheme
-        scheme.leftTitle = leftText
-        scheme.rightTitle = rightText
-        return Button("", action: action)
-                .buttonStyle(scheme)
-    }
-    
-    // MARK: - Public Methods
-    
-    /// Install theme.
-    /// - Parameter scheme: Scheme view.
-    /// - Returns: view.
-    public func scheme(_ scheme: TwoTitlePrimaryButtonScheme) -> some View {
-        var view = self
-        view._scheme = State(initialValue: scheme)
-        return view.id(UUID())
+        Button("", action: action)
+            .buttonStyle(
+                TwoTitlePrimaryButtonStyle(
+                    leftTitle: leftText,
+                    rightTitle: rightText,
+                    schemeProvider: schemeProvider
+                )
+            )
     }
     
 }

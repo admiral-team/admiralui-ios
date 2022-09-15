@@ -13,7 +13,7 @@ class ArrowSegmentSlider: UIView, AnyAppThemable {
     
     enum Constants {
         static let height: CGFloat = LayoutGrid.halfModule * 3
-        static let arrowImage = PrivateAsset.Custom.Segment.arrowUp.image
+        static let arrowImage = SystemAsset.Custom.Segment.arrowUp.image
         static let widthImageView: CGFloat = LayoutGrid.quadrupleModule
     }
     

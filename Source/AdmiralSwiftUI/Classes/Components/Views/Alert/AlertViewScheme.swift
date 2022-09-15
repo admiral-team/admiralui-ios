@@ -5,35 +5,43 @@
 //  Created on 10.01.2022.
 //
 
-import Foundation
-
 import AdmiralTheme
 import AdmiralUIResources
-
+/**
+ ActivityIndicatorScheme - the visual scheme of AlertView.
+ You can create a by specifying the following parameters in init:
+ - AlertViewScheme() - Initialize default AlertViewScheme with default themezation
+ # Example to create AlertViewScheme:
+ # Code
+ ```
+ let scheme = AlertViewScheme()
+ ```
+ */
 public struct AlertViewScheme: AppThemeScheme {
 
-    /// Styled font of title label that depends on AlertTitleFontStyle.
+    // MARK: - Public Properties
+
+    /// Styled font of title label that configurable with style
     public var titleFont = DefaultAlertViewCustomSchemeParameters<AFont, AlertTitleFontStyle>()
 
-    /// Styled font of message label that depends on AlertMessageFontStyle.
+    /// Styled font of message label that configurable with style
     public var messageFont = DefaultAlertViewCustomSchemeParameters<AFont, AlertMessageFontStyle>()
 
-    /// Styled color of title label that depends on AlertColorStyle.
+    /// Styled  color of title label that configurable with style
     public var titleColor = DefaultAlertViewCustomSchemeParameters<AColor, AlertColorStyle>()
 
-    /// Styled color of message label that depends on AlertColorStyle.
+    /// Styled  color of meesage label that configurable with style
     public var messageColor = DefaultAlertViewCustomSchemeParameters<AColor, AlertColorStyle>()
-    
-    /// Background color of alert view.
+
+    /// The background color.
     public var backgroundColor: AColor
+
+    /// Button scheme.
+    public var buttonScheme: PrimaryButtonScheme
 
     // MARK: - Initializer
 
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    public init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         titleFont.set(parameter: theme.fonts.title1, style: .title1)
         titleFont.set(parameter: theme.fonts.title2, style: .title2)
         titleFont.set(parameter: theme.fonts.subtitle1, style: .subtitle1)
@@ -54,10 +62,12 @@ public struct AlertViewScheme: AppThemeScheme {
         messageColor.set(parameter: theme.colors.textMask, style: .mask)
         messageColor.set(parameter: theme.colors.textPrimary, style: .primary)
         messageColor.set(parameter: theme.colors.textSecondary, style: .secondary)
-        
+
         backgroundColor = theme.colors.backgroundExtraSurface
+
+        buttonScheme = PrimaryButtonScheme(theme: theme)
     }
-    
+
 }
 
 public struct DefaultAlertViewCustomSchemeParameters<P, S: RawRepresentable & Hashable> where S.RawValue == Int {

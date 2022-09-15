@@ -7,11 +7,20 @@
 
 import SwiftUI
 
+/// The button size type
 public enum ButtonSizeType: String {
+
+    /// The small size
     case small
+
+    /// The medium size
     case medium
+
+    /// The big size
     case big
-    
+
+    // MARK: - Computed Properties
+
     var height: CGFloat {
         switch self {
         case .small:
@@ -22,7 +31,7 @@ public enum ButtonSizeType: String {
             return LayoutGrid.doubleModule * 3
         }
     }
-    
+
     var width: CGFloat? {
         switch self {
         case .small:

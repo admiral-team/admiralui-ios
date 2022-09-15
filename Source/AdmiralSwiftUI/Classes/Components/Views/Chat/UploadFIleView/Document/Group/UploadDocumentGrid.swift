@@ -8,7 +8,6 @@
 import AdmiralTheme
 import AdmiralUIResources
 import SwiftUI
-
 /**
  UploadDocumentGrid - the component that presents a view container for UploadDocumentView.
 
@@ -51,14 +50,19 @@ public struct UploadDocumentGrid: View {
     /// Tapped index of  element.
     public var tappedIndex: ((_ index: Int) -> Void)?
     
+    // MARK: Internal Properties
+
+    /// Scheme provider serves for changing scheme while change theme.
+    @ObservedObject var schemeProvider: SchemeProvider<UploadDocumentGridScheme>
+
     // MARK: - Private properties
-    
+
     /// An array with documentsList models
     private var models: [UploadDocument]
-    
+
     /// Direction message.
     private let direction: ChatDirection
-    
+
     /// Action error button.
     private var errorAction: () -> ()
 
@@ -68,29 +72,34 @@ public struct UploadDocumentGrid: View {
         models: [UploadDocument],
         direction: ChatDirection,
         tappedIndex: ((_ index: Int) -> Void)? = nil,
-        errorAction: @escaping ()->() = {}
+        errorAction: @escaping ()->() = {},
+        schemeProvider: SchemeProvider<UploadDocumentGridScheme> = AppThemeSchemeProvider<UploadDocumentGridScheme>()
     ) {
         self.models = models
         self.direction = direction
         self.tappedIndex = tappedIndex
         self.errorAction = errorAction
+        self.schemeProvider = schemeProvider
     }
-    
+
     public init(
         model: UploadDocument,
         direction: ChatDirection,
         tappedIndex: ((_ index: Int) -> Void)? = nil,
-        errorAction: @escaping ()->() = {}
+        errorAction: @escaping ()->() = {},
+        schemeProvider: SchemeProvider<UploadDocumentGridScheme> = AppThemeSchemeProvider<UploadDocumentGridScheme>()
     ) {
         self.models = [model]
         self.direction = direction
         self.tappedIndex = tappedIndex
         self.errorAction = errorAction
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Layout
 
     public var body: some View {
+        let scheme = schemeProvider.scheme
         switch direction {
         case .left:
             HStack(alignment: .bottom, spacing: 0) {
@@ -101,11 +110,13 @@ public struct UploadDocumentGrid: View {
             HStack(alignment: .bottom, spacing: 0) {
                 Spacer()
                 uploadDocumentView()
-                statusError()
+                statusError(scheme: scheme)
             }.eraseToAnyView()
         }
     }
-    
+
+    // MARK: - Layouts
+
     private func uploadDocumentView() -> some View {
         VStack(spacing: .zero) {
             if !models.isEmpty {
@@ -122,13 +133,16 @@ public struct UploadDocumentGrid: View {
             }
         }
     }
-    
-    private func statusError() -> some View {
+
+    private func statusError(scheme: UploadDocumentGridScheme) -> some View {
         VStack(spacing: 0) {
             if isStatusError() {
-                Image(uiImage: PrivateAsset.Custom.Chat.error.image)
+                Image(uiImage: Asset.Service.Solid.errorSolid.image)
+                    .resizable()
+                    .frame(width: LayoutGrid.halfModule * 7, height: LayoutGrid.halfModule * 7)
+                    .foregroundColor(scheme.errorImageColor.swiftUIColor)
                     .padding(.top, LayoutGrid.module)
-                    .frame(width: LayoutGrid.module * 5, height: LayoutGrid.module * 5)
+                    .padding(.leading, LayoutGrid.module)
                     .onTapGesture {
                         errorAction()
                     }
@@ -136,11 +150,9 @@ public struct UploadDocumentGrid: View {
         }
     }
 
-private func isStatusError() -> Bool {
-    models.contains(where: {
-        $0.status == .error
-    })
-}
+    private func isStatusError() -> Bool {
+        models.contains(where: {$0.status == .error })
+    }
 
 }
 

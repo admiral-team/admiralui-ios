@@ -35,25 +35,25 @@ final class TitleListViewSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testTitleListViewHeadlineSecondaryDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createTitleListView(style: .headlineSecondary)
         checkTitleListView(view: view, named: "HeadlineSecondaryDefaultTheme", testName: "TitleListView")
     }
     
     func testTitleListViewParagraphDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createTitleListView(style: .paragraph)
         checkTitleListView(view: view, named: "ParagraphDefaultTheme", testName: "TitleListView")
     }
     
     func testTitleListViewHeadlineDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createTitleListView(style: .headline)
         checkTitleListView(view: view, named: "HeadlineDefaultTheme", testName: "TitleListView")
     }
     
     func testTitleListViewBodyDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createTitleListView(style: .body)
         checkTitleListView(view: view, named: "BodyDefaultTheme", testName: "TitleListView")
     }
@@ -61,25 +61,25 @@ final class TitleListViewSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testTitleListViewHeadlineSecondaryDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createTitleListView(style: .headlineSecondary)
         checkTitleListView(view: view, named: "HeadlineSecondaryDarkTheme", testName: "TitleListView")
     }
     
     func testTitleListViewParagraphDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createTitleListView(style: .paragraph)
         checkTitleListView(view: view, named: "ParagraphDarkTheme", testName: "TitleListView")
     }
     
     func testTitleListViewHeadlineDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createTitleListView(style: .headline)
         checkTitleListView(view: view, named: "HeadlineDarkTheme", testName: "TitleListView")
     }
     
     func testTitleListViewBodyDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createTitleListView(style: .body)
         checkTitleListView(view: view, named: "BodyDarkTheme", testName: "TitleListView")
     }

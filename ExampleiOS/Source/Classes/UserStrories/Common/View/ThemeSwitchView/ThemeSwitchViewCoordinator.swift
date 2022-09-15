@@ -27,7 +27,7 @@ final class ThemeSwitchViewCoordinator: ThemeSwitchViewDelegate, ThemeSwitchView
 
     // MARK: - Private Properties
 
-    private let manager = Appearance.shared.themeManager
+    private let manager = Appearance.shared.uikitThemeManager
     
     private var theme: AppTheme {
         get {
@@ -35,7 +35,7 @@ final class ThemeSwitchViewCoordinator: ThemeSwitchViewDelegate, ThemeSwitchView
         }
         set {
             if #available(iOS 14.0.0, *) {
-                SwiftUIThemeManager.shared.theme = newValue
+                Appearance.shared.theme = newValue
             }
              manager.theme = newValue
         }

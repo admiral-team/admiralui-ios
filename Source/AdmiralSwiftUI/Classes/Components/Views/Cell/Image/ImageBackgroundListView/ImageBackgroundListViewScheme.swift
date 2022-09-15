@@ -7,15 +7,28 @@
 
 import AdmiralTheme
 import AdmiralUIResources
-
+/**
+ ImageNameListViewScheme - the visual scheme of ImageNameListView.
+ You can create a by specifying the following parameters in init:
+ - ImageNameListViewScheme() - Initialize default ImageNameListViewScheme with default themezation
+ # Example to create ImageNameListViewScheme:
+ # Code
+ ```
+ let scheme = ImageNameListViewScheme()
+ ```
+ */
 public struct ImageBackgroundListViewScheme: AppThemeScheme {
-    
+
+    // MARK: - Public Properties
+
     public var backgroundColor = ControlParameter<AColor>()
     public var backgroundImageViewColor = ControlParameter<AColor>()
     public var imageTintColor = ControlParameter<AColor>()
     public var imageViewAlpha = ControlParameter<Double>()
-    
-    public init(theme: AppTheme) {
+
+    // MARK: - Initializer
+
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         backgroundColor.set(parameter: theme.colors.backgroundSelected, for: .highlighted)

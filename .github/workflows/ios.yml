@@ -24,9 +24,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Setup Environment
-        run:  bundle install
+        run: |
+          bundle install
+          bundle update fastlane
       - name: Start SwiftUI & UIKit tests
-        run:  bundle exec fastlane run_all_tests
+        run: bundle exec fastlane run_all_tests
       - name: Check If Failed
         if: ${{ failure() }}
         run:  bundle exec fastlane send_build_failed_info issue_name:${{ github.head_ref }} telegram_token:"$TELEGRAM_API_TOKEN" telegram_chat_id:"$TELEGRAM_DEV_CHAT_ID" build_url:"$PUll_NUMBER"
@@ -63,20 +65,6 @@ jobs:
             Products/xcframeworks/AdmiralUIKit.xcframework
             Products/xcframeworks/AdmiralTheme.xcframework
             Products/xcframeworks/AdmiralUIResources.xcframework
-
-  Push-To-Bitbucket:
-    runs-on: [ self-hosted, main ]
-    steps:
-      - name: Check out repository code
-        uses: actions/checkout@v3
-      - name: Push commit to the mirror
-        run: |
-          git status
-          git fetch --all
-          git checkout --track origin/${{ github.head_ref }}
-          git fetch --unshallow origin
-          git push --all --force mirror
-          git status
 
 
 
