@@ -109,14 +109,6 @@ public struct TitleWithImageListView: View, LeadingListViewComponent {
         .frame(height: LayoutGrid.halfModule * 7)
     }
     
-    // MARK: - Internal Methods
-    
-    func scheme(_ scheme: TitleWithImageListViewScheme) -> some View {
-        var view = self
-        view.schemeProvider = .constant(scheme: scheme)
-        return view.id(UUID())
-    }
-    
     // MARK: - Private Functions
     
     private func imageView(image: Image, scheme: TitleWithImageListViewScheme) -> AnyView {

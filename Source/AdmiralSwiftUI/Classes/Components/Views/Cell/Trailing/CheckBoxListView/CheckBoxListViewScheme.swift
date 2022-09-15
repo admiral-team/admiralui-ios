@@ -26,7 +26,7 @@ public struct CheckBoxListViewScheme: AppThemeScheme {
     public var backgroundColor = ControlParameter<AColor>()
 
     /// The  checkbox visual scheme
-    public var checkBoxView: CheckControlScheme
+    public var checkBoxScheme: CheckControlScheme
 
     // MARK: - Initializer
 
@@ -34,6 +34,6 @@ public struct CheckBoxListViewScheme: AppThemeScheme {
         backgroundColor.set(parameter: theme.colors.backgroundSelected, for: .highlighted)
         backgroundColor.set(parameter: theme.colors.backgroundBasic, for: .normal)
         
-        checkBoxView = CheckControlScheme(theme: theme)
+        checkBoxScheme = CheckControlScheme(theme: theme)
     }
 }

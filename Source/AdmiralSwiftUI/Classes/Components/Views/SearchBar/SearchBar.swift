@@ -178,14 +178,6 @@ public struct SearchBar: View, AccessabilitySupportUIKit {
         return view
     }
 
-    // MARK: - Internal Methods
-
-    func scheme(_ scheme: SearchBarColorScheme) -> some View {
-        var view = self
-        view.schemeProvider = SchemeProvider.constant(scheme: scheme)
-        return view.id(UUID())
-    }
-
     // MARK: - Private Methods
 
     private func clear() {

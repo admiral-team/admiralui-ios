@@ -74,14 +74,6 @@ public struct ArrowListView: View, TralingListViewComponent {
         .modifier(SizeAwareViewModifier(viewSize: $viewSize))
     }
     
-    // MARK: - Internal Methods
-    
-    func scheme(_ scheme: ArrowListViewScheme) -> some View {
-        var view = self
-        view.schemeProvider = .constant(scheme: scheme)
-        return view.id(UUID())
-    }
-    
 }
 
 @available(iOS 14.0, *)

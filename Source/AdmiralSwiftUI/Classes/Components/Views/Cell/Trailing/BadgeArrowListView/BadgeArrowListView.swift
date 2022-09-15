@@ -96,21 +96,16 @@ public struct BadgeArrowListView: View, TralingListViewComponent {
         let scheme = schemeProvider.scheme
         HStack(spacing: Constants.cellItemsSpacing) {
             Spacer()
-            BadgeView(badgeStyle: badgeStyle, text: textForBadge())
-                .scheme(scheme.badgeViewScheme)
-                .fixedSize()
+            BadgeView(
+                badgeStyle: badgeStyle,
+                text: textForBadge(),
+                schemeProvider: .constant(scheme: scheme.badgeViewScheme)
+            )
+            .fixedSize()
             Image(uiImage: Asset.System.Outline.chevronRightOutline.image)
                 .frame(width: LayoutGrid.module, height: LayoutGrid.doubleModule)
                 .foregroundColor(scheme.arrowListViewScheme.imageTintColor.parameter(for: isEnabled ? .normal : .disabled)?.swiftUIColor)
         }
-    }
-    
-    // MARK: - Internal Methods
-    
-    func scheme(_ scheme: BadgeArrowListViewScheme) -> some View {
-        var view = self
-        view.schemeProvider = .constant(scheme: scheme)
-        return view.id(UUID())
     }
     
     func textForBadge() -> String? {

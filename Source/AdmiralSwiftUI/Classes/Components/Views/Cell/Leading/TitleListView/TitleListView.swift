@@ -126,14 +126,6 @@ public struct TitleListView: View, LeadingListViewComponent {
             .lineLimit(lineLimit)
             .fixedSize(horizontal: false, vertical: true)
     }
-
-    // MARK: - Internal Methods
-    
-    func scheme(_ scheme: TitleListViewScheme) -> some View {
-        var view = self
-        view.schemeProvider = .constant(scheme: scheme)
-        return view.id(UUID())
-    }
     
 }
 
