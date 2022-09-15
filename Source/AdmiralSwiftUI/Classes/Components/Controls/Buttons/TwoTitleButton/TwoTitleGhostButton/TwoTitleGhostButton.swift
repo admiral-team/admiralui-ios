@@ -38,7 +38,7 @@ public struct TwoTitleGhostButton: View {
     var rightText: String
     
     // MARK: - Private Properties
-    
+
     @ObservedObject private var schemeProvider: SchemeProvider<TwoTitleGhostButtonScheme>
     
     private let leftAction: () -> ()
@@ -68,10 +68,18 @@ public struct TwoTitleGhostButton: View {
             scheme.backgroundColor.swiftUIColor
             HStack(spacing: LayoutGrid.doubleModule) {
                 Button(leftText, action: leftAction)
-                    .buttonStyle(GhostButtonStyle(scheme: .constant(scheme.leftGhostButtonScheme)))
+                    .buttonStyle(
+                        GhostButtonStyle(
+                            schemeProvider: .constant(scheme: scheme.leftGhostButtonScheme)
+                        )
+                    )
                 Spacer()
                 Button(rightText, action: rightAction)
-                    .buttonStyle(GhostButtonStyle(scheme: .constant(scheme.rightGhostButtonScheme)))
+                    .buttonStyle(
+                        GhostButtonStyle(
+                            schemeProvider: .constant(scheme: scheme.rightGhostButtonScheme)
+                        )
+                    )
             }
         }
 

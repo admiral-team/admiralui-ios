@@ -74,7 +74,6 @@ public struct TitleListView: View, LeadingListViewComponent {
     /// Linelimit of title text
     private let lineLimit: Int?
 
-    @State private var scheme: TitleListViewScheme? = nil
     @ObservedObject private var schemeProvider: SchemeProvider<TitleListViewScheme>
     
     // MARK: - Initializer
@@ -96,7 +95,7 @@ public struct TitleListView: View, LeadingListViewComponent {
 
     // MARK: - Layout
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         let textColor = scheme.textColor.parameter(for: isEnabled ? .normal : .disabled, style: titleListViewStyle)
         switch textAligment {
         case .leading:
@@ -132,7 +131,7 @@ public struct TitleListView: View, LeadingListViewComponent {
     
     func scheme(_ scheme: TitleListViewScheme) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view.schemeProvider = .constant(scheme: scheme)
         return view.id(UUID())
     }
     

@@ -16,16 +16,16 @@ public enum CalendarViewType {
 
 /**
  Calendar view let users select a date, or a range of dates.
- 
+
  This component is presented in two versions: Vertical Mode and Horizontal Mode. Additionally, you can configure parameters
  such as the locale, start date, end date, selected start date, selected end date, the date month that will appear when the calendar appears, and disabled dates after a certain date.
- 
+
  The vertical calendar can be scrolled vertically, presented in the form of a table and divided into sections. Each section is a specific month.
- 
+
  A horizontal calendar is a display of the month. Switching between months and years is carried out using the left and right buttons. You can also switch between months using picker view.
- 
+
  You can create a CalendarView by specifying the following parameters in the initializer
- ## Initializer parameters:
+ Initializer parameters:
  - type: Type calendar.
  - startDate: The start date of calendar.
  - endDate: The end date of calendar.
@@ -36,7 +36,6 @@ public enum CalendarViewType {
  - notActiveAfterDate: Not active after date.
  - isMutlipleSelectionAllowed: The state selection.
  - pointDates: Dates with a dot at the bottom.
- 
  ## Example for the vertical calendar view with disabled dates after a current date:
  # Code
  ```
@@ -54,7 +53,6 @@ public enum CalendarViewType {
  ```
  You can keep track of the change in the date range using selectedStartDate and selectedEndDate.
  Pay attention to the monthYearDate parameter - this parameter will show the date on the screen in your calendar.
- 
  ## Example for the horizontal calendar view with disabled dates after a current date:
  # Code
  ```
@@ -73,36 +71,36 @@ public enum CalendarViewType {
  */
 @available(iOS 14.0.0, *)
 public struct CalendarView: View {
-    
+
     // MARK: - Private Properties
-    
+
     /// Selected start date of calendar.
     @Binding private var selectedStartDate: Date?
-    
+
     /// Selected end date of calendar.
     @Binding private var selectedEndDate: Date?
-    
+
     /// The start date of calendar.
     private let startDate: Date?
-    
+
     /// The end date of calendar.
     private let endDate: Date?
-    
+
     /// Calendar Locolize
     private let locale: Locale?
-    
+
     /// The state selection.
     private let isMutlipleSelectionAllowed: Bool
-    
+
     /// The date of moth and year.
     private let monthYearDate: Date?
-    
+
     /// Not active after date.
     private let notActiveAfterDate: Date?
-    
+
     /// Dates with a dot at the bottom.
     private let pointDates: [Date]
-    
+
     /// Type calendar.
     private let type: CalendarViewType
 
@@ -111,9 +109,9 @@ public struct CalendarView: View {
 
     /// Vertical calendar scheme provider serves for changing scheme while change theme.
     private let verticalSchemeProvider: SchemeProvider<CalendarVerticalViewScheme>
-    
+
     // MARK: - Initializer
-    
+
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     /// - Parameters:
     ///   - type: Type calendar.
@@ -153,7 +151,9 @@ public struct CalendarView: View {
         self.horizontalSchemeProvider = horizontalSchemeProvider
         self.verticalSchemeProvider = verticalSchemeProvider
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         switch type {
         case .horizontal:
@@ -185,6 +185,6 @@ public struct CalendarView: View {
             )
                 .eraseToAnyView()
         }
-        
+
     }
 }

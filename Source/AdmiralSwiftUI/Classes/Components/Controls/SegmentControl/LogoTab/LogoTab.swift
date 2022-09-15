@@ -7,7 +7,6 @@
 
 import AdmiralTheme
 import SwiftUI
-
 /**
  LogoTab - A horizontal control that consists of multiple segments, each segment functioning as a discrete image button. The component is used to switch between two or three tabs. It is presented in two versions without additional indentation.
 
@@ -22,13 +21,15 @@ import SwiftUI
  StandardTab(
             images: [Image("YourImage_1"), "Image("YourImage_2")"],
             selection: $isEnabledControlsState)
- 
+
  ```
 */
 @available(iOS 14.0, *)
 /// A horizontal control that consists of multiple segments, each segment functioning as a discrete image button.
 public struct LogoTab: View {
-    
+
+    // MARK: - Constants
+
     enum Constants {
         static let segmentCornerRadius: CGFloat = LayoutGrid.module
         static let pickerPadding: CGFloat = LayoutGrid.halfModule
@@ -39,22 +40,24 @@ public struct LogoTab: View {
         static let segmentLineWidth: CGFloat = 0.5
         static let segmentOffset: CGFloat = 3.0
     }
-    
+
     // MARK: - Internal Properties
-    
+
     @Environment(\.isEnabled) var isEnabled
-    
+
     // MARK: - Private Properties
-    
+
     @Binding private var selection: Int
-    
+
     @State private var segmentSize: CGSize = .zero
-    @State private var scheme: LogoTabScheme? = nil
     @State private var items: [Image] = []
+
     @ObservedObject private var schemeProvider: SchemeProvider<LogoTabScheme>
-    
+
+    // MARK: - Private Computed Properties
+
     private var activeSegmentView: AnyView {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         let isInitialized: Bool = segmentSize != .zero
         if !isInitialized { return EmptyView().eraseToAnyView() }
         return
@@ -66,11 +69,11 @@ public struct LogoTab: View {
             .offset(x: self.computeActiveSegmentHorizontalOffset(), y: 0)
             .animation(Animation.linear(duration: Durations.Default.half))
             .eraseToAnyView()
-        
+
     }
-    
+
     // MARK: - Initializer
-    
+
     /// Initializes and returns a newly allocated view object with images and binding selection.
     public init(
         images: [Image],
@@ -81,9 +84,11 @@ public struct LogoTab: View {
         self._items = .init(initialValue: images)
         self.schemeProvider = schemeProvider
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         ZStack(alignment: .leading) {
             HStack(spacing: 0.0) {
                 ForEach(0..<self.items.count, id: \.self) { index in
@@ -109,7 +114,7 @@ public struct LogoTab: View {
         }
 
     }
-    
+
     // MARK: - Private Methods
 
     private func computeActiveSegmentHorizontalOffset() -> CGFloat {
@@ -121,7 +126,7 @@ public struct LogoTab: View {
     }
 
     private func getSegmentView(for index: Int) -> some View {
-        let scheme = scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         guard index < items.count else {
             return EmptyView().eraseToAnyView()
         }
@@ -142,6 +147,5 @@ public struct LogoTab: View {
         }
         selection = index
     }
-    
-}
 
+}

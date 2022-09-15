@@ -75,7 +75,6 @@ public struct IconTab: View {
     @Binding private var selection: Int
     private var models: [IconTabModel] = []
 
-    @Binding private var scheme: IconTabScheme?
     @ObservedObject private var schemeProvider: SchemeProvider<IconTabScheme>
 
     // MARK: - Initializer
@@ -83,19 +82,17 @@ public struct IconTab: View {
     public init(
         models: [IconTabModel],
         selection: Binding<Int>,
-        scheme: Binding<IconTabScheme?> = .constant(nil),
         schemeProvider: SchemeProvider<IconTabScheme> = AppThemeSchemeProvider<IconTabScheme>()
     ) {
         self._selection = selection
         self.models = models
-        self._scheme = scheme
         self.schemeProvider = schemeProvider
     }
 
     // MARK: - Layout
 
     public var body: some View {
-        let scheme = scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         HStack {
             Spacer()
             ForEach(0..<models.count, id: \.self) { index in

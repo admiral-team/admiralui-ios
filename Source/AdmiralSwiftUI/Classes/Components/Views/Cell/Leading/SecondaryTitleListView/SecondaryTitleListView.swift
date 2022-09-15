@@ -42,7 +42,6 @@ public struct SecondaryTitleListView: View, LeadingListViewComponent {
 
     // MARK: - Private Properties
     
-    @State private var scheme: SecondaryTitleListViewScheme? = nil
     @ObservedObject private var schemeProvider: SchemeProvider<SecondaryTitleListViewScheme>
     private let lineLimit: Int?
 
@@ -61,7 +60,7 @@ public struct SecondaryTitleListView: View, LeadingListViewComponent {
     }
     
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         Text(title ?? "")
             .multilineTextAlignment(.leading)
             .lineLimit(lineLimit)
@@ -73,7 +72,7 @@ public struct SecondaryTitleListView: View, LeadingListViewComponent {
     
     func scheme(_ scheme: SecondaryTitleListViewScheme) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view.schemeProvider = .constant(scheme: scheme)
         return view.id(UUID())
     }
     

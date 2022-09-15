@@ -38,7 +38,7 @@ final class CustomSwitchSnapshotTests: XCTestCase {
     func testCustomSwitchSchemeProvider() {
         Appearance.shared.theme = .default
         var scheme = CustomSwitchScheme()
-        scheme.onTintColorColor = AColor(color: .systemPink)
+        scheme.tintColor = AColor(color: .systemPink)
         let newSchemeProvider = SchemeProvider<CustomSwitchScheme>(scheme: scheme)
 
         let customSwitch = CustomSwitch(

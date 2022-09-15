@@ -32,7 +32,7 @@ import AdmiralUIResources
 ```
  */
 @available(iOS 14.0.0, *)
-struct ActionBarView: View {
+public struct ActionBarView: View {
 
     // MARK: Internal Properties
 
@@ -47,7 +47,7 @@ struct ActionBarView: View {
     // MARK: - Initializer
 
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-    init(
+    public init(
         actions: [ActionItemBarAction],
         style: ActionBarViewStyle = .default,
         schemeProvider: SchemeProvider<ActionBarViewScheme> = AppThemeSchemeProvider<ActionBarViewScheme>()
@@ -112,7 +112,7 @@ struct ActionBarView: View {
                 imageTintColor: action.imageTintColor,
                 style: action.style,
                 text: action.text,
-                schemeProvider: .constant(scheme: scheme.actionBarConrolSchemeTwo),
+                schemeProvider: SchemeProvider.constant(scheme: scheme.actionBarControlSchemeTwo),
                 tapActionBar: action.handler
             )
         }

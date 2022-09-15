@@ -38,7 +38,7 @@ struct ActionBarControlViewSecondary: View {
 
     @Environment(\.isEnabled) var isEnabled
 
-    @ObservedObject private var schemeProvider: SchemeProvider<ActionBarControlSchemeTwo>
+    @ObservedObject private var schemeProvider: SchemeProvider<ActionBarControlSchemeSecondary>
 
     // MARK: - Private  Properties
 
@@ -60,7 +60,7 @@ struct ActionBarControlViewSecondary: View {
         imageTintColor: Color?,
         style: ActionBarItemStyle = .default,
         text: String?,
-        schemeProvider: SchemeProvider<ActionBarControlSchemeTwo> = AppThemeSchemeProvider<ActionBarControlSchemeTwo>(),
+        schemeProvider: SchemeProvider<ActionBarControlSchemeSecondary> = AppThemeSchemeProvider<ActionBarControlSchemeSecondary>(),
         tapActionBar: @escaping () -> ()
     ) {
         self.image = image

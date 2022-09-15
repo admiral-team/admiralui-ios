@@ -13,9 +13,6 @@ import AdmiralUIResources
  ArrowSegmentSliderScheme - the visual scheme of PlatformButtonStyle.
  You can create a by specifying the following parameters in init:
  - ArrowSegmentSliderScheme() - Initialize default ArrowSegmentSliderScheme with default themezation
- - ArrowSegmentSliderScheme(
-    imageTintColor: AColor
-   )
  # Example to create ArrowSegmentSliderScheme:
  # Code
  ```
@@ -31,12 +28,8 @@ public final class ArrowSegmentSliderScheme: AppThemeScheme {
 
     // MARK: - Initializer
 
-    public init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         imageTintColor = theme.colors.backgroundAdditionalOne
-    }
-
-    public init(imageTintColor: AColor) {
-        self.imageTintColor = imageTintColor
     }
 
 }

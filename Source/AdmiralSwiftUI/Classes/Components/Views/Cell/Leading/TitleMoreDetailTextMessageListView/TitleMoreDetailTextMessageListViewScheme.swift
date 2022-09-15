@@ -7,28 +7,72 @@
 
 import AdmiralTheme
 import AdmiralUIResources
-
+/**
+ TitleMoreDetailTextMessageListViewScheme - the visual scheme of TitleMoreDetailTextMessageListView.
+ You can create a by specifying the following parameters in init:
+ - TitleMoreDetailTextMessageListViewScheme() - Initialize default TitleMoreDetailTextMessageListViewScheme with default themezation
+ # Example to create TitleMoreDetailTextMessageListViewScheme:
+ # Code
+ ```
+ let scheme = TitleMoreDetailTextMessageListViewScheme()
+ ```
+ */
+@available(iOS 14.0, *)
 public struct TitleMoreDetailTextMessageListViewScheme: AppThemeScheme {
-    
+
+    // MARK: - Public Properties
+
+    /// The  parameter that sets background color with state
     public var backgroundColor = ControlParameter<AColor>()
+
+    /// The  parameter that sets background color with state
     public var titleLabelTextColor = ControlParameter<AColor>()
+
+    /// The  parameter that sets moreLabel text color with state
     public var moreLabelTextColor = ControlParameter<AColor>()
+
+    /// The parameter that sets detaileTitle label  textwith state
     public var detaileTitleLabelTextColor = ControlParameter<AColor>()
+
+    /// The parameter that sets detaileMore label with state
     public var detaileMoreLabelTextColor = ControlParameter<AColor>()
+
+    /// The  parameter that sets subtitle label text color with state
     public var subtitleLabelTextColor = ControlParameter<AColor>()
+
+    /// The  parameter that info image tint color with state
     public var infoImageViewTintColor = ControlParameter<AColor>()
+
+    /// The  parameter that sets message title lebel color with state
     public var messageTitleLabelTitleColor = ControlParameter<AColor>()
+
+    /// The  parameter that sets messageView background color with state
     public var messageViewBackgroundColor = ControlParameter<AColor>()
-    
+
+    /// The background color
     public var titleFont: AFont
+
+    /// The subtitle font label color
     public var subtitleFont: AFont
+
+    /// The more font
     public var moreFont: AFont
+
+    /// The detail title font
     public var detaileTitleFont: AFont
+
+    /// The detaile more font
     public var detaileMoreFont: AFont
+
+    /// The tag view font
     public var tagViewFont: AFont
+
+    /// The message title font
     public var messageTitleFont: AFont
-    
-    public init(theme: AppTheme) {
+
+    // MARK: - Initializer
+
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         backgroundColor.set(parameter: theme.colors.backgroundSelected, for: .highlighted)

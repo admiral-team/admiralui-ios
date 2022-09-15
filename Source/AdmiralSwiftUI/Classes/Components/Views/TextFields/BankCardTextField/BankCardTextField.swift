@@ -123,8 +123,7 @@ public struct BankCardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
     
     // Flag is disable pasting. If flasg is true pasting is enabled.
     private let canPerformActionPaste: Bool
-    
-    @State private var scheme: BankCardTextFieldScheme? = nil
+
     @ObservedObject private var schemeProvider: SchemeProvider<BankCardTextFieldScheme>
     
     private let textFieldHeight: CGFloat = LayoutGrid.tripleModule
@@ -255,11 +254,13 @@ public struct BankCardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
                 onCursorPosition: onCursorPosition,
                 trailingView: trailingView)
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
         let isTextFieldDisabled = !isEnabled || (state == .disabled || state == .readOnly)
         
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         let placeholderColor = scheme.placeholderColor
         var underlineColor = scheme.underlineColor.swiftUIColor
         var textColor = scheme.textColor
@@ -334,7 +335,7 @@ public struct BankCardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
     
     func scheme(_ scheme: BankCardTextFieldScheme) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view.schemeProvider = .constant(scheme: scheme)
         return view.id(UUID())
     }
     

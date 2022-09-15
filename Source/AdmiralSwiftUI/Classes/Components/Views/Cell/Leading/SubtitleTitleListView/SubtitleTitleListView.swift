@@ -59,9 +59,9 @@ public struct SubtitleTitleListView: View, LeadingListViewComponent {
     var titleSubtitleListViewStyle: TitleSubtitleListViewStyle?
 
     // MARK: - Private Properties
-    
-    @State private var scheme: SubtitleTitleListViewScheme? = nil
+
     private let lineLimit: Int?
+    
     @ObservedObject private var schemeProvider: SchemeProvider<SubtitleTitleListViewScheme>
 
     // MARK: - Initializer
@@ -82,7 +82,7 @@ public struct SubtitleTitleListView: View, LeadingListViewComponent {
     }
     
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         HStack(spacing: 0.0) {
             VStack(alignment: .leading, spacing: 4.0) {
                 if let subtitle = subtitle {
@@ -107,7 +107,7 @@ public struct SubtitleTitleListView: View, LeadingListViewComponent {
     
     func scheme(_ scheme: SubtitleTitleListViewScheme) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view.schemeProvider = .constant(scheme: scheme)
         return view.id(UUID())
     }
     

@@ -8,7 +8,6 @@
 import AdmiralTheme
 import AdmiralUIResources
 import SwiftUI
-
 /// Type size image from alert view.
 public enum AlertViewImageType {
     case illustration
@@ -42,10 +41,10 @@ public enum AlertColorStyle: Int {
 
 /**
  AlertView - the component that presents a warning message to the user with diffrent options.
- 
+
  You can create a AlertView with the zero frame rectangle by specifying the following parameters in init:
  ## Initializer parameters:
- 
+
  - title: String? - Title label text.
  - message: String? - Message label text.
  - image: UIImage? - An image of imageView..
@@ -71,53 +70,69 @@ public enum AlertColorStyle: Int {
  */
 @available(iOS 14.0, *)
 public struct AlertView: View {
-    
+
+    // MARK: - Constants
+
+    private enum Constants {
+        static let imageViewIllustration: CGFloat = LayoutGrid.halfModule * 35
+        static let imageViewIcon: CGFloat = 54.0
+
+        static let titleFameWidth: CGFloat = LayoutGrid.halfModule * 47
+
+        static let imageSpacing: CGFloat = LayoutGrid.halfModule * 5
+        static let titleSpacing: CGFloat = 10
+        static let subTitleSpacing: CGFloat = LayoutGrid.halfModule * 10
+
+        static let lineLimit: Int = 2
+    }
+
     // MARK: - Internal Properties
-    
+
     /// Flag loading button.
     @Binding var isLoading: Bool
-    
-    @State var scheme: AlertViewScheme?
-    @ObservedObject var schemeProvider: SchemeProvider<AlertViewScheme>
 
     // MARK: - Private properties
-    
+
     /// Type size image from alert view.
     private var imageType: AlertViewImageType
-    
+
     /// Title label text color style.
     private var titleTextLabelColor: AlertColorStyle
-    
+
     /// Message label text color style.
     private var messageTextLabelColor: AlertColorStyle
 
     /// Title label font style.
     private var titleLabelFontStyle: AlertTitleFontStyle
-    
+
     /// Message label font style.
     private var messageLabelFontStyle: AlertMessageFontStyle
-    
+
     /// The image of the alert.
     private var image: Image?
-    
+
     /// The text that the title label displays.
     private var title: String?
-    
+
     /// Descriptive text that provides more details about the reason for the alert.
     private var message: String?
-    
+
     /// The text that the button displays.
     private var buttonTitle: String?
-    
+
     /// Action button.
     private var buttonAction: (() -> ())?
-    
+
     /// The text that the additionalButtonTitle displays.
     private var additionalButtonTitle: String?
-    
+
     /// Action additionalButtonAction.
     private var additionalButtonAction: (() -> ())?
-    
+
+    @ObservedObject private var schemeProvider: SchemeProvider<AlertViewScheme>
+
+    // MARK: - Computed Properties
+
     /// Frame type for imege view
     private var imageViewFrame: CGFloat {
         get {
@@ -129,24 +144,9 @@ public struct AlertView: View {
             }
         }
     }
-    
-    // MARK: - Constants
-    
-    private enum Constants {
-        static let imageViewIllustration: CGFloat = LayoutGrid.halfModule * 35
-        static let imageViewIcon: CGFloat = 54.0
-        
-        static let titleFameWidth: CGFloat = LayoutGrid.halfModule * 47
-        
-        static let imageSpacing: CGFloat = LayoutGrid.halfModule * 5
-        static let titleSpacing: CGFloat = 10
-        static let subTitleSpacing: CGFloat = LayoutGrid.halfModule * 10
-        
-        static let lineLimit: Int = 2
-    }
-    
+
     // MARK: - Initializer
-    
+
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     public init (
         image: Image?,
@@ -178,14 +178,17 @@ public struct AlertView: View {
         self.additionalButtonTitle = additionalButtonTitle
         self.additionalButtonAction = additionalButtonAction
         self.schemeProvider = schemeProvider
+
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         VStack(alignment: .center, spacing: 0) {
             Spacer()
                 .frame(height: LayoutGrid.quadrupleModule)
-            
+
             if let image = image {
                 image
                     .resizable()
@@ -193,7 +196,7 @@ public struct AlertView: View {
                 Spacer()
                     .frame(height: Constants.imageSpacing)
             }
-            
+
             if let title = title {
                 Text(title)
                     .multilineTextAlignment(.center)
@@ -239,15 +242,15 @@ public struct AlertView: View {
         .background(scheme.backgroundColor.swiftUIColor)
         .cornerRadius(LayoutGrid.doubleModule)
     }
-    
+
     // MARK: - Internal Methods
-    
+
     func scheme(_ scheme: AlertViewScheme) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view.schemeProvider = SchemeProvider.constant(scheme: scheme)
         return view.id(UUID())
     }
-    
+
 }
 
 @available(iOS 14.0, *)
@@ -266,3 +269,4 @@ struct AlertView_Previews: PreviewProvider {
         }
     }
 }
+

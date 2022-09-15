@@ -8,18 +8,16 @@
 import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
-
 /**
- 
  Separator - separator element with height equal 16 points, exist in three different variants.
  - long - separator whole width
  - short - separator width padding 8 points
  - empty - empty line width height
- 
+
  You can create a Separator by specifying the following parameters in the initializer
  ## Initializer parameters:
  - textBlockStyle: TextBlockStyle - style of separator
- 
+
  ## Example to create SeparatorView with different parameters:
  # Code
  ```
@@ -33,24 +31,29 @@ import AdmiralUIResources
 /// A padding view.
 @available(iOS 14.0.0, *)
 public struct SeparatorView: View {
-    
+
     /// Text block style.
     public var textBlockStyle: TextBlockStyle
-    
+
     // MARK: - Private Properties
-    
-    @State private var scheme: SeparatorViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SeparatorViewScheme>()
+
+    @ObservedObject private var schemeProvider: SchemeProvider<SeparatorViewScheme>
 
     // MARK: - Initializer
-    
+
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-    public init(paddingStyle: SeparatorStyle = .short) {
+    public init(
+        paddingStyle: SeparatorStyle = .short,
+        schemeProvider: SchemeProvider<SeparatorViewScheme> = AppThemeSchemeProvider<SeparatorViewScheme>()
+    ) {
         self.textBlockStyle = paddingStyle.textBlockStyle
+        self.schemeProvider = schemeProvider
     }
-    
+
+    // MARK: - Body
+
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         return ListCell(
             centerView: {
                 if textBlockStyle != .separatorEmpty {

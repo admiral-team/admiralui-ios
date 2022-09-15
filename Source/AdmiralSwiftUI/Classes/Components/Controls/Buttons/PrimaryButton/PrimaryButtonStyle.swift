@@ -70,7 +70,7 @@ public struct PrimaryButtonStyle: ButtonStyle {
             sizeType: sizeType,
             configuration: configuration,
             accessibilityIdentifier: accessibilityIdentifier,
-            scheme: schemeProvider.scheme
+            schemeProvider: schemeProvider
         )
     }
 }
@@ -91,23 +91,24 @@ private extension PrimaryButtonStyle {
 
         let configuration: Configuration
 
-        var scheme: PrimaryButtonScheme
+        private var schemeProvider: SchemeProvider<PrimaryButtonScheme>
 
         init(
             isLoading: Binding<Bool>,
             sizeType: ButtonSizeType?,
             configuration: Configuration,
             accessibilityIdentifier: String? = nil,
-            scheme: PrimaryButtonScheme
+            schemeProvider: SchemeProvider<PrimaryButtonScheme>
         ) {
             self.configuration = configuration
             self.sizeType = sizeType
-            self.scheme = scheme
+            self.schemeProvider = schemeProvider
             self._isLoading = isLoading
             self.accessibilityIdentifier = accessibilityIdentifier
         }
 
         var body: some View {
+            let scheme = schemeProvider.scheme
             let content = isLoading ?
             activityIndicator().eraseToAnyView()
             : lable(scheme: scheme).eraseToAnyView()

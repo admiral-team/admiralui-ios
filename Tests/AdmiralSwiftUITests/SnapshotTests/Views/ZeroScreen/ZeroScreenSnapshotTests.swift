@@ -64,19 +64,21 @@ final class ZeroScreenSnapshotTests: XCTestCase {
     }
     
     func createZeroScreen() -> some View {
-        let zeroScreenView = ZeroScreenView(title: "ZeroScreen",
-                                        subtitle: "CheckMe",
-                                        buttonTitle: "Button",
-                                        buttonAction: {})
+        let zeroScreenView = ZeroScreenView(
+            title: "ZeroScreen",
+            subtitle: "CheckMe",
+            buttonTitle: "Button",
+            buttonAction: {})
         return zeroScreenView
     }
 
     func createZeroScreen(schemeProvider: SchemeProvider<ZeroScreenViewScheme>) -> some View {
-        let zeroScreenView = ZeroScreenView(title: "ZeroScreen",
-                                        subtitle: "CheckMe",
-                                        buttonTitle: "Button",
-                                        schemeProvider: schemeProvider,
-                                        buttonAction: {})
+        let zeroScreenView = ZeroScreenView(
+            title: "ZeroScreen",
+            subtitle: "CheckMe",
+            buttonTitle: "Button",
+            buttonAction: {},
+            schemeProvider: schemeProvider)
         return zeroScreenView
     }
     
