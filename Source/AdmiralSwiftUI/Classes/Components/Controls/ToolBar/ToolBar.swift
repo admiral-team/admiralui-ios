@@ -52,7 +52,7 @@ public struct ToolBar: View {
             bottom: LayoutGrid.doubleModule,
             trailing: LayoutGrid.halfModule * 5
         )
-        static let width: CGFloat = UIScreen.main.bounds.width - 72.0
+        static let width: CGFloat = UIScreen.main.bounds.width - (LayoutGrid.module * 9)
         static let oneItemWidth: CGFloat = LayoutGrid.halfModule * 35
         static let overlayRadius: CGFloat = LayoutGrid.doubleModule - 2
     }
