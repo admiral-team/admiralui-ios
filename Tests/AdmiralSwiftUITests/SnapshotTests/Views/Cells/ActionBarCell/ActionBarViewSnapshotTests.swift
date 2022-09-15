@@ -89,9 +89,9 @@ final class ActionBarViewSnapshotTests: XCTestCase {
     func testActionBarSchemeSecondaryProvider() {
         Appearance.shared.theme = .default
         var scheme = ActionBarViewScheme(theme: .default)
-        var actionBarConrolScheme = ActionBarControlSchemeTwo(theme: .default)
+        var actionBarConrolScheme = ActionBarControlSchemeSecondary(theme: .default)
         actionBarConrolScheme.actionBarControl.backgroundColor.set(parameter: AColor(color: .systemPink), style: .accent, control: .normal)
-        scheme.actionBarConrolSchemeTwo = actionBarConrolScheme
+        scheme.actionBarControlSchemeTwo = actionBarConrolScheme
         let newSchemeProvider = SchemeProvider<ActionBarViewScheme>(scheme: scheme)
 
         let view = createActionBarViewSecondary(schemeProvider: newSchemeProvider)
