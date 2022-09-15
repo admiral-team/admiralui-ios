@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,32 +11,7 @@
 		E63BB8BE268B7D5400385DBF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63BB8BD268B7D5400385DBF /* ContentView.swift */; };
 		E63BB8C0268B7D5500385DBF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E63BB8BF268B7D5500385DBF /* Assets.xcassets */; };
 		E63BB8C3268B7D5500385DBF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E63BB8C2268B7D5500385DBF /* Preview Assets.xcassets */; };
-		E63BB902268B811C00385DBF /* AdmiralUIKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E63BB8FE268B811C00385DBF /* AdmiralUIKit.xcframework */; };
-		E63BB903268B811C00385DBF /* AdmiralUIKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E63BB8FE268B811C00385DBF /* AdmiralUIKit.xcframework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		E63BB904268B811C00385DBF /* AdmiralUIResources.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E63BB8FF268B811C00385DBF /* AdmiralUIResources.xcframework */; };
-		E63BB905268B811C00385DBF /* AdmiralUIResources.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E63BB8FF268B811C00385DBF /* AdmiralUIResources.xcframework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		E63BB906268B811C00385DBF /* AdmiralSwiftUI.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E63BB900268B811C00385DBF /* AdmiralSwiftUI.xcframework */; };
-		E63BB907268B811C00385DBF /* AdmiralSwiftUI.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E63BB900268B811C00385DBF /* AdmiralSwiftUI.xcframework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		E63BB908268B811C00385DBF /* AdmiralTheme.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E63BB901268B811C00385DBF /* AdmiralTheme.xcframework */; };
-		E63BB909268B811C00385DBF /* AdmiralTheme.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E63BB901268B811C00385DBF /* AdmiralTheme.xcframework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		E63BB90A268B811D00385DBF /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				E63BB909268B811C00385DBF /* AdmiralTheme.xcframework in Embed Frameworks */,
-				E63BB907268B811C00385DBF /* AdmiralSwiftUI.xcframework in Embed Frameworks */,
-				E63BB905268B811C00385DBF /* AdmiralUIResources.xcframework in Embed Frameworks */,
-				E63BB903268B811C00385DBF /* AdmiralUIKit.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		E63BB8B8268B7D5400385DBF /* ExampleCarthage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleCarthage.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,10 +31,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E63BB908268B811C00385DBF /* AdmiralTheme.xcframework in Frameworks */,
-				E63BB906268B811C00385DBF /* AdmiralSwiftUI.xcframework in Frameworks */,
-				E63BB904268B811C00385DBF /* AdmiralUIResources.xcframework in Frameworks */,
-				E63BB902268B811C00385DBF /* AdmiralUIKit.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,7 +95,6 @@
 				E63BB8B4268B7D5400385DBF /* Sources */,
 				E63BB8B5268B7D5400385DBF /* Frameworks */,
 				E63BB8B6268B7D5400385DBF /* Resources */,
-				E63BB90A268B811D00385DBF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -313,9 +283,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"ExampleCarthage/Preview Content\"";
-				DEVELOPMENT_TEAM = 66JEAC242Y;
+				DEVELOPMENT_TEAM = N7B9Y8WYA7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = ExampleCarthage/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -323,8 +294,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.admiralswiftui.ExampleCarthage;
+				PRODUCT_BUNDLE_IDENTIFIER = com.admiralteam.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match InHouse com.admiralteam.example";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -335,9 +307,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"ExampleCarthage/Preview Content\"";
-				DEVELOPMENT_TEAM = 66JEAC242Y;
+				DEVELOPMENT_TEAM = N7B9Y8WYA7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = ExampleCarthage/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -345,8 +318,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.admiralswiftui.ExampleCarthage;
+				PRODUCT_BUNDLE_IDENTIFIER = com.admiralteam.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match InHouse com.admiralteam.example";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

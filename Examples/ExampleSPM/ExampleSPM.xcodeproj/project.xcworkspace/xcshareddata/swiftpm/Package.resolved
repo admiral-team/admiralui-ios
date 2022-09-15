@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "AdmiralUI",
+        "repositoryURL": "git@github.com:admiral-team/admiralui-ios.git",
+        "state": {
+          "branch": "main",
+          "revision": "89bdcf6810a56352925f57008b4f6e96f91ed6cb",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

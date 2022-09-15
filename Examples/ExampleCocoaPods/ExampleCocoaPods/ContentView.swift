@@ -10,11 +10,14 @@ import AdmiralUIKit
 import AdmiralSwiftUI
 
 struct ContentView: View {
+    
+    @State var text: String? = "Text"
         
     var body: some View {
         VStack() {
             Spacer()
-            PrimaryButton(text: "SwitUI", action: {})
+            SwiftUI.Button("", action: {})
+                .buttonStyle(PrimaryButtonStyle())
             WrapedPrimaryButton(text: .constant("UIKit"))
                 .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
             Spacer()

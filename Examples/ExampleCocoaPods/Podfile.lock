@@ -1,54 +1,54 @@
 PODS:
-  - AdmiralSwiftUI (1.5.0):
+  - AdmiralSwiftUI (10.1.0):
     - AdmiralTheme
     - AdmiralUIResources
-  - AdmiralTheme (1.5.0):
+  - AdmiralTheme (10.1.0):
     - AdmiralUIResources
-  - AdmiralUIKit (1.5.0):
+  - AdmiralUIKit (10.1.0):
     - AdmiralTheme
     - AdmiralUIResources
-  - AdmiralUIResources (1.5.0)
+  - AdmiralUIResources (10.1.0)
 
 DEPENDENCIES:
-  - "AdmiralSwiftUI (from ``, branch `master`)"
-  - "AdmiralTheme (from ``, branch `master`)"
-  - "AdmiralUIKit (from ``, branch `master`)"
-  - "AdmiralUIResources (from ``, branch `master`)"
+  - AdmiralSwiftUI (from `https://github.com/admiral-team/admiralui-ios.git`, branch `main`)
+  - AdmiralTheme (from `https://github.com/admiral-team/admiralui-ios.git`, branch `main`)
+  - AdmiralUIKit (from `https://github.com/admiral-team/admiralui-ios.git`, branch `main`)
+  - AdmiralUIResources (from `https://github.com/admiral-team/admiralui-ios.git`, branch `main`)
 
 EXTERNAL SOURCES:
   AdmiralSwiftUI:
-    :branch: master
-    :git: ""
+    :branch: main
+    :git: https://github.com/admiral-team/admiralui-ios.git
   AdmiralTheme:
-    :branch: master
-    :git: ""
+    :branch: main
+    :git: https://github.com/admiral-team/admiralui-ios.git
   AdmiralUIKit:
-    :branch: master
-    :git: ""
+    :branch: main
+    :git: https://github.com/admiral-team/admiralui-ios.git
   AdmiralUIResources:
-    :branch: master
-    :git: ""
+    :branch: main
+    :git: https://github.com/admiral-team/admiralui-ios.git
 
 CHECKOUT OPTIONS:
   AdmiralSwiftUI:
-    :commit: dc38181f15aab70960f79d55187c8153c7624a37
-    :git: ""
+    :commit: 89bdcf6810a56352925f57008b4f6e96f91ed6cb
+    :git: https://github.com/admiral-team/admiralui-ios.git
   AdmiralTheme:
-    :commit: dc38181f15aab70960f79d55187c8153c7624a37
-    :git: ""
+    :commit: 89bdcf6810a56352925f57008b4f6e96f91ed6cb
+    :git: https://github.com/admiral-team/admiralui-ios.git
   AdmiralUIKit:
-    :commit: dc38181f15aab70960f79d55187c8153c7624a37
-    :git: ""
+    :commit: 89bdcf6810a56352925f57008b4f6e96f91ed6cb
+    :git: https://github.com/admiral-team/admiralui-ios.git
   AdmiralUIResources:
-    :commit: dc38181f15aab70960f79d55187c8153c7624a37
-    :git: ""
+    :commit: 89bdcf6810a56352925f57008b4f6e96f91ed6cb
+    :git: https://github.com/admiral-team/admiralui-ios.git
 
 SPEC CHECKSUMS:
-  AdmiralSwiftUI: 28545f8399dd5c43cec924cbb550c6487b36af20
-  AdmiralTheme: 91a75f31d10864a3cd162cfb3a02a77c10e3c512
-  AdmiralUIKit: 2147c2f5cbe8268338071bd3edcc911f91d5d6da
-  AdmiralUIResources: 92649dee822a40cb6d5f325785883d300bd05e5a
+  AdmiralSwiftUI: e5b9334730af1d287a53ad1edd9aba64951867ce
+  AdmiralTheme: 8c2ac269c4853571e7e63fe3edbf192ff5c520a1
+  AdmiralUIKit: 6255444abe0193f1bacd85d74cd0dbcb30fa1783
+  AdmiralUIResources: ba60556ae7c2523480ab6192a83a3ce926c567ad
 
-PODFILE CHECKSUM: 3eabae4c41bc4e250b30a95eaecfbfa48613de51
+PODFILE CHECKSUM: 138b2b1a956ecacd6497eb10c0504d58312924fd
 
 COCOAPODS: 1.9.3
