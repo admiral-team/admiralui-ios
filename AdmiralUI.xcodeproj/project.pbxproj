@@ -254,8 +254,6 @@
 		0EA9F4D126261504009F4B5A /* CheckControlScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA9F4D026261504009F4B5A /* CheckControlScheme.swift */; };
 		0EA9F4EB262659E9009F4B5A /* RadioControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA9F4EA262659E9009F4B5A /* RadioControl.swift */; };
 		0EA9F4F926265A04009F4B5A /* CheckControlState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA9F4F826265A04009F4B5A /* CheckControlState.swift */; };
-		0EAD1D03270ED2DA0011B045 /* CountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAD1D02270ED2DA0011B045 /* CountdownView.swift */; };
-		0EAD1D08270F16E20011B045 /* CountdownViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAD1D07270F16E20011B045 /* CountdownViewScheme.swift */; };
 		0EADA9AF268A13F3003FF903 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EADA9AE268A13F3003FF903 /* Line.swift */; };
 		0EADA9C3268A147C003FF903 /* CustomSwitchScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EADA9C2268A147C003FF903 /* CustomSwitchScheme.swift */; };
 		0EADA9CA268A14A4003FF903 /* CustomSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2D9CCD261F5C7C00323048 /* CustomSwitch.swift */; };
@@ -724,6 +722,11 @@
 		E94A445328CF7BF5006625F5 /* AdmiralCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E94A444628CF7B09006625F5 /* AdmiralCore.framework */; };
 		E94A445828CF7BFC006625F5 /* AdmiralCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E94A444628CF7B09006625F5 /* AdmiralCore.framework */; };
 		E94A448028D1D71A006625F5 /* GhostButtonWithImageStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A447F28D1D71A006625F5 /* GhostButtonWithImageStyle.swift */; };
+		E94A448928D1E79A006625F5 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A448328D1E79A006625F5 /* ClockView.swift */; };
+		E94A448A28D1E79A006625F5 /* ClockViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A448428D1E79A006625F5 /* ClockViewScheme.swift */; };
+		E94A448B28D1E79A006625F5 /* CoundDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A448528D1E79A006625F5 /* CoundDownView.swift */; };
+		E94A448C28D1E79A006625F5 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A448728D1E79A006625F5 /* ProgressBar.swift */; };
+		E94A448D28D1E79A006625F5 /* ProgressBarScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A448828D1E79A006625F5 /* ProgressBarScheme.swift */; };
 		E95553D827ABEE6F00A14BCA /* ChatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95553D727ABEE6F00A14BCA /* ChatBubbleView.swift */; };
 		E95553DA27ABF35500A14BCA /* ChatBubbleStatusViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95553D927ABF35500A14BCA /* ChatBubbleStatusViewTest.swift */; };
 		E95553DD27ABF7F100A14BCA /* ChatInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95553DC27ABF7F100A14BCA /* ChatInputView.swift */; };
@@ -1235,8 +1238,6 @@
 		0EA9F4F826265A04009F4B5A /* CheckControlState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckControlState.swift; sourceTree = "<group>"; };
 		0EAC2C3325658A4E00F28210 /* CurcleIconListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurcleIconListView.swift; sourceTree = "<group>"; };
 		0EAC2C3D25658D5A00F28210 /* TextMessageListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextMessageListView.swift; sourceTree = "<group>"; };
-		0EAD1D02270ED2DA0011B045 /* CountdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownView.swift; sourceTree = "<group>"; };
-		0EAD1D07270F16E20011B045 /* CountdownViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownViewScheme.swift; sourceTree = "<group>"; };
 		0EADA9AE268A13F3003FF903 /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		0EADA9C2268A147C003FF903 /* CustomSwitchScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSwitchScheme.swift; sourceTree = "<group>"; };
 		0EADAA83268B14C8003FF903 /* TagControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagControl.swift; sourceTree = "<group>"; };
@@ -1706,6 +1707,11 @@
 		E94A445128CF7B94006625F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E94A445D28CF7C55006625F5 /* AdmiralCore.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AdmiralCore.podspec; sourceTree = "<group>"; };
 		E94A447F28D1D71A006625F5 /* GhostButtonWithImageStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostButtonWithImageStyle.swift; sourceTree = "<group>"; };
+		E94A448328D1E79A006625F5 /* ClockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
+		E94A448428D1E79A006625F5 /* ClockViewScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockViewScheme.swift; sourceTree = "<group>"; };
+		E94A448528D1E79A006625F5 /* CoundDownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoundDownView.swift; sourceTree = "<group>"; };
+		E94A448728D1E79A006625F5 /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		E94A448828D1E79A006625F5 /* ProgressBarScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBarScheme.swift; sourceTree = "<group>"; };
 		E95553D727ABEE6F00A14BCA /* ChatBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleView.swift; sourceTree = "<group>"; };
 		E95553D927ABF35500A14BCA /* ChatBubbleStatusViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleStatusViewTest.swift; sourceTree = "<group>"; };
 		E95553DC27ABF7F100A14BCA /* ChatInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInputView.swift; sourceTree = "<group>"; };
@@ -2122,10 +2128,9 @@
 		0E16C78E26AEEA2400C0E808 /* Toast */ = {
 			isa = PBXGroup;
 			children = (
+				E94A448128D1E79A006625F5 /* CountDownView */,
 				0E16C78F26AEEB3700C0E808 /* ToastView.swift */,
 				0E16C79226AEF50900C0E808 /* ToastViewScheme.swift */,
-				0EAD1D02270ED2DA0011B045 /* CountdownView.swift */,
-				0EAD1D07270F16E20011B045 /* CountdownViewScheme.swift */,
 				0E6223A826BAF4D30012DB6E /* HideToastOperation.swift */,
 				0E6223AA26BAF4ED0012DB6E /* ToastPresenter.swift */,
 				0E6223AC26BAF5430012DB6E /* ZToastNotificationsView.swift */,
@@ -6275,6 +6280,34 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		E94A448128D1E79A006625F5 /* CountDownView */ = {
+			isa = PBXGroup;
+			children = (
+				E94A448228D1E79A006625F5 /* ClockView */,
+				E94A448528D1E79A006625F5 /* CoundDownView.swift */,
+				E94A448628D1E79A006625F5 /* ProgressBar */,
+			);
+			path = CountDownView;
+			sourceTree = "<group>";
+		};
+		E94A448228D1E79A006625F5 /* ClockView */ = {
+			isa = PBXGroup;
+			children = (
+				E94A448328D1E79A006625F5 /* ClockView.swift */,
+				E94A448428D1E79A006625F5 /* ClockViewScheme.swift */,
+			);
+			path = ClockView;
+			sourceTree = "<group>";
+		};
+		E94A448628D1E79A006625F5 /* ProgressBar */ = {
+			isa = PBXGroup;
+			children = (
+				E94A448728D1E79A006625F5 /* ProgressBar.swift */,
+				E94A448828D1E79A006625F5 /* ProgressBarScheme.swift */,
+			);
+			path = ProgressBar;
+			sourceTree = "<group>";
+		};
 		E95553D427ABEE1100A14BCA /* Chat */ = {
 			isa = PBXGroup;
 			children = (
@@ -7223,6 +7256,7 @@
 				0E6EA4842701DF82002EBBBC /* TitleButtonDropDown.swift in Sources */,
 				0E6223B026BC03B30012DB6E /* ZeroScreenView.swift in Sources */,
 				3B22201C274BADAD001099DB /* InfoAgreementView.swift in Sources */,
+				E94A448A28D1E79A006625F5 /* ClockViewScheme.swift in Sources */,
 				0EBE560126C6CC9C00C4A277 /* PinButtonStyle.swift in Sources */,
 				E9B82B6327B40B9300FC7BB9 /* ActionBarControlViewSecondary.swift in Sources */,
 				868DDBC12746EF9600956AD3 /* BadgeArrowListView.swift in Sources */,
@@ -7296,6 +7330,7 @@
 				0E84C2C926FCC96D00A91542 /* TextBlockStyle.swift in Sources */,
 				0E4BC7642680AD70000FC891 /* IconListView.swift in Sources */,
 				0E59D39926337A2C007B5CC1 /* ScrollOffsetPreferenceKey.swift in Sources */,
+				E94A448928D1E79A006625F5 /* ClockView.swift in Sources */,
 				0EF0308726E7C27400F888B7 /* TitleMoreDetailTextMessageListViewScheme.swift in Sources */,
 				0E2A62BC26E7C6A8009CE2C0 /* LogoTab.swift in Sources */,
 				0E2A62D226E7C948009CE2C0 /* StandardTextFieldScheme.swift in Sources */,
@@ -7336,11 +7371,11 @@
 				0E6EA4A327026A2E002EBBBC /* LinkView.swift in Sources */,
 				0EC136942667B1BC00F4EB7E /* DoubleTextFieldScheme.swift in Sources */,
 				E9A18D9E273BE26300668C03 /* UploadingImageGroupModifier.swift in Sources */,
+				E94A448C28D1E79A006625F5 /* ProgressBar.swift in Sources */,
 				0EA943ED27686CD400E393DF /* UIKitPickerView.swift in Sources */,
 				0ED0837226CA662D000BE955 /* ChatInputScheme.swift in Sources */,
 				0EADA9AF268A13F3003FF903 /* Line.swift in Sources */,
 				0E3DB3B7265D1A0500CA2F2A /* OTPTextField.swift in Sources */,
-				0EAD1D03270ED2DA0011B045 /* CountdownView.swift in Sources */,
 				0EA9F4D126261504009F4B5A /* CheckControlScheme.swift in Sources */,
 				3BEDB3BC28744B5100E2AD34 /* PlatformButtonScheme.swift in Sources */,
 				0E22C6A9262E11EF00D09FC5 /* SizePreferenceKey.swift in Sources */,
@@ -7363,7 +7398,6 @@
 				C6D5BD64266528FB00437808 /* ToolBar.swift in Sources */,
 				0E4BC73C267CF3A3000FC891 /* CheckBoxListViewScheme.swift in Sources */,
 				3BEDB3D028746EB900E2AD34 /* PlatformButtonAccessibilityIdentifiers.swift in Sources */,
-				0EAD1D08270F16E20011B045 /* CountdownViewScheme.swift in Sources */,
 				0E4BC86D2681DFDE000FC891 /* ImageCardListViewScheme.swift in Sources */,
 				0E8B0F3626DE519C00EEA0D3 /* CodeInputControlScheme.swift in Sources */,
 				C6D5BD65266528FE00437808 /* ToolBarScheme.swift in Sources */,
@@ -7414,6 +7448,7 @@
 				0E6EA47C26FD4743002EBBBC /* TitleArrowWithButtonHeader.swift in Sources */,
 				C6A5610F2670D5DB00133D40 /* PinCodeTextViewStyle.swift in Sources */,
 				0E4BC74D2680AA7F000FC891 /* SwitchListViewScheme.swift in Sources */,
+				E94A448D28D1E79A006625F5 /* ProgressBarScheme.swift in Sources */,
 				0EC136ED266E0AD700F4EB7E /* ListCell.swift in Sources */,
 				C6D5BD6D26666FC800437808 /* ToolBarItem.swift in Sources */,
 				0EF0308626E7C24F00F888B7 /* TitleMoreDetailTextMessageListView.swift in Sources */,
@@ -7434,6 +7469,7 @@
 				E9A18D9A273A4F9000668C03 /* UploadingImageGrid.swift in Sources */,
 				0EC136602665295800F4EB7E /* FeedbackInputControl.swift in Sources */,
 				0EFCDB4B26B8497E006207B1 /* CurrencyViewScheme.swift in Sources */,
+				E94A448B28D1E79A006625F5 /* CoundDownView.swift in Sources */,
 				3BEDB3BF28744C3A00E2AD34 /* PlatformButtonStyle.swift in Sources */,
 				0E59D388263361DC007B5CC1 /* RectPreferenceKey.swift in Sources */,
 				0E2A62D426E7C9D8009CE2C0 /* TitleWithImageListViewScheme.swift in Sources */,
