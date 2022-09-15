@@ -221,14 +221,6 @@ struct UploadImageView: View {
         .padding(.vertical, LayoutGrid.module)
     }
 
-    // MARK: - Internal methods
-
-    func scheme(_ scheme: UploadImageViewScheme) -> some View {
-        var view = self
-        view.schemeProvider = SchemeProvider.constant(scheme: scheme)
-        return view.id(UUID())
-    }
-
 }
 
 @available(iOS 14.0, *)

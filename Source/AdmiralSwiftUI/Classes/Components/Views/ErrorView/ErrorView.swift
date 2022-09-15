@@ -95,14 +95,6 @@ public struct ErrorView: View {
         })
     }
 
-    // MARK: - Internal Methods
-
-    func scheme(_ scheme: ErrorViewScheme) -> some View {
-        var view = self
-        view.schemeProvider = SchemeProvider.constant(scheme: scheme)
-        return view.id(UUID())
-    }
-
 }
 
 @available(iOS 14.0, *)

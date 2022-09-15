@@ -115,14 +115,6 @@ public struct TitleSubtitleButtonListView: View, LeadingListViewComponent {
         }
     }
     
-    // MARK: - Internal Methods
-    
-    func scheme(_ scheme: TitleSubtitleButtonListViewScheme) -> some View {
-        var view = self
-        view.schemeProvider = .constant(scheme: scheme)
-        return view.id(UUID())
-    }
-    
     // MARK: - Private Methods
     
     private func titleView(scheme: TitleSubtitleButtonListViewScheme) -> some View {

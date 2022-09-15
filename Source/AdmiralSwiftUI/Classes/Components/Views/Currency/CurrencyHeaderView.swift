@@ -77,14 +77,6 @@ public struct CurrencyHeaderView: View {
         .font(scheme.textFont.swiftUIFont)
     }
 
-    // MARK: - Internal Methods
-
-    func scheme(_ scheme: CurrencyHeaderViewScheme) -> some View {
-        var view = self
-        view.schemeProvider = SchemeProvider.constant(scheme: scheme)
-        return view.id(UUID())
-    }
-
     // MARK: - Private methods
 
     @ViewBuilder private func sellLabel(_ scheme: CurrencyHeaderViewScheme?) -> some View {

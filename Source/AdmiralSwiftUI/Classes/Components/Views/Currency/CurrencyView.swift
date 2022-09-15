@@ -117,14 +117,6 @@ public struct CurrencyView: View {
         }
     }
 
-    // MARK: - Internal Methods
-
-    func scheme(_ scheme: CurrencyViewScheme) -> some View {
-        var view = self
-        view.schemeProvider = SchemeProvider.constant(scheme: scheme)
-        return view.id(UUID())
-    }
-
     // MARK: - Private Methods
 
     private func currencyView(scheme: CurrencyViewScheme) -> some View {

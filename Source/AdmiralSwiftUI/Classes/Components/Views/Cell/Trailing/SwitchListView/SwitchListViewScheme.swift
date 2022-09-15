@@ -26,7 +26,7 @@ public struct SwitchListViewScheme: AppThemeScheme {
     public var backgroundColor = ControlParameter<AColor>()
 
     /// The custom switch visal scheme
-    public var customSwitch: CustomSwitchScheme
+    public var customSwitchScheme: CustomSwitchScheme
 
     // MARK: - Initializer
 
@@ -34,6 +34,6 @@ public struct SwitchListViewScheme: AppThemeScheme {
         backgroundColor.set(parameter: theme.colors.backgroundSelected, for: .highlighted)
         backgroundColor.set(parameter: theme.colors.backgroundBasic, for: .normal)
         
-        customSwitch = CustomSwitchScheme(theme: theme)
+        customSwitchScheme = CustomSwitchScheme(theme: theme)
     }
 }

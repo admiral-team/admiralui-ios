@@ -352,14 +352,6 @@ public struct SecurityTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
         return view
     }
     
-    // MARK: - Internal Methods
-    
-    func scheme(_ scheme: StandardTextFieldScheme) -> some View {
-        var view = self
-        view.schemeProvider = .constant(scheme: scheme)
-        return view.id(UUID())
-    }
-    
     // MARK: - Private Methods
     
     private func clear() {

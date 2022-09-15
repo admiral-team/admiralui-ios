@@ -243,14 +243,6 @@ public struct AlertView: View {
         .cornerRadius(LayoutGrid.doubleModule)
     }
 
-    // MARK: - Internal Methods
-
-    func scheme(_ scheme: AlertViewScheme) -> some View {
-        var view = self
-        view.schemeProvider = SchemeProvider.constant(scheme: scheme)
-        return view.id(UUID())
-    }
-
 }
 
 @available(iOS 14.0, *)

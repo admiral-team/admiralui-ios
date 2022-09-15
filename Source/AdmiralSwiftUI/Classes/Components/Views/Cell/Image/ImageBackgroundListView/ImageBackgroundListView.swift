@@ -67,14 +67,6 @@ public struct ImageBackgroundListView: View, ImageListViewComponent {
             .cornerRadius((LayoutGrid.halfModule * 11) / 2)
     }
     
-    // MARK: - Internal Methods
-    
-    func scheme(_ scheme: ImageBackgroundListViewScheme) -> some View {
-        var view = self
-        view.schemeProvider = .constant(scheme: scheme)
-        return view.id(UUID())
-    }
-    
     // MARK: - Private Methods
     
     private func imageView(scheme: ImageBackgroundListViewScheme) -> AnyView {
