@@ -45,8 +45,7 @@ public struct RadioButtonListView: View, TralingListViewComponent {
     
     /// The state of the view. Default is normal.
     @State var state: ControlState = .normal
-    
-    @State private var scheme: RadioButtonListViewScheme? = nil
+
     @ObservedObject private var schemeProvider: SchemeProvider<RadioButtonListViewScheme>
     
     // MARK: - Initializer
@@ -60,8 +59,10 @@ public struct RadioButtonListView: View, TralingListViewComponent {
         self.schemeProvider = schemeProvider
     }
 
+    // MARK: - Body
+
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         RadioControl(isSelected: $isControlSelected)
             .scheme(scheme.radioButtonView)
     }

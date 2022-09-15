@@ -8,7 +8,6 @@
 import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
-
 /**
  CurrencyHeaderView - The view for display header currency.
 
@@ -32,21 +31,21 @@ import AdmiralUIResources
 /// The view for display header currency.
 @available(iOS 14.0.0, *)
 public struct CurrencyHeaderView: View {
-    
+
     // MARK: Internal Properties
-    
+
     @State var currencyText: String
     @State var buyText: String
     @State var sellText: String
-    @State var scheme: CurrencyHeaderViewScheme?
 
     // MARK: - Private properties
 
     @ObservedObject var schemeProvider: SchemeProvider<CurrencyHeaderViewScheme>
+
     private let isTextSpacingEnabled: Bool
 
     // MARK: - Initializer
-    
+
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     public init(
         currencyText: String,
@@ -65,7 +64,7 @@ public struct CurrencyHeaderView: View {
     // MARK: - Layout
 
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         HStack(alignment: .center, spacing: 0.0, content: {
             Text(currencyText)
             Spacer()
@@ -77,18 +76,18 @@ public struct CurrencyHeaderView: View {
         .foregroundColor(scheme.textColor.swiftUIColor)
         .font(scheme.textFont.swiftUIFont)
     }
-    
+
     // MARK: - Internal Methods
-    
+
     func scheme(_ scheme: CurrencyHeaderViewScheme) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view.schemeProvider = SchemeProvider.constant(scheme: scheme)
         return view.id(UUID())
     }
 
     // MARK: - Private methods
 
-    @ViewBuilder private func sellLabel(_ scheme: CurrencyHeaderViewScheme) -> some View {
+    @ViewBuilder private func sellLabel(_ scheme: CurrencyHeaderViewScheme?) -> some View {
         Text(sellText)
         if isTextSpacingEnabled {
             Spacer()

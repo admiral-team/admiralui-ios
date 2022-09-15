@@ -87,7 +87,6 @@ public struct SmallInformer: View {
         return arrowDirection == .top || arrowDirection == .topRight ? -LayoutGrid.module : LayoutGrid.module
     }
     
-    @State private var scheme: SmallInformerScheme? = nil
     @ObservedObject private var schemeProvider: SchemeProvider<SmallInformerScheme>
     
     // MARK: - Initializer
@@ -118,7 +117,7 @@ public struct SmallInformer: View {
     // MARK: - Layout
     
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         let titleFont = Font(scheme.titleLabelFont.uiFont)
         let titleColor = scheme.titleLabelTextColors.parameter(
             isEnabled: isEnabled,

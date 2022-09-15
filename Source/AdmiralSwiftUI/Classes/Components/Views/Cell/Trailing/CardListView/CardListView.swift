@@ -43,7 +43,7 @@ public struct CardListView: View, TralingListViewComponent {
     @Environment(\.isEnabled) var isEnabled
     
     var renderingMode: Image.TemplateRenderingMode
-    @State private var scheme: CardListViewScheme? = nil
+
     @ObservedObject private var schemeProvider: SchemeProvider<CardListViewScheme>
     
     // MARK: - Initializer
@@ -59,8 +59,10 @@ public struct CardListView: View, TralingListViewComponent {
         self.schemeProvider = schemeProvider
     }
 
+    // MARK: - Body
+
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         switch renderingMode {
         case .original:
             image

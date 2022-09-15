@@ -71,7 +71,6 @@ public struct ActionCellView<T>: View where T: ListViewCell {
 
     // MARK: - Private Properties
 
-    @State private var scheme: ActionCellViewScheme? = nil
     private var style: ActionBarViewStyle
     @State private var cellViewOffset: CGFloat = 0.0
     @ObservedObject private var schemeProvider: SchemeProvider<ActionCellViewScheme>
@@ -105,7 +104,7 @@ public struct ActionCellView<T>: View where T: ListViewCell {
     // MARK: - Layout
 
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         ZStack {
             scheme.actionBarBackgroundColor.parameter(for: .normal)?.swiftUIColor
                 .frame(height: LayoutGrid.halfModule * 17)

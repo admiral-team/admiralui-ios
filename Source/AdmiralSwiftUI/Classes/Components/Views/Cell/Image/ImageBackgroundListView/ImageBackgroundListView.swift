@@ -43,7 +43,7 @@ public struct ImageBackgroundListView: View, ImageListViewComponent {
     @Environment(\.manager) var manager
     
     var renderingMode: Image.TemplateRenderingMode
-    @State private var scheme: ImageBackgroundListViewScheme? = nil
+
     @ObservedObject private var schemeProvider: SchemeProvider<ImageBackgroundListViewScheme>
     
     // MARK: - Initializer
@@ -60,7 +60,7 @@ public struct ImageBackgroundListView: View, ImageListViewComponent {
     }
 
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         imageView(scheme: scheme)
             .frame(width: LayoutGrid.halfModule * 11, height: LayoutGrid.halfModule * 11)
             .background(scheme.backgroundImageViewColor.parameter(for: isEnabled ? .normal : .disabled)?.swiftUIColor)
@@ -71,7 +71,7 @@ public struct ImageBackgroundListView: View, ImageListViewComponent {
     
     func scheme(_ scheme: ImageBackgroundListViewScheme) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view.schemeProvider = .constant(scheme: scheme)
         return view.id(UUID())
     }
     

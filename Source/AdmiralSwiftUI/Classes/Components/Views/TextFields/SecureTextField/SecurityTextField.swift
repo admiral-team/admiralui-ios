@@ -132,7 +132,6 @@ public struct SecurityTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
     // MARK: - Private Properties
     
     @State private var segmentSize: CGSize = .zero
-    @State private var scheme: StandardTextFieldScheme? = nil
     
     @ObservedObject private var schemeProvider: SchemeProvider<StandardTextFieldScheme>
     
@@ -280,7 +279,7 @@ public struct SecurityTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
     public var body: some View {
         let isTextFieldDisabled = !isEnabled || (state == .disabled || state == .readOnly)
         
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         let placeholderColor = scheme.placeholderColor.parameter(for: state == .disabled ? .disabled : .normal)
         var underlineColor = scheme.underlineColor
         var textColor = scheme.textColor
@@ -357,7 +356,7 @@ public struct SecurityTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
     
     func scheme(_ scheme: StandardTextFieldScheme) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view.schemeProvider = .constant(scheme: scheme)
         return view.id(UUID())
     }
     

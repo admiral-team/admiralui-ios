@@ -33,8 +33,7 @@ public struct SwitchListView: View, TralingListViewComponent {
     @State public var isHighlightedEnabled: Bool = true
     
     // MARK: Internal Properties
-    
-    @State private var scheme: SwitchListViewScheme? = nil
+
     @ObservedObject private var schemeProvider: SchemeProvider<SwitchListViewScheme>
     
     // MARK: - Initializer
@@ -48,8 +47,10 @@ public struct SwitchListView: View, TralingListViewComponent {
         self.schemeProvider = schemeProvider
     }
 
+    // MARK: - Body
+
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         HStack(alignment: .center) {
             Spacer()
             CustomSwitch(isOn: $isSwitchSelected)

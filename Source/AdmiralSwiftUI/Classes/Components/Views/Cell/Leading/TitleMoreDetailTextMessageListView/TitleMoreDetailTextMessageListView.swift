@@ -80,7 +80,6 @@ public struct TitleMoreDetailTextMessageListView: View, LeadingListViewComponent
     
     @Environment(\.isEnabled) var isEnabled
     
-    @State private var scheme: TitleMoreDetailTextMessageListViewScheme? = nil
     @ObservedObject private var schemeProvider: SchemeProvider<TitleMoreDetailTextMessageListViewScheme>
     
     // MARK: - Initializer
@@ -109,7 +108,7 @@ public struct TitleMoreDetailTextMessageListView: View, LeadingListViewComponent
     }
     
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         VStack(alignment: .leading, spacing: LayoutGrid.module) {
             if title != nil || more != nil {
                 titleMoreView(scheme: scheme)
@@ -130,7 +129,7 @@ public struct TitleMoreDetailTextMessageListView: View, LeadingListViewComponent
     
     func scheme(_ scheme: TitleMoreDetailTextMessageListViewScheme) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view.schemeProvider = .constant(scheme: scheme)
         return view.id(UUID())
     }
     

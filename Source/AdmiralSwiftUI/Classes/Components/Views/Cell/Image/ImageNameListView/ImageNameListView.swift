@@ -8,7 +8,6 @@
 import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
-
 /**
  ImageNameListView - A view object with card image view.
  
@@ -37,8 +36,7 @@ public struct ImageNameListView: View, ImageListViewComponent {
     
     @Environment(\.isEnabled) var isEnabled
     @Environment(\.manager) var manager
-    
-    @State private var scheme: ImageNameListViewScheme? = nil
+
     @ObservedObject private var schemeProvider: SchemeProvider<ImageNameListViewScheme>
     
     // MARK: - Initializer
@@ -52,8 +50,10 @@ public struct ImageNameListView: View, ImageListViewComponent {
         self.schemeProvider = schemeProvider
     }
 
+    // MARK: - Body
+
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         Text(text)
             .foregroundColor(scheme.titleLabelTextColor.parameter(for: isEnabled ? .normal : .disabled)?.swiftUIColor)
             .font(scheme.titleFont.swiftUIFont)
@@ -66,7 +66,7 @@ public struct ImageNameListView: View, ImageListViewComponent {
     
     func scheme(_ scheme: ImageNameListViewScheme) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view.schemeProvider = .constant(scheme: scheme)
         return view.id(UUID())
     }
     

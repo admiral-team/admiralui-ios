@@ -111,7 +111,6 @@ public struct ListCell<L, C, T>: ListViewCell where L: View , C: View, T: View {
         return trailingLayoutPriority == 0
     }
     
-    @State private var scheme: ListCellScheme? = nil
     @ObservedObject private var schemeProvider: SchemeProvider<ListCellScheme>
     
     // MARK: - Initializer
@@ -177,7 +176,7 @@ public struct ListCell<L, C, T>: ListViewCell where L: View , C: View, T: View {
     }
     
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         if isSelected != nil {
             contentView(scheme: scheme)
                 .frame(minHeight: minHeight)

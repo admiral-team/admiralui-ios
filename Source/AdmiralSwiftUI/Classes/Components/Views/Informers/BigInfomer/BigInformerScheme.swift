@@ -4,28 +4,48 @@
 //
 //  Created on 18.05.2021.
 //
-
-import SwiftUI
-import Combine
 import AdmiralTheme
 import AdmiralUIResources
-
+/**
+ BigInformerScheme - the visual scheme of BigInformer.
+ You can create a by specifying the following parameters in init:
+ - BigInformerScheme() - Initialize default BigInformerScheme with default themezation
+ # Example to create BigInformerScheme:
+ # Code
+ ```
+ let scheme = BigInformerScheme()
+ ```
+ */
 @available(iOS 14.0, *)
 public struct BigInformerScheme: AppThemeScheme {
     
     // MARK: - Public Properties
-    
+
+    /// The parameter that sets title label text color with state
     public var titleLabelTextColors = InformerParameters<AColor>()
+
+    /// The parameter that sets subtitle label text color with state
     public var subtitleLabelTextColors = InformerParameters<AColor>()
+
+    /// The parameter that sets link label text color with state
     public var linkLabelTextColors = InformerParameters<AColor>()
+
+    /// The parameter that sets wrap view background color with state
     public var wrapViewBackgroundColors = InformerParameters<AColor>()
+
+    /// The parameter that sets background color with state
     public var backgroundColors = InformerParameters<AColor>()
+
+    /// The title label font
+    public var titleLabelFont: AFont
+
+    /// The subtitle label font
+    public var subtitleLabelFont: AFont
+
+    /// The link label font
+    public var linkLabelFont: AFont
     
-    public var titleLabelFont: AFont = AppTheme.default.fonts.subtitle2
-    public var subtitleLabelFont: AFont = AppTheme.default.fonts.body2
-    public var linkLabelFont: AFont = AppTheme.default.fonts.body2
-    
-    // MARK: - Initilizers
+    // MARK: - Initializer
     
     public init(theme: AppTheme)  {
         let alpha = theme.colors.disabledAlpha

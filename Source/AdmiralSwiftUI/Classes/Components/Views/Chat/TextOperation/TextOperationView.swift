@@ -8,7 +8,6 @@
 import AdmiralTheme
 import AdmiralUIResources
 import SwiftUI
-
 /**
  TextOperationView - the component that presents a rounded view with title, description and chatBubbleStatusView.
 
@@ -25,15 +24,15 @@ import SwiftUI
  ## Example to create TextOperationView
  # Code
  ```
-     TextOperationView(
-         style: .success,
-         chatStatus: .receive,
-         direction: .left,
-         time: "21:21",
-         title: "+ 35 000 ₽",
-         description: "НПО «Ромашка»"
-     )
-```
+ TextOperationView(
+ style: .success,
+ chatStatus: .receive,
+ direction: .left,
+ time: "21:21",
+ title: "+ 35 000 ₽",
+ description: "НПО «Ромашка»"
+ )
+ ```
  */
 
 public enum TextOperationViewStyle: Int {
@@ -77,13 +76,12 @@ public struct TextOperationView: View {
 
     /// A description text of TextOperationView.
     public var description: String
-    
+
     /// Action error button.
     public var errorAction: () -> ()
 
     // MARK: - Private properties
 
-    @State private var scheme: TextOperationViewScheme? = nil
     @ObservedObject private var schemeProvider: SchemeProvider<TextOperationViewScheme>
 
     // MARK: - Initializer
@@ -95,8 +93,8 @@ public struct TextOperationView: View {
         time: String,
         title: String,
         description: String,
-        schemeProvider: SchemeProvider<TextOperationViewScheme> = AppThemeSchemeProvider<TextOperationViewScheme>(),
-        errorAction: @escaping () -> () = {}
+        errorAction: @escaping () -> () = {},
+        schemeProvider: SchemeProvider<TextOperationViewScheme> = AppThemeSchemeProvider<TextOperationViewScheme>()
     ) {
         self._style = .init(initialValue: style)
         self.chatStatus = chatStatus
@@ -113,7 +111,7 @@ public struct TextOperationView: View {
     // MARK: - Layout
 
     public var body: some View {
-        let scheme = scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         switch direction {
         case .left:
             HStack(spacing: .zero) {
@@ -121,7 +119,7 @@ public struct TextOperationView: View {
                 Spacer()
             }
             .eraseToAnyView()
- 
+
         case .right:
             HStack(spacing: .zero) {
                 Spacer()
@@ -129,7 +127,7 @@ public struct TextOperationView: View {
             }
             .eraseToAnyView()
         }
-  
+
     }
 
     // MARK: - Private methods
@@ -165,7 +163,6 @@ public struct TextOperationView: View {
                 RoundedCorner(radius: Constants.cornerRadius, corners: [.allCorners])
             )
             .frame(width: Constants.width)
-            
             statusError(scheme: scheme)
         }
     }
@@ -218,5 +215,4 @@ struct TextOperationView_Previews: PreviewProvider {
             )
         }
     }
-
 }

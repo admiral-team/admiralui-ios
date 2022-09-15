@@ -2,13 +2,12 @@
 //  BadgeArrowListView.swift
 //  AdmiralUIResources
 //
-//  Created by Ivon Evgeniy on 18.11.2021.
+//  Created on 18.11.2021.
 //
 
 import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
-
 /**
  BadgeArrowListView - A view object with big title.
  
@@ -55,7 +54,6 @@ public struct BadgeArrowListView: View, TralingListViewComponent {
 
     // MARK: - Private Properties
     
-    @State private var scheme: BadgeArrowListViewScheme? = nil
     @ObservedObject private var schemeProvider: SchemeProvider<BadgeArrowListViewScheme>
     
     @State private var viewSize: CGSize = .zero
@@ -95,7 +93,7 @@ public struct BadgeArrowListView: View, TralingListViewComponent {
     }
 
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         HStack(spacing: Constants.cellItemsSpacing) {
             Spacer()
             BadgeView(badgeStyle: badgeStyle, text: textForBadge())
@@ -111,7 +109,7 @@ public struct BadgeArrowListView: View, TralingListViewComponent {
     
     func scheme(_ scheme: BadgeArrowListViewScheme) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view.schemeProvider = .constant(scheme: scheme)
         return view.id(UUID())
     }
     

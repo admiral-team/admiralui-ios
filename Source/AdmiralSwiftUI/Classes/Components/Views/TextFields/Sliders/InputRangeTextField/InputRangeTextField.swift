@@ -118,8 +118,7 @@ public struct InputRangeTextField<T>: TextFieldInput, AccessabilitySupportUIKit,
     private let formatter: Formatter?
     
     // MARK: - Private Properties
-    
-    @State private var scheme: InputRangeTextFieldScheme? = nil
+
     @State private var finishAfterChangeSlider: Bool = false
     @ObservedObject private var schemeProvider: SchemeProvider<InputRangeTextFieldScheme>
     private var accessibilityIdentifier: String?
@@ -254,8 +253,8 @@ public struct InputRangeTextField<T>: TextFieldInput, AccessabilitySupportUIKit,
     }
     
     public var body: some View {
-        let globalScheme = self.scheme ?? schemeProvider.scheme
-        let style = globalScheme.textField
+        let globalScheme = schemeProvider.scheme
+        let style = globalScheme.textFieldScheme
         let isTextFieldDisabled = state == .disabled || state == .readOnly
         
         let placeholderColor = style.placeholderColor.parameter(for:  isTextFieldDisabled ? .disabled : .normal)
@@ -305,7 +304,6 @@ public struct InputRangeTextField<T>: TextFieldInput, AccessabilitySupportUIKit,
                     value: $sliderValue,
                     minValue: minValue,
                     maxValue: maxValue,
-                    scheme: globalScheme.slider,
                     gestureChange: {
                         DispatchQueue.main.async {
                             self.finishAfterChangeSlider = true
@@ -358,7 +356,7 @@ public struct InputRangeTextField<T>: TextFieldInput, AccessabilitySupportUIKit,
     
     func scheme(_ scheme: InputRangeTextFieldScheme) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view.schemeProvider = .constant(scheme: scheme)
         return view.id(UUID())
     }
     

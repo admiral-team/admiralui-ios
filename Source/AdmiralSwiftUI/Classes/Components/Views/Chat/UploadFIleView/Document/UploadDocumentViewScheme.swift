@@ -7,30 +7,60 @@
 
 import AdmiralTheme
 import AdmiralUIResources
-
+/**
+ UploadDocumentViewScheme - the visual scheme of UploadDocumentView.
+ You can create a by specifying the following parameters in init:
+ - UploadDocumentViewScheme() - Initialize default UploadDocumentViewScheme with default themezation
+ # Example to create UploadDocumentViewScheme:
+ # Code
+ ```
+ let scheme = UploadDocumentViewScheme()
+ ```
+ */
 @available(iOS 14.0, *)
 public struct UploadDocumentViewScheme: AppThemeScheme {
 
     // MARK: - Public properties
 
-    public let sizeTextFont: AFont
-    public let timeTextFont: AFont
+    /// The font of size text label
+    public var sizeTextFont: AFont
 
+    /// The font of time text label
+    public var timeTextFont: AFont
+
+    /// The font of message text label
     public var messageTextFont: AFont
+
+    /// The color of message text label
     public var messageTextColor: AColor
 
-    public let textFont: AFont
+    /// The text font
+    public var textFont: AFont
+
+    /// The background color
     public var backgroundColor = UploadDocumentParameters<AColor>()
+
+    /// The name color
     public var nameTextColor = UploadDocumentParameters<AColor>()
+
+    /// The time  color
     public var timeTextColor = UploadDocumentParameters<AColor>()
+
+    /// The icon color
     public var iconColor = UploadDocumentParameters<AColor>()
+
+    /// The size color
     public var sizeColor = UploadDocumentParameters<AColor>()
+
+    /// The circle color
     public var circleColor = UploadDocumentParameters<AColor>()
+
+    /// The chevron color
     public var chevronColor = UploadDocumentParameters<AColor>()
 
     // MARK: - Init/deinit
 
-    public init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         textFont = theme.fonts.body1
         timeTextFont = theme.fonts.caption1
         sizeTextFont = theme.fonts.caption2
@@ -84,3 +114,4 @@ public struct UploadDocumentParameters<P> {
     }
 
 }
+

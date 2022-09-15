@@ -7,10 +7,8 @@
 
 import AdmiralUIResources
 import SwiftUI
-
 /**
  ParagraphLeadingImageType - Public enum for paragraph text block style AdmiralSwiftUI library
- 
  ParagraphLeadingImageType can be one of the following values:
  - point
  - check
@@ -18,11 +16,16 @@ import SwiftUI
  */
 @available(iOS 14.0, *)
 public enum ParagraphLeadingImageType {
+    /// Set point image in imageview
     case point
+    /// Set check image in imageview
     case check
+    /// Set custom image in imageview
     case custom(Image)
-    
-    var image: Image {
+
+    // MARK: - Computed Properties
+
+    public var image: Image {
         switch self {
         case .point:
             return Image(uiImage: AdmiralUIResources.SystemAsset.Custom.Cell.point.image)
@@ -33,3 +36,4 @@ public enum ParagraphLeadingImageType {
         }
     }
 }
+

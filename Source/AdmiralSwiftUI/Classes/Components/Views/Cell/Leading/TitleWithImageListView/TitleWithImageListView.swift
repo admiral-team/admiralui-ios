@@ -68,7 +68,6 @@ public struct TitleWithImageListView: View, LeadingListViewComponent {
 
     // MARK: - Private Properties
 
-    @State private var scheme: TitleWithImageListViewScheme? = nil
     @ObservedObject private var schemeProvider: SchemeProvider<TitleWithImageListViewScheme>
     private let lineLimit: Int?
     
@@ -91,8 +90,10 @@ public struct TitleWithImageListView: View, LeadingListViewComponent {
         self.schemeProvider = schemeProvider
     }
 
+    // MARK: - Body
+
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         HStack(alignment: .center, spacing: LayoutGrid.module) {
             if let title = title {
                 Text(title)
@@ -112,7 +113,7 @@ public struct TitleWithImageListView: View, LeadingListViewComponent {
     
     func scheme(_ scheme: TitleWithImageListViewScheme) -> some View {
         var view = self
-        view._scheme = State(initialValue: scheme)
+        view.schemeProvider = .constant(scheme: scheme)
         return view.id(UUID())
     }
     

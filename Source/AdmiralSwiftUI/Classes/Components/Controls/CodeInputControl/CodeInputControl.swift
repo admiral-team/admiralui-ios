@@ -51,7 +51,6 @@ public struct CodeInputControl: View {
     
     private var cursorPosition = 0
 
-    @Binding private var scheme: CodeInputControlScheme?
     @ObservedObject private var schemeProvider: SchemeProvider<CodeInputControlScheme>
     
     // MARK: - Initializer
@@ -60,11 +59,9 @@ public struct CodeInputControl: View {
         text: Binding<String>,
         itemsCount: Int = 4,
         status: CodeInputControl.Status = .normal,
-        scheme: Binding<CodeInputControlScheme?> = .constant(nil),
         schemeProvider: SchemeProvider<CodeInputControlScheme> = AppThemeSchemeProvider<CodeInputControlScheme>()
     ) {
         self._text = text
-        self._scheme = scheme
         self._itemsCount = Binding(get: {
             return itemsCount
         }, set: { _ in })
@@ -78,7 +75,7 @@ public struct CodeInputControl: View {
     // MARK: - Body
     
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         var color = scheme.defaultColor.swiftUIColor
         var activeColor = scheme.activeColor.swiftUIColor
         switch status {

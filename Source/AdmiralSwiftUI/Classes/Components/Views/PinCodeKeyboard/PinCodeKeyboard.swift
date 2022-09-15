@@ -48,18 +48,9 @@ enum PinCodeButtonType {
  */
 @available(iOS 14.0, *)
 public struct PinCodeKeyboard: View {
-    
-    // MARK: - Private Properties
-    
-    @State private var scheme: PinCodeTextViewScheme? = nil
-    
-    private var rightButtonImage: Image
-    private var leftButtonTitle: String
-    private let didTapNumber: (Int) -> ()
-    private let didTapLeftButton: () -> ()
-    private let didTapRightButton: () -> ()
-    @ObservedObject var schemeProvider: SchemeProvider<PinCodeTextViewScheme>
-    
+
+    // MARK: - Contants
+
     private enum Constants {
         static let keyboardInsets: EdgeInsets = EdgeInsets(
             top: 0,
@@ -69,6 +60,16 @@ public struct PinCodeKeyboard: View {
         static let keyboardWidth: CGFloat = 270.0
         static let keyboardHeight: CGFloat = 288.0
     }
+
+    // MARK: - Private Properties
+
+    private var rightButtonImage: Image
+    private var leftButtonTitle: String
+    private let didTapNumber: (Int) -> ()
+    private let didTapLeftButton: () -> ()
+    private let didTapRightButton: () -> ()
+
+    @ObservedObject var schemeProvider: SchemeProvider<PinCodeTextViewScheme>
     
     // MARK: - Initializer
     
@@ -97,7 +98,7 @@ public struct PinCodeKeyboard: View {
     
     public var body: some View {
         let numbers: [[Int]] = numbers()
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         VStack(spacing: 16.0) {
             ForEach(numbers, id: \.self) { numberSet in
                 createHStack(numbers: numberSet)
