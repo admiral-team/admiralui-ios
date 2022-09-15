@@ -45,7 +45,6 @@ public struct ButtonWithArrowListView: View, LeadingListViewComponent, TralingLi
     @Binding var text: String
     var action: () -> ()
     
-    @State private var scheme: ButtonWithArrowListViewScheme? = nil
     @ObservedObject private var schemeProvider: SchemeProvider<ButtonWithArrowListViewScheme>
     
     // MARK: - Initializer
@@ -64,10 +63,12 @@ public struct ButtonWithArrowListView: View, LeadingListViewComponent, TralingLi
     }
 
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
-        scheme.image = image
+        let scheme = schemeProvider.scheme
         return Button(text, action: action)
-                .buttonStyle(scheme.button)
+                .buttonStyle(GhostButtonWithImageStyle(
+                    image: image,
+                    schemeProvider: .constant(scheme: scheme.button)
+                ))
     }
     
 }

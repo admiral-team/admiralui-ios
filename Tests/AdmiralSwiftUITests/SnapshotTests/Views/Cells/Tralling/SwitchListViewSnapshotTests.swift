@@ -32,7 +32,7 @@ final class SwitchListViewSnapshotTests: XCTestCase {
         Appearance.prepare()
     }
     
-    // MARK: Default Theme
+    // MARK: - Default Theme
     
     func testSwitchListViewSelectedDefaultTheme() {
         Appearance.shared.theme = .default
@@ -46,7 +46,7 @@ final class SwitchListViewSnapshotTests: XCTestCase {
         checkSwitchListView(view: view, named: "NotSelectedDefaultTheme", testName: "SwitchListView")
     }
     
-    // MARK: Dark Theme
+    // MARK: - Dark Theme
     
     func testSwitchListViewSelectedDarkTheme() {
         Appearance.shared.theme = .dark
@@ -59,9 +59,36 @@ final class SwitchListViewSnapshotTests: XCTestCase {
         let view = createSwitchListView(isSelected: false)
         checkSwitchListView(view: view, named: "NotSelectedDarkTheme", testName: "SwitchListView")
     }
+
+    // MARK: - Scheme Provider
+
+    func testSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = SwitchListViewScheme(theme: .default)
+        scheme.customSwitch.onTintColorColor = AColor(color: .systemPink)
+        let newSchemeProvider = SchemeProvider<SwitchListViewScheme>(scheme: scheme)
+
+        let view = createSwitchListView(isSelected: true, schemeProvider: newSchemeProvider)
+        checkSwitchListView(view: view, named: "SchemeProvider", testName: "SwitchListView")
+
+        Appearance.shared.theme = .dark
+        let newView = createSwitchListView(isSelected: true, schemeProvider: newSchemeProvider)
+        checkSwitchListView(view: newView, named: "SchemeProvider", testName: "SwitchListView")
+    }
     
     func createSwitchListView(isSelected: Bool) -> some View {
         let view = SwitchListView(isSwitchSelected: .constant(isSelected)).padding()
+        return view
+    }
+
+    func createSwitchListView(
+        isSelected: Bool,
+        schemeProvider: SchemeProvider<SwitchListViewScheme>
+    ) -> some View {
+        let view = SwitchListView(
+            isSwitchSelected: .constant(isSelected),
+            schemeProvider: schemeProvider
+        ).padding()
         return view
     }
     

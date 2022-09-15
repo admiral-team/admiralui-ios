@@ -47,11 +47,37 @@ final class ButtonWithArrowListViewSnapshotTests: XCTestCase {
         let view = createButtonWithArrowListView()
         checkButtonWithArrowListView(view: view, named: "DarkTheme", testName: "ButtonWithArrowListView")
     }
+
+    // MARK: - Scheme Provider
+
+    func testSchemeProvider() {
+        Appearance.shared.theme = .default
+        let scheme = ButtonWithArrowListViewScheme(theme: .default)
+        scheme.button.textColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        scheme.button.imageColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        let newSchemeProvider = SchemeProvider<ButtonWithArrowListViewScheme>(scheme: scheme)
+
+        let view = createButtonWithArrowListView(schemeProvider: newSchemeProvider)
+        checkButtonWithArrowListView(view: view, named: "SchemeProvider", testName: "ButtonWithArrowListView")
+
+        Appearance.shared.theme = .dark
+        let newView = createButtonWithArrowListView(schemeProvider: newSchemeProvider)
+        checkButtonWithArrowListView(view: newView, named: "SchemeProvider", testName: "ButtonWithArrowListView")
+    }
     
     func createButtonWithArrowListView() -> some View {
         let view = ButtonWithArrowListView(
             text: "ButtonWithArrowListView",
             image: Image(uiImage: Asset.Finance.Solid.debitCardSolid.image),
+            action: {})
+        return view
+    }
+
+    func createButtonWithArrowListView(schemeProvider: SchemeProvider<ButtonWithArrowListViewScheme>) -> some View {
+        let view = ButtonWithArrowListView(
+            text: "ButtonWithArrowListView",
+            image: Image(uiImage: Asset.Finance.Solid.debitCardSolid.image),
+            schemeProvider: schemeProvider,
             action: {})
         return view
     }

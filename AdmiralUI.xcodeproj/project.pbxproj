@@ -86,6 +86,7 @@
 		0E2A62E826E8DD39009CE2C0 /* GhostButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A62E726E8DD39009CE2C0 /* GhostButtonStyle.swift */; };
 		0E2A633226EA1695009CE2C0 /* CalendarHorizontalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A633126EA1695009CE2C0 /* CalendarHorizontalView.swift */; };
 		0E2A633426EF5AB7009CE2C0 /* CalendarVerticalDaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A633326EF5AB7009CE2C0 /* CalendarVerticalDaysView.swift */; };
+		0E33995528D34A8C00B24722 /* GhostButtonWithImageStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E33995428D34A8C00B24722 /* GhostButtonWithImageStyle.swift */; };
 		0E38F2FC266F7361002AD565 /* CalendarVerticalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E38F2FB266F7361002AD565 /* CalendarVerticalView.swift */; };
 		0E38F313266F78F4002AD565 /* DateFormmer+WeekDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E38F312266F78F4002AD565 /* DateFormmer+WeekDay.swift */; };
 		0E3961BD25FFCF7D006E2005 /* AdmiralSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E3961B425FFCF7D006E2005 /* AdmiralSwiftUI.framework */; };
@@ -1017,6 +1018,7 @@
 		0E2D9CCD261F5C7C00323048 /* CustomSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSwitch.swift; sourceTree = "<group>"; };
 		0E2DF125254865960087F661 /* StandardSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardSegmentedControl.swift; sourceTree = "<group>"; };
 		0E2DF12E25486EC30087F661 /* LogoSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoSegmentedControl.swift; sourceTree = "<group>"; };
+		0E33995428D34A8C00B24722 /* GhostButtonWithImageStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostButtonWithImageStyle.swift; sourceTree = "<group>"; };
 		0E38F2FB266F7361002AD565 /* CalendarVerticalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVerticalView.swift; sourceTree = "<group>"; };
 		0E38F312266F78F4002AD565 /* DateFormmer+WeekDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormmer+WeekDay.swift"; sourceTree = "<group>"; };
 		0E3961B425FFCF7D006E2005 /* AdmiralSwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdmiralSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2764,6 +2766,7 @@
 			isa = PBXGroup;
 			children = (
 				0E2A62C726E7C7A2009CE2C0 /* GhostButtonWithImageScheme.swift */,
+				0E33995428D34A8C00B24722 /* GhostButtonWithImageStyle.swift */,
 			);
 			path = GhostButtonWithImage;
 			sourceTree = "<group>";
@@ -7223,6 +7226,7 @@
 				0E4BC96626836C3E000FC891 /* ActionCellViewScheme.swift in Sources */,
 				0E4BC8952681E6F4000FC891 /* ImageNameListViewScheme.swift in Sources */,
 				0E2A62D026E7C8D6009CE2C0 /* InputRangeTextFieldScheme.swift in Sources */,
+				0E33995528D34A8C00B24722 /* GhostButtonWithImageStyle.swift in Sources */,
 				0E231C68276CA480007F3ED4 /* UIKitTextField.swift in Sources */,
 				E9B82B6127B40B9300FC7BB9 /* ActionBarControlScheme.swift in Sources */,
 				0E3DB3E4265D3ACA00CA2F2A /* BankCardTextField.swift in Sources */,

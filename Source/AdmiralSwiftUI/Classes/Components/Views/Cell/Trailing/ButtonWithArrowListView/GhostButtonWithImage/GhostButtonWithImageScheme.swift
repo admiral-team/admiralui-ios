@@ -9,12 +9,11 @@ import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
 
-@available(iOS 14.0.0, *)
-public struct GhostButtonWithImageScheme: ButtonStyle, AppThemeScheme {
+public struct GhostButtonWithImageScheme: AppThemeScheme {
     
     public let font: AFont
     public var textColor = ControlParameter<AColor>()
-    public var image: Image?
+    public var imageColor = ControlParameter<AColor>()
     
     public init(theme: AppTheme) {
         let alpha = theme.colors.disabledAlpha
@@ -24,40 +23,9 @@ public struct GhostButtonWithImageScheme: ButtonStyle, AppThemeScheme {
         textColor.set(parameter: theme.colors.textAccent, for: .normal)
         textColor.set(parameter: theme.colors.textAccentPressed, for: .highlighted)
         textColor.set(parameter: theme.colors.textAccent.withAlpha(alpha), for: .disabled)
-    }
-    
-    public func makeBody(configuration: GhostButtonWithImageScheme.Configuration) -> some View {
-        GhostButton(
-            configuration: configuration,
-            font: font,
-            textColor: textColor,
-            image: image)
-    }
-}
 
-@available(iOS 14.0.0, *)
-private extension GhostButtonWithImageScheme {
-    struct GhostButton: View {
-        @Environment(\.isEnabled) private var isEnabled
-
-        let configuration: Configuration
-        let font: AFont
-        let textColor: ControlParameter<AColor>
-        let image: Image?
-        
-        var body: some View {
-            let color = isEnabled ?
-                (configuration.isPressed ? textColor.parameter(for: .highlighted)?.swiftUIColor : textColor.parameter(for: .normal)?.swiftUIColor)
-                : textColor.parameter(for: .disabled)?.swiftUIColor
-            
-            HStack(alignment: .center, spacing: LayoutGrid.module) {
-                configuration.label
-                    .font(font.swiftUIFont)
-                    .foregroundColor(color)
-                    .frame(height: 48.0)
-                image
-                    .foregroundColor(color)
-            }
-        }
+        imageColor.set(parameter: theme.colors.elementAccent, for: .normal)
+        imageColor.set(parameter: theme.colors.elementAccentPressed, for: .highlighted)
+        imageColor.set(parameter: theme.colors.elementAccent.withAlpha(alpha), for: .disabled)
     }
 }

@@ -14,9 +14,6 @@ public class ButtonWithArrowListViewScheme: AppThemeScheme {
     
     public var backgroundColor = ControlParameter<AColor>()
     public var button: GhostButtonWithImageScheme
-    public var image: Image? {
-        didSet { button.image = image }
-    }
     
     required public init(theme: AppTheme) {
         backgroundColor.set(parameter: theme.colors.backgroundSelected, for: .highlighted)
