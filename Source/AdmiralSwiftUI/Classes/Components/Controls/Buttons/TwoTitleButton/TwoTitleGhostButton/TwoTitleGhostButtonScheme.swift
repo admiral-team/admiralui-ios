@@ -21,7 +21,7 @@ public struct TwoTitleGhostButtonScheme: AppThemeScheme {
 
     // MARK: - Public Properties
 
-    /// The background color of TwoTitleGhostButton
+    /// The background color
     public var backgroundColor: AColor
 
     /// The left ghost button scheme
