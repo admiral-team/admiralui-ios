@@ -45,14 +45,4 @@ public struct TwoTitleGhostButtonScheme: AppThemeScheme {
         rightGhostButtonScheme = GhostButtonScheme(theme: theme)
     }
 
-    public init(
-        backgroundColor: AColor,
-        leftGhostButtonScheme: GhostButtonScheme,
-        rightGhostButtonScheme: GhostButtonScheme
-    ) {
-        self.backgroundColor = backgroundColor
-        self.leftGhostButtonScheme = leftGhostButtonScheme
-        self.rightGhostButtonScheme = rightGhostButtonScheme
-    }
-
 }
