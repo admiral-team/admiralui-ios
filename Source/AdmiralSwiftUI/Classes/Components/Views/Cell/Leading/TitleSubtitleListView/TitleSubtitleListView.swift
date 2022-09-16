@@ -121,14 +121,6 @@ public struct TitleSubtitleListView: View, LeadingListViewComponent {
         }
     }
     
-    // MARK: - Internal Methods
-    
-    func scheme(_ scheme: TitleSubTitleSubtitleListViewScheme) -> some View {
-        var view = self
-        view.schemeProvider = .constant(scheme: scheme)
-        return view.id(UUID())
-    }
-    
 }
 
 @available(iOS 14.0, *)

@@ -26,7 +26,7 @@ public struct RadioButtonListViewScheme: AppThemeScheme {
     public var backgroundColor = ControlParameter<AColor>()
 
     /// The radio button visual scheme
-    public var radioButtonView: CheckControlScheme
+    public var radioButtonScheme: CheckControlScheme
 
     // MARK: - Initializer
 
@@ -34,6 +34,6 @@ public struct RadioButtonListViewScheme: AppThemeScheme {
         backgroundColor.set(parameter: theme.colors.backgroundSelected, for: .highlighted)
         backgroundColor.set(parameter: theme.colors.backgroundBasic, for: .normal)
         
-        radioButtonView = CheckControlScheme(theme: theme)
+        radioButtonScheme = CheckControlScheme(theme: theme)
     }
 }

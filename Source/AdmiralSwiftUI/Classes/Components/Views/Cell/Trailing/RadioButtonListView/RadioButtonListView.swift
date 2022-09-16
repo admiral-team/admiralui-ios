@@ -63,8 +63,10 @@ public struct RadioButtonListView: View, TralingListViewComponent {
 
     public var body: some View {
         let scheme = schemeProvider.scheme
-        RadioControl(isSelected: $isControlSelected)
-            .scheme(scheme.radioButtonView)
+        RadioControl(
+            isSelected: $isControlSelected,
+            schemeProvider: .constant(scheme: scheme.radioButtonScheme)
+        )
     }
     
 }

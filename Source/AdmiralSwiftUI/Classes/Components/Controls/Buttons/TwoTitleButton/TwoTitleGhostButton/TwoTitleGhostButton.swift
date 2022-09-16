@@ -84,4 +84,5 @@ public struct TwoTitleGhostButton: View {
         }
 
     }
+    
 }

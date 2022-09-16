@@ -352,14 +352,6 @@ public struct InputRangeTextField<T>: TextFieldInput, AccessabilitySupportUIKit,
         return view
     }
     
-    // MARK: - Internal Methods
-    
-    func scheme(_ scheme: InputRangeTextFieldScheme) -> some View {
-        var view = self
-        view.schemeProvider = .constant(scheme: scheme)
-        return view.id(UUID())
-    }
-    
     // MARK: - Private Methods
     
     private func clear() {

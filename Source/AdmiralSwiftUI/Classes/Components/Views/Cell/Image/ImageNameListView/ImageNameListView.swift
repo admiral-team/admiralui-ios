@@ -62,12 +62,4 @@ public struct ImageNameListView: View, ImageListViewComponent {
             .cornerRadius((LayoutGrid.halfModule * 11) / 2)
     }
     
-    // MARK: - Internal Methods
-    
-    func scheme(_ scheme: ImageNameListViewScheme) -> some View {
-        var view = self
-        view.schemeProvider = .constant(scheme: scheme)
-        return view.id(UUID())
-    }
-    
 }
