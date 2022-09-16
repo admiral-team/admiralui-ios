@@ -4,19 +4,12 @@
 //
 //  Created on 06.07.2021.
 //
-
-import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
 /**
  TwoTitleGhostButtonScheme - the visual scheme of PageControlView.
  You can create a by specifying the following parameters in init:
  - TwoTitleGhostButtonScheme() - Initialize default TwoTitleGhostButtonScheme with default themezation
- - TwoTitleGhostButtonScheme(
-     backgroundColor: AColor,
-     leftGhostButtonScheme: GhostButtonScheme,
-     rightGhostButtonScheme: GhostButtonScheme
-   )
  # Example to create TwoTitleGhostButtonScheme:
  # Code
  ```
@@ -34,7 +27,7 @@ public struct TwoTitleGhostButtonScheme: AppThemeScheme {
     /// The left ghost button scheme
     public var leftGhostButtonScheme: GhostButtonScheme
 
-    /// The right ghost buttton scheme
+    /// The right ghost button scheme
     public var rightGhostButtonScheme: GhostButtonScheme
 
     // MARK: - Initializer
