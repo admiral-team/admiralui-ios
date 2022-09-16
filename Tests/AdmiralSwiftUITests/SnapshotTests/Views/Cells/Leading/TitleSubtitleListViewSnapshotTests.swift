@@ -71,6 +71,23 @@ final class TitleSubtitleListViewSnapshotTests: XCTestCase {
         let view = createTitleSubtitleListView(style: .headline)
         checkTitleSubtitleListView(view: view, named: "HeadlineDarkTheme", testName: "TitleSubtitleListView")
     }
+
+    // MARK: - Scheme Provider
+
+    func testSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = TitleSubTitleSubtitleListViewScheme(theme: .default)
+        scheme.titleColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        scheme.subtitleColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        let newSchemeProvider = SchemeProvider<TitleSubTitleSubtitleListViewScheme>(scheme: scheme)
+
+        let view = createTitleSubtitleListView(schemeProvider: newSchemeProvider)
+        checkTitleSubtitleListView(view: view, named: "SchemeProvider", testName: "TitleSubtitleListView")
+
+        Appearance.shared.theme = .dark
+        let newView = createTitleSubtitleListView(schemeProvider: newSchemeProvider)
+        checkTitleSubtitleListView(view: newView, named: "SchemeProvider", testName: "TitleSubtitleListView")
+    }
     
     func createTitleSubtitleListView(style: TitleSubtitleListViewStyle) -> some View {
         let view = TitleSubtitleListView(
@@ -78,6 +95,18 @@ final class TitleSubtitleListViewSnapshotTests: XCTestCase {
             subtitle: "SubtitleListView",
             lineLimit: 3,
             titleSubtitleListViewStyle: style)
+            .padding()
+        return view
+    }
+
+    func createTitleSubtitleListView(schemeProvider: SchemeProvider<TitleSubTitleSubtitleListViewScheme>) -> some View {
+        let view = TitleSubtitleListView(
+            title: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+            subtitle: "SubtitleListView",
+            lineLimit: 3,
+            titleSubtitleListViewStyle: .title,
+            schemeProvider: schemeProvider
+        )
             .padding()
         return view
     }
