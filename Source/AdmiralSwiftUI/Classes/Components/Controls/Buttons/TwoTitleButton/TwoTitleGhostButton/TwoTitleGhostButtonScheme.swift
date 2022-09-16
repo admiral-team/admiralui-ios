@@ -7,7 +7,7 @@
 import AdmiralTheme
 import AdmiralUIResources
 /**
- TwoTitleGhostButtonScheme - the visual scheme of PageControlView.
+ TwoTitleGhostButtonScheme - the visual scheme of TwoTitleGhostButton.
  You can create a by specifying the following parameters in init:
  - TwoTitleGhostButtonScheme() - Initialize default TwoTitleGhostButtonScheme with default themezation
  # Example to create TwoTitleGhostButtonScheme:
