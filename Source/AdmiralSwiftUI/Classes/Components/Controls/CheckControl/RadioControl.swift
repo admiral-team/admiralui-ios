@@ -89,12 +89,4 @@ public struct RadioControl: View {
         }
     }
     
-    // MARK: - Internal Methods
-    
-    func scheme(_ scheme: CheckControlScheme) -> some View {
-        var view = self
-        view.schemeProvider = .constant(scheme: scheme)
-        return view.id(UUID())
-    }
-    
 }

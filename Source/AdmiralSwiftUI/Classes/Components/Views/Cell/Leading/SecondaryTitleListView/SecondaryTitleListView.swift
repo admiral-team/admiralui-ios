@@ -68,14 +68,6 @@ public struct SecondaryTitleListView: View, LeadingListViewComponent {
             .foregroundColor(isEnabled ? scheme.textColor.parameter(for: .normal)?.swiftUIColor : scheme.textColor.parameter(for: .disabled)?.swiftUIColor)
     }
     
-    // MARK: - Internal Methods
-    
-    func scheme(_ scheme: SecondaryTitleListViewScheme) -> some View {
-        var view = self
-        view.schemeProvider = .constant(scheme: scheme)
-        return view.id(UUID())
-    }
-    
 }
 
 @available(iOS 14.0, *)

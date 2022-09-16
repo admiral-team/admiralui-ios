@@ -155,12 +155,6 @@ public struct BadgeView<Content>: View where Content: View {
 
     // MARK: - Internal Methods
 
-    func scheme(_ scheme: BadgeViewScheme) -> some View {
-        var view = self
-        view.schemeProvider = SchemeProvider.constant(scheme: scheme)
-        return view.id(UUID())
-    }
-
     @ViewBuilder
     func badgeView() -> some View {
         let scheme = schemeProvider.scheme

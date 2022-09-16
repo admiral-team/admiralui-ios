@@ -306,14 +306,6 @@ public struct OTPTextField: TextFieldInput, AccessabilitySupportUIKit, Identifia
         return view
     }
     
-    // MARK: - Internal Methods
-    
-    func scheme(_ scheme: OTPTextFieldScheme) -> some View {
-        var view = self
-        view.schemeProvider = .constant(scheme: scheme)
-        return view.id(UUID())
-    }
-    
     // MARK: - Private Methods
     
     private func clear() {

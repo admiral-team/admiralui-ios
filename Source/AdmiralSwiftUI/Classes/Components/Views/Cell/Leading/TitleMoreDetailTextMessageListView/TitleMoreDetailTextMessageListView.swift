@@ -125,14 +125,6 @@ public struct TitleMoreDetailTextMessageListView: View, LeadingListViewComponent
         }
     }
     
-    // MARK: - Internal Methods
-    
-    func scheme(_ scheme: TitleMoreDetailTextMessageListViewScheme) -> some View {
-        var view = self
-        view.schemeProvider = .constant(scheme: scheme)
-        return view.id(UUID())
-    }
-    
     // MARK: - Private Methods
     
     private func titleMoreView(scheme: TitleMoreDetailTextMessageListViewScheme) -> some View {

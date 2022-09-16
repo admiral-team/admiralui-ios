@@ -129,14 +129,6 @@ public struct ZeroScreenView: View {
         .padding(.horizontal, LayoutGrid.doubleModule)
     }
 
-    // MARK: - Internal Methods
-
-    func scheme(_ scheme: ZeroScreenViewScheme) -> some View {
-        var view = self
-        view.schemeProvider = SchemeProvider.constant(scheme: scheme)
-        return view.id(UUID())
-    }
-
 }
 
 @available(iOS 14.0, *)
