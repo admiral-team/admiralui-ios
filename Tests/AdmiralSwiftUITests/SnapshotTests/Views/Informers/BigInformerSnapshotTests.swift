@@ -83,12 +83,39 @@ final class BigInformerSnapshotTests: XCTestCase {
         let view = createBigInformer(style: .error)
         checkBigInformer(view: view, named: "Error.DarkTheme", testName: "BigInformer")
     }
+
+    // MARK: - Scheme Providers
+
+    func testSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = BigInformerScheme(theme: .default)
+        scheme.backgroundColors.set(parameter: AColor(color: .systemPink), isEnabled: true, style: .default)
+        scheme.wrapViewBackgroundColors.set(parameter: AColor(color: .systemPink), isEnabled: true, style: .default)
+        let newSchemeProvider = SchemeProvider<BigInformerScheme>(scheme: scheme)
+
+        let view = createBigInformer(schemeProvider: newSchemeProvider)
+        checkBigInformer(view: view, named: "SchemeProvider", testName: "BigInformer")
+
+        Appearance.shared.theme = .dark
+        let newView = createBigInformer(schemeProvider: newSchemeProvider)
+        checkBigInformer(view: newView, named: "SchemeProvider", testName: "BigInformer")
+    }
     
     func createBigInformer(style: InformerStyleSwiftUI) -> some View {
         let bigInformerView = BigInformer(
             title: "BigInformer",
             subtitle: "BigInformer Check",
             informerStyle: style,
+            onDetail: {})
+        return bigInformerView
+    }
+
+    func createBigInformer(schemeProvider: SchemeProvider<BigInformerScheme>) -> some View {
+        let bigInformerView = BigInformer(
+            title: "BigInformer",
+            subtitle: "BigInformer Check",
+            informerStyle: .default,
+            schemeProvider: schemeProvider,
             onDetail: {})
         return bigInformerView
     }
