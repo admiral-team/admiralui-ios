@@ -25,10 +25,18 @@ public struct TitleArrowWithButtonHeaderScheme: AppThemeScheme {
     /// List cell scheme.
     public var listCellScheme: ListCellScheme
 
+    /// Center view scheme
+    public var centerViewScheme: TitleWithImageListViewScheme
+
+    /// Trailing view scheme
+    public var trailingViewScheme: ButtonListViewScheme
+
     // MARK: - Initializer
 
     public init(theme: AppTheme = .default) {
         listCellScheme = ListCellScheme(theme: theme)
+        centerViewScheme = TitleWithImageListViewScheme(theme: theme)
+        trailingViewScheme = ButtonListViewScheme(theme: theme)
     }
 
 }

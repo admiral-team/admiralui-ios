@@ -68,7 +68,9 @@ public struct TitleHeader: View {
             TitleListView(
                 title: title,
                 textAligment: textAligment,
-                titleListViewStyle: titleListViewStyle)
+                titleListViewStyle: titleListViewStyle,
+                schemeProvider: .constant(scheme: schemeProvider.scheme.centerViewScheme) 
+            )
         })
         .configCell(
             minHeight: textBlockStyle.minHeight,

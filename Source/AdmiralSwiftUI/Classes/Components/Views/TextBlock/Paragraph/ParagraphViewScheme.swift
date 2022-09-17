@@ -25,10 +25,22 @@ public struct ParagraphViewScheme: AppThemeScheme {
     /// List cell scheme.
     public var listCellScheme: ListCellScheme
 
+    /// Leading view scheme
+    public var leadingViewScheme: ImageListViewScheme
+
+    /// Center view scheme
+    public var centerViewScheme: TitleListViewScheme
+
+    /// Trailing view scheme
+    public var trailingViewScheme: IconListViewScheme
+
     // MARK: - Initializer
 
     public init(theme: AppTheme = .default) {
         listCellScheme = ListCellScheme(theme: theme)
+        leadingViewScheme = ImageListViewScheme(theme: theme)
+        centerViewScheme = TitleListViewScheme(theme: theme)
+        trailingViewScheme = IconListViewScheme(theme: theme)
     }
 
 }

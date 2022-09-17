@@ -25,10 +25,14 @@ public struct ButtonDropDownScheme: AppThemeScheme {
     /// List cell scheme.
     public var listCellScheme: ListCellScheme
 
+    /// Center view scheme
+    public var centerViewScheme: ButtonWithArrowListViewScheme
+
     // MARK: - Initializer
 
     public init(theme: AppTheme = .default) {
         listCellScheme = ListCellScheme(theme: theme)
+        centerViewScheme = ButtonWithArrowListViewScheme(theme: theme)
     }
 
 }

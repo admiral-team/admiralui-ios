@@ -63,7 +63,12 @@ public struct SubtitleTitleHeader: View {
     public var body: some View {
         let titleSubtitleListViewStyle = TitleSubtitleListViewStyle(rawValue: textBlockStyle.rawValue)
         return ListCell(centerView: {
-            SubtitleTitleListView(title: title, subtitle: subtitle, titleSubtitleListViewStyle: titleSubtitleListViewStyle)
+            SubtitleTitleListView(
+                title: title,
+                subtitle: subtitle,
+                titleSubtitleListViewStyle: titleSubtitleListViewStyle,
+                schemeProvider: .constant(scheme: schemeProvider.scheme.centerViewScheme)
+            )
         })
         .configCell(
             minHeight: textBlockStyle.minHeight,

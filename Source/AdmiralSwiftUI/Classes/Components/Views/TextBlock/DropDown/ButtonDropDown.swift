@@ -68,7 +68,9 @@ public struct ButtonDropDown: View {
                     ButtonWithArrowListView(
                         text: buttonTitle,
                         image: drropDownHeaderType.image,
-                        action: buttonAction)
+                        schemeProvider: .constant(scheme: schemeProvider.scheme.centerViewScheme),
+                        action: buttonAction
+                    )
                     Spacer()
                 }
             }

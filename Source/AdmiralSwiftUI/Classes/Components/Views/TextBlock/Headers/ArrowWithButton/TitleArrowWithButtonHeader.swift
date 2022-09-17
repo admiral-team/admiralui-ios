@@ -89,9 +89,14 @@ public struct TitleArrowWithButtonHeader: View {
                 title: title,
                 image: dropDownHeaderType?.image.renderingMode(renderingMode),
                 renderingMode: renderingMode,
-                titleWithImageListStyle: titleWithImageListStyle)
+                titleWithImageListStyle: titleWithImageListStyle,
+                schemeProvider: .constant(scheme: schemeProvider.scheme.centerViewScheme)
+            )
             },
-            trailingView: { ButtonListView(text: buttonTitle, action: buttonAction) })
+            trailingView: { ButtonListView(
+                text: buttonTitle,
+                schemeProvider: .constant(scheme: schemeProvider.scheme.trailingViewScheme),
+                action: buttonAction) })
         .configCell(
             minHeight: textBlockStyle.minHeight,
             edgeInsets: textBlockStyle.edgeInsets,

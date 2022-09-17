@@ -70,10 +70,11 @@ public struct TitleButtonDropDown: View {
 
     public var body: some View {
         ListCell(
-            centerView: { SecondaryTitleListView(title: title) },
+            centerView: { SecondaryTitleListView(title: title, schemeProvider: .constant(scheme: schemeProvider.scheme.centerViewScheme)) },
             trailingView: { ButtonWithArrowListView(
                 text: buttonTitle,
                 image: dropDownHeaderType.image,
+                schemeProvider: .constant(scheme: schemeProvider.scheme.trailingViewScheme),
                 action: buttonAction) })
         .configCell(
             minHeight: TextBlockStyle.dropDown.minHeight,

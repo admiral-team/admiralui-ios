@@ -25,10 +25,18 @@ public struct TitleButtonDropDownScheme: AppThemeScheme {
     /// List cell scheme.
     public var listCellScheme: ListCellScheme
 
+    /// Center view scheme
+    public var centerViewScheme: SecondaryTitleListViewScheme
+
+    /// Trailing view scheme
+    public var trailingViewScheme: ButtonWithArrowListViewScheme
+
     // MARK: - Initializer
 
     public init(theme: AppTheme = .default) {
         listCellScheme = ListCellScheme(theme: theme)
+        centerViewScheme = SecondaryTitleListViewScheme(theme: theme)
+        trailingViewScheme = ButtonWithArrowListViewScheme(theme: theme)
     }
 
 }

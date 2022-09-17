@@ -25,10 +25,18 @@ public struct DropDownHeaderScheme: AppThemeScheme {
     /// List cell scheme.
     public var listCellScheme: ListCellScheme
 
+    /// Center view scheme
+    public var centerViewScheme: TitleListViewScheme
+
+    /// Trailing view scheme
+    public var trailingViewScheme: IconListViewScheme
+
     // MARK: - Initializer
 
     public init(theme: AppTheme = .default) {
         listCellScheme = ListCellScheme(theme: theme)
+        centerViewScheme = TitleListViewScheme(theme: theme)
+        trailingViewScheme = IconListViewScheme(theme: theme)
     }
 
 }

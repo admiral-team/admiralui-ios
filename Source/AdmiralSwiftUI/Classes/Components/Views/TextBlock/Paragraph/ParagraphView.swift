@@ -115,20 +115,25 @@ public struct ParagraphView: View {
                 ImageListView(
                     image: paragraphImageType?.image ?? Image(""),
                     renderingMode: renderingMode,
-                    imageListViewStyle: imageListViewStyle
+                    imageListViewStyle: imageListViewStyle,
+                    schemeProvider: .constant(scheme: schemeProvider.scheme.leadingViewScheme)
                 )
             } : nil,
             centerView: {
                 TitleListView(
                     title: title,
                     textAligment: textAligment,
-                    titleListViewStyle: titleListViewStyle)
+                    titleListViewStyle: titleListViewStyle,
+                    schemeProvider: .constant(scheme: schemeProvider.scheme.centerViewScheme)
+                )
             },
             trailingView: trailingImage != nil ? {
                 IconListView(
                     image: trailingImage ?? Image(""),
                     renderingMode: renderingMode,
-                    iconListViewStyle: iconListViewStyle)
+                    iconListViewStyle: iconListViewStyle,
+                    schemeProvider: .constant(scheme: schemeProvider.scheme.trailingViewScheme)
+                )
             } : nil)
             .configCell(
                 minHeight: textBlockStyle.minHeight,

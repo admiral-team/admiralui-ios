@@ -25,10 +25,14 @@ public struct TitleSubtitleHeaderScheme: AppThemeScheme {
     /// List cell scheme.
     public var listCellScheme: ListCellScheme
 
+    /// Center view scheme
+    public var centerViewScheme: TitleSubTitleSubtitleListViewScheme
+
     // MARK: - Initializer
 
     public init(theme: AppTheme = .default) {
         listCellScheme = ListCellScheme(theme: theme)
+        centerViewScheme = TitleSubTitleSubtitleListViewScheme(theme: theme)
     }
 
 }

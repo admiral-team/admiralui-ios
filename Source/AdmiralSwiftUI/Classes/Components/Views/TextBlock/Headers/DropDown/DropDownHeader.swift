@@ -72,12 +72,16 @@ public struct DropDownHeader: View {
         return ListCell(centerView: {
             TitleListView(
                 title: title,
-                titleListViewStyle: titleListViewStyle)
+                titleListViewStyle: titleListViewStyle,
+                schemeProvider: .constant(scheme: schemeProvider.scheme.centerViewScheme)
+            )
         },
         trailingView: {
             IconListView(
                 image: dropDownHeaderType.image.renderingMode(renderingMode),
-                renderingMode: renderingMode)})
+                renderingMode: renderingMode,
+                schemeProvider: .constant(scheme: schemeProvider.scheme.trailingViewScheme)
+            )})
         .configCell(
             minHeight: textBlockStyle.minHeight,
             edgeInsets: textBlockStyle.edgeInsets,
