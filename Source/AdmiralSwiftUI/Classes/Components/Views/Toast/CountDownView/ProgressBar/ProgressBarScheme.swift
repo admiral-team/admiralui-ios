@@ -16,16 +16,16 @@ import AdmiralUIResources
  let scheme = ProgressBarScheme()
  ```
  */
-struct ProgressBarScheme: AppThemeScheme {
+public struct ProgressBarScheme: AppThemeScheme {
 
     // MARK: - Properties
 
     /// The tint color
-    var tintColor: AColor
+    public var tintColor: AColor
 
     // MARK: - Initializer
 
-    init(theme: AppTheme = .default) {
+    public init(theme: AppTheme = .default) {
         tintColor = theme.colors.elementAccent
     }
 
