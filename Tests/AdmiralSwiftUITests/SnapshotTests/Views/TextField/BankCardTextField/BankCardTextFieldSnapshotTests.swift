@@ -47,6 +47,24 @@ final class BankCardTextFieldSnapshotTests: XCTestCase {
         let view = createBankCardTextField()
         checkBankCardTextField(view: view, named: "DarkTheme", testName: "BankCardTextField")
     }
+
+    // MARK: - Scheme Provider
+
+    func testSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = BankCardTextFieldScheme()
+        scheme.textColor = AColor(color: .systemPink)
+        scheme.placeholderColor = AColor(color: .systemPink)
+        scheme.underlineColor = AColor(color: .systemPink)
+        let newSchemeProvider = SchemeProvider<BankCardTextFieldScheme>(scheme: scheme)
+
+        let view = createBankCardTextField(schemeProvider: newSchemeProvider)
+        checkBankCardTextField(view: view, named: "SchemeProvider", testName: "BankCardTextField")
+
+        Appearance.shared.theme = .dark
+        let newView = createBankCardTextField(schemeProvider: newSchemeProvider)
+        checkBankCardTextField(view: newView, named: "SchemeProvider", testName: "BankCardTextField")
+    }
     
     func createBankCardTextField() -> some View {
         @State var text: String? = "1111 2222 3333 4444"
@@ -58,6 +76,24 @@ final class BankCardTextFieldSnapshotTests: XCTestCase {
             contentType: .numberPad,
             placeholder: "1111 2222 3333 4444",
             info: .constant("Info"))
+
+        return view
+    }
+
+    func createBankCardTextField(
+        schemeProvider: SchemeProvider<BankCardTextFieldScheme>
+    ) -> some View {
+        @State var text: String? = "1111 2222 3333 4444"
+        @State var state: TextInputState = .normal
+        let view = BankCardTextField(
+            value: $text,
+            formatter: Formatter(),
+            state: $state,
+            contentType: .numberPad,
+            placeholder: "1111 2222 3333 4444",
+            info: .constant("Info"),
+            schemeProvider: schemeProvider
+        )
 
         return view
     }

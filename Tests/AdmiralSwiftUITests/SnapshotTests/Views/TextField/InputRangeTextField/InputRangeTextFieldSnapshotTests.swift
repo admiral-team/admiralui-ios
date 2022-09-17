@@ -47,9 +47,35 @@ final class InputRangeTextFieldSnapshotTests: XCTestCase {
         let view = createInputRangeTextField()
         checkInputRangeTextField(view: view, named: "DarkTheme", testName: "InputRangeTextField")
     }
+
+    // MARK: - Scheme Provider
+
+    func testSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = InputRangeTextFieldScheme()
+        scheme.textFieldScheme.textColor = AColor(color: .systemPink)
+        scheme.sliderScheme.tintColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        scheme.sliderScheme.thumbColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        let newSchemeProvider = SchemeProvider<InputRangeTextFieldScheme>(scheme: scheme)
+
+        let view = createInputRangeTextField(schemeProvider: newSchemeProvider)
+        checkInputRangeTextField(view: view, named: "SchemeProvider", testName: "InputRangeTextField")
+
+        Appearance.shared.theme = .dark
+        let newView = createInputRangeTextField(schemeProvider: newSchemeProvider)
+        checkInputRangeTextField(view: newView, named: "SchemeProvider", testName: "InputRangeTextField")
+    }
     
     func createInputRangeTextField() -> some View {
         let view = InputRangeTextField(.constant("InputRangeTextField"))
+        return view
+    }
+
+    func createInputRangeTextField(schemeProvider: SchemeProvider<InputRangeTextFieldScheme>) -> some View {
+        let view = InputRangeTextField(
+            .constant("InputRangeTextField"),
+            schemeProvider: schemeProvider
+        )
         return view
     }
     

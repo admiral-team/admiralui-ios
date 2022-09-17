@@ -47,6 +47,24 @@ final class StandardTextFieldSnapshotTests: XCTestCase {
         let view = createStandardTextField()
         checkStandardTextField(view: view, named: "DarkTheme", testName: "StandardTextField")
     }
+
+    // MARK: - Scheme Provider
+
+    func testSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = StandardTextFieldScheme()
+        scheme.textColor = AColor(color: .systemPink)
+        scheme.placeholderColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        scheme.underlineColor = AColor(color: .systemPink)
+        let newSchemeProvider = SchemeProvider<StandardTextFieldScheme>(scheme: scheme)
+
+        let view = createStandardTextField(schemeProvider: newSchemeProvider)
+        checkStandardTextField(view: view, named: "SchemeProvider", testName: "StandardTextField")
+
+        Appearance.shared.theme = .dark
+        let newView = createStandardTextField(schemeProvider: newSchemeProvider)
+        checkStandardTextField(view: newView, named: "SchemeProvider", testName: "StandardTextField")
+    }
     
     func createStandardTextField() -> some View {
         let view = StandardTextField(
@@ -59,6 +77,24 @@ final class StandardTextFieldSnapshotTests: XCTestCase {
             state: .constant(.normal),
             info: .constant("Additional text"),
             infoNumberOfLines: nil)
+        return view
+    }
+
+    func createStandardTextField(
+        schemeProvider: SchemeProvider<StandardTextFieldScheme>
+    ) -> some View {
+        let view = StandardTextField(
+            value: .constant("Text"),
+            accessibilityIdentifier: "testTextField",
+            formatter: Formatter(),
+            contentType: .default,
+            placeholder: "Placeholder",
+            name: "Optional label",
+            state: .constant(.normal),
+            info: .constant("Additional text"),
+            infoNumberOfLines: nil,
+            schemeProvider: schemeProvider
+        )
         return view
     }
     
