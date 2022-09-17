@@ -45,19 +45,25 @@ public struct TitleButtonDropDown: View {
     /// DropDown header type.
     @Binding public var dropDownHeaderType: DropDownHeaderType
 
+    // MARK: - Private Properties
+
+    @ObservedObject private var schemeProvider: SchemeProvider<TitleButtonDropDownScheme>
+
     // MARK: - Initializer
 
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     public init(
         title: String?,
         buttonTitle: String,
-                dropDownHeaderType: DropDownHeaderType = .down,
+        dropDownHeaderType: DropDownHeaderType = .down,
+        schemeProvider: SchemeProvider<TitleButtonDropDownScheme> = AppThemeSchemeProvider<TitleButtonDropDownScheme>(),
         buttonAction: @escaping () -> ()
     ) {
         self._title = Binding(get: { return title }, set: { _ in })
         self._buttonTitle = Binding(get: { return buttonTitle }, set: { _ in })
         self._dropDownHeaderType = Binding(get: { return dropDownHeaderType }, set: { _ in })
         self.buttonAction = buttonAction
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Body
@@ -69,7 +75,11 @@ public struct TitleButtonDropDown: View {
                 text: buttonTitle,
                 image: dropDownHeaderType.image,
                 action: buttonAction) })
-        .configCell(minHeight: TextBlockStyle.dropDown.minHeight, edgeInsets: TextBlockStyle.dropDown.edgeInsets)
+        .configCell(
+            minHeight: TextBlockStyle.dropDown.minHeight,
+            edgeInsets: TextBlockStyle.dropDown.edgeInsets,
+            schemeProvider: .constant(scheme: schemeProvider.scheme.listCellScheme)
+        )
     }
 }
 

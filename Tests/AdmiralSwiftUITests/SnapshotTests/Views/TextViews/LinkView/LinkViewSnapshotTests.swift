@@ -47,9 +47,33 @@ final class LinkViewSnapshotTests: XCTestCase {
         let view = createLinkView()
         checkLinkView(view: view, named: "DarkTheme", testName: "LinkView")
     }
+
+    // MARK: - Scheme Provider
+
+    func testSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = LinkViewScheme(theme: .default)
+        scheme.contentListViewScheme.buttonScheme.textColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        let newSchemeProvider = SchemeProvider<LinkViewScheme>(scheme: scheme)
+
+        let customSwitch = createLinkView(schemeProvider: newSchemeProvider)
+        checkLinkView(view: customSwitch, named: "SchemeProvider", testName: "LinkView")
+
+        Appearance.shared.theme = .dark
+        let newCustomSwitch = createLinkView(schemeProvider: newSchemeProvider)
+        checkLinkView(view: newCustomSwitch, named: "SchemeProvider", testName: "LinkView")
+    }
     
     func createLinkView() -> some View {
         let view = LinkView(buttonTitle: "Button", buttonAction: {})
+        return view
+    }
+
+    func createLinkView(schemeProvider: SchemeProvider<LinkViewScheme>) -> some View {
+        let view = LinkView(
+            buttonTitle: "Button",
+            schemeProvider: schemeProvider,
+            buttonAction: {})
         return view
     }
     
