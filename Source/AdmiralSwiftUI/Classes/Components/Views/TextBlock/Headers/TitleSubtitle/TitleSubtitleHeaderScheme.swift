@@ -2,7 +2,6 @@
 //  TitleSubtitleHeaderScheme.swift
 //  AdmiralSwiftUI
 //
-//  Created by ADyatkov on 17.09.2022.
 //
 
 import AdmiralTheme
