@@ -165,14 +165,6 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 
 
-### validate_carthage_example
-
-```sh
-[bundle exec] fastlane validate_carthage_example
-```
-
-
-
 ### unlock_secrets_keychain
 
 ```sh
