@@ -4,8 +4,6 @@
 //
 //  Created on 06.07.2021.
 //
-
-import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
 /**
@@ -13,6 +11,7 @@ import AdmiralUIResources
  You can create a by specifying the following parameters in init:
  - TwoTitleGhostButtonScheme() - Initialize default TwoTitleGhostButtonScheme with default themezation
  # Example to create TwoTitleGhostButtonScheme:
+ # Code
  ```
 let scheme = TwoTitleGhostButtonScheme()
  ```
@@ -22,7 +21,7 @@ public struct TwoTitleGhostButtonScheme: AppThemeScheme {
 
     // MARK: - Public Properties
 
-    /// The background colo
+    /// The background color
     public var backgroundColor: AColor
 
     /// The left ghost button scheme

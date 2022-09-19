@@ -18,7 +18,6 @@ import AdmiralUIResources
 let scheme = PrimaryButtonScheme()
  ```
  */
-@available(iOS 14.0.0, *)
 public struct PrimaryButtonScheme: AppThemeScheme {
 
     // MARK: - Properties

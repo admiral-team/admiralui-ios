@@ -25,9 +25,7 @@ public enum ProgressViewSize {
 
 /**
  ProgressView - the component that used for showing view with center loading indicator.
-
  You can create a ProgressView with the zero frame rectangle by specifying the following parameters in init:
-
  - style: ProgressViewStyle - The style of progress spinner.
  - progressViewSize: ProgressViewSize - the size for progress spinner.
 
@@ -76,9 +74,9 @@ public struct ProgressView: View {
     // MARK: - Private properties
 
     private var closeAction: () -> ()
-    @State private var scheme: ProgressViewScheme? = nil
     @State private var animate: Bool = false
-    @ObservedObject var schemeProvider = AppThemeSchemeProvider<ProgressViewScheme>()
+
+    @ObservedObject var schemeProvider: SchemeProvider<ProgressViewScheme>
 
     // MARK: - Computed properties
 
@@ -109,17 +107,19 @@ public struct ProgressView: View {
     public init(
         style: ProgressViewStyle = .default,
         progressViewSize: ProgressViewSize = .medium,
-        closeAction: @escaping () -> () = {}
+        closeAction: @escaping () -> () = {},
+        schemeProvider: SchemeProvider<ProgressViewScheme> = AppThemeSchemeProvider<ProgressViewScheme>()
     ) {
         self.style = style
         self.progressViewSize = progressViewSize
         self.closeAction = closeAction
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Layout
 
     public var body: some View {
-        let scheme = scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         ZStack {
             Circle()
                 .trim(from: 0, to: 1.0)
@@ -154,7 +154,7 @@ public struct ProgressView: View {
         guard let circleColor = scheme.circleColor.parameter(style: style) else {
             return AngularGradient(gradient: .init(colors: [Color.white]),center: .center)
         }
-        
+
         return AngularGradient(
             gradient: .init(
                 colors: [

@@ -80,8 +80,7 @@ public struct TitleMoreDetailTextMessageListView: View, LeadingListViewComponent
     
     @Environment(\.isEnabled) var isEnabled
     
-    @State private var scheme: TitleMoreDetailTextMessageListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<TitleMoreDetailTextMessageListViewScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<TitleMoreDetailTextMessageListViewScheme>
     
     // MARK: - Initializer
     
@@ -94,7 +93,9 @@ public struct TitleMoreDetailTextMessageListView: View, LeadingListViewComponent
         subtitle: String? = nil,
         tagText: String? = nil,
         messageText: String? = nil,
-        infoImage: Image? = nil) {
+        infoImage: Image? = nil,
+        schemeProvider: SchemeProvider<TitleMoreDetailTextMessageListViewScheme> = AppThemeSchemeProvider<TitleMoreDetailTextMessageListViewScheme>()
+    ) {
         self._title = Binding(get: { return title }, set: { _ in })
         self._more = Binding(get: { return more }, set: { _ in })
         self._detaile = Binding(get: { return detaile }, set: { _ in })
@@ -103,10 +104,11 @@ public struct TitleMoreDetailTextMessageListView: View, LeadingListViewComponent
         self._tagText = Binding(get: { return tagText }, set: { _ in })
         self._messageText = Binding(get: { return messageText }, set: { _ in })
         self._infoImage = Binding(get: { return infoImage }, set: { _ in })
+        self.schemeProvider = schemeProvider
     }
     
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         VStack(alignment: .leading, spacing: LayoutGrid.module) {
             if title != nil || more != nil {
                 titleMoreView(scheme: scheme)
@@ -121,14 +123,6 @@ public struct TitleMoreDetailTextMessageListView: View, LeadingListViewComponent
                 textMessageView(scheme: scheme)
             }
         }
-    }
-    
-    // MARK: - Internal Methods
-    
-    func scheme(_ scheme: TitleMoreDetailTextMessageListViewScheme) -> some View {
-        var view = self
-        view._scheme = State(initialValue: scheme)
-        return view.id(UUID())
     }
     
     // MARK: - Private Methods

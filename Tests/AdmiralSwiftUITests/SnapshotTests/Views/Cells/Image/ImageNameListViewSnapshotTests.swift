@@ -22,7 +22,7 @@ final class ImageNameListViewSnapshotTests: XCTestCase {
     // MARK: Default Theme
     
     func testImageNameListViewDefaultTheme() {
-        SwiftUIThemeManager.shared.theme = .default
+        Appearance.shared.theme = .default
         let view = createImageNameListView()
         checkImageNameListView(view: view, named: "DefaultTheme", testName: "ImageNameListView")
     }
@@ -30,7 +30,7 @@ final class ImageNameListViewSnapshotTests: XCTestCase {
     // MARK: Dark Theme
     
     func testImageNameListViewDarkTheme() {
-        SwiftUIThemeManager.shared.theme = .dark
+        Appearance.shared.theme = .dark
         let view = createImageNameListView()
         checkImageNameListView(view: view, named: "ImageNameListViewDarkTheme", testName: "ImageNameListView")
     }

@@ -57,6 +57,7 @@ public final class TextOperationView: UIView, AnyAppThemable {
     private enum Constants {
         static let width: CGFloat = LayoutGrid.module * 29
         static let textBlockstackViewSpacing = LayoutGrid.halfModule
+        static let imageSize: CGFloat = LayoutGrid.halfModule * 7
         static let trailingConstant: CGFloat = LayoutGrid.tripleModule / 2
         static let topAnchor: CGFloat = LayoutGrid.module
         static let padding: CGFloat = LayoutGrid.quadrupleModule
@@ -145,7 +146,7 @@ public final class TextOperationView: UIView, AnyAppThemable {
 
     private let errorView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = PrivateAsset.Custom.Chat.error.image
+        imageView.image = Asset.Service.Solid.errorSolid.image
         return imageView
     }()
 
@@ -215,6 +216,9 @@ public final class TextOperationView: UIView, AnyAppThemable {
 
             timeLabel.leadingAnchor.constraint(equalTo: textOperationView.leadingAnchor, constant: Constants.trailingConstant),
             timeLabel.topAnchor.constraint(equalTo: textBlockStackView.bottomAnchor, constant: Constants.topAnchor),
+            
+            errorView.widthAnchor.constraint(equalToConstant: Constants.imageSize),
+            errorView.heightAnchor.constraint(equalToConstant: Constants.imageSize),
 
             textOperationView.trailingAnchor.constraint(equalTo: chatStatusBubbleView.trailingAnchor, constant: Constants.trailingConstant),
             chatStatusBubbleView.topAnchor.constraint(equalTo: timeLabel.bottomAnchor, constant: LayoutGrid.halfModule),
@@ -244,6 +248,7 @@ public final class TextOperationView: UIView, AnyAppThemable {
         titleLabel.textColor = scheme.titleColor.parameter(style: textOperationStyle ?? .default)?.uiColor
         discriptionLabel.textColor = scheme.desciptionColor.uiColor
         timeLabel.textColor = scheme.timeColor.uiColor
+        errorView.tintColor = scheme.errorImageColor.uiColor
     }
 
     private func updateFonts() {

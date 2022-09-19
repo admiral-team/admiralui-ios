@@ -68,8 +68,7 @@ public struct TitleWithImageListView: View, LeadingListViewComponent {
 
     // MARK: - Private Properties
 
-    @State private var scheme: TitleWithImageListViewScheme? = nil
-    @ObservedObject private var schemeProvider = AppThemeSchemeProvider<TitleWithImageListViewScheme>()
+    @ObservedObject private var schemeProvider: SchemeProvider<TitleWithImageListViewScheme>
     private let lineLimit: Int?
     
     // MARK: - Initializer
@@ -80,17 +79,21 @@ public struct TitleWithImageListView: View, LeadingListViewComponent {
         image: Image?,
         renderingMode: Image.TemplateRenderingMode = .original,
         lineLimit: Int? = nil,
-        titleWithImageListStyle: TitleWithImageListStyle? = nil
+        titleWithImageListStyle: TitleWithImageListStyle? = nil,
+        schemeProvider: SchemeProvider<TitleWithImageListViewScheme> = AppThemeSchemeProvider<TitleWithImageListViewScheme>()
     ) {
         self._title = Binding(get: { return title }, set: { _ in })
         self._image = Binding(get: { return image }, set: { _ in })
         self.renderingMode = renderingMode
         self.lineLimit = lineLimit
         self.titleWithImageListStyle = titleWithImageListStyle
+        self.schemeProvider = schemeProvider
     }
 
+    // MARK: - Body
+
     public var body: some View {
-        let scheme = self.scheme ?? schemeProvider.scheme
+        let scheme = schemeProvider.scheme
         HStack(alignment: .center, spacing: LayoutGrid.module) {
             if let title = title {
                 Text(title)
@@ -104,14 +107,6 @@ public struct TitleWithImageListView: View, LeadingListViewComponent {
             }
         }
         .frame(height: LayoutGrid.halfModule * 7)
-    }
-    
-    // MARK: - Internal Methods
-    
-    func scheme(_ scheme: TitleWithImageListViewScheme) -> some View {
-        var view = self
-        view._scheme = State(initialValue: scheme)
-        return view.id(UUID())
     }
     
     // MARK: - Private Functions

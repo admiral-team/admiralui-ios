@@ -21,16 +21,19 @@ let package = Package(
         .library(
             name: "AdmiralUIResources",
             targets: ["AdmiralUIResources"]),
+        .library(
+                name: "AdmiralCore",
+                targets: ["AdmiralCore"]),
     ],
     targets: [
         .target(
             name: "AdmiralUIKit",
-            dependencies: ["AdmiralTheme", "AdmiralUIResources"],
+            dependencies: ["AdmiralTheme", "AdmiralUIResources", "AdmiralCore"],
             path: "Source/AdmiralUIKit",
             exclude: ["Supporting Files"]),
         .target(
             name: "AdmiralSwiftUI",
-            dependencies: ["AdmiralTheme", "AdmiralUIResources"],
+            dependencies: ["AdmiralTheme", "AdmiralUIResources", "AdmiralCore"],
             path: "Source/AdmiralSwiftUI",
             exclude: ["Supporting Files"]),
         .target(
@@ -46,6 +49,11 @@ let package = Package(
             resources: [
                 .process("Resources/Assets"),
                 .process("Resources/Fonts")
-            ])
+            ]),
+        .target(
+                name: "AdmiralCore",
+                dependencies: [],
+                path: "Source/AdmiralCore",
+                exclude: ["Supporting Files"]),
     ]
 )

@@ -34,33 +34,33 @@ public struct SecondaryButtonStyle: ButtonStyle {
 
     // MARK: - Public Properties
 
-    /// The loading flag of SecondaryButton
+    /// The loading flag
     @Binding public var isLoading: Bool
 
-    /// The size type of SecondaryButton
+    /// The size type
     public var sizeType: ButtonSizeType?
 
     // MARK: - Private Properties
 
-    @Binding private var scheme: SecondaryButtonScheme?
+    @ObservedObject private var schemeProvider: SchemeProvider<SecondaryButtonScheme>
 
     // MARK: - Initializer
 
     public init(
         isLoading: Binding<Bool> = .constant(false),
         sizeType: ButtonSizeType? = nil,
-        scheme: Binding<SecondaryButtonScheme?> = .constant(nil)
+        schemeProvider: SchemeProvider<SecondaryButtonScheme> = AppThemeSchemeProvider<SecondaryButtonScheme>()
     ) {
         self._isLoading = isLoading
         self.sizeType = sizeType
-        self._scheme = scheme
+        self.schemeProvider = schemeProvider
     }
 
     public func makeBody(configuration: Self.Configuration) -> some View {
         SecondaryButton(
             isLoading: $isLoading,
             sizeType: sizeType,
-            scheme: $scheme,
+            schemeProvider: schemeProvider,
             configuration: configuration
         )
     }
@@ -70,35 +70,38 @@ public struct SecondaryButtonStyle: ButtonStyle {
 private extension SecondaryButtonStyle {
     struct SecondaryButton: View {
 
-        @Environment(\.isEnabled) private var isEnabled
+        // MARK: - Internal Properties
 
         @Binding var isLoading: Bool
         var sizeType: ButtonSizeType?
 
         let configuration: Configuration
 
-        @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SecondaryButtonScheme>()
-        @Binding var scheme: SecondaryButtonScheme?
+        // MARK: - Private Properties
+
+        @Environment(\.isEnabled) private var isEnabled
+
+        private var schemeProvider: SchemeProvider<SecondaryButtonScheme>
 
         // MARK: - Initializer
 
         init(
             isLoading: Binding<Bool>,
             sizeType: ButtonSizeType?,
-            scheme: Binding<SecondaryButtonScheme?> = .constant(nil),
+            schemeProvider: SchemeProvider<SecondaryButtonScheme>,
             configuration: Configuration
         ) {
 
             self.sizeType = sizeType
             self.configuration = configuration
-            self._scheme = scheme
+            self.schemeProvider = schemeProvider
             self._isLoading = isLoading
         }
 
         // MARK: - Body
 
         var body: some View {
-            let scheme = self.scheme ?? schemeProvider.scheme
+            let scheme = schemeProvider.scheme
             let content = isLoading ?
                 ActivityIndicator(style: .contrast, size: .medium).eraseToAnyView()
                 : configuration.label.eraseToAnyView()
