@@ -288,7 +288,6 @@ lane :validate_depenecy_managers do |options|
   branch_name = git_branch() if options[:use_current_branch] == true
   validate_spm_example(branch_name: branch_name)
   validate_cocoapods_example(branch_name: branch_name)
-  validate_carthage_example(branch_name: branch_name)
 end
 
 lane :validate_cocoapods_example do |options|branch_name = options[:branch_name]
@@ -296,7 +295,7 @@ lane :validate_cocoapods_example do |options|branch_name = options[:branch_name]
 
   unless branch_name.nil?
     file = Dir.pwd + "/../Examples/ExampleCocoaPods/Podfile"
-    replace(file: file, regex: /'develop'/, with: "'#{branch_name}'")
+    replace(file: file, regex: /'main'/, with: "'#{branch_name}'")
   end
 
   system("cd ../Examples/ExampleCocoaPods; pod install;")
@@ -350,7 +349,7 @@ lane :validate_spm_example do |options|
 
   unless branch_name.nil?
     file = Dir.pwd + "/../Examples/ExampleSPM/ExampleSPM.xcodeproj/project.pbxproj"
-    replace(file: file, regex: /branch = develop;/, with: "branch = #{branch_name};")
+    replace(file: file, regex: /branch = main;/, with: "branch = #{branch_name};")
   end
 
   system("cd ../Examples/ExampleSPM")
@@ -361,26 +360,6 @@ lane :validate_spm_example do |options|
     configuration: "Release",
     skip_archive: true,
     project: Dir.pwd + "/../Examples/ExampleSPM/ExampleSPM.xcodeproj",
-  )
-end
-
-lane :validate_carthage_example do |options|
-  branch_name = options[:branch_name]
-  branch_name = git_branch()
-
-  unless branch_name.nil?
-    file = Dir.pwd + "/../Examples/ExampleCarthage/Cartfile"
-    replace(file: file, regex: /"develop"/, with: "\"#{branch_name}\"")
-  end
-
-  system("cd ../Examples/ExampleCarthage; carthage update --no-build; carthage build --platform iOS --use-xcframeworks")
-
-  build_app(
-    clean: true,
-    scheme: "ExampleCarthage",
-    configuration: "Release", 
-    skip_archive: true,
-    project: Dir.pwd + "/../Examples/ExampleCarthage/ExampleCarthage.xcodeproj",
   )
 end
 

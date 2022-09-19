@@ -3,10 +3,10 @@
     "pins": [
       {
         "package": "AdmiralUI",
-        "repositoryURL": "git@github.com:admiral-team/admiralui-ios.git",
+        "repositoryURL": "https://github.com/admiral-team/admiralui-ios",
         "state": {
           "branch": "main",
-          "revision": "89bdcf6810a56352925f57008b4f6e96f91ed6cb",
+          "revision": "826dc0cab2d2d6cb245ff18f256e4f29b68da126",
           "version": null
         }
       }
