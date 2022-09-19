@@ -2,7 +2,7 @@
 //  GhostButtonWithImageStyle.swift
 //  AdmiralSwiftUI
 //
-//  Created by ADyatkov on 15.09.2022.
+//  Created on 15.09.2022.
 //
 
 import AdmiralTheme
