@@ -82,8 +82,8 @@ public struct TitleSubtitleButtonListView: View, LeadingListViewComponent {
         subtitle: String?,
         subtitleLineLimit: Int? = nil,
         buttonTitle: String?,
-        buttonAction: (() -> ())?,
-        schemeProvider: SchemeProvider<TitleSubtitleButtonListViewScheme> = AppThemeSchemeProvider<TitleSubtitleButtonListViewScheme>()
+        schemeProvider: SchemeProvider<TitleSubtitleButtonListViewScheme> = AppThemeSchemeProvider<TitleSubtitleButtonListViewScheme>(),
+        buttonAction: (() -> ())?
     ) {
         self._title = Binding(get: { return title }, set: { _ in })
         self._tagSubtitle = Binding(get: { return tagSubtitle }, set: { _ in })
