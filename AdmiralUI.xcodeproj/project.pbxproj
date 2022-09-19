@@ -700,7 +700,7 @@
 		E90E514028CF730E004D0386 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90E513F28CF730E004D0386 /* ThemeManager.swift */; };
 		E90E514728CF7475004D0386 /* UIColor+Light.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90E514528CF7475004D0386 /* UIColor+Light.swift */; };
 		E90E514828CF7475004D0386 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90E514628CF7475004D0386 /* UIColor+Hex.swift */; };
-		E910E96D28BDE719000FCD67 /* TwoTitleGhostButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E910E96C28BDE719000FCD67 /* TwoTitleGhostButtonStyle.swift */; };
+		E910E96D28BDE719000FCD67 /* TwoTitleGhostButtonScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E910E96C28BDE719000FCD67 /* TwoTitleGhostButtonScheme.swift */; };
 		E916F9F427677B0A00628C96 /* TextOperationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E916F9F327677B0A00628C96 /* TextOperationView.swift */; };
 		E916F9F627677B2700628C96 /* TextOperationViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E916F9F527677B2700628C96 /* TextOperationViewScheme.swift */; };
 		E916F9FC27688E5900628C96 /* TextOperationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E916F9FB27688E5900628C96 /* TextOperationView.swift */; };
@@ -1687,7 +1687,7 @@
 		E90E513F28CF730E004D0386 /* ThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		E90E514528CF7475004D0386 /* UIColor+Light.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Light.swift"; sourceTree = "<group>"; };
 		E90E514628CF7475004D0386 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
-		E910E96C28BDE719000FCD67 /* TwoTitleGhostButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoTitleGhostButtonStyle.swift; sourceTree = "<group>"; };
+		E910E96C28BDE719000FCD67 /* TwoTitleGhostButtonScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoTitleGhostButtonScheme.swift; sourceTree = "<group>"; };
 		E916F9F327677B0A00628C96 /* TextOperationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOperationView.swift; sourceTree = "<group>"; };
 		E916F9F527677B2700628C96 /* TextOperationViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOperationViewScheme.swift; sourceTree = "<group>"; };
 		E916F9FB27688E5900628C96 /* TextOperationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOperationView.swift; sourceTree = "<group>"; };
@@ -3187,7 +3187,7 @@
 			isa = PBXGroup;
 			children = (
 				0E81518126944847004E0B34 /* TwoTitleGhostButton.swift */,
-				E910E96C28BDE719000FCD67 /* TwoTitleGhostButtonStyle.swift */,
+				E910E96C28BDE719000FCD67 /* TwoTitleGhostButtonScheme.swift */,
 			);
 			path = TwoTitleGhostButton;
 			sourceTree = "<group>";
@@ -7456,7 +7456,7 @@
 				0E59D35C26317A0D007B5CC1 /* OutlineSliderTabScheme.swift in Sources */,
 				E9C6BF2028C7A7F900213F5C /* CalendarMonth.swift in Sources */,
 				0E2A62E626E8DBD8009CE2C0 /* SecondaryButtonStyle.swift in Sources */,
-				E910E96D28BDE719000FCD67 /* TwoTitleGhostButtonStyle.swift in Sources */,
+				E910E96D28BDE719000FCD67 /* TwoTitleGhostButtonScheme.swift in Sources */,
 				E9B82B5F27B40B9300FC7BB9 /* ActionBarControlView.swift in Sources */,
 				0EB053EE2638BEC400238CB7 /* ArrowSegmentSlider.swift in Sources */,
 				3B362A1927A02F4D007F08D0 /* ToastViewAccessibilityIdentifiers.swift in Sources */,
