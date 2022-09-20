@@ -55,6 +55,10 @@ public struct TitleArrowWithButtonHeader: View {
     /// Text block style.
     public var textBlockStyle: TextBlockStyle
 
+    // MARK: - Private Properties
+
+    @ObservedObject private var schemeProvider: SchemeProvider<TitleArrowWithButtonHeaderScheme>
+
     // MARK: - Initializer
 
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
@@ -64,7 +68,8 @@ public struct TitleArrowWithButtonHeader: View {
         buttonAction: @escaping () -> (),
         renderingMode: Image.TemplateRenderingMode = .original,
         dropDownHeaderType: DropDownHeaderType? = nil,
-        headerStyle: HeaderStyle = .title
+        headerStyle: HeaderStyle = .title,
+        schemeProvider: SchemeProvider<TitleArrowWithButtonHeaderScheme> = AppThemeSchemeProvider<TitleArrowWithButtonHeaderScheme>()
     ) {
         self._title = Binding(get: { return title }, set: { _ in })
         self._buttonTitle = Binding(get: { return buttonTitle }, set: { _ in })
@@ -72,6 +77,7 @@ public struct TitleArrowWithButtonHeader: View {
         self.renderingMode = renderingMode
         self.textBlockStyle = headerStyle.textBlockStyle
         self._dropDownHeaderType = Binding(get: { return dropDownHeaderType }, set: { _ in })
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Body
@@ -83,10 +89,19 @@ public struct TitleArrowWithButtonHeader: View {
                 title: title,
                 image: dropDownHeaderType?.image.renderingMode(renderingMode),
                 renderingMode: renderingMode,
-                titleWithImageListStyle: titleWithImageListStyle)
+                titleWithImageListStyle: titleWithImageListStyle,
+                schemeProvider: .constant(scheme: schemeProvider.scheme.centerViewScheme)
+            )
             },
-            trailingView: { ButtonListView(text: buttonTitle, action: buttonAction) })
-        .configCell(minHeight: textBlockStyle.minHeight, edgeInsets: textBlockStyle.edgeInsets)
+            trailingView: { ButtonListView(
+                text: buttonTitle,
+                schemeProvider: .constant(scheme: schemeProvider.scheme.trailingViewScheme),
+                action: buttonAction) })
+        .configCell(
+            minHeight: textBlockStyle.minHeight,
+            edgeInsets: textBlockStyle.edgeInsets,
+            schemeProvider: .constant(scheme: schemeProvider.scheme.listCellScheme)
+        )
     }
 }
 

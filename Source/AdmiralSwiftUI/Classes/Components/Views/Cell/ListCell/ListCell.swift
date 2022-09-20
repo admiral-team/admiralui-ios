@@ -202,11 +202,14 @@ public struct ListCell<L, C, T>: ListViewCell where L: View , C: View, T: View {
             leading: LayoutGrid.doubleModule,
             bottom: LayoutGrid.halfModule * 3,
             trailing: LayoutGrid.doubleModule),
-        leadingViewWidth: CGFloat = LayoutGrid.halfModule * 14) -> some View {
+        leadingViewWidth: CGFloat = LayoutGrid.halfModule * 14,
+        schemeProvider: SchemeProvider<ListCellScheme> = AppThemeSchemeProvider<ListCellScheme>()
+    ) -> some View {
         var view = self
         view._minHeight = State(initialValue: minHeight)
         view._edgeInsets = State(initialValue: edgeInsets)
         view._leadingViewWidth = State(initialValue: leadingViewWidth)
+        view._schemeProvider = .init(initialValue: schemeProvider)
         return view.id(UUID())
     }
     

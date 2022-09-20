@@ -69,7 +69,7 @@ public struct PinCodeKeyboard: View {
     private let didTapLeftButton: () -> ()
     private let didTapRightButton: () -> ()
 
-    @ObservedObject var schemeProvider: SchemeProvider<PinCodeTextViewScheme>
+    @ObservedObject var schemeProvider: SchemeProvider<PinCodeKeyboardScheme>
     
     // MARK: - Initializer
     
@@ -83,7 +83,7 @@ public struct PinCodeKeyboard: View {
     public init(
         leftButtonTitle: String = "",
         rightButtonImage: Image = AssetSymbol.Security.Outline.faceID.image,
-        schemeProvider: SchemeProvider<PinCodeTextViewScheme> = AppThemeSchemeProvider<PinCodeTextViewScheme>(),
+        schemeProvider: SchemeProvider<PinCodeKeyboardScheme> = AppThemeSchemeProvider<PinCodeKeyboardScheme>(),
         didTapNumber: @escaping (Int) -> (),
         didTapLeftButton: @escaping () -> (),
         didTapRightButton: @escaping () -> ()
@@ -108,12 +108,11 @@ public struct PinCodeKeyboard: View {
                 Button(leftButtonTitle) {
                     didTapLeftButton()
                 }
-                .buttonStyle(PinCodeTextViewStyle())
+                .buttonStyle(PinCodeTextViewStyle(schemeProvider: .constant(scheme: scheme.pinCodeTextViewScheme)))
                 Spacer(minLength: 0.0)
                 Button(String(0), action: {
                     didTapNumber(0)
-                })
-                .buttonStyle(PinCodeNumberViewStyle())
+                }).buttonStyle(PinCodeNumberViewStyle(schemeProvider: .constant(scheme: scheme.pinCodeNumberViewScheme)))
                 Spacer(minLength: 44.0)
                 Button {
                     didTapRightButton()
@@ -123,7 +122,7 @@ public struct PinCodeKeyboard: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 44, height: 44, alignment: .center)
                 }
-                .buttonStyle(PinCodeTextViewStyle())
+                .buttonStyle(PinCodeTextViewStyle(schemeProvider: .constant(scheme: scheme.pinCodeTextViewScheme)))
             }
         }
         .frame(
@@ -142,7 +141,11 @@ public struct PinCodeKeyboard: View {
                 Button(String(number), action: {
                     didTapNumber(number)
                 })
-                .buttonStyle(PinCodeNumberViewStyle())
+                    .buttonStyle(
+                        PinCodeNumberViewStyle(
+                            schemeProvider: .constant(scheme: schemeProvider.scheme.pinCodeNumberViewScheme)
+                        )
+                    )
             }
         }
     }

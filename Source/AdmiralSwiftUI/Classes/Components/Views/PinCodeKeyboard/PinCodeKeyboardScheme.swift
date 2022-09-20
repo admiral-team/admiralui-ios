@@ -14,9 +14,15 @@ import AdmiralUIResources
 public struct PinCodeKeyboardScheme: AppThemeScheme {
     
     public var backgroundColor: AColor
+
+    public var pinCodeTextViewScheme: PinCodeTextViewScheme
+
+    public var pinCodeNumberViewScheme: PinCodeNumberViewScheme
     
     public init(theme: AppTheme) {
         backgroundColor = theme.colors.backgroundBasic
+        pinCodeTextViewScheme = PinCodeTextViewScheme(theme: theme)
+        pinCodeNumberViewScheme = PinCodeNumberViewScheme(theme: theme)
     }
 
 }

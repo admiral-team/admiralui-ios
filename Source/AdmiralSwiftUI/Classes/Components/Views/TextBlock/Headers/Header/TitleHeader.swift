@@ -41,13 +41,23 @@ public struct TitleHeader: View {
     /// Text block style.
     public var textBlockStyle: TextBlockStyle
 
+    // MARK: - Private Properties
+
+    @ObservedObject private var schemeProvider: SchemeProvider<TitleHeaderScheme>
+
     // MARK: - Initializer
 
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-    public init(title: String?, textAligment: TextAlignment = .leading, headerStyle: HeaderStyle = .title) {
+    public init(
+        title: String?,
+        textAligment: TextAlignment = .leading,
+        headerStyle: HeaderStyle = .title,
+        schemeProvider: SchemeProvider<TitleHeaderScheme> = AppThemeSchemeProvider<TitleHeaderScheme>()
+    ) {
         self._title = Binding(get: { return title }, set: { _ in })
         self.textBlockStyle = headerStyle.textBlockStyle
         self._textAligment = Binding(get: { return textAligment }, set: { _ in })
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Body
@@ -58,9 +68,15 @@ public struct TitleHeader: View {
             TitleListView(
                 title: title,
                 textAligment: textAligment,
-                titleListViewStyle: titleListViewStyle)
+                titleListViewStyle: titleListViewStyle,
+                schemeProvider: .constant(scheme: schemeProvider.scheme.centerViewScheme) 
+            )
         })
-        .configCell(minHeight: textBlockStyle.minHeight, edgeInsets: textBlockStyle.edgeInsets)
+        .configCell(
+            minHeight: textBlockStyle.minHeight,
+            edgeInsets: textBlockStyle.edgeInsets,
+            schemeProvider: .constant(scheme: schemeProvider.scheme.listCellScheme)
+        )
     }
 }
 

@@ -37,13 +37,23 @@ public struct TitleSubtitleHeader: View {
     /// Text block style.
     public var textBlockStyle: TextBlockStyle
 
+    // MARK: - Private Properties
+
+    @ObservedObject private var schemeProvider: SchemeProvider<TitleSubtitleHeaderScheme>
+
     // MARK: - Initializer
 
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-    public init(title: String?, subtitle: String?, headerStyle: HeaderStyle = .title) {
+    public init(
+        title: String?,
+        subtitle: String?,
+        headerStyle: HeaderStyle = .title,
+        schemeProvider: SchemeProvider<TitleSubtitleHeaderScheme> = AppThemeSchemeProvider<TitleSubtitleHeaderScheme>()
+    ) {
         self._title = Binding(get: { return title }, set: { _ in })
         self._subtitle = Binding(get: { return subtitle }, set: { _ in })
         self.textBlockStyle = headerStyle.textBlockStyle
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Body
@@ -51,9 +61,18 @@ public struct TitleSubtitleHeader: View {
     public var body: some View {
         let titleSubtitleListViewStyle = TitleSubtitleListViewStyle(rawValue: textBlockStyle.rawValue)
         return ListCell(centerView: {
-            TitleSubtitleListView(title: title, subtitle: subtitle, titleSubtitleListViewStyle: titleSubtitleListViewStyle)
+            TitleSubtitleListView(
+                title: title,
+                subtitle: subtitle,
+                titleSubtitleListViewStyle: titleSubtitleListViewStyle,
+                schemeProvider: .constant(scheme: schemeProvider.scheme.centerViewScheme)
+            )
         })
-        .configCell(minHeight: textBlockStyle.minHeight, edgeInsets: textBlockStyle.edgeInsets)
+        .configCell(
+            minHeight: textBlockStyle.minHeight,
+            edgeInsets: textBlockStyle.edgeInsets,
+            schemeProvider: .constant(scheme: schemeProvider.scheme.listCellScheme)
+        )
     }
 }
 
