@@ -290,6 +290,26 @@ lane :validate_depenecy_managers do |options|
   validate_cocoapods_example(branch_name: branch_name)
 end
 
+lane :validate_spm_example do |options|
+  branch_name = options[:branch_name]
+
+  unless branch_name.nil?
+    file = Dir.pwd + "/../Examples/ExampleSPM/ExampleSPM.xcodeproj/project.pbxproj"
+    replace(file: file, regex: /branch = main;/, with: "branch = #{branch_name};")
+  end
+
+  system("cd ../Examples/ExampleSPM")
+
+  build_app(
+    clean: true,
+    scheme: "ExampleSPM",
+    configuration: "Release",
+    skip_codesigning: true,
+    skip_archive: true,
+    project: Dir.pwd + "/../Examples/ExampleSPM/ExampleSPM.xcodeproj",
+  )
+end
+
 lane :validate_cocoapods_example do |options|branch_name = options[:branch_name]
   branch_name = options[:branch_name]
 
@@ -303,7 +323,8 @@ lane :validate_cocoapods_example do |options|branch_name = options[:branch_name]
   build_app(
     clean: true,
     scheme: "ExampleCocoaPods",
-    configuration: "Debug",
+    configuration: "Release",
+    skip_codesigning: true,
     skip_archive: true,
     workspace: Dir.pwd + "/../Examples/ExampleCocoaPods/ExampleCocoaPods.xcworkspace"
   )
@@ -342,25 +363,6 @@ lane :start_next_release_version do
   internal = "#{Integer(current_lib_internal_version) + 1}"
   set_version(external_version: external, internal_version: internal)
   increment_app_version(version_number: external)
-end
-
-lane :validate_spm_example do |options|
-  branch_name = options[:branch_name]
-
-  unless branch_name.nil?
-    file = Dir.pwd + "/../Examples/ExampleSPM/ExampleSPM.xcodeproj/project.pbxproj"
-    replace(file: file, regex: /branch = main;/, with: "branch = #{branch_name};")
-  end
-
-  system("cd ../Examples/ExampleSPM")
-
-  build_app(
-    clean: true,
-    scheme: "ExampleSPM",
-    configuration: "Debug",
-    skip_archive: true,
-    project: Dir.pwd + "/../Examples/ExampleSPM/ExampleSPM.xcodeproj",
-  )
 end
 
 def build_package(scheme:, artifact_id:, branch:)

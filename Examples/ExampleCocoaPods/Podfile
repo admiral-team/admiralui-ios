@@ -6,10 +6,10 @@ target 'ExampleCocoaPods' do
   use_frameworks!
 
   # Pods for ExampleCocoaPods
-	pod 'AdmiralTheme', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'feature/446-dependance-script'
-	pod 'AdmiralUIResources', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'feature/446-dependance-script'
-	pod 'AdmiralCore', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'feature/446-dependance-script'
-	pod 'AdmiralSwiftUI', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'feature/446-dependance-script'
-	pod 'AdmiralUIKit', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'feature/446-dependance-script'
+  pod 'AdmiralTheme', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'main'
+  pod 'AdmiralUIResources', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'main'
+  pod 'AdmiralCore', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'main'
+  pod 'AdmiralSwiftUI', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'main'
+  pod 'AdmiralUIKit', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'main'
 
 end
