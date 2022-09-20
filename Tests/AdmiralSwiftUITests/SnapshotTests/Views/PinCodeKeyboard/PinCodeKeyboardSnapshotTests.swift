@@ -47,11 +47,39 @@ final class PinCodeKeyboardSnapshotTests: XCTestCase {
         let view = createPinCodeKeyboard()
         checkPinCodeKeyboard(view: view, named: "DarkTheme", testName: "PinCodeKeyboard")
     }
+
+    // MARK: - Scheme Provider
+
+    func testSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = PinCodeKeyboardScheme(theme: .default)
+        scheme.pinCodeNumberViewScheme.textColor = AColor(color: .systemPink)
+        scheme.pinCodeTextViewScheme.textColor = AColor(color: .systemPink)
+        let newSchemeProvider = SchemeProvider<PinCodeKeyboardScheme>(scheme: scheme)
+
+        let customSwitch = createPinCodeKeyboard(schemeProvider: newSchemeProvider)
+        checkPinCodeKeyboard(view: customSwitch, named: "SchemeProvider", testName: "PinCodeKeyboard")
+
+        Appearance.shared.theme = .dark
+        let newCustomSwitch = createPinCodeKeyboard(schemeProvider: newSchemeProvider)
+        checkPinCodeKeyboard(view: newCustomSwitch, named: "SchemeProvider", testName: "PinCodeKeyboard")
+    }
     
     func createPinCodeKeyboard() -> some View {
         let view = PinCodeKeyboard(
             leftButtonTitle: "Title",
             rightButtonImage: Image(uiImage: Asset.Category.Solid.burnSolid.image),
+            didTapNumber: {_ in },
+            didTapLeftButton: {},
+            didTapRightButton: {})
+        return view
+    }
+
+    func createPinCodeKeyboard(schemeProvider: SchemeProvider<PinCodeKeyboardScheme>) -> some View {
+        let view = PinCodeKeyboard(
+            leftButtonTitle: "Title",
+            rightButtonImage: Image(uiImage: Asset.Category.Solid.burnSolid.image),
+            schemeProvider: schemeProvider,
             didTapNumber: {_ in },
             didTapLeftButton: {},
             didTapRightButton: {})

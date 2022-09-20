@@ -2,7 +2,6 @@
 //  AppThemeScheme.swift
 //  AdmiralTheme
 //
-//  Created by ADyatkov on 06.09.2022.
 //
 
 import Combine

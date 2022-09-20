@@ -47,6 +47,24 @@ final class TitleSubtitleButtonListViewSnapshotTests: XCTestCase {
         let view = createTitleSubtitleButtonListView()
         checkTitleSubtitleButtonListView(view: view, named: "DarkTheme", testName: "TitleSubtitleButtonListView")
     }
+
+    // MARK: - Scheme Provider
+
+    func testSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = TitleSubtitleButtonListViewScheme(theme: .default)
+        scheme.buttonTitleColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        scheme.titleLabelTextColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        scheme.subtitleLabelTextColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        let newSchemeProvider = SchemeProvider<TitleSubtitleButtonListViewScheme>(scheme: scheme)
+
+        let view = createTitleSubtitleButtonListView(schemeProvider: newSchemeProvider)
+        checkTitleSubtitleButtonListView(view: view, named: "SchemeProvider", testName: "TitleSubtitleButtonListView")
+
+        Appearance.shared.theme = .dark
+        let newView = createTitleSubtitleButtonListView(schemeProvider: newSchemeProvider)
+        checkTitleSubtitleButtonListView(view: newView, named: "SchemeProvider", testName: "TitleSubtitleButtonListView")
+    }
     
     func createTitleSubtitleButtonListView() -> some View {
         let view = TitleSubtitleButtonListView(
@@ -56,6 +74,20 @@ final class TitleSubtitleButtonListViewSnapshotTests: XCTestCase {
             subtitle: "Subtitle 2",
             buttonTitle: "Button",
             buttonAction: {})
+            .padding()
+        return view
+    }
+
+    func createTitleSubtitleButtonListView(schemeProvider: SchemeProvider<TitleSubtitleButtonListViewScheme>) -> some View {
+        let view = TitleSubtitleButtonListView(
+            title: "Title",
+            tagSubtitle: "Subtitle",
+            tagText: "Percent",
+            subtitle: "Subtitle 2",
+            buttonTitle: "Button",
+            schemeProvider: schemeProvider,
+            buttonAction: {}
+        )
             .padding()
         return view
     }

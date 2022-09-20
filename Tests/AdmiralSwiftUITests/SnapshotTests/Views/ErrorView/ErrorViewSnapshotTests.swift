@@ -48,6 +48,8 @@ final class ErrorViewSnapshotTests: XCTestCase {
         checkErrorView(view: view, named: "DarkTheme", testName: "ErrorView")
     }
 
+    // MARK: - Scheme Provider
+
     func testErrorViewSchemeProvider() {
         Appearance.shared.theme = .default
         var scheme = ErrorViewScheme(theme: .default)

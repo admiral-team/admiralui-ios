@@ -34,9 +34,34 @@ final class ImageCardListViewSnapshotTests: XCTestCase {
         let view = createImageCardListView()
         checkImageCardListView(view: view, named: "DarkTheme", testName: "ImageCardListView")
     }
+
+    // MARK: - Scheme Provider
+
+    func testSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = ImageCardListViewScheme()
+        scheme.imageTintColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        let newSchemeProvider = SchemeProvider<ImageCardListViewScheme>(scheme: scheme)
+
+        let view = createImageCardListView(schemeProvider: newSchemeProvider)
+        checkImageCardListView(view: view, named: "SchemeProvider", testName: "ImageCardListView")
+
+        Appearance.shared.theme = .dark
+        let newView = createImageCardListView(schemeProvider: newSchemeProvider)
+        checkImageCardListView(view: newView, named: "SchemeProvider", testName: "ImageCardListView")
+    }
     
     func createImageCardListView() -> some View {
         let view = ImageCardListView (cardImage: Image(uiImage: Asset.Finance.Solid.cardSolid.image))
+        return view
+    }
+
+    func createImageCardListView(schemeProvider: SchemeProvider<ImageCardListViewScheme>) -> some View {
+        let view = ImageCardListView(
+            cardImage: Image(uiImage: Asset.Finance.Solid.cardSolid.image),
+            renderingMode: .template,
+            schemeProvider: schemeProvider
+        )
         return view
     }
     

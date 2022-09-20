@@ -47,11 +47,38 @@ final class TitleWithImageListViewSnapshotTests: XCTestCase {
         let view = createTitleWithImageListView()
         checkTitleWithImageListView(view: view, named: "DarkTheme", testName: "TitleWithImageListView")
     }
+
+    // MARK: - Scheme Provider
+
+    func testSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = TitleWithImageListViewScheme(theme: .default)
+        scheme.titleLabelTextColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        scheme.imageTintColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        let newSchemeProvider = SchemeProvider<TitleWithImageListViewScheme>(scheme: scheme)
+
+        let view = createTitleWithImageListView(schemeProvider: newSchemeProvider)
+        checkTitleWithImageListView(view: view, named: "SchemeProvider", testName: "TitleWithImageListView")
+
+        Appearance.shared.theme = .dark
+        let newView = createTitleWithImageListView(schemeProvider: newSchemeProvider)
+        checkTitleWithImageListView(view: newView, named: "SchemeProvider", testName: "TitleWithImageListView")
+    }
     
     func createTitleWithImageListView() -> some View {
         let view = TitleWithImageListView(
             title: "Курсы валют",
             image: Image(uiImage: Asset.Service.Solid.dragSolid.image))
+        return view
+    }
+
+    func createTitleWithImageListView(schemeProvider: SchemeProvider<TitleWithImageListViewScheme>) -> some View {
+        let view = TitleWithImageListView(
+            title: "Курсы валют",
+            image: Image(uiImage: Asset.Service.Solid.dragSolid.image),
+            renderingMode: .template,
+            schemeProvider: schemeProvider
+        )
         return view
     }
     

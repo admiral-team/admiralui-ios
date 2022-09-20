@@ -71,6 +71,23 @@ final class SubtitleTitleListViewSnapshotTests: XCTestCase {
         let view = createSubtitleTitleListView(style: .headline)
         checkSubtitleTitleListView(view: view, named: "HeadlineDarkTheme", testName: "SubtitleTitleList")
     }
+
+    // MARK: - Scheme Provider
+
+    func testSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = SubtitleTitleListViewScheme(theme: .default)
+        scheme.titleColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        scheme.subtitleColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        let newSchemeProvider = SchemeProvider<SubtitleTitleListViewScheme>(scheme: scheme)
+
+        let view = createSubtitleTitleListView(schemeProvider: newSchemeProvider)
+        checkSubtitleTitleListView(view: view, named: "SchemeProvider", testName: "SubtitleTitleList")
+
+        Appearance.shared.theme = .dark
+        let newView = createSubtitleTitleListView(schemeProvider: newSchemeProvider)
+        checkSubtitleTitleListView(view: newView, named: "SchemeProvider", testName: "SubtitleTitleList")
+    }
     
     func createSubtitleTitleListView(style: TitleSubtitleListViewStyle) -> some View {
         let view = SubtitleTitleListView(
@@ -79,6 +96,17 @@ final class SubtitleTitleListViewSnapshotTests: XCTestCase {
             lineLimit: 3,
             titleSubtitleListViewStyle: style)
             .padding()
+        return view
+    }
+
+    func createSubtitleTitleListView(schemeProvider: SchemeProvider<SubtitleTitleListViewScheme>) -> some View {
+        let view = SubtitleTitleListView(
+            title: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+            subtitle: "SubtitleListView",
+            lineLimit: 3,
+            titleSubtitleListViewStyle: .title,
+            schemeProvider: schemeProvider
+        ).padding()
         return view
     }
     

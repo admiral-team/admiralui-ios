@@ -304,6 +304,7 @@ public struct InputRangeTextField<T>: TextFieldInput, AccessabilitySupportUIKit,
                     value: $sliderValue,
                     minValue: minValue,
                     maxValue: maxValue,
+                    schemeProvider: .constant(scheme: globalScheme.sliderScheme),
                     gestureChange: {
                         DispatchQueue.main.async {
                             self.finishAfterChangeSlider = true

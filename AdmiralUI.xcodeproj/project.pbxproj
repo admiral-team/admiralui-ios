@@ -87,6 +87,15 @@
 		0E2A633226EA1695009CE2C0 /* CalendarHorizontalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A633126EA1695009CE2C0 /* CalendarHorizontalView.swift */; };
 		0E2A633426EF5AB7009CE2C0 /* CalendarVerticalDaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A633326EF5AB7009CE2C0 /* CalendarVerticalDaysView.swift */; };
 		0E33995B28D5D9A600B24722 /* CoundDownViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E33995A28D5D9A600B24722 /* CoundDownViewScheme.swift */; };
+		0E33995D28D5E70900B24722 /* LinkViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E33995C28D5E70900B24722 /* LinkViewScheme.swift */; };
+		0E33995F28D5E73D00B24722 /* ParagraphViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E33995E28D5E73D00B24722 /* ParagraphViewScheme.swift */; };
+		0E33996128D5E74F00B24722 /* TitleButtonDropDownScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E33996028D5E74F00B24722 /* TitleButtonDropDownScheme.swift */; };
+		0E33996328D5E75C00B24722 /* ButtonDropDownScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E33996228D5E75C00B24722 /* ButtonDropDownScheme.swift */; };
+		0E33996528D5E77000B24722 /* TitleArrowWithButtonHeaderScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E33996428D5E77000B24722 /* TitleArrowWithButtonHeaderScheme.swift */; };
+		0E33996728D5E77C00B24722 /* SubtitleTitleHeaderScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E33996628D5E77C00B24722 /* SubtitleTitleHeaderScheme.swift */; };
+		0E33996928D5E78700B24722 /* TitleSubtitleHeaderScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E33996828D5E78700B24722 /* TitleSubtitleHeaderScheme.swift */; };
+		0E33996B28D5E79400B24722 /* DropDownHeaderScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E33996A28D5E79400B24722 /* DropDownHeaderScheme.swift */; };
+		0E33996D28D5E7A100B24722 /* TitleHeaderScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E33996C28D5E7A100B24722 /* TitleHeaderScheme.swift */; };
 		0E38F2FC266F7361002AD565 /* CalendarVerticalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E38F2FB266F7361002AD565 /* CalendarVerticalView.swift */; };
 		0E38F313266F78F4002AD565 /* DateFormmer+WeekDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E38F312266F78F4002AD565 /* DateFormmer+WeekDay.swift */; };
 		0E3961BD25FFCF7D006E2005 /* AdmiralSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E3961B425FFCF7D006E2005 /* AdmiralSwiftUI.framework */; };
@@ -701,7 +710,7 @@
 		E90E514028CF730E004D0386 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90E513F28CF730E004D0386 /* ThemeManager.swift */; };
 		E90E514728CF7475004D0386 /* UIColor+Light.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90E514528CF7475004D0386 /* UIColor+Light.swift */; };
 		E90E514828CF7475004D0386 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90E514628CF7475004D0386 /* UIColor+Hex.swift */; };
-		E910E96D28BDE719000FCD67 /* TwoTitleGhostButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E910E96C28BDE719000FCD67 /* TwoTitleGhostButtonStyle.swift */; };
+		E910E96D28BDE719000FCD67 /* TwoTitleGhostButtonScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E910E96C28BDE719000FCD67 /* TwoTitleGhostButtonScheme.swift */; };
 		E916F9F427677B0A00628C96 /* TextOperationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E916F9F327677B0A00628C96 /* TextOperationView.swift */; };
 		E916F9F627677B2700628C96 /* TextOperationViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E916F9F527677B2700628C96 /* TextOperationViewScheme.swift */; };
 		E916F9FC27688E5900628C96 /* TextOperationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E916F9FB27688E5900628C96 /* TextOperationView.swift */; };
@@ -1030,6 +1039,15 @@
 		0E2DF125254865960087F661 /* StandardSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardSegmentedControl.swift; sourceTree = "<group>"; };
 		0E2DF12E25486EC30087F661 /* LogoSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoSegmentedControl.swift; sourceTree = "<group>"; };
 		0E33995A28D5D9A600B24722 /* CoundDownViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoundDownViewScheme.swift; sourceTree = "<group>"; };
+		0E33995C28D5E70900B24722 /* LinkViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkViewScheme.swift; sourceTree = "<group>"; };
+		0E33995E28D5E73D00B24722 /* ParagraphViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParagraphViewScheme.swift; sourceTree = "<group>"; };
+		0E33996028D5E74F00B24722 /* TitleButtonDropDownScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleButtonDropDownScheme.swift; sourceTree = "<group>"; };
+		0E33996228D5E75C00B24722 /* ButtonDropDownScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonDropDownScheme.swift; sourceTree = "<group>"; };
+		0E33996428D5E77000B24722 /* TitleArrowWithButtonHeaderScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleArrowWithButtonHeaderScheme.swift; sourceTree = "<group>"; };
+		0E33996628D5E77C00B24722 /* SubtitleTitleHeaderScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleTitleHeaderScheme.swift; sourceTree = "<group>"; };
+		0E33996828D5E78700B24722 /* TitleSubtitleHeaderScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSubtitleHeaderScheme.swift; sourceTree = "<group>"; };
+		0E33996A28D5E79400B24722 /* DropDownHeaderScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownHeaderScheme.swift; sourceTree = "<group>"; };
+		0E33996C28D5E7A100B24722 /* TitleHeaderScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleHeaderScheme.swift; sourceTree = "<group>"; };
 		0E38F2FB266F7361002AD565 /* CalendarVerticalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVerticalView.swift; sourceTree = "<group>"; };
 		0E38F312266F78F4002AD565 /* DateFormmer+WeekDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormmer+WeekDay.swift"; sourceTree = "<group>"; };
 		0E3961B425FFCF7D006E2005 /* AdmiralSwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdmiralSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1689,7 +1707,7 @@
 		E90E513F28CF730E004D0386 /* ThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		E90E514528CF7475004D0386 /* UIColor+Light.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Light.swift"; sourceTree = "<group>"; };
 		E90E514628CF7475004D0386 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
-		E910E96C28BDE719000FCD67 /* TwoTitleGhostButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoTitleGhostButtonStyle.swift; sourceTree = "<group>"; };
+		E910E96C28BDE719000FCD67 /* TwoTitleGhostButtonScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoTitleGhostButtonScheme.swift; sourceTree = "<group>"; };
 		E916F9F327677B0A00628C96 /* TextOperationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOperationView.swift; sourceTree = "<group>"; };
 		E916F9F527677B2700628C96 /* TextOperationViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOperationViewScheme.swift; sourceTree = "<group>"; };
 		E916F9FB27688E5900628C96 /* TextOperationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOperationView.swift; sourceTree = "<group>"; };
@@ -2996,6 +3014,7 @@
 			isa = PBXGroup;
 			children = (
 				0E6EA46E26FCF921002EBBBC /* TitleSubtitleHeader.swift */,
+				0E33996828D5E78700B24722 /* TitleSubtitleHeaderScheme.swift */,
 			);
 			path = TitleSubtitle;
 			sourceTree = "<group>";
@@ -3004,6 +3023,7 @@
 			isa = PBXGroup;
 			children = (
 				0E6EA47426FCF953002EBBBC /* SubtitleTitleHeader.swift */,
+				0E33996628D5E77C00B24722 /* SubtitleTitleHeaderScheme.swift */,
 			);
 			path = SubtitleTitle;
 			sourceTree = "<group>";
@@ -3012,6 +3032,7 @@
 			isa = PBXGroup;
 			children = (
 				0E6EA47B26FD4743002EBBBC /* TitleArrowWithButtonHeader.swift */,
+				0E33996428D5E77000B24722 /* TitleArrowWithButtonHeaderScheme.swift */,
 			);
 			path = ArrowWithButton;
 			sourceTree = "<group>";
@@ -3020,7 +3041,9 @@
 			isa = PBXGroup;
 			children = (
 				0E6EA4822701DF7E002EBBBC /* TitleButtonDropDown.swift */,
+				0E33996028D5E74F00B24722 /* TitleButtonDropDownScheme.swift */,
 				0E6EA4852701E407002EBBBC /* ButtonDropDown.swift */,
+				0E33996228D5E75C00B24722 /* ButtonDropDownScheme.swift */,
 			);
 			path = DropDown;
 			sourceTree = "<group>";
@@ -3031,6 +3054,7 @@
 				0E6EA49E2702677F002EBBBC /* ParagraphStyle.swift */,
 				0E6EA48C2701EE4C002EBBBC /* ParagraphLeadingImageType.swift */,
 				0E6EA48A2701EE1E002EBBBC /* ParagraphView.swift */,
+				0E33995E28D5E73D00B24722 /* ParagraphViewScheme.swift */,
 			);
 			path = Paragraph;
 			sourceTree = "<group>";
@@ -3039,6 +3063,7 @@
 			isa = PBXGroup;
 			children = (
 				0E6EA4A227026A2E002EBBBC /* LinkView.swift */,
+				0E33995C28D5E70900B24722 /* LinkViewScheme.swift */,
 			);
 			path = Link;
 			sourceTree = "<group>";
@@ -3189,7 +3214,7 @@
 			isa = PBXGroup;
 			children = (
 				0E81518126944847004E0B34 /* TwoTitleGhostButton.swift */,
-				E910E96C28BDE719000FCD67 /* TwoTitleGhostButtonStyle.swift */,
+				E910E96C28BDE719000FCD67 /* TwoTitleGhostButtonScheme.swift */,
 			);
 			path = TwoTitleGhostButton;
 			sourceTree = "<group>";
@@ -3410,6 +3435,7 @@
 			isa = PBXGroup;
 			children = (
 				0E40A02226FCC6C600B5BECD /* TitleHeader.swift */,
+				0E33996C28D5E7A100B24722 /* TitleHeaderScheme.swift */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -3419,6 +3445,7 @@
 			children = (
 				0E94D05B26FCE8680051BBC2 /* DropDownHeaderType.swift */,
 				0E94D05526FCE7E10051BBC2 /* DropDownHeader.swift */,
+				0E33996A28D5E79400B24722 /* DropDownHeaderScheme.swift */,
 			);
 			path = DropDown;
 			sourceTree = "<group>";
@@ -7319,6 +7346,7 @@
 				0E2A62C626E7C76D009CE2C0 /* UnderlineTabScheme.swift in Sources */,
 				0E16C78D26A1A90200C0E808 /* CalendarView.swift in Sources */,
 				0EB840D127940FFD0010459E /* TextFieldsAccessibilityIdentifiers.swift in Sources */,
+				0E33996928D5E78700B24722 /* TitleSubtitleHeaderScheme.swift in Sources */,
 				0E4561202686094E003F588D /* ShimmerConfig.swift in Sources */,
 				0E4BC7842680BA57000FC891 /* DatePercentListView.swift in Sources */,
 				0EC13718266E0B5F00F4EB7E /* TralingListViewComponent.swift in Sources */,
@@ -7360,9 +7388,11 @@
 				E99FD56B28BE6FBC0014C97C /* MonthYearButtonStyle.swift in Sources */,
 				0EADAA84268B14C8003FF903 /* TagControl.swift in Sources */,
 				0E4BC7922680BA5F000FC891 /* DatePercentListViewScheme.swift in Sources */,
+				0E33996328D5E75C00B24722 /* ButtonDropDownScheme.swift in Sources */,
 				0EFCDB4726B83D69006207B1 /* CurrencyView.swift in Sources */,
 				0EA231242704836700FFF45E /* DoubleSlider.swift in Sources */,
 				0ED0837026CA661B000BE955 /* ChatInput.swift in Sources */,
+				0E33996B28D5E79400B24722 /* DropDownHeaderScheme.swift in Sources */,
 				0E2A62B826E7C64D009CE2C0 /* TitleSubtitleButtonListViewScheme.swift in Sources */,
 				E9C6BF1F28C7A7F900213F5C /* CalendarPickerYear.swift in Sources */,
 				E9B82B6227B40B9300FC7BB9 /* ActionBarControlSchemeSecondary.swift in Sources */,
@@ -7373,6 +7403,7 @@
 				0EA9F4BB262614DE009F4B5A /* CheckBox.swift in Sources */,
 				0E40A02326FCC6C600B5BECD /* TitleHeader.swift in Sources */,
 				E9B4D81E27313AEA00B4DA98 /* ProgressView.swift in Sources */,
+				0E33995F28D5E73D00B24722 /* ParagraphViewScheme.swift in Sources */,
 				0E6223B826BD28890012DB6E /* BadgeView.swift in Sources */,
 				0E59D34E263179FB007B5CC1 /* OutlineSliderTab.swift in Sources */,
 				0E4BC8652681DFCE000FC891 /* ImageCardListView.swift in Sources */,
@@ -7386,6 +7417,7 @@
 				0E2A62C026E7C6EF009CE2C0 /* FeedbackInputControlScheme.swift in Sources */,
 				E9B82B6427B40B9300FC7BB9 /* ActionBarButtonStyleSecondary.swift in Sources */,
 				0E6EA4A327026A2E002EBBBC /* LinkView.swift in Sources */,
+				0E33996128D5E74F00B24722 /* TitleButtonDropDownScheme.swift in Sources */,
 				E94A449F28D32335006625F5 /* ToolBarItemStyle.swift in Sources */,
 				0EC136942667B1BC00F4EB7E /* DoubleTextFieldScheme.swift in Sources */,
 				E9A18D9E273BE26300668C03 /* UploadingImageGroupModifier.swift in Sources */,
@@ -7404,6 +7436,7 @@
 				C6C7D279265BB2B7006F4106 /* SmallInformer.swift in Sources */,
 				0E17A249269E26B900F0A80B /* AnimationCompletionObserverModifier.swift in Sources */,
 				0E2A62E426E8D6DF009CE2C0 /* PrimaryButtonStyle.swift in Sources */,
+				0E33996728D5E77C00B24722 /* SubtitleTitleHeaderScheme.swift in Sources */,
 				E9A18DA4273C079600668C03 /* PrimaryLinkControlScheme.swift in Sources */,
 				0EB853782673A708008FC0FD /* TextView.swift in Sources */,
 				0EC13738266E10A000F4EB7E /* ArrowListView.swift in Sources */,
@@ -7426,6 +7459,7 @@
 				E9C6BF2228C7A7F900213F5C /* CalendarPickerMonth.swift in Sources */,
 				0E6EA46F26FCF921002EBBBC /* TitleSubtitleHeader.swift in Sources */,
 				0E6EA4862701E407002EBBBC /* ButtonDropDown.swift in Sources */,
+				0E33996D28D5E7A100B24722 /* TitleHeaderScheme.swift in Sources */,
 				0E649979264C309500D03D5A /* InputNumber.swift in Sources */,
 				0EBE560326C6CCA900C4A277 /* PinButtonScheme.swift in Sources */,
 				3BC8341D27511A5500F1B06A /* CheckboxTextbuttonViewScheme.swift in Sources */,
@@ -7433,6 +7467,7 @@
 				0E6223B226BC03D60012DB6E /* ZeroScreenViewScheme.swift in Sources */,
 				0E6EA47526FCF953002EBBBC /* SubtitleTitleHeader.swift in Sources */,
 				0E3A110326E15C02007062C5 /* ErrorView.swift in Sources */,
+				0E33996528D5E77000B24722 /* TitleArrowWithButtonHeaderScheme.swift in Sources */,
 				0E17A211269DA1C500F0A80B /* CalendarHorizontalHeaderView.swift in Sources */,
 				0E6FCAA0266E5E8D00761EB1 /* TitleSubtitleButtonListView.swift in Sources */,
 				0E4BC71C267CDD96000FC891 /* RadioButtonListView.swift in Sources */,
@@ -7460,7 +7495,7 @@
 				0E59D35C26317A0D007B5CC1 /* OutlineSliderTabScheme.swift in Sources */,
 				E9C6BF2028C7A7F900213F5C /* CalendarMonth.swift in Sources */,
 				0E2A62E626E8DBD8009CE2C0 /* SecondaryButtonStyle.swift in Sources */,
-				E910E96D28BDE719000FCD67 /* TwoTitleGhostButtonStyle.swift in Sources */,
+				E910E96D28BDE719000FCD67 /* TwoTitleGhostButtonScheme.swift in Sources */,
 				E9B82B5F27B40B9300FC7BB9 /* ActionBarControlView.swift in Sources */,
 				0EB053EE2638BEC400238CB7 /* ArrowSegmentSlider.swift in Sources */,
 				3B362A1927A02F4D007F08D0 /* ToastViewAccessibilityIdentifiers.swift in Sources */,
@@ -7507,6 +7542,7 @@
 				0E4BC72E267CF392000FC891 /* CheckBoxListView.swift in Sources */,
 				0ED2A139274BEA2F00DF1315 /* SubtitleImageArrowListViewScheme.swift in Sources */,
 				0E8B0F3126DE346600EEA0D3 /* PinCodeKeyboardScheme.swift in Sources */,
+				0E33995D28D5E70900B24722 /* LinkViewScheme.swift in Sources */,
 				0EAF71B9263875620041CA08 /* InformerTab.swift in Sources */,
 				E9C6BF1E28C7A7F900213F5C /* CalendarWeek.swift in Sources */,
 				0E6223A926BAF4D30012DB6E /* HideToastOperation.swift in Sources */,

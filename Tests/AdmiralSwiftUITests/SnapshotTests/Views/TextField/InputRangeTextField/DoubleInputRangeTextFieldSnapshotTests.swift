@@ -47,6 +47,28 @@ final class DoubleInputRangeTextFieldSnapshotTests: XCTestCase {
         let view = createDoubleInputRangeTextField()
         checkDoubleInputRangeTextField(view: view, named: "DarkTheme", testName: "DoubleInputRangeTextField")
     }
+
+    // MARK: - Scheme Provider
+
+    func testSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = DoubleInputRangeTextFieldScheme()
+        scheme.textColor = AColor(color: .systemPink)
+        scheme.slider.thumbColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        scheme.slider.backgroundColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        scheme.textField.textColor = AColor(color: .systemPink)
+        scheme.textField.errorColor = AColor(color: .systemPink)
+        scheme.textField.underlineColor = AColor(color: .systemPink)
+        scheme.textField.placeholderColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        let newSchemeProvider = SchemeProvider<DoubleInputRangeTextFieldScheme>(scheme: scheme)
+
+        let view = createDoubleInputRangeTextField(schemeProvider: newSchemeProvider)
+        checkDoubleInputRangeTextField(view: view, named: "SchemeProvider", testName: "DoubleInputRangeTextField")
+
+        Appearance.shared.theme = .dark
+        let newView = createDoubleInputRangeTextField(schemeProvider: newSchemeProvider)
+        checkDoubleInputRangeTextField(view: newView, named: "SchemeProvider", testName: "DoubleInputRangeTextField")
+    }
     
     func createDoubleInputRangeTextField() -> some View {
         let view = DoubleInputRangeTextField(
@@ -62,6 +84,25 @@ final class DoubleInputRangeTextFieldSnapshotTests: XCTestCase {
             maxValue: 1000,
             leadingText: .constant("₽"),
             trailingText: .constant("₽"))
+        return view
+    }
+
+    func createDoubleInputRangeTextField(schemeProvider: SchemeProvider<DoubleInputRangeTextFieldScheme>) -> some View {
+        let view = DoubleInputRangeTextField(
+            .constant("Content"),
+            contentTo: .constant("contentTo"),
+            placeholderFrom: "PlaceholderFrom",
+            placeholderTo: "PlaceholderTo",
+            name: "Optional label",
+            info: .constant("Additional text"),
+            sliderValueFrom: 100,
+            sliderValueTo: 300,
+            minValue: 100,
+            maxValue: 1000,
+            leadingText: .constant("₽"),
+            trailingText: .constant("₽"),
+            schemeProvider: schemeProvider
+        )
         return view
     }
     

@@ -5,7 +5,6 @@ import AdmiralTheme
 import AdmiralUIResources
 @testable import AdmiralSwiftUI
 
-
 private struct ButtonWrapper<T: View>: View {
 
     // MARK: - Properties
@@ -229,7 +228,7 @@ final class ButtonSnapshotTests: XCTestCase {
         checkButton(view: platfotmButton, named: "platformDarkTheme", testName: "Button")
     }
 
-    func testCustomSwitchSchemeProvider() {
+    func testPrimaryButtonSchemeProvider() {
         Appearance.shared.theme = .default
         var scheme = PrimaryButtonScheme(theme: .default)
         scheme.backgroundColor = AColor(color: .systemPink)
@@ -242,7 +241,7 @@ final class ButtonSnapshotTests: XCTestCase {
                 sizeType: .big,
                 schemeProvider: newSchemeProvider)
             )
-        checkButton(view: primaryButton, named: "SchemeProvider", testName: "Button")
+        checkButton(view: primaryButton, named: "PrimaryButton.SchemeProvider", testName: "Button")
 
         Appearance.shared.theme = .dark
         let newPrimaryButton =  Button("Text", action: {})
@@ -251,7 +250,110 @@ final class ButtonSnapshotTests: XCTestCase {
                 sizeType: .big,
                 schemeProvider: newSchemeProvider)
             )
-        checkButton(view: newPrimaryButton, named: "SchemeProvider", testName: "Button")
+        checkButton(view: newPrimaryButton, named: "PrimaryButton.SchemeProvider", testName: "Button")
+    }
+
+    func testTwoTitlePrimaryButtonSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = TwoTitlePrimaryButtonScheme(theme: .default)
+        scheme.backgroundColor = AColor(color: .systemPink)
+        scheme.buttonBackgroundColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        let newSchemeProvider = SchemeProvider<TwoTitlePrimaryButtonScheme>(scheme: scheme)
+
+        let twoTitlePrimaryButton = Button(
+            action: {},
+            label: {}
+        ).buttonStyle(
+            TwoTitlePrimaryButtonStyle(
+                leftTitle: "leftText",
+                rightTitle: "rightText",
+                schemeProvider: newSchemeProvider
+            )
+        )
+        checkButton(view: twoTitlePrimaryButton, named: "TwoTitlePrimaryButton.SchemeProvider", testName: "Button")
+
+        Appearance.shared.theme = .dark
+        let newTwoTitlePrimaryButton = Button(
+            action: {},
+            label: {}
+        ).buttonStyle(
+            TwoTitlePrimaryButtonStyle(
+                leftTitle: "leftText",
+                rightTitle: "rightText",
+                schemeProvider: newSchemeProvider
+            )
+        )
+        checkButton(view: newTwoTitlePrimaryButton, named: "TwoTitlePrimaryButton.SchemeProvider", testName: "Button")
+    }
+
+    func testTwoTitleGhostButtonSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = TwoTitleGhostButtonScheme(theme: .default)
+        scheme.backgroundColor = AColor(color: .systemPink)
+        let newSchemeProvider = SchemeProvider<TwoTitleGhostButtonScheme>(scheme: scheme)
+
+        let twoTitleGhostButton = TwoTitleGhostButton(
+            leftText: "leftText",
+            rightText: "rightText",
+            leftAction: {},
+            rightAction: {},
+            schemeProvider: newSchemeProvider
+        )
+        checkButton(view: twoTitleGhostButton, named: "TwoTitleGhostButton.SchemeProvider", testName: "Button")
+
+        Appearance.shared.theme = .dark
+        let newTwoTitleGhostButton = TwoTitleGhostButton(
+            leftText: "leftText",
+            rightText: "rightText",
+            leftAction: {},
+            rightAction: {},
+            schemeProvider: newSchemeProvider
+        )
+        checkButton(view: newTwoTitleGhostButton, named: "TwoTitleGhostButton.SchemeProvider", testName: "Button")
+    }
+
+    func testGhostButtonSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = GhostButtonScheme(theme: .default)
+        scheme.textColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        let newSchemeProvider = SchemeProvider<GhostButtonScheme>(scheme: scheme)
+
+        let ghostButton = Button("Text", action: {})
+                .buttonStyle(GhostButtonStyle(
+                    isLoading: .constant(false),
+                    schemeProvider: newSchemeProvider
+                ))
+        checkButton(view: ghostButton, named: "GhostButton.SchemeProvider", testName: "Button")
+
+        Appearance.shared.theme = .dark
+        let newGhostButton = Button("Text", action: {})
+                .buttonStyle(GhostButtonStyle(
+                    isLoading: .constant(false),
+                    schemeProvider: newSchemeProvider
+                ))
+        checkButton(view: newGhostButton, named: "GhostButton.SchemeProvider", testName: "Button")
+    }
+
+    func testSecondaryButtonSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = SecondaryButtonScheme(theme: .default)
+        scheme.textColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        let newSchemeProvider = SchemeProvider<SecondaryButtonScheme>(scheme: scheme)
+
+        let secondaryButton = Button("Text", action: {})
+            .buttonStyle(SecondaryButtonStyle(
+                isLoading: .constant(false),
+                schemeProvider: newSchemeProvider
+            ))
+        checkButton(view: secondaryButton, named: "SecondaryButton.SchemeProvider", testName: "Button")
+
+        Appearance.shared.theme = .dark
+        let newSecondaryButton = Button("Text", action: {})
+            .buttonStyle(SecondaryButtonStyle(
+                isLoading: .constant(false),
+                schemeProvider: newSchemeProvider
+            ))
+        checkButton(view: newSecondaryButton, named: "SecondaryButton.SchemeProvider", testName: "Button")
     }
 }
 

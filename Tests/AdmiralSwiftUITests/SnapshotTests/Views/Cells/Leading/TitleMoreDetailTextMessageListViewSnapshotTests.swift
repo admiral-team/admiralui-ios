@@ -47,6 +47,25 @@ final class TitleMoreDetailTextMessageListViewSnapshotTests: XCTestCase {
         let view = createTitleMoreDetailTextMessageListView()
         checkTitleMoreDetailTextMessageListView(view: view, named: "DarkTheme", testName: "TitleMoreDetailTextMessageListView")
     }
+
+    // MARK: - Scheme Provider
+
+    func testSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = TitleMoreDetailTextMessageListViewScheme(theme: .default)
+        scheme.detaileMoreLabelTextColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        scheme.detaileTitleLabelTextColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        scheme.titleLabelTextColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        scheme.subtitleLabelTextColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        let newSchemeProvider = SchemeProvider<TitleMoreDetailTextMessageListViewScheme>(scheme: scheme)
+
+        let view = createTitleMoreDetailTextMessageListView(schemeProvider: newSchemeProvider)
+        checkTitleMoreDetailTextMessageListView(view: view, named: "SchemeProvider", testName: "TitleMoreDetailTextMessageListView")
+
+        Appearance.shared.theme = .dark
+        let newView = createTitleMoreDetailTextMessageListView(schemeProvider: newSchemeProvider)
+        checkTitleMoreDetailTextMessageListView(view: newView, named: "SchemeProvider", testName: "TitleMoreDetailTextMessageListView")
+    }
     
     func createTitleMoreDetailTextMessageListView() -> some View {
         let view = TitleMoreDetailTextMessageListView(
@@ -58,6 +77,21 @@ final class TitleMoreDetailTextMessageListViewSnapshotTests: XCTestCase {
             tagText: "Percent",
             messageText: "Text message",
             infoImage: AdmiralUIResources.AssetSymbol.Service.Outline.info.image)
+        return view
+    }
+
+    func createTitleMoreDetailTextMessageListView(schemeProvider: SchemeProvider<TitleMoreDetailTextMessageListViewScheme>) -> some View {
+        let view = TitleMoreDetailTextMessageListView(
+            title: "Title",
+            more: "More",
+            detaile: "Detail",
+            detaileMore: "More",
+            subtitle: "Subtitle",
+            tagText: "Percent",
+            messageText: "Text message",
+            infoImage: AdmiralUIResources.AssetSymbol.Service.Outline.info.image,
+            schemeProvider: schemeProvider
+        )
         return view
     }
     
