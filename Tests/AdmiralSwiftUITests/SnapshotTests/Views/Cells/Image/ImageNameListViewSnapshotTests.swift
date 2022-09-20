@@ -34,9 +34,33 @@ final class ImageNameListViewSnapshotTests: XCTestCase {
         let view = createImageNameListView()
         checkImageNameListView(view: view, named: "ImageNameListViewDarkTheme", testName: "ImageNameListView")
     }
+
+    // MARK: - Scheme Provider
+
+    func testSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = ImageNameListViewScheme()
+        scheme.backgroundNameViewColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        let newSchemeProvider = SchemeProvider<ImageNameListViewScheme>(scheme: scheme)
+
+        let view = createImageNameListView(schemeProvider: newSchemeProvider)
+        checkImageNameListView(view: view, named: "SchemeProvider", testName: "ImageNameListView")
+
+        Appearance.shared.theme = .dark
+        let newView = createImageNameListView(schemeProvider: newSchemeProvider)
+        checkImageNameListView(view: newView, named: "SchemeProvider", testName: "ImageNameListView")
+    }
     
     func createImageNameListView() -> some View {
         let view = ImageNameListView(text: "IN")
+        return view
+    }
+
+    func createImageNameListView(schemeProvider: SchemeProvider<ImageNameListViewScheme>) -> some View {
+        let view = ImageNameListView(
+            text: "IN",
+            schemeProvider: schemeProvider
+        )
         return view
     }
     

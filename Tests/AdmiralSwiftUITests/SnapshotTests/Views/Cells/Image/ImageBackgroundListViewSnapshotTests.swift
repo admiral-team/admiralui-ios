@@ -34,9 +34,33 @@ final class ImageBackgroundListViewSnapshotTests: XCTestCase {
         let view = createImageBackgroundListView()
         checkImageBackgroundListView(view: view, named: "DarkTheme", testName: "ImageBackgroundListView")
     }
+
+    // MARK: - Scheme Provider
+
+    func testSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = ImageBackgroundListViewScheme()
+        scheme.backgroundImageViewColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        let newSchemeProvider = SchemeProvider<ImageBackgroundListViewScheme>(scheme: scheme)
+
+        let view = createImageBackgroundListView(schemeProvider: newSchemeProvider)
+        checkImageBackgroundListView(view: view, named: "SchemeProvider", testName: "ImageBackgroundListView")
+
+        Appearance.shared.theme = .dark
+        let newView = createImageBackgroundListView(schemeProvider: newSchemeProvider)
+        checkImageBackgroundListView(view: newView, named: "SchemeProvider", testName: "ImageBackgroundListView")
+    }
     
     func createImageBackgroundListView() -> some View {
         let view = ImageBackgroundListView(image: Image(uiImage: Asset.Finance.Solid.debitCardSolid.image))
+        return view
+    }
+
+    func createImageBackgroundListView(schemeProvider: SchemeProvider<ImageBackgroundListViewScheme>) -> some View {
+        let view = ImageBackgroundListView(
+            image: Image(uiImage: Asset.Finance.Solid.debitCardSolid.image),
+            schemeProvider: schemeProvider
+        )
         return view
     }
     
