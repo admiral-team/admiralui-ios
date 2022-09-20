@@ -131,6 +131,23 @@ final class SmallInformerSnapshotTests: XCTestCase {
         let view = createSmallInformer(style: .error, arrowDirection: .bottom)
         checkSmallInformer(view: view, named: "ErrorBottom.DarkTheme", testName: "SmallInformer")
     }
+
+    // MARK: - Scheme Providers
+
+    func testSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = SmallInformerScheme(theme: .default)
+        scheme.backgroundColors.set(parameter: AColor(color: .systemPink), isEnabled: true, style: .default)
+        scheme.wrapViewBackgroundColors.set(parameter: AColor(color: .systemPink), isEnabled: true, style: .default)
+        let newSchemeProvider = SchemeProvider<SmallInformerScheme>(scheme: scheme)
+
+        let view = createSmallInformer(schemeProvider: newSchemeProvider)
+        checkSmallInformer(view: view, named: "SchemeProvider", testName: "SmallInformer")
+
+        Appearance.shared.theme = .dark
+        let newView = createSmallInformer(schemeProvider: newSchemeProvider)
+        checkSmallInformer(view: newView, named: "SchemeProvider", testName: "SmallInformer")
+    }
     
     func createSmallInformer(style: InformerStyleSwiftUI, arrowDirection: SmallInformerArrowDirection) -> some View {
         let view = SmallInformer(
@@ -138,6 +155,17 @@ final class SmallInformerSnapshotTests: XCTestCase {
             informerStyle: style,
             arrowDirection: arrowDirection,
             arrowOffset: 20)
+        return view
+    }
+
+    func createSmallInformer(schemeProvider: SchemeProvider<SmallInformerScheme>) -> some View {
+        let view = SmallInformer(
+            title: "SmallInformer",
+            informerStyle: .default,
+            arrowDirection: .top,
+            arrowOffset: 20,
+            schemeProvider: schemeProvider
+        )
         return view
     }
     
