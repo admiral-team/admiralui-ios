@@ -82,8 +82,8 @@ public struct TitleSubtitleButtonListView: View, LeadingListViewComponent {
         subtitle: String?,
         subtitleLineLimit: Int? = nil,
         buttonTitle: String?,
-        buttonAction: (() -> ())?,
-        schemeProvider: SchemeProvider<TitleSubtitleButtonListViewScheme> = AppThemeSchemeProvider<TitleSubtitleButtonListViewScheme>()
+        schemeProvider: SchemeProvider<TitleSubtitleButtonListViewScheme> = AppThemeSchemeProvider<TitleSubtitleButtonListViewScheme>(),
+        buttonAction: (() -> ())?
     ) {
         self._title = Binding(get: { return title }, set: { _ in })
         self._tagSubtitle = Binding(get: { return tagSubtitle }, set: { _ in })
@@ -113,14 +113,6 @@ public struct TitleSubtitleButtonListView: View, LeadingListViewComponent {
                 buttonView(scheme: scheme)
             }
         }
-    }
-    
-    // MARK: - Internal Methods
-    
-    func scheme(_ scheme: TitleSubtitleButtonListViewScheme) -> some View {
-        var view = self
-        view.schemeProvider = .constant(scheme: scheme)
-        return view.id(UUID())
     }
     
     // MARK: - Private Methods

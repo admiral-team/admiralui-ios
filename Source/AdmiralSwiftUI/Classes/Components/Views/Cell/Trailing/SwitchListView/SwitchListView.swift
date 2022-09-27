@@ -53,8 +53,10 @@ public struct SwitchListView: View, TralingListViewComponent {
         let scheme = schemeProvider.scheme
         HStack(alignment: .center) {
             Spacer()
-            CustomSwitch(isOn: $isSwitchSelected)
-                .scheme(scheme.customSwitch)
+            CustomSwitch(
+                isOn: $isSwitchSelected,
+                schemeProvider: .constant(scheme: scheme.customSwitchScheme)
+            )
         }
     }
     

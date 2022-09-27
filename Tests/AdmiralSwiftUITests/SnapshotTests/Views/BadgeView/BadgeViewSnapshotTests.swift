@@ -107,11 +107,35 @@ final class BadgeViewSnapshotTests: XCTestCase {
         let view = createBadgeView(style: .additional)
         checkNumberBadgeView(view: view, named: "AdditionalStyle.DarkTheme", testName: "BadgeView")
     }
+
+    // MARK: - Scheme Providers
+
+    func testCustomSwitchSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = BadgeViewScheme()
+        scheme.backgroundColor.set(parameter: AColor(color: .systemPink), for: .normal, style: .default)
+        let newSchemeProvider = SchemeProvider<BadgeViewScheme>(scheme: scheme)
+
+        let view = createBadgeView(schemeProvider: newSchemeProvider)
+        checkNumberBadgeView(view: view, named: "SchemeProvider", testName: "BadgeView")
+
+        Appearance.shared.theme = .dark
+        let newView = createBadgeView(schemeProvider: newSchemeProvider)
+        checkNumberBadgeView(view: newView, named: "SchemeProvider", testName: "BadgeView")
+    }
     
     func createBadgeView(style: BadgeStyle) -> some View {
         let numberBadgeView = BadgeView(badgeStyle: style,
                                         value: 10,
                                         content: {})
+        return numberBadgeView
+    }
+
+    func createBadgeView(schemeProvider: SchemeProvider<BadgeViewScheme>) -> some View {
+        let numberBadgeView = BadgeView(badgeStyle: .default,
+                                        value: 10,
+                                        content: {},
+                                        schemeProvider: schemeProvider)
         return numberBadgeView
     }
     

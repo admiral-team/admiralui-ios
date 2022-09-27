@@ -44,6 +44,10 @@ public struct DropDownHeader: View {
     /// Image rendering mode.
     public var renderingMode: Image.TemplateRenderingMode
 
+    // MARK: - Private Properties
+
+    @ObservedObject private var schemeProvider: SchemeProvider<DropDownHeaderScheme>
+
     // MARK: - Initializer
 
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
@@ -51,12 +55,14 @@ public struct DropDownHeader: View {
         title: String?,
         dropDownHeaderType: DropDownHeaderType = .down,
         renderingMode: Image.TemplateRenderingMode = .original,
-        headerStyle: HeaderStyle = .title
+        headerStyle: HeaderStyle = .title,
+        schemeProvider: SchemeProvider<DropDownHeaderScheme> = AppThemeSchemeProvider<DropDownHeaderScheme>()
     ) {
         self._title = Binding(get: { return title }, set: { _ in })
         self.textBlockStyle = headerStyle.textBlockStyle
         self._dropDownHeaderType = Binding(get: { return dropDownHeaderType }, set: { _ in })
         self.renderingMode = renderingMode
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Body
@@ -66,13 +72,21 @@ public struct DropDownHeader: View {
         return ListCell(centerView: {
             TitleListView(
                 title: title,
-                titleListViewStyle: titleListViewStyle)
+                titleListViewStyle: titleListViewStyle,
+                schemeProvider: .constant(scheme: schemeProvider.scheme.centerViewScheme)
+            )
         },
         trailingView: {
             IconListView(
                 image: dropDownHeaderType.image.renderingMode(renderingMode),
-                renderingMode: renderingMode)})
-        .configCell(minHeight: textBlockStyle.minHeight, edgeInsets: textBlockStyle.edgeInsets)
+                renderingMode: renderingMode,
+                schemeProvider: .constant(scheme: schemeProvider.scheme.trailingViewScheme)
+            )})
+        .configCell(
+            minHeight: textBlockStyle.minHeight,
+            edgeInsets: textBlockStyle.edgeInsets,
+            schemeProvider: .constant(scheme: schemeProvider.scheme.listCellScheme)
+        )
     }
 }
 

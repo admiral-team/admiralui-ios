@@ -304,6 +304,7 @@ public struct InputRangeTextField<T>: TextFieldInput, AccessabilitySupportUIKit,
                     value: $sliderValue,
                     minValue: minValue,
                     maxValue: maxValue,
+                    schemeProvider: .constant(scheme: globalScheme.sliderScheme),
                     gestureChange: {
                         DispatchQueue.main.async {
                             self.finishAfterChangeSlider = true
@@ -350,14 +351,6 @@ public struct InputRangeTextField<T>: TextFieldInput, AccessabilitySupportUIKit,
         var view = self
         view.accessibilityIdentifier = identifierUIKit
         return view
-    }
-    
-    // MARK: - Internal Methods
-    
-    func scheme(_ scheme: InputRangeTextFieldScheme) -> some View {
-        var view = self
-        view.schemeProvider = .constant(scheme: scheme)
-        return view.id(UUID())
     }
     
     // MARK: - Private Methods

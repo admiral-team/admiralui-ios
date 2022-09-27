@@ -272,6 +272,10 @@ lane :increment_app_version do |options|
     path: File.join(Dir.pwd, '../AdmiralUIResources.podspec'), 
     version: version_number
   )
+  increment_podspec_version(
+    path: File.join(Dir.pwd, '../AdmiralCore.podspec'), 
+    version: version_number
+  )
 end
 
 lane :increment_app_build do |options|

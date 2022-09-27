@@ -85,15 +85,4 @@ public struct TwoTitleGhostButton: View {
 
     }
     
-    // MARK: - Public Methods
-    
-    /// Install theme.
-    /// - Parameter scheme: Scheme view.
-    /// - Returns: view.
-    public func scheme(_ scheme: TwoTitleGhostButtonScheme) -> some View {
-        var view = self
-        view.schemeProvider = .constant(scheme: scheme)
-        return view.id(UUID())
-    }
-    
 }

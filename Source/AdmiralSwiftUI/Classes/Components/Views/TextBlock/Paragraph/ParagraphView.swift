@@ -73,6 +73,10 @@ public struct ParagraphView: View {
     /// Image rendering mode.
     @Binding public var renderingMode: Image.TemplateRenderingMode
 
+    // MARK: - Private Properties
+
+    @ObservedObject private var schemeProvider: SchemeProvider<ParagraphViewScheme>
+
     // MARK: - Initializer
 
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
@@ -82,7 +86,8 @@ public struct ParagraphView: View {
         renderingMode: Image.TemplateRenderingMode = .template,
         trailingImage: Image? = nil,
         textAligment: TextAlignment = .leading,
-        paragraphStyle: ParagraphStyle = .primary
+        paragraphStyle: ParagraphStyle = .primary,
+        schemeProvider: SchemeProvider<ParagraphViewScheme> = AppThemeSchemeProvider<ParagraphViewScheme>()
     ) {
         self._title = Binding(get: { return title }, set: { _ in })
         self._paragraphImageType = Binding(get: { return paragraphImageType }, set: { _ in })
@@ -90,6 +95,7 @@ public struct ParagraphView: View {
         self.textBlockStyle = paragraphStyle.textBlockStyle
         self._renderingMode = Binding(get: { return renderingMode }, set: { _ in })
         self._textAligment = Binding(get: { return textAligment }, set: { _ in })
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Body
@@ -109,25 +115,32 @@ public struct ParagraphView: View {
                 ImageListView(
                     image: paragraphImageType?.image ?? Image(""),
                     renderingMode: renderingMode,
-                    imageListViewStyle: imageListViewStyle
+                    imageListViewStyle: imageListViewStyle,
+                    schemeProvider: .constant(scheme: schemeProvider.scheme.leadingViewScheme)
                 )
             } : nil,
             centerView: {
                 TitleListView(
                     title: title,
                     textAligment: textAligment,
-                    titleListViewStyle: titleListViewStyle)
+                    titleListViewStyle: titleListViewStyle,
+                    schemeProvider: .constant(scheme: schemeProvider.scheme.centerViewScheme)
+                )
             },
             trailingView: trailingImage != nil ? {
                 IconListView(
                     image: trailingImage ?? Image(""),
                     renderingMode: renderingMode,
-                    iconListViewStyle: iconListViewStyle)
+                    iconListViewStyle: iconListViewStyle,
+                    schemeProvider: .constant(scheme: schemeProvider.scheme.trailingViewScheme)
+                )
             } : nil)
             .configCell(
                 minHeight: textBlockStyle.minHeight,
                 edgeInsets: textBlockStyle.edgeInsets,
-                leadingViewWidth: LayoutGrid.tripleModule)
+                leadingViewWidth: LayoutGrid.tripleModule,
+                schemeProvider: .constant(scheme: schemeProvider.scheme.listCellScheme)
+            )
     }
 }
 

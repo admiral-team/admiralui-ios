@@ -83,6 +83,23 @@ final class TitleListViewSnapshotTests: XCTestCase {
         let view = createTitleListView(style: .body)
         checkTitleListView(view: view, named: "BodyDarkTheme", testName: "TitleListView")
     }
+
+
+    // MARK: - Scheme Provider
+
+    func testSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = TitleListViewScheme(theme: .default)
+        scheme.textColor.set(parameter: AColor(color: .systemPink), for: .normal, style: .paragraph)
+        let newSchemeProvider = SchemeProvider<TitleListViewScheme>(scheme: scheme)
+
+        let view = createTitleListView(schemeProvider: newSchemeProvider)
+        checkTitleListView(view: view, named: "SchemeProvider", testName: "TitleListView")
+
+        Appearance.shared.theme = .dark
+        let newView = createTitleListView(schemeProvider: newSchemeProvider)
+        checkTitleListView(view: newView, named: "SchemeProvider", testName: "TitleListView")
+    }
     
     func createTitleListView(style: TitleListViewStyle) -> some View {
         let view = TitleListView(
@@ -90,6 +107,17 @@ final class TitleListViewSnapshotTests: XCTestCase {
             textAligment: .center,
             lineLimit: 3,
             titleListViewStyle: style
+        ).padding()
+        return view
+    }
+
+    func createTitleListView(schemeProvider: SchemeProvider<TitleListViewScheme>) -> some View {
+        let view = TitleListView(
+            title: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+            textAligment: .center,
+            lineLimit: 3,
+            titleListViewStyle: .paragraph,
+            schemeProvider: schemeProvider
         ).padding()
         return view
     }

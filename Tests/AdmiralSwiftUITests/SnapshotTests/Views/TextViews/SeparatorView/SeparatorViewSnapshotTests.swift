@@ -71,9 +71,33 @@ final class SeparatorViewSnapshotTests: XCTestCase {
         let view = createSeparatorView(style: .short)
         checkSeparatorView(view: view, named: "ShortStyle.DarkTheme", testName: "SeparatorView")
     }
+
+    // MARK: - Scheme Provider
+
+    func testSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = SeparatorViewScheme(theme: .default)
+        scheme.lineTintColor = AColor(color: .systemPink)
+        let newSchemeProvider = SchemeProvider<SeparatorViewScheme>(scheme: scheme)
+
+        let view = createSeparatorView(schemeProvider: newSchemeProvider)
+        checkSeparatorView(view: view, named: "SchemeProvider", testName: "SeparatorView")
+
+        Appearance.shared.theme = .dark
+        let newView = createSeparatorView(schemeProvider: newSchemeProvider)
+        checkSeparatorView(view: newView, named: "SchemeProvider", testName: "SeparatorView")
+    }
     
     func createSeparatorView(style: SeparatorStyle) -> some View {
         let view = SeparatorView(paddingStyle: style)
+        return view
+    }
+
+    func createSeparatorView(schemeProvider: SchemeProvider<SeparatorViewScheme>) -> some View {
+        let view = SeparatorView(
+            paddingStyle: .long,
+            schemeProvider: schemeProvider
+        )
         return view
     }
     

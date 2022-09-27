@@ -62,8 +62,7 @@ public struct ButtonListView: View, TralingListViewComponent {
     public var body: some View {
         HStack(alignment: .center) {
             Button(text, action: action)
-                .buttonStyle(GhostButtonStyle(
-                    schemeProvider: .constant(scheme: schemeProvider.scheme.buttonScheme)))
+                .buttonStyle(GhostButtonStyle(schemeProvider: .constant(scheme: schemeProvider.scheme.buttonScheme)))
         }
     }
     

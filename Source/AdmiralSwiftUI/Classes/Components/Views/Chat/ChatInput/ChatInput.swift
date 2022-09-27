@@ -292,12 +292,6 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
 
     // MARK: - Internal Methods
 
-    func scheme(_ scheme: ChatInputScheme) -> some View {
-        var view = self
-        view.schemeProvider = SchemeProvider.constant(scheme: scheme)
-        return view.id(UUID())
-    }
-
     @ViewBuilder
     func textView() -> some View {
         let scheme = schemeProvider.scheme

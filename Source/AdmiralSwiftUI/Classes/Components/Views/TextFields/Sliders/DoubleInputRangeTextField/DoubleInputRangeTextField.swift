@@ -298,7 +298,7 @@ public struct DoubleInputRangeTextField: AccessabilitySupportUIKit, Identifiable
                     minValue: minValue,
                     maxValue: maxValue,
                     segmentSize: $sizeModifier,
-                    scheme: globalScheme.slider,
+                    schemeProvider: .constant(scheme: globalScheme.slider),
                     gestureChange: {
                         DispatchQueue.main.async {
                             self.finishAfterChangeSlider = true
@@ -353,14 +353,6 @@ public struct DoubleInputRangeTextField: AccessabilitySupportUIKit, Identifiable
         var view = self
         view.accessibilityIdentifierFirst = identifierUIKit
         return view
-    }
-    
-    // MARK: - Internal Methods
-    
-    func scheme(_ scheme: DoubleInputRangeTextFieldScheme) -> some View {
-        var view = self
-        view.schemeProvider = .constant(scheme: scheme)
-        return view.id(UUID())
     }
     
     // MARK: - Private Methods

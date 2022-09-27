@@ -75,13 +75,5 @@ public struct ImageCardListView: View, ImageListViewComponent {
         }
     }
     
-    // MARK: - Internal Methods
-    
-    func scheme(_ scheme: ImageCardListViewScheme) -> some View {
-        var view = self
-        view.schemeProvider = .constant(scheme: scheme)
-        return view.id(UUID())
-    }
-    
 }
 

@@ -34,12 +34,37 @@ final class FeedbackInputControlSnapshotTests: XCTestCase {
         let view = createFeedbackInputControl()
         checkFeedbackInputControl(view: view, named: "DarkTheme", testName: "FeedbackInputControl")
     }
+
+    // MARK: - Scheme Provider
+
+    func testSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = FeedbackInputControlScheme()
+        scheme.selectedColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        let newSchemeProvider = SchemeProvider<FeedbackInputControlScheme>(scheme: scheme)
+
+        let view = createFeedbackInputControl(schemeProvider: newSchemeProvider)
+        checkFeedbackInputControl(view: view, named: "SchemeProvider", testName: "FeedbackInputControl")
+
+        Appearance.shared.theme = .dark
+        let newView = createFeedbackInputControl(schemeProvider: newSchemeProvider)
+        checkFeedbackInputControl(view: newView, named: "SchemeProvider", testName: "FeedbackInputControl")
+    }
     
     func createFeedbackInputControl() -> some View {
         let view = FeedbackInputControl(
             cursorPosition: .constant(100),
             itemsCount: 10)
             .frame(width: 200, height: 100, alignment: .bottom)
+        return view
+    }
+
+    func createFeedbackInputControl(schemeProvider: SchemeProvider<FeedbackInputControlScheme>) -> some View {
+        let view = FeedbackInputControl(
+            cursorPosition: .constant(100),
+            itemsCount: 10,
+            schemeProvider: schemeProvider
+        ).frame(width: 200, height: 100, alignment: .bottom)
         return view
     }
     

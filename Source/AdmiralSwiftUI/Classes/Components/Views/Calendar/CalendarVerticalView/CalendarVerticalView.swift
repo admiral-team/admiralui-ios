@@ -134,14 +134,6 @@ struct CalendarVerticalView: View {
         }
     }
 
-    // MARK: - Internal Methods
-
-    func scheme(_ scheme: CalendarVerticalViewScheme) -> some View {
-        var view = self
-        view.schemeProvider = SchemeProvider.constant(scheme: scheme)
-        return view.id(UUID())
-    }
-
     func contentListCell(scheme: CalendarVerticalViewScheme, scrollView: ScrollViewProxy) -> some View {
         ForEach(dates, id: \.self) { date in
             monthView(date: date)

@@ -67,17 +67,6 @@ public struct TwoTitlePrimaryButton: View {
             )
     }
     
-    // MARK: - Public Methods
-    
-    /// Install theme.
-    /// - Parameter scheme: Scheme view.
-    /// - Returns: view.
-    public func scheme(_ scheme: TwoTitlePrimaryButtonScheme) -> some View {
-        var view = self
-        view.schemeProvider = .constant(scheme: scheme)
-        return view.id(UUID())
-    }
-    
 }
 
 @available(iOS 14.0, *)

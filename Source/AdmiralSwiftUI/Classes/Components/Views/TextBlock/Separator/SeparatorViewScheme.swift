@@ -17,6 +17,7 @@ import AdmiralUIResources
  let scheme = SeparatorViewScheme()
  ```
  */
+@available(iOS 14.0.0, *)
 public struct SeparatorViewScheme: AppThemeScheme {
 
     // MARK: - Public Properties
@@ -24,11 +25,14 @@ public struct SeparatorViewScheme: AppThemeScheme {
     /// The line tint color
     public var lineTintColor: AColor
 
+    /// List cell scheme.
+    public var listCellScheme: ListCellScheme
+
     // MARK: - Initializer
 
     public init(theme: AppTheme = .default) {
         lineTintColor = theme.colors.elementAdditional
+        listCellScheme = ListCellScheme(theme: theme)
     }
 
 }
-
