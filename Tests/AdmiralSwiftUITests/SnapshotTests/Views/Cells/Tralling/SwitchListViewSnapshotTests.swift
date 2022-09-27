@@ -65,7 +65,7 @@ final class SwitchListViewSnapshotTests: XCTestCase {
     func testSchemeProvider() {
         Appearance.shared.theme = .default
         var scheme = SwitchListViewScheme(theme: .default)
-        scheme.customSwitch.tintColor = AColor(color: .systemPink)
+        scheme.customSwitchScheme.tintColor = AColor(color: .systemPink)
         let newSchemeProvider = SchemeProvider<SwitchListViewScheme>(scheme: scheme)
 
         let view = createSwitchListView(isSelected: true, schemeProvider: newSchemeProvider)

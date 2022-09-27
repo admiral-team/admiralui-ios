@@ -65,7 +65,7 @@ final class RadioButtonListViewSnapshotTests: XCTestCase {
     func testRadioButtonListViewSchemeProvider() {
         Appearance.shared.theme = .default
         var scheme = RadioButtonListViewScheme(theme: .default)
-        scheme.radioButtonView.tintColor.set(parameter: AColor(color: .systemPink), for: .normal, state: .normal)
+        scheme.radioButtonScheme.tintColor.set(parameter: AColor(color: .systemPink), for: .normal, state: .normal)
         let newSchemeProvider = SchemeProvider<RadioButtonListViewScheme>(scheme: scheme)
 
         let view = createRadioButtonListView(isSelected: true, schemeProvider: newSchemeProvider)

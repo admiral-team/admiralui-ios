@@ -63,7 +63,7 @@ final class CheckBoxListViewSnapshotTests: XCTestCase {
     func testSchemeProvider() {
         Appearance.shared.theme = .default
         var scheme = CheckBoxListViewScheme(theme: .default)
-        scheme.checkBoxView.tintColor.set(parameter: AColor(color: .systemPink), for: .normal, state: .normal)
+        scheme.checkBoxScheme.tintColor.set(parameter: AColor(color: .systemPink), for: .normal, state: .normal)
         let newSchemeProvider = SchemeProvider<CheckBoxListViewScheme>(scheme: scheme)
 
         let view = createCheckBoxListView(isSelected: true, schemeProvider: newSchemeProvider)
