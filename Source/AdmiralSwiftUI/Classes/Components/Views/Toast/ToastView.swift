@@ -282,7 +282,7 @@ public struct ToastView: View {
                 })
                 .accessibilityIdentifier(ToastViewAccessibilityIdentifiers.imageView.accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier))
             } else if let timerDuration = timerDuration {
-                CountdownView(countTo: timerDuration)
+                CountdownView(countTo: timerDuration, schemeProvider: .constant(scheme: scheme.countDownViewScheme))
                     .frame(
                         width: LayoutGrid.halfModule * 7,
                         height: LayoutGrid.halfModule * 7)
@@ -297,7 +297,7 @@ public struct ToastView: View {
                     .accessibilityIdentifier(accessibilityIdentifier ?? "")
                 if let linkText = linkText, let linkAction = linkAction {
                     Button(linkText, action: linkAction)
-                        .buttonStyle(GhostButtonStyle())
+                        .buttonStyle(GhostButtonStyle(schemeProvider: .constant(scheme: scheme.buttonScheme)))
                         .frame(height: LayoutGrid.tripleModule)
                         .accessibilityIdentifier(ToastViewAccessibilityIdentifiers.linkText.accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier))
                 }

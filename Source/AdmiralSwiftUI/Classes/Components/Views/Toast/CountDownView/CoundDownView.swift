@@ -28,20 +28,34 @@ public struct CountdownView: View {
 
     // MARK: - Private Properties
 
+    @ObservedObject var schemeProvider: SchemeProvider<CoundDownViewScheme>
+
     @State private var countdownTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
     // MARK: - Initializer
 
-    public init(countTo: Int) {
+    public init(
+        countTo: Int,
+        schemeProvider: SchemeProvider<CoundDownViewScheme> = AppThemeSchemeProvider<CoundDownViewScheme>()
+    ) {
         self.countTo = countTo
+        self.schemeProvider = schemeProvider
         startTimer()
     }
 
     public var body: some View {
         VStack{
             ZStack{
-                ProgressBar(counter: counter, countTo: countTo)
-                Clock(counter: counter, countTo: countTo)
+                ProgressBar(
+                    counter: counter,
+                    countTo: countTo,
+                    schemeProvider: .constant(scheme: schemeProvider.scheme.progressBarScheme)
+                )
+                Clock(
+                    counter: counter,
+                    countTo: countTo,
+                    schemeProvider: .constant(scheme: schemeProvider.scheme.clockViewScheme)
+                )
             }
         }.onReceive(countdownTimer) { time in
             if (self.counter < self.countTo) {
