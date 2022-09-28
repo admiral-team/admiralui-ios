@@ -32,7 +32,7 @@ jobs:
       - name: Check If Failed
         if: ${{ failure() }}
         run:  bundle exec fastlane send_build_failed_info issue_name:${{ github.head_ref }} telegram_token:"$TELEGRAM_API_TOKEN" telegram_chat_id:"$TELEGRAM_DEV_CHAT_ID" build_url:"$PUll_NUMBER"
-      - name: Deploy AppCenter Dev
+      - name: Deploy AppCenter Development
         if: ${{ github.event_name == 'pull_request' }}
         env:     
           CI_PASSWORD:  ${{ secrets.CI_PASSWORD }}
