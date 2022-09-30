@@ -32,7 +32,7 @@ final class ListCellSnapshotTests: XCTestCase {
         Appearance.prepare()
     }
     
-    // MARK: Default Theme
+    // MARK: - Default Theme
     
     func testListCellDefaultTheme() {
         Appearance.shared.theme = .default
@@ -40,12 +40,28 @@ final class ListCellSnapshotTests: XCTestCase {
         checkListCell(view: view, named: "ListCellDefaultTheme", testName: "ListCell")
     }
     
-    // MARK: Dark Theme
+    // MARK: - Dark Theme
     
     func testListCellDarkTheme() {
         Appearance.shared.theme = .dark
         let view = createListCell()
         checkListCell(view: view, named: "ListCellDarkTheme", testName: "ListCell")
+    }
+
+    // MARK: - Scheme Provider
+
+    func testListCellSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = ListCellScheme(theme: .default)
+        scheme.backgroundColor.set(parameter: AColor(color: .systemPink), for: .highlighted)
+        let newSchemeProvider = SchemeProvider<ListCellScheme>(scheme: scheme)
+
+        let view = createListCell(schemeProvider: newSchemeProvider)
+        checkListCell(view: view, named: "SchemeProvider", testName: "ListCell")
+
+        Appearance.shared.theme = .dark
+        let newView = createListCell(schemeProvider: newSchemeProvider)
+        checkListCell(view: newView, named: "SchemeProvider", testName: "ListCell")
     }
     
     func createListCell() -> some View {
@@ -54,6 +70,15 @@ final class ListCellSnapshotTests: XCTestCase {
             centerView: { TitleListView(title: "Title") },
             trailingView: { DatePercentListView(date: "Date", percent: "Text") },
             isSelected: .constant(true))
+        return view
+    }
+
+    func createListCell(schemeProvider: SchemeProvider<ListCellScheme>) -> some View {
+        let view = ListCell<EmptyView, TitleListView, EmptyView>(
+            centerView: { TitleListView(title: "Title", schemeProvider: .constant(scheme: TitleListViewScheme(theme: .default))) },
+            isSelected: .constant(true),
+            schemeProvider: schemeProvider
+        )
         return view
     }
     

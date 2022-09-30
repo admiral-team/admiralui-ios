@@ -1038,6 +1038,7 @@
 		0E2D9CCD261F5C7C00323048 /* CustomSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSwitch.swift; sourceTree = "<group>"; };
 		0E2DF125254865960087F661 /* StandardSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardSegmentedControl.swift; sourceTree = "<group>"; };
 		0E2DF12E25486EC30087F661 /* LogoSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoSegmentedControl.swift; sourceTree = "<group>"; };
+		0E33995428D34A8C00B24722 /* GhostButtonWithImageStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostButtonWithImageStyle.swift; sourceTree = "<group>"; };
 		0E33995A28D5D9A600B24722 /* CoundDownViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoundDownViewScheme.swift; sourceTree = "<group>"; };
 		0E33995C28D5E70900B24722 /* LinkViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkViewScheme.swift; sourceTree = "<group>"; };
 		0E33995E28D5E73D00B24722 /* ParagraphViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParagraphViewScheme.swift; sourceTree = "<group>"; };
@@ -2365,6 +2366,14 @@
 				E632B01D256D836F00B29DE1 /* LogoSegmentedScheme.swift */,
 			);
 			path = LogoSegmentedControl;
+			sourceTree = "<group>";
+		};
+		0E33995628D3573D00B24722 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				0E33995428D34A8C00B24722 /* GhostButtonWithImageStyle.swift */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		0E38F2FA266F734D002AD565 /* Calendar */ = {
@@ -5762,6 +5771,7 @@
 				E6B947562600F9FD004FBD5B /* Tests */,
 				E6D91BF72532011B00DCE489 /* Products */,
 				0E0E88FD25FBB60E00127626 /* Frameworks */,
+				0E33995628D3573D00B24722 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};

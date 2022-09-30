@@ -59,12 +59,35 @@ final class RadioButtonListViewSnapshotTests: XCTestCase {
         let view = createRadioButtonListView(isSelected: false)
         checkRadioButtonListView(view: view, named: "NotSelectedDarkTheme", testName: "RadioButtonListView")
     }
+
+    // MARK: - Scheme Provider
+
+    func testRadioButtonListViewSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = RadioButtonListViewScheme(theme: .default)
+        scheme.radioButtonScheme.tintColor.set(parameter: AColor(color: .systemPink), for: .normal, state: .normal)
+        let newSchemeProvider = SchemeProvider<RadioButtonListViewScheme>(scheme: scheme)
+
+        let view = createRadioButtonListView(isSelected: true, schemeProvider: newSchemeProvider)
+        checkRadioButtonListView(view: view, named: "SchemeProvider", testName: "RadioButtonListView")
+
+        Appearance.shared.theme = .dark
+        let newView = createRadioButtonListView(isSelected: true, schemeProvider: newSchemeProvider)
+        checkRadioButtonListView(view: newView, named: "SchemeProvider", testName: "RadioButtonListView")
+    }
     
     func createRadioButtonListView(isSelected: Bool) -> some View {
         let view = RadioButtonListView(isControlSelected: .constant(isSelected))
         return view
     }
-    
+
+    func createRadioButtonListView(isSelected: Bool, schemeProvider: SchemeProvider<RadioButtonListViewScheme>) -> some View {
+        let view = RadioButtonListView(
+            isControlSelected: .constant(isSelected),
+            schemeProvider: schemeProvider
+        )
+        return view
+    }
 }
 
 private extension RadioButtonListViewSnapshotTests {
