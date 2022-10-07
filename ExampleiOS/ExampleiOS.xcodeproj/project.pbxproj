@@ -306,6 +306,7 @@
 		D6245A10289982460027F3CA /* AdmiralUIThemesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6245A0F289982460027F3CA /* AdmiralUIThemesTest.swift */; };
 		D6245A12289AA5530027F3CA /* AdmiralUIKitButtonsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6245A11289AA5530027F3CA /* AdmiralUIKitButtonsTest.swift */; };
 		D6245A1628A13AC70027F3CA /* AdmiralUITextBlocksTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6245A1528A13AC70027F3CA /* AdmiralUITextBlocksTest.swift */; };
+		D635591228F066E700614406 /* AddUIKitLinkTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D635591128F066E700614406 /* AddUIKitLinkTest.swift */; };
 		E6117EF625F9754300214949 /* CardTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6117EF525F9754300214949 /* CardTextField.swift */; };
 		E63B50DE25DD2B1800993D21 /* ThemesRepostory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63B50DD25DD2B1800993D21 /* ThemesRepostory.swift */; };
 		E63B50E125DD3BCC00993D21 /* ColorToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63B50E025DD3BCC00993D21 /* ColorToken.swift */; };
@@ -797,6 +798,7 @@
 		D6245A0F289982460027F3CA /* AdmiralUIThemesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIThemesTest.swift; sourceTree = "<group>"; };
 		D6245A11289AA5530027F3CA /* AdmiralUIKitButtonsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIKitButtonsTest.swift; sourceTree = "<group>"; };
 		D6245A1528A13AC70027F3CA /* AdmiralUITextBlocksTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUITextBlocksTest.swift; sourceTree = "<group>"; };
+		D635591128F066E700614406 /* AddUIKitLinkTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUIKitLinkTest.swift; sourceTree = "<group>"; };
 		E6117EF525F9754300214949 /* CardTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTextField.swift; sourceTree = "<group>"; };
 		E63B50DD25DD2B1800993D21 /* ThemesRepostory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesRepostory.swift; sourceTree = "<group>"; };
 		E63B50E025DD3BCC00993D21 /* ColorToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorToken.swift; sourceTree = "<group>"; };
@@ -2838,6 +2840,7 @@
 				D6245A0F289982460027F3CA /* AdmiralUIThemesTest.swift */,
 				D6245A11289AA5530027F3CA /* AdmiralUIKitButtonsTest.swift */,
 				D6245A1528A13AC70027F3CA /* AdmiralUITextBlocksTest.swift */,
+				D635591128F066E700614406 /* AddUIKitLinkTest.swift */,
 			);
 			path = AdmiralUIKitTests;
 			sourceTree = "<group>";
@@ -3861,6 +3864,7 @@
 				D6245A1628A13AC70027F3CA /* AdmiralUITextBlocksTest.swift in Sources */,
 				D6245A06289981A60027F3CA /* AdmiralUIKitTestsLaunchTests.swift in Sources */,
 				D6245A0E2899822F0027F3CA /* AdmiralUIIconsTest.swift in Sources */,
+				D635591228F066E700614406 /* AddUIKitLinkTest.swift in Sources */,
 				D6245A10289982460027F3CA /* AdmiralUIThemesTest.swift in Sources */,
 				D6245A04289981A60027F3CA /* AdmiralUIKitTests.swift in Sources */,
 				D6245A12289AA5530027F3CA /* AdmiralUIKitButtonsTest.swift in Sources */,
