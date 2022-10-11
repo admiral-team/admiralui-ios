@@ -194,8 +194,8 @@ public class AlertViewController: UIViewController, AnyAppThemable {
         let constraints = [
             alertView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             alertView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            alertView.leadingAnchor.constraint(greaterThanOrEqualTo: view.leadingAnchor, constant: LayoutGrid.quadrupleModule),
-            view.trailingAnchor.constraint(greaterThanOrEqualTo: alertView.trailingAnchor, constant: LayoutGrid.quadrupleModule),
+            alertView.leadingAnchor.constraint(greaterThanOrEqualTo: view.leadingAnchor, constant: LayoutGrid.doubleModule),
+            view.trailingAnchor.constraint(greaterThanOrEqualTo: alertView.trailingAnchor, constant: LayoutGrid.doubleModule),
             alertView.topAnchor.constraint(greaterThanOrEqualTo: view.topAnchor, constant: LayoutGrid.quadrupleModule),
             view.bottomAnchor.constraint(greaterThanOrEqualTo: alertView.bottomAnchor, constant: LayoutGrid.quadrupleModule),
         ]
