@@ -47,9 +47,34 @@ final class ButtonListViewSnapshotTests: XCTestCase {
         let view = createButtonListView()
         checkButtonListView(view: view, named: "DarkTheme", testName: "ButtonListView")
     }
+
+    // MARK: - Scheme Provider
+
+    func testSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = ButtonListViewScheme(theme: .default)
+        scheme.buttonScheme.textColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        let newSchemeProvider = SchemeProvider<ButtonListViewScheme>(scheme: scheme)
+
+        let view = createButtonListView(schemeProvider: newSchemeProvider)
+        checkButtonListView(view: view, named: "SchemeProvider", testName: "ButtonListView")
+
+        Appearance.shared.theme = .dark
+        let newView = createButtonListView(schemeProvider: newSchemeProvider)
+        checkButtonListView(view: newView, named: "SchemeProvider", testName: "ButtonListView")
+    }
     
     func createButtonListView() -> some View {
         let view = ButtonListView(text: "Text", action: {})
+        return view
+    }
+
+    func createButtonListView(schemeProvider: SchemeProvider<ButtonListViewScheme>) -> some View {
+        let view = ButtonListView(
+            text: "Text",
+            schemeProvider: schemeProvider,
+            action: {}
+        )
         return view
     }
     

@@ -47,9 +47,35 @@ final class SearchBarSnapshotTests: XCTestCase {
         let view = createSearchBar()
         checkSearchBar(view: view, named: "DarkTheme", testName: "SearchBar")
     }
+
+    // MARK: - Scheme Provider
+
+    func testSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = SearchBarColorScheme()
+        scheme.textColor = AColor(color: .systemPink)
+        scheme.imageTintColor = AColor(color: .systemPink)
+        let newSchemeProvider = SchemeProvider<SearchBarColorScheme>(scheme: scheme)
+
+        let view = createSearchBar(schemeProvider: newSchemeProvider)
+        checkSearchBar(view: view, named: "SchemeProvider", testName: "SearchBar")
+
+        Appearance.shared.theme = .dark
+        let newView = createSearchBar(schemeProvider: newSchemeProvider)
+        checkSearchBar(view: newView, named: "SchemeProvider", testName: "SearchBar")
+    }
     
     func createSearchBar() -> some View {
         let view = SearchBar(.constant("SearchBar"), placeholder: "Placeholder")
+        return view
+    }
+
+    func createSearchBar(schemeProvider: SchemeProvider<SearchBarColorScheme>) -> some View {
+        let view = SearchBar(
+            .constant("SearchBar"),
+            placeholder: "Placeholder",
+            schemeProvider: schemeProvider
+        )
         return view
     }
     

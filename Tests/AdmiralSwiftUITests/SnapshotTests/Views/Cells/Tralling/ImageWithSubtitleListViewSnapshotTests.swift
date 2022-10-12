@@ -47,9 +47,36 @@ final class ImageWithSubtitleListViewSnapshotTests: XCTestCase {
         let view = createImageWithSubtitleListView()
         checkImageWithSubtitleListView(view: view, named: "DarkTheme", testName: "ImageWithSubtitleListView")
     }
+
+    // MARK: - Scheme Provider
+
+    func testSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = ImageWithSubtitleListViewScheme(theme: .default)
+        scheme.imageTintColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        scheme.subtitleLabelTextColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        let newSchemeProvider = SchemeProvider<ImageWithSubtitleListViewScheme>(scheme: scheme)
+
+        let view = createImageWithSubtitleListView(schemeProvider: newSchemeProvider)
+        checkImageWithSubtitleListView(view: view, named: "SchemeProvider", testName: "ImageWithSubtitleListView")
+
+        Appearance.shared.theme = .dark
+        let newView = createImageWithSubtitleListView(schemeProvider: newSchemeProvider)
+        checkImageWithSubtitleListView(view: newView, named: "SchemeProvider", testName: "ImageWithSubtitleListView")
+    }
     
     func createImageWithSubtitleListView() -> some View {
         let view = ImageWithSubtitleListView(subtitle: "Subtitle", image: Image(uiImage: Asset.Documents.Solid.accountDetailSolid.image)).padding()
+        return view
+    }
+
+    func createImageWithSubtitleListView(schemeProvider: SchemeProvider<ImageWithSubtitleListViewScheme>) -> some View {
+        let view = ImageWithSubtitleListView(
+            subtitle: "Subtitle",
+            image: Image(uiImage: Asset.Documents.Solid.accountDetailSolid.image),
+            renderingMode: .template,
+            schemeProvider: schemeProvider
+        ).padding()
         return view
     }
     

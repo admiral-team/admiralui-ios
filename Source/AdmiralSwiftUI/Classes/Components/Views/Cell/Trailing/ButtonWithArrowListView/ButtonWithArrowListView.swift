@@ -71,8 +71,8 @@ public struct ButtonWithArrowListView: View, LeadingListViewComponent, TralingLi
         Button(text, action: action)
             .buttonStyle(
                 GhostButtonWithImageStyle(
-                    schemeProvider: .constant(scheme: scheme.ghostButtonScheme),
-                    image: image
+                    image: image,
+                    schemeProvider: .constant(scheme: scheme.button)
                 )
             )
     }
