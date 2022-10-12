@@ -17,19 +17,19 @@ import AdmiralUIResources
  let scheme = ClockScheme()
  ```
  */
-struct ClockScheme: AppThemeScheme {
+public struct ClockScheme: AppThemeScheme {
 
     // MARK: - Properties
 
     /// The text color
-    var textColor: AColor
+    public var textColor: AColor
 
     /// The text color
-    var textFont: AFont
+    public var textFont: AFont
 
     // MARK: - Initializer
 
-    init(theme: AppTheme = .default) {
+    public init(theme: AppTheme = .default) {
         textColor = theme.colors.textAccent
         textFont = theme.fonts.subhead3
     }

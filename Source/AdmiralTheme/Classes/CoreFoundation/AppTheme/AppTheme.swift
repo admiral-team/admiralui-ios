@@ -9,7 +9,7 @@ import AdmiralUIResources
 import Foundation
 
 /// Application theme. Used to store application appeareance.
-public class AppTheme: Theme, Codable, Equatable, NSCopying {
+open class AppTheme: Theme, Codable, Equatable, NSCopying {
 
     public typealias ThemeIdentifier = String
     
@@ -77,7 +77,8 @@ public class AppTheme: Theme, Codable, Equatable, NSCopying {
         id: ThemeIdentifier,
         displayName: String? = nil,
         colors: ColorPalette,
-        fonts: FontPalette) {
+        fonts: FontPalette
+    ) {
         self.identifier = id
         self.displayName = displayName ?? id
         self.colors = colors

@@ -20,6 +20,9 @@ public struct GhostButtonWithImageScheme: AppThemeScheme {
     /// The  parameter that sets text color with state
     public var textColor = ControlParameter<AColor>()
 
+    /// The  parameter that sets image tint color with state
+    public var imageColor = ControlParameter<AColor>()
+
     // MARK: - Initializer
 
     public init(theme: AppTheme = .default) {
@@ -28,5 +31,9 @@ public struct GhostButtonWithImageScheme: AppThemeScheme {
         textColor.set(parameter: theme.colors.textAccent, for: .normal)
         textColor.set(parameter: theme.colors.textAccentPressed, for: .highlighted)
         textColor.set(parameter: theme.colors.textAccent.withAlpha(alpha), for: .disabled)
+
+        imageColor.set(parameter: theme.colors.elementAccent, for: .normal)
+        imageColor.set(parameter: theme.colors.elementAccentPressed, for: .highlighted)
+        imageColor.set(parameter: theme.colors.elementAccent.withAlpha(alpha), for: .disabled)
     }
 }

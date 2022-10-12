@@ -13,7 +13,7 @@ public protocol InfoAgreementViewDelegate: AnyObject {
     func checkBoxShouldSelected(_ checkBox: CheckBox) -> Bool
 }
 
-/// View
+/// Complex user interface element which contains checkbox, title label and transparent button with text.
 public class InfoAgreementView: UIView, AnyAppThemable {
         
     // MARK: - Public Properties
@@ -36,9 +36,9 @@ public class InfoAgreementView: UIView, AnyAppThemable {
     }
     
     /// Text for check box.
-    public var cheboxText: String? {
+    public var checkboxText: String? {
         didSet {
-            checkBoxTextButtonView.text = cheboxText
+            checkBoxTextButtonView.text = checkboxText
             updateItems()
         }
     }
@@ -146,7 +146,7 @@ public class InfoAgreementView: UIView, AnyAppThemable {
     }
     
     private func updateItems() {
-        checkBoxTextButtonView.isHidden = cheboxText == nil && checkboxButtonText == nil
+        checkBoxTextButtonView.isHidden = checkboxText == nil && checkboxButtonText == nil
         actionButton.isHidden = actionText == nil
         alternativeButton.isHidden = alternativeText == nil
     }
