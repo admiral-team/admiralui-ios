@@ -25,15 +25,11 @@ public struct ButtonWithArrowListViewScheme: AppThemeScheme {
 
     /// The  parameter that sets view background color with state
     public var backgroundColor = ControlParameter<AColor>()
-
-    /// The ghost button visual scheme
-    public var ghostButtonScheme: GhostButtonWithImageScheme
-
-    // MARK: - Initializer
-
-    public init(theme: AppTheme = .default) {
+    public var button: GhostButtonWithImageScheme
+    
+    public init(theme: AppTheme) {
         backgroundColor.set(parameter: theme.colors.backgroundSelected, for: .highlighted)
         backgroundColor.set(parameter: theme.colors.backgroundBasic, for: .normal)
-        ghostButtonScheme = GhostButtonWithImageScheme(theme: theme)
+        button = GhostButtonWithImageScheme(theme: theme)
     }
 }

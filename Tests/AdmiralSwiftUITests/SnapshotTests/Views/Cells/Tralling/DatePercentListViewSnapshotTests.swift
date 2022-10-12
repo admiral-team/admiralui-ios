@@ -32,7 +32,7 @@ final class DatePercentListViewSnapshotTests: XCTestCase {
         Appearance.prepare()
     }
     
-    // MARK: Default Theme
+    // MARK: - Default Theme
     
     func testDatePercentListViewDefaultTheme() {
         Appearance.shared.theme = .default
@@ -40,16 +40,42 @@ final class DatePercentListViewSnapshotTests: XCTestCase {
         checkDatePercentListView(view: view, named: "DefaultTheme", testName: "DatePercentListView")
     }
     
-    // MARK: Dark Theme
+    // MARK: - Dark Theme
     
     func testDatePercentListViewDarkTheme() {
         Appearance.shared.theme = .dark
         let view = createDatePercentListView()
         checkDatePercentListView(view: view, named: "DarkTheme", testName: "DatePercentListView")
     }
+
+    // MARK: - Scheme Provider
+
+    func testSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = DatePercentListViewScheme(theme: .default)
+        scheme.titleColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        scheme.subtitleColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        let newSchemeProvider = SchemeProvider<DatePercentListViewScheme>(scheme: scheme)
+
+        let view = createDatePercentListView(schemeProvider: newSchemeProvider)
+        checkDatePercentListView(view: view, named: "SchemeProvider", testName: "DatePercentListView")
+
+        Appearance.shared.theme = .dark
+        let newView = createDatePercentListView(schemeProvider: newSchemeProvider)
+        checkDatePercentListView(view: newView, named: "SchemeProvider", testName: "DatePercentListView")
+    }
     
     func createDatePercentListView() -> some View {
         let view = DatePercentListView(date: "Date", percent: "Text")
+        return view
+    }
+
+    func createDatePercentListView(schemeProvider: SchemeProvider<DatePercentListViewScheme>) -> some View {
+        let view = DatePercentListView(
+            date: "Date",
+            percent: "Text",
+            schemeProvider: schemeProvider
+        )
         return view
     }
     

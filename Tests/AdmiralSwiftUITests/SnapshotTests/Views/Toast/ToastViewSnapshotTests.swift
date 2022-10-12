@@ -47,6 +47,40 @@ final class ToastViewSnapshotTests: XCTestCase {
         let view = createToastView()
         checkToastView(view: view, named: "DarkTheme", testName: "ToastView")
     }
+
+    // MARK: - Scheme Provider
+
+    func testSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = ToastViewScheme()
+        scheme.imageTintColor.set(parameter: AColor(color: .systemPink), isEnabled: true, type: .info)
+        scheme.buttonScheme.textColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        scheme.titleTextColor.set(parameter: AColor(color: .systemPink), isEnabled: true, type: .default)
+        let newSchemeProvider = SchemeProvider<ToastViewScheme>(scheme: scheme)
+
+        let view = createToastView(schemeProvider: newSchemeProvider)
+        checkToastView(view: view, named: "SchemeProvider", testName: "ToastView")
+
+        Appearance.shared.theme = .dark
+        let newView = createToastView(schemeProvider: newSchemeProvider)
+        checkToastView(view: newView, named: "SchemeProvider", testName: "ToastView")
+    }
+
+    func testSchemeTimerProvider() {
+        Appearance.shared.theme = .default
+        var scheme = ToastViewScheme()
+        scheme.countDownViewScheme.clockViewScheme.textColor = AColor(color: .systemPink)
+        scheme.countDownViewScheme.progressBarScheme.tintColor = AColor(color: .systemPink)
+        scheme.titleTextColor.set(parameter: AColor(color: .systemPink), isEnabled: true, type: .default)
+        let newSchemeProvider = SchemeProvider<ToastViewScheme>(scheme: scheme)
+
+        let view = createTimerToastView(schemeProvider: newSchemeProvider)
+        checkToastView(view: view, named: "Timer.SchemeProvider", testName: "ToastView")
+
+        Appearance.shared.theme = .dark
+        let newView = createTimerToastView(schemeProvider: newSchemeProvider)
+        checkToastView(view: newView, named: "Timer.SchemeProvider", testName: "ToastView")
+    }
     
     func createToastView() -> some View {
         let view = ToastView(
@@ -57,6 +91,32 @@ final class ToastViewSnapshotTests: XCTestCase {
             imageColorType: .info,
             closeAction: {},
             type: .default)
+        return view
+    }
+
+    func createToastView(schemeProvider: SchemeProvider<ToastViewScheme>) -> some View {
+        let view = ToastView(
+            title: "At break point",
+            linkText: "Link Text",
+            linkAction: {},
+            imageType: .info,
+            imageColorType: .info,
+            schemeProvider: schemeProvider,
+            closeAction: {},
+            type: .default
+        )
+        return view
+    }
+
+    func createTimerToastView(schemeProvider: SchemeProvider<ToastViewScheme>) -> some View {
+        let view = ToastView(
+            title: "At break point",
+            timerDuration: 1,
+            schemeProvider: schemeProvider,
+            closeAction: {},
+            closeView: { AnyView(EmptyView()) },
+            type: .default
+        )
         return view
     }
     

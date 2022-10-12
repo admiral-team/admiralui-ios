@@ -17,6 +17,7 @@ import AdmiralUIResources
  let scheme = ToastViewScheme()
  ```
  */
+@available(iOS 14.0.0, *)
 public struct ToastViewScheme: AppThemeScheme {
 
     // MARK: - Properties
@@ -42,6 +43,12 @@ public struct ToastViewScheme: AppThemeScheme {
     /// The close button title font
     var closeTitleFont: AFont
 
+    /// The bottom button scheme
+    var buttonScheme: GhostButtonScheme
+
+    /// Cound down view scheme.
+    var countDownViewScheme: CoundDownViewScheme
+
     // MARK: - Initializer
 
     public init(theme: AppTheme = .default) {
@@ -50,6 +57,9 @@ public struct ToastViewScheme: AppThemeScheme {
 
         titleTextFont = theme.fonts.body2
         closeTitleFont = theme.fonts.body2
+
+        buttonScheme = GhostButtonScheme(theme: theme)
+        countDownViewScheme = CoundDownViewScheme(theme: theme)
 
         // Default Normal
         titleTextColor.set(parameter: theme.colors.textPrimary, isEnabled: true, type: .default)

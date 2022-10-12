@@ -59,6 +59,23 @@ final class CurrencyViewSnapshotTests: XCTestCase {
         let view = createCurrencyView(type: .arrowUp)
         checkCurrencyView(view: view, named: "ArrowDown.DarkTheme", testName: "CurrencyView")
     }
+
+    // MARK: - Scheme Provider
+
+    func testSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = CurrencyViewScheme()
+        scheme.textColor = AColor(color: .systemPink)
+        scheme.imageTintColor = AColor(color: .systemPink)
+        let newSchemeProvider = SchemeProvider<CurrencyViewScheme>(scheme: scheme)
+
+        let view = createCurrencyView(schemeProvider: newSchemeProvider)
+        checkCurrencyView(view: view, named: "SchemeProvider", testName: "CurrencyView")
+
+        Appearance.shared.theme = .dark
+        let newView = createCurrencyView(schemeProvider: newSchemeProvider)
+        checkCurrencyView(view: newView, named: "SchemeProvider", testName: "CurrencyView")
+    }
     
     func createCurrencyView(type: CurrencyCellType) -> some View {
         let view = CurrencyView(
@@ -68,6 +85,19 @@ final class CurrencyViewSnapshotTests: XCTestCase {
             image: nil,
             firstCellType: type,
             secondCellType: type
+        )
+        return view
+    }
+
+    func createCurrencyView(schemeProvider: SchemeProvider<CurrencyViewScheme>) -> some View {
+        let view = CurrencyView(
+            currencyText: "USD",
+            buyText: "68,85",
+            sellText: "69,45",
+            image: nil,
+            firstCellType: .arrowDown,
+            secondCellType: .arrowUp,
+            schemeProvider: schemeProvider
         )
         return view
     }

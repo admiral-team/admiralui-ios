@@ -131,11 +131,11 @@ lane :run_all_tests do |options|
 end
 
 lane :run_tests_ukit do |options|
-  run_tests_app(scheme: 'AdmiralUIKit', devices: options[:devices])
+  run_tests_app(scheme: 'AdmiralUIKit', configuration: "Debug", devices: options[:devices], clean: true)
 end
 
 lane :run_tests_swiftui do |options|
-  run_tests_app(scheme: 'AdmiralSwiftUI', devices: options[:devices])
+  run_tests_app(scheme: 'AdmiralSwiftUI', configuration: "Debug", devices: options[:devices], clean: true)
 end
 
 lane :run_tests_app do |options|

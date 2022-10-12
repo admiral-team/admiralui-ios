@@ -86,6 +86,7 @@
 		0E2A62E826E8DD39009CE2C0 /* GhostButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A62E726E8DD39009CE2C0 /* GhostButtonStyle.swift */; };
 		0E2A633226EA1695009CE2C0 /* CalendarHorizontalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A633126EA1695009CE2C0 /* CalendarHorizontalView.swift */; };
 		0E2A633426EF5AB7009CE2C0 /* CalendarVerticalDaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A633326EF5AB7009CE2C0 /* CalendarVerticalDaysView.swift */; };
+		0E33995B28D5D9A600B24722 /* CoundDownViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E33995A28D5D9A600B24722 /* CoundDownViewScheme.swift */; };
 		0E33995D28D5E70900B24722 /* LinkViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E33995C28D5E70900B24722 /* LinkViewScheme.swift */; };
 		0E33995F28D5E73D00B24722 /* ParagraphViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E33995E28D5E73D00B24722 /* ParagraphViewScheme.swift */; };
 		0E33996128D5E74F00B24722 /* TitleButtonDropDownScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E33996028D5E74F00B24722 /* TitleButtonDropDownScheme.swift */; };
@@ -117,7 +118,6 @@
 		0E4584B426009F13002E296E /* SFProDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E6529C9A2534DAF1009D8DE9 /* SFProDisplay-Regular.otf */; };
 		0E4584B526009F13002E296E /* SFProDisplay-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E6529C9D2534DAF1009D8DE9 /* SFProDisplay-Bold.otf */; };
 		0E4584C326009F65002E296E /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67F201B25D3E8AD00E3D6A6 /* Fonts.swift */; };
-		0E4584DF26009FD0002E296E /* Fonts+Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E89DADA25ADF994004E2583 /* Fonts+Registration.swift */; };
 		0E4584EC2600A004002E296E /* AdmiralUIResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA2A8C925FF717F002A207F /* AdmiralUIResources.framework */; };
 		0E4BC71C267CDD96000FC891 /* RadioButtonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4BC71B267CDD96000FC891 /* RadioButtonListView.swift */; };
 		0E4BC72E267CF392000FC891 /* CheckBoxListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4BC72D267CF392000FC891 /* CheckBoxListView.swift */; };
@@ -688,9 +688,6 @@
 		E610495526014D3F00FF20ED /* BankCardTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E610494426014D3F00FF20ED /* BankCardTextField.swift */; };
 		E610495626014D3F00FF20ED /* InputRangeTextFieldScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E610494626014D3F00FF20ED /* InputRangeTextFieldScheme.swift */; };
 		E610495726014D3F00FF20ED /* InputRangeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E610494726014D3F00FF20ED /* InputRangeTextField.swift */; };
-		E627785F2618763A00783C67 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = E627785E2618763A00783C67 /* ColorPalette.swift */; };
-		E6277867261878CA00783C67 /* FontPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6277866261878C900783C67 /* FontPalette.swift */; };
-		E627787526187B8200783C67 /* Fonts+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = E627787426187B8200783C67 /* Fonts+Register.swift */; };
 		E65B4C4726C2C1EE00AACEBB /* InputNumberScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F2D143256DB04E00EF9281 /* InputNumberScheme.swift */; };
 		E6C6D025268C945600972A1B /* ControlParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C6D017268C93BD00972A1B /* ControlParameter.swift */; };
 		E6C6D038268C94BA00972A1B /* ControlParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C6D009268C937400972A1B /* ControlParameter.swift */; };
@@ -754,6 +751,10 @@
 		E95DC43B27A0269C00532BDC /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95DC43A27A0269C00532BDC /* Array+Extensions.swift */; };
 		E975291727BA802D00DB86AB /* ActionItemBarDefaultControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E975291527BA800B00DB86AB /* ActionItemBarDefaultControl.swift */; };
 		E975291927BA809000DB86AB /* ActionItemBarDefaultControlScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E975291827BA809000DB86AB /* ActionItemBarDefaultControlScheme.swift */; };
+		E976242828E19FA300786BBC /* AFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = E976242728E19FA300786BBC /* AFont.swift */; };
+		E976242B28E1A0A200786BBC /* AColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E976242A28E1A0A200786BBC /* AColor.swift */; };
+		E976243428E1C89300786BBC /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = E627785E2618763A00783C67 /* ColorPalette.swift */; };
+		E976243528E1C89600786BBC /* FontPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6277866261878C900783C67 /* FontPalette.swift */; };
 		E97CAD6B2722AA91001283A1 /* ButtonSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97CAD692722AA2B001283A1 /* ButtonSnapshotTests.swift */; };
 		E97CAD6F2722AECD001283A1 /* Snapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97CAD6D2722AE91001283A1 /* Snapshots.swift */; };
 		E99566732727150000C5800A /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9956671272714E200C5800A /* CheckBox.swift */; };
@@ -1037,6 +1038,8 @@
 		0E2D9CCD261F5C7C00323048 /* CustomSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSwitch.swift; sourceTree = "<group>"; };
 		0E2DF125254865960087F661 /* StandardSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardSegmentedControl.swift; sourceTree = "<group>"; };
 		0E2DF12E25486EC30087F661 /* LogoSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoSegmentedControl.swift; sourceTree = "<group>"; };
+		0E33995428D34A8C00B24722 /* GhostButtonWithImageStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostButtonWithImageStyle.swift; sourceTree = "<group>"; };
+		0E33995A28D5D9A600B24722 /* CoundDownViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoundDownViewScheme.swift; sourceTree = "<group>"; };
 		0E33995C28D5E70900B24722 /* LinkViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkViewScheme.swift; sourceTree = "<group>"; };
 		0E33995E28D5E73D00B24722 /* ParagraphViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParagraphViewScheme.swift; sourceTree = "<group>"; };
 		0E33996028D5E74F00B24722 /* TitleButtonDropDownScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleButtonDropDownScheme.swift; sourceTree = "<group>"; };
@@ -1206,7 +1209,6 @@
 		0E89DAC825ADF932004E2583 /* StandardSegmentedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardSegmentedView.swift; sourceTree = "<group>"; };
 		0E89DACE25ADF957004E2583 /* InformerTabSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformerTabSegmentedControl.swift; sourceTree = "<group>"; };
 		0E89DAD425ADF96E004E2583 /* LogoSegmentedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoSegmentedView.swift; sourceTree = "<group>"; };
-		0E89DADA25ADF994004E2583 /* Fonts+Registration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Fonts+Registration.swift"; sourceTree = "<group>"; };
 		0E89DAE625ADF9CA004E2583 /* TabSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabSegmentedControl.swift; sourceTree = "<group>"; };
 		0E8B0F2826DD70A300EEA0D3 /* PinCodeNumberViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeNumberViewScheme.swift; sourceTree = "<group>"; };
 		0E8B0F2B26DE2B7E00EEA0D3 /* PinCodeTextViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeTextViewScheme.swift; sourceTree = "<group>"; };
@@ -1565,7 +1567,6 @@
 		E610494726014D3F00FF20ED /* InputRangeTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputRangeTextField.swift; sourceTree = "<group>"; };
 		E627785E2618763A00783C67 /* ColorPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		E6277866261878C900783C67 /* FontPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontPalette.swift; sourceTree = "<group>"; };
-		E627787426187B8200783C67 /* Fonts+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fonts+Register.swift"; sourceTree = "<group>"; };
 		E62CCB102549E32400F0E2DC /* Comparable+Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Comparable+Math.swift"; sourceTree = "<group>"; };
 		E62CCB1D254A00A300F0E2DC /* Array+Safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Safe.swift"; sourceTree = "<group>"; };
 		E632B005256D796D00B29DE1 /* UnderlineSliderScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineSliderScheme.swift; sourceTree = "<group>"; };
@@ -1750,6 +1751,8 @@
 		E95DC43A27A0269C00532BDC /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		E975291527BA800B00DB86AB /* ActionItemBarDefaultControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionItemBarDefaultControl.swift; sourceTree = "<group>"; };
 		E975291827BA809000DB86AB /* ActionItemBarDefaultControlScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionItemBarDefaultControlScheme.swift; sourceTree = "<group>"; };
+		E976242728E19FA300786BBC /* AFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFont.swift; sourceTree = "<group>"; };
+		E976242A28E1A0A200786BBC /* AColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AColor.swift; sourceTree = "<group>"; };
 		E97CAD692722AA2B001283A1 /* ButtonSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSnapshotTests.swift; sourceTree = "<group>"; };
 		E97CAD6D2722AE91001283A1 /* Snapshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snapshots.swift; sourceTree = "<group>"; };
 		E9956671272714E200C5800A /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
@@ -2365,6 +2368,14 @@
 			path = LogoSegmentedControl;
 			sourceTree = "<group>";
 		};
+		0E33995628D3573D00B24722 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				0E33995428D34A8C00B24722 /* GhostButtonWithImageStyle.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		0E38F2FA266F734D002AD565 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -2604,26 +2615,8 @@
 			isa = PBXGroup;
 			children = (
 				E67F201B25D3E8AD00E3D6A6 /* Fonts.swift */,
-				E6277866261878C900783C67 /* FontPalette.swift */,
-				E627787426187B8200783C67 /* Fonts+Register.swift */,
 			);
 			path = Fonts;
-			sourceTree = "<group>";
-		};
-		0E4584D726009FB0002E296E /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				0E4584D826009FC0002E296E /* UIKit */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		0E4584D826009FC0002E296E /* UIKit */ = {
-			isa = PBXGroup;
-			children = (
-				E6EE7E4E255970D1009F3D5D /* UIFont */,
-			);
-			path = UIKit;
 			sourceTree = "<group>";
 		};
 		0E463CBC255047A0000FD2DF /* InputNumber */ = {
@@ -3601,7 +3594,6 @@
 			isa = PBXGroup;
 			children = (
 				0EA2A90525FF81AC002A207F /* CoreFoundation */,
-				0E4584D726009FB0002E296E /* Extensions */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -3610,7 +3602,6 @@
 			isa = PBXGroup;
 			children = (
 				0E4584BC26009F2B002E296E /* Fonts */,
-				E627785526186FE100783C67 /* Colors */,
 				E6FB3117253DC2FA00314E00 /* Assets */,
 			);
 			path = CoreFoundation;
@@ -5217,14 +5208,6 @@
 			path = InputRangeTextField;
 			sourceTree = "<group>";
 		};
-		E627785526186FE100783C67 /* Colors */ = {
-			isa = PBXGroup;
-			children = (
-				E627785E2618763A00783C67 /* ColorPalette.swift */,
-			);
-			path = Colors;
-			sourceTree = "<group>";
-		};
 		E62CCB042549D76A00F0E2DC /* Tab */ = {
 			isa = PBXGroup;
 			children = (
@@ -5788,6 +5771,7 @@
 				E6B947562600F9FD004FBD5B /* Tests */,
 				E6D91BF72532011B00DCE489 /* Products */,
 				0E0E88FD25FBB60E00127626 /* Frameworks */,
+				0E33995628D3573D00B24722 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -5872,14 +5856,6 @@
 				C66A0CDD260266BE005B0AF7 /* String+TimePicker.swift */,
 			);
 			path = String;
-			sourceTree = "<group>";
-		};
-		E6EE7E4E255970D1009F3D5D /* UIFont */ = {
-			isa = PBXGroup;
-			children = (
-				0E89DADA25ADF994004E2583 /* Fonts+Registration.swift */,
-			);
-			path = UIFont;
 			sourceTree = "<group>";
 		};
 		E6F2D15F256DCC8C00EF9281 /* CheckBox */ = {
@@ -6176,6 +6152,8 @@
 		E90E513828CF72CE004D0386 /* AppTheme */ = {
 			isa = PBXGroup;
 			children = (
+				E976242428E19EED00786BBC /* Fonts */,
+				E976242328E19EE800786BBC /* Colors */,
 				0EA7BDCD28C7856A00BDE772 /* AppThemeScheme.swift */,
 				E90E513928CF72CE004D0386 /* AppTheme.swift */,
 				E90E513A28CF72CE004D0386 /* Theme.swift */,
@@ -6313,8 +6291,9 @@
 		E94A448128D1E79A006625F5 /* CountDownView */ = {
 			isa = PBXGroup;
 			children = (
-				E94A448228D1E79A006625F5 /* ClockView */,
 				E94A448528D1E79A006625F5 /* CoundDownView.swift */,
+				0E33995A28D5D9A600B24722 /* CoundDownViewScheme.swift */,
+				E94A448228D1E79A006625F5 /* ClockView */,
 				E94A448628D1E79A006625F5 /* ProgressBar */,
 			);
 			path = CountDownView;
@@ -6447,6 +6426,24 @@
 				E975291827BA809000DB86AB /* ActionItemBarDefaultControlScheme.swift */,
 			);
 			path = ActionIBarDefaultItemControl;
+			sourceTree = "<group>";
+		};
+		E976242328E19EE800786BBC /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				E976242A28E1A0A200786BBC /* AColor.swift */,
+				E627785E2618763A00783C67 /* ColorPalette.swift */,
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
+		E976242428E19EED00786BBC /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E6277866261878C900783C67 /* FontPalette.swift */,
+				E976242728E19FA300786BBC /* AFont.swift */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		E97CAD652722A9D6001283A1 /* SnapshotTests */ = {
@@ -7266,18 +7263,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				E90E514028CF730E004D0386 /* ThemeManager.swift in Sources */,
+				E976243528E1C89600786BBC /* FontPalette.swift in Sources */,
 				E90E513628CF72C3004D0386 /* Disposable.swift in Sources */,
 				0EA7BDD228C787BD00BDE772 /* AppThemeSchemeProvider.swift in Sources */,
 				E90E514828CF7475004D0386 /* UIColor+Hex.swift in Sources */,
 				E90E512F28CF6FD6004D0386 /* SwiftUIThemeManager.swift in Sources */,
+				E976242828E19FA300786BBC /* AFont.swift in Sources */,
 				E90E514728CF7475004D0386 /* UIColor+Light.swift in Sources */,
 				E90E512D28CF6FD6004D0386 /* UIKitThemeManager.swift in Sources */,
 				E90E513D28CF72CE004D0386 /* Theme.swift in Sources */,
 				E90E513C28CF72CE004D0386 /* AppTheme.swift in Sources */,
+				E976242B28E1A0A200786BBC /* AColor.swift in Sources */,
 				0EA7BDCE28C7856A00BDE772 /* AppThemeScheme.swift in Sources */,
 				E90E513728CF72C3004D0386 /* ThemeObserver.swift in Sources */,
 				E90E512E28CF6FD6004D0386 /* SwiftUISchemeProvider.swift in Sources */,
 				0EA7BDD028C7879D00BDE772 /* ManualSchemeProvider.swift in Sources */,
+				E976243428E1C89300786BBC /* ColorPalette.swift in Sources */,
 				E90E513E28CF72CE004D0386 /* Themeable.swift in Sources */,
 				E90E513228CF72BC004D0386 /* AppThemeStorage.swift in Sources */,
 				0E0E889425FBB2C100127626 /* Appearance.swift in Sources */,
@@ -7438,6 +7439,7 @@
 				0EB853782673A708008FC0FD /* TextView.swift in Sources */,
 				0EC13738266E10A000F4EB7E /* ArrowListView.swift in Sources */,
 				E94A448028D1D71A006625F5 /* GhostButtonWithImageStyle.swift in Sources */,
+				0E33995B28D5D9A600B24722 /* CoundDownViewScheme.swift in Sources */,
 				0ECF1ACF265F90D00068F591 /* InputRangeTextField.swift in Sources */,
 				E9B4D82127313D4500B4DA98 /* ProgressViewScheme.swift in Sources */,
 				E6C6D038268C94BA00972A1B /* ControlParameter.swift in Sources */,
@@ -7670,14 +7672,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E627785F2618763A00783C67 /* ColorPalette.swift in Sources */,
 				E6F8CF71269455B3005E53F8 /* Symbols.swift in Sources */,
 				0EA2A91625FF81B9002A207F /* SystemAssets.swift in Sources */,
-				0E4584DF26009FD0002E296E /* Fonts+Registration.swift in Sources */,
 				0EA2A90B25FF81B5002A207F /* Assets.swift in Sources */,
 				E9A709FC27610270003233DF /* version.swift in Sources */,
-				E6277867261878CA00783C67 /* FontPalette.swift in Sources */,
-				E627787526187B8200783C67 /* Fonts+Register.swift in Sources */,
 				0E4584C326009F65002E296E /* Fonts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
