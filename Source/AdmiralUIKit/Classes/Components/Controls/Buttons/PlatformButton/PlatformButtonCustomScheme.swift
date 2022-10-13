@@ -32,8 +32,8 @@ public struct PlatformButtonCustomScheme {
         buttonBackgroundColor.set(parameter: theme.colors.textPrimary.withAlpha(highlightedOpacity), for: .highlighted)
         buttonBackgroundColor.set(parameter: theme.colors.textPrimary.withAlpha(alpha), for: .disabled)
         
-        textColor.set(parameter: theme.colors.textStaticWhite, for: .normal)
-        textColor.set(parameter: theme.colors.textStaticWhite.withAlpha(alpha), for: .disabled)
+        textColor.set(parameter: theme.colors.backgroundBasic, for: .normal)
+        textColor.set(parameter: theme.colors.backgroundBasic.withAlpha(alpha), for: .disabled)
     }
     
 }
