@@ -29,31 +29,20 @@ public final class InputNumberScheme: AppThemeScheme {
     /// The text color
     public var textColor = ControlParameter<AColor>()
 
-    /// The tint color
-    public var tintColor = ControlParameter<AColor>()
-
-    /// The background color
-    public var backgroundColor = ControlParameter<AColor>()
+    // The buttons visual scheme
+    public var buttonScheme: InputNumberButtonScheme
 
     // MARK: - Initializer
 
     public init(theme: AppTheme = .default) {
-        let alpha = theme.colors.disabledAlpha
+        buttonScheme = InputNumberButtonScheme(theme: theme)
         
         titleFont.set(parameter: theme.fonts.body1, for: .normal)
         numberFont.set(parameter: theme.fonts.body1, for: .normal)
         
         textColor.set(parameter: theme.colors.textPrimary, for: .normal)
-        tintColor.set(parameter: theme.colors.textSecondary, for: .normal)
-        backgroundColor.set(parameter: theme.colors.backgroundAdditionalOne, for: .normal)
-        
         textColor.set(parameter: theme.colors.textPrimary, for: .highlighted)
-        tintColor.set(parameter: theme.colors.textSecondary, for: .highlighted)
-        backgroundColor.set(parameter: theme.colors.backgroundAdditionalOnePressed, for: .highlighted)
-        
         textColor.set(parameter: theme.colors.textSecondary, for: .disabled)
-        tintColor.set(parameter: theme.colors.elementPrimary.withAlpha(alpha), for: .disabled)
-        backgroundColor.set(parameter: theme.colors.backgroundAdditionalOne, for: .disabled)
     }
     
 }

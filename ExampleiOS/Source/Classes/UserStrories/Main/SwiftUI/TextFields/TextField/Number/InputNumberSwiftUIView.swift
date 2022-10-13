@@ -11,33 +11,55 @@ import AdmiralSwiftUI
 
 @available(iOS 14.0.0, *)
 struct InputNumberSwiftUIView: View {
-    
-    @State private var isEnabledControlsState: Int = 0
-    @State private var startValue: Double = 0
+
+    // MARK: - Private Properties
+
+    @State private var selection: Int?
+    @ObservedObject private var viewModel: InputNumberSwiftUIViewModel = .init()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
-    
-    public var body: some View {
+
+    // MARK: - Body
+
+    var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Number") {
+        NavigationContentView(navigationTitle: viewModel.navigationTitle) {
             scheme.backgroundColor.swiftUIColor
             ScrollView(.vertical) {
-                HStack {
-                  Spacer()
+                ForEach(viewModel.types, id: \.self) { type in
+                    NavigationLink(destination: EmptyView()) {
+                        EmptyView()
+                    }
+                    NavigationLink(
+                        destination: view(for: type),
+                        tag: type.rawValue,
+                        selection: self.$selection
+                    ) {
+                        ListCell(
+                            centerView: { TitleListView(title: type.description) },
+                            trailingView: { ArrowListView() },
+                            isHighlighted: Binding(get: { self.selection == type.rawValue }, set: { _ in }))
+                        .frame(height: 68)
+                    }
+                    .onTapGesture {
+                        withAnimation {
+                            self.selection = type.rawValue
+                        }
+                    }
                 }
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
-                Spacer()
-                    .frame(height: LayoutGrid.doubleModule)
-                InputNumber(
-                    titleText: .constant("Optional value"),
-                    value: $startValue,
-                    minimumValue: .constant(0.0),
-                    maximumValue: .constant(20000))
-                    .disabled(isEnabledControlsState != 0)
-                Spacer()
             }
-            .padding()
         }
-        .navigationTitle("Number")
+        .navigationTitle(viewModel.navigationTitle)
     }
-    
+
+    // MARK: - Layouts
+
+    @ViewBuilder
+    private func view(for type: InputNumberSwiftUIViewModel.InputNumberType) -> some View {
+        switch type {
+        case .secondary:
+            SecondaryInputNumberView()
+        case .default:
+            InputNumberSwiftUIDefaultView()
+        }
+    }
 }

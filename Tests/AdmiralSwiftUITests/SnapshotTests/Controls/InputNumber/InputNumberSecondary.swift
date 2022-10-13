@@ -1,10 +1,10 @@
 //
-//  InputNumber.swift
-//  AdmiralUIResources
+//  InputNumberSecondary.swift
+//  AdmiralSwiftUITests
 //
-//  Created on 25.10.2021.
+//  Created by on 13.10.2022.
+//  
 //
-
 import XCTest
 import SwiftUI
 import SnapshotTesting
@@ -12,45 +12,46 @@ import AdmiralTheme
 import AdmiralUIResources
 @testable import AdmiralSwiftUI
 
-final class InputNumberSnapshotTests: XCTestCase {
-    
+final class InputNumberSecondarySnapshotTests: XCTestCase {
+
     override func setUp() {
         super.setUp()
         Appearance.prepare()
     }
-    
+
     // MARK: Default Theme
 
     func testInputNumber() {
         Appearance.shared.theme = .default
         let view = createInputNumber()
-        checkInputNumber(view: view, named: "default", testName: "InputNumber")
+        checkInputNumber(view: view, named: "default", testName: "InputNumberSecondary")
     }
-    
+
     // MARK: Dark Theme
 
     func testInputNumberDarkTheme() {
         Appearance.shared.theme = .dark
         let view = createInputNumber()
-        checkInputNumber(view: view, named: "defaultDarkTheme", testName: "InputNumber")
+        checkInputNumber(view: view, named: "defaultDarkTheme", testName: "InputNumberSecondary")
     }
-    
+
     func createInputNumber() -> some View {
         let inputNumber = InputNumber(
             titleText: .constant("InputNumber"),
             value: .constant(5.0),
             minimumValue: .constant(0.0),
             maximumValue: .constant(10.0),
-            stepValue: .constant(1.0)
+            stepValue: .constant(1.0),
+            style: .secondary
         ).frame(width: 300, height: 60, alignment: .center)
         return inputNumber
     }
 
     func testInputNumberSchemeProvider() {
         Appearance.shared.theme = .default
-        
+
         let scheme = InputNumberScheme()
-        scheme.buttonScheme.backgroundColor.set(parameter: AColor(color: .systemPink), for: .normal, style: .default)
+        scheme.buttonScheme.backgroundColor.set(parameter: AColor(color: .systemPink), for: .normal, style: .secondary)
         let newSchemeProvider: SchemeProvider<InputNumberScheme> = SchemeProvider<InputNumberScheme>(scheme: scheme)
 
         let inputNumber = InputNumber(
@@ -61,7 +62,7 @@ final class InputNumberSnapshotTests: XCTestCase {
             stepValue: .constant(1.0),
             schemeProvider: newSchemeProvider
         ).frame(width: 300, height: 60, alignment: .center)
-        checkInputNumber(view: inputNumber, named: "SchemeProvider", testName: "InputNumber")
+        checkInputNumber(view: inputNumber, named: "SchemeProvider", testName: "InputNumberSecondary")
 
         Appearance.shared.theme = .dark
         let newInputNumber = InputNumber(
@@ -72,12 +73,12 @@ final class InputNumberSnapshotTests: XCTestCase {
             stepValue: .constant(1.0),
             schemeProvider: newSchemeProvider
         ).frame(width: 300, height: 60, alignment: .center)
-        checkInputNumber(view: newInputNumber, named: "SchemeProvider", testName: "InputNumber")
+        checkInputNumber(view: newInputNumber, named: "SchemeProvider", testName: "InputNumberSecondary")
     }
 
 }
 
-private extension InputNumberSnapshotTests {
+private extension InputNumberSecondarySnapshotTests {
 
     func checkInputNumber<T: View>(view: T, named: String, testName: String) {
         let view = UIHostingController(rootView: view)

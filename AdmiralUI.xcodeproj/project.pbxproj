@@ -65,7 +65,7 @@
 		0E2A62BC26E7C6A8009CE2C0 /* LogoTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A62BB26E7C6A8009CE2C0 /* LogoTab.swift */; };
 		0E2A62BE26E7C6CA009CE2C0 /* LogoTabScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A62BD26E7C6CA009CE2C0 /* LogoTabScheme.swift */; };
 		0E2A62C026E7C6EF009CE2C0 /* FeedbackInputControlScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A62BF26E7C6EF009CE2C0 /* FeedbackInputControlScheme.swift */; };
-		0E2A62C226E7C72F009CE2C0 /* InputNumberButtonScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A62C126E7C72F009CE2C0 /* InputNumberButtonScheme.swift */; };
+		0E2A62C226E7C72F009CE2C0 /* InputNumberButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A62C126E7C72F009CE2C0 /* InputNumberButtonStyle.swift */; };
 		0E2A62C426E7C73E009CE2C0 /* InputNumberScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A62C326E7C73E009CE2C0 /* InputNumberScheme.swift */; };
 		0E2A62C626E7C76D009CE2C0 /* UnderlineTabScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A62C526E7C76D009CE2C0 /* UnderlineTabScheme.swift */; };
 		0E2A62C826E7C7A2009CE2C0 /* GhostButtonWithImageScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A62C726E7C7A2009CE2C0 /* GhostButtonWithImageScheme.swift */; };
@@ -735,6 +735,8 @@
 		E94A449D28D32335006625F5 /* ToolBarItemScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A449928D32335006625F5 /* ToolBarItemScheme.swift */; };
 		E94A449E28D32335006625F5 /* ToolBarItemSelectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A449A28D32335006625F5 /* ToolBarItemSelectable.swift */; };
 		E94A449F28D32335006625F5 /* ToolBarItemStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A449B28D32335006625F5 /* ToolBarItemStyle.swift */; };
+		E9503F8F28F81AFB00586D44 /* InputNumberButtonScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9503F8E28F81AFB00586D44 /* InputNumberButtonScheme.swift */; };
+		E9503F9D28F844AB00586D44 /* InputNumberSecondary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9503F9C28F844AB00586D44 /* InputNumberSecondary.swift */; };
 		E95553D827ABEE6F00A14BCA /* ChatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95553D727ABEE6F00A14BCA /* ChatBubbleView.swift */; };
 		E95553DA27ABF35500A14BCA /* ChatBubbleStatusViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95553D927ABF35500A14BCA /* ChatBubbleStatusViewTest.swift */; };
 		E95553DD27ABF7F100A14BCA /* ChatInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95553DC27ABF7F100A14BCA /* ChatInputView.swift */; };
@@ -1014,7 +1016,7 @@
 		0E2A62BB26E7C6A8009CE2C0 /* LogoTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoTab.swift; sourceTree = "<group>"; };
 		0E2A62BD26E7C6CA009CE2C0 /* LogoTabScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoTabScheme.swift; sourceTree = "<group>"; };
 		0E2A62BF26E7C6EF009CE2C0 /* FeedbackInputControlScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackInputControlScheme.swift; sourceTree = "<group>"; };
-		0E2A62C126E7C72F009CE2C0 /* InputNumberButtonScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputNumberButtonScheme.swift; sourceTree = "<group>"; };
+		0E2A62C126E7C72F009CE2C0 /* InputNumberButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputNumberButtonStyle.swift; sourceTree = "<group>"; };
 		0E2A62C326E7C73E009CE2C0 /* InputNumberScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputNumberScheme.swift; sourceTree = "<group>"; };
 		0E2A62C526E7C76D009CE2C0 /* UnderlineTabScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnderlineTabScheme.swift; sourceTree = "<group>"; };
 		0E2A62C726E7C7A2009CE2C0 /* GhostButtonWithImageScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GhostButtonWithImageScheme.swift; sourceTree = "<group>"; };
@@ -1735,6 +1737,8 @@
 		E94A449928D32335006625F5 /* ToolBarItemScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolBarItemScheme.swift; sourceTree = "<group>"; };
 		E94A449A28D32335006625F5 /* ToolBarItemSelectable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolBarItemSelectable.swift; sourceTree = "<group>"; };
 		E94A449B28D32335006625F5 /* ToolBarItemStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolBarItemStyle.swift; sourceTree = "<group>"; };
+		E9503F8E28F81AFB00586D44 /* InputNumberButtonScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNumberButtonScheme.swift; sourceTree = "<group>"; };
+		E9503F9C28F844AB00586D44 /* InputNumberSecondary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNumberSecondary.swift; sourceTree = "<group>"; };
 		E95553D727ABEE6F00A14BCA /* ChatBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleView.swift; sourceTree = "<group>"; };
 		E95553D927ABF35500A14BCA /* ChatBubbleStatusViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleStatusViewTest.swift; sourceTree = "<group>"; };
 		E95553DC27ABF7F100A14BCA /* ChatInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInputView.swift; sourceTree = "<group>"; };
@@ -2996,7 +3000,8 @@
 			children = (
 				0E649978264C309500D03D5A /* InputNumber.swift */,
 				0E2A62C326E7C73E009CE2C0 /* InputNumberScheme.swift */,
-				0E2A62C126E7C72F009CE2C0 /* InputNumberButtonScheme.swift */,
+				0E2A62C126E7C72F009CE2C0 /* InputNumberButtonStyle.swift */,
+				E9503F8E28F81AFB00586D44 /* InputNumberButtonScheme.swift */,
 			);
 			path = InputNumber;
 			sourceTree = "<group>";
@@ -6509,6 +6514,7 @@
 			isa = PBXGroup;
 			children = (
 				E995667C27271C5A00C5800A /* InputNumber.swift */,
+				E9503F9C28F844AB00586D44 /* InputNumberSecondary.swift */,
 			);
 			path = InputNumber;
 			sourceTree = "<group>";
@@ -7498,7 +7504,7 @@
 				0EB053EE2638BEC400238CB7 /* ArrowSegmentSlider.swift in Sources */,
 				3B362A1927A02F4D007F08D0 /* ToastViewAccessibilityIdentifiers.swift in Sources */,
 				E9B4D81A27303A5C00B4DA98 /* UploadDocumentGrid.swift in Sources */,
-				0E2A62C226E7C72F009CE2C0 /* InputNumberButtonScheme.swift in Sources */,
+				0E2A62C226E7C72F009CE2C0 /* InputNumberButtonStyle.swift in Sources */,
 				0E6EA47C26FD4743002EBBBC /* TitleArrowWithButtonHeader.swift in Sources */,
 				C6A5610F2670D5DB00133D40 /* PinCodeTextViewStyle.swift in Sources */,
 				0E4BC74D2680AA7F000FC891 /* SwitchListViewScheme.swift in Sources */,
@@ -7524,6 +7530,7 @@
 				0EFCDB4B26B8497E006207B1 /* CurrencyViewScheme.swift in Sources */,
 				E94A448B28D1E79A006625F5 /* CoundDownView.swift in Sources */,
 				3BEDB3BF28744C3A00E2AD34 /* PlatformButtonStyle.swift in Sources */,
+				E9503F8F28F81AFB00586D44 /* InputNumberButtonScheme.swift in Sources */,
 				0E59D388263361DC007B5CC1 /* RectPreferenceKey.swift in Sources */,
 				0E2A62D426E7C9D8009CE2C0 /* TitleWithImageListViewScheme.swift in Sources */,
 				0E6223BA26BD28930012DB6E /* BadgeViewScheme.swift in Sources */,
@@ -7662,6 +7669,7 @@
 				3B0AC5B32743BC3D00BC2F8C /* InputRangeTextFieldSnapshotTests.swift in Sources */,
 				3BCB3EA4274278F200ED192A /* UploadingImageGrid.swift in Sources */,
 				3B606A8F2746909800C76ACB /* CardListViewSnapshotTests.swift in Sources */,
+				E9503F9D28F844AB00586D44 /* InputNumberSecondary.swift in Sources */,
 				3B0AC5B52743BD5900BC2F8C /* DoubleInputRangeTextFieldSnapshotTests.swift in Sources */,
 				3BD5ABB9273EC0310052D8C5 /* DropDownHeaderSnapshotTests.swift in Sources */,
 				3BCB3EAF27429D6D00ED192A /* PinCodeKeyboardSnapshotTests.swift in Sources */,

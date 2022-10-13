@@ -1,119 +1,76 @@
 //
-//  InputNumberButtonStyle.swift
+//  InputNumberButtonScheme.swift
 //  AdmiralSwiftUI
 //
-//  Created on 13.05.2021.
+//  Created by on 13.10.2022.
+//  
 //
-import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 /**
- The style for creating the InputNumber Button.
-
- To configure the current button style for a view hierarchy, use the buttonStyle(_:) modifier.
- You can create buttons in three sizes: (small, medium, big) by specifying size Type in init InputNumberButtonStyle:
- # Code
+ InputNumberButtonScheme - the visual scheme of InputNumberButtonStyle.
+ You can create a by specifying the following parameters in init:
+ - InputNumberButtonScheme() - Initialize default InputNumberButtonScheme with default themezation
+ # Example to create InputNumberButtonScheme:
  ```
- Button("Text", action: {})
- .buttonStyle(InputNumberButtonStyle())
+let scheme = InputNumberButtonScheme()
  ```
-
- You can create a button with an activity indicator instead of text by specifying isPressing: .constant(true) in init InputNumberButtonStyle. In this case, the text that you pass to the Button will not be shown, but the activity indicator will be shown instead:
  */
-@available(iOS 14.0.0, *)
-public struct InputNumberButtonStyle: ButtonStyle {
+@available(iOS 14.0, *)
+public final class InputNumberButtonScheme: AppThemeScheme {
 
-    // MARK: - Properties
+    /// The background color
+    public var backgroundColor = InputNumberButtonParameters<AColor>()
 
-    /// The pressing flag of InputNumberButton
-    @Binding public var isPressing: Bool
+    /// The tint color
+    public var tintColor = InputNumberButtonParameters<AColor>()
 
-    /// The background color of InputNumberButton
-    public var backgroundColor = ControlParameter<AColor>()
-
-    /// The tint color of InputNumberButton
-    public var tintColor = ControlParameter<AColor>()
-
-    /// The image of InputNumberButton
-    public var image: Image
-
-    /// The tap action of InputNumberButton
-    public var onTap: () -> ()
+    /// The border color
+    public var borderColor = InputNumberButtonParameters<AColor>()
 
     // MARK: - Initializer
 
-    public init(
-        isPressing: Binding<Bool>,
-        backgroundColor: ControlParameter<AColor>,
-        tintColor: ControlParameter<AColor>,
-        image: Image,
-        onTap: @escaping () -> ()) {
-        self._isPressing = isPressing
-        self.backgroundColor = backgroundColor
-        self.tintColor = tintColor
-        self.image = image
-        self.onTap = onTap
+    public init(theme: AppTheme = .default) {
+        let alpha = theme.colors.disabledAlpha
+
+        tintColor.set(parameter: theme.colors.textSecondary, for: .normal, style: .default)
+        backgroundColor.set(parameter: theme.colors.backgroundAdditionalOne, for: .normal, style: .default)
+        tintColor.set(parameter: theme.colors.elementAccent, for: .normal, style: .secondary)
+        backgroundColor.set(parameter: theme.colors.backgroundBasic, for: .normal, style: .secondary)
+        borderColor.set(parameter: theme.colors.elementAccent, for: .normal, style: .secondary)
+
+        tintColor.set(parameter: theme.colors.textSecondary, for: .highlighted, style: .default)
+        backgroundColor.set(parameter: theme.colors.backgroundAdditionalOnePressed, for: .highlighted, style: .default)
+        tintColor.set(parameter: theme.colors.elementAccent.withAlpha(alpha), for: .highlighted, style: .secondary)
+        backgroundColor.set(parameter: theme.colors.backgroundAdditionalOnePressed, for: .highlighted, style: .secondary)
+        borderColor.set(parameter: theme.colors.elementAccentPressed, for: .highlighted, style: .secondary)
+
+        tintColor.set(parameter: theme.colors.elementPrimary.withAlpha(alpha), for: .disabled, style: .default)
+        backgroundColor.set(parameter: theme.colors.backgroundAdditionalOne, for: .disabled, style: .default)
+        tintColor.set(parameter: theme.colors.elementAccent.withAlpha(alpha), for: .disabled, style: .secondary)
+        backgroundColor.set(parameter: theme.colors.backgroundBasic.withAlpha(alpha), for: .disabled, style: .secondary)
+        borderColor.set(parameter: theme.colors.elementAccent.withAlpha(alpha), for: .disabled, style: .secondary)
     }
 
-    // MARK: - Body
-
-    public func makeBody(configuration: Self.Configuration) -> some View {
-        InputNumberButton(
-            configuration: configuration,
-            backgroundColor: backgroundColor,
-            tintColor: tintColor,
-            image: image,
-            onTap: onTap,
-            isPressing: $isPressing
-        )
-    }
 }
 
-@available(iOS 14.0.0, *)
-private extension InputNumberButtonStyle {
-    struct InputNumberButton: View {
+public struct InputNumberButtonParameters<P> {
+    public var parameters: [String: P?] = [:]
 
-        // MARK: - Environment
-
-        @Environment(\.isEnabled) private var isEnabled
-
-        // MARK: - Internal Properties
-
-        let configuration: Configuration
-        let backgroundColor: ControlParameter<AColor>
-        let tintColor: ControlParameter<AColor>
-        let image: Image
-        let onTap: () -> ()
-
-        @Binding var isPressing: Bool
-
-        // MARK: - Body
-
-        var body: some View {
-            let tintNormal = tintColor.parameter(for: .normal)?.swiftUIColor
-            let tintDisabled = tintColor.parameter(for: .disabled)?.swiftUIColor
-            let tint = isEnabled ? tintNormal : tintDisabled
-
-            let backgroundNormal = backgroundColor.parameter(for: .normal)?.swiftUIColor
-            let bacroundDisabled = backgroundColor.parameter(for: .disabled)?.swiftUIColor
-            let backgroundHighlighted = backgroundColor.parameter(for: .highlighted)?.swiftUIColor
-            let background = isEnabled ? (configuration.isPressed ? backgroundHighlighted : backgroundNormal) : bacroundDisabled
-
-            image
-                .foregroundColor(tint)
-                .frame(width: 40.0)
-                .frame(height: 40.0)
-                .background(
-                    RoundedRectangle(cornerRadius: 20.0)
-                            .foregroundColor(background)
-                )
-                .onTapGesture {
-                    onTap()
-                }
-                .onLongPressGesture(minimumDuration: .infinity, pressing: { pressing in
-                    self.isPressing = pressing
-                }, perform: {})
-
-        }
+    public mutating func set(parameter: P?, for state: ControlState, style: InputNumberStyle) {
+        let key = paramKey(state: state, style: style)
+        parameters[key] = parameter
     }
+
+    public func parameter(for state: ControlState, style: InputNumberStyle) -> P? {
+        let key = paramKey(state: state, style: style)
+        let defaultKey = paramKey(state: .normal, style: style)
+
+        guard let parameter = parameters[key] ?? parameters[defaultKey] else { return nil }
+        return parameter
+    }
+
+    private func paramKey(state: ControlState, style: InputNumberStyle) -> String {
+        return "\(state.rawValue).\(style.rawValue)"
+    }
+
 }

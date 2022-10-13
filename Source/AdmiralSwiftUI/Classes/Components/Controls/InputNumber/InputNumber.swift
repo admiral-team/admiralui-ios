@@ -8,6 +8,13 @@
 import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
+/// The value that changes buttons style
+public enum InputNumberStyle: Int {
+    /// The value that presents rounded buttons
+    case `default`
+    /// The value that presents button with border
+    case secondary
+}
 /**
  InputNumber - A object that displays an editable text area with incrementing or decrementing a value.
 
@@ -88,6 +95,8 @@ public struct InputNumber: View {
 
     @State private var segmentSize: CGSize = .zero
 
+    private let style: InputNumberStyle
+
     // MARK: - Initializer
 
     /// Initializes and returns a newly allocated input number object.
@@ -103,6 +112,7 @@ public struct InputNumber: View {
         minimumValue: Binding<Double> = .constant(0.0),
         maximumValue: Binding<Double> = .constant(.infinity),
         stepValue: Binding<Double> = .constant(1.0),
+        style: InputNumberStyle = .default,
         schemeProvider: SchemeProvider<InputNumberScheme> = AppThemeSchemeProvider<InputNumberScheme>()
     ) {
         self._titleText = titleText
@@ -110,6 +120,7 @@ public struct InputNumber: View {
         self._minimumValue = minimumValue
         self._maximumValue = maximumValue
         self._stepValue = stepValue
+        self.style = style
         self.schemeProvider = schemeProvider
     }
 
@@ -125,14 +136,17 @@ public struct InputNumber: View {
                     .foregroundColor(scheme.textColor.parameter(for: isEnabled ? .normal : .disabled)?.swiftUIColor)
                 Spacer()
                 Button(action: {}, label: {})
-                    .buttonStyle(InputNumberButtonStyle(
-                                    isPressing: $isMinusPressing,
-                                    backgroundColor: scheme.backgroundColor,
-                                    tintColor: scheme.tintColor,
-                                    image: Image(uiImage: Asset.Service.Outline.minusOutline.image),
-                                    onTap: {
-                                        tapMinus()
-                                    }))
+                    .buttonStyle(
+                        InputNumberButtonStyle(
+                            isPressing: $isMinusPressing,
+                            image: Image(uiImage: Asset.Service.Outline.minusOutline.image),
+                            style: style,
+                            onTap: {
+                                tapMinus()
+                            },
+                            schemeProvider: .constant(scheme: scheme.buttonScheme)
+                        )
+                    )
                     .onChange(of: isMinusPressing) { value in
                         if value {
                             timer?.invalidate()
@@ -158,14 +172,15 @@ public struct InputNumber: View {
                 Spacer()
                     .frame(width: LayoutGrid.module)
                 Button(action: {}, label: {})
-                .buttonStyle(InputNumberButtonStyle(
-                                isPressing: $isPlusPressing,
-                                backgroundColor: scheme.backgroundColor,
-                                tintColor: scheme.tintColor,
-                                image: Image(uiImage: Asset.Service.Outline.plusOutline.image),
-                                onTap: {
-                                    tapPlus()
-                                }))
+                    .buttonStyle(
+                        InputNumberButtonStyle(
+                            isPressing: $isPlusPressing,
+                            image: Image(uiImage: Asset.Service.Outline.plusOutline.image),
+                            style: style,
+                            onTap: { tapPlus() },
+                            schemeProvider: .constant(scheme: scheme.buttonScheme)
+                        )
+                    )
                 .onChange(of: isPlusPressing) { value in
                     if value {
                         timer?.invalidate()
@@ -179,8 +194,6 @@ public struct InputNumber: View {
                     }
                 }
                 .disabled(isPlusButtonDisabled)
-
-
             }
             .frame(height: Constants.height)
             .onAppear(perform: {
@@ -271,7 +284,7 @@ struct InputNumber_Previews: PreviewProvider {
     @State static var value: Double = 10.0
 
     static var previews: some View {
-        InputNumber(titleText: .constant("Optional text"), value: .constant(10), minimumValue: .constant(5.0))
+        InputNumber(titleText: .constant("Optional text"), value: .constant(10), minimumValue: .constant(5.0), style: .default)
 
     }
 }
