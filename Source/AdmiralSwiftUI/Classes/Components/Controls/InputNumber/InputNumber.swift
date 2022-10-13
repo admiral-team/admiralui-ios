@@ -24,6 +24,7 @@ public enum InputNumberStyle: Int {
  - value - the numeric value of the stepper
  - minimumValue - the lowest possible numeric value for the stepper
  - maximumValue - the highest possible numeric value for the stepper
+ - style: The value that presents button in two styles - default, secondary
  - stepValue - the step, or increment, value for the stepper. The default value for this property is 1.
  ## Example to create InputNumber:
  # Code
@@ -105,6 +106,7 @@ public struct InputNumber: View {
     ///   - value: The numeric value of the stepper.
     ///   - minimumValue: The lowest possible numeric value for the stepper.
     ///   - maximumValue: he highest possible numeric value for the stepper.
+    ///   - style: The value that presents button in two styles
     ///   - stepValue: The step, or increment, value for the stepper.
     public init(
         titleText: Binding<String?>,
