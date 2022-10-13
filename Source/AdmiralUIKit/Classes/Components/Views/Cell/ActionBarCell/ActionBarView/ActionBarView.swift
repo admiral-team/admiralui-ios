@@ -67,7 +67,7 @@ class ActionBarView: UIView, ActionBarViewStyleProtocol, AnyAppThemable {
     func apply(theme: AppTheme) {
         scheme = ActionBarViewScheme(theme: theme)
         views.forEach({
-            ($0 as? AnyAppThemable)?.apply(theme: theme)
+            ($0 as? (any AnyAppThemable))?.apply(theme: theme)
         })
     }
 

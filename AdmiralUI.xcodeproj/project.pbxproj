@@ -849,6 +849,7 @@
 		E9DCD39428C72BBA00261612 /* TwoTitlePrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DCD39328C72BBA00261612 /* TwoTitlePrimaryButtonStyle.swift */; };
 		E9ECF207272A8EB000363E5E /* UploadImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ECF205272A8E7200363E5E /* UploadImageView.swift */; };
 		E9ECF20A272A8F6D00363E5E /* UploadImageViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ECF208272A8ED100363E5E /* UploadImageViewScheme.swift */; };
+		E9F0F9DF28F7E5CE00692090 /* CustomSwitchScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F0F9DE28F7E5CE00692090 /* CustomSwitchScheme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1841,6 +1842,7 @@
 		E9DCD39328C72BBA00261612 /* TwoTitlePrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoTitlePrimaryButtonStyle.swift; sourceTree = "<group>"; };
 		E9ECF205272A8E7200363E5E /* UploadImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageView.swift; sourceTree = "<group>"; };
 		E9ECF208272A8ED100363E5E /* UploadImageViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageViewScheme.swift; sourceTree = "<group>"; };
+		E9F0F9DE28F7E5CE00692090 /* CustomSwitchScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSwitchScheme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -5283,6 +5285,7 @@
 			isa = PBXGroup;
 			children = (
 				E6ABDBB1253F3C0300B90570 /* CustomSwitch.swift */,
+				E9F0F9DE28F7E5CE00692090 /* CustomSwitchScheme.swift */,
 			);
 			path = Switch;
 			sourceTree = "<group>";
@@ -7860,6 +7863,7 @@
 				0EB757312600D625009BFC21 /* MessageInformerScheme.swift in Sources */,
 				E610495026014D3F00FF20ED /* TextViewInput.swift in Sources */,
 				0EB7576A2600D625009BFC21 /* CardListView.swift in Sources */,
+				E9F0F9DF28F7E5CE00692090 /* CustomSwitchScheme.swift in Sources */,
 				C6DCBFD026316EEA00754365 /* GhostButtonCustomScheme.swift in Sources */,
 				0EB7572D2600D625009BFC21 /* ButtonWithArrowListView.swift in Sources */,
 				0EB757352600D625009BFC21 /* CalendarHeaderView.swift in Sources */,
