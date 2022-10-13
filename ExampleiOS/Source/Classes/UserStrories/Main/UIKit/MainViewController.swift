@@ -402,7 +402,7 @@ extension MainViewController {
     
     private func presentCalendar() {
         let viewController = CalendarsViewController()
-        viewController.title = "Calendar"
+        viewController.title = "Calendars"
         navigationController?.pushViewController(viewController, animated: true)
     }
     
