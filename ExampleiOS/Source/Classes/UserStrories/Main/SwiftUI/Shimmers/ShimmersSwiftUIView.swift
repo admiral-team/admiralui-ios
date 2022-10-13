@@ -59,7 +59,7 @@ struct ShimmersSwiftUIView: View {
                         .cornerRadius(LayoutGrid.halfModule)
                         .shimmer(isActive: true)
                         .frame(height: 64.0)
-                        .padding()
+                        .padding([.horizontal], LayoutGrid.tripleModule)
                     Spacer()
                 }
             }
