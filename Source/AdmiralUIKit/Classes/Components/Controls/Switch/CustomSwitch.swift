@@ -16,7 +16,7 @@ open class CustomSwitch: UISwitch, AnyAppThemable {
     public var scheme = CustomSwitchScheme() {
         didSet { updateScheme() }
     }
-    
+
     // MARK: - Initializers
     
     /// Initializes and returns a newly allocated view object with the specified frame rectangle.
