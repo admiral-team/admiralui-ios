@@ -60,6 +60,7 @@ final class InputNumberSecondarySnapshotTests: XCTestCase {
             minimumValue: .constant(0.0),
             maximumValue: .constant(10.0),
             stepValue: .constant(1.0),
+            style: .secondary,
             schemeProvider: newSchemeProvider
         ).frame(width: 300, height: 60, alignment: .center)
         checkInputNumber(view: inputNumber, named: "SchemeProvider", testName: "InputNumberSecondary")
@@ -71,6 +72,7 @@ final class InputNumberSecondarySnapshotTests: XCTestCase {
             minimumValue: .constant(0.0),
             maximumValue: .constant(10.0),
             stepValue: .constant(1.0),
+            style: .secondary,
             schemeProvider: newSchemeProvider
         ).frame(width: 300, height: 60, alignment: .center)
         checkInputNumber(view: newInputNumber, named: "SchemeProvider", testName: "InputNumberSecondary")
