@@ -39,7 +39,7 @@ struct SecondaryInputNumberView: View {
                             Text(viewModel.items[index].title)
                                 .font(scheme.textFont.swiftUIFont)
                                 .foregroundColor(scheme.textColor.swiftUIColor)
-                                .padding(.vertical, 8)
+                                .padding(.vertical, LayoutGrid.module)
                             InputNumber(
                                 titleText: .constant("Optional value"),
                                 value: Binding<Double>(
