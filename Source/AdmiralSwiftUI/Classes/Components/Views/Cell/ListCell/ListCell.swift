@@ -90,9 +90,9 @@ public struct ListCell<L, C, T>: ListViewCell where L: View , C: View, T: View {
     
     @State var minHeight = LayoutGrid.halfModule * 18
     @State var edgeInsets = EdgeInsets(
-        top: LayoutGrid.halfModule * 3,
+        top: 0,
         leading: LayoutGrid.doubleModule,
-        bottom: LayoutGrid.halfModule * 3,
+        bottom: 0,
         trailing: LayoutGrid.doubleModule)
     @State var leadingViewWidth: CGFloat = LayoutGrid.halfModule * 14
 

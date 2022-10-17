@@ -19,14 +19,29 @@ struct ShimmersSwiftUIView: View {
         NavigationContentView(navigationTitle: "Shimmers") {
             scheme.backgroundColor.swiftUIColor
             ScrollView(showsIndicators: false) {
-                LazyVStack(alignment: .leading) {
+                LazyVStack(alignment: .leading, spacing: 0) {
+                    ListCell(leadingView: {
+                        ImageCardListView(cardImage: Image(uiImage: Asset.Card.visa.image))
+                    }, centerView: {
+                        TitleMoreDetailTextMessageListView(
+                            title: "Зарплатная карта",
+                            detaile: "66 800.00 ₽")
+                    }, trailingView: {
+                        IconListView(image: Image(uiImage: Asset.Card.visaLabel.image))
+                            .shimmer(isActive: true)
+                    })
                     ListCell(leadingView: {
                         ImageCardListView(cardImage: Image(uiImage: Asset.Card.visa.image))
                             .shimmer(isActive: true)
                     }, centerView: {
-                        TitleMoreDetailTextMessageListView(
-                            title: "Card",
-                            detaile: "50 000.00 ₽")
+                        VStack(alignment: .leading, spacing: LayoutGrid.halfModule) {
+                            TitleMoreDetailTextMessageListView(
+                                title: "Зарплатная карта")
+                            Rectangle()
+                                .cornerRadius(LayoutGrid.halfModule)
+                                .shimmer(isActive: true)
+                                .frame(width: 108, height: 16.0)
+                        }
                     }, trailingView: {
                         IconListView(image: Image(uiImage: Asset.Card.visaLabel.image))
                     })
@@ -34,28 +49,17 @@ struct ShimmersSwiftUIView: View {
                         ImageCardListView(cardImage: Image(uiImage: Asset.Card.visa.image))
                     }, centerView: {
                         TitleMoreDetailTextMessageListView(
-                            title: "Card",
-                            detaile: "50 000.00 ₽")
-                            .shimmer(isActive: true)
-                    }, trailingView: {
-                        IconListView(image: Image(uiImage: Asset.Card.visaLabel.image))
-                    })
-                    ListCell(leadingView: {
-                        ImageCardListView(cardImage: Image(uiImage: Asset.Card.visa.image))
-                    }, centerView: {
-                        TitleMoreDetailTextMessageListView(
-                            title: "Card",
-                            detaile: "50 000.00 ₽")
+                            title: "Зарплатная карта",
+                            detaile: "66 800.00 ₽")
                     }, trailingView: {
                         IconListView(image: Image(uiImage: Asset.Card.visaLabel.image))
                             .cornerRadius(LayoutGrid.halfModule)
-                            .shimmer(isActive: true)
                     })
                     Rectangle()
                         .cornerRadius(LayoutGrid.halfModule)
                         .shimmer(isActive: true)
                         .frame(height: 64.0)
-                        .padding()
+                        .padding([.horizontal], LayoutGrid.tripleModule)
                     Spacer()
                 }
             }
