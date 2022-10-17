@@ -176,9 +176,9 @@ open class ZeroScreenView: UIView, AnyAppThemable {
             let imageConstraint: NSLayoutConstraint
             
             if title != nil {
-                imageConstraint =  titleView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: LayoutGrid.halfModule * 6)
+                imageConstraint =  titleView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: LayoutGrid.module * 6)
             } else if subTitle != nil {
-                imageConstraint =  subTitleView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: LayoutGrid.halfModule * 6)
+                imageConstraint =  subTitleView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: LayoutGrid.module * 6)
             } else {
                 imageConstraint = imageView.centerYAnchor.constraint(equalTo: centerYAnchor)
             }
