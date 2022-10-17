@@ -1,9 +1,11 @@
 //
-//  TextFieldsSwiftUIView.swift
+//  InputNumbersSwiftUIView.swift
 //  ExampleiOS
 //
-//  Created on 13.05.2021.
+//  Created by on 13.10.2022.
+//  
 //
+
 
 import SwiftUI
 import AdmiralTheme
@@ -11,18 +13,22 @@ import AdmiralSwiftUI
 import AdmiralUIResources
 
 @available(iOS 14.0.0, *)
-struct TextFieldsSwiftUIView: View {
-    
+struct InputNumbersSwiftUIView: View {
+
     @State private var selection: Int?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
-    
+
     public var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Text Fields") {
+        NavigationContentView(navigationTitle: "Number") {
             scheme.backgroundColor.swiftUIColor.edgesIgnoringSafeArea(.all)
             ScrollView(showsIndicators: false) {
                 LazyVStack(alignment: .leading) {
-                    ForEach(TextFieldsSwiftUIItem.allCases, id: \.self) { item in
+                    ForEach(InputNumbersSwiftUIItem.allCases, id: \.self) { item in
+                        // WORKAROUND: https://developer.apple.com/forums/thread/677333
+                        NavigationLink(destination: EmptyView()) {
+                            EmptyView()
+                        }
                         NavigationLink(destination: view(for: item), tag: item.rawValue, selection: self.$selection) {
                             ListCell(
                                 centerView: { TitleListView(title: item.title) },
@@ -40,35 +46,24 @@ struct TextFieldsSwiftUIView: View {
             }
         }
     }
-    
-    @ViewBuilder
-    func view(for type: TextFieldsSwiftUIItem) -> some View {
-        switch type {
-        case .standard:
-            StandardTextFieldSwiftUIView()
-        case .double:
-            DoubleTextFieldSwiftUIView()
-        case .slider:
-            InputRangeTextFieldSwiftUIView()
-        case .cardNumber:
-            BankTextFieldSwiftUIView()
-        case .smsCode:
-            OTPTextFieldSwiftUIView()
-        case .number:
-            InputNumbersSwiftUIView()
-        case .feedback:
-            FeedbackInputSwiftUIView()
-        case .pincode:
-            PinCodeTextFieldView()
 
+    @ViewBuilder
+    func view(for type: InputNumbersSwiftUIItem) -> some View {
+        switch type {
+        case .default:
+            InputNumberSwiftUIView()
+        case .secondary:
+            InputNumberSecondarySwiftUIView()
+        case .input:
+            NumberSwiftUIView()
         }
     }
-    
+
 }
 
 @available(iOS 14.0.0, *)
-struct TextFieldsSwiftUIView_Previews: PreviewProvider {
+struct InputNumbersSwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
-        TextFieldsSwiftUIView()
+        InputNumbersSwiftUIView()
     }
 }
