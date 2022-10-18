@@ -18,7 +18,7 @@ struct TextFieldsSwiftUIView: View {
     
     public var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Text Fields") {
+        NavigationContentView(navigationTitle: "Text fields") {
             scheme.backgroundColor.swiftUIColor.edgesIgnoringSafeArea(.all)
             ScrollView(showsIndicators: false) {
                 LazyVStack(alignment: .leading) {

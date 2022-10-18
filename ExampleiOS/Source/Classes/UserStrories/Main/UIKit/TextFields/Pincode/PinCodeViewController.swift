@@ -38,7 +38,7 @@ final class PinCodeViewController: UIViewController, CodeInputControlDelegate, A
         autoManage()
 
         stepper.minimumValue = 1
-        stepper.value = 4
+        stepper.value = 6
         stepper.maximumValue = 10
         stepper.text = "Количество знаков"
         stepper.addTarget(self, action: #selector(stepperValueChanged(_:)), for: .valueChanged)
@@ -50,6 +50,7 @@ final class PinCodeViewController: UIViewController, CodeInputControlDelegate, A
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged(_:)), for: .valueChanged)
         
         pinCodeKeyboard.delegate = self
+        pincodeControl.itemsCount = 6
         
         addSubviews()
         configureConstraints()
