@@ -6,11 +6,19 @@
 //  
 //
 
-import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
 
 @available(iOS 14.0, *)
+/**
+ NumberInputButtonScheme - the visual scheme for input number button.
+ You can create a by specifying the following parameters in init:
+ - NumberInputButtonScheme() - Initialize default NumberInputButtonScheme with default themezation
+ # Example to create NumberInputButtonScheme:
+ ```
+let scheme = NumberInputButtonScheme()
+ ```
+ */
 public final class NumberInputButtonScheme: AppThemeScheme {
 
     /// The text color
