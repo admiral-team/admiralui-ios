@@ -31,12 +31,12 @@ class AddUIKitBottomSheetTest: XCTestCase {
         
         app.staticTexts["Показать Bottom-sheet"].tap()
         
-        app/*@START_MENU_TOKEN@*/.staticTexts["56 000.00 ₽"]/*[[".cells.staticTexts[\"56 000.00 ₽\"]",".staticTexts[\"56 000.00 ₽\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        app/*@START_MENU_TOKEN@*/.staticTexts["5 000.00 ₽"]/*[[".cells.staticTexts[\"5 000.00 ₽\"]",".staticTexts[\"5 000.00 ₽\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        app/*@START_MENU_TOKEN@*/.staticTexts["200 000.00 ₽ "]/*[[".cells.staticTexts[\"200 000.00 ₽ \"]",".staticTexts[\"200 000.00 ₽ \"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        app/*@START_MENU_TOKEN@*/.staticTexts["2 000 000.00 ₽ "]/*[[".cells.staticTexts[\"2 000 000.00 ₽ \"]",".staticTexts[\"2 000 000.00 ₽ \"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        app/*@START_MENU_TOKEN@*/.staticTexts["11 000.00 ₽ "]/*[[".cells.staticTexts[\"11 000.00 ₽ \"]",".staticTexts[\"11 000.00 ₽ \"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        app/*@START_MENU_TOKEN@*/.staticTexts["1000.00 ₽ "]/*[[".cells.staticTexts[\"1000.00 ₽ \"]",".staticTexts[\"1000.00 ₽ \"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app.staticTexts["Зарплатная карта"].tap()
+        app.staticTexts["5 000.00 ₽"].tap()
+        app.staticTexts["Новая карта"].tap()
+        app.staticTexts["2 000 000.00 ₽ "].tap()
+        app.staticTexts["11 000.00 ₽ "].tap()
+        app.staticTexts["1000.00 ₽ "].tap()
         app.staticTexts["Готово"].tap()
     }
     
