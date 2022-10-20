@@ -9,19 +9,34 @@ import AdmiralTheme
 import AdmiralUIResources
 import UIKit
 
-struct DropDownHeaderScheme {
+/**
+ DropDownHeaderScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - DropDownHeaderScheme() - Initialize default DropDownHeaderScheme with default themezation
+Example to create DropDownHeaderScheme:
+Code
+ ```
+let scheme = DropDownHeaderScheme()
+ ```
+ */
+public struct DropDownHeaderScheme {
+
+    /// Background color.
+    public var backgroundColor: AColor
+
+    /// Default title font.
+    public var defaultTitleFont: AFont
+
+    /// Title font.
+    public var titleFont = TitleHeaderViewParameters<AFont>()
+
+    /// Text color.
+    public var textColor = TitleHeaderViewParameters<AColor>()
+
+    /// Image tint color.
+    public var imageTintColor: AColor
     
-    var backgroundColor: AColor
-    var defaultTitleFont: AFont
-    var titleFont = TitleHeaderViewParameters<AFont>()
-    var textColor = TitleHeaderViewParameters<AColor>()
-    var imageTintColor: AColor
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
         backgroundColor = theme.colors.backgroundBasic
         

@@ -9,15 +9,25 @@ import AdmiralTheme
 import AdmiralUIResources
 import UIKit
 
-struct SeparatorScheme {
-    var backgroundColor: AColor
-    var separatorColor: AColor
+/**
+ SeparatorScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - SeparatorScheme() - Initialize default SeparatorScheme with default themezation
+Example to create SeparatorScheme:
+Code
+ ```
+let scheme = SeparatorScheme()
+ ```
+ */
+public struct SeparatorScheme {
+
+    /// Background color.
+    public var backgroundColor: AColor
+
+    /// Separator color.
+    public var separatorColor: AColor
     
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         backgroundColor = theme.colors.backgroundBasic
         separatorColor = theme.colors.elementAdditional
     }

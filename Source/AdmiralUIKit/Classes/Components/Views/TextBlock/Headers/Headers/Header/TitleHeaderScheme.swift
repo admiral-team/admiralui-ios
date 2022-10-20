@@ -9,18 +9,31 @@ import AdmiralTheme
 import AdmiralUIResources
 import UIKit
 
-struct TitleHeaderScheme {
+/**
+ TitleHeaderScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - TitleHeaderScheme() - Initialize default TitleHeaderScheme with default themezation
+Example to create TitleHeaderScheme:
+Code
+ ```
+let scheme = TitleHeaderScheme()
+ ```
+ */
+public struct TitleHeaderScheme {
+
+    /// Background color.
+    public var backgroundColor: AColor
+
+    /// Default title font.
+    public var defaultTitleFont: AFont
+
+    /// Title font.
+    public var titleFont = TitleHeaderViewParameters<AFont>()
+
+    /// Text color.
+    public var textColor = TitleHeaderViewParameters<AColor>()
     
-    var backgroundColor: AColor
-    var defaultTitleFont: AFont
-    var titleFont = TitleHeaderViewParameters<AFont>()
-    var textColor = TitleHeaderViewParameters<AColor>()
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
         backgroundColor = theme.colors.backgroundBasic
         
@@ -38,15 +51,28 @@ struct TitleHeaderScheme {
     }
 }
 
+/// A container for setting value for difference state.
 public struct TitleHeaderViewParameters<P> {
-    var parameters: [String: P?] = [:]
-    
-    mutating func set(parameter: P?, for state: UIControl.State, style: HeaderStyle?) {
+
+    /// Parameters with generic values.
+    public var parameters: [String: P?] = [:]
+
+    /// Setting value for state.
+    /// - Parameters:
+    ///   - parameter: Any value. For Example text color
+    ///   - state: State.
+    ///   - style: Style header view.
+    public mutating func set(parameter: P?, for state: UIControl.State, style: HeaderStyle?) {
         let key = paramKey(state: state, style: style)
         parameters[key] = parameter
     }
-    
-    func parameter(for state: UIControl.State, style: HeaderStyle?) -> P? {
+
+    /// Getting parameter
+    /// - Parameters:
+    ///   - state: State.
+    ///   - style: Style paragraph view.
+    /// - Returns: Any value.
+    public func parameter(for state: UIControl.State, style: HeaderStyle?) -> P? {
         let key = paramKey(state: state, style: style)
         let defaultKey = paramKey(state: .normal, style: nil)
         

@@ -43,17 +43,16 @@ public class SubtitleTitleHeader: UIView, AnyAppThemable, AccessibilitySupport {
     public var headerStyle: HeaderStyle = .title {
         didSet { updateHeaderStyle() }
     }
+
+    /// Color scheme.
+    public var scheme = SubtitleTitleHeaderScheme() {
+        didSet { updateScheme() }
+    }
     
     // MARK: - AccessibilitySupport
     
     public var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
         didSet { updateSchemeFonts() }
-    }
-    
-    // MARK: - Internal Properties
-    
-    var scheme = SubtitleTitleHeaderScheme() {
-        didSet { updateScheme() }
     }
     
     // MARK: - Private Properties

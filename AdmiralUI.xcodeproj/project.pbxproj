@@ -6836,8 +6836,8 @@
 		E9BE41B327C7E02400894224 /* Currency */ = {
 			isa = PBXGroup;
 			children = (
-				E9BE41B427C7E02400894224 /* CurrencyViewScheme.swift */,
 				E9BE41B527C7E02400894224 /* CurrencyView.swift */,
+				E9BE41B427C7E02400894224 /* CurrencyViewScheme.swift */,
 				E9BE41B627C7E02400894224 /* CurrencyHeader */,
 			);
 			path = Currency;

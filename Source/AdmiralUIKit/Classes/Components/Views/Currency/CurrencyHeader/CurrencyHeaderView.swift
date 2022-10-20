@@ -70,11 +70,12 @@ public final class CurrencyHeaderView: UIView, AnyAppThemable {
         }
     }
 
-    // MARK: - Internal Properties
-
+    /// Color scheme.
     var scheme = CurrencyHeaderViewScheme() {
         didSet { updateScheme() }
     }
+
+    // MARK: - Internal Properties
 
     var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
         didSet { updateFonts() }

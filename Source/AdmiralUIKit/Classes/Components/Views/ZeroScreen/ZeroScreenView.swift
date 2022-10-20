@@ -46,11 +46,11 @@ open class ZeroScreenView: UIView, AnyAppThemable {
     }
     
     // MARK: - Public Properties
-    
+
+    /// Color scheme.
     public var scheme = ZeroScreenScheme() {
         didSet { updateScheme() }
     }
-    
     
     public var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
         didSet { updateFonts() }

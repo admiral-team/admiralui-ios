@@ -9,18 +9,34 @@ import AdmiralTheme
 import AdmiralUIResources
 import UIKit
 
-struct ParagraphScheme {
-    var backgroundColor: AColor
-    var textColor = ParagraphViewParametrs<AColor>()
-    var leadingImageColor: AColor
-    var titleFont = ParagraphViewParametrs<AFont>()
-    var defaultTitleFont: AFont
+/**
+ ParagraphScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - ParagraphScheme() - Initialize default ParagraphScheme with default themezation
+Example to create ParagraphScheme:
+Code
+ ```
+let scheme = ParagraphScheme()
+ ```
+ */
+public struct ParagraphScheme {
+
+    /// Background color.
+    public var backgroundColor: AColor
+
+    /// Text color.
+    public var textColor = ParagraphViewParametrs<AColor>()
+
+    /// Leading image color.
+    public var leadingImageColor: AColor
+
+    /// Title font.
+    public var titleFont = ParagraphViewParametrs<AFont>()
+
+    /// Default font.
+    public var defaultTitleFont: AFont
     
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
         backgroundColor = theme.colors.backgroundBasic
         
@@ -37,15 +53,28 @@ struct ParagraphScheme {
 
 }
 
-struct ParagraphViewParametrs<P> {
-    var parameters: [String: P?] = [:]
-    
-    mutating func set(parameter: P?, for state: UIControl.State, style: ParagraphStyle?) {
+/// A container for setting value for difference state.
+public struct ParagraphViewParametrs<P> {
+
+    // Parameters with generic values.
+    public var parameters: [String: P?] = [:]
+
+    /// Setting value for state.
+    /// - Parameters:
+    ///   - parameter: Any value. For Example text color
+    ///   - state: State.
+    ///   - style: Style paragraph view.
+    public mutating func set(parameter: P?, for state: UIControl.State, style: ParagraphStyle?) {
         let key = paramKey(state: state, style: style)
         parameters[key] = parameter
     }
-    
-    func parameter(for state: UIControl.State, style: ParagraphStyle?) -> P? {
+
+    /// Getting parameter
+    /// - Parameters:
+    ///   - state: State.
+    ///   - style: Style paragraph view.
+    /// - Returns: Any value.
+    public func parameter(for state: UIControl.State, style: ParagraphStyle?) -> P? {
         let key = paramKey(state: state, style: style)
         let defaultKey = paramKey(state: .normal, style: nil)
         

@@ -9,16 +9,25 @@ import AdmiralTheme
 import AdmiralUIResources
 import UIKit
 
-struct LinkViewHeaderScheme {
+/**
+ LinkViewHeaderScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - LinkViewHeaderScheme() - Initialize default LinkViewHeaderScheme with default themezation
+Example to create LinkViewHeaderScheme:
+Code
+ ```
+let scheme = LinkViewHeaderScheme()
+ ```
+ */
+public struct LinkViewHeaderScheme {
+
+    /// Background color.
+    public var backgroundColor: AColor
+
+    /// Ghost button scheme.
+    public var ghostScheme: GhostButtonCustomScheme
     
-    var backgroundColor: AColor
-    var ghostScheme: GhostButtonCustomScheme
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         backgroundColor = theme.colors.backgroundBasic
         ghostScheme = GhostButtonCustomScheme(theme: theme)
     }

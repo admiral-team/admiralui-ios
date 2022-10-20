@@ -9,18 +9,31 @@ import AdmiralTheme
 import AdmiralUIResources
 import UIKit
 
-struct TitleButtonDropDownScheme {
+/**
+ TitleButtonDropDownScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - TitleButtonDropDownScheme() - Initialize default TitleButtonDropDownScheme with default themezation
+Example to create TitleButtonDropDownScheme:
+Code
+ ```
+let scheme = TitleButtonDropDownScheme()
+ ```
+ */
+public struct TitleButtonDropDownScheme {
+
+    /// Background color.
+    public var backgroundColor: AColor
+
+    /// Title font.
+    public var titleFont: AFont
+
+    /// Text color.
+    public var textColor = ControlParameter<AColor>()
+
+    /// Ghost button scheme.
+    public var ghostButtonScheme: HeaderButtonWithArrowScheme
     
-    var backgroundColor: AColor
-    var titleFont: AFont
-    var textColor = ControlParameter<AColor>()
-    var ghostButtonScheme: HeaderButtonWithArrowScheme
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
         backgroundColor = theme.colors.backgroundBasic
         

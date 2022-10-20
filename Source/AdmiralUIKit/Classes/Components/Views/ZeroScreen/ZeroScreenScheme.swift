@@ -8,22 +8,37 @@
 import AdmiralTheme
 import AdmiralUIResources
 
+/**
+ ZeroScreenScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - ZeroScreenScheme() - Initialize default ZeroScreenScheme with default themezation
+Example to create ZeroScreenScheme:
+Code
+ ```
+let scheme = ZeroScreenScheme()
+ ```
+ */
 public struct ZeroScreenScheme {
+
+    /// Background color.
     public var backgroundColor: AColor
-    
+
+    /// Title color.
     public var titleColor: AColor
+
+    /// Title font.
     public var titleFont: AFont
-    
+
+    /// Subtitle color.
     public var subtitleColor: AColor
+
+    /// Subtitle font.
     public var subtitleFont: AFont
-    
+
+    /// Primary button scheme.
     public var primaryButtonScheme: PrimaryButtonCustomScheme
-    
-    public init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    public init(theme: AppTheme) {
+
+    public init(theme: AppTheme = .default) {
         backgroundColor = theme.colors.backgroundBasic
         
         titleColor = theme.colors.textPrimary
