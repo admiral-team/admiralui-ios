@@ -138,6 +138,10 @@ lane :run_tests_swiftui do |options|
   run_tests_app(scheme: 'AdmiralSwiftUI', configuration: "Debug", devices: options[:devices], clean: true)
 end
 
+lane :run_ui_tests do |options|
+  run_tests_app(scheme: 'ExampleiOS', configuration: "Debug", devices: options[:devices], clean: true)
+end 
+
 lane :run_tests_app do |options|
   scheme = options[:scheme]
   devices = ['iPhone 8 (14.5)']

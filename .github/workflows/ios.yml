@@ -28,8 +28,13 @@ jobs:
           bundle install
           bundle update fastlane
           bundle exec fastlane run clear_derived_data
-      - name: Start SwiftUI & UIKit tests
+      - name: Start SwiftUI & UIKit snapshot tests
         run: bundle exec fastlane run_all_tests
+      - name: Check If Failed
+        if: ${{ failure() }}
+        run:  bundle exec fastlane send_build_failed_info issue_name:${{ github.head_ref }} telegram_token:"$TELEGRAM_API_TOKEN" telegram_chat_id:"$TELEGRAM_DEV_CHAT_ID" build_url:"$PUll_NUMBER"
+      - name: Start SwiftUI & UIKit UI tests
+        run: bundle exec fastlane run_ui_tests
       - name: Check If Failed
         if: ${{ failure() }}
         run:  bundle exec fastlane send_build_failed_info issue_name:${{ github.head_ref }} telegram_token:"$TELEGRAM_API_TOKEN" telegram_chat_id:"$TELEGRAM_DEV_CHAT_ID" build_url:"$PUll_NUMBER"

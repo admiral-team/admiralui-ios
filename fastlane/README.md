@@ -61,6 +61,14 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 
 
+### run_ui_tests
+
+```sh
+[bundle exec] fastlane run_ui_tests
+```
+
+
+
 ### run_tests_app
 
 ```sh
