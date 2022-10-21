@@ -23,10 +23,10 @@ public struct UploadDocumentViewScheme: AppThemeScheme {
     // MARK: - Public properties
 
     /// Text size font.
-    public let sizeTextFont: AFont
+    public var sizeTextFont: AFont
 
     /// Text time font.
-    public let timeTextFont: AFont
+    public var timeTextFont: AFont
 
     /// Message text font.
     public var messageTextFont: AFont
@@ -35,7 +35,7 @@ public struct UploadDocumentViewScheme: AppThemeScheme {
     public var messageTextColor: AColor
 
     /// Text font.
-    public let textFont: AFont
+    public var textFont: AFont
 
     /// Background color.
     public var backgroundColor = UploadDocumentParameters<AColor>()
