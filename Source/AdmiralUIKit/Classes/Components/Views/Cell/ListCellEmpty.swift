@@ -11,9 +11,9 @@ import AdmiralTheme
 /// A view object for sign empty list view.
 open class ListCellEmpty: BaseListView,
                             AnyAppThemable,
-                            LeadingListViewComponent,
+                            CenterListViewComponent,
                             TralingListViewComponent,
-                            ImageListViewComponent {
+                            LeadingListViewComponent {
     
     public func apply(theme: AppTheme) {}
     
