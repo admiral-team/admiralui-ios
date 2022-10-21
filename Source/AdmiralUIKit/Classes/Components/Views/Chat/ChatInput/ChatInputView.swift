@@ -73,13 +73,12 @@ open class ChatInputView: TextViewInput, AnyAppThemable, AccessibilitySupport {
         didSet { updateColors() }
     }
 
-    weak open var chatInputDelegate: ChatInputViewDelegate? = nil
+    /// Color scheme.
+    public var scheme = ChatInputTextFieldScheme() {
+        didSet { updateScheme() }
+    }
 
-    lazy private var chatInputActionButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+    weak open var chatInputDelegate: ChatInputViewDelegate? = nil
 
     // MARK: - Internal Properties
 
@@ -87,14 +86,16 @@ open class ChatInputView: TextViewInput, AnyAppThemable, AccessibilitySupport {
         didSet { configureState(animated: false) }
     }
 
-    var scheme = ChatInputTextFieldScheme() {
-        didSet { updateScheme() }
-    }
-
     // MARK: - Private properties
 
     private let chatButton = ChatButton()
     private let placeholderLabel = UILabel()
+
+    lazy private var chatInputActionButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
 
     // MARK: - AccessibilitySupport
 

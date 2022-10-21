@@ -46,6 +46,7 @@ public final class ErrorView: UIView, AnyAppThemable {
         didSet { updateFonts() }
     }
 
+    /// Color scheme.
     public var scheme = ErrorViewScheme() {
         didSet { updateScheme() }
     }
