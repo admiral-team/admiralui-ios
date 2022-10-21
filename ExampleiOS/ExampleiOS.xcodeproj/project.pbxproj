@@ -33,6 +33,7 @@
 		0E264B0A264E9E2A00601790 /* TextFieldsSwiftUIItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E264B09264E9E2A00601790 /* TextFieldsSwiftUIItem.swift */; };
 		0E264B0D264E9ECF00601790 /* StandardTextFieldSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E264B0C264E9ECF00601790 /* StandardTextFieldSwiftUIView.swift */; };
 		0E29D281275B902200F3FC56 /* NavigationContentViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E29D280275B902200F3FC56 /* NavigationContentViewScheme.swift */; };
+		0E35C15E28FE02D200FBB451 /* NumberSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E35C15D28FE02D200FBB451 /* NumberSwiftUIView.swift */; };
 		0E3DB3C8265D253A00CA2F2A /* OTPTextFieldSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3DB3C7265D253A00CA2F2A /* OTPTextFieldSwiftUIView.swift */; };
 		0E3DB3FA265D3F3500CA2F2A /* BankTextFieldSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3DB3F9265D3F3500CA2F2A /* BankTextFieldSwiftUIView.swift */; };
 		0E3FB1BB255156A50015019E /* PinCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3FB1BA255156A50015019E /* PinCodeViewController.swift */; };
@@ -134,6 +135,9 @@
 		0ECF1B4E266153010068F591 /* InfoSwiftUIViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECF1B4D266153010068F591 /* InfoSwiftUIViewScheme.swift */; };
 		0ED0837626CA6B46000BE955 /* SwiftUIChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED0837526CA6B46000BE955 /* SwiftUIChatViewController.swift */; };
 		0ED08A1A266FBA8E00389A1A /* CalendarSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED08A19266FBA8E00389A1A /* CalendarSwiftUIView.swift */; };
+		0ED8426E28F81AA800BCFCCB /* InputNumberSecondarySwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED8426D28F81AA800BCFCCB /* InputNumberSecondarySwiftUIView.swift */; };
+		0ED8427028F81B7300BCFCCB /* InputNumbersSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED8426F28F81B7300BCFCCB /* InputNumbersSwiftUIView.swift */; };
+		0ED8427228F81B8300BCFCCB /* InputNumbersSwiftUIItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED8427128F81B8300BCFCCB /* InputNumbersSwiftUIItem.swift */; };
 		0EDD49B2273D9EDF002386FB /* CalendarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDD49B1273D9EDF002386FB /* CalendarsViewController.swift */; };
 		0EDD49B6273D9FD0002386FB /* HorizontalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDD49B5273D9FD0002386FB /* HorizontalViewController.swift */; };
 		0EEAF9E3261F8D2B00E46143 /* SwiftUIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAF9E2261F8D2B00E46143 /* SwiftUIController.swift */; };
@@ -526,6 +530,7 @@
 		0E264B09264E9E2A00601790 /* TextFieldsSwiftUIItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldsSwiftUIItem.swift; sourceTree = "<group>"; };
 		0E264B0C264E9ECF00601790 /* StandardTextFieldSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTextFieldSwiftUIView.swift; sourceTree = "<group>"; };
 		0E29D280275B902200F3FC56 /* NavigationContentViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationContentViewScheme.swift; sourceTree = "<group>"; };
+		0E35C15D28FE02D200FBB451 /* NumberSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberSwiftUIView.swift; sourceTree = "<group>"; };
 		0E3DB3C7265D253A00CA2F2A /* OTPTextFieldSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPTextFieldSwiftUIView.swift; sourceTree = "<group>"; };
 		0E3DB3F9265D3F3500CA2F2A /* BankTextFieldSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankTextFieldSwiftUIView.swift; sourceTree = "<group>"; };
 		0E3FB1BA255156A50015019E /* PinCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeViewController.swift; sourceTree = "<group>"; };
@@ -624,6 +629,9 @@
 		0ECF1B4D266153010068F591 /* InfoSwiftUIViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSwiftUIViewScheme.swift; sourceTree = "<group>"; };
 		0ED0837526CA6B46000BE955 /* SwiftUIChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIChatViewController.swift; sourceTree = "<group>"; };
 		0ED08A19266FBA8E00389A1A /* CalendarSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSwiftUIView.swift; sourceTree = "<group>"; };
+		0ED8426D28F81AA800BCFCCB /* InputNumberSecondarySwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNumberSecondarySwiftUIView.swift; sourceTree = "<group>"; };
+		0ED8426F28F81B7300BCFCCB /* InputNumbersSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNumbersSwiftUIView.swift; sourceTree = "<group>"; };
+		0ED8427128F81B8300BCFCCB /* InputNumbersSwiftUIItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNumbersSwiftUIItem.swift; sourceTree = "<group>"; };
 		0EDD49B1273D9EDF002386FB /* CalendarsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarsViewController.swift; sourceTree = "<group>"; };
 		0EDD49B5273D9FD0002386FB /* HorizontalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalViewController.swift; sourceTree = "<group>"; };
 		0EEAF9E2261F8D2B00E46143 /* SwiftUIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIController.swift; sourceTree = "<group>"; };
@@ -1156,6 +1164,14 @@
 			path = NavigationContentView;
 			sourceTree = "<group>";
 		};
+		0E35C15C28FE02A200FBB451 /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				0E35C15D28FE02D200FBB451 /* NumberSwiftUIView.swift */,
+			);
+			path = Input;
+			sourceTree = "<group>";
+		};
 		0E3DB3C6265D251A00CA2F2A /* OTP */ = {
 			isa = PBXGroup;
 			children = (
@@ -1372,7 +1388,11 @@
 		0E64999A264D010900D03D5A /* Number */ = {
 			isa = PBXGroup;
 			children = (
-				0E64999B264D012200D03D5A /* InputNumberSwiftUIView.swift */,
+				0ED8426B28F81A7000BCFCCB /* Default */,
+				0ED8426C28F81A8400BCFCCB /* Secondary */,
+				0E35C15C28FE02A200FBB451 /* Input */,
+				0ED8426F28F81B7300BCFCCB /* InputNumbersSwiftUIView.swift */,
+				0ED8427128F81B8300BCFCCB /* InputNumbersSwiftUIItem.swift */,
 			);
 			path = Number;
 			sourceTree = "<group>";
@@ -1893,6 +1913,22 @@
 				0E17A245269DB65E00F0A80B /* CalendarHorizontalSwiftUIView.swift */,
 			);
 			path = Calendar;
+			sourceTree = "<group>";
+		};
+		0ED8426B28F81A7000BCFCCB /* Default */ = {
+			isa = PBXGroup;
+			children = (
+				0E64999B264D012200D03D5A /* InputNumberSwiftUIView.swift */,
+			);
+			path = Default;
+			sourceTree = "<group>";
+		};
+		0ED8426C28F81A8400BCFCCB /* Secondary */ = {
+			isa = PBXGroup;
+			children = (
+				0ED8426D28F81AA800BCFCCB /* InputNumberSecondarySwiftUIView.swift */,
+			);
+			path = Secondary;
 			sourceTree = "<group>";
 		};
 		0EDD49B3273D9EE3002386FB /* Vertical */ = {
@@ -3877,6 +3913,7 @@
 				E6529CC42534ED01009D8DE9 /* TableViewListItemManager.swift in Sources */,
 				0EBE006E258A693D00EEDCBC /* ShimmerCellView.swift in Sources */,
 				C6A13805260A2C64001F04E5 /* ThemeSwitchComponentViewCustomScheme.swift in Sources */,
+				0ED8427028F81B7300BCFCCB /* InputNumbersSwiftUIView.swift in Sources */,
 				0E29D281275B902200F3FC56 /* NavigationContentViewScheme.swift in Sources */,
 				E6C2B23925DC1172007D332A /* ColorPicker.swift in Sources */,
 				C6260AD1255C5795007175C2 /* MenuTableViewHeaderView.swift in Sources */,
@@ -3954,6 +3991,7 @@
 				0E195E722567DB970096780B /* ImageBaseCellDetailViewController.swift in Sources */,
 				0E3FB24A2559B1C00015019E /* AlertController.swift in Sources */,
 				E94518BA27D4A7270048B133 /* SwitcherPlain.swift in Sources */,
+				0ED8427228F81B8300BCFCCB /* InputNumbersSwiftUIItem.swift in Sources */,
 				C6B92A89258B8CE200ABF9A0 /* BottomSheetViewController.swift in Sources */,
 				E6C2B23A25DC1172007D332A /* BrightnessCursor.swift in Sources */,
 				0E5F3D372535897500E7327C /* FontsViewController.swift in Sources */,
@@ -4064,6 +4102,7 @@
 				E9C79CC927BD245C0002EC49 /* ErrorSwiftUIView.swift in Sources */,
 				E640F65625E1138C0036E24E /* SelectThemeTemplateViewController.swift in Sources */,
 				3BA835062804638400D54318 /* OnBoardingCustomScheme.swift in Sources */,
+				0E35C15E28FE02D200FBB451 /* NumberSwiftUIView.swift in Sources */,
 				3B4F6BB02886D7130094C0FE /* ParagraphCellView.swift in Sources */,
 				E6D5710825DE6CCA00D3304F /* UIView+Autolayout.swift in Sources */,
 				E945189D27D36D360048B133 /* AdmiralGunAPIFacadeProtocol.swift in Sources */,
@@ -4281,6 +4320,7 @@
 				C674990C25D3FBB600232C5F /* UnderlineSliderTabs.swift in Sources */,
 				0E0A3EF82611D3EA007C4CA8 /* OnboardingPageViewController.swift in Sources */,
 				E9A8E5F82805CC23002786F0 /* SpinnerSwiftUIView.swift in Sources */,
+				0ED8426E28F81AA800BCFCCB /* InputNumberSecondarySwiftUIView.swift in Sources */,
 				C6A7F2E82654005700105F2D /* BigInformersSwiftUIView.swift in Sources */,
 				E94518B227D4A37C0048B133 /* StandartTextFieldPlain.swift in Sources */,
 				E6903D7F25DEFF4500245403 /* ThemeViewController.swift in Sources */,

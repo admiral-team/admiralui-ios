@@ -96,6 +96,7 @@
 		0E33996928D5E78700B24722 /* TitleSubtitleHeaderScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E33996828D5E78700B24722 /* TitleSubtitleHeaderScheme.swift */; };
 		0E33996B28D5E79400B24722 /* DropDownHeaderScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E33996A28D5E79400B24722 /* DropDownHeaderScheme.swift */; };
 		0E33996D28D5E7A100B24722 /* TitleHeaderScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E33996C28D5E7A100B24722 /* TitleHeaderScheme.swift */; };
+		0E35C15B28FDACDB00FBB451 /* InputNumberStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E35C15A28FDACDB00FBB451 /* InputNumberStyle.swift */; };
 		0E38F2FC266F7361002AD565 /* CalendarVerticalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E38F2FB266F7361002AD565 /* CalendarVerticalView.swift */; };
 		0E38F313266F78F4002AD565 /* DateFormmer+WeekDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E38F312266F78F4002AD565 /* DateFormmer+WeekDay.swift */; };
 		0E3961BD25FFCF7D006E2005 /* AdmiralSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E3961B425FFCF7D006E2005 /* AdmiralSwiftUI.framework */; };
@@ -534,6 +535,8 @@
 		0ED08A4C2670BD8800389A1A /* CalendarWeekViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED08A4B2670BD8800389A1A /* CalendarWeekViewScheme.swift */; };
 		0ED2A138274BEA2F00DF1315 /* SubtitleImageArrowListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED2A136274BEA2F00DF1315 /* SubtitleImageArrowListView.swift */; };
 		0ED2A139274BEA2F00DF1315 /* SubtitleImageArrowListViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED2A137274BEA2F00DF1315 /* SubtitleImageArrowListViewScheme.swift */; };
+		0ED8426628F763AE00BCFCCB /* NumberInputButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED8426528F763AE00BCFCCB /* NumberInputButtonStyle.swift */; };
+		0ED8426A28F769E500BCFCCB /* NumberInputButtonScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED8426928F769E500BCFCCB /* NumberInputButtonScheme.swift */; };
 		0EEAFAAF2620DD1200E46143 /* PrimaryButtonScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAFAAC2620DD1100E46143 /* PrimaryButtonScheme.swift */; };
 		0EF0308626E7C24F00F888B7 /* TitleMoreDetailTextMessageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF0308526E7C24F00F888B7 /* TitleMoreDetailTextMessageListView.swift */; };
 		0EF0308726E7C27400F888B7 /* TitleMoreDetailTextMessageListViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF0308326E7C1ED00F888B7 /* TitleMoreDetailTextMessageListViewScheme.swift */; };
@@ -1049,6 +1052,7 @@
 		0E33996828D5E78700B24722 /* TitleSubtitleHeaderScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSubtitleHeaderScheme.swift; sourceTree = "<group>"; };
 		0E33996A28D5E79400B24722 /* DropDownHeaderScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownHeaderScheme.swift; sourceTree = "<group>"; };
 		0E33996C28D5E7A100B24722 /* TitleHeaderScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleHeaderScheme.swift; sourceTree = "<group>"; };
+		0E35C15A28FDACDB00FBB451 /* InputNumberStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNumberStyle.swift; sourceTree = "<group>"; };
 		0E38F2FB266F7361002AD565 /* CalendarVerticalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVerticalView.swift; sourceTree = "<group>"; };
 		0E38F312266F78F4002AD565 /* DateFormmer+WeekDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormmer+WeekDay.swift"; sourceTree = "<group>"; };
 		0E3961B425FFCF7D006E2005 /* AdmiralSwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdmiralSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1327,6 +1331,8 @@
 		0ED574FB2570DDC1009B3EBD /* SecondaryTitleListViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryTitleListViewScheme.swift; sourceTree = "<group>"; };
 		0ED575022570DFD5009B3EBD /* ArrowListViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowListViewScheme.swift; sourceTree = "<group>"; };
 		0ED575072570E4C0009B3EBD /* RadioButtonListViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonListViewScheme.swift; sourceTree = "<group>"; };
+		0ED8426528F763AE00BCFCCB /* NumberInputButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberInputButtonStyle.swift; sourceTree = "<group>"; };
+		0ED8426928F769E500BCFCCB /* NumberInputButtonScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberInputButtonScheme.swift; sourceTree = "<group>"; };
 		0ED84B48256585B50004A791 /* DatePercentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePercentListView.swift; sourceTree = "<group>"; };
 		0EEAFAAC2620DD1100E46143 /* PrimaryButtonScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryButtonScheme.swift; sourceTree = "<group>"; };
 		0EF0308326E7C1ED00F888B7 /* TitleMoreDetailTextMessageListViewScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleMoreDetailTextMessageListViewScheme.swift; sourceTree = "<group>"; };
@@ -2307,6 +2313,7 @@
 		0E264ABC264E8F3D00601790 /* TextFields */ = {
 			isa = PBXGroup;
 			children = (
+				0ED8426228F761E900BCFCCB /* NumberInputTextField */,
 				0EA23113270470E400FFF45E /* Sliders */,
 				0E8151FB2695C733004E0B34 /* Common */,
 				0EB853762673A6FA008FC0FD /* TextView */,
@@ -2805,6 +2812,7 @@
 			children = (
 				0E4BC8562681DFB6000FC891 /* LeadingCardListView */,
 				0E4BC81F2681CDF1000FC891 /* ImageListView */,
+				0E4BC8562681DFB6000FC891 /* ImageCardListView */,
 				0E4BC8852681E6E0000FC891 /* ImageNameListView */,
 				0E4BC8742681E199000FC891 /* ImageBackgroundListView */,
 			);
@@ -2997,6 +3005,7 @@
 				0E649978264C309500D03D5A /* InputNumber.swift */,
 				0E2A62C326E7C73E009CE2C0 /* InputNumberScheme.swift */,
 				0E2A62C126E7C72F009CE2C0 /* InputNumberButtonScheme.swift */,
+				0E35C15A28FDACDB00FBB451 /* InputNumberStyle.swift */,
 			);
 			path = InputNumber;
 			sourceTree = "<group>";
@@ -4050,6 +4059,15 @@
 				0ED575072570E4C0009B3EBD /* RadioButtonListViewScheme.swift */,
 			);
 			path = RadioButtonListView;
+			sourceTree = "<group>";
+		};
+		0ED8426228F761E900BCFCCB /* NumberInputTextField */ = {
+			isa = PBXGroup;
+			children = (
+				0ED8426528F763AE00BCFCCB /* NumberInputButtonStyle.swift */,
+				0ED8426928F769E500BCFCCB /* NumberInputButtonScheme.swift */,
+			);
+			path = NumberInputTextField;
 			sourceTree = "<group>";
 		};
 		0EEAF9EE261F91A300E46143 /* Buttons */ = {
@@ -7458,6 +7476,7 @@
 				0E6EA46F26FCF921002EBBBC /* TitleSubtitleHeader.swift in Sources */,
 				0E6EA4862701E407002EBBBC /* ButtonDropDown.swift in Sources */,
 				0E33996D28D5E7A100B24722 /* TitleHeaderScheme.swift in Sources */,
+				0ED8426628F763AE00BCFCCB /* NumberInputButtonStyle.swift in Sources */,
 				0E649979264C309500D03D5A /* InputNumber.swift in Sources */,
 				0EBE560326C6CCA900C4A277 /* PinButtonScheme.swift in Sources */,
 				3BC8341D27511A5500F1B06A /* CheckboxTextbuttonViewScheme.swift in Sources */,
@@ -7540,11 +7559,13 @@
 				0E4BC72E267CF392000FC891 /* CheckBoxListView.swift in Sources */,
 				0ED2A139274BEA2F00DF1315 /* SubtitleImageArrowListViewScheme.swift in Sources */,
 				0E8B0F3126DE346600EEA0D3 /* PinCodeKeyboardScheme.swift in Sources */,
+				0ED8426A28F769E500BCFCCB /* NumberInputButtonScheme.swift in Sources */,
 				0E33995D28D5E70900B24722 /* LinkViewScheme.swift in Sources */,
 				0EAF71B9263875620041CA08 /* InformerTab.swift in Sources */,
 				E9C6BF1E28C7A7F900213F5C /* CalendarWeek.swift in Sources */,
 				0E6223A926BAF4D30012DB6E /* HideToastOperation.swift in Sources */,
 				0E38F2FC266F7361002AD565 /* CalendarVerticalView.swift in Sources */,
+				0E35C15B28FDACDB00FBB451 /* InputNumberStyle.swift in Sources */,
 				0E8151FD2695C745004E0B34 /* TextFieldInput.swift in Sources */,
 				0EAF71C1263875710041CA08 /* InformerTabScheme.swift in Sources */,
 				0ED0836C26C988AC000BE955 /* SeveralPinButtonScheme.swift in Sources */,
