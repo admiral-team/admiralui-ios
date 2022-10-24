@@ -8,17 +8,21 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-struct SliderScheme {
-    var tintColor = ControlParameter<AColor>()
-    var thumbColor = ControlParameter<AColor>()
-    var thumbBorderColor = ControlParameter<AColor>()
-    var backgroundColor = ControlParameter<AColor>()
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+public struct SliderScheme: AppThemeScheme {
+
+    /// Tint color.
+    public var tintColor = ControlParameter<AColor>()
+
+    /// Thumb color.
+    public var thumbColor = ControlParameter<AColor>()
+
+    /// Thumb border color.
+    public var thumbBorderColor = ControlParameter<AColor>()
+
+    /// Background color.
+    public var backgroundColor = ControlParameter<AColor>()
+
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         tintColor.set(parameter: theme.colors.backgroundAccent, for: .normal)

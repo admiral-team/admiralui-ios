@@ -8,19 +8,34 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-struct TextInputDecorationViewScheme {
+/**
+ TextInputDecorationViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - TextInputDecorationViewScheme() - Initialize default TextInputDecorationViewScheme with default themezation
+Example to create TextInputDecorationViewScheme:
+Code
+ ```
+let scheme = TextInputDecorationViewScheme()
+ ```
+ */
+public struct TextInputDecorationViewScheme: AppThemeScheme {
+
+    /// Name label font.
+    public var nameFont: AFont
+
+    /// Name label enable font.
+    public var nameEnableFont: AFont
+
+    /// Placeholder font.
+    public var placeholderFont: AFont
+
+    /// Informer font.
+    public var informerFont: AFont
+
+    /// Name label min font.
+    public var nameLabelMinFont: AFont
     
-    var nameFont: AFont
-    var nameEnableFont: AFont
-    var placeholderFont: AFont
-    var informerFont: AFont
-    var nameLabelMinFont: AFont
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         nameFont = theme.fonts.subhead3
         nameEnableFont = theme.fonts.body1
         placeholderFont = theme.fonts.body1
