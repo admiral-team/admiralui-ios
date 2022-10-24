@@ -19,7 +19,7 @@ Code
 let scheme = TitleButtonDropDownScheme()
  ```
  */
-public struct TitleButtonDropDownScheme {
+public struct TitleButtonDropDownScheme: AppThemeScheme {
 
     /// Background color.
     public var backgroundColor: AColor

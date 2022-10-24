@@ -19,7 +19,7 @@ Code
 let scheme = ParagraphScheme()
  ```
  */
-public struct ParagraphScheme {
+public struct ParagraphScheme: AppThemeScheme {
 
     /// Background color.
     public var backgroundColor: AColor

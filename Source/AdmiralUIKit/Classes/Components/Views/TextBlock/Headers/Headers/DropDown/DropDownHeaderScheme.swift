@@ -19,7 +19,7 @@ Code
 let scheme = DropDownHeaderScheme()
  ```
  */
-public struct DropDownHeaderScheme {
+public struct DropDownHeaderScheme: AppThemeScheme {
 
     /// Background color.
     public var backgroundColor: AColor

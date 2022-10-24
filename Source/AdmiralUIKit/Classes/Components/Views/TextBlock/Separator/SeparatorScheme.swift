@@ -19,7 +19,7 @@ Code
 let scheme = SeparatorScheme()
  ```
  */
-public struct SeparatorScheme {
+public struct SeparatorScheme: AppThemeScheme {
 
     /// Background color.
     public var backgroundColor: AColor

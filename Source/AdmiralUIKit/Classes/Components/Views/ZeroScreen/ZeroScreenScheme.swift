@@ -18,7 +18,7 @@ Code
 let scheme = ZeroScreenScheme()
  ```
  */
-public struct ZeroScreenScheme {
+public struct ZeroScreenScheme: AppThemeScheme {
 
     /// Background color.
     public var backgroundColor: AColor

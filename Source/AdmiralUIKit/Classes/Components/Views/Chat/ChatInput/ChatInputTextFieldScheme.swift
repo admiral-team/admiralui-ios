@@ -18,7 +18,7 @@ Code
 let scheme = ChatBubbleViewScheme()
  ```
  */
-public struct ChatInputTextFieldScheme {
+public struct ChatInputTextFieldScheme: AppThemeScheme {
 
     /// Tint color.
     public var tintColor = ChatInputTextFieldParameters<AColor>()

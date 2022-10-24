@@ -19,7 +19,7 @@ Code
 let scheme = SubtitleTitleHeaderScheme()
  ```
  */
-public struct SubtitleTitleHeaderScheme {
+public struct SubtitleTitleHeaderScheme: AppThemeScheme {
 
     /// Background color.
     public var backgroundColor: AColor

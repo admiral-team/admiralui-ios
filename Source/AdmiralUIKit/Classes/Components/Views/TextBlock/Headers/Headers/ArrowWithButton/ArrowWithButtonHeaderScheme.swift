@@ -19,7 +19,7 @@ Code
 let scheme = ArrowWithButtonHeaderScheme()
  ```
  */
-public struct ArrowWithButtonHeaderScheme {
+public struct ArrowWithButtonHeaderScheme: AppThemeScheme {
 
     /// Background color.
     public var backgroundColor: AColor

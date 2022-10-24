@@ -19,7 +19,7 @@ Code
 let scheme = LinkViewHeaderScheme()
  ```
  */
-public struct LinkViewHeaderScheme {
+public struct LinkViewHeaderScheme: AppThemeScheme {
 
     /// Background color.
     public var backgroundColor: AColor

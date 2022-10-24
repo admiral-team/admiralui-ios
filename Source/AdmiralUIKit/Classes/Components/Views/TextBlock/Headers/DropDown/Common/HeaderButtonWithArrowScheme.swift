@@ -18,7 +18,7 @@ Code
 let scheme = HeaderButtonWithArrowScheme()
  ```
  */
-public struct HeaderButtonWithArrowScheme {
+public struct HeaderButtonWithArrowScheme: AppThemeScheme {
 
     /// Text color.
     public var textColor = ControlParameter<AColor>()
