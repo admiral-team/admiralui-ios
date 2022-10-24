@@ -71,7 +71,7 @@ public final class CurrencyHeaderView: UIView, AnyAppThemable {
     }
 
     /// Color scheme.
-    var scheme = CurrencyHeaderViewScheme() {
+    public var scheme = CurrencyHeaderViewScheme() {
         didSet { updateScheme() }
     }
 
