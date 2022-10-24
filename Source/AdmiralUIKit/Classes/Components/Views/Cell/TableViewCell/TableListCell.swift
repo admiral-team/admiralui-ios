@@ -40,10 +40,9 @@ open class TableListCell<I, L, T>: UITableViewCell, AnyAppThemable where L: Lead
     open var isEnabled: Bool = true {
         didSet { listCell?.isEnabled = isEnabled }
     }
-    
-    // MARK: - Internal Properties
-    
-    var scheme = TableListCellScheme() {
+
+    /// Color scheme.
+    open var scheme = TableListCellScheme() {
         didSet { updateScheme() }
     }
 

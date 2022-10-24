@@ -21,16 +21,17 @@ public class ImageBackgroundListView: BaseListView, ImageListViewComponent, AnyA
     public var image: UIImage? {
         didSet { imageView.image = image }
     }
+
+    /// Color scheme.
+    public var scheme = ImageBackgroundListViewScheme() {
+        didSet { updateScheme() }
+    }
     
     // MARK: Internal Properties
     
     /// The state of the view. Default is normal.
     override var state: UIControl.State {
         didSet { configure(for: state) }
-    }
-    
-    var scheme = ImageBackgroundListViewScheme() {
-        didSet { updateScheme() }
     }
     
     // MARK: - Private Properties

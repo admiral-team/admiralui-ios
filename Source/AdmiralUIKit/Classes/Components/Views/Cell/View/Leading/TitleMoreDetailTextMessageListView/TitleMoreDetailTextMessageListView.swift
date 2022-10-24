@@ -52,16 +52,17 @@ public class TitleMoreDetailTextMessageListView: BaseListView, LeadingListViewCo
     public var messageText: String? {
         didSet { messageTitleLabel.text = messageText }
     }
+
+    /// Color scheme.
+    public var scheme = TitleMoreDetailTextMessageListViewScheme() {
+        didSet { updateScheme() }
+    }
     
     // MARK: Internal Properties
     
     /// The state of the view. Default is normal.
     override var state: UIControl.State {
         didSet { configure(for: state) }
-    }
-    
-    var scheme = TitleMoreDetailTextMessageListViewScheme() {
-        didSet { updateScheme() }
     }
     
     // MARK: - AccessibilitySupport

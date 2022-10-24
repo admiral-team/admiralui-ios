@@ -9,17 +9,28 @@ import UIKit
 import AdmiralTheme
 import AdmiralUIResources
 
-struct ImageListViewScheme {
-    
-    var backgroundColor = ControlParameter<AColor>()
-    var imageTintColor = ControlParameter<AColor>()
-    var imageViewAlpha = ControlParameter<CGFloat>()
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+/**
+ ImageListViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - ImageListViewScheme() - Initialize default ImageListViewScheme with default themezation
+Example to create ImageListViewScheme:
+Code
+ ```
+let scheme = ImageListViewScheme()
+ ```
+ */
+public struct ImageListViewScheme: AppThemeScheme {
+
+    /// Background color.
+    public var backgroundColor = ControlParameter<AColor>()
+
+    /// Image tint color.
+    public var imageTintColor = ControlParameter<AColor>()
+
+    /// Image view alpha.
+    public var imageViewAlpha = ControlParameter<CGFloat>()
+
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         backgroundColor.set(parameter: theme.colors.backgroundSelected, for: .highlighted)

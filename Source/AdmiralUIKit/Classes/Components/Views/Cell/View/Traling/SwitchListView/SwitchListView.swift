@@ -20,16 +20,17 @@ public class SwitchListView: BaseListView, TralingListViewComponent, AnyAppThema
     
     /// The closure sign that switch view did select.
     public var didSelect: ((Bool) -> Void)?
+
+    /// Color scheme.
+    public var scheme = SwitchListViewScheme() {
+        didSet { updateScheme() }
+    }
     
     // MARK: Internal Properties
     
     /// The state of the view. Default is normal.
     override var state: UIControl.State {
         didSet { configure(for: state) }
-    }
-    
-    var scheme = SwitchListViewScheme() {
-        didSet { updateScheme() }
     }
     
     // MARK: - Private Properties

@@ -88,17 +88,16 @@ final public class CheckTextControl<C: CheckControl>: UIControl, AnyAppThemable,
         get { return textLabel.numberOfLines }
         set { textLabel.numberOfLines = newValue }
     }
+
+    /// Color scheme.
+    public var scheme = CheckTextControlScheme() {
+        didSet { updateState() }
+    }
     
     // MARK: - AccessibilitySupport
     
     public var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
         didSet { updateSchemeFonts() }
-    }
-    
-    // MARK: - Internal Properties
-    
-    var scheme = CheckTextControlScheme() {
-        didSet { updateState() }
     }
     
     // MARK: - Private Properties

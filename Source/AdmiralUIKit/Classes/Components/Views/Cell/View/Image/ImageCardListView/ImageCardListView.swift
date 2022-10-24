@@ -15,12 +15,13 @@ public class ImageCardListView: BaseListView, ImageListViewComponent, AnyAppThem
     public var cardImage: UIImage? {
         didSet { imageView.image = cardImage }
     }
-    
-    // MARK: Internal Properties
-    
-    var scheme = ImageCardListViewScheme() {
+
+    /// Color scheme.
+    public var scheme = ImageCardListViewScheme() {
         didSet { updateScheme() }
     }
+    
+    // MARK: Internal Properties
     
     /// The state of the view. Default is normal.
     override var state: UIControl.State {

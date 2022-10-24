@@ -9,22 +9,40 @@ import UIKit
 import AdmiralTheme
 import AdmiralUIResources
 
-public struct TitleLargeSubtitleScheme {
+/**
+ TitleLargeSubtitleScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - TitleLargeSubtitleScheme() - Initialize default TitleLargeSubtitleScheme with default themezation
+Example to create TitleLargeSubtitleScheme:
+Code
+ ```
+let scheme = TitleLargeSubtitleScheme()
+ ```
+ */
+public struct TitleLargeSubtitleScheme: AppThemeScheme {
+
+    /// Background color.
+    public var backgroundColor = ControlParameter<AColor>()
+
+    /// Title color.
+    public var titleColor = ControlParameter<AColor>()
+
+    /// Subtitle color.
+    public var subtitleColor = ControlParameter<AColor>()
+
+    /// Additional color.
+    public var additionaColor = ControlParameter<AColor>()
+
+    /// Title font.
+    public var titleFont: AFont
+
+    /// Subtitle font.
+    public var subtitleFont: AFont
+
+    /// Additional title font.
+    public var additionalTitleFont: AFont
     
-    var backgroundColor = ControlParameter<AColor>()
-    var titleColor = ControlParameter<AColor>()
-    var subtitleColor = ControlParameter<AColor>()
-    var additionaColor = ControlParameter<AColor>()
-    
-    var titleFont: AFont
-    var subtitleFont: AFont
-    var additionalTitleFont: AFont
-    
-    public init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    public init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         backgroundColor.set(parameter: theme.colors.backgroundSelected, for: .highlighted)

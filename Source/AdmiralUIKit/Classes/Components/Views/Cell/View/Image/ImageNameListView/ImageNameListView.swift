@@ -22,16 +22,17 @@ public class ImageNameListView: BaseListView, ImageListViewComponent, AnyAppThem
     public var text: String? {
         didSet { titleLabel.text = text }
     }
+
+    /// Color scheme.
+    public var scheme = ImageNameListViewScheme() {
+        didSet { updateScheme() }
+    }
     
     // MARK: Internal Properties
     
     /// The state of the view. Default is normal.
     override var state: UIControl.State {
         didSet { configure(for: state) }
-    }
-    
-    var scheme = ImageNameListViewScheme() {
-        didSet { updateScheme() }
     }
     
     // MARK: - Private Properties

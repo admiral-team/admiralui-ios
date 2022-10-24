@@ -9,8 +9,17 @@ import UIKit
 import AdmiralTheme
 import AdmiralUIResources
 
-/// The scheme of
-struct ActionItemBarDefaultControlScheme {
+/**
+ ActionItemBarDefaultControlScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - ActionItemBarDefaultControlScheme() - Initialize default ActionItemBarDefaultControlScheme with default themezation
+Example to create ActionItemBarDefaultControlScheme:
+Code
+ ```
+let scheme = ActionItemBarDefaultControlScheme()
+ ```
+ */
+public struct ActionItemBarDefaultControlScheme: AppThemeScheme {
 
     // MARK: - Public properties
 
@@ -25,11 +34,7 @@ struct ActionItemBarDefaultControlScheme {
 
     // MARK: - Initializer
 
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         backgroundColor.set(parameter: theme.colors.backgroundBasic, for: .normal)
@@ -68,16 +73,18 @@ struct ActionItemBarDefaultControlScheme {
     }
 }
 
-struct ActionBarControlSchemeParameters<P> {
+/// A container for setting value for difference state.
+public struct ActionBarControlSchemeParameters<P> {
 
-    var parameters: [String: P?] = [:]
+    /// Parameters with generic values.
+    public var parameters: [String: P?] = [:]
 
-    mutating func set(parameter: P?, style: ActionBarItemImageStyle, control: UIControl.State) {
+    public mutating func set(parameter: P?, style: ActionBarItemImageStyle, control: UIControl.State) {
         let key = paramKey(style: style, control: control)
         parameters[key] = parameter
     }
 
-    func parameter(for style: ActionBarItemImageStyle, control: UIControl.State) -> P? {
+    public func parameter(for style: ActionBarItemImageStyle, control: UIControl.State) -> P? {
         let key = paramKey(style: style, control: control)
         let defaultKey = paramKey(style: style, control: control)
 
