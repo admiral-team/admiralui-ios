@@ -51,14 +51,17 @@ public final class Slider: UIControl, AnyAppThemable {
         didSet { configure(for: state) }
     }
 
+    /// Color scheme.
+    public var scheme = SliderScheme() {
+        didSet {
+            updateScheme()
+        }
+    }
+
     /// The natural size for the receiving view, considering only properties of the view itself.
     public override var intrinsicContentSize: CGSize {
         CGSize(width: UIView.noIntrinsicMetric, height: Constants.height)
     }
-    
-    // MARK: - Internal Properties
-
-    var scheme = SliderScheme()
 
     // MARK: - Private properties
 
