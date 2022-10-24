@@ -8,6 +8,16 @@
 import AdmiralTheme
 import AdmiralUIResources
 
+/**
+ SliderScheme - the visual scheme.
+  You can create a by specifying the following parameters in init:
+  - SliderScheme() - Initialize default SliderScheme with default themezation
+ Example to create SliderScheme:
+ Code
+  ```
+ let scheme = SliderScheme()
+  ```
+  */
 public struct SliderScheme: AppThemeScheme {
 
     /// Tint color.
