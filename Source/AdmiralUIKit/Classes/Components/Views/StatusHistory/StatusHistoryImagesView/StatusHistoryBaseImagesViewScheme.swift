@@ -22,4 +22,5 @@ struct StatusHistoryBaseImagesViewScheme {
         imageViewBackgroundColor = theme.colors.backgroundAdditionalOnePressed
         imageViewBorderColor = theme.colors.backgroundBasic
     }
+    
 }
