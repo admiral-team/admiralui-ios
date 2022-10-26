@@ -9,25 +9,49 @@ import UIKit
 import AdmiralTheme
 import AdmiralUIResources
 
-struct MessageInformerScheme {
-    
-    var titleLabelTextColors = MessageInformerParameter<AColor>()
-    var descriptionLabelTextColors = MessageInformerParameter<AColor>()
-    var subtitleLabelTextColors = MessageInformerParameter<AColor>()
-    var wrapViewBackgroundColors = MessageInformerParameter<AColor>()
-    var backgroundColors = MessageInformerParameter<AColor>()
-    var descriptionImageViewTintColors = MessageInformerParameter<AColor>()
-    var descriptionImageViewAlpha = MessageInformerParameter<CGFloat>()
-    
-    var titleLabelFont: AFont
-    var descriptionLabelFont: AFont
-    var subtitleLabelFont: AFont
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+/**
+ MessageInformerScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - MessageInformerScheme() - Initialize default MessageInformerScheme with default themezation
+Example to create MessageInformerScheme:
+Code
+ ```
+let scheme = MessageInformerScheme()
+ ```
+ */
+public struct MessageInformerScheme: AppThemeScheme {
+
+    /// Title label text color.
+    public var titleLabelTextColors = MessageInformerParameter<AColor>()
+
+    /// Description label text color.
+    public var descriptionLabelTextColors = MessageInformerParameter<AColor>()
+
+    /// Subtitle label text color.
+    public var subtitleLabelTextColors = MessageInformerParameter<AColor>()
+
+    /// Wrap view background color.
+    public var wrapViewBackgroundColors = MessageInformerParameter<AColor>()
+
+    /// Background color.
+    public var backgroundColors = MessageInformerParameter<AColor>()
+
+    /// Description image view tint color.
+    public var descriptionImageViewTintColors = MessageInformerParameter<AColor>()
+
+    /// Description image view alpha.
+    public var descriptionImageViewAlpha = MessageInformerParameter<CGFloat>()
+
+    /// Title label font.
+    public var titleLabelFont: AFont
+
+    /// Description label font.
+    public var descriptionLabelFont: AFont
+
+    /// Subtitle label font.
+    public var subtitleLabelFont: AFont
+
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         titleLabelFont = theme.fonts.headline
@@ -55,16 +79,26 @@ struct MessageInformerScheme {
     
 }
 
-struct MessageInformerParameter<P> {
-    
-    var parameters: [String: P?] = [:]
-    
-    mutating func set(parameter: P?, isEnabled: Bool) {
+/// A container for setting value for difference state.
+public struct MessageInformerParameter<P> {
+
+    /// Parameters with generic values.
+    public var parameters: [String: P?] = [:]
+
+    /// Setting value for state.
+    /// - Parameters:
+    ///   - parameter: Any value. For Example text color
+    ///   - isEnabled: Enabled state.
+    public mutating func set(parameter: P?, isEnabled: Bool) {
         let key = paramKey(isEnabled: isEnabled)
         parameters[key] = parameter
     }
-    
-    func parameter(isEnabled: Bool) -> P? {
+
+    /// Getting parameter
+    /// - Parameters:
+    /// - isEnabled: Enabled state.
+    /// - Returns: Any value.
+    public func parameter(isEnabled: Bool) -> P? {
         let key = paramKey(isEnabled: isEnabled)
         let defaultKey = paramKey(isEnabled: true)
         
