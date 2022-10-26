@@ -32,7 +32,7 @@ public struct BadgeScheme: AppThemeScheme {
     /// Background color.
     public var backgroundColor = BadgeParameters<AColor>()
     
-    public init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
         font = theme.fonts.caption2
         borderColor = theme.colors.backgroundBasic
