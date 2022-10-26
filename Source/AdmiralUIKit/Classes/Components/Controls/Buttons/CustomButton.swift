@@ -60,6 +60,7 @@ open class CustomButton: UIButton {
     private var buttonShadowRadius = ControlParameter<CGFloat>()
     private var buttonShadowOffset = ControlParameter<CGSize>()
     private var buttonShadowPath = ControlParameter<CGPath>()
+    private var maskedCorners: CACornerMask?
 
     // MARK: - Initializers
 
@@ -295,11 +296,23 @@ open class CustomButton: UIButton {
         return buttonShadowPath.parameter(for: state)
     }
 
+    /// Round specific corner of button
+    /// - Parameter corners: set mask corners for button.
+    /// - Parameter state: The state that uses the shadow path. The possible values are described in UIControl.State.
+    open func setMaskedCorners(corners: CACornerMask, for state: UIControl.State) {
+        maskedCorners = corners
+        updateIfNeeded(for: state)
+    }
+
     // MARK: - Configuration Methods
 
     func configure(for state: UIControl.State) {
         layer.backgroundColor = backgroundLayerColor?.cgColor
         layer.cornerRadius = cornerRadius(for: state)
+        if let maskedCorners = maskedCorners {
+            backgroundLayer.maskedCorners = maskedCorners
+            layer.maskedCorners = maskedCorners
+        }
 
         backgroundLayer.backgroundColor = backgroundColor(for: state)?.cgColor
         backgroundLayer.shadowColor = shadowColor(for: state)?.cgColor

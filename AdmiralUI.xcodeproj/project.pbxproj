@@ -826,6 +826,9 @@
 		E9B82B7F27B40E7700FC7BB9 /* ActionItemBarSecondaryScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B82B7E27B40E7700FC7BB9 /* ActionItemBarSecondaryScheme.swift */; };
 		E9B82B8127B40EFD00FC7BB9 /* ActionBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B82B8027B40EFD00FC7BB9 /* ActionBarView.swift */; };
 		E9B82B8327B40F1D00FC7BB9 /* ActionBarViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B82B8227B40F1D00FC7BB9 /* ActionBarViewScheme.swift */; };
+		E9B90DA82907027800EBC9BC /* InputNumberStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B90DA72907027800EBC9BC /* InputNumberStyle.swift */; };
+		E9B90DAD290707A700EBC9BC /* InputNumberTextFieldScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B90DAC290707A700EBC9BC /* InputNumberTextFieldScheme.swift */; };
+		E9B90DAE290707D600EBC9BC /* InputNumberTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B90DAA2907079700EBC9BC /* InputNumberTextField.swift */; };
 		E9BE413E27C39F0000894224 /* ErrorViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE413D27C39F0000894224 /* ErrorViewTest.swift */; };
 		E9BE416527C7CC9700894224 /* ActionBarViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE416427C7CC9700894224 /* ActionBarViewSnapshotTests.swift */; };
 		E9BE41B927C7E02400894224 /* CurrencyViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE41B427C7E02400894224 /* CurrencyViewScheme.swift */; };
@@ -853,6 +856,7 @@
 		E9ECF207272A8EB000363E5E /* UploadImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ECF205272A8E7200363E5E /* UploadImageView.swift */; };
 		E9ECF20A272A8F6D00363E5E /* UploadImageViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ECF208272A8ED100363E5E /* UploadImageViewScheme.swift */; };
 		E9F0F9DF28F7E5CE00692090 /* CustomSwitchScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F0F9DE28F7E5CE00692090 /* CustomSwitchScheme.swift */; };
+		E9FF669C2908FEB00069AA07 /* InputNumberTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FF669B2908FEB00069AA07 /* InputNumberTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1822,6 +1826,9 @@
 		E9B82B7E27B40E7700FC7BB9 /* ActionItemBarSecondaryScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionItemBarSecondaryScheme.swift; sourceTree = "<group>"; };
 		E9B82B8027B40EFD00FC7BB9 /* ActionBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionBarView.swift; sourceTree = "<group>"; };
 		E9B82B8227B40F1D00FC7BB9 /* ActionBarViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionBarViewScheme.swift; sourceTree = "<group>"; };
+		E9B90DA72907027800EBC9BC /* InputNumberStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNumberStyle.swift; sourceTree = "<group>"; };
+		E9B90DAA2907079700EBC9BC /* InputNumberTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNumberTextField.swift; sourceTree = "<group>"; };
+		E9B90DAC290707A700EBC9BC /* InputNumberTextFieldScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNumberTextFieldScheme.swift; sourceTree = "<group>"; };
 		E9BE413D27C39F0000894224 /* ErrorViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewTest.swift; sourceTree = "<group>"; };
 		E9BE416427C7CC9700894224 /* ActionBarViewSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionBarViewSnapshotTests.swift; sourceTree = "<group>"; };
 		E9BE41B427C7E02400894224 /* CurrencyViewScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyViewScheme.swift; sourceTree = "<group>"; };
@@ -1849,6 +1856,7 @@
 		E9ECF205272A8E7200363E5E /* UploadImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageView.swift; sourceTree = "<group>"; };
 		E9ECF208272A8ED100363E5E /* UploadImageViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageViewScheme.swift; sourceTree = "<group>"; };
 		E9F0F9DE28F7E5CE00692090 /* CustomSwitchScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSwitchScheme.swift; sourceTree = "<group>"; };
+		E9FF669B2908FEB00069AA07 /* InputNumberTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNumberTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2632,6 +2640,7 @@
 			isa = PBXGroup;
 			children = (
 				0E463CBD255047B8000FD2DF /* InputNumber.swift */,
+				E9B90DA72907027800EBC9BC /* InputNumberStyle.swift */,
 				E6F2D143256DB04E00EF9281 /* InputNumberScheme.swift */,
 			);
 			path = InputNumber;
@@ -2812,9 +2821,8 @@
 		0E4BC81E2681CDE5000FC891 /* Leading */ = {
 			isa = PBXGroup;
 			children = (
-				0E4BC8562681DFB6000FC891 /* LeadingCardListView */,
 				0E4BC81F2681CDF1000FC891 /* ImageListView */,
-				0E4BC8562681DFB6000FC891 /* ImageCardListView */,
+				0E4BC8562681DFB6000FC891 /* LeadingCardListView */,
 				0E4BC8852681E6E0000FC891 /* ImageNameListView */,
 				0E4BC8742681E199000FC891 /* ImageBackgroundListView */,
 			);
@@ -5149,6 +5157,7 @@
 		E610493026014D3F00FF20ED /* TextFields */ = {
 			isa = PBXGroup;
 			children = (
+				E9B90DA92907078600EBC9BC /* InputNumber */,
 				E9A75601274D049C005024B3 /* DoubleInputRangeTextField */,
 				C66A0C77260265AD005B0AF7 /* TimePicker */,
 				E610493D26014D3F00FF20ED /* Common */,
@@ -5665,6 +5674,7 @@
 		E6CCB11E25DA6ECB00269F82 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E9FF669A2908FE9C0069AA07 /* InputNumberTextField */,
 				E9BE41BD27C7E05600894224 /* Currency */,
 				3B574AA027C7DB08006FEF9A /* ZeroScreen */,
 				0E110DD027C7AA0700BFF58F /* TextBlock */,
@@ -6838,6 +6848,15 @@
 			path = ActionBarItemSecondary;
 			sourceTree = "<group>";
 		};
+		E9B90DA92907078600EBC9BC /* InputNumber */ = {
+			isa = PBXGroup;
+			children = (
+				E9B90DAA2907079700EBC9BC /* InputNumberTextField.swift */,
+				E9B90DAC290707A700EBC9BC /* InputNumberTextFieldScheme.swift */,
+			);
+			path = InputNumber;
+			sourceTree = "<group>";
+		};
 		E9BE413C27C39EA600894224 /* ErrorView */ = {
 			isa = PBXGroup;
 			children = (
@@ -6961,6 +6980,14 @@
 				E9B4D80F272FE19600B4DA98 /* Document */,
 			);
 			path = UploadFIleView;
+			sourceTree = "<group>";
+		};
+		E9FF669A2908FE9C0069AA07 /* InputNumberTextField */ = {
+			isa = PBXGroup;
+			children = (
+				E9FF669B2908FEB00069AA07 /* InputNumberTextField.swift */,
+			);
+			path = InputNumberTextField;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -7938,6 +7965,7 @@
 				0EB7578B2600D625009BFC21 /* PageControl.swift in Sources */,
 				0EB757982600D625009BFC21 /* CalendarModels.swift in Sources */,
 				0EB757532600D625009BFC21 /* IconTabsSegmentControlScheme.swift in Sources */,
+				E9B90DAD290707A700EBC9BC /* InputNumberTextFieldScheme.swift in Sources */,
 				0EB757012600D624009BFC21 /* TitleSubtitleButtonListView.swift in Sources */,
 				0EB7574D2600D625009BFC21 /* ShimmeringView.swift in Sources */,
 				0EB756FB2600D624009BFC21 /* DatePercentListView.swift in Sources */,
@@ -8027,6 +8055,7 @@
 				E610495626014D3F00FF20ED /* InputRangeTextFieldScheme.swift in Sources */,
 				0EB757212600D624009BFC21 /* LogoSegmentedView.swift in Sources */,
 				0E89C533273BAAB100476216 /* CalendarHorizontalHeaderViewScheme.swift in Sources */,
+				E9B90DA82907027800EBC9BC /* InputNumberStyle.swift in Sources */,
 				0EB757142600D624009BFC21 /* CheckBoxTextButtonView.swift in Sources */,
 				0EB7575F2600D625009BFC21 /* BottomSheetHeaderSmallTitleScheme.swift in Sources */,
 				C6BD2C56262E1DFC0088FDF4 /* TextInputDecorationViewScheme.swift in Sources */,
@@ -8057,6 +8086,7 @@
 				0EB757832600D625009BFC21 /* UnderlineTabsSegmentedControl.swift in Sources */,
 				0E110DA927C52E1A00BFF58F /* TitleSubtitleHeader.swift in Sources */,
 				E95DC42A27A01F9B00532BDC /* CircleLoaderAnimator.swift in Sources */,
+				E9B90DAE290707D600EBC9BC /* InputNumberTextField.swift in Sources */,
 				0EB757432600D625009BFC21 /* CalendarVerticalView.swift in Sources */,
 				0E89C531273BAAA300476216 /* CalendarHorizontalHeaderView.swift in Sources */,
 				0EB757242600D624009BFC21 /* ImageWithSubtitleListView.swift in Sources */,
@@ -8085,6 +8115,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E95553E127ABFFC900A14BCA /* TextOperationTest.swift in Sources */,
+				E9FF669C2908FEB00069AA07 /* InputNumberTextField.swift in Sources */,
 				0EB2873A27C7BBBE005F2155 /* TextBlockHeaderLinkTest.swift in Sources */,
 				0E8E0BD32600DCCE00A813BC /* StatusHistorySnapshotTest.swift in Sources */,
 				0E8E0BC52600DCCE00A813BC /* ActivityIndicatorSnapshotTest.swift in Sources */,
@@ -8502,9 +8533,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2F9L2Q4J3U;
 				INFOPLIST_FILE = "Tests/AdmiralUIKitTests/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -8525,9 +8557,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2F9L2Q4J3U;
 				INFOPLIST_FILE = "Tests/AdmiralUIKitTests/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
