@@ -27,7 +27,7 @@ public struct StatusHistoryBaseImagesViewScheme: AppThemeScheme {
     /// Image view border color.
     public var imageViewBorderColor: AColor
 
-    public init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         imageViewBackgroundColor = theme.colors.backgroundAdditionalOnePressed
         imageViewBorderColor = theme.colors.backgroundBasic
     }
