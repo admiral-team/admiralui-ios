@@ -60,9 +60,8 @@ open class PinButton: CustomButton, AnyAppThemable {
         Constants.size
     }
 
-    // MARK: - Internal Properties
-
-    var scheme = PinButtonScheme() {
+    /// Color scheme.
+    public var scheme = PinButtonScheme() {
         didSet { updateScheme() }
     }
 
