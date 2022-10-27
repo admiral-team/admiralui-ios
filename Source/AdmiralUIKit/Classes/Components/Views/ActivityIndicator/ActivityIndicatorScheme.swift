@@ -9,16 +9,27 @@ import UIKit
 import AdmiralTheme
 import AdmiralUIResources
 
-struct ActivityIndicatorScheme {
-    var defaultColor: AColor
-    var contrastColor: AColor
+/**
+ ActivityIndicatorScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - ActivityIndicatorScheme() - Initialize default ActivityIndicatorScheme with default themezation
+Example to create ActivityIndicatorScheme:
+Code
+ ```
+let scheme = ActivityIndicatorScheme()
+ ```
+ */
+public struct ActivityIndicatorScheme: AppThemeScheme {
+
+    /// Default color.
+    public var defaultColor: AColor
+
+    /// Contrast color.
+    public var contrastColor: AColor
     
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme) {
         defaultColor = theme.colors.backgroundAccent
         contrastColor = theme.colors.elementStaticWhite
     }
+
 }
