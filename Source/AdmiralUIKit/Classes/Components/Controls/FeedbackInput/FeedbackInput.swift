@@ -31,6 +31,11 @@ open class FeedbackInputControl: UIControl, AnyAppThemable {
     open override var isEnabled: Bool {
         didSet { updateColors() }
     }
+
+    /// Color scheme.
+    open var scheme = FeedBackInputScheme() {
+        didSet { updateScheme() }
+    }
         
     // MARK: - Internal Properties
     
@@ -39,10 +44,6 @@ open class FeedbackInputControl: UIControl, AnyAppThemable {
     
     var cursorPosition = 0 {
         didSet { updateColorsAnimated() }
-    }
-    
-    var scheme = FeedBackInputScheme() {
-        didSet { updateScheme() }
     }
 
     // MARK: - Initializers

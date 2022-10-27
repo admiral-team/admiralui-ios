@@ -133,10 +133,9 @@ public class AlertViewController: UIViewController, AnyAppThemable {
     public var actions: [AlertAction] {
         return alertView.actions
     }
-    
-    // MARK: - Internal Properties
-    
-    var scheme = AlertViewControllerScheme() {
+
+    /// Color scheme.
+    public var scheme = AlertViewControllerScheme() {
         didSet { configure() }
     }
 
