@@ -60,7 +60,7 @@ open class CustomButton: UIButton {
     private var buttonShadowRadius = ControlParameter<CGFloat>()
     private var buttonShadowOffset = ControlParameter<CGSize>()
     private var buttonShadowPath = ControlParameter<CGPath>()
-    private var maskedCorners: CACornerMask?
+    private var maskedCorners = ControlParameter<CACornerMask>()
 
     // MARK: - Initializers
 
@@ -204,6 +204,14 @@ open class CustomButton: UIButton {
         updateIfNeeded(for: state)
     }
 
+    /// Round specific corner of button
+    /// - Parameter corners: set mask corners for button.
+    /// - Parameter state: The state that uses masked corners. The possible values are described in UIControl.State.
+    open func setMaskedCorners(corners: CACornerMask, for state: UIControl.State) {
+        maskedCorners.set(parameter: corners, for: state)
+        updateIfNeeded(for: state)
+    }
+
     // MARK: - Get Colors
 
     /// Returns the background color associated with the specified state.
@@ -297,11 +305,9 @@ open class CustomButton: UIButton {
     }
 
     /// Round specific corner of button
-    /// - Parameter corners: set mask corners for button.
-    /// - Parameter state: The state that uses the shadow path. The possible values are described in UIControl.State.
-    open func setMaskedCorners(corners: CACornerMask, for state: UIControl.State) {
-        maskedCorners = corners
-        updateIfNeeded(for: state)
+    /// - Parameter state: The state that uses the masked corners. The possible values are described in UIControl.State.
+    open func maskedCorners(for state: UIControl.State) -> CACornerMask {
+        maskedCorners.parameter(for: state) ?? [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
     }
 
     // MARK: - Configuration Methods
@@ -309,14 +315,11 @@ open class CustomButton: UIButton {
     func configure(for state: UIControl.State) {
         layer.backgroundColor = backgroundLayerColor?.cgColor
         layer.cornerRadius = cornerRadius(for: state)
-        if let maskedCorners = maskedCorners {
-            backgroundLayer.maskedCorners = maskedCorners
-            layer.maskedCorners = maskedCorners
-        }
 
         backgroundLayer.backgroundColor = backgroundColor(for: state)?.cgColor
         backgroundLayer.shadowColor = shadowColor(for: state)?.cgColor
         backgroundLayer.borderColor = borderColor(for: state)?.cgColor
+        backgroundLayer.maskedCorners = maskedCorners(for: state)
         backgroundLayer.cornerRadius = cornerRadius(for: state)
         backgroundLayer.borderWidth = borderWidth(for: state)
         backgroundLayer.shadowRadius = shadowRadius(for: state)

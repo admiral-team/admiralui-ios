@@ -280,9 +280,6 @@ public class InputNumberTextField: UIControl, AnyAppThemable, AccessibilitySuppo
         minusButton.setMaskedCorners(corners: [.layerMinXMaxYCorner, .layerMinXMinYCorner], for: .normal)
         plusButton.setMaskedCorners(corners: [.layerMaxXMinYCorner, .layerMaxXMaxYCorner], for: .normal)
 
-        minusButton.setNeedsLayout()
-        minusButton.layoutIfNeeded()
-
         let minusTapGesture = UITapGestureRecognizer(target: self, action: #selector(tapMinus))
         minusTapGesture.cancelsTouchesInView = false
         minusButton.addGestureRecognizer(minusTapGesture)
