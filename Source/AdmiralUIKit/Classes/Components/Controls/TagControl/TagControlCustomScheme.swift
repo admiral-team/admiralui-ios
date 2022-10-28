@@ -9,20 +9,30 @@ import UIKit
 import AdmiralTheme
 import AdmiralUIResources
 
-public struct TagControlCustomScheme {
-    var font: AFont
-    var textColor = TagParameters<AColor>()
-    var backgroundColor = TagParameters<AColor>()
-    var viewTintColor = TagParameters<AColor>()
-    var linkTitleFont: AFont
-    var linkTitleFontAdidtional: AFont
-    var leadingTrailingViewsAlpha = ControlParameter<CGFloat>()
+public struct TagControlCustomScheme: AppThemeScheme {
+
+    /// Font.
+    public var font: AFont
+
+    /// Text color.
+    public var textColor = TagParameters<AColor>()
+
+    /// Background color.
+    public var backgroundColor = TagParameters<AColor>()
+
+    /// View tint color.
+    public var viewTintColor = TagParameters<AColor>()
+
+    /// Link title font.
+    public var linkTitleFont: AFont
+
+    /// Link title adidtional font.
+    public var linkTitleFontAdidtional: AFont
+
+    /// Leading trailing views alpha.
+    public var leadingTrailingViewsAlpha = ControlParameter<CGFloat>()
     
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         font = theme.fonts.body1
@@ -110,15 +120,28 @@ public struct TagControlCustomScheme {
     }
 }
 
-struct TagParameters<P> {
-    var parameters: [String: P?] = [:]
-    
-    mutating func set(parameter: P?, for state: UIControl.State, style: TagStyle) {
+/// A container for setting value for difference state.
+public struct TagParameters<P> {
+
+    /// Parameters with generic values.
+    public var parameters: [String: P?] = [:]
+
+    /// Setting value for state.
+    /// - Parameters:
+    ///   - parameter: Any value. For Example text color.
+    ///   - state: State.
+    ///   - style: Style tag view.
+    public mutating func set(parameter: P?, for state: UIControl.State, style: TagStyle) {
         let key = paramKey(state: state, style: style)
         parameters[key] = parameter
     }
-    
-    func parameter(for state: UIControl.State, style: TagStyle) -> P? {
+
+    /// Getting parameter.
+    /// - Parameters:
+    ///   - state: State.
+    ///   - style: Style tag view.
+    /// - Returns: Any value.
+    public func parameter(for state: UIControl.State, style: TagStyle) -> P? {
         let key = paramKey(state: state, style: style)
         let defaultKey = paramKey(state: .normal, style: style)
         

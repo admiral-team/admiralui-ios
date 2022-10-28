@@ -55,10 +55,13 @@ public final class Slider: UIControl, AnyAppThemable {
     public override var intrinsicContentSize: CGSize {
         CGSize(width: UIView.noIntrinsicMetric, height: Constants.height)
     }
-    
-    // MARK: - Internal Properties
 
-    var scheme = SliderScheme()
+    /// Color scheme.
+    public var scheme = SliderScheme() {
+        didSet {
+            updateScheme()
+        }
+    }
 
     // MARK: - Private properties
 

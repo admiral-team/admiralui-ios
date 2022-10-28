@@ -99,7 +99,7 @@ final public class CheckTextControl<C: CheckControl>: UIControl, AnyAppThemable,
     public var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
         didSet { updateSchemeFonts() }
     }
-    
+
     // MARK: - Private Properties
     
     private let checkControl: C

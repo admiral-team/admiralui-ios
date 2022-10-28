@@ -8,7 +8,17 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-public struct DefaultAlertViewCustomScheme {
+/**
+ DefaultAlertViewCustomScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - DefaultAlertViewCustomScheme() - Initialize default DefaultAlertViewCustomScheme with default themezation
+Example to create DefaultAlertViewCustomScheme:
+Code
+ ```
+let scheme = DefaultAlertViewCustomScheme()
+ ```
+ */
+public struct DefaultAlertViewCustomScheme: AppThemeScheme {
 
     /// Background color of alert view.
     public var backgroundColor: AColor
@@ -38,12 +48,8 @@ public struct DefaultAlertViewCustomScheme {
     public var ghostButtonScheme: GhostButtonCustomScheme
 
     // MARK: - Initializer
-
-    init() {
-        self.init(theme: AppTheme.default)
-    }
     
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         backgroundColor = theme.colors.backgroundExtraSurface
         defaultTitleFont = theme.fonts.title1
         defaultMessageFont = theme.fonts.subhead3
