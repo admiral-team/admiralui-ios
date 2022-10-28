@@ -19,9 +19,14 @@ let scheme = StatusHistoryStatusViewScheme()
  ```
  */
 public struct StatusHistoryStatusViewScheme: AppThemeScheme {
-    
+
+    /// Text font.
     public var textFont: AFont
+
+    /// Text color.
     public var textColor = StatusHistoryStatusViewParameters<AColor>()
+
+    /// Image tint color.
     public var imageTintColor = StatusHistoryStatusViewParameters<AColor>()
     
     public init(theme: AppTheme = .default) {
