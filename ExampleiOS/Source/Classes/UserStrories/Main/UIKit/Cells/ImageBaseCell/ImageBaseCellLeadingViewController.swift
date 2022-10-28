@@ -76,33 +76,33 @@ final class ImageBaseCellLeadingViewController: ScrollViewController {
         }
     }
     
-    private func configureTitleCell(_ title: String?) -> ListCell<ImageCardListView, TitleListView, ArrowListView> {
+    private func configureTitleCell(_ title: String?) -> ListCell<LeadingCardListView, TitleListView, ArrowListView> {
         let titleListView = TitleListView()
         titleListView.title = title
-        let cardListView = ImageCardListView()
+        let cardListView = LeadingCardListView()
         cardListView.cardImage = Asset.Card.visa.image
         return ListCell(leadingView: cardListView, centerView: titleListView, tralingView: ArrowListView())
     }
     
-    private func configureTitleSubtitleCell(_ title: String?, subtitle: String?) -> ListCell<ImageCardListView, TitleSubtitleListView, ArrowListView> {
+    private func configureTitleSubtitleCell(_ title: String?, subtitle: String?) -> ListCell<LeadingCardListView, TitleSubtitleListView, ArrowListView> {
         let titleSubtitleListView = TitleSubtitleListView()
         titleSubtitleListView.title = title
         titleSubtitleListView.subtitle = subtitle
-        let cardListView = ImageCardListView()
+        let cardListView = LeadingCardListView()
         cardListView.cardImage = Asset.Card.visa.image
         return ListCell(leadingView: cardListView, centerView: titleSubtitleListView, tralingView: ArrowListView())
     }
     
-    private func configureSubtitleTitleCell(_ title: String?, subtitle: String?) -> ListCell<ImageCardListView, SubtitleTitleListView, ArrowListView> {
+    private func configureSubtitleTitleCell(_ title: String?, subtitle: String?) -> ListCell<LeadingCardListView, SubtitleTitleListView, ArrowListView> {
         let subtitleTitleListView = SubtitleTitleListView()
         subtitleTitleListView.title = title
         subtitleTitleListView.subtitle = subtitle
-        let cardListView = ImageCardListView()
+        let cardListView = LeadingCardListView()
         cardListView.cardImage = Asset.Card.visa.image
         return ListCell(leadingView: cardListView, centerView: subtitleTitleListView, tralingView: ArrowListView())
     }
     
-    private func configureTitleMoreDetaileTextMessageListView() -> ListCell<ImageCardListView, TitleMoreDetailTextMessageListView, ArrowListView> {
+    private func configureTitleMoreDetaileTextMessageListView() -> ListCell<LeadingCardListView, TitleMoreDetailTextMessageListView, ArrowListView> {
         let leftView = TitleMoreDetailTextMessageListView()
         leftView.title = "Title"
         leftView.more = "More"
@@ -111,12 +111,12 @@ final class ImageBaseCellLeadingViewController: ScrollViewController {
         leftView.detaile = "Detail"
         leftView.tagText = "Tag"
         leftView.messageText = "Message"
-        let cardListView = ImageCardListView()
+        let cardListView = LeadingCardListView()
         cardListView.cardImage = Asset.Card.visa.image
         return ListCell(leadingView: cardListView, centerView: leftView, tralingView: ArrowListView())
     }
     
-    private func configureTitleSubtitleButtonListView() -> ListCell<ImageCardListView, TitleSubtitleButtonListView, ArrowListView> {
+    private func configureTitleSubtitleButtonListView() -> ListCell<LeadingCardListView, TitleSubtitleButtonListView, ArrowListView> {
         let leftView = TitleSubtitleButtonListView()
         leftView.title = "Title"
         leftView.subtitle = "Subtitle 2"
@@ -126,7 +126,7 @@ final class ImageBaseCellLeadingViewController: ScrollViewController {
         leftView.didSelect = {
             print("Select")
         }
-        let cardListView = ImageCardListView()
+        let cardListView = LeadingCardListView()
         cardListView.cardImage = Asset.Card.visa.image
         return ListCell(leadingView: cardListView, centerView: leftView, tralingView: ArrowListView())
     }
