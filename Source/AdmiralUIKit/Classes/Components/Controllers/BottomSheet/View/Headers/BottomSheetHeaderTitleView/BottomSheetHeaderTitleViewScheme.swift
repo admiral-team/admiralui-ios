@@ -9,16 +9,28 @@ import UIKit
 import AdmiralTheme
 import AdmiralUIResources
 
-public struct BottomSheetHeaderTitleViewScheme {
-    var font: AFont
-    var textColor: AColor
-    var backgroundColor: AColor
+/**
+ BottomSheetHeaderTitleViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - BottomSheetHeaderTitleViewScheme() - Initialize default BottomSheetHeaderTitleViewScheme with default themezation
+Example to create BottomSheetHeaderTitleViewScheme:
+Code
+ ```
+let scheme = BottomSheetHeaderTitleViewScheme()
+ ```
+ */
+public struct BottomSheetHeaderTitleViewScheme: AppThemeScheme {
+
+    /// Text font.
+    public var font: AFont
+
+    /// Text color.
+    public var textColor: AColor
+
+    /// Background color.
+    public var backgroundColor: AColor
     
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         font = theme.fonts.title1
         
         textColor = theme.colors.textPrimary

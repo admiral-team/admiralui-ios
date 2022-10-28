@@ -8,17 +8,28 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-struct StatusHistoryStatusViewScheme {
+/**
+ StatusHistoryStatusViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - StatusHistoryStatusViewScheme() - Initialize default StatusHistoryStatusViewScheme with default themezation
+Example to create StatusHistoryStatusViewScheme:
+Code
+ ```
+let scheme = StatusHistoryStatusViewScheme()
+ ```
+ */
+public struct StatusHistoryStatusViewScheme: AppThemeScheme {
+
+    /// Text font.
+    public var textFont: AFont
+
+    /// Text color.
+    public var textColor = StatusHistoryStatusViewParameters<AColor>()
+
+    /// Image tint color.
+    public var imageTintColor = StatusHistoryStatusViewParameters<AColor>()
     
-    var textFont: AFont
-    var textColor = StatusHistoryStatusViewParameters<AColor>()
-    var imageTintColor = StatusHistoryStatusViewParameters<AColor>()
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         textFont = theme.fonts.subhead2
         
         textColor.set(parameter: theme.colors.textSecondary, for: .hold)
@@ -33,15 +44,26 @@ struct StatusHistoryStatusViewScheme {
     }
 }
 
-struct StatusHistoryStatusViewParameters<P> {
-    var parameters: [String: P?] = [:]
-    
-    mutating func set(parameter: P?, for status: StatusHistory) {
+/// A container for setting value for difference state.
+public struct StatusHistoryStatusViewParameters<P> {
+
+    // Parameters with generic values.
+    public var parameters: [String: P?] = [:]
+
+    /// Setting value for state.
+    /// - Parameters:
+    ///   - parameter: Any value. For Example text color
+    ///   - status: Status history.
+    public mutating func set(parameter: P?, for status: StatusHistory) {
         let key = paramKey(status: status)
         parameters[key] = parameter
     }
-    
-    func parameter(for status: StatusHistory) -> P? {
+
+    /// Getting parameter
+    /// - Parameters:
+    ///   - status: Status history.
+    /// - Returns: Any value.
+    public func parameter(for status: StatusHistory) -> P? {
         let key = paramKey(status: status)
         let defaultKey = paramKey(status: .hold)
         

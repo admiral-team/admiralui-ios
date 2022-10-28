@@ -146,7 +146,7 @@ public struct TagParameters<P> {
         parameters[key] = parameter
     }
 
-    /// Getting parameter
+    /// Getting parameter.
     /// - Parameters:
     ///   - state: State.
     ///   - style: Style tag view.

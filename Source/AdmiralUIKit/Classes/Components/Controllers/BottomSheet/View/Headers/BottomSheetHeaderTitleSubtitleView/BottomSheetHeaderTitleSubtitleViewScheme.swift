@@ -8,18 +8,34 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-public struct BottomSheetHeaderTitleSubtitleViewScheme {
-    var titleLabelFont: AFont
-    var subtitleLabelFont: AFont
-    var titleTextColor: AColor
-    var subtitleTextColor: AColor
-    var backgroundColor: AColor
+/**
+ BottomSheetHeaderTitleSubtitleViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - BottomSheetHeaderTitleSubtitleViewScheme() - Initialize default BottomSheetHeaderTitleSubtitleViewScheme with default themezation
+Example to create BottomSheetHeaderTitleSubtitleViewScheme:
+Code
+ ```
+let scheme = BottomSheetHeaderTitleSubtitleViewScheme()
+ ```
+ */
+public struct BottomSheetHeaderTitleSubtitleViewScheme: AppThemeScheme {
+
+    /// Title label font.
+    public var titleLabelFont: AFont
+
+    /// Subtitle label font.
+    public var subtitleLabelFont: AFont
+
+    /// Title text color.
+    public var titleTextColor: AColor
+
+    /// Subtitle text color.
+    public var subtitleTextColor: AColor
+
+    /// Background color.
+    public var backgroundColor: AColor
     
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         titleLabelFont = theme.fonts.title1
         subtitleLabelFont = theme.fonts.body1
         
