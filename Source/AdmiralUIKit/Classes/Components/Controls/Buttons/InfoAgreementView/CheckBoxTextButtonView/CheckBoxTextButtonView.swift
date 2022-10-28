@@ -82,7 +82,7 @@ class CheckBoxTextButtonView: UIView, AnyAppThemable {
     }
     
     private func configure() {
-        backgroundColor = scheme.backgroundColor
+        backgroundColor = scheme.backgroundColor.uiColor
         сheckTextControl.scheme = scheme.checkTextControl
         linkButton.scheme = scheme.primaryLinkScheme
     }

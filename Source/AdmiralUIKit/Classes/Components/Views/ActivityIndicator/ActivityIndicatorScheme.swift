@@ -27,7 +27,7 @@ public struct ActivityIndicatorScheme: AppThemeScheme {
     /// Contrast color.
     public var contrastColor: AColor
     
-    public init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         defaultColor = theme.colors.backgroundAccent
         contrastColor = theme.colors.elementStaticWhite
     }
