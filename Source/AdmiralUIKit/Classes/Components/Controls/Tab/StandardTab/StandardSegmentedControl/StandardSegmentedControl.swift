@@ -14,10 +14,9 @@ public class StandardSegmentedControl: PlainSegmentedControl, AnyAppThemable {
     public override var selectedSegmentIndex: Int {
         didSet { configureThumbView() }
     }
-    
-    // MARK: - Internal Properties
-    
-    var scheme = StandardSegmentedScheme() {
+
+    /// Color scheme.
+    public var scheme = StandardSegmentedScheme() {
         didSet { updateScheme() }
     }
     

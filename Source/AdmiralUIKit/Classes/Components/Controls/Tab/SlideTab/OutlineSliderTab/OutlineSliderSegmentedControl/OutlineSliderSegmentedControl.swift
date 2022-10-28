@@ -35,9 +35,10 @@ public class OutlineSliderTabSegmentedControl: BaseOutlineSliderSegmentedControl
         static let cellIdentifier = "Cell"
     }
 
-    // MARK: - Internal Properties
-    
-    var scheme = OutlineSliderScheme() {
+    // MARK: - Public Properties
+
+    /// Color scheme.
+    public var scheme = OutlineSliderScheme() {
         didSet { updateScheme() }
     }
 

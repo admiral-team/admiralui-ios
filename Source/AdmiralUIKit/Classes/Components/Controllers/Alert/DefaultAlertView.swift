@@ -118,11 +118,13 @@ public final class DefaultAlertView: UIView, AlertView, AnyAppThemable, Accessib
             updateImageViewLayout()
         }
     }
-    
+
+    /// Type alert.
     public var type: AlertViewImageType = .illustration {
         didSet { updateImageViewLayout() }
     }
-    
+
+    /// Color scheme.
     public var scheme = DefaultAlertViewCustomScheme() {
         didSet { updateScheme() }
     }

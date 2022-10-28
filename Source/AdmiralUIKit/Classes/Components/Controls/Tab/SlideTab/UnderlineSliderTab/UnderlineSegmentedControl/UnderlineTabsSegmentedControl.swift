@@ -16,19 +16,21 @@ public class UnderlineSegmentedControl: BaseUnderlineSegmentedControl, AnyAppThe
     }
     
     // MARK: - Public Properties
-    
+
+    /// Selected segment index.
     public override var selectedSegmentIndex: Int {
         didSet { configureThumbView() }
+    }
+
+    /// Color scheme.
+    public var scheme = UnderlineSliderScheme() {
+        didSet { updateScheme() }
     }
 
     // MARK: - Private Properties
     
     private var textItems: [UnderlineSliderItem] {
         return items as? [UnderlineSliderItem] !! fatalError("This is not TextTabSegmentView class")
-    }
-
-    private var scheme = UnderlineSliderScheme() {
-        didSet { updateScheme() }
     }
     
     // MARK: - Initializer
