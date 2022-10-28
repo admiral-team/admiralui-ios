@@ -13,7 +13,8 @@ open class CustomSwitch: UISwitch, AnyAppThemable {
 
     // MARK: - Public Properties
 
-    var scheme = CustomSwitchScheme() {
+    /// Color scheme.
+    public var scheme = CustomSwitchScheme() {
         didSet { updateScheme() }
     }
     

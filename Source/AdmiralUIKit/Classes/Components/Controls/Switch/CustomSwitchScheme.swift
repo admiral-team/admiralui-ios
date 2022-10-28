@@ -28,7 +28,6 @@ public struct CustomSwitchScheme: AppThemeScheme {
     /// On tint color.
     public var onTintColor: AColor
 
-
     // MARK: - Initializer
 
     public init(theme: AppTheme = .default) {
