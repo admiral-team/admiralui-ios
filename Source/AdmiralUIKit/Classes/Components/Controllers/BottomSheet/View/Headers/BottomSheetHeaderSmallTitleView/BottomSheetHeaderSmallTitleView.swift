@@ -13,6 +13,8 @@ public class BottomSheetHeaderSmallTitleView: UIView, AnyAppThemable, Accessibil
     // MARK: - Public Properties
     
     open weak var delegate: BottomSheetHeaderDelegate?
+
+    /// Color scheme.
     public var scheme = BottomSheetHeaderSmallTitleScheme() {
         didSet { updateScheme() }
     }
