@@ -100,8 +100,8 @@ open class ZeroScreenView: UIView, AnyAppThemable {
         self.title = title
         self.subTitle = subTitle
         self.buttonTitle = buttonTitle
-        self.accessibilityId = accessibilityId
         super.init(frame: CGRect())
+        self.accessibilityId = accessibilityId
         commonInit()
     }
 
