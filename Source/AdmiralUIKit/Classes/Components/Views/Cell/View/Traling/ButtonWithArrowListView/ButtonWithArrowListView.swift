@@ -21,16 +21,17 @@ public class ButtonWithArrowListView: BaseListView, TralingListViewComponent, An
     
     /// The closure sign that button did select.
     public var didSelect: (() -> Void)?
+
+    /// Color scheme.
+    public var scheme = ButtonWithArrowListViewScheme() {
+        didSet { updateScheme() }
+    }
     
     // MARK: Internal Properties
     
     /// The state of the view. Default is normal.
     override var state: UIControl.State {
         didSet { configure(for: state) }
-    }
-    
-    var scheme = ButtonWithArrowListViewScheme() {
-        didSet { updateScheme() }
     }
     
     // MARK: - AccessibilitySupport

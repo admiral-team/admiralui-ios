@@ -22,8 +22,9 @@ public class ImageListView: BaseListView, ImageListViewComponent, AnyAppThemable
     override var state: UIControl.State {
         didSet { configure(for: state) }
     }
-    
-    var scheme = ImageListViewScheme() {
+
+    /// Color scheme.
+    public var scheme = ImageListViewScheme() {
         didSet { updateScheme() }
     }
     

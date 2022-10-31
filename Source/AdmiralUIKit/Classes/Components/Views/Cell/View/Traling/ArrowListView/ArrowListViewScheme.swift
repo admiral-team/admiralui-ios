@@ -9,16 +9,25 @@ import UIKit
 import AdmiralTheme
 import AdmiralUIResources
 
-struct ArrowListViewScheme {
+/**
+ ArrowListViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - ArrowListViewScheme() - Initialize default ArrowListViewScheme with default themezation
+Example to create ArrowListViewScheme:
+Code
+ ```
+let scheme = ArrowListViewScheme()
+ ```
+ */
+public struct ArrowListViewScheme: AppThemeScheme {
+
+    /// Background color.
+    public var backgroundColor = ControlParameter<AColor>()
+
+    /// Image tint color.
+    public var imageTintColor = ControlParameter<AColor>()
     
-    var backgroundColor = ControlParameter<AColor>()
-    var imageTintColor = ControlParameter<AColor>()
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         backgroundColor.set(parameter: theme.colors.backgroundSelected, for: .highlighted)

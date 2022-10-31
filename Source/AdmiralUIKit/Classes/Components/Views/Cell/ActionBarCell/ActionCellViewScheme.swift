@@ -9,14 +9,23 @@ import UIKit
 import AdmiralTheme
 import AdmiralUIResources
 
-struct ActionCellViewScheme {
-    var backgroundColor = ControlParameter<AColor>()
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+/**
+ ActionCellViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - ActionCellViewScheme() - Initialize default ActionCellViewScheme with default themezation
+Example to create ActionCellViewScheme:
+Code
+ ```
+let scheme = ActionCellViewScheme()
+ ```
+ */
+public struct ActionCellViewScheme: AppThemeScheme {
+
+    /// Background color.
+    public var backgroundColor = ControlParameter<AColor>()
+
+    public init(theme: AppTheme = .default) {
         backgroundColor.set(parameter: theme.colors.backgroundAdditionalOne, for: .normal)
     }
+
 }

@@ -17,16 +17,17 @@ public class SecondaryTitleListView: BaseListView, LeadingListViewComponent, Any
     public var title: String? {
         didSet { titleLabel.text = title }
     }
+
+    /// Color scheme.
+    public var scheme = SecondaryTitleListViewScheme() {
+        didSet { updateScheme() }
+    }
     
     // MARK: Internal Properties
     
     /// The state of the view. Default is normal.
     override var state: UIControl.State {
         didSet { configure(for: state) }
-    }
-    
-    var scheme = SecondaryTitleListViewScheme() {
-        didSet { updateScheme() }
     }
     
     // MARK: - AccessibilitySupport

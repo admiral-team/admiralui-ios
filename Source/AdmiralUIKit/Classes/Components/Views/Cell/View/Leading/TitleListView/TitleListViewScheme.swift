@@ -8,18 +8,28 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-struct TitleListViewScheme {
+/**
+ TitleListViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - TitleListViewScheme() - Initialize default TitleListViewScheme with default themezation
+Example to create TitleListViewScheme:
+Code
+ ```
+let scheme = TitleListViewScheme()
+ ```
+ */
+public struct TitleListViewScheme: AppThemeScheme {
+
+    /// Background color.
+    public var backgroundColor = ControlParameter<AColor>()
+
+    /// Text color.
+    public var textColor = ControlParameter<AColor>()
+
+    /// Title font.
+    public var titleFont: AFont
     
-    var backgroundColor = ControlParameter<AColor>()
-    var textColor = ControlParameter<AColor>()
-    
-    var titleFont: AFont
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         backgroundColor.set(parameter: theme.colors.backgroundSelected, for: .highlighted)

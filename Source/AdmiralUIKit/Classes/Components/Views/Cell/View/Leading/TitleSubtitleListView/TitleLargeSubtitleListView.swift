@@ -39,15 +39,16 @@ public class TitleLargeSubtitleListView: BaseListView, LeadingListViewComponent,
             subtitleLabel.text = subtitle
         }
     }
+
+    /// Color scheme.
+    public var scheme = TitleLargeSubtitleScheme() {
+        didSet { updateScheme() }
+    }
     
     // MARK: Internal Properties
     
     /// The state of the view. Default is normal.
     override var state: UIControl.State {
-        didSet { updateScheme() }
-    }
-    
-    public var scheme = TitleLargeSubtitleScheme() {
         didSet { updateScheme() }
     }
     

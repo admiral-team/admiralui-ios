@@ -9,16 +9,25 @@ import UIKit
 import AdmiralTheme
 import AdmiralUIResources
 
-struct ImageCardListViewScheme {
+/**
+ ImageCardListViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - ImageCardListViewScheme() - Initialize default ImageCardListViewScheme with default themezation
+Example to create ImageCardListViewScheme:
+Code
+ ```
+let scheme = ImageCardListViewScheme()
+ ```
+ */
+public struct ImageCardListViewScheme: AppThemeScheme {
+
+    /// Background color.
+    public var backgroundColor = ControlParameter<AColor>()
+
+    /// Image view alpha.
+    public var imageViewAlpha = ControlParameter<CGFloat>()
     
-    var backgroundColor = ControlParameter<AColor>()
-    var imageViewAlpha = ControlParameter<CGFloat>()
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         backgroundColor.set(parameter: theme.colors.backgroundSelected, for: .highlighted)
         backgroundColor.set(parameter: theme.colors.backgroundBasic, for: .normal)
         
