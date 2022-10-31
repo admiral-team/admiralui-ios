@@ -31,4 +31,5 @@ public struct StatusHistoryBaseImagesViewScheme: AppThemeScheme {
         imageViewBackgroundColor = theme.colors.backgroundAdditionalOnePressed
         imageViewBorderColor = theme.colors.backgroundBasic
     }
+    
 }

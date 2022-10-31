@@ -42,6 +42,8 @@ open class Toolbar: UIView, AnyAppThemable {
     // MARK: - Public Properties
 
     open weak var delegate: ToolbarDelegate?
+
+    /// Color scheme.
     open var scheme = ToolbarColorScheme() {
         didSet {
             configureScheme()
