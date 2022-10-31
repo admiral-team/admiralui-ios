@@ -9,6 +9,16 @@ import UIKit
 import AdmiralTheme
 import AdmiralUIResources
 
+/**
+ TagControlCustomScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - TagControlCustomScheme() - Initialize default TagControlCustomScheme with default themezation
+Example to create TagControlCustomScheme:
+Code
+ ```
+let scheme = TagControlCustomScheme()
+ ```
+ */
 public struct TagControlCustomScheme: AppThemeScheme {
 
     /// Font.
@@ -26,12 +36,12 @@ public struct TagControlCustomScheme: AppThemeScheme {
     /// Link title font.
     public var linkTitleFont: AFont
 
-    /// Link title adidtional font.
+    /// Link title font adidtional.
     public var linkTitleFontAdidtional: AFont
 
     /// Leading trailing views alpha.
     public var leadingTrailingViewsAlpha = ControlParameter<CGFloat>()
-    
+
     public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
@@ -128,7 +138,7 @@ public struct TagParameters<P> {
 
     /// Setting value for state.
     /// - Parameters:
-    ///   - parameter: Any value. For Example text color.
+    ///   - parameter: Any value. For Example text color
     ///   - state: State.
     ///   - style: Style tag view.
     public mutating func set(parameter: P?, for state: UIControl.State, style: TagStyle) {

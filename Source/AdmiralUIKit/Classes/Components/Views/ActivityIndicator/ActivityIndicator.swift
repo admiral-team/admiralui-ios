@@ -43,10 +43,9 @@ public class ActivityIndicator: UIView, AnyAppThemable {
 
     /// This property indicates indicator state.
     public private(set) var isAnimating = false
-    
-    // MARK: - Internal Properties
-    
-    var scheme = ActivityIndicatorScheme() {
+
+    /// Color scheme.
+    public var scheme = ActivityIndicatorScheme() {
         didSet { updateColors() }
     }
     
