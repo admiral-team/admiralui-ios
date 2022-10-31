@@ -111,6 +111,8 @@ public final class CurrencyHeaderView: UIView, AnyAppThemable {
     }
 
     private func addSubviews() {
+        backgroundColor = .green
+        currencyTextLabel.backgroundColor = .red
         [overView].addToSuperview(self)
         [currencyTextLabel,sellTextLabel, buyTextLabel].addToSuperview(overView)
     }

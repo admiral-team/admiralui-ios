@@ -88,6 +88,14 @@ final public class CheckTextControl<C: CheckControl>: UIControl, AnyAppThemable,
         get { return textLabel.numberOfLines }
         set { textLabel.numberOfLines = newValue }
     }
+
+    /// Accessibility identifier.
+    public override var accessibilityIdentifier: String? {
+        didSet {
+            checkControl.accessibilityIdentifier = accessibilityIdentifier
+            textLabel.accessibilityIdentifier = accessibilityIdentifier
+        }
+    }
     
     // MARK: - AccessibilitySupport
     

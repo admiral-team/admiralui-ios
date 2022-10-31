@@ -24,14 +24,14 @@ class CheckBoxTextButtonView: UIView, AnyAppThemable {
     }
     
     /// A Boolean value indicating whether the checkbox selected.
-    public var isSelected: Bool = false {
-        didSet { checkBox.isSelected = isSelected }
+    public var isSelected: Bool {
+        get { сheckTextControl.isSelected }
+        set { сheckTextControl.isSelected = newValue }
     }
     
     /// A Boolean value indicating whether the checkboxTextButtonView isEnabled.
     public var isEnabled: Bool = true {
         didSet {
-            checkBox.isEnabled = isEnabled
             сheckTextControl.isEnabled = isEnabled
             linkButton.isEnabled = isEnabled
         }
@@ -40,6 +40,18 @@ class CheckBoxTextButtonView: UIView, AnyAppThemable {
     /// Text for buttom botton checkbox.
     public var checkboxButtonText: String? {
         didSet { linkButton.setTitle(checkboxButtonText) }
+    }
+
+    public var checkBoxAccessibilityIdentifier: String? {
+        didSet {
+            сheckTextControl.accessibilityIdentifier = checkBoxAccessibilityIdentifier
+        }
+    }
+
+    public var linkButtonAccessibilityIdentifier: String? {
+        didSet {
+            linkButton.accessibilityIdentifier = linkButtonAccessibilityIdentifier
+        }
     }
     
     // MARK: Internal Properties
@@ -50,7 +62,6 @@ class CheckBoxTextButtonView: UIView, AnyAppThemable {
     
     // MARK: - Private Properties
 
-    private let checkBox = CheckBox()
     private lazy var сheckTextControl: CheckTextControl<CheckBox> = {
         return CheckTextControl<CheckBox>(checkControl: CheckBox())
     }()

@@ -55,6 +55,14 @@ public class TwoTitleButton: UIControl, AnyAppThemable, AccessibilitySupport {
     open var scheme = TwoTitleButtonScheme() {
         didSet { updateScheme() }
     }
+
+    /// Accessibility identifier
+    open override var accessibilityIdentifier: String? {
+        didSet {
+            leftLabel.accessibilityIdentifier = accessibilityIdentifier
+            rightLabel.accessibilityIdentifier = accessibilityIdentifier
+        }
+    }
     
     // MARK: - AccessibilitySupport
     

@@ -41,6 +41,7 @@ final class RulesViewController: ScrollViewController {
         
         segmentControl.setTitles(["Default", "Disabled"])
         segmentControl.selectedSegmentIndex = 0
+        segmentControl.accessibilityIdentifier = "SegmentControlAccessibilityIdentifier"
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
     }
     
@@ -49,6 +50,13 @@ final class RulesViewController: ScrollViewController {
         infoAgreementView.checkboxText = "Я согласен с условиями договора и подтверждаю свое согласие на обработку персональных данных"
         infoAgreementView.checkboxButtonText = "Открыть список документов"
         infoAgreementView.delegate = self
+        infoAgreementView.accessibilityIdentifier = "InfoAgreementViewID"
+        infoAgreementView.setAccessibilityidentifier(
+            checkBoxID: "checkBoxID",
+            linkButtonID: "linkButtonID",
+            actionButtonID: "actionButtonID",
+            alternativeButtonID: "alternativeButtonID"
+        )
         
         buttonsContainer.buttonViews.append(infoAgreementView)
     }

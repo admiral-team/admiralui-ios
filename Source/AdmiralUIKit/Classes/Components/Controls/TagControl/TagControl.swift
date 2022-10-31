@@ -108,6 +108,15 @@ open class TagControl<T: UIView, V: UIView>: UIControl, AnyAppThemable, Accessib
     }
     
     public var textStyle: UIFont.TextStyle?
+
+    /// Accessibility identifier.
+    public override var accessibilityIdentifier: String? {
+        didSet {
+            leadingView?.accessibilityIdentifier = accessibilityIdentifier
+            trailingView?.accessibilityIdentifier = accessibilityIdentifier
+            titleLabel.accessibilityIdentifier = accessibilityIdentifier
+        }
+    }
     
     // MARK: - AccessibilitySupport
     

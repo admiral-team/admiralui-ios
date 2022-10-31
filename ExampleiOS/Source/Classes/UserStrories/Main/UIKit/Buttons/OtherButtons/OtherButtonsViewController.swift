@@ -50,6 +50,7 @@ final class OtherButtonsViewController: ScrollViewController {
         stackView.addArrangedSubview(buttonsContainer)
         
         segmentControl.setTitles(["Default", "Disabled"])
+        segmentControl.accessibilityIdentifier = "SegmentControlAccessibilityIdentifier"
         segmentControl.selectedSegmentIndex = 0
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
     }
@@ -58,6 +59,7 @@ final class OtherButtonsViewController: ScrollViewController {
     
     private func configurePlatformButton() {
         let primaryButtonBig = createPrimaryButton(name: "Добавить в Apple Wallet", image: Asset.Card.appleWallet.image, direction: .left)
+        primaryButtonBig.accessibilityIdentifier = "AppleWalletButtonID"
         let bigContainer = BigButtonContainerView(button: primaryButtonBig)
         buttonsContainer.buttonViews.append(bigContainer)
     }

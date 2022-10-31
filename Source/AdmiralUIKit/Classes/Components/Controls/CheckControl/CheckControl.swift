@@ -54,6 +54,13 @@ public class CheckControl: UIControl, AppThemeable {
     public override var isHighlighted: Bool {
         didSet { updateState() }
     }
+
+    /// Accessibility identifier.
+    public override var accessibilityIdentifier: String? {
+        didSet {
+            imageView.accessibilityIdentifier = accessibilityIdentifier
+        }
+    }
     
     // MARK: - Internal Parameters
     

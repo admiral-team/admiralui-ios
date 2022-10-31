@@ -14,6 +14,18 @@ public class StandardSegmentedControl: PlainSegmentedControl, AnyAppThemable {
     public override var selectedSegmentIndex: Int {
         didSet { configureThumbView() }
     }
+
+    public override var accessibilityIdentifier: String? {
+        didSet {
+            guard let id = accessibilityIdentifier else {
+                return
+            }
+            for i in 0..<items.count {
+                textItems[i].accessibilityIdentifier = "\(id)\(i)"
+            }
+
+        }
+    }
     
     // MARK: - Internal Properties
     

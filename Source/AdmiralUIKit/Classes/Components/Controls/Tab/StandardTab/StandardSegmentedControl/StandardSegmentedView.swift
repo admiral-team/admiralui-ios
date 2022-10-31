@@ -29,6 +29,12 @@ final class StandardSegmentedView: UIControl, SegmentControlItem, AccessibilityS
     override var isEnabled: Bool {
         didSet { updateScheme() }
     }
+
+    override var accessibilityIdentifier: String? {
+        didSet {
+            label.accessibilityIdentifier = accessibilityIdentifier
+        }
+    }
     
     var title: String? {
         get { return label.text }

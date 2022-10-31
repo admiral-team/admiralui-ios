@@ -116,6 +116,23 @@ public class InfoAgreementView: UIView, AnyAppThemable {
         stackView.removeArrangedSubview(view)
         view.removeFromSuperview()
     }
+
+    /// Set accessibility identifier for inside items.
+    /// - Parameters:
+    ///   - checkBoxID: Check box accessibility ID.
+    ///   - actionButtonID: Action button accessibility ID.
+    ///   - alternativeButtonID: Alternative button accessibility ID.
+    public func setAccessibilityidentifier(
+        checkBoxID: String? = nil,
+        linkButtonID: String? = nil,
+        actionButtonID: String? = nil,
+        alternativeButtonID: String? = nil
+    ) {
+        checkBoxTextButtonView.checkBoxAccessibilityIdentifier = checkBoxID
+        checkBoxTextButtonView.linkButtonAccessibilityIdentifier = linkButtonID
+        actionButton.accessibilityIdentifier = actionButtonID
+        alternativeButton.accessibilityIdentifier = alternativeButtonID
+    }
     
     // MARK: - Private Methods
     
@@ -136,6 +153,7 @@ public class InfoAgreementView: UIView, AnyAppThemable {
     
     private func addSubviews() {
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.isAccessibilityElement = false
         addSubview(stackView)
         
         stackView.addArrangedSubview(checkBoxTextButtonView)
