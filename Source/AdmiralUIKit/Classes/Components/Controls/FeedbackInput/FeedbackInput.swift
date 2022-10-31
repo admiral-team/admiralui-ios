@@ -9,8 +9,20 @@ import UIKit
 import AdmiralTheme
 import AdmiralUIResources
 
+/**
+ FeedbackInputControl - A control for presenting star rating with touch and swipe actions.
 
-/// An object for evaluating.
+ Feedback control is ideal choice for receive feedback from user.
+
+ ## Example to create FeedbackInputControl
+ # Code
+ ```
+ let feedbackControl = FeedbackInputControl()
+ feedbackControl.itemsCount = 5
+ feedbackControl.cursorPosition = 3
+```
+ */
+/// A control for presenting star rating with touch and swipe actions.
 open class FeedbackInputControl: UIControl, AnyAppThemable {
 
     // MARK: - Constants
@@ -31,16 +43,17 @@ open class FeedbackInputControl: UIControl, AnyAppThemable {
     open override var isEnabled: Bool {
         didSet { updateColors() }
     }
+
+    /// Cursor position which setted rating.
+    open var cursorPosition = 0 {
+        didSet { updateColorsAnimated() }
+    }
         
     // MARK: - Internal Properties
     
     var itemViews = [UIImageView]()
     var parameters = Layout.Parameters()
-    
-    var cursorPosition = 0 {
-        didSet { updateColorsAnimated() }
-    }
-    
+
     var scheme = FeedBackInputScheme() {
         didSet { updateScheme() }
     }
@@ -89,7 +102,9 @@ open class FeedbackInputControl: UIControl, AnyAppThemable {
             options: [.curveEaseInOut],
             animations: {
                 self.updateColors()
-            }, completion: nil)
+            }, completion: { _ in
+                self.sendActions(for: .valueChanged)
+            })
     }
     
     // MARK: - Private Methods
@@ -102,15 +117,16 @@ open class FeedbackInputControl: UIControl, AnyAppThemable {
     private func viewTracking(_ location: CGPoint) {
         for view in itemViews {
             if view.frame.contains(location) {
-                cursorPosition = view.tag
+                if cursorPosition != view.tag + 1 {
+                    cursorPosition = view.tag + 1
+                }
             }
         }
-        sendActions(for: .valueChanged)
     }
     
     private func updateColors() {
         for index in 0..<itemViews.count {
-            let isSelected = index <= cursorPosition
+            let isSelected = index < cursorPosition
             let selectedColor = scheme.selectedColor.parameter(for: state)
             let defaultColor = scheme.defaultColor.parameter(for: state)
             itemViews[index].tintColor = isSelected ? selectedColor?.uiColor : defaultColor?.uiColor
@@ -141,6 +157,7 @@ open class FeedbackInputControl: UIControl, AnyAppThemable {
             }
             
             cursorPosition = min(cursorPosition, tmpCount)
+            sendActions(for: UIControl.Event.valueChanged)
         }
     }
     

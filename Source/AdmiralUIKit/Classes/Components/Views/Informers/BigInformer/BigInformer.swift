@@ -22,7 +22,7 @@ public enum InformerStyle: Int {
 }
 
 public protocol BigInformerDelegate: AnyObject {
-    func didTapLinkLabel()
+    func didTapLinkLabel(_ bigInformer: BigInformer)
 }
 
 /// Informer is a component that used to show some information.
@@ -269,7 +269,7 @@ open class BigInformer: UIView, AnyAppThemable, AccessibilitySupport {
     }
     
     @objc private func linkLabelTapped() {
-        delegate?.didTapLinkLabel()
+        delegate?.didTapLinkLabel(self)
     }
     
 }
