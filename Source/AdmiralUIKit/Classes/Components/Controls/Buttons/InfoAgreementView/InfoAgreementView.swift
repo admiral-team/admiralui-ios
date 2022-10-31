@@ -66,10 +66,9 @@ public class InfoAgreementView: UIView, AnyAppThemable {
             updateItems()
         }
     }
-    
-    // MARK: Internal Properties
-    
-    var scheme = InfoAgreementViewScheme() {
+
+    /// Color scheme.
+    public var scheme = InfoAgreementViewScheme() {
         didSet { updateScheme() }
     }
     

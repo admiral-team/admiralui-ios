@@ -39,11 +39,6 @@ public class CheckControl: UIControl, AppThemeable {
     public var checkState: CheckControlState = .normal {
         didSet { updateState() }
     }
-
-    /// Color scheme.
-    public var scheme = CheckControlScheme() {
-        didSet { updateState() }
-    }
             
     /// A Boolean value indicating whether the control is in the selected state.
     public override var isSelected: Bool {
@@ -57,6 +52,11 @@ public class CheckControl: UIControl, AppThemeable {
     
     /// A Boolean value indicating whether the control is in the highlighted state.
     public override var isHighlighted: Bool {
+        didSet { updateState() }
+    }
+
+    /// Color scheme.
+    public var scheme = CheckControlScheme() {
         didSet { updateState() }
     }
     

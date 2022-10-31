@@ -11,7 +11,7 @@ import AdmiralUIResources
 /**
  CheckControlScheme - the visual scheme.
  You can create a by specifying the following parameters in init:
- - CheckControlScheme() - Initialize default CheckControlScheme with default themezation
+ - CheckControlScheme() - Initialize default CheckTextControlScheme with default themezation
 Example to create CheckControlScheme:
 Code
  ```
@@ -20,10 +20,10 @@ let scheme = CheckControlScheme()
  */
 public struct CheckControlScheme {
 
-    /// Control normal color.
+    /// Normal control color.
     public var normal = ControlParameter<AColor>()
 
-    /// Control error color.
+    /// Error control color.
     public var error = ControlParameter<AColor>()
     
     public init(theme: AppTheme = .default) {
