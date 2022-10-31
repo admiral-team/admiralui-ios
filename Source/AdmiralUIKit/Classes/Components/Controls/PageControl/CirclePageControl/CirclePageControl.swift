@@ -60,7 +60,7 @@ public class CirclePageControl: UIView, AnyAppThemable {
     /// The current page of page control
     public var currentPage: Int = 0 
     
-    /// CirclePageControlScheme
+    /// Color scheme.
     public var scheme = CirclePageControlScheme() {
         didSet {
             updateScheme()

@@ -25,9 +25,10 @@ public class InformerTabSegmentedControl: TabSegmentedControl, SegmentControlCon
         static let height: CGFloat = 80.0
     }
     
-    // MARK: - Internal Properties
-    
-    var scheme = InformerSegmentedScheme() {
+    // MARK: - Public Properties
+
+    /// Color scheme.
+    public var scheme = InformerSegmentedScheme() {
         didSet { updateScheme() }
     }
         

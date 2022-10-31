@@ -26,7 +26,8 @@ import AdmiralTheme
 open class GhostButton: CustomButton, AnyAppThemable, AccessibilitySupport {
     
     // MARK: - Public Properties
-    
+
+    /// Color scheme.
     open var scheme = GhostButtonCustomScheme() {
         didSet { updateScheme() }
     }

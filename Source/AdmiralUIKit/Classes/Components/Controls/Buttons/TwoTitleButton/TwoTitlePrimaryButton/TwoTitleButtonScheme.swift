@@ -8,21 +8,37 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-public struct TwoTitleButtonScheme {
-    
-    var leftTitleColor = ControlParameter<AColor>()
-    var rightTitleColor = ControlParameter<AColor>()
-    var backgroundColor = ControlParameter<AColor>()
-    var backBackgroundColor: AColor
+/**
+ TwoTitleButtonScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - TwoTitleButtonScheme() - Initialize default TwoTitleButtonScheme with default themezation
+Example to create TwoTitleButtonScheme:
+Code
+ ```
+let scheme = TwoTitleButtonScheme()
+ ```
+ */
+public struct TwoTitleButtonScheme: AppThemeScheme {
 
-    var leftLabelFont: AFont
-    var rightLabelFont: AFont
+    /// Left title color.
+    public var leftTitleColor = ControlParameter<AColor>()
 
-    init() {
-        self.init(theme: AppTheme.default)
-    }
+    /// Right title color.
+    public var rightTitleColor = ControlParameter<AColor>()
+
+    /// Background color.
+    public var backgroundColor = ControlParameter<AColor>()
+
+    /// Back background color.
+    public var backBackgroundColor: AColor
+
+    /// Left label font.
+    public var leftLabelFont: AFont
+
+    /// Right label font.
+    public var rightLabelFont: AFont
     
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         leftLabelFont = theme.fonts.subhead3

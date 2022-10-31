@@ -92,21 +92,23 @@ open class TagControl<T: UIView, V: UIView>: UIControl, AnyAppThemable, Accessib
     
     /// The height object.
     public var height: CGFloat = LayoutGrid.halfModule * 9
-    
-    // MARK: - Internal Parameters
 
-    public var style: TagStyle = .default {
-        didSet { updateScheme() }
-    }
-    
+    /// Color scheme.
     public var scheme = TagControlCustomScheme() {
         didSet { updateScheme() }
     }
-    
+
+    /// Style.
+    public var style: TagStyle = .default {
+        didSet { updateScheme() }
+    }
+
+    /// Title font.
     public var titleFont: UIFont? {
         didSet { titleLabel.font = titleFont }
     }
-    
+
+    /// Text style.
     public var textStyle: UIFont.TextStyle?
     
     // MARK: - AccessibilitySupport

@@ -20,7 +20,7 @@ let scheme = BadgeScheme()
  */
 public struct BadgeScheme: AppThemeScheme {
 
-    /// Title font.
+    /// Text font.
     public var font: AFont
 
     /// Text color.
@@ -91,13 +91,13 @@ public struct BadgeScheme: AppThemeScheme {
 /// A container for setting value for difference state.
 public struct BadgeParameters<P> {
 
-    // Parameters with generic values.
+    /// Parameters with generic values.
     public var parameters: [String: P?] = [:]
 
     /// Setting value for state.
     /// - Parameters:
     ///   - parameter: Any value. For Example text color
-    ///   - state: Badge state.
+    ///   - state: State.
     ///   - style: Style badge view.
     public mutating func set(parameter: P?, for state: BadgeState, style: BadgeStyle) {
         let key = paramKey(state: state, style: style)
@@ -106,7 +106,7 @@ public struct BadgeParameters<P> {
 
     /// Getting parameter
     /// - Parameters:
-    ///   - state: Badge state.
+    ///   - state: State.
     ///   - style: Style badge view.
     /// - Returns: Any value.
     public func parameter(for state: BadgeState, style: BadgeStyle) -> P? {

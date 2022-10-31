@@ -8,24 +8,43 @@
 import AdmiralTheme
 import AdmiralUIResources
 
+/**
+ SecondaryButtonCustomScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - SecondaryButtonCustomScheme() - Initialize default SecondaryButtonCustomScheme with default themezation
+Example to create SecondaryButtonCustomScheme:
+Code
+ ```
+let scheme = SecondaryButtonCustomScheme()
+ ```
+ */
 public struct SecondaryButtonCustomScheme {
-    
-    var normalTextColor: AColor
-    var hightlightedTextColor: AColor
-    var disabledTextColor: AColor
-    
-    var backgroundColor: AColor
-    var borderNormalColor: AColor
-    var borderHightlightedColor: AColor
-    var borderDisabledColor: AColor
-    
-    var titleLabelFont: AFont
 
-    init() {
-        self.init(theme: AppTheme.default)
-    }
+    /// Normal text color.
+    public var normalTextColor: AColor
+
+    /// Hightlighted text color.
+    public var hightlightedTextColor: AColor
+
+    /// Disabled text color.
+    public var disabledTextColor: AColor
+
+    /// Background color.
+    public var backgroundColor: AColor
+
+    /// Border normal color.
+    public var borderNormalColor: AColor
+
+    /// Border hightlighted color.
+    public var borderHightlightedColor: AColor
+
+    /// Border disabled color.
+    public var borderDisabledColor: AColor
+
+    /// Title label font.
+    public var titleLabelFont: AFont
     
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         titleLabelFont = theme.fonts.body1

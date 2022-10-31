@@ -20,12 +20,16 @@ let scheme = ActivityIndicatorScheme()
  ```
  */
 public struct ActivityIndicatorScheme: AppThemeScheme {
-    
+
+    /// Default color.
     public var defaultColor: AColor
+
+    /// Contrast color.
     public var contrastColor: AColor
     
     public init(theme: AppTheme = .default) {
         defaultColor = theme.colors.backgroundAccent
         contrastColor = theme.colors.elementStaticWhite
     }
+
 }
