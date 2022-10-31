@@ -270,6 +270,7 @@
 		0EADAA84268B14C8003FF903 /* TagControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EADAA83268B14C8003FF903 /* TagControl.swift */; };
 		0EAF71B9263875620041CA08 /* InformerTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAF71B8263875620041CA08 /* InformerTab.swift */; };
 		0EAF71C1263875710041CA08 /* InformerTabScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAF71C0263875710041CA08 /* InformerTabScheme.swift */; };
+		0EAFAA20290A7B0700D1E82C /* CustomSwitchScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAFAA1F290A7B0700D1E82C /* CustomSwitchScheme.swift */; };
 		0EB053EE2638BEC400238CB7 /* ArrowSegmentSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB053ED2638BEC400238CB7 /* ArrowSegmentSlider.swift */; };
 		0EB053FC2638C0F800238CB7 /* ArrowSegmentSliderScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB053FB2638C0F800238CB7 /* ArrowSegmentSliderScheme.swift */; };
 		0EB2873A27C7BBBE005F2155 /* TextBlockHeaderLinkTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB2873927C7BBBE005F2155 /* TextBlockHeaderLinkTest.swift */; };
@@ -389,7 +390,6 @@
 		0EB757502600D625009BFC21 /* SwitchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFCCB0F2563139600657433 /* SwitchListView.swift */; };
 		0EB757512600D625009BFC21 /* BottomSheetPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C670861F25B747B6003F361C /* BottomSheetPresentationAnimator.swift */; };
 		0EB757522600D625009BFC21 /* SliderThumbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6702122254955CE009040D6 /* SliderThumbView.swift */; };
-		0EB757532600D625009BFC21 /* IconTabsSegmentControlScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C685A93125D6A55900D3FC21 /* IconTabsSegmentControlScheme.swift */; };
 		0EB757542600D625009BFC21 /* BottomSheetHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = C670860425B73548003F361C /* BottomSheetHeight.swift */; };
 		0EB757552600D625009BFC21 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FB30F9253DC2FA00314E00 /* CustomButton.swift */; };
 		0EB757562600D625009BFC21 /* UIView+BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C670863725B8C33D003F361C /* UIView+BottomSheet.swift */; };
@@ -1270,6 +1270,7 @@
 		0EADAA83268B14C8003FF903 /* TagControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagControl.swift; sourceTree = "<group>"; };
 		0EAF71B8263875620041CA08 /* InformerTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformerTab.swift; sourceTree = "<group>"; };
 		0EAF71C0263875710041CA08 /* InformerTabScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformerTabScheme.swift; sourceTree = "<group>"; };
+		0EAFAA1F290A7B0700D1E82C /* CustomSwitchScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSwitchScheme.swift; sourceTree = "<group>"; };
 		0EB053ED2638BEC400238CB7 /* ArrowSegmentSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowSegmentSlider.swift; sourceTree = "<group>"; };
 		0EB053FB2638C0F800238CB7 /* ArrowSegmentSliderScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowSegmentSliderScheme.swift; sourceTree = "<group>"; };
 		0EB2873927C7BBBE005F2155 /* TextBlockHeaderLinkTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBlockHeaderLinkTest.swift; sourceTree = "<group>"; };
@@ -1502,7 +1503,6 @@
 		C683379B25CC1A4700C2981D /* CalendarDayLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDayLabel.swift; sourceTree = "<group>"; };
 		C685A92825D6A53600D3FC21 /* IconTabsSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTabsSegmentControl.swift; sourceTree = "<group>"; };
 		C685A92D25D6A54700D3FC21 /* IconTabsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTabsItem.swift; sourceTree = "<group>"; };
-		C685A93125D6A55900D3FC21 /* IconTabsSegmentControlScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTabsSegmentControlScheme.swift; sourceTree = "<group>"; };
 		C685A93525D6A5A700D3FC21 /* IconTabsItemScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTabsItemScheme.swift; sourceTree = "<group>"; };
 		C68E931C2595D1970048EC53 /* CardViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewScheme.swift; sourceTree = "<group>"; };
 		C68E93262595FEA80048EC53 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -4891,7 +4891,6 @@
 			children = (
 				C685A92C25D6A53E00D3FC21 /* Views */,
 				C685A92825D6A53600D3FC21 /* IconTabsSegmentControl.swift */,
-				C685A93125D6A55900D3FC21 /* IconTabsSegmentControlScheme.swift */,
 			);
 			path = IconTab;
 			sourceTree = "<group>";
@@ -5303,7 +5302,7 @@
 			isa = PBXGroup;
 			children = (
 				E6ABDBB1253F3C0300B90570 /* CustomSwitch.swift */,
-				E9F0F9DE28F7E5CE00692090 /* CustomSwitchScheme.swift */,
+				0EAFAA1F290A7B0700D1E82C /* CustomSwitchScheme.swift */,
 			);
 			path = Switch;
 			sourceTree = "<group>";
@@ -7884,7 +7883,7 @@
 				0EB757312600D625009BFC21 /* MessageInformerScheme.swift in Sources */,
 				E610495026014D3F00FF20ED /* TextViewInput.swift in Sources */,
 				0EB7576A2600D625009BFC21 /* CardListView.swift in Sources */,
-				E9F0F9DF28F7E5CE00692090 /* CustomSwitchScheme.swift in Sources */,
+				0EAFAA20290A7B0700D1E82C /* CustomSwitchScheme.swift in Sources */,
 				C6DCBFD026316EEA00754365 /* GhostButtonCustomScheme.swift in Sources */,
 				0EB7572D2600D625009BFC21 /* ButtonWithArrowListView.swift in Sources */,
 				0EB757352600D625009BFC21 /* CalendarHeaderView.swift in Sources */,
@@ -7937,7 +7936,6 @@
 				0EC0428527579B060041D05C /* CalendarView.swift in Sources */,
 				0EB7578B2600D625009BFC21 /* PageControl.swift in Sources */,
 				0EB757982600D625009BFC21 /* CalendarModels.swift in Sources */,
-				0EB757532600D625009BFC21 /* IconTabsSegmentControlScheme.swift in Sources */,
 				0EB757012600D624009BFC21 /* TitleSubtitleButtonListView.swift in Sources */,
 				0EB7574D2600D625009BFC21 /* ShimmeringView.swift in Sources */,
 				0EB756FB2600D624009BFC21 /* DatePercentListView.swift in Sources */,

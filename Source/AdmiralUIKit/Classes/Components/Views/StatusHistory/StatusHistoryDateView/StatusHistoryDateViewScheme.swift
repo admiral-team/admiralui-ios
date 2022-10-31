@@ -8,18 +8,28 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-struct StatusHistoryDateViewScheme {
-    
-    var textFont: AFont
-    var textColor: AColor
-    
-    var buttonTintColor: AColor
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+/**
+ StatusHistoryViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - StatusHistoryViewScheme() - Initialize default StatusHistoryViewScheme with default themezation
+Example to create StatusHistoryViewScheme:
+Code
+ ```
+let scheme = StatusHistoryViewScheme()
+ ```
+ */
+public struct StatusHistoryDateViewScheme: AppThemeScheme {
+
+    /// Text font.
+    public var textFont: AFont
+
+    /// Text color.
+    public var textColor: AColor
+
+    /// Button tint color.
+    public var buttonTintColor: AColor
+
+    public init(theme: AppTheme = .default) {
         textFont = theme.fonts.body2
         textColor = theme.colors.textPrimary
         buttonTintColor = theme.colors.textSecondary

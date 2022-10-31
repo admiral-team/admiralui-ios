@@ -41,10 +41,9 @@ class CheckBoxTextButtonView: UIView, AnyAppThemable {
     public var checkboxButtonText: String? {
         didSet { linkButton.setTitle(checkboxButtonText) }
     }
-    
-    // MARK: Internal Properties
-    
-    var scheme = CheckBoxTextButtonViewScheme() {
+
+    /// Color scheme.
+    public var scheme = CheckBoxTextButtonViewScheme() {
         didSet { updateScheme() }
     }
     
@@ -83,7 +82,7 @@ class CheckBoxTextButtonView: UIView, AnyAppThemable {
     }
     
     private func configure() {
-        backgroundColor = scheme.backgroundColor
+        backgroundColor = scheme.backgroundColor.uiColor
         сheckTextControl.scheme = scheme.checkTextControl
         linkButton.scheme = scheme.primaryLinkScheme
     }

@@ -8,18 +8,31 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-public struct CirclePageControlScheme {
+/**
+ CirclePageControlScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - CirclePageControlScheme() - Initialize default CirclePageControlScheme with default themezation
+Example to create CirclePageControlScheme:
+Code
+ ```
+let scheme = CirclePageControlScheme()
+ ```
+ */
+public struct CirclePageControlScheme: AppThemeScheme {
+
+    /// Background color.
+    public var backgroundColor: AColor
+
+    /// Center button background color.
+    public var centerButtonBackgroundColor: AColor
+
+    /// Progress color.
+    public var progressColor: AColor
+
+    /// Button image color.
+    public var buttonImageColor: AColor
     
-    var backgroundColor: AColor
-    var centerButtonBackgroundColor: AColor
-    var progressColor: AColor
-    var buttonImageColor: AColor
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         backgroundColor = theme.colors.backgroundBasic
         centerButtonBackgroundColor = theme.colors.elementAccent
         progressColor = theme.colors.elementAccent
