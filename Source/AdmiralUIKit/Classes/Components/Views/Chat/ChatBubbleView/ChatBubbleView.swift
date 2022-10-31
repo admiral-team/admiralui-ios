@@ -87,6 +87,15 @@ public final class ChatBubbleView: UIView, AnyAppThemable {
         set { chatStatusBubbleView.timeTitle = newValue }
     }
 
+    /// The accessibility identifier
+    public var accessibilityId: String? {
+        get {
+            return accessibilityIdentifier
+        } set {
+            accessibilityIdentifier = newValue
+        }
+    }
+
     public var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
         didSet { updateFonts() }
     }

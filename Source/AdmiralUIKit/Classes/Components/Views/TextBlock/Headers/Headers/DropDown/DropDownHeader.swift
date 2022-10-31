@@ -22,10 +22,12 @@ import UIKit
  
  ## Example to create DropDownHeader with title and dropDownHeaderType:
  # Code
-    DropDownHeader(title: "Title", dropDownHeaderType: .down, headerStyle: .title)
-*/
+ DropDownHeader(title: "Title", dropDownHeaderType: .down, headerStyle: .title)
+ */
 public class DropDownHeader: UIView, AnyAppThemable, AccessibilitySupport {
-    
+
+    // MARK: - Public Properties
+
     /// The text that the label displays.
     public var title: String? {
         get { textLabel.text }
@@ -41,7 +43,16 @@ public class DropDownHeader: UIView, AnyAppThemable, AccessibilitySupport {
     public var headerStyle: HeaderStyle = .title {
         didSet { updateHeaderStyle() }
     }
-    
+
+    /// The accessibility identifier
+    public var accessibilityId: String? {
+        get {
+            return accessibilityIdentifier
+        } set {
+            accessibilityIdentifier = newValue
+        }
+    }
+
     // MARK: - AccessibilitySupport
     
     public var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
@@ -75,12 +86,15 @@ public class DropDownHeader: UIView, AnyAppThemable, AccessibilitySupport {
     public init(
         title: String?,
         dropDownHeaderType: DropDownHeaderType = .down,
-        headerStyle: HeaderStyle = .title) {
-            super.init(frame: .zero)
-            self.title = title
-            self.headerStyle = headerStyle
-            self.dropDownHeaderType = dropDownHeaderType
-            commonInit()
+        headerStyle: HeaderStyle = .title,
+        accessibilityId: String? = nil
+    ) {
+        super.init(frame: .zero)
+        self.title = title
+        self.headerStyle = headerStyle
+        self.dropDownHeaderType = dropDownHeaderType
+        self.accessibilityId = accessibilityId
+        commonInit()
     }
     
     /// Returns an object initialized from data in a given unarchiver.

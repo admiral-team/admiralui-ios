@@ -77,6 +77,7 @@ open class ChatInputView: TextViewInput, AnyAppThemable, AccessibilitySupport {
 
     lazy private var chatInputActionButton: UIButton = {
         let button = UIButton()
+        button.accessibilityIdentifier = ChatInputAccesibilityIdentifiers.chatInputFileButton.rawValue
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -247,6 +248,7 @@ open class ChatInputView: TextViewInput, AnyAppThemable, AccessibilitySupport {
     private func configureChatButton() {
         chatButton.setImage(SystemAsset.Custom.CirclePageControl.arrowRight.image, for: .normal)
         chatButton.addTarget(self, action: #selector(didTapSendButton), for: .touchUpInside)
+        chatButton.accessibilityId = ChatInputAccesibilityIdentifiers.chatInputSendButton.rawValue
         chatInputActionButton.tintColor = scheme.imageTintColor.uiColor
     }
 
@@ -259,6 +261,7 @@ open class ChatInputView: TextViewInput, AnyAppThemable, AccessibilitySupport {
         inputTextView.isUserInteractionEnabled = true
         inputTextView.textContainerInset = Constants.textContainerInset
         inputTextView.textContainer.lineFragmentPadding = .zero
+        accessibilityId = ChatInputAccesibilityIdentifiers.chatInputTextView.rawValue
         inputTextView.setContentCompressionResistancePriority(.required, for: .vertical)
     }
 

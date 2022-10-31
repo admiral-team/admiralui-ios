@@ -23,6 +23,15 @@ final public class PinCodeTextView: UIControl, AnyAppThemable {
     public override var isHighlighted: Bool {
         didSet { updateScheme() }
     }
+
+    /// The accessibility identifier
+    public var accessibilityId: String? {
+        get {
+            return accessibilityIdentifier
+        } set {
+            accessibilityIdentifier = newValue
+        }
+    }
     
     var title: String? {
         get { return titleLabel.text }

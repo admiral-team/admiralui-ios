@@ -82,6 +82,15 @@ final public class ShimmeringView: UIView, AnyAppThemable {
         didSet { shimmerLayer?.shimmerFadeTime = shimmerFadeTime }
     }
 
+    /// The accessibility identifier
+    public var accessibilityId: String? {
+        get {
+            return accessibilityIdentifier
+        } set {
+            accessibilityIdentifier = newValue
+        }
+    }
+
     let defaultView = UIView()
     
     var scheme = ShimmeringViewColorScheme() {

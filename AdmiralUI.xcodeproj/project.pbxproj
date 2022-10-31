@@ -842,6 +842,8 @@
 		E9BE41E527C8FD0B00894224 /* MapButtonsSnapShots.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE41E427C8FD0B00894224 /* MapButtonsSnapShots.swift */; };
 		E9BE41E727C8FD2C00894224 /* PinSnapShots.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE41E627C8FD2C00894224 /* PinSnapShots.swift */; };
 		E9BE41E927C8FD4500894224 /* SeveralPinSnapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE41E827C8FD4500894224 /* SeveralPinSnapshots.swift */; };
+		E9C48992290FA9820004336C /* ChatInputAccesibilityIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C48991290FA9820004336C /* ChatInputAccesibilityIdentifiers.swift */; };
+		E9C48994290FB5180004336C /* PinCodeKeyBoardAccesibilityIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C48993290FB5180004336C /* PinCodeKeyBoardAccesibilityIdentifiers.swift */; };
 		E9C6BF1E28C7A7F900213F5C /* CalendarWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C6BF1928C7A7F900213F5C /* CalendarWeek.swift */; };
 		E9C6BF1F28C7A7F900213F5C /* CalendarPickerYear.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C6BF1A28C7A7F900213F5C /* CalendarPickerYear.swift */; };
 		E9C6BF2028C7A7F900213F5C /* CalendarMonth.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C6BF1B28C7A7F900213F5C /* CalendarMonth.swift */; };
@@ -1838,6 +1840,8 @@
 		E9BE41E427C8FD0B00894224 /* MapButtonsSnapShots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapButtonsSnapShots.swift; sourceTree = "<group>"; };
 		E9BE41E627C8FD2C00894224 /* PinSnapShots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinSnapShots.swift; sourceTree = "<group>"; };
 		E9BE41E827C8FD4500894224 /* SeveralPinSnapshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeveralPinSnapshots.swift; sourceTree = "<group>"; };
+		E9C48991290FA9820004336C /* ChatInputAccesibilityIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInputAccesibilityIdentifiers.swift; sourceTree = "<group>"; };
+		E9C48993290FB5180004336C /* PinCodeKeyBoardAccesibilityIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeKeyBoardAccesibilityIdentifiers.swift; sourceTree = "<group>"; };
 		E9C6BF1928C7A7F900213F5C /* CalendarWeek.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarWeek.swift; sourceTree = "<group>"; };
 		E9C6BF1A28C7A7F900213F5C /* CalendarPickerYear.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarPickerYear.swift; sourceTree = "<group>"; };
 		E9C6BF1B28C7A7F900213F5C /* CalendarMonth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarMonth.swift; sourceTree = "<group>"; };
@@ -2812,9 +2816,8 @@
 		0E4BC81E2681CDE5000FC891 /* Leading */ = {
 			isa = PBXGroup;
 			children = (
-				0E4BC8562681DFB6000FC891 /* LeadingCardListView */,
 				0E4BC81F2681CDF1000FC891 /* ImageListView */,
-				0E4BC8562681DFB6000FC891 /* ImageCardListView */,
+				0E4BC8562681DFB6000FC891 /* LeadingCardListView */,
 				0E4BC8852681E6E0000FC891 /* ImageNameListView */,
 				0E4BC8742681E199000FC891 /* ImageBackgroundListView */,
 			);
@@ -5000,6 +5003,7 @@
 			children = (
 				C6BA68212636CC3B001A7EB6 /* Views */,
 				C6BA68132636CC38001A7EB6 /* PinCodeKeyboard.swift */,
+				E9C48993290FB5180004336C /* PinCodeKeyBoardAccesibilityIdentifiers.swift */,
 				C6BA685F2636DAB0001A7EB6 /* PinCodeKeyboardCustomScheme.swift */,
 			);
 			path = PinCodeKeyboard;
@@ -6674,6 +6678,7 @@
 			children = (
 				E9AA276D27637C62007389CA /* ChatInputTextFieldScheme.swift */,
 				E9AA276E27637C62007389CA /* ChatInputView.swift */,
+				E9C48991290FA9820004336C /* ChatInputAccesibilityIdentifiers.swift */,
 			);
 			path = ChatInput;
 			sourceTree = "<group>";
@@ -7782,6 +7787,7 @@
 				0EB756F52600D624009BFC21 /* String+Optional.swift in Sources */,
 				0EB757512600D625009BFC21 /* BottomSheetPresentationAnimator.swift in Sources */,
 				E9C79CB727BD14B50002EC49 /* ErrorView.swift in Sources */,
+				E9C48994290FB5180004336C /* PinCodeKeyBoardAccesibilityIdentifiers.swift in Sources */,
 				E9AA277227637C62007389CA /* ChatBubbleViewScheme.swift in Sources */,
 				0EB757C42600D625009BFC21 /* UIView+Autolayout.swift in Sources */,
 				E610494926014D3F00FF20ED /* DoubleTextField.swift in Sources */,
@@ -7956,6 +7962,7 @@
 				E9BE41BB27C7E02400894224 /* CurrencyHeaderView.swift in Sources */,
 				E9AA277727637C62007389CA /* ChatBubbleStatusViewScheme.swift in Sources */,
 				0EB757232600D624009BFC21 /* NumberBadgeView.swift in Sources */,
+				E9C48992290FA9820004336C /* ChatInputAccesibilityIdentifiers.swift in Sources */,
 				0EB757AF2600D625009BFC21 /* TitleMoreDetailTextMessageListView.swift in Sources */,
 				0EB757582600D625009BFC21 /* TralingListViewComponent.swift in Sources */,
 				0EB757B62600D625009BFC21 /* IconListViewScheme.swift in Sources */,

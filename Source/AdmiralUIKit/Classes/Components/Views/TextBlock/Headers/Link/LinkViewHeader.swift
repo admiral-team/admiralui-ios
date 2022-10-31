@@ -49,7 +49,9 @@ enum LinkViewHeaderState: Int {
 public class LinkViewHeader: UIView, AnyAppThemable {
     
     weak var delegate: LinkViewHeaderDelegate?
-    
+
+    // MARK: - Public Properties
+
     /// A Boolean value indicating whether the control is in the enabled state.
     open var isEnabled: Bool = true {
         didSet { updateScheme()  }
@@ -60,7 +62,16 @@ public class LinkViewHeader: UIView, AnyAppThemable {
         get { return ghostButton.titleLabel?.text }
         set { ghostButton.setTitle(newValue, for: .normal) }
     }
-    
+
+    /// The accessibility identifier
+    public var accessibilityId: String? {
+        get {
+            return accessibilityIdentifier
+        } set {
+            accessibilityIdentifier = newValue
+        }
+    }
+
     // MARK: - Internal Properties
     
     var scheme = LinkViewHeaderScheme() {
@@ -89,8 +100,9 @@ public class LinkViewHeader: UIView, AnyAppThemable {
     // MARK: - Initializer
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-    public init(title: String?) {
+    public init(title: String?, accessibilityId: String? = nil) {
         super.init(frame: .zero)
+        self.accessibilityId = accessibilityId
         self.title = title
         commonInit()
     }

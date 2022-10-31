@@ -53,7 +53,16 @@ public class SearchBar: UIView, UITextFieldDelegate, AnyAppThemable {
             updatePlaceholder()
         }
     }
-    
+
+    /// The accessibility identifier
+    public var accessibilityId: String? {
+        get {
+            return accessibilityIdentifier
+        } set {
+            accessibilityIdentifier = newValue
+        }
+    }
+
     /// The keyboard type for the text object.
     public var keyboardType: UIKeyboardType {
         get { return textField.keyboardType }

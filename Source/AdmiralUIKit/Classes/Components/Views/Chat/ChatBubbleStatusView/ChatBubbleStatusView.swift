@@ -68,6 +68,15 @@ public class ChatBubbleStatusView: UIView, AnyAppThemable {
         }
     }
 
+    /// The accessibility identifier
+    public var accessibilityId: String? {
+        get {
+            return accessibilityIdentifier
+        } set {
+            accessibilityIdentifier = newValue
+        }
+    }
+
     /// The time title text label.
     public var timeTitle: String? {
         get { return timeLabel.text }

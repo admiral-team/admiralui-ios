@@ -32,7 +32,9 @@ public protocol TitleButtonDropDownDelegate: AnyObject {
 public class TitleButtonDropDown: UIView, AnyAppThemable, AccessibilitySupport {
     
     public weak var delegate: TitleButtonDropDownDelegate?
-    
+
+    // MARK: - Public Properties
+
     /// A Boolean value indicating whether the control is in the enabled state.
     open var isEnabled: Bool = true {
         didSet { updateScheme()  }
@@ -52,6 +54,15 @@ public class TitleButtonDropDown: UIView, AnyAppThemable, AccessibilitySupport {
     /// Drop down header type.
     public var dropDownHeaderType: DropDownHeaderType? {
         didSet { updateImageView() }
+    }
+
+    /// The accessibility identifier
+    public var accessibilityId: String? {
+        get {
+            return accessibilityIdentifier
+        } set {
+            accessibilityIdentifier = newValue
+        }
     }
     
     // MARK: - AccessibilitySupport
@@ -87,11 +98,17 @@ public class TitleButtonDropDown: UIView, AnyAppThemable, AccessibilitySupport {
     // MARK: - Initializer
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-    public init(title: String?, buttonTitle: String?, dropDownHeaderType: DropDownHeaderType?) {
+    public init(
+        title: String?,
+        buttonTitle: String?,
+        dropDownHeaderType: DropDownHeaderType?,
+        accessibilityId: String? = nil
+    ) {
         super.init(frame: .zero)
         self.title = title
         self.buttonTitle = buttonTitle
         self.dropDownHeaderType = dropDownHeaderType
+        self.accessibilityId = accessibilityId
         commonInit()
     }
     

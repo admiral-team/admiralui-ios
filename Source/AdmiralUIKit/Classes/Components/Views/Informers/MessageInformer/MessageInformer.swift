@@ -66,6 +66,15 @@ open class MessageInformer: UIView, AnyAppThemable, AccessibilitySupport {
             }
         }
     }
+
+    /// The accessibility identifier
+    public var accessibilityId: String? {
+        get {
+            return accessibilityIdentifier
+        } set {
+            accessibilityIdentifier = newValue
+        }
+    }
     
     var scheme = MessageInformerScheme() {
         didSet { updateScheme() }

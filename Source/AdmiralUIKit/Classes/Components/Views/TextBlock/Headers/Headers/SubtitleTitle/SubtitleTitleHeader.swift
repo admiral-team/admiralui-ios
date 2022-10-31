@@ -43,6 +43,15 @@ public class SubtitleTitleHeader: UIView, AnyAppThemable, AccessibilitySupport {
     public var headerStyle: HeaderStyle = .title {
         didSet { updateHeaderStyle() }
     }
+
+    /// The accessibility identifier
+    public var accessibilityId: String? {
+        get {
+            return accessibilityIdentifier
+        } set {
+            accessibilityIdentifier = newValue
+        }
+    }
     
     // MARK: - AccessibilitySupport
     
@@ -74,11 +83,17 @@ public class SubtitleTitleHeader: UIView, AnyAppThemable, AccessibilitySupport {
     // MARK: - Initializer
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-    public init(title: String?, subtitle: String?, headerStyle: HeaderStyle = .title) {
+    public init(
+        title: String?,
+        subtitle: String?,
+        headerStyle: HeaderStyle = .title,
+        accessibilityId: String? = nil
+    ) {
         super.init(frame: .zero)
         self.title = title
         self.subtitle = subtitle
         self.headerStyle = headerStyle
+        self.accessibilityId = accessibilityId
         commonInit()
     }
     

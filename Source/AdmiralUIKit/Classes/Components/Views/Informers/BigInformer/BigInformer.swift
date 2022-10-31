@@ -91,7 +91,16 @@ open class BigInformer: UIView, AnyAppThemable, AccessibilitySupport {
     open var isEnabled: Bool = true {
         didSet { updateScheme() }
     }
-    
+
+    /// The accessibility identifier
+    public var accessibilityId: String? {
+        get {
+            return accessibilityIdentifier
+        } set {
+            accessibilityIdentifier = newValue
+        }
+    }
+
     /// Informer style to configure the informer with library styles or custom style.
     open var style: InformerStyle = .default {
         didSet { updateScheme() }

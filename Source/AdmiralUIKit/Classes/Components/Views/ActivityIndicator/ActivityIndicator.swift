@@ -28,6 +28,15 @@ public class ActivityIndicator: UIView, AnyAppThemable {
         /// Large size.
         case large
     }
+
+    /// The accessibility identifier
+    public var accessibilityId: String? {
+        get {
+            return accessibilityIdentifier
+        } set {
+            accessibilityIdentifier = newValue
+        }
+    }
     
     /// The control style.
     open var style: Style = .default {

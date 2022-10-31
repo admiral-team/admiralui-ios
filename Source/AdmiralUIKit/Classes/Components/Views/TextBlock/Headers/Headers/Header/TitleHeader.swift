@@ -41,7 +41,16 @@ public class TitleHeader: UIView, AnyAppThemable, AccessibilitySupport {
     public var headerStyle: HeaderStyle = .title {
         didSet { updateHeaderStyle() }
     }
-    
+
+    /// The accessibility identifier
+    public var accessibilityId: String? {
+        get {
+            return accessibilityIdentifier
+        } set {
+            accessibilityIdentifier = newValue
+        }
+    }
+
     // MARK: - AccessibilitySupport
     
     public var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
@@ -70,11 +79,17 @@ public class TitleHeader: UIView, AnyAppThemable, AccessibilitySupport {
     // MARK: - Initializer
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-    public init(title: String?, textAligment: NSTextAlignment = .left, headerStyle: HeaderStyle = .title) {
+    public init(
+        title: String?,
+        textAligment: NSTextAlignment = .left,
+        headerStyle: HeaderStyle = .title,
+        accessibilityId: String? = nil
+    ) {
         super.init(frame: .zero)
         self.title = title
         self.textAligment = textAligment
         self.headerStyle = headerStyle
+        self.accessibilityId = accessibilityId
         commonInit()
     }
     

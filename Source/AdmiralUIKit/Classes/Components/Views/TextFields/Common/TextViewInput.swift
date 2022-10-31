@@ -56,6 +56,15 @@ open class TextViewInput: UIView {
         get { return inputTextView.inputView  }
         set { inputTextView.inputView = newValue }
     }
+
+    /// The accessibility identifier
+    public var accessibilityId: String? {
+        get {
+            return accessibilityIdentifier
+        } set {
+            inputTextView.accessibilityIdentifier = newValue
+        }
+    }
     
     /// A Boolean value that indicates whether the text field is currently in edit mode.
     public var isEditing: Bool {

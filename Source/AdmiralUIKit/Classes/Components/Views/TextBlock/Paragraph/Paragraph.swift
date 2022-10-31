@@ -99,6 +99,15 @@ public class Paragraph: UIView, AnyAppThemable {
     public var paragraphStyle: ParagraphStyle = .primary {
         didSet { updateScheme() }
     }
+
+    /// The accessibility identifier
+    public var accessibilityId: String? {
+        get {
+            return accessibilityIdentifier
+        } set {
+            accessibilityIdentifier = newValue
+        }
+    }
     
     // MARK: - AccessibilitySupport
     

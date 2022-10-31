@@ -35,6 +35,15 @@ public class PinCodeKeyboard: UIView, AnyAppThemable {
     public var rightButtonTitle: String? {
         didSet { setRightButtonTitle(title: rightButtonTitle) }
     }
+
+    /// The accessibility identifier
+    public var accessibilityId: String? {
+        get {
+            return accessibilityIdentifier
+        } set {
+            accessibilityIdentifier = newValue
+        }
+    }
     
     /// PinCodeKeyboard Delegate
     public weak var delegate: PinCodeKeyboardDelegate?
@@ -163,6 +172,7 @@ public class PinCodeKeyboard: UIView, AnyAppThemable {
         
         let textView = PinCodeTextView()
         textView.title = leftButtontTitle
+        textView.accessibilityId = PinCodeKeyBoardAccesibilityIdentifiers.pinCodeTextView.rawValue
         textView.addTarget(self, action: #selector(tapSegment(_:)), for: .touchUpInside)
         stackView.addArrangedSubview(textView)
         stackView.addArrangedSubview(createItem(.init(state: .number(0))))
@@ -188,6 +198,7 @@ public class PinCodeKeyboard: UIView, AnyAppThemable {
     private func createItem(_ model: PinCodeNumber) -> PinCodeNumberView {
         let item = PinCodeNumberView()
         item.viewState = model.state
+        item.accessibilityId = model.accesibilityId
         item.addTarget(self, action: #selector(tapSegment(_:)), for: .touchUpInside)
         return item
     }

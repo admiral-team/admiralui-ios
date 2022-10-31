@@ -22,16 +22,21 @@ public struct UploadImageItem {
     /// The state of UploadImageView.
     public var state: UploadImageViewState?
 
+    /// The accesibility identifier
+    public var accesibilityId: String?
+
     // MARK: - Initializer
 
     public init(
         image: UIImage? = nil,
         style: UploadImageViewStyle = .default,
-        state: UploadImageViewState? = .default
+        state: UploadImageViewState? = .default,
+        accesibilityId: String? = nil
     ) {
         self.image = image
         self.style = style
         self.state = state
+        self.accesibilityId = accesibilityId
     }
 
 }

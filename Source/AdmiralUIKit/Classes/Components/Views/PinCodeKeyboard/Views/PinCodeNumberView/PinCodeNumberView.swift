@@ -9,10 +9,13 @@ import UIKit
 import AdmiralTheme
 
 public struct PinCodeNumber {
-    let state: PinCodeNumberViewState
 
-    public init(state: PinCodeNumberViewState) {
+    let state: PinCodeNumberViewState
+    let accesibilityId: String?
+
+    public init(state: PinCodeNumberViewState, accesibilityId: String? = nil) {
         self.state = state
+        self.accesibilityId = accesibilityId
     }
 }
 
@@ -40,6 +43,15 @@ final public class PinCodeNumberView: UIControl, AnyAppThemable {
     
     public override var isHighlighted: Bool {
         didSet { updateScheme() }
+    }
+
+    /// The accessibility identifier
+    public var accessibilityId: String? {
+        get {
+            return accessibilityIdentifier
+        } set {
+            accessibilityIdentifier = newValue
+        }
     }
     
     var title: String? {
