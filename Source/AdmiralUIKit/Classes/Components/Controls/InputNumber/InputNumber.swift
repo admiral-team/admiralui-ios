@@ -62,7 +62,7 @@ public class InputNumber: UIControl, AnyAppThemable, AccessibilitySupport {
     public var stepValue: Double = 1.0 {
         didSet { inputStepValue = stepValue }
     }
-    
+
     public override var intrinsicContentSize: CGSize {
         return CGSize(width: UIView.noIntrinsicMetric, height: Constants.height)
     }
@@ -75,7 +75,7 @@ public class InputNumber: UIControl, AnyAppThemable, AccessibilitySupport {
     
     // MARK: Internal Properties
     
-    var scheme = InputNumberScheme() {
+    public var scheme = InputNumberScheme() {
         didSet { updateScheme() }
     }
     
@@ -85,7 +85,7 @@ public class InputNumber: UIControl, AnyAppThemable, AccessibilitySupport {
     private let numberLabel = UILabel()
     private let minusButton = CustomButton()
     private let plusButton = CustomButton()
-        
+
     private var inputStepValue: Double = 1.0
     private var timer: Timer?
     private var runCount: Float = 0

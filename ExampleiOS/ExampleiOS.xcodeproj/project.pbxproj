@@ -432,6 +432,8 @@
 		E9B82B8627B521BF00FC7BB9 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B82B8527B521BF00FC7BB9 /* View+Extensions.swift */; };
 		E9B82B8C27B521D100FC7BB9 /* SizePreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B82B8927B521D100FC7BB9 /* SizePreferenceKey.swift */; };
 		E9B82B8D27B521D100FC7BB9 /* SizeAwareModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B82B8B27B521D100FC7BB9 /* SizeAwareModifier.swift */; };
+		E9B90DA32906A58D00EBC9BC /* InputNumberDefaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B90DA22906A58D00EBC9BC /* InputNumberDefaultViewController.swift */; };
+		E9B90DA62906A5A000EBC9BC /* InputNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B90DA52906A5A000EBC9BC /* InputNumberViewController.swift */; };
 		E9BE41A727C7DFF400894224 /* DefaultCurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE419727C7DFF400894224 /* DefaultCurrencyViewModel.swift */; };
 		E9BE41A827C7DFF400894224 /* DefaultCurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE419827C7DFF400894224 /* DefaultCurrencyViewController.swift */; };
 		E9BE41A927C7DFF400894224 /* IconsCurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE419A27C7DFF400894224 /* IconsCurrencyViewController.swift */; };
@@ -929,6 +931,8 @@
 		E9B82B8527B521BF00FC7BB9 /* View+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		E9B82B8927B521D100FC7BB9 /* SizePreferenceKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizePreferenceKey.swift; sourceTree = "<group>"; };
 		E9B82B8B27B521D100FC7BB9 /* SizeAwareModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeAwareModifier.swift; sourceTree = "<group>"; };
+		E9B90DA22906A58D00EBC9BC /* InputNumberDefaultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNumberDefaultViewController.swift; sourceTree = "<group>"; };
+		E9B90DA52906A5A000EBC9BC /* InputNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNumberViewController.swift; sourceTree = "<group>"; };
 		E9BE419727C7DFF400894224 /* DefaultCurrencyViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultCurrencyViewModel.swift; sourceTree = "<group>"; };
 		E9BE419827C7DFF400894224 /* DefaultCurrencyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultCurrencyViewController.swift; sourceTree = "<group>"; };
 		E9BE419A27C7DFF400894224 /* IconsCurrencyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconsCurrencyViewController.swift; sourceTree = "<group>"; };
@@ -2292,6 +2296,8 @@
 		C6260AC4255C3209007175C2 /* Number */ = {
 			isa = PBXGroup;
 			children = (
+				E9B90DA42906A59200EBC9BC /* Input */,
+				E9B90DA12906A57900EBC9BC /* Default */,
 				C6260AC5255C3230007175C2 /* NumberViewController.swift */,
 			);
 			path = Number;
@@ -3565,6 +3571,22 @@
 			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
+		E9B90DA12906A57900EBC9BC /* Default */ = {
+			isa = PBXGroup;
+			children = (
+				E9B90DA22906A58D00EBC9BC /* InputNumberDefaultViewController.swift */,
+			);
+			path = Default;
+			sourceTree = "<group>";
+		};
+		E9B90DA42906A59200EBC9BC /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				E9B90DA52906A5A000EBC9BC /* InputNumberViewController.swift */,
+			);
+			path = Input;
+			sourceTree = "<group>";
+		};
 		E9BE419527C7DFF400894224 /* Currency */ = {
 			isa = PBXGroup;
 			children = (
@@ -4141,6 +4163,7 @@
 				3B8A8911287D80F9003174B7 /* SeparatorViewController.swift in Sources */,
 				0ED08A1A266FBA8E00389A1A /* CalendarSwiftUIView.swift in Sources */,
 				0E76FB40253ED9AF001B1F3D /* RadioButtonViewController.swift in Sources */,
+				E9B90DA62906A5A000EBC9BC /* InputNumberViewController.swift in Sources */,
 				E9332FA2277C65F700F9AF26 /* UploadingFileCell.swift in Sources */,
 				0E195E6E2567DB140096780B /* ImageBaseCellViewController.swift in Sources */,
 				E9332F8A277A0AF400F9AF26 /* UploadingFileViewController.swift in Sources */,
@@ -4303,6 +4326,7 @@
 				E6903D8325DFAA9500245403 /* KeyboardBinder.swift in Sources */,
 				C655D4652608EAB0004973A3 /* ThemeSwitchButton.swift in Sources */,
 				C686569225596E3D00B885B8 /* MenuListCell.swift in Sources */,
+				E9B90DA32906A58D00EBC9BC /* InputNumberDefaultViewController.swift in Sources */,
 				E94518AB27D4A22F0048B133 /* PrimaryButtonPlain.swift in Sources */,
 				0E7386E5278EE1D6003892C7 /* CustomWindow.swift in Sources */,
 				0E4BC9272683473E000FC891 /* TitleBaseCellSwiftUIItem.swift in Sources */,
