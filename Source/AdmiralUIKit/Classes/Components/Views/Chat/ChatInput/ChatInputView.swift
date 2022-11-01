@@ -73,11 +73,37 @@ open class ChatInputView: TextViewInput, AnyAppThemable, AccessibilitySupport {
         didSet { updateColors() }
     }
 
+    /// Send button accesibility id
+    public var chatButtonAccesibilityId: String? {
+        get {
+            return chatButton.accessibilityIdentifier
+        } set {
+            chatButton.accessibilityIdentifier = newValue
+        }
+    }
+
+    /// Action button accesibility id
+    public var chatButtonActionAccesibilityId: String? {
+        get {
+            return chatInputActionButton.accessibilityIdentifier
+        } set {
+            chatInputActionButton.accessibilityIdentifier = newValue
+        }
+    }
+
+    /// Input text view accesibility id 
+    public var inputTextAccesibilityId: String? {
+        get {
+            return inputTextView.accessibilityIdentifier
+        } set {
+            inputTextView.accessibilityIdentifier = newValue
+        }
+    }
+
     weak open var chatInputDelegate: ChatInputViewDelegate? = nil
 
     lazy private var chatInputActionButton: UIButton = {
         let button = UIButton()
-        button.accessibilityIdentifier = ChatInputAccesibilityIdentifiers.chatInputFileButton.rawValue
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -248,7 +274,6 @@ open class ChatInputView: TextViewInput, AnyAppThemable, AccessibilitySupport {
     private func configureChatButton() {
         chatButton.setImage(SystemAsset.Custom.CirclePageControl.arrowRight.image, for: .normal)
         chatButton.addTarget(self, action: #selector(didTapSendButton), for: .touchUpInside)
-        chatButton.accessibilityId = ChatInputAccesibilityIdentifiers.chatInputSendButton.rawValue
         chatInputActionButton.tintColor = scheme.imageTintColor.uiColor
     }
 
@@ -261,7 +286,6 @@ open class ChatInputView: TextViewInput, AnyAppThemable, AccessibilitySupport {
         inputTextView.isUserInteractionEnabled = true
         inputTextView.textContainerInset = Constants.textContainerInset
         inputTextView.textContainer.lineFragmentPadding = .zero
-        accessibilityId = ChatInputAccesibilityIdentifiers.chatInputTextView.rawValue
         inputTextView.setContentCompressionResistancePriority(.required, for: .vertical)
     }
 

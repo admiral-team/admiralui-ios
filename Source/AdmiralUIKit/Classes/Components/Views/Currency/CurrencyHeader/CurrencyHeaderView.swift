@@ -63,15 +63,6 @@ public final class CurrencyHeaderView: UIView, AnyAppThemable {
         }
     }
 
-    /// The accessibility identifier
-    public var accessibilityId: String? {
-        get {
-            return accessibilityIdentifier
-        } set {
-            accessibilityIdentifier = newValue
-        }
-    }
-
     /// The spacing between sell label and buy label
     public var isTextSpacingEnabled: Bool = false {
         didSet {

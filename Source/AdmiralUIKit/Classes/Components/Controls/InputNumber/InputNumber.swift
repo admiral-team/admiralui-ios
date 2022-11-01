@@ -63,10 +63,28 @@ public class InputNumber: UIControl, AnyAppThemable, AccessibilitySupport {
         didSet { inputStepValue = stepValue }
     }
 
+    /// The minus button accesibility identifier
+    public var minusButtonAccesibilityId: String? {
+        get {
+            return minusButton.accessibilityIdentifier
+        } set {
+            minusButton.accessibilityIdentifier = newValue
+        }
+    }
+
+    /// The plus button accesibility identifier
+    public var plusButtonrAccesibilityId: String? {
+        get {
+            return plusButton.accessibilityIdentifier
+        } set {
+            plusButton.accessibilityIdentifier = newValue
+        }
+    }
+
     public override var intrinsicContentSize: CGSize {
         return CGSize(width: UIView.noIntrinsicMetric, height: Constants.height)
     }
-    
+
     // MARK: - AccessibilitySupport
     
     public var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {

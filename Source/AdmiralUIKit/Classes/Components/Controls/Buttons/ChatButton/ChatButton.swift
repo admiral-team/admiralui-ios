@@ -21,15 +21,6 @@ open class ChatButton: CustomButton, AnyAppThemable, AccessibilitySupport {
         didSet { setImage(oldValue, for: .normal) }
     }
 
-    /// The accessibility identifier
-    public var accessibilityId: String? {
-        get {
-            return accessibilityIdentifier
-        } set {
-            accessibilityIdentifier = newValue
-        }
-    }
-
     // MARK: - Initializers
 
     public override init(frame: CGRect) {

@@ -42,15 +42,6 @@ public class TitleHeader: UIView, AnyAppThemable, AccessibilitySupport {
         didSet { updateHeaderStyle() }
     }
 
-    /// The accessibility identifier
-    public var accessibilityId: String? {
-        get {
-            return accessibilityIdentifier
-        } set {
-            accessibilityIdentifier = newValue
-        }
-    }
-
     // MARK: - AccessibilitySupport
     
     public var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
@@ -82,14 +73,12 @@ public class TitleHeader: UIView, AnyAppThemable, AccessibilitySupport {
     public init(
         title: String?,
         textAligment: NSTextAlignment = .left,
-        headerStyle: HeaderStyle = .title,
-        accessibilityId: String? = nil
+        headerStyle: HeaderStyle = .title
     ) {
         super.init(frame: .zero)
         self.title = title
         self.textAligment = textAligment
         self.headerStyle = headerStyle
-        self.accessibilityId = accessibilityId
         commonInit()
     }
     

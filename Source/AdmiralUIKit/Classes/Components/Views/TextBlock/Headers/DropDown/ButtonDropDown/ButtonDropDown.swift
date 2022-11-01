@@ -45,15 +45,6 @@ public class ButtonDropDown: UIView, AnyAppThemable {
         didSet { updateButtonTitle() }
     }
 
-    /// The accessibility identifier
-    public var accessibilityId: String? {
-        get {
-            return accessibilityIdentifier
-        } set {
-            accessibilityIdentifier = newValue
-        }
-    }
-
     /// Drop down header type.
     public var dropDownHeaderType: DropDownHeaderType? {
         didSet { updateImageView() }
@@ -85,13 +76,11 @@ public class ButtonDropDown: UIView, AnyAppThemable {
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     public init(
         buttonTitle: String?,
-        dropDownHeaderType: DropDownHeaderType?,
-        accessibilityId: String? = nil
+        dropDownHeaderType: DropDownHeaderType?
     ) {
         super.init(frame: .zero)
         self.buttonTitle = buttonTitle
         self.dropDownHeaderType = dropDownHeaderType
-        self.accessibilityId = accessibilityId
         commonInit()
     }
     

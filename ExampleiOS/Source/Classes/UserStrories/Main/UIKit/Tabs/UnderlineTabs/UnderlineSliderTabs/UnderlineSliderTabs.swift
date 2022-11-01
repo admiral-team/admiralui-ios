@@ -46,7 +46,11 @@ final class UnderlineSliderTabsViewController: ScrollViewController {
     }
     
     private func configureSegmentControlls() {
-        let segmentControlFirst = UnderlineSegmentedControl(items: ["One", "Two", "Three"])
+        let segmentControlFirst = UnderlineSegmentedControl(items: [
+            .init(title: "One", accesibilityId: "SegmentControlOne"),
+            .init(title: "Two", accesibilityId: "SegmentControlTwo"),
+            .init(title: "Three", accesibilityId: "SegmentControlThree")
+        ])
         segmentControlFirst.selectedSegmentIndex = 0
         segmentControlFirst.isScrollEnabled = false
         segmentControlFirst.contentInset = UIEdgeInsets(
@@ -59,10 +63,19 @@ final class UnderlineSliderTabsViewController: ScrollViewController {
         
         views.append(view1)
         
-        let segmentControlSecond = UnderlineSegmentedControl(items:
-                                                            ["One", "Two", "Three",
-                                                             "Four", "Five", "Six",
-                                                             "Seven", "Eight", "Nine"])
+        let segmentControlSecond = UnderlineSegmentedControl(
+            items: [
+                .init(title: "One", accesibilityId: "SegmentControlSecondOne"),
+                .init(title: "Two", accesibilityId: "SegmentControlSecondTwo"),
+                .init(title: "Three", accesibilityId: "SegmentControlSecondThree"),
+                .init(title: "Four", accesibilityId: "SegmentControlSecondFour"),
+                .init(title: "Five", accesibilityId: "SegmentControlSecondFive"),
+                .init(title: "Six", accesibilityId: "SegmentControlSecondSix"),
+                .init(title: "Seven", accesibilityId: "SegmentControlSecondSeven"),
+                .init(title: "Eight", accesibilityId: "SegmentControlSecondEight"),
+                .init(title: "Nine", accesibilityId: "SegmentControlSecondNine")
+            ]
+        )
         segmentControlSecond.selectedSegmentIndex = 0
         segmentControlSecond.isScrollEnabled = true
         segmentControlSecond.contentInset = UIEdgeInsets(
@@ -75,7 +88,12 @@ final class UnderlineSliderTabsViewController: ScrollViewController {
         
         views.append(view2)
         
-        let segmentControlThird = UnderlineSegmentedControl(items: ["One", "Two", "Three", "Four"])
+        let segmentControlThird = UnderlineSegmentedControl(items: [
+            .init(title: "One", accesibilityId: "SegmentControlThirdOne"),
+            .init(title: "Two", accesibilityId: "SegmentControlThirdTwo"),
+            .init(title: "Three", accesibilityId: "SegmentControlThirdThree"),
+            .init(title: "Four", accesibilityId: "SegmentControlThirdFour")
+        ])
         segmentControlThird.selectedSegmentIndex = 0
         segmentControlThird.contentInset = UIEdgeInsets(
             top: 0.0,

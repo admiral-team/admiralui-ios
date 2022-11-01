@@ -45,6 +45,15 @@ open class GhostButton: CustomButton, AnyAppThemable, AccessibilitySupport {
         }
     }
 
+    /// The activity indicator accesibility identifier
+    public var activityIndicatorAccesibilityId: String? {
+        get {
+            return activityIndicator.accessibilityIdentifier
+        } set {
+            activityIndicator.accessibilityIdentifier = newValue
+        }
+    }
+
     // MARK: - Private properties
 
     private var activityIndicator = ActivityIndicator()

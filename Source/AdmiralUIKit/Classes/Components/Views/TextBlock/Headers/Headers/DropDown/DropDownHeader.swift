@@ -44,15 +44,6 @@ public class DropDownHeader: UIView, AnyAppThemable, AccessibilitySupport {
         didSet { updateHeaderStyle() }
     }
 
-    /// The accessibility identifier
-    public var accessibilityId: String? {
-        get {
-            return accessibilityIdentifier
-        } set {
-            accessibilityIdentifier = newValue
-        }
-    }
-
     // MARK: - AccessibilitySupport
     
     public var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
@@ -86,14 +77,12 @@ public class DropDownHeader: UIView, AnyAppThemable, AccessibilitySupport {
     public init(
         title: String?,
         dropDownHeaderType: DropDownHeaderType = .down,
-        headerStyle: HeaderStyle = .title,
-        accessibilityId: String? = nil
+        headerStyle: HeaderStyle = .title
     ) {
         super.init(frame: .zero)
         self.title = title
         self.headerStyle = headerStyle
         self.dropDownHeaderType = dropDownHeaderType
-        self.accessibilityId = accessibilityId
         commonInit()
     }
     

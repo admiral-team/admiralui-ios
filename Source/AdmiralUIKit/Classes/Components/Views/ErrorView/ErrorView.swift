@@ -71,15 +71,6 @@ public final class ErrorView: UIView, AnyAppThemable {
         }
     }
 
-    /// The accessibility identifier
-    public var accessibilityId: String? {
-        get {
-            return accessibilityIdentifier
-        } set {
-            accessibilityIdentifier = newValue
-        }
-    }
-
     /// The delegate of ErrorView.
     weak public var delegate: ErrorViewDelegate? = nil
 
@@ -101,13 +92,11 @@ public final class ErrorView: UIView, AnyAppThemable {
 
     public init(
         text: String,
-        buttonTitle: String,
-        accessibilityId: String? = nil
+        buttonTitle: String
     ) {
         self.text = text
         self.buttonTitle = buttonTitle
         super.init(frame: CGRect())
-        self.accessibilityId = accessibilityId
     }
 
     convenience public init() {

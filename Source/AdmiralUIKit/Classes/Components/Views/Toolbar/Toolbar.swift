@@ -257,6 +257,7 @@ open class Toolbar: UIView, AnyAppThemable {
                 toolbarItem.type = item.type
                 toolbarItem.titleColor = item.titleColor
                 toolbarItem.imageTintColor = item.imageTintColor
+                toolbarItem.accessibilityIdentifier = item.accesibilityId
                 toolbarItem.tag = index
                 toolbarItem.addTarget(self, action: #selector(didSelectItem(sender:)), for: .touchUpInside)
                 toolbarItem.scheme = scheme.itemColorScheme
@@ -268,6 +269,7 @@ open class Toolbar: UIView, AnyAppThemable {
                 toolbarItem.type = item.type
                 toolbarItem.titleColor = item.titleColor
                 toolbarItem.imageTintColor = item.imageTintColor
+                toolbarItem.accessibilityIdentifier = item.accesibilityId
                 toolbarItem.tag = index
                 toolbarItem.addTarget(self, action: #selector(didSelectItem(sender:)), for: .touchUpInside)
                 toolbarItem.scheme = scheme.itemColorScheme

@@ -85,15 +85,6 @@ open class Badge: UIView, AnyAppThemable, AccessibilitySupport {
         get { return badgeLabel.minSize }
         set { badgeLabel.minSize = newValue }
     }
-
-    /// The accessibility identifier
-    public var accessibilityId: String? {
-        get {
-            return accessibilityIdentifier
-        } set {
-            accessibilityIdentifier = newValue
-        }
-    }
     
     // MARK: - Internal Properties
     

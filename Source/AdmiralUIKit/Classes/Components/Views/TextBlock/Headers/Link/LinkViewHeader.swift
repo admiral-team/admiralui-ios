@@ -63,15 +63,6 @@ public class LinkViewHeader: UIView, AnyAppThemable {
         set { ghostButton.setTitle(newValue, for: .normal) }
     }
 
-    /// The accessibility identifier
-    public var accessibilityId: String? {
-        get {
-            return accessibilityIdentifier
-        } set {
-            accessibilityIdentifier = newValue
-        }
-    }
-
     // MARK: - Internal Properties
     
     var scheme = LinkViewHeaderScheme() {
@@ -100,9 +91,8 @@ public class LinkViewHeader: UIView, AnyAppThemable {
     // MARK: - Initializer
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-    public init(title: String?, accessibilityId: String? = nil) {
+    public init(title: String?) {
         super.init(frame: .zero)
-        self.accessibilityId = accessibilityId
         self.title = title
         commonInit()
     }

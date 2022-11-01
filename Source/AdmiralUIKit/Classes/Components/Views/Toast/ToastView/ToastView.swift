@@ -147,7 +147,16 @@ open class ToastView: UIView, AnyAppThemable {
     open var cardStatusStyle: CardStatusStyle = .noStatus {
         didSet { configure() }
     }
-    
+
+    /// The close button accesibility Id
+    public var closeButtonAccesibilityId: String? {
+        get {
+            return closeButton.accessibilityIdentifier
+        } set {
+            closeButton.accessibilityIdentifier = newValue
+        }
+    }
+
     // MARK: - Internal Properties
     
     var scheme = ToastViewScheme() {

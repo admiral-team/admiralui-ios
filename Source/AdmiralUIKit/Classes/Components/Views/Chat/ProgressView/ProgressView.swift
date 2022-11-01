@@ -77,15 +77,6 @@ public final class ProgressView: UIView, AnyAppThemable {
         }
     }
 
-    /// The accessibility identifier
-    public var accessibilityId: String? {
-        get {
-            return accessibilityIdentifier
-        } set {
-            accessibilityIdentifier = newValue
-        }
-    }
-
     // MARK: - Internal Properties
 
     var scheme = ProgressViewScheme() {

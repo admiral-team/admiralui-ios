@@ -54,15 +54,6 @@ public class Separator: UIView, AnyAppThemable {
     public var separatorStyle: SeparatorStyle = .short {
         didSet { updateSeparatorStyle() }
     }
-
-    /// The accessibility identifier
-    public var accessibilityId: String? {
-        get {
-            return accessibilityIdentifier
-        } set {
-            accessibilityIdentifier = newValue
-        }
-    }
     
     // MARK: - Internal Properties
     
@@ -83,13 +74,9 @@ public class Separator: UIView, AnyAppThemable {
     // MARK: - Initializer
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
-    public init(
-        separatorStyle: SeparatorStyle = .short,
-        accessibilityId: String? = nil
-    ) {
+    public init(separatorStyle: SeparatorStyle = .short) {
         super.init(frame: .zero)
         self.separatorStyle = separatorStyle
-        self.accessibilityId = accessibilityId
         commonInit()
     }
     

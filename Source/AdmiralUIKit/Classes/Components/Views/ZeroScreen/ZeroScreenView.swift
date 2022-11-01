@@ -55,15 +55,6 @@ open class ZeroScreenView: UIView, AnyAppThemable {
     public var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
         didSet { updateFonts() }
     }
-
-    /// The accessibility identifier
-    public var accessibilityId: String? {
-        get {
-            return accessibilityIdentifier
-        } set {
-            accessibilityIdentifier = newValue
-        }
-    }
     
     /// The delegate of ZeroScreenView.
     weak public var delegate: ZeroScreenViewDelegate? = nil
@@ -93,15 +84,13 @@ open class ZeroScreenView: UIView, AnyAppThemable {
         image: UIImage? = nil,
         title: String? = nil,
         subTitle: String? = nil,
-        buttonTitle: String? = nil,
-        accessibilityId: String? = nil
+        buttonTitle: String? = nil
     ) {
         self.image = image
         self.title = title
         self.subTitle = subTitle
         self.buttonTitle = buttonTitle
         super.init(frame: CGRect())
-        self.accessibilityId = accessibilityId
         commonInit()
     }
 

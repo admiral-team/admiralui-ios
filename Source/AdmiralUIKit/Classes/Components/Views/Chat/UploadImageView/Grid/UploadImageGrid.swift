@@ -94,15 +94,6 @@ public final class UploadImageGridView: UIView, AnyAppThemable {
         }
     }
 
-    /// The accessibility identifier
-    public var accessibilityId: String? {
-        get {
-            return accessibilityIdentifier
-        } set {
-            accessibilityIdentifier = newValue
-        }
-    }
-
     // MARK: - Private properties
 
     private let gridStyle: [[UploadImageViewCornerStyle]] = [

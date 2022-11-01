@@ -66,6 +66,33 @@ public final class DoubleSlider: UIControl, AnyAppThemable {
         CGSize(width: UIView.noIntrinsicMetric, height: Constants.height)
     }
 
+    /// The lower thumb image accesibility Id
+    public var loweThubmImageAccesibilityId: String? {
+        get {
+            return lowerThumbImageView.accessibilityIdentifier
+        } set {
+            lowerThumbImageView.accessibilityIdentifier = newValue
+        }
+    }
+
+    /// The upper thumb image accesibility Id
+    public var upperThumbImageViewAccesibilityId: String? {
+        get {
+            return upperThumbImageView.accessibilityIdentifier
+        } set {
+            upperThumbImageView.accessibilityIdentifier = newValue
+        }
+    }
+
+    /// The progress view accesibility Id
+    public var progressViewAccesibilityId: String? {
+        get {
+            return progressView.accessibilityIdentifier
+        } set {
+            progressView.accessibilityIdentifier = newValue
+        }
+    }
+
     // MARK: - Internal Properties
 
     var scheme = SliderScheme()

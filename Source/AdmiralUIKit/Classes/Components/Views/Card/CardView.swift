@@ -121,15 +121,6 @@ open class CardView: UIView, AnyAppThemable {
         get { return layer.cornerRadius }
         set { layer.cornerRadius = newValue }
     }
-
-    /// The accessibility identifier
-    public var accessibilityId: String? {
-        get {
-            return accessibilityIdentifier
-        } set {
-            accessibilityIdentifier = newValue
-        }
-    }
     
     var scheme = CardViewScheme() {
         didSet { configure() }

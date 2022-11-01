@@ -169,15 +169,6 @@ public final class UploadImageView: UIView, AnyAppThemable {
         }
     }
 
-    /// The accessibility identifier
-    public var accessibilityId: String? {
-        get {
-            return accessibilityIdentifier
-        } set {
-            accessibilityIdentifier = newValue
-        }
-    }
-
     // MARK: - Internal Properties
 
     var scheme = UploadImageViewScheme() {
@@ -295,7 +286,7 @@ extension UploadImageView {
         state = model.state ?? .default
         image = model.image
         style = model.style
-        accessibilityId = model.accesibilityId
+        accessibilityIdentifier = model.accesibilityId
     }
 
 }

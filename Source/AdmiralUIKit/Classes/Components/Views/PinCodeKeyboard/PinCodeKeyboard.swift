@@ -37,14 +37,14 @@ public class PinCodeKeyboard: UIView, AnyAppThemable {
     }
 
     /// The accessibility identifier
-    public var accessibilityId: String? {
+    public var textViewAccesibilityId: String? {
         get {
-            return accessibilityIdentifier
+            return textView.accessibilityId
         } set {
-            accessibilityIdentifier = newValue
+            textView.accessibilityId = newValue
         }
     }
-    
+
     /// PinCodeKeyboard Delegate
     public weak var delegate: PinCodeKeyboardDelegate?
     
@@ -65,7 +65,9 @@ public class PinCodeKeyboard: UIView, AnyAppThemable {
         
         return stackView
     }()
-    
+
+    private let textView = PinCodeTextView()
+
     private var selectedIndex: Int = 0
     private var heightStackViewConstraint: NSLayoutConstraint!
     
@@ -169,17 +171,18 @@ public class PinCodeKeyboard: UIView, AnyAppThemable {
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
         stackView.spacing = LayoutGrid.doubleModule
-        
-        let textView = PinCodeTextView()
+
         textView.title = leftButtontTitle
-        textView.accessibilityId = PinCodeKeyBoardAccesibilityIdentifiers.pinCodeTextView.rawValue
         textView.addTarget(self, action: #selector(tapSegment(_:)), for: .touchUpInside)
         stackView.addArrangedSubview(textView)
         stackView.addArrangedSubview(createItem(.init(state: .number(0))))
-        stackView.addArrangedSubview(createItem(.init(
-                                                    state: .rightAction(.init(
-                                                                            title: rightButtonTitle,
-                                                                            image: rightButtonImage)))))
+        stackView.addArrangedSubview(
+            createItem(
+                .init(
+                    state: .rightAction(.init(title: rightButtonTitle, image: rightButtonImage))
+                )
+            )
+        )
         return stackView
     }
     

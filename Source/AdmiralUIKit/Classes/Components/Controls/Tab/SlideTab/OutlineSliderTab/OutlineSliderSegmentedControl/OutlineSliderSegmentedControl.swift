@@ -19,11 +19,15 @@ public struct OutlineSliderTabItem {
     /// Badge style. Default is none.
     public var badgeStyle: BadgeStyle?
 
+    /// The accesibility identifier
+    public var accesibilityId: String?
+
     // MARK: - Initializer
 
-    public init(title: String, badgeStyle: BadgeStyle?) {
+    public init(title: String, badgeStyle: BadgeStyle?, accesibilityId: String? = nil) {
         self.title = title
         self.badgeStyle = badgeStyle
+        self.accesibilityId = accesibilityId
     }
 
 }
@@ -93,7 +97,11 @@ public class OutlineSliderTabSegmentedControl: BaseOutlineSliderSegmentedControl
     /// Sets titles.
     /// - Parameter items: An array of OutlineSliderTabItem to display in the segments.
     public func setItems(_ items: [OutlineSliderTabItem]) {
-        let labels = items.map() { createItem(title: $0.title, style: $0.badgeStyle) }
+        let labels = items.map() { createItem(
+            title: $0.title,
+            style: $0.badgeStyle,
+            accesibilityId: $0.accesibilityId
+        )}
         set(items: labels)
     }
     
@@ -176,13 +184,18 @@ public class OutlineSliderTabSegmentedControl: BaseOutlineSliderSegmentedControl
         height = LayoutGrid.quadrupleModule
     }
 
-    private func createItem(title: String?, style: BadgeStyle? = nil) -> OutlineSliderItem {
+    private func createItem(
+        title: String?,
+        style: BadgeStyle? = nil,
+        accesibilityId: String? = nil
+    ) -> OutlineSliderItem {
         let item = OutlineSliderItem(
             isEnabled: isEnabled,
             isSelected: false,
             title: title,
             scheme: scheme,
-            badgeStyle: style
+            badgeStyle: style,
+            accesibilityId: accesibilityId
         )
         return item
     }

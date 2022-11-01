@@ -67,15 +67,6 @@ public class ArrowWithButtonHeader: UIView, AnyAppThemable, AccessibilitySupport
     public var dropDownHeaderType: DropDownHeaderType? {
         didSet { updateImageView() }
     }
-
-    /// The accessibility identifier
-    public var accessibilityId: String? {
-        get {
-            return accessibilityIdentifier
-        } set {
-            accessibilityIdentifier = newValue
-        }
-    }
     
     // MARK: - AccessibilitySupport
     
@@ -112,15 +103,13 @@ public class ArrowWithButtonHeader: UIView, AnyAppThemable, AccessibilitySupport
         title: String?,
         buttonTitle: String?,
         dropDownHeaderType: DropDownHeaderType?,
-        headerStyle: HeaderStyle = .title,
-        accessibilityId: String? = nil
+        headerStyle: HeaderStyle = .title
     ) {
         super.init(frame: .zero)
         self.title = title
         self.buttonTitle = buttonTitle
         self.dropDownHeaderType = dropDownHeaderType
         self.headerStyle = headerStyle
-        self.accessibilityId = accessibilityId
         commonInit()
     }
     

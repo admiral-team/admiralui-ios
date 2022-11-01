@@ -8,6 +8,26 @@
 import UIKit
 import AdmiralTheme
 
+/// Item for Logo  tab.
+public struct LogoTabItem {
+
+    // MARK: - Public Properties
+
+    /// Image item.
+    public let image: UIImage?
+
+    /// The accesibility identifier
+    public var accesibilityId: String?
+
+    // MARK: - Initializer
+
+    public init(image: UIImage?, accesibilityId: String? = nil) {
+        self.image = image
+        self.accesibilityId = accesibilityId
+    }
+
+}
+
 /// A horizontal control that consists of multiple segments, each segment functioning as a discrete image button.
 public class LogoTab: PlainSegmentedControl, AnyAppThemable {
     
@@ -28,9 +48,16 @@ public class LogoTab: PlainSegmentedControl, AnyAppThemable {
     // MARK: - Initializer
     
     /// Initializes and returns a newly allocated view object with images.
+    public convenience init(items: [LogoTabItem?]) {
+        self.init(frame: .zero)
+        setItems(items)
+        commonInit()
+    }
+
+    /// Initializes and returns a newly allocated view object with images.
     public convenience init(images: [UIImage?]) {
         self.init(frame: .zero)
-        setImages(images)
+        setItems(images.map { .init(image: $0) })
         commonInit()
     }
     
@@ -50,8 +77,8 @@ public class LogoTab: PlainSegmentedControl, AnyAppThemable {
     
     /// Sets images.
     /// - Parameter images: A images to display in the segments.
-    public func setImages(_ images: [UIImage?]) {
-        let items = images.map({ createItem(image: $0) })
+    public func setItems(_ items: [LogoTabItem?]) {
+        let items = items.map({ createItem(item: $0) })
         set(items: items)
     }
     
@@ -60,7 +87,7 @@ public class LogoTab: PlainSegmentedControl, AnyAppThemable {
     ///   - image: A image to use as the segment’s image.
     ///   - segment: An index number identifying a segment in the control.
     public func insertImage(_ image: UIImage?, forSegmentAt segment: Int) {
-        let view = createItem(image: image)
+        let view = createItem(item: .init(image: image))
         insert(item: view, at: segment)
     }
     
@@ -128,12 +155,12 @@ public class LogoTab: PlainSegmentedControl, AnyAppThemable {
         apply(theme: defaultTheme)
     }
     
-    private func createItem(image: UIImage?) -> LogoSegmentedView {
-        let item = LogoSegmentedView()
-        item.image = image
-        item.scheme = scheme
-        
-        return item
+    private func createItem(item: LogoTabItem?) -> LogoSegmentedView {
+        let logoSegmentView = LogoSegmentedView()
+        logoSegmentView.image = item?.image
+        logoSegmentView.accessibilityIdentifier = item?.accesibilityId
+        logoSegmentView.scheme = scheme
+        return logoSegmentView
     }
     
     private func updateScheme() {

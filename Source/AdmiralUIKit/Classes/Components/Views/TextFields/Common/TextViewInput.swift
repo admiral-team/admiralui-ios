@@ -57,10 +57,10 @@ open class TextViewInput: UIView {
         set { inputTextView.inputView = newValue }
     }
 
-    /// The accessibility identifier
-    public var accessibilityId: String? {
+    /// The input text accessibility identifier
+    public var inputTextAccessibilityId: String? {
         get {
-            return accessibilityIdentifier
+            return inputTextView.accessibilityIdentifier
         } set {
             inputTextView.accessibilityIdentifier = newValue
         }

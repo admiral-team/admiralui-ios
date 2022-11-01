@@ -186,6 +186,25 @@ public class CalendarView: UIView, AnyAppThemable {
             }
         }
     }
+
+    /// The calendar view accesibility Id
+    public var accesibilityId: String? {
+        get {
+            switch type {
+            case .vertical:
+                return calendarVerticalView?.accessibilityIdentifier
+            case .horizontal:
+                return calendarHorizontalView?.accessibilityIdentifier
+            }
+        } set {
+            switch type {
+            case .vertical:
+                calendarVerticalView?.accessibilityIdentifier = newValue
+            case .horizontal:
+                calendarHorizontalView?.accessibilityIdentifier = newValue
+            }
+        }
+    }
     
     // MARK: - Internal Properties
     

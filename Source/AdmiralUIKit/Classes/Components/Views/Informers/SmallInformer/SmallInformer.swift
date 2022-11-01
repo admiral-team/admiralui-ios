@@ -65,15 +65,6 @@ open class SmallInformer: UIView, AnyAppThemable, AccessibilitySupport {
         }
     }
 
-    /// The accessibility identifier
-    public var accessibilityId: String? {
-        get {
-            return accessibilityIdentifier
-        } set {
-            accessibilityIdentifier = newValue
-        }
-    }
-
     /// A Boolean value indicating whether the control is in the enabled state.
     open var isEnabled: Bool = true {
         didSet { updateScheme() }

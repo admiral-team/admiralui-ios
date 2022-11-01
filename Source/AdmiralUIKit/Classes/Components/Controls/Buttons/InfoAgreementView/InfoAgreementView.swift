@@ -66,6 +66,33 @@ public class InfoAgreementView: UIView, AnyAppThemable {
             updateItems()
         }
     }
+
+    /// The action button accessibility identifier
+    public var actionButtonAccesibilityId: String? {
+        get {
+            return actionButton.accessibilityIdentifier
+        } set {
+            actionButton.accessibilityIdentifier = newValue
+        }
+    }
+
+    /// The alternative button identifier
+    public var alternativeButtonAccesibilityId: String? {
+        get {
+            return alternativeButton.accessibilityIdentifier
+        } set {
+            alternativeButton.accessibilityIdentifier = newValue
+        }
+    }
+
+    /// The check box accessibility identifier
+    public var checkBoxTextAccesibilityId: String? {
+        get {
+            return checkBoxTextButtonView.accessibilityIdentifier
+        } set {
+            checkBoxTextButtonView.accessibilityIdentifier = newValue
+        }
+    }
     
     // MARK: Internal Properties
     

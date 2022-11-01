@@ -32,7 +32,7 @@ final public class PinCodeTextView: UIControl, AnyAppThemable {
             accessibilityIdentifier = newValue
         }
     }
-    
+
     var title: String? {
         get { return titleLabel.text }
         set { titleLabel.text = newValue }
