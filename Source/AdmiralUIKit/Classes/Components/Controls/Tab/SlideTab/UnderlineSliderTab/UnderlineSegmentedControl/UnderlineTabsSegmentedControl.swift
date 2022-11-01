@@ -13,14 +13,14 @@ public struct UnderlineSegmentedControlItem {
     // MARK: - Public Properties
 
     /// The title label
-    public let title: String
+    public let title: String?
 
     /// The accesibility id
     public let accesibilityId: String?
 
     // MARK: - Initializer
 
-    public init(title: String, accesibilityId: String?) {
+    public init(title: String?, accesibilityId: String? = nil) {
         self.title = title
         self.accesibilityId = accesibilityId
     }
@@ -58,6 +58,13 @@ public class UnderlineSegmentedControl: BaseUnderlineSegmentedControl, AnyAppThe
         commonInit()
         setTitles(items)
     }
+
+    /// Initializes and returns a newly allocated view object with strings.
+    public init(items: [String?]) {
+        super.init()
+        commonInit()
+        setTitles(items.map { .init(title: $0) } )
+    }
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     public override init() {
@@ -90,11 +97,20 @@ public class UnderlineSegmentedControl: BaseUnderlineSegmentedControl, AnyAppThe
     /// - Parameters:
     ///   - title: A string to use as the segment’s title.
     ///   - segment: An index number identifying a segment in the control.
-    public func insertTitle(_ item: UnderlineSegmentedControlItem?, forSegmentAt segment: Int) {
+    public func insertTitle(_ title: String?, forSegmentAt segment: Int) {
+        let label = createItem(.init(title: title))
+        insert(item: label, at: segment)
+    }
+
+    /// Inserts a segment at a specific position in the receiver and gives it a title as content.
+    /// - Parameters:
+    ///   - item: The model that contains title and accesibility id
+    ///   - segment: An index number identifying a segment in the control.
+    public func insertItem(_ item: UnderlineSegmentedControlItem?, forSegmentAt segment: Int) {
         let label = createItem(item)
         insert(item: label, at: segment)
     }
-    
+
     /// Remove a segment at a specific position.
     /// - Parameter segment: An index number identifying a segment in the control.
     public func removeTitle(forSegmentAt segment: Int) {
