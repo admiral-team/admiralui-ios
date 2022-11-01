@@ -58,7 +58,7 @@ public class StandardSegmentedControl: PlainSegmentedControl, AnyAppThemable {
     /// Initializes and returns a newly allocated view object with titles.
     public convenience init(titles: [String?]) {
         self.init(frame: .zero)
-        setItems(titles.map { .init(title: $0) })
+        setItems(titles.map { StandardSegmentedItem(title: $0) })
     }
     
     /// Initializes and returns a newly allocated view object with the specified frame rectangle.
@@ -78,14 +78,14 @@ public class StandardSegmentedControl: PlainSegmentedControl, AnyAppThemable {
     /// Sets items.
     /// - Parameter items: The list of items to display in the segments.
     public func setItems(_ items: [StandardSegmentedItem?]) {
-        let labels = items.map() { createItem($0) }
+        let labels = items.map() { return createItem($0) }
         set(items: labels)
     }
 
     /// Sets titles.
     /// - Parameter titles: The list of strings to display in the segments.
     public func setTitles(_ titles: [String?]) {
-        let labels = titles.map() { createItem(.init(title: $0)) }
+        let labels = titles.map() { return createItem(StandardSegmentedItem(title: $0)) }
         set(items: labels)
     }
     
@@ -94,7 +94,7 @@ public class StandardSegmentedControl: PlainSegmentedControl, AnyAppThemable {
     ///   - title: A string to use as the segment’s title.
     ///   - segment: An index number identifying a segment in the control.
     public func insertTitle(_ title: String?, forSegmentAt segment: Int) {
-        let label = createItem(.init(title: title))
+        let label = createItem(StandardSegmentedItem(title: title))
         insert(item: label, at: segment)
     }
     
