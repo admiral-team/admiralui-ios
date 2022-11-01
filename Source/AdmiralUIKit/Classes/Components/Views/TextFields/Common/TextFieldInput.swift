@@ -96,6 +96,13 @@ open class TextFieldInput: UIView {
         get { return inputTextField.isEditing }
     }
 
+    /// The input text accessibility identifier
+    public var inputTextAccessibilityId: String? {
+        didSet {
+            inputTextField.accessibilityIdentifier = inputTextAccessibilityId
+        }
+    }
+
     /// A view that allocated in the left corner of textField
     public var leftView: UIView? {
         get {

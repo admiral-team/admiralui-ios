@@ -73,7 +73,7 @@ public class InputNumber: UIControl, AnyAppThemable, AccessibilitySupport {
     }
 
     /// The plus button accesibility identifier
-    public var plusButtonrAccesibilityId: String? {
+    public var plusButtonAccesibilityId: String? {
         get {
             return plusButton.accessibilityIdentifier
         } set {

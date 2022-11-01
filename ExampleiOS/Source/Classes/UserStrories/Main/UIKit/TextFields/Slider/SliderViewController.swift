@@ -81,6 +81,12 @@ final class SliderViewController: ScrollViewController {
         inputRangeTextField.placeholder = placeholder ?? "10"
         inputRangeTextField.text = String(Int(inputRangeTextField.value))
         inputRangeTextField.keyboardType = .numberPad
+        inputRangeTextField.accessibilityIdentifier = "InputRangeTextField"
+        inputRangeTextField.setAccessibilityidentifiers(
+            textFieldId: "InputRangeTextFieldInput",
+            sliderThubmImageId: "InputRangeTextFieldSliderThubmImage",
+            sliderProgressViewId: "InputRangeTextFieldSliderProgressView"
+        )
         
         let statuses = ["Default", "Error", "Disabled"]
         let cell = ControlCellView<InputRangeTextField>(textField: inputRangeTextField, statuses: statuses)
@@ -116,6 +122,14 @@ final class SliderViewController: ScrollViewController {
         doubleInputRangeTextField.minValueText = String(Int(doubleInputRangeTextField.lowerValue))
         doubleInputRangeTextField.maxValueText = String(Int(doubleInputRangeTextField.upperValue))
         doubleInputRangeTextField.keyboardType = .numberPad
+        doubleInputRangeTextField.accessibilityIdentifier = "DoubleInputRangeTextField"
+        doubleInputRangeTextField.setAccessibilityidentifiers(
+            leftTextFieldId: "DoubleInputRangeLeftTextField",
+            rightTextFieldId: "DoubleInputRangeRightTextField",
+            doubleSliderLowerImageId: "DoubleInputRangeSliderLowerImage",
+            doubleSliderUpperImageId: "DoubleInputRangeSliderUpperImage",
+            doubleSliderProgressViewId: "DoubleInputRangeSliderProgressView"
+        )
 
         let statuses = ["Default", "Error", "Disabled"]
         let cell = ControlCellView<DoubleInputRangeTextField>(textField: doubleInputRangeTextField, statuses: statuses)

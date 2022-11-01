@@ -82,6 +82,8 @@ final class StandardVSIconMenuViewController: ScrollViewController {
         textField.text = "Text"
         textField.placeholder = "Placeholder"
         textField.info = "Additional text"
+        textField.inputTextAccessibilityId = "TextFieldInput"
+        textField.accessibilityIdentifier = "TextField"
         
         let cell = TextFieldTextView(
             textField: textField,
@@ -96,6 +98,8 @@ final class StandardVSIconMenuViewController: ScrollViewController {
         secureTextField.textField.text = "Text"
         secureTextField.textField.placeholder = "Placeholder"
         secureTextField.textField.info = "Additional text"
+        secureTextField.textField.inputTextAccessibilityId = "SecureTextFieldnput"
+        secureTextField.textField.accessibilityIdentifier = "SecureTextField"
         
         let cell = TextFieldTextView(
             textField: secureTextField,
@@ -110,6 +114,8 @@ final class StandardVSIconMenuViewController: ScrollViewController {
         textView.text = "Text"
         textView.placeholder = "Placeholder"
         textView.info = "Additional text"
+        textView.inputTextAccessibilityId = "TextViewInput"
+        textView.accessibilityIdentifier = "TextView"
         
         let cell = TextFieldTextView(
             textField: textView,

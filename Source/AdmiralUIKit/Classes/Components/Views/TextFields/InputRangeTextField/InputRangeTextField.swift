@@ -149,7 +149,22 @@ public class InputRangeTextField: UIView, AnyAppThemable, AccessibilitySupport {
         super.init(coder: coder)
         commonInit()
     }
-    
+
+    /// Sets the accesibility Ids
+    /// - Parameters:
+    ///   - textFieldId: String?.
+    ///   - sliderThubmImageId: String?.
+    ///   - sliderProgressViewId: String?.
+    public func setAccessibilityidentifiers(
+        textFieldId: String? = nil,
+        sliderThubmImageId: String? = nil,
+        sliderProgressViewId: String? = nil
+    ) {
+        textField.inputTextField.accessibilityIdentifier = textFieldId
+        slider.thumbImageAccesibilityId = sliderThubmImageId
+        slider.progressViewAccesibilityId = sliderProgressViewId
+    }
+
     /// Sets the  text, allowing you to animate the change visually.
     /// - Parameters:
     ///   - text: Text.

@@ -196,6 +196,27 @@ public class DoubleInputRangeTextField: UIView, AnyAppThemable, AccessibilitySup
         commonInit()
     }
 
+    /// Sets the accesibility Ids
+    /// - Parameters:
+    ///   - leftTextFieldId: String?.
+    ///   - rightTextFieldId: String?.
+    ///   - doubleSliderLowerImageId: String?.
+    ///   - doubleSliderUpperImageId: String?.
+    ///   - doubleSliderProgressViewId: String?.
+    public func setAccessibilityidentifiers(
+        leftTextFieldId: String? = nil,
+        rightTextFieldId: String? = nil,
+        doubleSliderLowerImageId: String? = nil,
+        doubleSliderUpperImageId: String? = nil,
+        doubleSliderProgressViewId: String? = nil
+    ) {
+        leftTextField.inputTextField.accessibilityIdentifier = leftTextFieldId
+        rightTextField.inputTextField.accessibilityIdentifier = rightTextFieldId
+        slider.loweThubmImageAccesibilityId = doubleSliderLowerImageId
+        slider.upperThumbImageViewAccesibilityId = doubleSliderUpperImageId
+        slider.progressViewAccesibilityId = doubleSliderProgressViewId
+    }
+
     /// Sets the  text, allowing you to animate the change visually.
     /// - Parameters:
     ///   - minValue: Text.

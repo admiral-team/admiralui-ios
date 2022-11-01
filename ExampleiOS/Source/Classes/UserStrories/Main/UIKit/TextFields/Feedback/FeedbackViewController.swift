@@ -37,6 +37,7 @@ final class FeedbackViewController: BaseViewController {
         configureConstraints()
 
         digitControl.addTarget(self, action: #selector(feedbackChanged(_:)), for: .valueChanged)
+        digitControl.accessibilityIdentifier = "FeedbackInputControl"
     }
     
     @objc private func stepperValueChanged(_ stepper: UIStepper) {
