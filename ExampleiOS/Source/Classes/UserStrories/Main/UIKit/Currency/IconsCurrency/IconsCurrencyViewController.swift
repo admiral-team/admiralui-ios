@@ -69,6 +69,8 @@ final class IconsCurrencyViewController: UIViewController, AnyAppThemable {
         subtitleListView.title = viewModel.title
         let buttonListView = ButtonListView()
         buttonListView.title = viewModel.buttonTitle
+        buttonListView.accessibilityIdentifier = "ButtonListView"
+        buttonListView.buttonAccesibilityId = "ButtonListViewButton"
         return ListCell(centerView: subtitleListView, tralingView: buttonListView)
     }
 

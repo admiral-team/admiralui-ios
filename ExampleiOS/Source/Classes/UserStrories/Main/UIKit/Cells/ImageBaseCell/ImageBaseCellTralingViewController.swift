@@ -90,6 +90,8 @@ final class ImageBaseCellTralingViewController: ScrollViewController {
     
     private func configureRadioButtonCell() -> ListCell<LeadingCardListView, TitleListView, RadioButtonListView> {
         let radioButtonView = RadioButtonListView()
+        radioButtonView.radioButtonAccesibilityId = "RadioButtonListViewButton"
+        radioButtonView.accessibilityIdentifier = "RadioButtonListView"
         let titleListView = TitleListView()
         titleListView.title = "Title"
         let cardListView = LeadingCardListView()
@@ -99,6 +101,8 @@ final class ImageBaseCellTralingViewController: ScrollViewController {
     
     private func configureCheckBoxCell() -> ListCell<LeadingCardListView, TitleListView, CheckBoxListView> {
         let checkBoxCell = CheckBoxListView()
+        checkBoxCell.checkBoxAccesibilityId = "CheckBoxListViewCheckBox"
+        checkBoxCell.accessibilityIdentifier = "CheckBoxListView"
         checkBoxCell.isSelected = true
         let titleListView = TitleListView()
         titleListView.title = "Title"
@@ -112,6 +116,8 @@ final class ImageBaseCellTralingViewController: ScrollViewController {
         switchListView.didSelect = { isOn in
             print(isOn)
         }
+        switchListView.customSwitchAccesibilityId = "SwitchListViewSwitcher"
+        switchListView.accessibilityIdentifier = "SwitchListView"
         let titleListView = TitleListView()
         titleListView.title = "Title"
         let cardListView = LeadingCardListView()

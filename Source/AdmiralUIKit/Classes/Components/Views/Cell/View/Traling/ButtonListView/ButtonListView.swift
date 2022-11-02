@@ -20,7 +20,14 @@ public class ButtonListView: BaseListView, TralingListViewComponent, AnyAppThema
     
     /// The closure sign that button did select.
     public var didSelect: (() -> Void)?
-    
+
+    /// The button accessibility id
+    public var buttonAccesibilityId: String? {
+        didSet {
+            ghostButton.accessibilityIdentifier = buttonAccesibilityId
+        }
+    }
+
     // MARK: Internal Properties
     
     /// The state of the view. Default is normal.

@@ -18,7 +18,14 @@ public class ButtonWithArrowListView: BaseListView, TralingListViewComponent, An
     public var title: String? {
         didSet { ghostButton.setTitle(title, for: .normal) }
     }
-    
+
+    /// The button accessibility id
+    public var buttonAccesibilityId: String? {
+        didSet {
+            ghostButton.accessibilityIdentifier = buttonAccesibilityId
+        }
+    }
+
     /// The closure sign that button did select.
     public var didSelect: (() -> Void)?
     

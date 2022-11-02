@@ -45,7 +45,8 @@ class ActionItemBarDefaultView: UIView, ActionBarViewPresentable, AnyAppThemable
         self.customAction = action.handler
         backgroundControlView = ActionItemBarDefaultControl(
             style: action.imageStyle,
-            image: action.image.withRenderingMode(.alwaysTemplate)
+            image: action.image.withRenderingMode(.alwaysTemplate),
+            accessibilityId: action.accesibilityId
         )
         super.init(frame: .zero)
         commonInit()
