@@ -32,7 +32,7 @@ struct OtherButtonsSwiftUIView: View {
         NavigationContentView(navigationTitle: "Other buttons") {
             scheme.backgroundColor.swiftUIColor
             ScrollView(.vertical, showsIndicators: false) {
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState, elementAccessibilityIdentifier: "StandardTab")
                 Spacer()
                     .frame(height: 44.0)
                 
@@ -42,6 +42,7 @@ struct OtherButtonsSwiftUIView: View {
                                  direction: .left)
                         .buttonStyle(PlatformButtonStyle())
                         .disabled(isEnabledControlsState != 0)
+                        .accessibilityIdentifier("AppleWalletButtonID")
                 }
                 
                 .padding(.bottom, LayoutGrid.doubleModule * 4)
