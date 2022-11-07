@@ -56,6 +56,7 @@ final class VerticalCalendarViewController: UIViewController, CalendarDataSource
         calendarView.calendarDelegate = self
         calendarView.notActiveAfterDate = Date()
         calendarView.pointDates = [Date()]
+        calendarView.setVerticalCalendarAccessibilitiesIds(accessibilityId: "VerticalCalendar")
         calendarView.reloadData()
     }
     
