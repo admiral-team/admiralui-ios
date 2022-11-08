@@ -20,6 +20,13 @@ public class SwitchListView: BaseListView, TralingListViewComponent, AnyAppThema
     
     /// The closure sign that switch view did select.
     public var didSelect: ((Bool) -> Void)?
+
+    /// The switcher accessibility id
+    public var customSwitchAccesibilityId: String? {
+        didSet {
+            customSwitch.accessibilityIdentifier = customSwitchAccesibilityId
+        }
+    }
     
     // MARK: Internal Properties
     

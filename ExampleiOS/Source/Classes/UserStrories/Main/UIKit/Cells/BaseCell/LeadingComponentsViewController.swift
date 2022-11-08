@@ -115,6 +115,8 @@ final class LeadingComponentsViewController: ScrollViewController {
         leadingView.tagText = "Percent"
         leadingView.tagSubtitle = "Subtitle"
         leadingView.buttonTitle = "Button"
+        leadingView.buttonAccesibilityId = "TitleSubtitleButtonListViewButton"
+        leadingView.accessibilityIdentifier = "TitleSubtitleButtonListView"
         leadingView.didSelect = {
             print("Select")
         }
