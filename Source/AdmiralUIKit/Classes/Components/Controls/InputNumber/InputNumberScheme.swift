@@ -7,7 +7,6 @@
 
 import AdmiralTheme
 import AdmiralUIResources
-
 /**
  InputNumberScheme - the visual scheme.
  You can create a by specifying the following parameters in init:
@@ -20,21 +19,25 @@ let scheme = InputNumberScheme()
  */
 public struct InputNumberScheme: AppThemeScheme {
 
-    /// Title font.
+    // MARK: - Public Properties
+
+    /// The title label font color
     public var titleFont: AFont
 
-    /// Number font.
+    /// The number label font
     public var numberFont: AFont
 
-    /// Text color.
+    /// The text label color
     public var textColor = ControlParameter<AColor>()
 
-    /// Tint color.
+    /// The text label tint color
     public var tintColor = ControlParameter<AColor>()
 
-    /// Background color.
+    /// The background color
     public var backgroundColor = ControlParameter<AColor>()
-    
+
+    // MARK: - Initializer
+
     public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 

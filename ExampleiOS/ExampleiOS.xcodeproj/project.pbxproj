@@ -62,7 +62,7 @@
 		0E59D36E2632C264007B5CC1 /* UnderlineSliderTabSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E59D36D2632C264007B5CC1 /* UnderlineSliderTabSwiftUIView.swift */; };
 		0E5F3D352535895F00E7327C /* TypographyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5F3D342535895F00E7327C /* TypographyCell.swift */; };
 		0E5F3D372535897500E7327C /* FontsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5F3D362535897500E7327C /* FontsViewController.swift */; };
-		0E64999C264D012200D03D5A /* InputNumberSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E64999B264D012200D03D5A /* InputNumberSwiftUIView.swift */; };
+		0E64999C264D012200D03D5A /* InputNumberDefaultSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E64999B264D012200D03D5A /* InputNumberDefaultSwiftUIView.swift */; };
 		0E6EA49027024A83002EBBBC /* TextBlocksSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6EA48F27024A83002EBBBC /* TextBlocksSwiftUIView.swift */; };
 		0E6EA49227024A93002EBBBC /* TextBlocksSwiftUIItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6EA49127024A93002EBBBC /* TextBlocksSwiftUIItem.swift */; };
 		0E6EA49527024DA0002EBBBC /* HeadersSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6EA49427024DA0002EBBBC /* HeadersSwiftUIView.swift */; };
@@ -370,6 +370,8 @@
 		E9332FC9277DA2F100F9AF26 /* PageControlsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9332FC8277DA2F100F9AF26 /* PageControlsSwiftUIView.swift */; };
 		E9332FCB277DAA3500F9AF26 /* CustomSwiftUIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9332FCA277DAA3500F9AF26 /* CustomSwiftUIViewModel.swift */; };
 		E934036727B123C50007B86D /* ActionBarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E934036627B123C50007B86D /* ActionBarsViewController.swift */; };
+		E938E7C7291A694500B40D70 /* InputNumberSecondaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E938E7C6291A694500B40D70 /* InputNumberSecondaryViewModel.swift */; };
+		E938E7C9291A717E00B40D70 /* InputNumberDefaultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E938E7C8291A717E00B40D70 /* InputNumberDefaultViewModel.swift */; };
 		E945186B27D369DD0048B133 /* Publishers+Decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945186A27D369DD0048B133 /* Publishers+Decode.swift */; };
 		E945186D27D369F60048B133 /* Publishers+Sink.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945186C27D369F60048B133 /* Publishers+Sink.swift */; };
 		E945187427D36A810048B133 /* GunItemsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945187327D36A810048B133 /* GunItemsDTO.swift */; };
@@ -432,6 +434,8 @@
 		E9B82B8627B521BF00FC7BB9 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B82B8527B521BF00FC7BB9 /* View+Extensions.swift */; };
 		E9B82B8C27B521D100FC7BB9 /* SizePreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B82B8927B521D100FC7BB9 /* SizePreferenceKey.swift */; };
 		E9B82B8D27B521D100FC7BB9 /* SizeAwareModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B82B8B27B521D100FC7BB9 /* SizeAwareModifier.swift */; };
+		E9B90DA32906A58D00EBC9BC /* InputNumberDefaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B90DA22906A58D00EBC9BC /* InputNumberDefaultViewController.swift */; };
+		E9B90DA62906A5A000EBC9BC /* InputNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B90DA52906A5A000EBC9BC /* InputNumberViewController.swift */; };
 		E9BE41A727C7DFF400894224 /* DefaultCurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE419727C7DFF400894224 /* DefaultCurrencyViewModel.swift */; };
 		E9BE41A827C7DFF400894224 /* DefaultCurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE419827C7DFF400894224 /* DefaultCurrencyViewController.swift */; };
 		E9BE41A927C7DFF400894224 /* IconsCurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE419A27C7DFF400894224 /* IconsCurrencyViewController.swift */; };
@@ -559,7 +563,7 @@
 		0E59D36D2632C264007B5CC1 /* UnderlineSliderTabSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineSliderTabSwiftUIView.swift; sourceTree = "<group>"; };
 		0E5F3D342535895F00E7327C /* TypographyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypographyCell.swift; sourceTree = "<group>"; };
 		0E5F3D362535897500E7327C /* FontsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontsViewController.swift; sourceTree = "<group>"; };
-		0E64999B264D012200D03D5A /* InputNumberSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNumberSwiftUIView.swift; sourceTree = "<group>"; };
+		0E64999B264D012200D03D5A /* InputNumberDefaultSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNumberDefaultSwiftUIView.swift; sourceTree = "<group>"; };
 		0E6EA48F27024A83002EBBBC /* TextBlocksSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBlocksSwiftUIView.swift; sourceTree = "<group>"; };
 		0E6EA49127024A93002EBBBC /* TextBlocksSwiftUIItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBlocksSwiftUIItem.swift; sourceTree = "<group>"; };
 		0E6EA49427024DA0002EBBBC /* HeadersSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadersSwiftUIView.swift; sourceTree = "<group>"; };
@@ -867,6 +871,8 @@
 		E9332FC8277DA2F100F9AF26 /* PageControlsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControlsSwiftUIView.swift; sourceTree = "<group>"; };
 		E9332FCA277DAA3500F9AF26 /* CustomSwiftUIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSwiftUIViewModel.swift; sourceTree = "<group>"; };
 		E934036627B123C50007B86D /* ActionBarsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionBarsViewController.swift; sourceTree = "<group>"; };
+		E938E7C6291A694500B40D70 /* InputNumberSecondaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNumberSecondaryViewModel.swift; sourceTree = "<group>"; };
+		E938E7C8291A717E00B40D70 /* InputNumberDefaultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNumberDefaultViewModel.swift; sourceTree = "<group>"; };
 		E945186A27D369DD0048B133 /* Publishers+Decode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers+Decode.swift"; sourceTree = "<group>"; };
 		E945186C27D369F60048B133 /* Publishers+Sink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers+Sink.swift"; sourceTree = "<group>"; };
 		E945187327D36A810048B133 /* GunItemsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GunItemsDTO.swift; sourceTree = "<group>"; };
@@ -929,6 +935,8 @@
 		E9B82B8527B521BF00FC7BB9 /* View+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		E9B82B8927B521D100FC7BB9 /* SizePreferenceKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizePreferenceKey.swift; sourceTree = "<group>"; };
 		E9B82B8B27B521D100FC7BB9 /* SizeAwareModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeAwareModifier.swift; sourceTree = "<group>"; };
+		E9B90DA22906A58D00EBC9BC /* InputNumberDefaultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNumberDefaultViewController.swift; sourceTree = "<group>"; };
+		E9B90DA52906A5A000EBC9BC /* InputNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNumberViewController.swift; sourceTree = "<group>"; };
 		E9BE419727C7DFF400894224 /* DefaultCurrencyViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultCurrencyViewModel.swift; sourceTree = "<group>"; };
 		E9BE419827C7DFF400894224 /* DefaultCurrencyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultCurrencyViewController.swift; sourceTree = "<group>"; };
 		E9BE419A27C7DFF400894224 /* IconsCurrencyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconsCurrencyViewController.swift; sourceTree = "<group>"; };
@@ -1918,7 +1926,8 @@
 		0ED8426B28F81A7000BCFCCB /* Default */ = {
 			isa = PBXGroup;
 			children = (
-				0E64999B264D012200D03D5A /* InputNumberSwiftUIView.swift */,
+				0E64999B264D012200D03D5A /* InputNumberDefaultSwiftUIView.swift */,
+				E938E7C8291A717E00B40D70 /* InputNumberDefaultViewModel.swift */,
 			);
 			path = Default;
 			sourceTree = "<group>";
@@ -1927,6 +1936,7 @@
 			isa = PBXGroup;
 			children = (
 				0ED8426D28F81AA800BCFCCB /* InputNumberSecondarySwiftUIView.swift */,
+				E938E7C6291A694500B40D70 /* InputNumberSecondaryViewModel.swift */,
 			);
 			path = Secondary;
 			sourceTree = "<group>";
@@ -2292,6 +2302,8 @@
 		C6260AC4255C3209007175C2 /* Number */ = {
 			isa = PBXGroup;
 			children = (
+				E9B90DA42906A59200EBC9BC /* Input */,
+				E9B90DA12906A57900EBC9BC /* Default */,
 				C6260AC5255C3230007175C2 /* NumberViewController.swift */,
 			);
 			path = Number;
@@ -3565,6 +3577,22 @@
 			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
+		E9B90DA12906A57900EBC9BC /* Default */ = {
+			isa = PBXGroup;
+			children = (
+				E9B90DA22906A58D00EBC9BC /* InputNumberDefaultViewController.swift */,
+			);
+			path = Default;
+			sourceTree = "<group>";
+		};
+		E9B90DA42906A59200EBC9BC /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				E9B90DA52906A5A000EBC9BC /* InputNumberViewController.swift */,
+			);
+			path = Input;
+			sourceTree = "<group>";
+		};
 		E9BE419527C7DFF400894224 /* Currency */ = {
 			isa = PBXGroup;
 			children = (
@@ -3908,6 +3936,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BAE3C68287DD7DD00E8605F /* SeparatorCellView.swift in Sources */,
+				E938E7C7291A694500B40D70 /* InputNumberSecondaryViewModel.swift in Sources */,
 				0E22C680262D7BD900D09FC5 /* CheckBoxSwiftUIView.swift in Sources */,
 				C6B2A6A5264DC2C700D43FB2 /* UserDefaults+Keys.swift in Sources */,
 				E6529CC42534ED01009D8DE9 /* TableViewListItemManager.swift in Sources */,
@@ -4102,6 +4131,7 @@
 				E9C79CC927BD245C0002EC49 /* ErrorSwiftUIView.swift in Sources */,
 				E640F65625E1138C0036E24E /* SelectThemeTemplateViewController.swift in Sources */,
 				3BA835062804638400D54318 /* OnBoardingCustomScheme.swift in Sources */,
+				E938E7C9291A717E00B40D70 /* InputNumberDefaultViewModel.swift in Sources */,
 				0E35C15E28FE02D200FBB451 /* NumberSwiftUIView.swift in Sources */,
 				3B4F6BB02886D7130094C0FE /* ParagraphCellView.swift in Sources */,
 				E6D5710825DE6CCA00D3304F /* UIView+Autolayout.swift in Sources */,
@@ -4128,7 +4158,7 @@
 				0EBE006C258A674B00EEDCBC /* ShimmersViewController.swift in Sources */,
 				C6BA67DB2632DE10001A7EB6 /* RadioControlsCellViewCustomScheme.swift in Sources */,
 				0E738630277648B5003892C7 /* ToastNotificationsViewController.swift in Sources */,
-				0E64999C264D012200D03D5A /* InputNumberSwiftUIView.swift in Sources */,
+				0E64999C264D012200D03D5A /* InputNumberDefaultSwiftUIView.swift in Sources */,
 				C6BA67E72632DFE9001A7EB6 /* TabsViewCustomScheme.swift in Sources */,
 				0E73864C277B14E9003892C7 /* ActionNotificationViewController.swift in Sources */,
 				C674990A25D3FBAD00232C5F /* OutlineSliderTabsViewController.swift in Sources */,
@@ -4141,6 +4171,7 @@
 				3B8A8911287D80F9003174B7 /* SeparatorViewController.swift in Sources */,
 				0ED08A1A266FBA8E00389A1A /* CalendarSwiftUIView.swift in Sources */,
 				0E76FB40253ED9AF001B1F3D /* RadioButtonViewController.swift in Sources */,
+				E9B90DA62906A5A000EBC9BC /* InputNumberViewController.swift in Sources */,
 				E9332FA2277C65F700F9AF26 /* UploadingFileCell.swift in Sources */,
 				0E195E6E2567DB140096780B /* ImageBaseCellViewController.swift in Sources */,
 				E9332F8A277A0AF400F9AF26 /* UploadingFileViewController.swift in Sources */,
@@ -4303,6 +4334,7 @@
 				E6903D8325DFAA9500245403 /* KeyboardBinder.swift in Sources */,
 				C655D4652608EAB0004973A3 /* ThemeSwitchButton.swift in Sources */,
 				C686569225596E3D00B885B8 /* MenuListCell.swift in Sources */,
+				E9B90DA32906A58D00EBC9BC /* InputNumberDefaultViewController.swift in Sources */,
 				E94518AB27D4A22F0048B133 /* PrimaryButtonPlain.swift in Sources */,
 				0E7386E5278EE1D6003892C7 /* CustomWindow.swift in Sources */,
 				0E4BC9272683473E000FC891 /* TitleBaseCellSwiftUIItem.swift in Sources */,

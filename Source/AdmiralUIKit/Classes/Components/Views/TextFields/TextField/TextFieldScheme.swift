@@ -7,7 +7,6 @@
 
 import AdmiralTheme
 import AdmiralUIResources
-
 /**
  TextFieldScheme - the visual scheme.
  You can create a by specifying the following parameters in init:
@@ -19,6 +18,8 @@ let scheme = TextFieldScheme()
  ```
  */
 public struct TextFieldScheme: AppThemeScheme {
+
+    // MARK: - Public Properties
 
     /// Tint color.
     public var tintColor: AColor
@@ -43,7 +44,9 @@ public struct TextFieldScheme: AppThemeScheme {
 
     /// Informer font.
     public var informerFont: AFont
-    
+
+    // MARK: - Initializer
+
     public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 

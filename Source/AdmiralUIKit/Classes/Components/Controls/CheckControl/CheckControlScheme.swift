@@ -18,7 +18,7 @@ Code
 let scheme = CheckControlScheme()
  ```
  */
-public struct CheckControlScheme: AppThemeScheme {
+public struct CheckControlScheme {
 
     /// Normal control color.
     public var normal = ControlParameter<AColor>()
@@ -44,4 +44,5 @@ public struct CheckControlScheme: AppThemeScheme {
         normal.set(parameter: theme.colors.elementAccent.withAlpha(alpha), for: [.disabled, .selected])
         error.set(parameter: theme.colors.elementError.withAlpha(alpha), for: [.disabled, .selected])
     }
+    
 }

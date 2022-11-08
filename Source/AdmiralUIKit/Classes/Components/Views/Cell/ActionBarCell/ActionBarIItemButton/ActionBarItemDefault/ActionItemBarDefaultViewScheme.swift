@@ -9,24 +9,29 @@ import UIKit
 import AdmiralTheme
 import AdmiralUIResources
 
-/// The scheme of ActionBarControl.
-struct ActionItemBarDefaultViewScheme {
+/**
+ ActionItemBarDefaultViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - ActionItemBarDefaultViewScheme() - Initialize default ActionItemBarDefaultViewScheme with default themezation
+Example to create ActionItemBarDefaultViewScheme:
+Code
+ ```
+let scheme = ActionItemBarDefaultViewScheme()
+ ```
+ */
+public struct ActionItemBarDefaultViewScheme: AppThemeScheme {
 
     // MARK: - Public properties
 
     /// The backgroundColor of ActionBarControl.
-    var backgroundColor = ControlParameter<AColor>()
+    public var backgroundColor = ControlParameter<AColor>()
 
     /// The scheme of ActionItemBarDefaultControl.
-    var controlScheme: ActionItemBarDefaultControlScheme
+    public var controlScheme: ActionItemBarDefaultControlScheme
 
     // MARK: - Initializer
 
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         controlScheme = ActionItemBarDefaultControlScheme(theme: theme)
         backgroundColor.set(parameter: theme.colors.backgroundAdditionalOne, for: .normal)
     }

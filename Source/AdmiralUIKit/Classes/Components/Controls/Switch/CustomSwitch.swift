@@ -17,7 +17,7 @@ open class CustomSwitch: UISwitch, AnyAppThemable {
     public var scheme = CustomSwitchScheme() {
         didSet { updateScheme() }
     }
-    
+
     // MARK: - Initializers
     
     /// Initializes and returns a newly allocated view object with the specified frame rectangle.
@@ -50,8 +50,8 @@ open class CustomSwitch: UISwitch, AnyAppThemable {
     }
 
     private func configure() {
-        tintColor = scheme.tintColor.uiColor
         onTintColor = scheme.onTintColor.uiColor
+        tintColor = isEnabled ? scheme.textColor.uiColor : scheme.disabledTextColor.uiColor
+        onTintColor = isEnabled ? scheme.tintColor.uiColor : scheme.disabledTintColor.uiColor
     }
-
 }

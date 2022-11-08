@@ -7,6 +7,7 @@
 
 import AdmiralUIKit
 import AdmiralTheme
+import AdmiralUIResources
 import UIKit
 
 final class BadgeCellView<T>: UIView, AnyAppThemable, AccessibilitySupport where T: Badge {
@@ -109,7 +110,7 @@ final class BadgeCellView<T>: UIView, AnyAppThemable, AccessibilitySupport where
     }
     
     private func configureImageViews() {
-        imageView.image = Asset.Badges.bonus.image
+        imageView.image = Asset.Badges.diamondSolid.image.withRenderingMode(.alwaysTemplate)
     }
     
     private func configureLabel() {

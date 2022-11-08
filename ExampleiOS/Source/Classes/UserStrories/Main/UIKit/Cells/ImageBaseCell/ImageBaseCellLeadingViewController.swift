@@ -123,6 +123,8 @@ final class ImageBaseCellLeadingViewController: ScrollViewController {
         leftView.tagText = "Tag"
         leftView.tagSubtitle = "Subtitle"
         leftView.buttonTitle = "Button"
+        leftView.accessibilityIdentifier = "TitleSubtitleButtonListView"
+        leftView.buttonAccesibilityId = "TitleSubtitleButtonListViewButton"
         leftView.didSelect = {
             print("Select")
         }

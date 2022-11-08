@@ -48,7 +48,7 @@ public class ActivityIndicator: UIView, AnyAppThemable {
     public var scheme = ActivityIndicatorScheme() {
         didSet { updateColors() }
     }
-    
+
     // MARK: - Private Properties
 
     private let indicator = CAShapeLayer()

@@ -62,6 +62,8 @@ final class CardNumberViewController: ScrollViewController {
         textField.textField.info = "Additional text"
         textField.textField.keyboardType = .numberPad
         textField.textField.delegate = self
+        textField.textField.accessibilityIdentifier = "CardTextField"
+        textField.textField.inputTextAccessibilityId = "CardInputTextField"
         
         bankCardTextField = textField
 

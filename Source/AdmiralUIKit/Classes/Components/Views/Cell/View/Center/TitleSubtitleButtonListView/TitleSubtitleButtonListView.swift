@@ -41,19 +41,27 @@ public class TitleSubtitleButtonListView: BaseListView, CenterListViewComponent,
     public var buttonTitle: String? {
         didSet { ghostButton.setTitle(buttonTitle, for: .normal) }
     }
+
+    /// The button accessibility id 
+    public var buttonAccesibilityId: String? {
+        didSet {
+            ghostButton.accessibilityIdentifier = buttonAccesibilityId
+        }
+    }
     
     /// The closure sign that button did select.
     public var didSelect: (() -> Void)?
+
+    /// Color scheme.
+    public var scheme = TitleSubtitleButtonListViewScheme() {
+        didSet { updateScheme() }
+    }
     
     // MARK: Internal Properties
     
     /// The state of the view. Default is normal.
     override var state: UIControl.State {
         didSet { configure(for: state) }
-    }
-    
-    var scheme = TitleSubtitleButtonListViewScheme() {
-        didSet { updateScheme() }
     }
     
     // MARK: - AccessibilitySupport

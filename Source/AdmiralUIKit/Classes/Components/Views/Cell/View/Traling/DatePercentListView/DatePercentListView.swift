@@ -22,16 +22,17 @@ public class DatePercentListView: BaseListView, TralingListViewComponent, AnyApp
     public var percent: String? {
         didSet { subtitleLabel.text = percent }
     }
+
+    /// Color scheme.
+    public var scheme = DatePercentListViewScheme() {
+        didSet { updateScheme() }
+    }
     
     // MARK: Internal Properties
     
     /// The state of the view. Default is normal.
     override var state: UIControl.State {
         didSet { configure(for: state) }
-    }
-    
-    var scheme = DatePercentListViewScheme() {
-        didSet { updateScheme() }
     }
     
     // MARK: - AccessibilitySupport

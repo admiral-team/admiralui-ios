@@ -147,10 +147,9 @@ open class ToastView: UIView, AnyAppThemable {
     open var cardStatusStyle: CardStatusStyle = .noStatus {
         didSet { configure() }
     }
-    
-    // MARK: - Internal Properties
-    
-    var scheme = ToastViewScheme() {
+
+    /// Color scheme.
+    public var scheme = ToastViewScheme() {
         didSet { configure() }
     }
     

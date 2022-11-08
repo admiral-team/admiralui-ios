@@ -93,6 +93,13 @@ final public class CheckTextControl<C: CheckControl>: UIControl, AnyAppThemable,
     public var scheme = CheckTextControlScheme() {
         didSet { updateState() }
     }
+
+    /// The check control accessibility id
+    public var checkControlAccesibilityId: String? {
+        didSet {
+            checkControl.accessibilityIdentifier = checkControlAccesibilityId
+        }
+    }
     
     // MARK: - AccessibilitySupport
     
