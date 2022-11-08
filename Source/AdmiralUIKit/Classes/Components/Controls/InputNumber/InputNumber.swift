@@ -66,7 +66,21 @@ public class InputNumber: UIControl, AnyAppThemable, AccessibilitySupport {
     public override var intrinsicContentSize: CGSize {
         return CGSize(width: UIView.noIntrinsicMetric, height: Constants.height)
     }
-    
+
+    /// The minus button accesibility identifier
+    public var minusButtonAccesibilityId: String? {
+        didSet {
+            minusButton.accessibilityIdentifier = minusButtonAccesibilityId
+        }
+    }
+
+    /// The plus button accesibility identifier
+    public var plusButtonAccesibilityId: String? {
+        didSet {
+            plusButton.accessibilityIdentifier = plusButtonAccesibilityId
+        }
+    }
+
     // MARK: - AccessibilitySupport
     
     public var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {

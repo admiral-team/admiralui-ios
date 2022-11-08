@@ -10,36 +10,36 @@ import AdmiralTheme
 import UIKit
 
 final class SliderViewController: ScrollViewController {
-    
+
     var textFields: [UIView] = []
-    
+
     // MARK: - Initializers
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
     }
-    
+
     override func apply(theme: AppTheme) {
         super.apply(theme: theme)
         textFields.forEach({ ($0 as? AppThemeCompatible)?.apply(theme: theme) })
     }
-    
+
     // MARK: - Private Methods
-    
+
     private func configureUI() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(didTap))
         tap.cancelsTouchesInView = false
         scrollView.addGestureRecognizer(tap)
-        
+
         configureTextFields()
-        
+
         textFields.forEach() {
             $0.translatesAutoresizingMaskIntoConstraints = false
             stackView.addArrangedSubview($0)
         }
     }
-    
+
     private func configureTextFields() {
         let textFieldSix = createInputRangeTextFieldView(
             name: "Optional label",
@@ -59,7 +59,7 @@ final class SliderViewController: ScrollViewController {
         textFields.append(textFieldSix)
         textFields.append(doubleFieldSix)
     }
-    
+
     @objc func didTap() {
         view.endEditing(true)
     }
@@ -71,7 +71,7 @@ final class SliderViewController: ScrollViewController {
         info: String? = nil,
         changeStateAction: (( InputRangeTextField, TextInputState) -> Void)? = nil
     ) -> ControlCellView<InputRangeTextField> {
-        
+
         let inputRangeTextField = InputRangeTextField()
         inputRangeTextField.name = name
         inputRangeTextField.info = info
@@ -81,14 +81,20 @@ final class SliderViewController: ScrollViewController {
         inputRangeTextField.placeholder = placeholder ?? "10"
         inputRangeTextField.text = String(Int(inputRangeTextField.value))
         inputRangeTextField.keyboardType = .numberPad
-        
+        inputRangeTextField.accessibilityIdentifier = "InputRangeTextField"
+        inputRangeTextField.setAccessibilityidentifiers(
+            textFieldId: "InputRangeTextFieldInput",
+            sliderThubmImageId: "InputRangeTextFieldSliderThubmImage",
+            sliderProgressViewId: "InputRangeTextFieldSliderProgressView"
+        )
+
         let statuses = ["Default", "Error", "Disabled"]
         let cell = ControlCellView<InputRangeTextField>(textField: inputRangeTextField, statuses: statuses)
-        
+
         cell.changeStateAction = { state in
             changeStateAction?(inputRangeTextField, state)
         }
-        
+
         return cell
     }
 
@@ -116,6 +122,14 @@ final class SliderViewController: ScrollViewController {
         doubleInputRangeTextField.minValueText = String(Int(doubleInputRangeTextField.lowerValue))
         doubleInputRangeTextField.maxValueText = String(Int(doubleInputRangeTextField.upperValue))
         doubleInputRangeTextField.keyboardType = .numberPad
+        doubleInputRangeTextField.accessibilityIdentifier = "DoubleInputRangeTextField"
+        doubleInputRangeTextField.setAccessibilityidentifiers(
+            leftTextFieldId: "DoubleInputRangeLeftTextField",
+            rightTextFieldId: "DoubleInputRangeRightTextField",
+            doubleSliderLowerImageId: "DoubleInputRangeSliderLowerImage",
+            doubleSliderUpperImageId: "DoubleInputRangeSliderUpperImage",
+            doubleSliderProgressViewId: "DoubleInputRangeSliderProgressView"
+        )
 
         let statuses = ["Default", "Error", "Disabled"]
         let cell = ControlCellView<DoubleInputRangeTextField>(textField: doubleInputRangeTextField, statuses: statuses)
@@ -126,6 +140,5 @@ final class SliderViewController: ScrollViewController {
 
         return cell
     }
-
 
 }

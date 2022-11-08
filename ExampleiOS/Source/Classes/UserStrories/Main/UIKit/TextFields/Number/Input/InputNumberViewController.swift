@@ -48,6 +48,10 @@ final class InputNumberViewController: ScrollViewController {
         inputTextField.value = 0
         inputTextField.titleText = "Optional label"
         inputTextField.textFieldPlaceholder = "0"
+        inputTextField.accessibilityIdentifier = "InputNumberTextField"
+        inputTextField.plusButtonAccessibilityId = "InputNumberTextFieldPlusButton"
+        inputTextField.minusButtonAccessibilityId = "InputNumberTextFieldMinusButton"
+        inputTextField.textFieldAccessibilityId = "InputNumberTextFieldInput"
 
         let statuses = ["Default", "Disabled"]
         let cell = ControlCellView<InputNumberTextField>(textField: inputTextField, statuses: statuses)
