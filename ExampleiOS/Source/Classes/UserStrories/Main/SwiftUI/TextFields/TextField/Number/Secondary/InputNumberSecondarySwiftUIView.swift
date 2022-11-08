@@ -14,7 +14,7 @@ import AdmiralSwiftUI
 struct InputNumberSecondarySwiftUIView: View {
 
     @State private var isEnabledControlsState: Int = 0
-    @ObservedObject private var viewModel = InputNumberSecondaryViewModel()
+    @StateObject private var viewModel = InputNumberSecondaryViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
 
     var body: some View {

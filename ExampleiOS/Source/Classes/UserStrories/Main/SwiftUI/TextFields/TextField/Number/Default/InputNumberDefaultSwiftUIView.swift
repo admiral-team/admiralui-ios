@@ -13,7 +13,7 @@ import AdmiralSwiftUI
 struct InputNumberDefaultSwiftUIView: View {
 
     @State private var isEnabledControlsState: Int = 0
-    @ObservedObject private var viewModel = InputNumberDefaultViewModel()
+    @StateObject private var viewModel = InputNumberDefaultViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
 
     var body: some View {
