@@ -9,18 +9,31 @@ import UIKit
 import AdmiralTheme
 import AdmiralUIResources
 
-public struct PlatformButtonCustomScheme {
-    
-    let titleLabelFont: AFont
-    var buttonBackgroundColor = ControlParameter<AColor>()
-    var backgroundLayerColor: AColor
-    var textColor = ControlParameter<AColor>()
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    public init(theme: AppTheme) {
+/**
+ PlatformButtonCustomScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - PlatformButtonCustomScheme() - Initialize default PlatformButtonCustomScheme with default themezation
+Example to create PlatformButtonCustomScheme:
+Code
+ ```
+let scheme = PlatformButtonCustomScheme()
+ ```
+ */
+public struct PlatformButtonCustomScheme: AppThemeScheme {
+
+    /// Title label font.
+    public var titleLabelFont: AFont
+
+    /// Button background color.
+    public var buttonBackgroundColor = ControlParameter<AColor>()
+
+    /// Background layer color.
+    public var backgroundLayerColor: AColor
+
+    /// Text color.
+    public var textColor = ControlParameter<AColor>()
+
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
         let highlightedOpacity: CGFloat = 0.8
         

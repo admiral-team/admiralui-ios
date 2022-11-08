@@ -17,16 +17,17 @@ public class TextMessageListView: BaseListView, CenterListViewComponent, AnyAppT
     public var text: String? {
         didSet { titleLabel.text = text }
     }
+
+    /// Color scheme.
+    public var scheme = TextMessageListViewScheme() {
+        didSet { updateScheme() }
+    }
     
     // MARK: Internal Properties
     
     /// The state of the view. Default is normal.
     override var state: UIControl.State {
         didSet { configure(for: state) }
-    }
-    
-    var scheme = TextMessageListViewScheme() {
-        didSet { updateScheme() }
     }
     
     // MARK: - AccessibilitySupport

@@ -8,20 +8,34 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-public struct TitleSubtitleListViewScheme {
+/**
+ TitleSubtitleListViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - TitleSubtitleListViewScheme() - Initialize default TitleSubtitleListViewScheme with default themezation
+Example to create TitleSubtitleListViewScheme:
+Code
+ ```
+let scheme = TitleSubtitleListViewScheme()
+ ```
+ */
+public struct TitleSubtitleListViewScheme: AppThemeScheme {
+
+    /// Background color.
+    public var backgroundColor = ControlParameter<AColor>()
+
+    /// Title color.
+    public var titleColor = ControlParameter<AColor>()
+
+    /// Subtitle color.
+    public var subtitleColor = ControlParameter<AColor>()
+
+    /// Title font.
+    public var titleFont: AFont
+
+    /// Subtitle font.
+    public var subtitleFont: AFont
     
-    var backgroundColor = ControlParameter<AColor>()
-    var titleColor = ControlParameter<AColor>()
-    var subtitleColor = ControlParameter<AColor>()
-    
-    var titleFont: AFont
-    var subtitleFont: AFont
-    
-    public init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    public init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         backgroundColor.set(parameter: theme.colors.backgroundSelected, for: .highlighted)

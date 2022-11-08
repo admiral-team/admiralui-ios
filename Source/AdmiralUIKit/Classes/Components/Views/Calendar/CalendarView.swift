@@ -186,10 +186,9 @@ public class CalendarView: UIView, AnyAppThemable {
             }
         }
     }
-    
-    // MARK: - Internal Properties
-    
-    var scheme = CalendarViewScheme() {
+
+    /// Color scheme.
+    public var scheme = CalendarViewScheme() {
         didSet { configure() }
     }
     

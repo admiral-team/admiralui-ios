@@ -63,6 +63,11 @@ public class InputNumber: UIControl, AnyAppThemable, AccessibilitySupport {
         didSet { inputStepValue = stepValue }
     }
 
+    /// Color scheme.
+    public var scheme = InputNumberScheme() {
+        didSet { updateScheme() }
+    }
+
     public override var intrinsicContentSize: CGSize {
         return CGSize(width: UIView.noIntrinsicMetric, height: Constants.height)
     }
@@ -86,13 +91,7 @@ public class InputNumber: UIControl, AnyAppThemable, AccessibilitySupport {
     public var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
         didSet { updateFonts() }
     }
-    
-    // MARK: Internal Properties
-    
-    public var scheme = InputNumberScheme() {
-        didSet { updateScheme() }
-    }
-    
+
     // MARK: - Private Properties
     
     private let titleLabel = UILabel()

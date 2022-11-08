@@ -8,19 +8,37 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-struct SearchBarColorScheme {
-    var textColor: AColor
-    var placeholderColor: AColor
-    var backgroundColor: AColor
-    var tintColor: AColor
-    var textFont: AFont
-    var placeholderFont: AFont
+/**
+ SearchBarColorScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - SearchBarColorScheme() - Initialize default SearchBarColorScheme with default themezation
+Example to create SearchBarColorScheme:
+Code
+ ```
+let scheme = SearchBarColorScheme()
+ ```
+ */
+public struct SearchBarColorScheme: AppThemeScheme {
+
+    /// Text color.
+    public var textColor: AColor
+
+    /// Placeholder color.
+    public var placeholderColor: AColor
+
+    /// Background color.
+    public var backgroundColor: AColor
+
+    /// Tint color.
+    public var tintColor: AColor
+
+    /// Text font.
+    public var textFont: AFont
+
+    /// Placeholder font.
+    public var placeholderFont: AFont
     
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         textColor = theme.colors.textPrimary
         placeholderColor = theme.colors.textSecondary
         backgroundColor = theme.colors.backgroundAdditionalOne

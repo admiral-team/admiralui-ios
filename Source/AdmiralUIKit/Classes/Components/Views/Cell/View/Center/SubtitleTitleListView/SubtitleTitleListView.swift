@@ -30,16 +30,17 @@ public class SubtitleTitleListView: BaseListView, CenterListViewComponent, AnyAp
     public var subtitle: String? {
         didSet { subtitleLabel.text = subtitle }
     }
+
+    /// Color scheme.
+    public var scheme = SubtitleTitleListViewScheme() {
+        didSet { updateScheme() }
+    }
     
     // MARK: Internal Properties
     
     /// The state of the view. Default is normal.
     override var state: UIControl.State {
         didSet { configure(for: state) }
-    }
-    
-    var scheme = SubtitleTitleListViewScheme() {
-        didSet { updateScheme() }
     }
     
     // MARK: - AccessibilitySupport

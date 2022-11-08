@@ -14,15 +14,16 @@ public class LogoTab: PlainSegmentedControl, AnyAppThemable {
     public override var selectedSegmentIndex: Int {
         didSet { configureThumbView() }
     }
+
+    /// Color scheme.
+    public var scheme = LogoSegmentedScheme() {
+        didSet { updateScheme() }
+    }
     
     // MARK: - Private Properties
     
     private var imageItems: [LogoSegmentedView] {
         return items as? [LogoSegmentedView] !! fatalError("This is not LogoSegmentedView class")
-    }
-    
-    private var scheme = LogoSegmentedScheme() {
-        didSet { updateScheme() }
     }
     
     // MARK: - Initializer

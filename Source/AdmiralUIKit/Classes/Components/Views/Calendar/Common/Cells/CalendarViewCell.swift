@@ -20,11 +20,16 @@ struct CalendarDayItem {
 }
 
 /// The style of calendar cell.
-enum CalendarCellState: UInt {
+public enum CalendarCellState: UInt {
+    /// Default state.
     case normal
+    /// Tail selected.
     case tailSelected
+    /// Cell selected.
     case selected
+    /// Cell with current date.
     case currentDate
+    /// Disabled state.
     case disabled
 }
 

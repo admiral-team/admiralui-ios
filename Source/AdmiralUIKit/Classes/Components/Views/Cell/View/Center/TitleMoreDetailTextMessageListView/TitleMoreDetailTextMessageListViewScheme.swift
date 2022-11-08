@@ -8,31 +8,67 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-struct TitleMoreDetailTextMessageListViewScheme {
+/**
+ TitleMoreDetailTextMessageListViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - TitleMoreDetailTextMessageListViewScheme() - Initialize default TitleMoreDetailTextMessageListViewScheme with default themezation
+Example to create TitleMoreDetailTextMessageListViewScheme:
+Code
+ ```
+let scheme = TitleMoreDetailTextMessageListViewScheme()
+ ```
+ */
+public struct TitleMoreDetailTextMessageListViewScheme: AppThemeScheme {
+
+    /// Background color.
+    public var backgroundColor = ControlParameter<AColor>()
+
+    /// Title label text color.
+    public var titleLabelTextColor = ControlParameter<AColor>()
+
+    /// Mode label text color.
+    public var moreLabelTextColor = ControlParameter<AColor>()
+
+    /// Detaile title label text color.
+    public var detaileTitleLabelTextColor = ControlParameter<AColor>()
+
+    /// Detail more label text color.
+    public var detaileMoreLabelTextColor = ControlParameter<AColor>()
+
+    /// Subtitle label text color.
+    public var subtitleLabelTextColor = ControlParameter<AColor>()
+
+    /// Info image tint color.
+    public var infoImageViewTintColor = ControlParameter<AColor>()
+
+    /// Message title label text color.
+    public var messageTitleLabelTitleColor = ControlParameter<AColor>()
+
+    /// Message view background color.
+    public var messageViewBackgroundColor = ControlParameter<AColor>()
+
+    /// Title font.
+    public var titleFont: AFont
+
+    /// Subtitle font.
+    public var subtitleFont: AFont
+
+    /// More label font.
+    public var moreFont: AFont
+
+    /// Detaile title font.
+    public var detaileTitleFont: AFont
+
+    /// Detaile more font.
+    public var detaileMoreFont: AFont
+
+    /// Tag view font.
+    public var tagViewFont: AFont
+
+    /// Message title font.
+    public var messageTitleFont: AFont
     
-    var backgroundColor = ControlParameter<AColor>()
-    var titleLabelTextColor = ControlParameter<AColor>()
-    var moreLabelTextColor = ControlParameter<AColor>()
-    var detaileTitleLabelTextColor = ControlParameter<AColor>()
-    var detaileMoreLabelTextColor = ControlParameter<AColor>()
-    var subtitleLabelTextColor = ControlParameter<AColor>()
-    var infoImageViewTintColor = ControlParameter<AColor>()
-    var messageTitleLabelTitleColor = ControlParameter<AColor>()
-    var messageViewBackgroundColor = ControlParameter<AColor>()
-    
-    var titleFont: AFont
-    var subtitleFont: AFont
-    var moreFont: AFont
-    var detaileTitleFont: AFont
-    var detaileMoreFont: AFont
-    var tagViewFont: AFont
-    var messageTitleFont: AFont
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         backgroundColor.set(parameter: theme.colors.backgroundSelected, for: .highlighted)

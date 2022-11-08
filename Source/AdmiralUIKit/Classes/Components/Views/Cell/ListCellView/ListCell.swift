@@ -67,10 +67,9 @@ public class ListCell<L, C, T>: UIView, AnyAppThemable, ListViewCell where C: Ce
     
     /// Leading view.
     public let leadingView: L?
-    
-    // MARK: - Internal Properties
-    
-    var scheme = ListCellScheme() {
+
+    /// Color scheme.
+    public var scheme = ListCellScheme() {
         didSet { updateScheme() }
     }
     

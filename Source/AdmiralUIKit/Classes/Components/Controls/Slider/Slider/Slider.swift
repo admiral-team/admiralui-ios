@@ -55,7 +55,6 @@ public final class Slider: UIControl, AnyAppThemable {
     public override var intrinsicContentSize: CGSize {
         CGSize(width: UIView.noIntrinsicMetric, height: Constants.height)
     }
-
     
     /// The lower thumb image accesibility Id
     public var thumbImageAccesibilityId: String? {
@@ -74,10 +73,13 @@ public final class Slider: UIControl, AnyAppThemable {
             progressView.accessibilityIdentifier = newValue
         }
     }
-    
-    // MARK: - Internal Properties
 
-    var scheme = SliderScheme()
+    /// Color scheme.
+    public var scheme = SliderScheme() {
+        didSet {
+            updateScheme()
+        }
+    }
 
     // MARK: - Private properties
 

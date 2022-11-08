@@ -8,19 +8,31 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-struct TitleWithArrowListViewScheme {
-    
-    var viewBackgroundColor = ControlParameter<AColor>()
-    var titleLabelTextColor = ControlParameter<AColor>()
-    var arrowImageTintColor = ControlParameter<AColor>()
-    
-    var titleFont: AFont
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+/**
+ TitleWithArrowListViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - TitleWithArrowListViewScheme() - Initialize default TitleWithArrowListViewScheme with default themezation
+Example to create TitleWithArrowListViewScheme:
+Code
+ ```
+let scheme = TitleWithArrowListViewScheme()
+ ```
+ */
+public struct TitleWithArrowListViewScheme: AppThemeScheme {
+
+    /// View background color.
+    public var viewBackgroundColor = ControlParameter<AColor>()
+
+    /// Title label text color.
+    public var titleLabelTextColor = ControlParameter<AColor>()
+
+    /// Arrow image tint color.
+    public var arrowImageTintColor = ControlParameter<AColor>()
+
+    /// Title font.
+    public var titleFont: AFont
+
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         viewBackgroundColor.set(parameter: theme.colors.backgroundSelected, for: .highlighted)

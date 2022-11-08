@@ -44,6 +44,10 @@ open class FeedbackInputControl: UIControl, AnyAppThemable {
         didSet { updateColors() }
     }
 
+    /// Color scheme.
+    open var scheme = FeedBackInputScheme() {
+        didSet { updateScheme() }
+    }
     /// Cursor position which setted rating.
     open var cursorPosition = 0 {
         didSet { updateColorsAnimated() }
@@ -53,10 +57,6 @@ open class FeedbackInputControl: UIControl, AnyAppThemable {
     
     var itemViews = [UIImageView]()
     var parameters = Layout.Parameters()
-
-    var scheme = FeedBackInputScheme() {
-        didSet { updateScheme() }
-    }
 
     // MARK: - Initializers
     

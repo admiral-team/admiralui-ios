@@ -66,6 +66,13 @@ public final class DoubleSlider: UIControl, AnyAppThemable {
         CGSize(width: UIView.noIntrinsicMetric, height: Constants.height)
     }
 
+    /// Color scheme.
+    public var scheme = SliderScheme() {
+        didSet {
+            updateScheme()
+        }
+    }
+
     /// The lower thumb image accesibility Id
     public var loweThubmImageAccesibilityId: String? {
         get {
@@ -92,10 +99,6 @@ public final class DoubleSlider: UIControl, AnyAppThemable {
             progressView.accessibilityIdentifier = newValue
         }
     }
-
-    // MARK: - Internal Properties
-
-    var scheme = SliderScheme()
 
     // MARK: - Private properties
 

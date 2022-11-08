@@ -8,19 +8,31 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-struct TextMessageListViewScheme {
+/**
+ TextMessageListViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - TextMessageListViewScheme() - Initialize default TextMessageListViewScheme with default themezation
+Example to create TextMessageListViewScheme:
+Code
+ ```
+let scheme = TextMessageListViewScheme()
+ ```
+ */
+public struct TextMessageListViewScheme: AppThemeScheme {
+
+    /// Message title label title color.
+    public var messageTitleLabelTitleColor = ControlParameter<AColor>()
+
+    /// Message view background color.
+    public var messageViewBackgroundColor = ControlParameter<AColor>()
+
+    /// View background color.
+    public var viewBackgroundColor = ControlParameter<AColor>()
+
+    /// Title font.
+    public var titleFont: AFont
     
-    var messageTitleLabelTitleColor = ControlParameter<AColor>()
-    var messageViewBackgroundColor = ControlParameter<AColor>()
-    var viewBackgroundColor = ControlParameter<AColor>()
-    
-    var titleFont: AFont
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         viewBackgroundColor.set(parameter: theme.colors.backgroundSelected, for: .highlighted)

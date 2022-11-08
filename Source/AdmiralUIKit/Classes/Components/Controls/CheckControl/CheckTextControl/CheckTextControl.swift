@@ -89,6 +89,11 @@ final public class CheckTextControl<C: CheckControl>: UIControl, AnyAppThemable,
         set { textLabel.numberOfLines = newValue }
     }
 
+    /// Color scheme.
+    public var scheme = CheckTextControlScheme() {
+        didSet { updateState() }
+    }
+
     /// The check control accessibility id
     public var checkControlAccesibilityId: String? {
         didSet {
@@ -101,13 +106,7 @@ final public class CheckTextControl<C: CheckControl>: UIControl, AnyAppThemable,
     public var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
         didSet { updateSchemeFonts() }
     }
-    
-    // MARK: - Internal Properties
-    
-    var scheme = CheckTextControlScheme() {
-        didSet { updateState() }
-    }
-    
+
     // MARK: - Private Properties
     
     private let checkControl: C

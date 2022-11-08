@@ -8,22 +8,34 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-struct ButtonWithArrowListViewScheme {
-    
-    var backgroundColor = ControlParameter<AColor>()
-    
-    var buttonTextColor = ControlParameter<AColor>()
-    var buttonBackgroundColor = ControlParameter<AColor>()
-    
-    var arrowImageTintColor = ControlParameter<AColor>()
-    
-    var buttonFont: AFont
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+/**
+ ButtonWithArrowListViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - ButtonWithArrowListViewScheme() - Initialize default ButtonWithArrowListViewScheme with default themezation
+Example to create ButtonWithArrowListViewScheme:
+Code
+ ```
+let scheme = ButtonWithArrowListViewScheme()
+ ```
+ */
+public struct ButtonWithArrowListViewScheme: AppThemeScheme {
+
+    /// Background color.
+    public var backgroundColor = ControlParameter<AColor>()
+
+    /// Button text color.
+    public var buttonTextColor = ControlParameter<AColor>()
+
+    /// Button background color.
+    public var buttonBackgroundColor = ControlParameter<AColor>()
+
+    /// Arrow image tint color.
+    public var arrowImageTintColor = ControlParameter<AColor>()
+
+    /// Button font.
+    public var buttonFont: AFont
+
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         backgroundColor.set(parameter: theme.colors.backgroundSelected, for: .highlighted)

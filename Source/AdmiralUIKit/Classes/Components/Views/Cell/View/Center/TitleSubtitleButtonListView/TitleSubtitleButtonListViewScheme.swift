@@ -8,25 +8,49 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-struct TitleSubtitleButtonListViewScheme {
+/**
+ TitleSubtitleButtonListViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - TitleSubtitleButtonListViewScheme() - Initialize default TitleSubtitleButtonListViewScheme with default themezation
+Example to create TitleSubtitleButtonListViewScheme:
+Code
+ ```
+let scheme = TitleSubtitleButtonListViewScheme()
+ ```
+ */
+public struct TitleSubtitleButtonListViewScheme: AppThemeScheme {
+
+    /// Background color.
+    public var backgroundColor = ControlParameter<AColor>()
+
+    /// Title label text color.
+    public var titleLabelTextColor = ControlParameter<AColor>()
+
+    /// Subtitle tag label text color.
+    public var subtitleTagLabelTextColor = ControlParameter<AColor>()
+
+    /// Button title color.
+    public var buttonTitleColor = ControlParameter<AColor>()
+
+    /// Subtitle label text color.
+    public var subtitleLabelTextColor = ControlParameter<AColor>()
+
+    /// Title font.
+    public var titleFont: AFont
+
+    /// Subtitle tag font.
+    public var subtitleTagFont: AFont
+
+    /// Subtitle font.
+    public var subtitleFont: AFont
+
+    /// Tag view font.
+    public var tagViewFont: AFont
+
+    /// Ghost button font.
+    public var ghostButtonFont: AFont
     
-    var backgroundColor = ControlParameter<AColor>()
-    var titleLabelTextColor = ControlParameter<AColor>()
-    var subtitleTagLabelTextColor = ControlParameter<AColor>()
-    var buttonTitleColor = ControlParameter<AColor>()
-    var subtitleLabelTextColor = ControlParameter<AColor>()
-    
-    var titleFont: AFont
-    var subtitleTagFont: AFont
-    var subtitleFont: AFont
-    var tagViewFont: AFont
-    var ghostButtonFont: AFont
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         backgroundColor.set(parameter: theme.colors.backgroundSelected, for: .highlighted)

@@ -113,6 +113,11 @@ public class InputRangeTextField: UIView, AnyAppThemable, AccessibilitySupport {
             textField.leadingText = newValue
         }
     }
+
+    /// Color scheme.
+    public var scheme = InputRangeTextFieldScheme() {
+        didSet { updateScheme() }
+    }
     
     // MARK: - Internal Properties
     
@@ -121,10 +126,6 @@ public class InputRangeTextField: UIView, AnyAppThemable, AccessibilitySupport {
     let minValueLabel = UILabel()
     let maxValueLabel = UILabel()
     let informerLabel = UILabel()
-    
-    var scheme = InputRangeTextFieldScheme() {
-        didSet { updateScheme() }
-    }
 
     // MARK: - AccessibilitySupport
     
@@ -304,8 +305,8 @@ public class InputRangeTextField: UIView, AnyAppThemable, AccessibilitySupport {
     }
     
     private func updateScheme() {
-        textField.scheme = scheme.textField
-        slider.scheme = scheme.slider
+        textField.scheme = scheme.textFieldScheme
+        slider.scheme = scheme.sliderScheme
         configure(for: state)
         updateFonts()
     }
@@ -320,8 +321,8 @@ public class InputRangeTextField: UIView, AnyAppThemable, AccessibilitySupport {
             textStyle: scheme.valueFont.textStyle,
             adjustsFontForContentSize: adjustsFontForContentSizeCategory)
         informerLabel.setDynamicFont(
-            font: scheme.textField.informerFont.uiFont,
-            textStyle: scheme.textField.informerFont.textStyle,
+            font: scheme.textFieldScheme.informerFont.uiFont,
+            textStyle: scheme.textFieldScheme.informerFont.textStyle,
             adjustsFontForContentSize: adjustsFontForContentSizeCategory)
     }
         
