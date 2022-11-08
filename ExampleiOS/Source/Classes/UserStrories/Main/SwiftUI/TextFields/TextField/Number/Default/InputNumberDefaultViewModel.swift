@@ -31,7 +31,7 @@ final class InputNumberDefaultViewModel: ObservableObject {
             .init(title: "5 Symbols", maximumValue: 10000, minimunValue: 0, currentValue: 1),
             .init(title: "6 Symbols", maximumValue: 100000, minimunValue: 0, currentValue: 100000),
             .init(title: "8 Symbols", maximumValue: 10000000, minimunValue: 0, currentValue: 10000000),
-            .init(title: "10 Symbols", maximumValue: 100000000, minimunValue: 0, currentValue: 100000000),
+            .init(title: "9 Symbols", maximumValue: 100000000, minimunValue: 0, currentValue: 100000000),
             .init(title: "Unlimited", maximumValue: .infinity, minimunValue: 0, currentValue: 1)
         ]
     }
