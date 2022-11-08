@@ -80,93 +80,93 @@ final class ImageBaseCellTralingViewController: ScrollViewController {
         }
     }
     
-    private func configureArrowCell() -> ListCell<ImageCardListView, TitleListView, ArrowListView> {
+    private func configureArrowCell() -> ListCell<LeadingCardListView, TitleListView, ArrowListView> {
         let titleListView = TitleListView()
         titleListView.title = "Title"
-        let cardListView = ImageCardListView()
+        let cardListView = LeadingCardListView()
         cardListView.cardImage = Asset.Card.visa.image
         return ListCell(leadingView: cardListView, centerView: titleListView, tralingView: ArrowListView())
     }
     
-    private func configureRadioButtonCell() -> ListCell<ImageCardListView, TitleListView, RadioButtonListView> {
+    private func configureRadioButtonCell() -> ListCell<LeadingCardListView, TitleListView, RadioButtonListView> {
         let radioButtonView = RadioButtonListView()
         let titleListView = TitleListView()
         titleListView.title = "Title"
-        let cardListView = ImageCardListView()
+        let cardListView = LeadingCardListView()
         cardListView.cardImage = Asset.Card.visa.image
         return ListCell(leadingView: cardListView, centerView: titleListView, tralingView: radioButtonView)
     }
     
-    private func configureCheckBoxCell() -> ListCell<ImageCardListView, TitleListView, CheckBoxListView> {
+    private func configureCheckBoxCell() -> ListCell<LeadingCardListView, TitleListView, CheckBoxListView> {
         let checkBoxCell = CheckBoxListView()
         checkBoxCell.isSelected = true
         let titleListView = TitleListView()
         titleListView.title = "Title"
-        let cardListView = ImageCardListView()
+        let cardListView = LeadingCardListView()
         cardListView.cardImage = Asset.Card.visa.image
         return ListCell(leadingView: cardListView, centerView: titleListView, tralingView: checkBoxCell)
     }
     
-    private func configureSwitchListViewCell() -> ListCell<ImageCardListView, TitleListView, SwitchListView> {
+    private func configureSwitchListViewCell() -> ListCell<LeadingCardListView, TitleListView, SwitchListView> {
         let switchListView = SwitchListView()
         switchListView.didSelect = { isOn in
             print(isOn)
         }
         let titleListView = TitleListView()
         titleListView.title = "Title"
-        let cardListView = ImageCardListView()
+        let cardListView = LeadingCardListView()
         cardListView.cardImage = Asset.Card.visa.image
         return ListCell(leadingView: cardListView, centerView: titleListView, tralingView: switchListView)
     }
     
-    private func configureCardListViewCell() -> ListCell<ImageCardListView, TitleListView, CardListView> {
+    private func configureCardListViewCell() -> ListCell<LeadingCardListView, TitleListView, CardListView> {
         let сardListView = CardListView()
         сardListView.cardImage = Asset.Card.visa.image
         let titleListView = TitleListView()
         titleListView.title = "Title"
-        let cardListView = ImageCardListView()
+        let cardListView = LeadingCardListView()
         cardListView.cardImage = Asset.Card.visa.image
         return ListCell(leadingView: cardListView, centerView: titleListView, tralingView: сardListView)
     }
     
-    private func configureIconListViewCell() -> ListCell<ImageCardListView, TitleListView, IconListView> {
+    private func configureIconListViewCell() -> ListCell<LeadingCardListView, TitleListView, IconListView> {
         let iconListView = IconListView()
         iconListView.image = Asset.Main.calendar.image
         let titleListView = TitleListView()
         titleListView.title = "Title"
-        let cardListView = ImageCardListView()
+        let cardListView = LeadingCardListView()
         cardListView.cardImage = Asset.Card.visa.image
         return ListCell(leadingView: cardListView, centerView: titleListView, tralingView: iconListView)
     }
     
-    private func configureDatePercentListViewCell() -> ListCell<ImageCardListView, TitleListView, DatePercentListView> {
+    private func configureDatePercentListViewCell() -> ListCell<LeadingCardListView, TitleListView, DatePercentListView> {
         let datePercentListView = DatePercentListView()
         datePercentListView.date = "Date"
         datePercentListView.percent = "Percent"
         let titleListView = TitleListView()
         titleListView.title = "Title"
-        let cardListView = ImageCardListView()
+        let cardListView = LeadingCardListView()
         cardListView.cardImage = Asset.Card.visa.image
         return ListCell(leadingView: cardListView, centerView: titleListView, tralingView: datePercentListView)
     }
     
-    private func configureImageWithSubtitleListViewCell() -> ListCell<ImageCardListView, TitleListView, ImageWithSubtitleListView> {
+    private func configureImageWithSubtitleListViewCell() -> ListCell<LeadingCardListView, TitleListView, ImageWithSubtitleListView> {
         let imageWithSubtitleListView = ImageWithSubtitleListView()
         imageWithSubtitleListView.subtitle = "Subtitle"
         imageWithSubtitleListView.image = Asset.Card.mir.image
         let titleListView = TitleListView()
         titleListView.title = "Title"
-        let cardListView = ImageCardListView()
+        let cardListView = LeadingCardListView()
         cardListView.cardImage = Asset.Card.visa.image
         return ListCell(leadingView: cardListView, centerView: titleListView, tralingView: imageWithSubtitleListView)
     }
     
-    private func configureCurcleIconListViewCell() -> ListCell<ImageCardListView, TitleListView, CurcleIconListView> {
+    private func configureCurcleIconListViewCell() -> ListCell<LeadingCardListView, TitleListView, CurcleIconListView> {
         let curcleIconListView = CurcleIconListView()
         curcleIconListView.image = Asset.Card.rnb.image
         let titleListView = TitleListView()
         titleListView.title = "Title"
-        let cardListView = ImageCardListView()
+        let cardListView = LeadingCardListView()
         cardListView.cardImage = Asset.Card.visa.image
         return ListCell(leadingView: cardListView, centerView: titleListView, tralingView: curcleIconListView)
     }

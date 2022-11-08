@@ -32,17 +32,36 @@ public final class InputNumberScheme: AppThemeScheme {
     // The buttons visual scheme
     public var buttonScheme: InputNumberButtonScheme
 
+    /// Text field background color
+    public var textFieldBackground = ControlParameter<AColor>()
+
+    /// Placeholder text field color.
+    public var placeholderColor = ControlParameter<AColor>()
+
+    /// The text field font
+    public var textFieldFont: AFont
+
     // MARK: - Initializer
 
     public init(theme: AppTheme = .default) {
+        let alpha = theme.colors.disabledAlpha
+
         buttonScheme = InputNumberButtonScheme(theme: theme)
-        
+        textFieldFont = theme.fonts.body1
+
         titleFont.set(parameter: theme.fonts.body1, for: .normal)
         numberFont.set(parameter: theme.fonts.body1, for: .normal)
         
         textColor.set(parameter: theme.colors.textPrimary, for: .normal)
         textColor.set(parameter: theme.colors.textPrimary, for: .highlighted)
         textColor.set(parameter: theme.colors.textSecondary, for: .disabled)
+
+        textFieldBackground.set(parameter: theme.colors.backgroundAdditionalOne, for: .normal)
+        textFieldBackground.set(parameter: theme.colors.backgroundAdditionalOnePressed, for: .highlighted)
+        textFieldBackground.set(parameter: theme.colors.backgroundAdditionalOne.withAlpha(alpha), for: .disabled)
+
+        placeholderColor.set(parameter: theme.colors.textMask, for: .normal)
+        placeholderColor.set(parameter: theme.colors.textMask.withAlpha(alpha), for: .disabled)
     }
     
 }

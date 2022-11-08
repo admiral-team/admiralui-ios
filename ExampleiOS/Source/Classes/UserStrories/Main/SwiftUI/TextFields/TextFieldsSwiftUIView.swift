@@ -55,7 +55,7 @@ struct TextFieldsSwiftUIView: View {
         case .smsCode:
             OTPTextFieldSwiftUIView()
         case .number:
-            InputNumberSwiftUIView()
+            InputNumbersSwiftUIView()
         case .feedback:
             FeedbackInputSwiftUIView()
         case .pincode:

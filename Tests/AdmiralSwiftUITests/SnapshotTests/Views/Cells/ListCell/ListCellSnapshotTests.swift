@@ -66,7 +66,7 @@ final class ListCellSnapshotTests: XCTestCase {
     
     func createListCell() -> some View {
         let view = ListCell(
-            leadingView: { ImageCardListView(cardImage: Image(uiImage: Asset.Finance.Solid.cashSolid.image)) },
+            leadingView: { LeadingCardListView(cardImage: Image(uiImage: Asset.Finance.Solid.cashSolid.image)) },
             centerView: { TitleListView(title: "Title") },
             trailingView: { DatePercentListView(date: "Date", percent: "Text") },
             isSelected: .constant(true))
