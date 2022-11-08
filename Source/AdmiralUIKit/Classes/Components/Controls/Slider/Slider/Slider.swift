@@ -55,6 +55,25 @@ public final class Slider: UIControl, AnyAppThemable {
     public override var intrinsicContentSize: CGSize {
         CGSize(width: UIView.noIntrinsicMetric, height: Constants.height)
     }
+
+    
+    /// The lower thumb image accesibility Id
+    public var thumbImageAccesibilityId: String? {
+        get {
+            return thumbView.accessibilityIdentifier
+        } set {
+            thumbView.accessibilityIdentifier = newValue
+        }
+    }
+
+    /// The progress view accesibility Id
+    public var progressViewAccesibilityId: String? {
+        get {
+            return progressView.accessibilityIdentifier
+        } set {
+            progressView.accessibilityIdentifier = newValue
+        }
+    }
     
     // MARK: - Internal Properties
 
@@ -132,7 +151,7 @@ public final class Slider: UIControl, AnyAppThemable {
         
         thumbView.isUserInteractionEnabled = false
         progressView.isUserInteractionEnabled = false
-                        
+
         configure(for: state)
     }
 

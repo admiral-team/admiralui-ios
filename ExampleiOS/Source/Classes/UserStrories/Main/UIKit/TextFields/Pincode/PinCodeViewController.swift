@@ -50,8 +50,9 @@ final class PinCodeViewController: UIViewController, CodeInputControlDelegate, A
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged(_:)), for: .valueChanged)
         
         pinCodeKeyboard.delegate = self
+        pinCodeKeyboard.textViewAccesibilityId = "PinCodeTextViewAccesibilityId"
         pincodeControl.itemsCount = 6
-        
+
         addSubviews()
         configureConstraints()
     }

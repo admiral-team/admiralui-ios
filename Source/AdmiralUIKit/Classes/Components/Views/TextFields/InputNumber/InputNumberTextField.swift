@@ -29,7 +29,7 @@ import UIKit
  inputTextField.titleText = "Optional label"
  inputTextField.textFieldPlaceholder = "0"
  ```
-*/
+ */
 public class InputNumberTextField: UIControl, AnyAppThemable, AccessibilitySupport {
 
     // MARK: - Constants
@@ -118,6 +118,27 @@ public class InputNumberTextField: UIControl, AnyAppThemable, AccessibilitySuppo
     /// The textField
     public var inputTextField: UITextField {
         return textField.inputTextField
+    }
+
+    /// Minus button accessibility id
+    public var minusButtonAccessibilityId: String? {
+        didSet {
+            minusButton.accessibilityIdentifier = minusButtonAccessibilityId
+        }
+    }
+
+    /// Plus button accessibility id
+    public var plusButtonAccessibilityId: String? {
+        didSet {
+            plusButton.accessibilityIdentifier = minusButtonAccessibilityId
+        }
+    }
+
+    /// Text field accessibility id
+    public var textFieldAccessibilityId: String? {
+        didSet {
+            textField.inputTextField.accessibilityIdentifier = minusButtonAccessibilityId
+        }
     }
 
     // MARK: - Internal Properties
