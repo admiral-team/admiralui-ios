@@ -19,9 +19,9 @@ public protocol ListViewCell: UIView, AppThemeCompatible {
 }
 
 /// A view that displays leading, traling and image views.
-public class ListCell<L, C, T>: UIView, AnyAppThemable, ListViewCell where C: LeadingListViewComponent,
+public class ListCell<L, C, T>: UIView, AnyAppThemable, ListViewCell where C: CenterListViewComponent,
                                                                            T: TralingListViewComponent,
-                                                                           L: ImageListViewComponent,
+                                                                           L: LeadingListViewComponent,
                                                                            C: AnyAppThemable,
                                                                            T: AnyAppThemable,
                                                                            L: AnyAppThemable {

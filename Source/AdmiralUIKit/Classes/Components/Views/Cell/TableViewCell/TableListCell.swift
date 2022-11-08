@@ -8,9 +8,9 @@
 import UIKit
 import AdmiralTheme
 
-open class TableListCell<I, L, T>: UITableViewCell, AnyAppThemable where L: LeadingListViewComponent,
+open class TableListCell<I, L, T>: UITableViewCell, AnyAppThemable where L: CenterListViewComponent,
                                                                          T: TralingListViewComponent,
-                                                                         I: ImageListViewComponent,
+                                                                         I: LeadingListViewComponent,
                                                                          L: AnyAppThemable,
                                                                          T: AnyAppThemable,
                                                                          I: AnyAppThemable {

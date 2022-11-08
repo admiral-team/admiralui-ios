@@ -25,12 +25,11 @@ final class CalendarsViewController: BaseTableViewController {
     private func createSections() -> [MainSectionViewModel] {
         let items: [TableViewListItem] = [
             MainTitleTableViewCellViewModel(
-                title: "Horizontal",
-                didSelect: { [weak self] in self?.presentHorizontalCalendar() }),
-            
-            MainTitleTableViewCellViewModel(
                 title: "Vertical",
-                didSelect: { [weak self] in self?.presentVericalCalendar() })
+                didSelect: { [weak self] in self?.presentVericalCalendar() }),
+            MainTitleTableViewCellViewModel(
+                title: "Horizontal",
+                didSelect: { [weak self] in self?.presentHorizontalCalendar() })
         ]
         
         return [MainSectionViewModel(items: items)]

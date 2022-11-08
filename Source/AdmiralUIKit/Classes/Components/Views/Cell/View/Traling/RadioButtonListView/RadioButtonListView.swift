@@ -47,6 +47,13 @@ public class RadioButtonListView: BaseListView, TralingListViewComponent, AnyApp
         didSet { updateScheme() }
     }
 
+    /// The radio button accessibility id
+    public var radioButtonAccesibilityId: String? {
+        didSet {
+            radioButton.checkControlAccesibilityId = radioButtonAccesibilityId
+        }
+    }
+
     /// Tap action.
     public var didSelect: (() -> Void)?
     

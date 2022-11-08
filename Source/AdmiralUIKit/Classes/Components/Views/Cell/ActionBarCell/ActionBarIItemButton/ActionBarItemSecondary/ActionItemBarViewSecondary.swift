@@ -85,6 +85,7 @@ class ActionItemBarViewSecondary: UIControl, ActionBarViewPresentable, AnyAppThe
         self.backGroundColor = action.backgroundColor
         self.text = action.text
         super.init(frame: .zero)
+        accessibilityIdentifier = action.accesibilityId
         commonInit()
     }
 

@@ -46,6 +46,13 @@ open class CheckBoxListView: BaseListView, TralingListViewComponent, AnyAppThema
     public var scheme = CheckBoxListViewScheme() {
         didSet { updateScheme() }
     }
+    
+    /// The check box accessibility id
+    public var checkBoxAccesibilityId: String? {
+        didSet {
+            checkBox.checkControlAccesibilityId = checkBoxAccesibilityId
+        }
+    }
 
     /// Tap action.
     public var didSelect: (() -> Void)?

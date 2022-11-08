@@ -25,6 +25,13 @@ public class SwitchListView: BaseListView, TralingListViewComponent, AnyAppThema
     public var scheme = SwitchListViewScheme() {
         didSet { updateScheme() }
     }
+
+    /// The switcher accessibility id
+    public var customSwitchAccesibilityId: String? {
+        didSet {
+            customSwitch.accessibilityIdentifier = customSwitchAccesibilityId
+        }
+    }
     
     // MARK: Internal Properties
     

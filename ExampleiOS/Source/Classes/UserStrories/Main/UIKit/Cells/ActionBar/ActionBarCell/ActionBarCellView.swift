@@ -40,12 +40,12 @@ class ActionBarCellView: UIView, AnyAppThemable, AccessibilitySupport {
         return stackView
     }()
 
-    private(set) var actionBars = [ActionCellView<ListCell<ImageCardListView, TitleLargeSubtitleListView, SubtitleWithImageListView>>]()
+    private(set) var actionBars = [ActionCellView<ListCell<LeadingCardListView, TitleLargeSubtitleListView, SubtitleWithImageListView>>]()
 
     // MARK: - Initializer
 
     init(
-        actionBars: [ActionCellView<ListCell<ImageCardListView, TitleLargeSubtitleListView, SubtitleWithImageListView>>],
+        actionBars: [ActionCellView<ListCell<LeadingCardListView, TitleLargeSubtitleListView, SubtitleWithImageListView>>],
         titleText: String
     ) {
         self.actionBars = actionBars

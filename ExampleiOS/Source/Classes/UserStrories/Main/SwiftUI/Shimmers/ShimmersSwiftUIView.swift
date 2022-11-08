@@ -21,7 +21,7 @@ struct ShimmersSwiftUIView: View {
             ScrollView(showsIndicators: false) {
                 LazyVStack(alignment: .leading, spacing: 0) {
                     ListCell(leadingView: {
-                        ImageCardListView(cardImage: Image(uiImage: Asset.Card.visa.image))
+                        LeadingCardListView(cardImage: Image(uiImage: Asset.Card.visa.image))
                     }, centerView: {
                         TitleMoreDetailTextMessageListView(
                             title: "Зарплатная карта",
@@ -31,7 +31,7 @@ struct ShimmersSwiftUIView: View {
                             .shimmer(isActive: true)
                     })
                     ListCell(leadingView: {
-                        ImageCardListView(cardImage: Image(uiImage: Asset.Card.visa.image))
+                        LeadingCardListView(cardImage: Image(uiImage: Asset.Card.visa.image))
                             .shimmer(isActive: true)
                     }, centerView: {
                         VStack(alignment: .leading, spacing: LayoutGrid.halfModule) {
@@ -46,7 +46,7 @@ struct ShimmersSwiftUIView: View {
                         IconListView(image: Image(uiImage: Asset.Card.visaLabel.image))
                     })
                     ListCell(leadingView: {
-                        ImageCardListView(cardImage: Image(uiImage: Asset.Card.visa.image))
+                        LeadingCardListView(cardImage: Image(uiImage: Asset.Card.visa.image))
                     }, centerView: {
                         TitleMoreDetailTextMessageListView(
                             title: "Зарплатная карта",

@@ -18,7 +18,7 @@ struct TextFieldsSwiftUIView: View {
     
     public var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Text Fields") {
+        NavigationContentView(navigationTitle: "Text fields") {
             scheme.backgroundColor.swiftUIColor.edgesIgnoringSafeArea(.all)
             ScrollView(showsIndicators: false) {
                 LazyVStack(alignment: .leading) {
@@ -55,7 +55,7 @@ struct TextFieldsSwiftUIView: View {
         case .smsCode:
             OTPTextFieldSwiftUIView()
         case .number:
-            InputNumberSwiftUIView()
+            InputNumbersSwiftUIView()
         case .feedback:
             FeedbackInputSwiftUIView()
         case .pincode:
