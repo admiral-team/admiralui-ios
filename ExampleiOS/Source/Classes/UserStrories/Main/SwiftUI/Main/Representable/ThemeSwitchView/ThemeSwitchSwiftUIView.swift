@@ -51,6 +51,7 @@ struct ThemeSwitchSwiftUIView: View {
                 isListHidden.toggle()
             })
             .buttonStyle(ThemeSwitchButtonStyle(isListHidden: $isListHidden))
+            .accessibilityIdentifier("ThemeSwitchButtonID")
         }
         .padding(LayoutGrid.doubleModule)
     }
