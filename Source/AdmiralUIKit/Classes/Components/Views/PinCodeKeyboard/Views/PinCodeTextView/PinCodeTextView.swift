@@ -33,12 +33,14 @@ final public class PinCodeTextView: UIControl, AnyAppThemable {
         }
     }
 
-    var title: String? {
+    /// Title pin code.
+    public var title: String? {
         get { return titleLabel.text }
         set { titleLabel.text = newValue }
     }
-    
-    var scheme = PinCodeTextViewCustomScheme() {
+
+    /// Color scheme.
+    public var scheme = PinCodeTextViewCustomScheme() {
         didSet { updateScheme() }
     }
 

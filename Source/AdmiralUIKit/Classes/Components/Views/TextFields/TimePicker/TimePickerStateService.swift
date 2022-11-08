@@ -26,7 +26,8 @@ enum TimePickerWheelEditingMode: Int {
 
 typealias TimePickerState = (TimePickerEditingSide, TimePickerEditingMode, TimePickerWheelEditingMode, isSelected: Bool)
 
-enum TimePickerStates: Int {
+/// Time picker state.
+public enum TimePickerStates: Int {
     case defaultState
     case scrollEditing
     case scrollLeftEditing

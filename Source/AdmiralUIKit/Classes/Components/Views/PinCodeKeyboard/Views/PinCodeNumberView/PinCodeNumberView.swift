@@ -54,21 +54,25 @@ final public class PinCodeNumberView: UIControl, AnyAppThemable {
         }
     }
 
-    var title: String? {
+    /// Title number view.
+    public var title: String? {
         get { return titleLabel.text }
         set { titleLabel.text = newValue }
     }
 
-    var image: UIImage? {
+    /// Image number view.
+    public var image: UIImage? {
         get { return imageView.image }
         set { imageView.image = newValue }
     }
 
-    var scheme = PinCodeNumberCustomScheme() {
+    /// Color scheme.
+    public var scheme = PinCodeNumberCustomScheme() {
         didSet { updateScheme() }
     }
 
-    var viewState: PinCodeNumberViewState? {
+    /// State.
+    public var viewState: PinCodeNumberViewState? {
         didSet { updateView() }
     }
 

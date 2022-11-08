@@ -69,12 +69,14 @@ open class TextField: TextFieldInput, AnyAppThemable, AccessibilitySupport {
         set { leftView = newValue }
     }
 
+    /// Left label width.
     public var leftLabelWidth: CGFloat? {
         didSet {
             decorationView.leftLabelWidth = leftLabelWidth
         }
     }
 
+    /// Content textfield width.
     public var contentWidth: CGFloat {
         get {
             inputTextField.invalidateIntrinsicContentSize()
@@ -84,6 +86,7 @@ open class TextField: TextFieldInput, AnyAppThemable, AccessibilitySupport {
         }
     }
 
+    /// Leading text.
     public var leadingText: String? {
         get { return decorationView.leadingTextLabel.text }
         set { decorationView.leadingText = newValue }
@@ -93,15 +96,16 @@ open class TextField: TextFieldInput, AnyAppThemable, AccessibilitySupport {
     public var trailingViewStyle: TextInputTrailingViewStyle = .default {
         didSet { updateTrailingView() }
     }
+
+    /// Color scheme.
+    public var scheme = TextFieldScheme() {
+        didSet { updateScheme() }
+    }
     
     // MARK: - Internal Properties
         
     var forceOpened: Bool = false {
         didSet { configureState(anmated: false) }
-    }
-
-    var scheme = TextFieldScheme() {
-        didSet { updateScheme() }
     }
     
     var decorationView: TextInputDecorationView!

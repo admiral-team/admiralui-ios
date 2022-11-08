@@ -46,12 +46,13 @@ public class BankCardTextField: TextFieldInput, AnyAppThemable, AccessibilitySup
         get { return decorationView.trailingView }
         set { decorationView.trailingView = newValue }
     }
-    
-    // MARK: - Internal Properties
-    
-    var scheme = BankCardTextFieldScheme() {
+
+    /// Color scheme.
+    public var scheme = BankCardTextFieldScheme() {
         didSet { updateScheme() }
     }
+    
+    // MARK: - Internal Properties
     
     var placeholderFont = UIFont.systemFont(ofSize: 16)
     
