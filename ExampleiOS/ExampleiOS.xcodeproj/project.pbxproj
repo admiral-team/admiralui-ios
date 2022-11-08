@@ -370,6 +370,8 @@
 		E9332FC9277DA2F100F9AF26 /* PageControlsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9332FC8277DA2F100F9AF26 /* PageControlsSwiftUIView.swift */; };
 		E9332FCB277DAA3500F9AF26 /* CustomSwiftUIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9332FCA277DAA3500F9AF26 /* CustomSwiftUIViewModel.swift */; };
 		E934036727B123C50007B86D /* ActionBarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E934036627B123C50007B86D /* ActionBarsViewController.swift */; };
+		E938E7C7291A694500B40D70 /* InputNumberSecondaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E938E7C6291A694500B40D70 /* InputNumberSecondaryViewModel.swift */; };
+		E938E7C9291A717E00B40D70 /* InputNumberDefaultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E938E7C8291A717E00B40D70 /* InputNumberDefaultViewModel.swift */; };
 		E945186B27D369DD0048B133 /* Publishers+Decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945186A27D369DD0048B133 /* Publishers+Decode.swift */; };
 		E945186D27D369F60048B133 /* Publishers+Sink.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945186C27D369F60048B133 /* Publishers+Sink.swift */; };
 		E945187427D36A810048B133 /* GunItemsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945187327D36A810048B133 /* GunItemsDTO.swift */; };
@@ -869,6 +871,8 @@
 		E9332FC8277DA2F100F9AF26 /* PageControlsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControlsSwiftUIView.swift; sourceTree = "<group>"; };
 		E9332FCA277DAA3500F9AF26 /* CustomSwiftUIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSwiftUIViewModel.swift; sourceTree = "<group>"; };
 		E934036627B123C50007B86D /* ActionBarsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionBarsViewController.swift; sourceTree = "<group>"; };
+		E938E7C6291A694500B40D70 /* InputNumberSecondaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNumberSecondaryViewModel.swift; sourceTree = "<group>"; };
+		E938E7C8291A717E00B40D70 /* InputNumberDefaultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNumberDefaultViewModel.swift; sourceTree = "<group>"; };
 		E945186A27D369DD0048B133 /* Publishers+Decode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers+Decode.swift"; sourceTree = "<group>"; };
 		E945186C27D369F60048B133 /* Publishers+Sink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers+Sink.swift"; sourceTree = "<group>"; };
 		E945187327D36A810048B133 /* GunItemsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GunItemsDTO.swift; sourceTree = "<group>"; };
@@ -1923,6 +1927,7 @@
 			isa = PBXGroup;
 			children = (
 				0E64999B264D012200D03D5A /* InputNumberDefaultSwiftUIView.swift */,
+				E938E7C8291A717E00B40D70 /* InputNumberDefaultViewModel.swift */,
 			);
 			path = Default;
 			sourceTree = "<group>";
@@ -1931,6 +1936,7 @@
 			isa = PBXGroup;
 			children = (
 				0ED8426D28F81AA800BCFCCB /* InputNumberSecondarySwiftUIView.swift */,
+				E938E7C6291A694500B40D70 /* InputNumberSecondaryViewModel.swift */,
 			);
 			path = Secondary;
 			sourceTree = "<group>";
@@ -3930,6 +3936,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BAE3C68287DD7DD00E8605F /* SeparatorCellView.swift in Sources */,
+				E938E7C7291A694500B40D70 /* InputNumberSecondaryViewModel.swift in Sources */,
 				0E22C680262D7BD900D09FC5 /* CheckBoxSwiftUIView.swift in Sources */,
 				C6B2A6A5264DC2C700D43FB2 /* UserDefaults+Keys.swift in Sources */,
 				E6529CC42534ED01009D8DE9 /* TableViewListItemManager.swift in Sources */,
@@ -4124,6 +4131,7 @@
 				E9C79CC927BD245C0002EC49 /* ErrorSwiftUIView.swift in Sources */,
 				E640F65625E1138C0036E24E /* SelectThemeTemplateViewController.swift in Sources */,
 				3BA835062804638400D54318 /* OnBoardingCustomScheme.swift in Sources */,
+				E938E7C9291A717E00B40D70 /* InputNumberDefaultViewModel.swift in Sources */,
 				0E35C15E28FE02D200FBB451 /* NumberSwiftUIView.swift in Sources */,
 				3B4F6BB02886D7130094C0FE /* ParagraphCellView.swift in Sources */,
 				E6D5710825DE6CCA00D3304F /* UIView+Autolayout.swift in Sources */,

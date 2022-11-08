@@ -240,7 +240,7 @@ public struct InputNumber: View {
                     .buttonStyle(
                         InputNumberButtonStyle(
                             isPressing: $isPlusPressing,
-                            image: Image(uiImage: Asset.Service.Outline.minusOutline.image),
+                            image: Image(uiImage: Asset.Service.Outline.plusOutline.image),
                             style: style,
                             type: .right,
                             onTap: { tapPlus() },
