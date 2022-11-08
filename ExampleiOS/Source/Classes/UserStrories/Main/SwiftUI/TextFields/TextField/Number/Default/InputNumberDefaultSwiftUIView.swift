@@ -1,9 +1,8 @@
 //
-//  InputNumberSecondarySwiftUIView.swift
+//  SliderTabSwiftUIView.swift
 //  ExampleiOS
 //
-//  Created by on 13.10.2022.
-//  
+//  Created on 13.05.2021.
 //
 
 import SwiftUI
@@ -11,15 +10,15 @@ import AdmiralTheme
 import AdmiralSwiftUI
 
 @available(iOS 14.0.0, *)
-struct InputNumberSecondarySwiftUIView: View {
+struct InputNumberDefaultSwiftUIView: View {
 
     @State private var isEnabledControlsState: Int = 0
-    @StateObject private var viewModel = InputNumberSecondaryViewModel()
+    @StateObject private var viewModel = InputNumberDefaultViewModel()
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
 
     var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Secondary") {
+        NavigationContentView(navigationTitle: "Default") {
             scheme.backgroundColor.swiftUIColor
             ScrollView(.vertical, showsIndicators: false) {
                 HStack {
@@ -47,7 +46,7 @@ struct InputNumberSecondarySwiftUIView: View {
                             ),
                             minimumValue: .constant(viewModel.items[itemIndex].minimunValue),
                             maximumValue: .constant(viewModel.items[itemIndex].maximumValue),
-                            style: .secondary,
+                            style: .default,
                             placeholder: "0",
                             formatter: BlocFormatter(format: { text in
                                 if (text ?? "").count > 5 { return "20000" }
