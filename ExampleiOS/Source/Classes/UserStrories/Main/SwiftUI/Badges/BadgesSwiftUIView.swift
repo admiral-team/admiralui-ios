@@ -50,6 +50,9 @@ struct BadgesSwiftUIView: View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVStack {
                 ForEach(BadgesItem.allCases, id: \.self) { item in
+                    NavigationLink(destination: EmptyView()) {
+                        EmptyView()
+                    }
                     NavigationLink(destination: view(for: item)) {
                         ListCell(
                             centerView: { TitleListView(title: item.title) },
