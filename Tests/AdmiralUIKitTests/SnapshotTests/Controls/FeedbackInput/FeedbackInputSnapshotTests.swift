@@ -19,33 +19,33 @@ class FeedbackInputlSnapshotTests: XCTestCase {
     }()
     
     // MARK: - CustomSwitch
+
+    func testFeedbackInputFiveState() {
+        let feedbackInputControl = createFeedbackInput(cursorPosition: 0)
+        checkControl(control: feedbackInputControl, named: "Zero", testName: "FeedbackInputControl")
+    }
       
     func testFeedbackInputDefaultState() {
-        let feedbackInputControl = createFeedbackInput(cursorPosition: 0)
+        let feedbackInputControl = createFeedbackInput(cursorPosition: 1)
         checkControl(control: feedbackInputControl, named: "One", testName: "FeedbackInputControl")
     }
     
     func testFeedbackInputOneState() {
-        let feedbackInputControl = createFeedbackInput(cursorPosition: 1)
+        let feedbackInputControl = createFeedbackInput(cursorPosition: 2)
         checkControl(control: feedbackInputControl, named: "Two", testName: "FeedbackInputControl")
     }
     
     func testFeedbackInputTwoState() {
-        let feedbackInputControl = createFeedbackInput(cursorPosition: 2)
+        let feedbackInputControl = createFeedbackInput(cursorPosition: 3)
         checkControl(control: feedbackInputControl, named: "Three", testName: "FeedbackInputControl")
     }
     
     func testFeedbackInputThreeState() {
-        let feedbackInputControl = createFeedbackInput(cursorPosition: 3)
+        let feedbackInputControl = createFeedbackInput(cursorPosition: 4)
         checkControl(control: feedbackInputControl, named: "Four", testName: "FeedbackInputControl")
     }
     
     func testFeedbackInputFourState() {
-        let feedbackInputControl = createFeedbackInput(cursorPosition: 4)
-        checkControl(control: feedbackInputControl, named: "Five", testName: "FeedbackInputControl")
-    }
-    
-    func testFeedbackInputFiveState() {
         let feedbackInputControl = createFeedbackInput(cursorPosition: 5)
         checkControl(control: feedbackInputControl, named: "Five", testName: "FeedbackInputControl")
     }

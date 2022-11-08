@@ -7,20 +7,37 @@
 
 import AdmiralTheme
 import AdmiralUIResources
+/**
+ InputNumberScheme - the visual scheme of InputNumber.
+ You can create a by specifying the following parameters in init:
+ - InputNumberScheme() - Initialize default InputNumberScheme with default themezation
+ # Example to create InputNumberScheme:
+ ```
+let scheme = InputNumberScheme()
+ ```
+ */
+public struct InputNumberScheme {
 
-struct InputNumberScheme {
-    var titleFont: AFont
-    var numberFont: AFont
-    
-    var textColor = ControlParameter<AColor>()
-    var tintColor = ControlParameter<AColor>()
-    var backgroundColor = ControlParameter<AColor>()
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    // MARK: - Public Properties
+
+    /// The title label font color
+    public var titleFont: AFont
+
+    /// The number label font
+    public var numberFont: AFont
+
+    /// The text label color
+    public var textColor = ControlParameter<AColor>()
+
+    /// The text label tint color
+    public var tintColor = ControlParameter<AColor>()
+
+    /// The background color
+    public var backgroundColor = ControlParameter<AColor>()
+
+    // MARK: - Initializer
+
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         titleFont = theme.fonts.body1
