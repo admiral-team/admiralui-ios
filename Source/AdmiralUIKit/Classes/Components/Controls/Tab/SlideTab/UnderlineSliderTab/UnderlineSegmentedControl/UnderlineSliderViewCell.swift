@@ -13,12 +13,20 @@ class UnderlineSliderItem: BaseUnderlineSegmentedItem {
     var isSelected: Bool
     var title: String?
     var scheme: UnderlineSliderScheme
+    var accesibilityId: String?
     
-    init(isEnabled: Bool, isSelected: Bool, title: String?, scheme: UnderlineSliderScheme) {
+    init(
+        isEnabled: Bool,
+        isSelected: Bool,
+        title: String?,
+        scheme: UnderlineSliderScheme,
+        accesibilityId: String? = nil
+    ) {
         self.isEnabled = isEnabled
         self.isSelected = isSelected
         self.title = title
         self.scheme = scheme
+        self.accesibilityId = accesibilityId
     }
 }
 
@@ -82,6 +90,7 @@ class UnderlineSliderViewCell: UICollectionViewCell, AccessibilitySupport {
         isEnabled = outlineSliderModel.isEnabled
         setSelected(isSelected: outlineSliderModel.isSelected)
         scheme = outlineSliderModel.scheme
+        accessibilityIdentifier = outlineSliderModel.accesibilityId
     }
     
     // MARK: - Private Methods

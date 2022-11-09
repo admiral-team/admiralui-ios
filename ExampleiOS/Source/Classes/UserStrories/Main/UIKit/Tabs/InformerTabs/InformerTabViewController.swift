@@ -46,19 +46,25 @@ final class InformerTabViewController: ScrollViewController {
     }
     
     private func configureSegmentControlls() {
-        let segmentConstol1 = InformerTabSegmentedControl(items:
-                                                            [InformerTab(title: "2 900 ₽", subtitle: "в месяц"),
-                                                             InformerTab(title: "2 900 ₽", subtitle: "в месяц")])
+        let segmentConstol1 = InformerTabSegmentedControl(
+            items: [
+                InformerTab(title: "2 900 ₽", subtitle: "в месяц", accesibilityId: "InformerTabOne1"),
+                InformerTab(title: "2 900 ₽", subtitle: "в месяц", accesibilityId: "InformerTabOne2")
+            ]
+        )
         segmentConstol1.selectedSegmentIndex = 0
         
         let view1 = BigTabsView<InformerTabSegmentedControl>(segmentView: segmentConstol1, title: "Two controls")
         
         views.append(view1)
         
-        let segmentConstol2 = InformerTabSegmentedControl(items:
-                                                            [InformerTab(title: "2 900 ₽", subtitle: "в месяц"),
-                                                             InformerTab(title: "2 900 ₽", subtitle: "в месяц"),
-                                                             InformerTab(title: "2 900 ₽", subtitle: "в месяц")])
+        let segmentConstol2 = InformerTabSegmentedControl(
+            items: [
+                InformerTab(title: "2 900 ₽", subtitle: "в месяц", accesibilityId: "InformerTabTwo1"),
+                InformerTab(title: "2 900 ₽", subtitle: "в месяц", accesibilityId: "InformerTabTwo2"),
+                InformerTab(title: "2 900 ₽", subtitle: "в месяц", accesibilityId: "InformerTabTwo3")
+            ]
+        )
         segmentConstol2.selectedSegmentIndex = 0
         
         let view2 = BigTabsView<InformerTabSegmentedControl>(segmentView: segmentConstol2, title: "Three controls")

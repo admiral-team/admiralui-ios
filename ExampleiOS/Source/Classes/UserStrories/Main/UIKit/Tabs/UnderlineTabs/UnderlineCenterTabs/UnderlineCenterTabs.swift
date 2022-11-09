@@ -46,7 +46,12 @@ final class UnderlineCenterTabsViewController: ScrollViewController {
     }
     
     private func configureSegmentControlls() {
-        let segmentControlFirst = UnderlineSegmentedControl(items: ["One", "Two"])
+        let segmentControlFirst = UnderlineSegmentedControl(
+            items: [
+                .init(title: "One", accesibilityId: "UnderlineCenterSegmentedOne1"),
+                .init(title: "Two", accesibilityId: "UnderlineCenterSegmentedOne2")
+            ]
+        )
         segmentControlFirst.selectedSegmentIndex = 0
         segmentControlFirst.isStaticTabs = true
 
@@ -54,7 +59,13 @@ final class UnderlineCenterTabsViewController: ScrollViewController {
         
         views.append(view1)
         
-        let segmentControlSecond = UnderlineSegmentedControl(items: ["One", "Two", "Three"])
+        let segmentControlSecond = UnderlineSegmentedControl(
+            items: [
+                .init(title: "One", accesibilityId: "UnderlineCenterSegmentedTwo1"),
+                .init(title: "Two", accesibilityId: "UnderlineCenterSegmentedTwo2"),
+                .init(title: "Three", accesibilityId: "UnderlineCenterSegmentedTwo3"),
+            ]
+        )
         segmentControlSecond.selectedSegmentIndex = 0
         segmentControlSecond.isStaticTabs = true
         
@@ -62,7 +73,14 @@ final class UnderlineCenterTabsViewController: ScrollViewController {
         
         views.append(view2)
         
-        let segmentControlThird = UnderlineSegmentedControl(items: ["One", "Two", "Three", "Four"])
+        let segmentControlThird = UnderlineSegmentedControl(
+            items: [
+                .init(title: "One", accesibilityId: "UnderlineCenterSegmentedThree1"),
+                .init(title: "Two", accesibilityId: "UnderlineCenterSegmentedThree2"),
+                .init(title: "Three", accesibilityId: "UnderlineCenterSegmentedThree3"),
+                .init(title: "Four", accesibilityId: "UnderlineCenterSegmentedThree4"),
+            ]
+        )
         segmentControlThird.selectedSegmentIndex = 0
         segmentControlThird.isStaticTabs = true
         
@@ -70,7 +88,15 @@ final class UnderlineCenterTabsViewController: ScrollViewController {
         
         views.append(view3)
         
-        let segmentControlFourth = UnderlineSegmentedControl(items: ["One", "Two", "Three", "Four", "Five"])
+        let segmentControlFourth = UnderlineSegmentedControl(
+            items: [
+                .init(title: "One", accesibilityId: "UnderlineCenterSegmentedFour1"),
+                .init(title: "Two", accesibilityId: "UnderlineCenterSegmentedFour2"),
+                .init(title: "Three", accesibilityId: "UnderlineCenterSegmentedFour3"),
+                .init(title: "Four", accesibilityId: "UnderlineCenterSegmentedFour4"),
+                .init(title: "Five", accesibilityId: "UnderlineCenterSegmentedFour5")
+            ]
+        )
         segmentControlFourth.selectedSegmentIndex = 0
         segmentControlFourth.isStaticTabs = true
         
@@ -78,7 +104,13 @@ final class UnderlineCenterTabsViewController: ScrollViewController {
         
         views.append(view4)
         
-        let segmentControlFifth = UnderlineSegmentedControl(items: ["One", "Two", "Three"])
+        let segmentControlFifth = UnderlineSegmentedControl(
+            items: [
+                .init(title: "One", accesibilityId: "UnderlineCenterSegmentedFive1"),
+                .init(title: "Two", accesibilityId: "UnderlineCenterSegmentedFive2"),
+                .init(title: "Three", accesibilityId: "UnderlineCenterSegmentedFive3"),
+            ]
+        )
         segmentControlFifth.selectedSegmentIndex = 0
         segmentControlFifth.isStaticTabs = true
         
