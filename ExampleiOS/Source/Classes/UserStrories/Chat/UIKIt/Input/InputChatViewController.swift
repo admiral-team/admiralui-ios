@@ -91,6 +91,9 @@ final class InputChatViewController: UIViewController, AnyAppThemable {
         chatInputView.actionState = .attachFiles
         chatInputView.placeholder = Constants.chatPlaceHolder
         chatInputView.chatInputDelegate = self
+        chatInputView.chatButtonAccesibilityId = "ChatInputButton"
+        chatInputView.chatButtonActionAccesibilityId = "ChatInputButtonAction"
+        chatInputView.inputTextAccesibilityId = "ChatInputTextField"
         segmentControl.setTitles(["Default", "Disabled"])
         segmentControl.selectedSegmentIndex = 0
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)

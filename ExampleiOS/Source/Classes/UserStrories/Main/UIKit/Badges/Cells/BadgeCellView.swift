@@ -99,6 +99,8 @@ final class BadgeCellView<T>: UIView, AnyAppThemable, AccessibilitySupport where
         inputTextField.minimumValue = 0
         inputTextField.maximumValue = 1000
         inputTextField.addTarget(self, action: #selector(stepperValueChanged(_:)), for: .valueChanged)
+        inputTextField.minusButtonAccesibilityId = "BadgeCellInputNumberMinusButton"
+        inputTextField.plusButtonAccesibilityId = "BadgeCellInputNumberPlusButton"
     }
     
     private func configureBadgeView() {

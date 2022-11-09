@@ -92,6 +92,8 @@ final class ToastNotificationsViewController: BaseViewController, AccessibilityS
         view.imageType = isDefaultToast ? .info : .error
         view.linkAction = {}
         view.closeAction = {}
+        view.closeButtonAccesibilityId = "ToastCloseButton"
+        view.accessibilityIdentifier = "ToastView"
       
         var config = BannerNotification.Config.default
         config.displayingTime = 2.0

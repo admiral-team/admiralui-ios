@@ -285,6 +285,7 @@ extension UploadImageView {
         state = model.state ?? .default
         image = model.image
         style = model.style
+        accessibilityIdentifier = model.accesibilityId
     }
 
 }
