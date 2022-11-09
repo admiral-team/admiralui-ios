@@ -9,12 +9,24 @@ import UIKit
 import AdmiralTheme
 
 public struct InformerTab {
-    let title: String?
-    let subtitle: String?
-    
-    public init(title: String?, subtitle: String?) {
+
+    // MARK: - Public Properties
+
+    /// The title label text
+    public let title: String?
+
+    /// The subtitle label text
+    public let subtitle: String?
+
+    /// The accesibility identifier
+    public var accesibilityId: String?
+
+    // MARK: - Initializer
+
+    public init(title: String?, subtitle: String?, accesibilityId: String? = nil) {
         self.title = title
         self.subtitle = subtitle
+        self.accesibilityId = accesibilityId
     }
 }
 
@@ -31,9 +43,9 @@ public class InformerTabSegmentedControl: TabSegmentedControl, SegmentControlCon
     public var scheme = InformerSegmentedScheme() {
         didSet { updateScheme() }
     }
-        
+
     // MARK: - Private Properties
-            
+
     private var textItems: [InformerSegmentedView] {
         return items as? [InformerSegmentedView] !! fatalError("This is not InformerSegmentedView class")
     }
@@ -127,7 +139,7 @@ public class InformerTabSegmentedControl: TabSegmentedControl, SegmentControlCon
     override func configure(for state: UIControl.State) {
         super.configure(for: state)
     }
- 
+
     // MARK: - Private Methods
 
     private func commonInit() {
@@ -140,7 +152,7 @@ public class InformerTabSegmentedControl: TabSegmentedControl, SegmentControlCon
         view.title = item.title
         view.subtitle = item.subtitle
         view.scheme = scheme
-        
+        view.accessibilityIdentifier = item.accesibilityId
         return view
     }
     
