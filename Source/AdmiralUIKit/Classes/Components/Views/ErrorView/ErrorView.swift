@@ -72,6 +72,13 @@ public final class ErrorView: UIView, AnyAppThemable {
         }
     }
 
+    /// The ghost button accessibility id
+    public var ghostButtonAccesibilityId: String? {
+        didSet {
+            ghostButton.accessibilityIdentifier = ghostButtonAccesibilityId
+        }
+    }
+
     /// The delegate of ErrorView.
     weak public var delegate: ErrorViewDelegate? = nil
 

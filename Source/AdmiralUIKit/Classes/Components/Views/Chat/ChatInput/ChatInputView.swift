@@ -78,6 +78,27 @@ open class ChatInputView: TextViewInput, AnyAppThemable, AccessibilitySupport {
         didSet { updateScheme() }
     }
 
+    /// Send button accesibility id
+    public var chatButtonAccesibilityId: String? {
+        didSet {
+            chatButton.accessibilityIdentifier = chatButtonAccesibilityId
+        }
+    }
+
+    /// Action button accesibility id
+    public var chatButtonActionAccesibilityId: String? {
+        didSet {
+            chatInputActionButton.accessibilityIdentifier = chatButtonActionAccesibilityId
+        }
+    }
+
+    /// Input text view accesibility id
+    public var inputTextAccesibilityId: String? {
+        didSet {
+            inputTextView.accessibilityIdentifier = inputTextAccesibilityId
+        }
+    }
+
     weak open var chatInputDelegate: ChatInputViewDelegate? = nil
 
     // MARK: - Internal Properties
@@ -179,7 +200,7 @@ open class ChatInputView: TextViewInput, AnyAppThemable, AccessibilitySupport {
                 animations: {
                     //self.isSeparatorHidden = hidden
                 }, completion: nil)
-        } 
+        }
     }
 
     // MARK: - AppTheamable

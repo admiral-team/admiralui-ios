@@ -55,6 +55,12 @@ open class ZeroScreenView: UIView, AnyAppThemable {
     public var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
         didSet { updateFonts() }
     }
+
+    public var primaryButtonAccesibilityId: String? {
+        didSet {
+            primaryButton.accessibilityIdentifier = primaryButtonAccesibilityId
+        }
+    }
     
     /// The delegate of ZeroScreenView.
     weak public var delegate: ZeroScreenViewDelegate? = nil
