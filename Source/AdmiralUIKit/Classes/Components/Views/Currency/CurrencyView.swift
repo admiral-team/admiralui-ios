@@ -266,7 +266,7 @@ private extension CurrencyView {
         switch sellCellType {
         case .arrowUp:
             sellTrailing.constant = LayoutGrid.tripleModule
-            sellImageView.image = Asset.Location.Outline.gpsOutline.image
+            sellImageView.image = Asset.System.Outline.arrowUpOutline.image
             sellImageView.isHidden = false
             sellImageTrailing.constant = .zero
         case .arrowDown:
