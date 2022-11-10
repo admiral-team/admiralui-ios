@@ -8,18 +8,30 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-struct DoubleInputRangeTextFieldScheme {
-    var slider: SliderScheme
-    var textField: TextFieldScheme
-    var valueFont: AFont
+/**
+ DoubleInputRangeTextFieldScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - DoubleInputRangeTextFieldScheme() - Initialize default DoubleInputRangeTextFieldScheme with default themezation
+Example to create DoubleInputRangeTextFieldScheme:
+Code
+ ```
+let scheme = DoubleInputRangeTextFieldScheme()
+ ```
+ */
+public struct DoubleInputRangeTextFieldScheme: AppThemeScheme {
 
-    init() {
-        self.init(theme: AppTheme.default)
-    }
+    /// Slider scheme.
+    public var sliderScheme: SliderScheme
 
-    init(theme: AppTheme) {
+    /// Text field scheme.
+    public var textFieldScheme: TextFieldScheme
+
+    /// Value font.
+    public var valueFont: AFont
+
+    public init(theme: AppTheme = .default) {
         self.valueFont = theme.fonts.subhead3
-        self.textField = TextFieldScheme(theme: theme)
-        self.slider = SliderScheme(theme: theme)
+        self.textFieldScheme = TextFieldScheme(theme: theme)
+        self.sliderScheme = SliderScheme(theme: theme)
     }
 }

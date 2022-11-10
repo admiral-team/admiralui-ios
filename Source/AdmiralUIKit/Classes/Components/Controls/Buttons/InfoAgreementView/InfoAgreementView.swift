@@ -13,9 +13,9 @@ public protocol InfoAgreementViewDelegate: AnyObject {
     func checkBoxShouldSelected(_ checkBox: CheckBox) -> Bool
 }
 
-/// View
+/// Complex user interface element which contains checkbox, title label and transparent button with text.
 public class InfoAgreementView: UIView, AnyAppThemable {
-        
+
     // MARK: - Public Properties
     
     /// Delegate SegmentButtonsView.
@@ -36,9 +36,9 @@ public class InfoAgreementView: UIView, AnyAppThemable {
     }
     
     /// Text for check box.
-    public var cheboxText: String? {
+    public var checkboxText: String? {
         didSet {
-            checkBoxTextButtonView.text = cheboxText
+            checkBoxTextButtonView.text = checkboxText
             updateItems()
         }
     }
@@ -66,10 +66,30 @@ public class InfoAgreementView: UIView, AnyAppThemable {
             updateItems()
         }
     }
-    
-    // MARK: Internal Properties
-    
-    var scheme = InfoAgreementViewScheme() {
+
+    /// The action button accessibility identifier
+    public var actionButtonAccesibilityId: String? {
+        didSet {
+            actionButton.accessibilityIdentifier = actionButtonAccesibilityId
+        }
+    }
+
+    /// The alternative button identifier
+    public var alternativeButtonAccesibilityId: String? {
+        didSet {
+            alternativeButton.accessibilityIdentifier = alternativeButtonAccesibilityId
+        }
+    }
+
+    /// The check box accessibility identifier
+    public var checkBoxTextAccesibilityId: String? {
+        didSet {
+            checkBoxTextButtonView.accessibilityIdentifier = checkBoxTextAccesibilityId
+        }
+    }
+
+    /// Color scheme.
+    public var scheme = InfoAgreementViewScheme() {
         didSet { updateScheme() }
     }
     
@@ -146,7 +166,7 @@ public class InfoAgreementView: UIView, AnyAppThemable {
     }
     
     private func updateItems() {
-        checkBoxTextButtonView.isHidden = cheboxText == nil && checkboxButtonText == nil
+        checkBoxTextButtonView.isHidden = checkboxText == nil && checkboxButtonText == nil
         actionButton.isHidden = actionText == nil
         alternativeButton.isHidden = alternativeText == nil
     }

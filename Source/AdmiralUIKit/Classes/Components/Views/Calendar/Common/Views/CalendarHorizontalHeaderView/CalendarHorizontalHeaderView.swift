@@ -62,6 +62,20 @@ class CalendarHorizontalHeaderView: UIView, AnyAppThemable {
         rightImageButton.apply(theme: theme)
         choiceButton.apply(theme: theme)
     }
+
+    // MARK: - Internal Methods
+
+    func setAccessibilityIds(
+        headerLeftButtonId: String,
+        headerRightButtonId: String,
+        headerChoiseButtonId: String,
+        headerButtonWithArrowId: String
+    ) {
+        leftImageButton.accessibilityIdentifier = headerLeftButtonId
+        rightImageButton.accessibilityIdentifier = headerRightButtonId
+        buttonWithArrow.accessibilityIdentifier = headerChoiseButtonId
+        choiceButton.accessibilityIdentifier = headerButtonWithArrowId
+    }
     
     // MARK: - Private Methods
     

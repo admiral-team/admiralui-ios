@@ -83,6 +83,24 @@ final class TextViewSnapshotTests: XCTestCase {
         let view = createTextView(state: .error)
         checkTextView(view: view, named: "Error.DarkTheme", testName: "TextView")
     }
+
+    // MARK: - Scheme Provider
+
+    func testSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = StandardTextFieldScheme()
+        scheme.textColor = AColor(color: .systemPink)
+        scheme.placeholderColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        scheme.underlineColor = AColor(color: .systemPink)
+        let newSchemeProvider = SchemeProvider<StandardTextFieldScheme>(scheme: scheme)
+
+        let view = createTextView(schemeProvider: newSchemeProvider)
+        checkTextView(view: view, named: "SchemeProvider", testName: "TextView")
+
+        Appearance.shared.theme = .dark
+        let newView = createTextView(schemeProvider: newSchemeProvider)
+        checkTextView(view: newView, named: "SchemeProvider", testName: "TextView")
+    }
     
     func createTextView(state: TextInputState) -> some View {
         let view = TextView(
@@ -93,6 +111,20 @@ final class TextViewSnapshotTests: XCTestCase {
             state: .constant(state),
             info: .constant("Additional text"),
             infoNumberOfLines: 3)
+        return view
+    }
+
+    func createTextView(schemeProvider: SchemeProvider<StandardTextFieldScheme>) -> some View {
+        let view = TextView(
+            .constant("Text"),
+            contentType: .default,
+            placeholder: "Placeholder",
+            name: "Optional label",
+            state: .constant(.normal),
+            info: .constant("Additional text"),
+            infoNumberOfLines: 3,
+            schemeProvider: schemeProvider
+        )
         return view
     }
     

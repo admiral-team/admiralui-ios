@@ -38,9 +38,11 @@ final class PinCodeViewController: UIViewController, CodeInputControlDelegate, A
         autoManage()
 
         stepper.minimumValue = 1
-        stepper.value = 4
+        stepper.value = 6
         stepper.maximumValue = 10
         stepper.text = "Количество знаков"
+        stepper.minusButtonAccesibilityId = "PinCodeInputNumberMinusButton"
+        stepper.plusButtonAccesibilityId = "PinCodeInputNumberPlusButton"
         stepper.addTarget(self, action: #selector(stepperValueChanged(_:)), for: .valueChanged)
         
         segmentControl.insertTitle("Default", forSegmentAt: 0)
@@ -50,7 +52,11 @@ final class PinCodeViewController: UIViewController, CodeInputControlDelegate, A
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged(_:)), for: .valueChanged)
         
         pinCodeKeyboard.delegate = self
-        
+        pinCodeKeyboard.textViewAccesibilityId = "PinCodeTextViewAccesibilityId"
+        pincodeControl.itemsCount = 6
+        pinCodeKeyboard.accessibilityIdentifier = "PinCodeKeyboard"
+        pinCodeKeyboard.textViewAccesibilityId = "PinCodeKeyboardTextView"
+
         addSubviews()
         configureConstraints()
     }

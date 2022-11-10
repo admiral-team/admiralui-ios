@@ -39,7 +39,7 @@ struct ActionBarSwiftUIView: View {
                     .padding(.horizontal, LayoutGrid.doubleModule)
                     ActionCellView(
                         cellView: ListCell(
-                            leadingView: { ImageCardListView(cardImage: Image(uiImage: Asset.Card.visa.image) ) },
+                            leadingView: { LeadingCardListView(cardImage: Image(uiImage: Asset.Card.visa.image) ) },
                             centerView: {
                                 TitleMoreDetailTextMessageListView(title: "Card", detaile: "50 000.00 ₽")
                             },
@@ -90,7 +90,7 @@ struct ActionBarSwiftUIView: View {
                     .padding(.horizontal, LayoutGrid.doubleModule)
                     ActionCellView(
                         cellView: ListCell(
-                            leadingView: { ImageCardListView(cardImage: Image(uiImage: Asset.Card.visa.image) ) },
+                            leadingView: { LeadingCardListView(cardImage: Image(uiImage: Asset.Card.visa.image) ) },
                             centerView: { TitleMoreDetailTextMessageListView(title: "Card", detaile: "50 000.00 ₽") },
                             trailingView: { SubtitleWithImageListView(
                                 subtitle: "Swipe",

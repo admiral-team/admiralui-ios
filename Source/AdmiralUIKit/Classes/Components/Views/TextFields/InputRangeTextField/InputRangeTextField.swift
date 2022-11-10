@@ -113,6 +113,11 @@ public class InputRangeTextField: UIView, AnyAppThemable, AccessibilitySupport {
             textField.leadingText = newValue
         }
     }
+
+    /// Color scheme.
+    public var scheme = InputRangeTextFieldScheme() {
+        didSet { updateScheme() }
+    }
     
     // MARK: - Internal Properties
     
@@ -121,10 +126,6 @@ public class InputRangeTextField: UIView, AnyAppThemable, AccessibilitySupport {
     let minValueLabel = UILabel()
     let maxValueLabel = UILabel()
     let informerLabel = UILabel()
-    
-    var scheme = InputRangeTextFieldScheme() {
-        didSet { updateScheme() }
-    }
 
     // MARK: - AccessibilitySupport
     
@@ -172,7 +173,22 @@ public class InputRangeTextField: UIView, AnyAppThemable, AccessibilitySupport {
         }
         configure(for: self.state)
     }
-    
+
+    /// Sets the accesibility Ids
+    /// - Parameters:
+    ///   - textFieldId: String?.
+    ///   - sliderThubmImageId: String?.
+    ///   - sliderProgressViewId: String?.
+    public func setAccessibilityidentifiers(
+        textFieldId: String? = nil,
+        sliderThubmImageId: String? = nil,
+        sliderProgressViewId: String? = nil
+    ) {
+        textField.inputTextField.accessibilityIdentifier = textFieldId
+        slider.thumbImageAccesibilityId = sliderThubmImageId
+        slider.progressViewAccesibilityId = sliderProgressViewId
+    }
+
     // MARK: - AppTheamable
     
     open func apply(theme: AppTheme) {
@@ -289,8 +305,8 @@ public class InputRangeTextField: UIView, AnyAppThemable, AccessibilitySupport {
     }
     
     private func updateScheme() {
-        textField.scheme = scheme.textField
-        slider.scheme = scheme.slider
+        textField.scheme = scheme.textFieldScheme
+        slider.scheme = scheme.sliderScheme
         configure(for: state)
         updateFonts()
     }
@@ -305,8 +321,8 @@ public class InputRangeTextField: UIView, AnyAppThemable, AccessibilitySupport {
             textStyle: scheme.valueFont.textStyle,
             adjustsFontForContentSize: adjustsFontForContentSizeCategory)
         informerLabel.setDynamicFont(
-            font: scheme.textField.informerFont.uiFont,
-            textStyle: scheme.textField.informerFont.textStyle,
+            font: scheme.textFieldScheme.informerFont.uiFont,
+            textStyle: scheme.textFieldScheme.informerFont.textStyle,
             adjustsFontForContentSize: adjustsFontForContentSizeCategory)
     }
         

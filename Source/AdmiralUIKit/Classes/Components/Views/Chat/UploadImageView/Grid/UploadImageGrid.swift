@@ -94,6 +94,11 @@ public final class UploadImageGridView: UIView, AnyAppThemable {
         }
     }
 
+    /// Color scheme.
+    public var scheme = UploadImageGridViewScheme() {
+        didSet { updateScheme() }
+    }
+
     // MARK: - Private properties
 
     private let gridStyle: [[UploadImageViewCornerStyle]] = [
@@ -132,12 +137,6 @@ public final class UploadImageGridView: UIView, AnyAppThemable {
 
     private var isErrorExists: Bool {
         models.contains(where: { $0.state == .error })
-    }
-
-    // MARK: - Internal Properties
-
-    var scheme = UploadImageGridViewScheme() {
-        didSet { updateScheme() }
     }
 
     // MARK: - Initializer

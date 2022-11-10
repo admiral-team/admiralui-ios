@@ -107,6 +107,13 @@ open class TextFieldInput: UIView {
         }
     }
 
+    /// The input text accessibility identifier
+    public var inputTextAccessibilityId: String? {
+        didSet {
+            inputTextField.accessibilityIdentifier = inputTextAccessibilityId
+        }
+    }
+
     var onChangeContentSize: ((CGFloat) -> ())?
 
     let inputTextField = UITextField()

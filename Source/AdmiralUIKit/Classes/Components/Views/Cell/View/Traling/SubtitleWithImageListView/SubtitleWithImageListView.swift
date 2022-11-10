@@ -22,16 +22,16 @@ public class SubtitleWithImageListView: BaseListView, TralingListViewComponent, 
     public var image: UIImage? {
         didSet { imageView.image = image }
     }
+
+    public var scheme = SubtitleWithImageListViewScheme() {
+        didSet { updateScheme() }
+    }
     
     // MARK: Internal Properties
     
     /// The state of the view. Default is normal.
     override var state: UIControl.State {
         didSet { configure(for: state) }
-    }
-    
-    var scheme = SubtitleWithImageListViewScheme() {
-        didSet { updateScheme() }
     }
     
     // MARK: - AccessibilitySupport

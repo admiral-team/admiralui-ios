@@ -46,10 +46,13 @@ final class RulesViewController: ScrollViewController {
     
     private func configureRulesView() {
         let infoAgreementView = InfoAgreementView()
-        infoAgreementView.cheboxText = "Я согласен с условиями договора и подтверждаю свое согласие на обработку персональных данных"
+        infoAgreementView.checkboxText = "Я согласен с условиями договора и подтверждаю свое согласие на обработку персональных данных"
         infoAgreementView.checkboxButtonText = "Открыть список документов"
         infoAgreementView.delegate = self
-        
+        infoAgreementView.actionButtonAccesibilityId = "InfoAgreementViewActionButton"
+        infoAgreementView.alternativeButtonAccesibilityId = "InfoAgreementViewAlternativeButton"
+        infoAgreementView.checkBoxTextAccesibilityId = "InfoAgreementViewCheckBoxText"
+
         buttonsContainer.buttonViews.append(infoAgreementView)
     }
     

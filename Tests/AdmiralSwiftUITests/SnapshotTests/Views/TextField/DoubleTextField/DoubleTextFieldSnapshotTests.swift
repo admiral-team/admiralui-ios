@@ -47,19 +47,73 @@ final class DoubleTextFieldSnapshotTests: XCTestCase {
         let view = createDoubleTextField()
         checkDoubleTextField(view: view, named: "DarkTheme", testName: "DoubleTextField")
     }
+
+    // MARK: - Scheme Provider
+
+    func testSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = DoubleTextFieldScheme()
+        scheme.underlineColor = AColor(color: .systemPink)
+        scheme.errorColor = AColor(color: .systemPink)
+        let newSchemeProvider = SchemeProvider<DoubleTextFieldScheme>(scheme: scheme)
+
+        let view = createDoubleTextField(schemeProvider: newSchemeProvider)
+        checkDoubleTextField(view: view, named: "SchemeProvider", testName: "DoubleTextField")
+
+        Appearance.shared.theme = .dark
+        let newView = createDoubleTextField(schemeProvider: newSchemeProvider)
+        checkDoubleTextField(view: newView, named: "SchemeProvider", testName: "DoubleTextField")
+    }
     
     func createDoubleTextField() -> some View {
         @State var text: String? = "text"
         @State var textSecond: String? = "textSecond"
         let view = DoubleTextField(
-            firstTextField: StandardTextField($text, placeholder: "P1", name: "Optional Label", state: .constant(.normal)),
-            secondTextField: StandardTextField($textSecond, placeholder: "P2", name: "Optional Label", state: .constant(.normal)),
+            firstTextField: StandardTextField(
+                $text,
+                placeholder: "P1",
+                name: "Optional Label",
+                state: .constant(.normal)
+            ),
+            secondTextField: StandardTextField(
+                $textSecond,
+                placeholder: "P2",
+                name: "Optional Label",
+                state: .constant(.normal)
+            ),
             alignment: .fixedSecond(second: 120.0),
             info: "Info",
             infoNumberOfLines: 1,
             state: .constant(.normal))
             .padding(16.0)
             .previewLayout(PreviewLayout.sizeThatFits)
+        return view
+    }
+
+    func createDoubleTextField(schemeProvider: SchemeProvider<DoubleTextFieldScheme>) -> some View {
+        @State var text: String? = "text"
+        @State var textSecond: String? = "textSecond"
+        let view = DoubleTextField(
+            firstTextField: StandardTextField(
+                $text,
+                placeholder: "P1",
+                name: "Optional Label",
+                state: .constant(.normal),
+                schemeProvider: .constant(scheme: StandardTextFieldScheme(theme: .default))
+            ),
+            secondTextField: StandardTextField(
+                $textSecond,
+                placeholder: "P2",
+                name: "Optional Label",
+                state: .constant(.normal),
+                schemeProvider: .constant(scheme: StandardTextFieldScheme(theme: .default))
+            ),
+            alignment: .fixedSecond(second: 120.0),
+            info: "Info",
+            infoNumberOfLines: 1,
+            state: .constant(.normal),
+            schemeProvider: schemeProvider
+        ).padding(16.0).previewLayout(PreviewLayout.sizeThatFits)
         return view
     }
     

@@ -33,7 +33,7 @@ A live example of using the `AdmiralUI` library is our demo application, which i
 The project is divided into 4 modules:
 * `AdmiralUIResources` - all resources (icons / fonts / colors)
 * `AdmiralTheme` - app theme manager
-* `AdmrialUIKit (deprecated)`- component library on UIKit
+* `AdmrialUIKit`- component library on UIKit
 * `AdmiralSwiftUI` - component library on SwiftUI
 
 > The modules work independently of each other and can be connected separately. For example: if you only need icons and fonts, you should only connect `AdmiralUIResources`, and if you only need a theme manager - `AdmiralTheme`

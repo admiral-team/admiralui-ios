@@ -45,7 +45,6 @@ public struct DoubleSliderView: View {
         minValue: Double = 0.0,
         maxValue: Double = 1.0,
         segmentSize: Binding<CGSize>,
-        scheme: SliderScheme? = nil,
         schemeProvider: SchemeProvider<SliderScheme> = AppThemeSchemeProvider<SliderScheme>(),
         gestureChange: @escaping () -> ()
     ) {

@@ -47,9 +47,36 @@ final class SubtitleWithImageListViewSnapshotTests: XCTestCase {
         let view = createSubtitleWithImageListView()
         checkSubtitleWithImageListView(view: view, named: "DarkTheme", testName: "SubtitleWithImageListView")
     }
+
+    // MARK: - Scheme Provider
+
+    func testSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = SubtitleWithImageListViewScheme(theme: .default)
+        scheme.imageTintColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        scheme.subtitleLabelTextColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        let newSchemeProvider = SchemeProvider<SubtitleWithImageListViewScheme>(scheme: scheme)
+
+        let view = createSubtitleWithImageListView(schemeProvider: newSchemeProvider)
+        checkSubtitleWithImageListView(view: view, named: "SchemeProvider", testName: "SubtitleWithImageListView")
+
+        Appearance.shared.theme = .dark
+        let newView = createSubtitleWithImageListView(schemeProvider: newSchemeProvider)
+        checkSubtitleWithImageListView(view: newView, named: "SchemeProvider", testName: "SubtitleWithImageListView")
+    }
     
     func createSubtitleWithImageListView() -> some View {
         let view = SubtitleWithImageListView(subtitle: "Subtitle", image: Image(uiImage: Asset.Finance.Solid.debitCardSolid.image))
+        return view
+    }
+
+    func createSubtitleWithImageListView(schemeProvider: SchemeProvider<SubtitleWithImageListViewScheme>) -> some View {
+        let view = SubtitleWithImageListView(
+            subtitle: "Subtitle",
+            image: Image(uiImage: Asset.Finance.Solid.debitCardSolid.image),
+            renderingMode: .template,
+            schemeProvider: schemeProvider
+        )
         return view
     }
     

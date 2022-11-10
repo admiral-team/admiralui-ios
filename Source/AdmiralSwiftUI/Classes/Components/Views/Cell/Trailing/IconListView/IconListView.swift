@@ -10,7 +10,7 @@ import AdmiralTheme
 import AdmiralUIResources
 
 /**
- IconListViewStyle - Public enum for ImageCardListView
+ IconListViewStyle - Public enum for CardListView
  
  IconListViewStyle can be one of the following values:
 

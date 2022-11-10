@@ -8,21 +8,37 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-struct DoubleTextFieldScheme {
-    var first: TextFieldScheme
-    var second: TextFieldScheme
-    
-    var errorColor: AColor
-    var underlineColor: AColor
-    var disabledColor: AColor
-    
-    var informerFont: AFont
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+/**
+ DoubleTextFieldScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - DoubleTextFieldScheme() - Initialize default DoubleTextFieldScheme with default themezation
+Example to create DoubleTextFieldScheme:
+Code
+ ```
+let scheme = DoubleTextFieldScheme()
+ ```
+ */
+public struct DoubleTextFieldScheme: AppThemeScheme {
+
+    /// First text field scheme.
+    public var first: TextFieldScheme
+
+    /// Seconde text field scheme.
+    public var second: TextFieldScheme
+
+    /// Error color scheme.
+    public var errorColor: AColor
+
+    /// Underline color.
+    public var underlineColor: AColor
+
+    /// Dissabled color.
+    public var disabledColor: AColor
+
+    /// Informer font.
+    public var informerFont: AFont
+
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         self.informerFont = theme.fonts.subhead3

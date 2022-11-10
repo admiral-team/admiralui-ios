@@ -26,13 +26,13 @@ class BottomSheetTableViewCellViewModel {
     }
 }
 
-final class BottomSheetTableViewCell: TableListCell<ImageCardListView, TitleLargeSubtitleListView, CheckBoxListView> {
+final class BottomSheetTableViewCell: TableListCell<LeadingCardListView, TitleLargeSubtitleListView, CheckBoxListView> {
     
     // MARK: - Private Properties
     
     private let checkBoxCell = CheckBoxListView()
     private let titleListView = TitleLargeSubtitleListView()
-    private let cardListView = ImageCardListView()
+    private let cardListView = LeadingCardListView()
     
     // MARK: - Initializers
     

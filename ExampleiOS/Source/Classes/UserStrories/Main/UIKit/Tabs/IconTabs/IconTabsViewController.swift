@@ -46,18 +46,24 @@ final class IconTabsViewController: ScrollViewController {
     }
     
     private func configureSegmentControlls() {
-        let segmentControl1 = IconTabsSegmentControl(items:
-                                                        [IconTab(title: "One", image: Asset.IconTabs.mobile.image),
-                                                         IconTab(title: "Two", image: Asset.IconTabs.card.image)])
+        let segmentControl1 = IconTabsSegmentControl(
+            items: [
+                IconTab(title: "One", image: Asset.IconTabs.mobile.image, accesibilityId: "IconTabOne1"),
+                IconTab(title: "Two", image: Asset.IconTabs.card.image, accesibilityId: "IconTabOne1")
+            ]
+        )
         segmentControl1.selectedSegmentIndex = 0
         
         let view1 = TabsView<IconTabsSegmentControl>(segmentView: segmentControl1, title: "Two controls")
         views.append(view1)
         
-        let segmentControl2 = IconTabsSegmentControl(items:
-                                                        [IconTab(title: "One", image: Asset.IconTabs.mobile.image),
-                                                         IconTab(title: "Two", image: Asset.IconTabs.card.image),
-                                                         IconTab(title: "Three", image: Asset.IconTabs.account.image)])
+        let segmentControl2 = IconTabsSegmentControl(
+            items: [
+                IconTab(title: "One", image: Asset.IconTabs.mobile.image, accesibilityId: "IconTabTwo1"),
+                IconTab(title: "Two", image: Asset.IconTabs.card.image, accesibilityId: "IconTabTwo2"),
+                IconTab(title: "Three", image: Asset.IconTabs.account.image, accesibilityId: "IconTabTwo3")
+            ]
+        )
         segmentControl2.selectedSegmentIndex = 0
         
         let view2 = TabsView<IconTabsSegmentControl>(segmentView: segmentControl2, title: "Three controls")
@@ -67,5 +73,5 @@ final class IconTabsViewController: ScrollViewController {
     @objc private func segmentedValueChanged(_ control: StandardSegmentedControl) {
         views.forEach({ $0.isEnabled = control.selectedSegmentIndex == 1 ? false : true })
     }
- 
+
 }

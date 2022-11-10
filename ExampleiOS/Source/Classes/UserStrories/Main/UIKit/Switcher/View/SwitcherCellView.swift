@@ -35,9 +35,10 @@ final class SwitcherCellView: UIView, AnyAppThemable, AccessibilitySupport {
     
     // MARK: - Initializer
 
-    init(isOn: Bool, title: String) {
+    init(isOn: Bool, title: String, accesibilityId: String) {
         super.init(frame: .zero)
         switchControl.isOn = isOn
+        switchControl.accessibilityIdentifier = accesibilityId
         titleLabel.text = title
         configureUI()
     }

@@ -26,32 +26,32 @@ final class IconsFlagsCurrencyViewModel {
             currencyText: "USD",
             buyText: "100,88",
             sellText: "94.65",
-            sellCellType: .arrowUp,
-            buyCellType: .arrowDown
+            sellCellType: .arrowDown,
+            buyCellType: .arrowUp
         ),
         CurrencyItem(
             image: Asset.Currency.european.image,
             currencyText: "EUR",
             buyText: "108,88",
             sellText: "120.65",
-            sellCellType: .arrowUp,
-            buyCellType: .arrowDown
+            sellCellType: .arrowDown,
+            buyCellType: .arrowUp
         ),
         CurrencyItem(
             image: Asset.Currency.britain.image,
             currencyText: "GBR",
             buyText: "28,88",
             sellText: "18.65",
-            sellCellType: .arrowUp,
-            buyCellType: .arrowDown
+            sellCellType: .arrowDown,
+            buyCellType: .arrowUp
         ),
         CurrencyItem(
             image: Asset.Currency.china.image,
             currencyText: "CNY",
             buyText: "19,88",
             sellText: "9.65",
-            sellCellType: .arrowUp,
-            buyCellType: .arrowDown
+            sellCellType: .arrowDown,
+            buyCellType: .arrowUp
         )
     ]
 

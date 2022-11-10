@@ -27,6 +27,7 @@ jobs:
         run: |
           bundle install
           bundle update fastlane
+          bundle exec fastlane run clear_derived_data
       - name: Start SwiftUI & UIKit tests
         run: bundle exec fastlane run_all_tests
       - name: Check If Failed

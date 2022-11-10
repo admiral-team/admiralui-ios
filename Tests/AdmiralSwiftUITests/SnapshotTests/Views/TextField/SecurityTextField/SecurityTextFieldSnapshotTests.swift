@@ -95,6 +95,24 @@ final class SecurityTextFieldSnapshotTests: XCTestCase {
         let view = createSecurityTextField(state: .readOnly)
         checkSecurityTextField(view: view, named: "ReadOnlyStateDarkTheme", testName: "SecurityTextField")
     }
+
+    // MARK: - Scheme Provider
+
+    func testSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = StandardTextFieldScheme()
+        scheme.textColor = AColor(color: .systemPink)
+        scheme.placeholderColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        scheme.underlineColor = AColor(color: .systemPink)
+        let newSchemeProvider = SchemeProvider<StandardTextFieldScheme>(scheme: scheme)
+
+        let view = createSecurityTextField(schemeProvider: newSchemeProvider)
+        checkSecurityTextField(view: view, named: "SchemeProvider", testName: "SecurityTextField")
+
+        Appearance.shared.theme = .dark
+        let newView = createSecurityTextField(schemeProvider: newSchemeProvider)
+        checkSecurityTextField(view: newView, named: "SchemeProvider", testName: "SecurityTextField")
+    }
     
     func createSecurityTextField(state: TextInputState) -> some View {
         let view = SecurityTextField(
@@ -105,6 +123,20 @@ final class SecurityTextFieldSnapshotTests: XCTestCase {
             name: "Optional label",
             state: .constant(state),
             info: .constant("Additional text"))
+        return view
+    }
+
+    func createSecurityTextField(schemeProvider: SchemeProvider<StandardTextFieldScheme>) -> some View {
+        let view = SecurityTextField(
+            .constant(nil),
+            accessibilityIdentifier: "123",
+            contentType: .default,
+            placeholder: "Placeholder",
+            name: "Optional label",
+            state: .constant(.normal),
+            info: .constant("Additional text"),
+            schemeProvider: schemeProvider
+        )
         return view
     }
     

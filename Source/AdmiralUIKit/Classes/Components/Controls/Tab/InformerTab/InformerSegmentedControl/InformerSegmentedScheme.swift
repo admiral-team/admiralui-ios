@@ -8,26 +8,41 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-struct InformerSegmentedScheme {
-    
-    struct ItemScheme {
-        var titleFont: AFont = AppTheme.default.fonts.subtitle1
-        var subtitleFont: AFont = AppTheme.default.fonts.subhead4
-        
-        var titleColor = ControlParameter<AColor>()
-        var subtitleColor = ControlParameter<AColor>()
-        
-        var borderColor = ControlParameter<AColor>()
-    }
-    
-    var itemScheme = ItemScheme()
+/**
+ InformerSegmentedScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - InformerSegmentedScheme() - Initialize default InformerSegmentedScheme with default themezation
+Example to create InformerSegmentedScheme:
+Code
+ ```
+let scheme = InformerSegmentedScheme()
+ ```
+ */
+public struct InformerSegmentedScheme: AppThemeScheme {
 
-    
-    init() {
-        //
+    /// Item scheme.
+    public struct ItemScheme {
+
+        /// Title font.
+        public var titleFont: AFont = AppTheme.default.fonts.subtitle1
+
+        /// Subtitle font.
+        public var subtitleFont: AFont = AppTheme.default.fonts.subhead4
+
+        /// Title color.
+        public var titleColor = ControlParameter<AColor>()
+
+        /// Subtitle color.
+        public var subtitleColor = ControlParameter<AColor>()
+
+        /// Border color.
+        public var borderColor = ControlParameter<AColor>()
     }
+
+    /// Item scheme.
+    public var itemScheme = ItemScheme()
     
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         itemScheme.titleFont = theme.fonts.subtitle1

@@ -120,6 +120,20 @@ class CalendarHorizontalView: UIView, AnyAppThemable {
             animated: false)
         updateHorizontalHeaderViewDate()
     }
+
+    func setHeaderAccessibilityIds(
+        headerLeftButtonId: String,
+        headerRightButtonId: String,
+        headerChoiseButtonId: String,
+        headerButtonWithArrowId: String
+    ) {
+        calendarHorizontalHeaderView.setAccessibilityIds(
+            headerLeftButtonId: headerLeftButtonId,
+            headerRightButtonId: headerRightButtonId,
+            headerChoiseButtonId: headerChoiseButtonId,
+            headerButtonWithArrowId: headerButtonWithArrowId
+        )
+    }
     
     func reloadData() {
         setDates()

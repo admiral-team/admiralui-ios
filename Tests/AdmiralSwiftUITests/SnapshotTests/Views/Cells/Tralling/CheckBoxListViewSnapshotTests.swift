@@ -59,9 +59,34 @@ final class CheckBoxListViewSnapshotTests: XCTestCase {
         let view = createCheckBoxListView(isSelected: false)
         checkCheckBoxListView(view: view, named: "NotSelectedDarkTheme", testName: "CheckBoxListView")
     }
+
+    func testSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = CheckBoxListViewScheme(theme: .default)
+        scheme.checkBoxScheme.tintColor.set(parameter: AColor(color: .systemPink), for: .normal, state: .normal)
+        let newSchemeProvider = SchemeProvider<CheckBoxListViewScheme>(scheme: scheme)
+
+        let view = createCheckBoxListView(isSelected: true, schemeProvider: newSchemeProvider)
+        checkCheckBoxListView(view: view, named: "SchemeProvider", testName: "CheckBoxListView")
+
+        Appearance.shared.theme = .dark
+        let newView = createCheckBoxListView(isSelected: true, schemeProvider: newSchemeProvider)
+        checkCheckBoxListView(view: newView, named: "SchemeProvider", testName: "CheckBoxListView")
+    }
     
     func createCheckBoxListView(isSelected: Bool) -> some View {
         let view = CheckBoxListView(isControlSelected: .constant(isSelected))
+        return view
+    }
+
+    func createCheckBoxListView(
+        isSelected: Bool,
+        schemeProvider: SchemeProvider<CheckBoxListViewScheme>
+    ) -> some View {
+        let view = CheckBoxListView(
+            isControlSelected: .constant(isSelected),
+            schemeProvider: schemeProvider
+        )
         return view
     }
     

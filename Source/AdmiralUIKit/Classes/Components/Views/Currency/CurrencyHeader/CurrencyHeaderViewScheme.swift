@@ -8,21 +8,32 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-struct CurrencyHeaderViewScheme: AppThemeScheme {
+/**
+ CurrencyHeaderViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - CurrencyHeaderViewScheme() - Initialize default CurrencyHeaderViewScheme with default themezation
+Example to create CurrencyHeaderViewScheme:
+Code
+ ```
+let scheme = CurrencyHeaderViewScheme()
+ ```
+ */
+public struct CurrencyHeaderViewScheme: AppThemeScheme {
 
     // MARK: - Internal Properties
 
-    var textColor: AColor
-    var textFont: AFont
-    var backgroundColor: AColor
+    /// Text color.
+    public var textColor: AColor
+
+    /// Text font.
+    public var textFont: AFont
+
+    /// Background color.
+    public var backgroundColor: AColor
 
     // MARK: - Initializer
 
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         backgroundColor = theme.colors.backgroundBasic
         textColor = theme.colors.textSecondary
         textFont = theme.fonts.subhead3

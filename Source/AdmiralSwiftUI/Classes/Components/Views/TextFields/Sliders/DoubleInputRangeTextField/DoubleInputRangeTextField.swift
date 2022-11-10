@@ -298,7 +298,7 @@ public struct DoubleInputRangeTextField: AccessabilitySupportUIKit, Identifiable
                     minValue: minValue,
                     maxValue: maxValue,
                     segmentSize: $sizeModifier,
-                    scheme: globalScheme.slider,
+                    schemeProvider: .constant(scheme: globalScheme.slider),
                     gestureChange: {
                         DispatchQueue.main.async {
                             self.finishAfterChangeSlider = true
