@@ -175,7 +175,7 @@ class MainViewController: UIViewController, AnyAppThemable {
                 didSelect: { [weak self] in self?.presentRadioAndSwitcher() }),
             
             MainTableViewCellViewModel(
-                title: "Сheckbox",
+                title: "Checkbox",
                 subtitle: "Селектор",
                 image: Asset.Main.checkboxes.image,
                 didSelect: { [weak self] in self?.presentCheckbox() }),
