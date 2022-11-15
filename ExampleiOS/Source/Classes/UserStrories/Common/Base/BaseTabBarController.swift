@@ -65,7 +65,7 @@ class BaseTabBarController: UITabBarController, AppThemeable {
     
     func prepareUIKitChatController() -> UINavigationController {
         let chatVC = ChatViewController()
-        chatVC.navigationItem.title = Constants.chatTitle
+        chatVC.navigationItem.title = "Chat"
         chatVC.tabBarItem = UITabBarItem(
             title: Constants.chatTitle,
             image: AdmiralUIResources.Asset.Category.Solid.chatSolid.image,

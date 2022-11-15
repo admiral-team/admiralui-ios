@@ -4,9 +4,9 @@
 //
 //  Created on 10.03.2021.
 //
-
-import UIKit
+import AdmiralCore
 import AdmiralTheme
+import UIKit
 
 open class TextField: TextFieldInput, AnyAppThemable, AccessibilitySupport {
     
@@ -95,6 +95,13 @@ open class TextField: TextFieldInput, AnyAppThemable, AccessibilitySupport {
     /// The  type of texfield trailing view.
     public var trailingViewStyle: TextInputTrailingViewStyle = .default {
         didSet { updateTrailingView() }
+    }
+
+    ///  The property that affects numeric characters, and leaves all other characters unchanged.
+    public var isMonoSpaceDigitFontEnabled: Bool = false {
+        didSet {
+            updateFonts()
+        }
     }
 
     /// Color scheme.
@@ -221,9 +228,10 @@ open class TextField: TextFieldInput, AnyAppThemable, AccessibilitySupport {
     
     private func updateFonts() {
         inputTextField.setDynamicFont(
-            font: scheme.textFieldFont.uiFont,
+            font: isMonoSpaceDigitFontEnabled ? scheme.textFieldFont.uiFont.monospacedDigitFont : scheme.textFieldFont.uiFont,
             textStyle: scheme.textFieldFont.textStyle,
-            adjustsFontForContentSize: adjustsFontForContentSizeCategory)
+            adjustsFontForContentSize: adjustsFontForContentSizeCategory
+        )
     }
     
     private func updateColors() {
@@ -237,23 +245,27 @@ open class TextField: TextFieldInput, AnyAppThemable, AccessibilitySupport {
             decorationView.separatorView.lineColor = (isEditing || isSelected) ? scheme.tintColor.uiColor : scheme.underlineColor.uiColor
             decorationView.informerLabel.textColor = scheme.underlineColor.uiColor
             decorationView.separatorView.lineMode = .solid
+            decorationView.leadingTextLabel.textColor = scheme.textColor.uiColor
         case .error:
             inputTextField.textColor = scheme.textColor.uiColor
             decorationView.nameLabel.textColor = scheme.errorColor.uiColor
             decorationView.informerLabel.textColor = scheme.errorColor.uiColor
             decorationView.separatorView.lineColor = scheme.errorColor.uiColor
+            decorationView.leadingTextLabel.textColor = scheme.textColor.uiColor
             decorationView.separatorView.lineMode = .solid
         case .disabled:
             inputTextField.textColor = scheme.disabledColor.uiColor
             decorationView.nameLabel.textColor = scheme.disabledColor.uiColor
             decorationView.informerLabel.textColor = scheme.disabledColor.uiColor
             decorationView.separatorView.lineColor = scheme.disabledColor.uiColor
+            decorationView.leadingTextLabel.textColor = scheme.textColor.uiColor
             decorationView.separatorView.lineMode = .solid
         case .readOnly:
             inputTextField.textColor = scheme.textColor.uiColor
             decorationView.nameLabel.textColor = scheme.underlineColor.uiColor
             decorationView.informerLabel.textColor = scheme.underlineColor.uiColor
             decorationView.separatorView.lineColor = scheme.underlineColor.uiColor
+            decorationView.leadingTextLabel.textColor = scheme.textColor.uiColor
             decorationView.separatorView.lineMode = .dashed(dash: LayoutGrid.halfModule, gap: LayoutGrid.halfModule, phase: 0)
         }
     }

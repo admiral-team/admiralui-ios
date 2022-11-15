@@ -9,12 +9,21 @@ import AdmiralUIKit
 import AdmiralTheme
 import UIKit
 
- final class TextOperationViewController: UIViewController, AnyAppThemable {
+final class TextOperationViewController: UIViewController, AnyAppThemable {
 
     // MARK: - Private Properties
 
     private let viewModel = TextOperationViewModel()
     private let themeSwitchView = ThemeSwitchView(frame: .zero)
+
+    // MARK: - Computed Properties
+
+    @available(iOS 13.0, *)
+    private var backButton: UIBarButtonItem {
+        let chevronLeft = UIImage(systemName: "chevron.left")
+        let backButton = UIBarButtonItem(image: chevronLeft, style: .plain, target: self, action: #selector(back))
+        return backButton
+    }
 
     private var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
@@ -41,15 +50,14 @@ import UIKit
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if #available(iOS 13.0, *) {
+            navigationItem.leftBarButtonItems = [backButton]
+        }
         configureLayout()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
+    @objc private func back() {
+        navigationController?.popViewController(animated: true)
     }
 
     // MARK: - AnyAppThemable
@@ -104,12 +112,12 @@ import UIKit
         configureUI()
     }
 
- }
+}
 
- extension TextOperationViewController: UITableViewDelegate {
+extension TextOperationViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         UITableView.automaticDimension
     }
 
- }
+}
