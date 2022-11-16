@@ -24,13 +24,6 @@ final class TextMessageViewController: UIViewController, AnyAppThemable {
         return tableView
     }()
 
-    @available(iOS 13.0, *)
-    private var backButton: UIBarButtonItem {
-        let chevronLeft = UIImage(systemName: "chevron.left")
-        let backButton = UIBarButtonItem(image: chevronLeft, style: .plain, target: self, action: #selector(back))
-        return backButton
-    }
-
     private lazy var tableViewManager: TableViewListItemManager = {
         let manager = TableViewListItemManager()
         return manager
@@ -45,9 +38,6 @@ final class TextMessageViewController: UIViewController, AnyAppThemable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if #available(iOS 13.0, *) {
-            navigationItem.leftBarButtonItems = [backButton]
-        }
         configureLayout()
     }
 

@@ -37,13 +37,6 @@ final class UploadingFileViewController: UIViewController, AnyAppThemable {
         set { themeSwitchView.isHidden = newValue }
     }
 
-    @available(iOS 13.0, *)
-    private var backButton: UIBarButtonItem {
-        let chevronLeft = UIImage(systemName: "chevron.left")
-        let backButton = UIBarButtonItem(image: chevronLeft, style: .plain, target: self, action: #selector(back))
-        return backButton
-    }
-
     private var uploadFiles = [
         UploadingFileCellItem(
             state: .download,
@@ -147,14 +140,7 @@ final class UploadingFileViewController: UIViewController, AnyAppThemable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if #available(iOS 13.0, *) {
-            navigationItem.leftBarButtonItems = [backButton]
-        }
         configureLayout()
-    }
-
-    @objc private func back() {
-        navigationController?.popViewController(animated: true)
     }
 
     override func viewDidAppear(_ animated: Bool) {

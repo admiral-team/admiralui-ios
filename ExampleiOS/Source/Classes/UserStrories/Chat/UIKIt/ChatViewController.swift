@@ -19,7 +19,6 @@ final class ChatViewController: BaseTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setSegmentControl(hidden: true)
-        navigationController?.navigationBar.prefersLargeTitles = true
         tableView.separatorStyle = .none
         tableViewManager.sections = createSections()
     }
