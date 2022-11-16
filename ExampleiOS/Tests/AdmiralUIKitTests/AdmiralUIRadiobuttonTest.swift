@@ -15,14 +15,30 @@ class AdmiralUIRadiobuttonTest: XCTestCase {
     }
 
     func testExample() throws {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
         let app = XCUIApplication()
         app.launch()
         
         app.tables.staticTexts["Radiobutton"].tap()
-        app.staticTexts["Disabled"].tap()
-        app.staticTexts["Default"].tap()    
+        app.otherElements.matching(identifier: "SegmentControlDisabled").element.tap()
+        app.otherElements.matching(identifier: "SegmentControlDefault").element.tap()
+        
+        
+        app.otherElements.matching(identifier: "RadioControlsFirstDefault").element.tap()
+        app.otherElements.matching(identifier: "RadioControlsSecondDefault").element.tap()
+        
+        app.otherElements.matching(identifier: "RadioControlsFirstSelected").element.tap()
+        app.otherElements.matching(identifier: "RadioControlsSecondSelected").element.tap()
+        
+        app.otherElements.matching(identifier: "RadioControlsFirstError").element.tap()
+        app.otherElements.matching(identifier: "RadioControlsSecondError").element.tap()
+        
+        app.buttons["Ellipse"].tap()
+        
+        app.staticTexts["Light"].tap()
+        app.staticTexts["Dark"].tap()
+        app.staticTexts["SME Light"].tap()
+        app.staticTexts["SME Dark"].tap()
+        
+        app.buttons["Ellipse"].tap()
     }
-
 }
