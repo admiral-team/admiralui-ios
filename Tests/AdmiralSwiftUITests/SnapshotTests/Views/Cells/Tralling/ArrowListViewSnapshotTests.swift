@@ -34,9 +34,31 @@ final class ArrowListViewSnapshotTests: XCTestCase {
         let view = createArrowListView()
         checkArrowListView(view: view, named: "DarkTheme", testName: "ArrowListView")
     }
+
+    // MARK: - Scheme Provider
+
+    func testSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = ArrowListViewScheme(theme: .default)
+        scheme.imageTintColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        let newSchemeProvider = SchemeProvider<ArrowListViewScheme>(scheme: scheme)
+
+        let view = createArrowListView(schemeProvider: newSchemeProvider)
+        checkArrowListView(view: view, named: "SchemeProvider", testName: "ArrowListView")
+
+        Appearance.shared.theme = .dark
+        let newView = createArrowListView(schemeProvider: newSchemeProvider)
+        checkArrowListView(view: newView, named: "SchemeProvider", testName: "ArrowListView")
+    }
     
     func createArrowListView() -> some View {
         let view = ArrowListView()
+            .padding()
+        return view
+    }
+
+    func createArrowListView(schemeProvider: SchemeProvider<ArrowListViewScheme>) -> some View {
+        let view = ArrowListView(schemeProvider: schemeProvider)
             .padding()
         return view
     }

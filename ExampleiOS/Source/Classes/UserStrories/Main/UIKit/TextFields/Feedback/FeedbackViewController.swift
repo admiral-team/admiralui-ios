@@ -35,6 +35,9 @@ final class FeedbackViewController: BaseViewController {
         addSubviews()
         configureSegment()
         configureConstraints()
+
+        digitControl.addTarget(self, action: #selector(feedbackChanged(_:)), for: .valueChanged)
+        digitControl.accessibilityIdentifier = "FeedbackInputControl"
     }
     
     @objc private func stepperValueChanged(_ stepper: UIStepper) {
@@ -69,4 +72,6 @@ final class FeedbackViewController: BaseViewController {
     @objc private func segmentedValueChanged(_ control: StandardSegmentedControl) {
         digitControl.isEnabled = control.selectedSegmentIndex == 0 ? true : false
     }
+
+    @objc private func feedbackChanged(_ control: FeedbackInputControl) {}
 }

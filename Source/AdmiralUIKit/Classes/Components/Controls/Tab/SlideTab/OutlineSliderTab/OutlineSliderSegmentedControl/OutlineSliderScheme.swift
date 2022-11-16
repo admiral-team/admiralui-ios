@@ -8,23 +8,41 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-struct OutlineSliderScheme {
-            
-    struct ItemScheme {
-        var titleFont = ControlParameter<AFont>()
-        var titleColor = ControlParameter<AColor>()
-    }
-    
-    var itemScheme = ItemScheme()
-    var badgeScheme: BadgeScheme
-    var badgeBorderColor: AColor
-    var borderColor = ControlParameter<AColor>()
+/**
+ OutlineSliderScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - OutlineSliderScheme() - Initialize default OutlineSliderScheme with default themezation
+Example to create OutlineSliderScheme:
+Code
+ ```
+let scheme = OutlineSliderScheme()
+ ```
+ */
+public struct OutlineSliderScheme: AppThemeScheme {
 
-    init() {
-        self.init(theme: AppTheme.default)
+    /// Item scheme.
+    public struct ItemScheme {
+        
+        /// Title font.
+        public var titleFont = ControlParameter<AFont>()
+
+        /// Title color.
+        public var titleColor = ControlParameter<AColor>()
     }
+
+    /// Item scheme.
+    public var itemScheme = ItemScheme()
+
+    /// Badge scheme.
+    public var badgeScheme: BadgeScheme
+
+    /// Badge border color.
+    public var badgeBorderColor: AColor
+
+    /// Border color.
+    public var borderColor = ControlParameter<AColor>()
     
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
         badgeBorderColor = theme.colors.backgroundBasic
 

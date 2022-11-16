@@ -32,7 +32,7 @@ final class IconListViewSnapshotTests: XCTestCase {
         Appearance.prepare()
     }
     
-    // MARK: Default Theme
+    // MARK: - Default Theme
     
     func testIconListViewDefaultTheme() {
         Appearance.shared.theme = .default
@@ -40,16 +40,41 @@ final class IconListViewSnapshotTests: XCTestCase {
         checkIconListView(view: view, named: "DefaultTheme", testName: "IconListView")
     }
     
-    // MARK: Dark Theme
+    // MARK: - Dark Theme
     
     func testIconListViewDarkTheme() {
         Appearance.shared.theme = .dark
         let view = createIconListView()
         checkIconListView(view: view, named: "DarkTheme", testName: "IconListView")
     }
+
+    // MARK: - Scheme Provider
+
+    func testSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = IconListViewScheme(theme: .default)
+        scheme.imageTintColor.set(parameter: AColor(color: .systemPink), for: .normal, style: nil)
+        let newSchemeProvider = SchemeProvider<IconListViewScheme>(scheme: scheme)
+
+        let view = createIconListView(schemeProvider: newSchemeProvider)
+        checkIconListView(view: view, named: "SchemeProvider", testName: "IconListView")
+
+        Appearance.shared.theme = .dark
+        let newView = createIconListView(schemeProvider: newSchemeProvider)
+        checkIconListView(view: newView, named: "SchemeProvider", testName: "IconListView")
+    }
     
     func createIconListView() -> some View {
         let view = IconListView(image: Image(uiImage: Asset.Finance.Solid.cardTSolid.image))
+        return view
+    }
+
+    func createIconListView(schemeProvider: SchemeProvider<IconListViewScheme>) -> some View {
+        let view = IconListView(
+            image: Image(uiImage: Asset.Finance.Solid.cardTSolid.image),
+            renderingMode: .template,
+            schemeProvider: schemeProvider
+        )
         return view
     }
     

@@ -32,7 +32,7 @@ import AdmiralUIResources
  */
 /// A view object with button and arrow image view.
 @available(iOS 14.0, *)
-public struct ButtonWithArrowListView: View, LeadingListViewComponent, TralingListViewComponent {
+public struct ButtonWithArrowListView: View, CenterListViewComponent, TralingListViewComponent {
     
     // MARK: - Public Properties
     
@@ -71,8 +71,8 @@ public struct ButtonWithArrowListView: View, LeadingListViewComponent, TralingLi
         Button(text, action: action)
             .buttonStyle(
                 GhostButtonWithImageStyle(
-                    schemeProvider: .constant(scheme: scheme.ghostButtonScheme),
-                    image: image
+                    image: image,
+                    schemeProvider: .constant(scheme: scheme.button)
                 )
             )
     }

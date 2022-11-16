@@ -4,7 +4,7 @@
 //
 //  Created on 29.09.2021.
 //
-
+import AdmiralCore
 import AdmiralUIResources
 import AdmiralTheme
 import SwiftUI
@@ -298,7 +298,7 @@ public struct DoubleInputRangeTextField: AccessabilitySupportUIKit, Identifiable
                     minValue: minValue,
                     maxValue: maxValue,
                     segmentSize: $sizeModifier,
-                    scheme: globalScheme.slider,
+                    schemeProvider: .constant(scheme: globalScheme.slider),
                     gestureChange: {
                         DispatchQueue.main.async {
                             self.finishAfterChangeSlider = true
@@ -514,7 +514,7 @@ public struct DoubleInputRangeTextField: AccessabilitySupportUIKit, Identifiable
             if isTextFieldDisabled {
                 Text(contentTo ?? "")
                     .foregroundColor(textColor.swiftUIColor)
-                    .font(textFieldFont?.swiftUIFont)
+                    .font(textFieldFont?.swiftUIFont.monospacedDigit())
                     .frame(width: textWidth, height: textHeight)
                     .disabled(isTextFieldDisabled)
                     .onAppear {
@@ -542,7 +542,7 @@ public struct DoubleInputRangeTextField: AccessabilitySupportUIKit, Identifiable
                         autocorrectionType: autocorrectionType,
                         textColor: textColor.uiColor,
                         tintColor: tintColor.uiColor,
-                        font: textFieldFont?.uiFont,
+                        font: textFieldFont?.uiFont.monospacedDigitFont,
                         onSubmit: onSubmit ?? {
                             // TODO: - Close keyboard by flag
                             UIApplication.shared.keyWindow?.endEditing(true)
@@ -597,7 +597,7 @@ public struct DoubleInputRangeTextField: AccessabilitySupportUIKit, Identifiable
                 HStack {
                     Text(contentFrom ?? "")
                         .foregroundColor(textColor.swiftUIColor)
-                        .font(textFieldFont?.swiftUIFont)
+                        .font(textFieldFont?.swiftUIFont.monospacedDigit())
                         .frame(width: textWidth, height: textHeight)
                         .disabled(isTextFieldDisabled)
                         .onAppear {
@@ -628,7 +628,7 @@ public struct DoubleInputRangeTextField: AccessabilitySupportUIKit, Identifiable
                         textColor: textColor.uiColor,
                         placeholderColor: placeholderColor?.uiColor ?? .clear,
                         tintColor: tintColor.uiColor,
-                        font: textFieldFont?.uiFont,
+                        font: textFieldFont?.uiFont.monospacedDigitFont,
                         onSubmit: onSubmit ?? {
                             // TODO: - Close keyboard by flag
                             UIApplication.shared.keyWindow?.endEditing(true)

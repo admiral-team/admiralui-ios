@@ -74,6 +74,8 @@ final class SecondaryTitleCelViewController: ScrollViewController {
     
     private func configureSecondaryCell(_ title: String?) -> ListCell<ListCellEmpty, SecondaryTitleListView, ButtonWithArrowListView> {
         let buttonListView = ButtonWithArrowListView()
+        buttonListView.accessibilityIdentifier = "ButtonWithArrowListView"
+        buttonListView.buttonAccesibilityId = "ButtonWithArrowListViewButton"
         buttonListView.title = "Button"
         buttonListView.didSelect = {
             print("Did select")

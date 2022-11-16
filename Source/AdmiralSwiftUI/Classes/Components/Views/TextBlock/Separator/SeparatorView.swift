@@ -62,7 +62,11 @@ public struct SeparatorView: View {
                 }
             }
         )
-        .configCell(minHeight: textBlockStyle.minHeight, edgeInsets: textBlockStyle.edgeInsets)
+        .configCell(
+            minHeight: textBlockStyle.minHeight,
+            edgeInsets: textBlockStyle.edgeInsets,
+            schemeProvider: .constant(scheme: scheme.listCellScheme)
+        )
     }
 }
 

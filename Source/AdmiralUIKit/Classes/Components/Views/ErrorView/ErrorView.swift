@@ -46,6 +46,7 @@ public final class ErrorView: UIView, AnyAppThemable {
         didSet { updateFonts() }
     }
 
+    /// Color scheme.
     public var scheme = ErrorViewScheme() {
         didSet { updateScheme() }
     }
@@ -68,6 +69,13 @@ public final class ErrorView: UIView, AnyAppThemable {
     public var isLoading: Bool = false {
         didSet {
             ghostButton.isLoading = isLoading
+        }
+    }
+
+    /// The ghost button accessibility id
+    public var ghostButtonAccesibilityId: String? {
+        didSet {
+            ghostButton.accessibilityIdentifier = ghostButtonAccesibilityId
         }
     }
 

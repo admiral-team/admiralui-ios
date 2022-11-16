@@ -12,7 +12,7 @@ import AdmiralUIResources
 
 struct ContentView: View {
     
-    @State var text: String = "Text"
+    @State var text: String? = "Text"
         
     var body: some View {
         VStack() {

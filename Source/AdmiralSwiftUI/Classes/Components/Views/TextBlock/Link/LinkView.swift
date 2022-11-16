@@ -5,9 +5,9 @@
 //  Created on 28.09.2021.
 //
 
-import SwiftUI
 import AdmiralTheme
 import AdmiralUIResources
+import SwiftUI
 /**
  LinkView - A header with link button.
 
@@ -36,15 +36,21 @@ public struct LinkView: View {
     /// The button action.
     public var buttonAction: () -> ()
 
+    // MARK: - Private Properties
+
+    @ObservedObject private var schemeProvider: SchemeProvider<LinkViewScheme>
+
     // MARK: - Initializer
 
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     public init(
         buttonTitle: String,
+        schemeProvider: SchemeProvider<LinkViewScheme> = AppThemeSchemeProvider<LinkViewScheme>(),
         buttonAction: @escaping () -> ()
     ) {
         self._buttonTitle = Binding(get: { return buttonTitle }, set: { _ in })
         self.buttonAction = buttonAction
+        self.schemeProvider = schemeProvider
     }
 
     // MARK: - Body
@@ -53,13 +59,17 @@ public struct LinkView: View {
         ListCell(
             centerView: {
                 HStack(spacing: 0.0) {
-                    ButtonListView(text: buttonTitle, action: buttonAction)
+                    ButtonListView(
+                        text: buttonTitle,
+                        schemeProvider: .constant(scheme: schemeProvider.scheme.contentListViewScheme),
+                        action: buttonAction)
                     Spacer()
                 }
         })
         .configCell(
             minHeight: TextBlockStyle.link.minHeight,
-            edgeInsets: TextBlockStyle.link.edgeInsets
+            edgeInsets: TextBlockStyle.link.edgeInsets,
+            schemeProvider: .constant(scheme: schemeProvider.scheme.listCellScheme)
         )
     }
 }

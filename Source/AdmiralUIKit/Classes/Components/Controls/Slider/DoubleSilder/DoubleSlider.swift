@@ -55,7 +55,7 @@ public final class DoubleSlider: UIControl, AnyAppThemable {
     public override var isHighlighted: Bool {
         didSet { configure(for: state) }
     }
-
+    
     /// A Boolean value indicating whether the control is in the enabled state.
     public override var isEnabled: Bool {
         didSet { configure(for: state) }
@@ -66,9 +66,39 @@ public final class DoubleSlider: UIControl, AnyAppThemable {
         CGSize(width: UIView.noIntrinsicMetric, height: Constants.height)
     }
 
-    // MARK: - Internal Properties
+    /// Color scheme.
+    public var scheme = SliderScheme() {
+        didSet {
+            updateScheme()
+        }
+    }
 
-    var scheme = SliderScheme()
+    /// The lower thumb image accesibility Id
+    public var loweThubmImageAccesibilityId: String? {
+        get {
+            return lowerThumbImageView.accessibilityIdentifier
+        } set {
+            lowerThumbImageView.accessibilityIdentifier = newValue
+        }
+    }
+
+    /// The upper thumb image accesibility Id
+    public var upperThumbImageViewAccesibilityId: String? {
+        get {
+            return upperThumbImageView.accessibilityIdentifier
+        } set {
+            upperThumbImageView.accessibilityIdentifier = newValue
+        }
+    }
+
+    /// The progress view accesibility Id
+    public var progressViewAccesibilityId: String? {
+        get {
+            return progressView.accessibilityIdentifier
+        } set {
+            progressView.accessibilityIdentifier = newValue
+        }
+    }
 
     // MARK: - Private properties
 

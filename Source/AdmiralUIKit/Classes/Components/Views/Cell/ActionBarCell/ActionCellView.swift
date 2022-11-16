@@ -28,16 +28,17 @@ public class ActionCellView<T>: UIView, AnyAppThemable, UIGestureRecognizerDeleg
     
     /// Cell view.
     public let cellView: T
+
+    /// Color scheme.
+    public var scheme = ActionCellViewScheme() {
+        didSet { updateScheme() }
+    }
     
     // MARK: Internal Properties
     
     /// The state of the view. Default is normal.
     var state: UIControl.State = .normal {
         didSet { configure(for: state) }
-    }
-    
-    var scheme = ActionCellViewScheme() {
-        didSet { updateScheme() }
     }
     
     // MARK: - Private Properties

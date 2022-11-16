@@ -28,7 +28,7 @@ struct ImageLeadingLableComponentsSwiftUIView: View {
                     .padding()
                 LazyVStack(alignment: .leading) {
                     ListCell(
-                        leadingView: { ImageCardListView(cardImage: Image(uiImage: Asset.Card.visa.image)) },
+                        leadingView: { LeadingCardListView(cardImage: Image(uiImage: Asset.Card.visa.image)) },
                         centerView: { TitleListView(title: "Title") },
                         trailingView: { ArrowListView() },
                         isSelected:
@@ -38,7 +38,7 @@ struct ImageLeadingLableComponentsSwiftUIView: View {
                             ))
                         .disabled(isEnabledControlsState != 0)
                     ListCell(
-                        leadingView: { ImageCardListView(cardImage: Image(uiImage: Asset.Card.visa.image)) },
+                        leadingView: { LeadingCardListView(cardImage: Image(uiImage: Asset.Card.visa.image)) },
                         centerView: { TitleSubtitleListView(title: "Title", subtitle: "Subtitle") },
                         trailingView: { ArrowListView() },
                         isSelected:
@@ -48,7 +48,7 @@ struct ImageLeadingLableComponentsSwiftUIView: View {
                             ))
                         .disabled(isEnabledControlsState != 0)
                     ListCell(
-                        leadingView: { ImageCardListView(cardImage: Image(uiImage: Asset.Card.visa.image)) },
+                        leadingView: { LeadingCardListView(cardImage: Image(uiImage: Asset.Card.visa.image)) },
                         centerView: { SubtitleTitleListView(title: "Title", subtitle: "Subtitle") },
                         trailingView: { ArrowListView() },
                         isSelected:
@@ -58,7 +58,7 @@ struct ImageLeadingLableComponentsSwiftUIView: View {
                             ))
                         .disabled(isEnabledControlsState != 0)
                     ListCell(
-                        leadingView: { ImageCardListView(cardImage: Image(uiImage: Asset.Card.visa.image)) },
+                        leadingView: { LeadingCardListView(cardImage: Image(uiImage: Asset.Card.visa.image)) },
                         centerView: { TitleMoreDetailTextMessageListView(
                             title: "Title",
                             more: "More",
@@ -77,7 +77,7 @@ struct ImageLeadingLableComponentsSwiftUIView: View {
                             ))
                         .disabled(isEnabledControlsState != 0)
                     ListCell(
-                        leadingView: { ImageCardListView(cardImage: Image(uiImage: Asset.Card.visa.image)) },
+                        leadingView: { LeadingCardListView(cardImage: Image(uiImage: Asset.Card.visa.image)) },
                         centerView: { TitleSubtitleButtonListView(
                             title: "Title",
                             tagSubtitle: "Subtitle",

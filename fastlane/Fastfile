@@ -82,7 +82,7 @@ lane :deploy_appcenter_dev do |options|
       clean: true,
       output_directory: "Release/AdmiralUI-Example/Dev",
       export_method: "enterprise",
-      output_name: "admiralui-example.ipa"
+      output_name: "admiralui-example.ipa",
     )
 
     increment_app_build(build_number: previous_build_number)
@@ -131,11 +131,11 @@ lane :run_all_tests do |options|
 end
 
 lane :run_tests_ukit do |options|
-  run_tests_app(scheme: 'AdmiralUIKit', devices: options[:devices])
+  run_tests_app(scheme: 'AdmiralUIKit', configuration: "Debug", devices: options[:devices], clean: true)
 end
 
 lane :run_tests_swiftui do |options|
-  run_tests_app(scheme: 'AdmiralSwiftUI', devices: options[:devices])
+  run_tests_app(scheme: 'AdmiralSwiftUI', configuration: "Debug", devices: options[:devices], clean: true)
 end
 
 lane :run_tests_app do |options|
@@ -272,10 +272,6 @@ lane :increment_app_version do |options|
     path: File.join(Dir.pwd, '../AdmiralUIResources.podspec'), 
     version: version_number
   )
-  increment_podspec_version(
-    path: File.join(Dir.pwd, '../AdmiralCore.podspec'), 
-    version: version_number
-  )
 end
 
 lane :increment_app_build do |options|
@@ -292,7 +288,26 @@ lane :validate_depenecy_managers do |options|
   branch_name = git_branch() if options[:use_current_branch] == true
   validate_spm_example(branch_name: branch_name)
   validate_cocoapods_example(branch_name: branch_name)
-  validate_carthage_example(branch_name: branch_name)
+end
+
+lane :validate_spm_example do |options|
+  branch_name = options[:branch_name]
+
+  unless branch_name.nil?
+    file = Dir.pwd + "/../Examples/ExampleSPM/ExampleSPM.xcodeproj/project.pbxproj"
+    replace(file: file, regex: /branch = main;/, with: "branch = #{branch_name};")
+  end
+
+  system("cd ../Examples/ExampleSPM")
+
+  build_app(
+    clean: true,
+    scheme: "ExampleSPM",
+    configuration: "Release",
+    skip_codesigning: true,
+    skip_archive: true,
+    project: Dir.pwd + "/../Examples/ExampleSPM/ExampleSPM.xcodeproj",
+  )
 end
 
 lane :validate_cocoapods_example do |options|branch_name = options[:branch_name]
@@ -300,7 +315,7 @@ lane :validate_cocoapods_example do |options|branch_name = options[:branch_name]
 
   unless branch_name.nil?
     file = Dir.pwd + "/../Examples/ExampleCocoaPods/Podfile"
-    replace(file: file, regex: /'develop'/, with: "'#{branch_name}'")
+    replace(file: file, regex: /'main'/, with: "'#{branch_name}'")
   end
 
   system("cd ../Examples/ExampleCocoaPods; pod install;")
@@ -309,6 +324,7 @@ lane :validate_cocoapods_example do |options|branch_name = options[:branch_name]
     clean: true,
     scheme: "ExampleCocoaPods",
     configuration: "Release",
+    skip_codesigning: true,
     skip_archive: true,
     workspace: Dir.pwd + "/../Examples/ExampleCocoaPods/ExampleCocoaPods.xcworkspace"
   )
@@ -347,45 +363,6 @@ lane :start_next_release_version do
   internal = "#{Integer(current_lib_internal_version) + 1}"
   set_version(external_version: external, internal_version: internal)
   increment_app_version(version_number: external)
-end
-
-lane :validate_spm_example do |options|
-  branch_name = options[:branch_name]
-
-  unless branch_name.nil?
-    file = Dir.pwd + "/../Examples/ExampleSPM/ExampleSPM.xcodeproj/project.pbxproj"
-    replace(file: file, regex: /branch = develop;/, with: "branch = #{branch_name};")
-  end
-
-  system("cd ../Examples/ExampleSPM")
-
-  build_app(
-    clean: true,
-    scheme: "ExampleSPM",
-    configuration: "Release",
-    skip_archive: true,
-    project: Dir.pwd + "/../Examples/ExampleSPM/ExampleSPM.xcodeproj",
-  )
-end
-
-lane :validate_carthage_example do |options|
-  branch_name = options[:branch_name]
-  branch_name = git_branch()
-
-  unless branch_name.nil?
-    file = Dir.pwd + "/../Examples/ExampleCarthage/Cartfile"
-    replace(file: file, regex: /"develop"/, with: "\"#{branch_name}\"")
-  end
-
-  system("cd ../Examples/ExampleCarthage; carthage update --no-build; carthage build --platform iOS --use-xcframeworks")
-
-  build_app(
-    clean: true,
-    scheme: "ExampleCarthage",
-    configuration: "Release", 
-    skip_archive: true,
-    project: Dir.pwd + "/../Examples/ExampleCarthage/ExampleCarthage.xcodeproj",
-  )
 end
 
 def build_package(scheme:, artifact_id:, branch:)

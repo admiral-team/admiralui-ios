@@ -47,9 +47,33 @@ final class SecondaryTitleListViewSnapshotTests: XCTestCase {
         let view = createSecondaryTitleListView()
         checkSecondaryTitleListView(view: view, named: "DarkTheme", testName: "SecondaryTitleListView")
     }
+
+    // MARK: - Scheme Provider
+
+    func testSchemeProvider() {
+        Appearance.shared.theme = .default
+        var scheme = SecondaryTitleListViewScheme(theme: .default)
+        scheme.textColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        let newSchemeProvider = SchemeProvider<SecondaryTitleListViewScheme>(scheme: scheme)
+
+        let view = createSecondaryTitleListView(schemeProvider: newSchemeProvider)
+        checkSecondaryTitleListView(view: view, named: "SchemeProvider", testName: "SecondaryTitleListView")
+
+        Appearance.shared.theme = .dark
+        let newView = createSecondaryTitleListView(schemeProvider: newSchemeProvider)
+        checkSecondaryTitleListView(view: newView, named: "SchemeProvider", testName: "SecondaryTitleListView")
+    }
     
     func createSecondaryTitleListView() -> some View {
         let view = SecondaryTitleListView(title: "Title")
+        return view
+    }
+
+    func createSecondaryTitleListView(schemeProvider: SchemeProvider<SecondaryTitleListViewScheme>) -> some View {
+        let view = SecondaryTitleListView(
+            title: "Title",
+            schemeProvider: schemeProvider
+        )
         return view
     }
     

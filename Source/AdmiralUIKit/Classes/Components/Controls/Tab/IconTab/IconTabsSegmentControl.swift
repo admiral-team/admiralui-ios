@@ -11,10 +11,12 @@ import AdmiralTheme
 public struct IconTab {
     let title: String?
     let image: UIImage
+    let accesibilityId: String?
     
-    public init(title: String, image: UIImage) {
+    public init(title: String, image: UIImage, accesibilityId: String? = nil) {
         self.title = title
         self.image = image
+        self.accesibilityId = accesibilityId
     }
 }
 
@@ -210,7 +212,7 @@ public class IconTabsSegmentControl: UIControl, AnyAppThemable {
         let item = IconTabsItem()
         item.title = iconTab.title
         item.image = iconTab.image
-        
+        item.accessibilityIdentifier = iconTab.accesibilityId
         return item
     }
     

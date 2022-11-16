@@ -5,6 +5,7 @@
 //  Created on 27.05.2021.
 //
 
+import AdmiralCore
 import AdmiralTheme
 import AdmiralUIResources
 import SwiftUI
@@ -304,6 +305,7 @@ public struct InputRangeTextField<T>: TextFieldInput, AccessabilitySupportUIKit,
                     value: $sliderValue,
                     minValue: minValue,
                     maxValue: maxValue,
+                    schemeProvider: .constant(scheme: globalScheme.sliderScheme),
                     gestureChange: {
                         DispatchQueue.main.async {
                             self.finishAfterChangeSlider = true
@@ -393,7 +395,7 @@ public struct InputRangeTextField<T>: TextFieldInput, AccessabilitySupportUIKit,
                     if isTextFieldDisabled {
                         Text(content ?? "")
                             .foregroundColor(textColor.swiftUIColor)
-                            .font(textFieldFont?.swiftUIFont)
+                            .font(textFieldFont?.swiftUIFont.monospacedDigit())
                             .frame(height: 24.0)
                             .accessibilityIdentifier(accessibilityIdentifier ?? "")
                             .disabled(isTextFieldDisabled)
@@ -414,7 +416,7 @@ public struct InputRangeTextField<T>: TextFieldInput, AccessabilitySupportUIKit,
                                 textColor: textColor.uiColor,
                                 placeholderColor: placeholderColor?.uiColor ?? .clear,
                                 tintColor: tintColor.uiColor,
-                                font: textFieldFont?.uiFont,
+                                font: textFieldFont?.uiFont.monospacedDigitFont,
                                 onSubmit: onSubmit,
                                 accessibilityIdentifier: accessibilityIdentifier
                             )

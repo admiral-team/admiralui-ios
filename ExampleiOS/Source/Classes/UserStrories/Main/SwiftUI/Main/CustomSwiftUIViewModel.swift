@@ -27,13 +27,14 @@ final class CustomSwiftUIViewModel: ObservableObject {
             .dropFirst()
             .filterNil()
             .sink { [weak self] searchText in
-                guard !searchText.isEmpty else {
+                let textWithoutSpaces = searchText.trimmingCharacters(in: .whitespaces)
+                guard !textWithoutSpaces.isEmpty else {
                     self?.filteredItems = SwiftUIItem.allCases
                     return
                 }
                 
                 self?.filteredItems = SwiftUIItem.allCases.filter {
-                    $0.rawValue.lowercased().contains(searchText.lowercased())
+                    $0.rawValue.lowercased().contains(textWithoutSpaces.lowercased())
                 }
             }
             .store(in: &cancellables)
