@@ -40,11 +40,7 @@ final class TextMessageViewController: UIViewController, AnyAppThemable {
         super.viewDidLoad()
         configureLayout()
     }
-
-    @objc private func back() {
-        navigationController?.popViewController(animated: true)
-    }
-
+    
     // MARK: - AnyAppThemable
 
     func apply(theme: AppTheme) {
