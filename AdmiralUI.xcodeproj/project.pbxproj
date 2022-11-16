@@ -721,6 +721,7 @@
 		E9332FB3277CAF1400F9AF26 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9332FAF277CAF1400F9AF26 /* ProgressView.swift */; };
 		E9332FB4277CAF1400F9AF26 /* ProgressViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9332FB0277CAF1400F9AF26 /* ProgressViewScheme.swift */; };
 		E934035C27AC0A610007B86D /* UploadImageGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E934035B27AC0A610007B86D /* UploadImageGridView.swift */; };
+		E93EB7FD29229DFB00CB28FF /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93EB7FC29229DFB00CB28FF /* UIFont+Extensions.swift */; };
 		E94A444928CF7B09006625F5 /* AdmiralCore.h in Headers */ = {isa = PBXBuildFile; fileRef = E94A444828CF7B09006625F5 /* AdmiralCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E94A444F28CF7B72006625F5 /* ParameterBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A444E28CF7B72006625F5 /* ParameterBox.swift */; };
 		E94A445328CF7BF5006625F5 /* AdmiralCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E94A444628CF7B09006625F5 /* AdmiralCore.framework */; };
@@ -1726,6 +1727,7 @@
 		E9332FAF277CAF1400F9AF26 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		E9332FB0277CAF1400F9AF26 /* ProgressViewScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressViewScheme.swift; sourceTree = "<group>"; };
 		E934035B27AC0A610007B86D /* UploadImageGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageGridView.swift; sourceTree = "<group>"; };
+		E93EB7FC29229DFB00CB28FF /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		E94A444628CF7B09006625F5 /* AdmiralCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdmiralCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E94A444828CF7B09006625F5 /* AdmiralCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdmiralCore.h; sourceTree = "<group>"; };
 		E94A444E28CF7B72006625F5 /* ParameterBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterBox.swift; sourceTree = "<group>"; };
@@ -6279,6 +6281,30 @@
 			path = UploadImageGridView;
 			sourceTree = "<group>";
 		};
+		E93EB7F929229DA900CB28FF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E93EB7FA29229DBD00CB28FF /* UIKit */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E93EB7FA29229DBD00CB28FF /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				E93EB7FB29229DCB00CB28FF /* UIFont+Extensions */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		E93EB7FB29229DCB00CB28FF /* UIFont+Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E93EB7FC29229DFB00CB28FF /* UIFont+Extensions.swift */,
+			);
+			path = "UIFont+Extensions";
+			sourceTree = "<group>";
+		};
 		E94A444728CF7B09006625F5 /* AdmiralCore */ = {
 			isa = PBXGroup;
 			children = (
@@ -6292,6 +6318,7 @@
 		E94A444D28CF7B63006625F5 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				E93EB7F929229DA900CB28FF /* Extensions */,
 				E94A444E28CF7B72006625F5 /* ParameterBox.swift */,
 			);
 			path = Classes;
@@ -8150,6 +8177,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E93EB7FD29229DFB00CB28FF /* UIFont+Extensions.swift in Sources */,
 				E94A444F28CF7B72006625F5 /* ParameterBox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
