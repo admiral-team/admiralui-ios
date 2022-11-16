@@ -53,6 +53,12 @@ jobs:
       - name: Check If Failed
         if: ${{ failure() }}
         run:  bundle exec fastlane send_build_failed_info issue_name:${{ github.head_ref }} telegram_token:"$TELEGRAM_API_TOKEN" telegram_chat_id:"$TELEGRAM_DEV_CHAT_ID" build_url:"$PUll_NUMBER"
+      - name: Validate Depenecy Managers
+        if: ${{ github.event_name == 'push'}}
+        run: bundle exec fastlane validate_depenecy_managers
+      - name: Check If Failed
+        if: ${{ failure() }}
+        run:  bundle exec fastlane send_build_failed_info issue_name:${{ github.head_ref }} telegram_token:"$TELEGRAM_API_TOKEN" telegram_chat_id:"$TELEGRAM_DEV_CHAT_ID" build_url:"$PUll_NUMBER"
       - name: Build XCFrameworks
         if: ${{ github.event_name == 'push' }}
         run: bundle exec fastlane build_git_packages
@@ -66,7 +72,4 @@ jobs:
             Products/xcframeworks/AdmiralUIKit.xcframework
             Products/xcframeworks/AdmiralTheme.xcframework
             Products/xcframeworks/AdmiralUIResources.xcframework
-
-
-
 

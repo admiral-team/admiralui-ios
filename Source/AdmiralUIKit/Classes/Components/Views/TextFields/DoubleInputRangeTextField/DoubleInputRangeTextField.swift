@@ -331,10 +331,12 @@ public class DoubleInputRangeTextField: UIView, AnyAppThemable, AccessibilitySup
         leftTextField.forceOpened = true
         leftTextField.isSeparatorHidden = true
         leftTextField.trailingViewStyle = .small
+        leftTextField.isMonoSpaceDigitFontEnabled = true
         
         rightTextField.forceOpened = true
         rightTextField.isSeparatorHidden = true
         rightTextField.trailingViewStyle = .small
+        rightTextField.isMonoSpaceDigitFontEnabled = true
 
         minValueLabel.backgroundColor = .clear
         maxValueLabel.backgroundColor = .clear
@@ -395,6 +397,8 @@ public class DoubleInputRangeTextField: UIView, AnyAppThemable, AccessibilitySup
         maxValueLabel.textColor = leftTextField.inputTextField.textColor
         fromLabel.textColor = leftTextField.decorationView.informerLabel.textColor
         destinationLabel.textColor = leftTextField.decorationView.informerLabel.textColor
+        trailingLabel.textColor = scheme.textFieldScheme.textColor.uiColor
+
         switch state {
         case .normal, .error:
             slider.isEnabled = true
