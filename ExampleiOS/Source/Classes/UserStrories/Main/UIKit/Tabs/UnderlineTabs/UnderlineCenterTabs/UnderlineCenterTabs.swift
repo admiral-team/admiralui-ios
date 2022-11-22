@@ -63,7 +63,7 @@ final class UnderlineCenterTabsViewController: ScrollViewController {
             items: [
                 .init(title: "One", accesibilityId: "UnderlineCenterSegmentedTwo1"),
                 .init(title: "Two", accesibilityId: "UnderlineCenterSegmentedTwo2"),
-                .init(title: "Three", accesibilityId: "UnderlineCenterSegmentedTwo3"),
+                .init(title: "Three", accesibilityId: "UnderlineCenterSegmentedTwo3")
             ]
         )
         segmentControlSecond.selectedSegmentIndex = 0
@@ -78,7 +78,7 @@ final class UnderlineCenterTabsViewController: ScrollViewController {
                 .init(title: "One", accesibilityId: "UnderlineCenterSegmentedThree1"),
                 .init(title: "Two", accesibilityId: "UnderlineCenterSegmentedThree2"),
                 .init(title: "Three", accesibilityId: "UnderlineCenterSegmentedThree3"),
-                .init(title: "Four", accesibilityId: "UnderlineCenterSegmentedThree4"),
+                .init(title: "Four", accesibilityId: "UnderlineCenterSegmentedThree4")
             ]
         )
         segmentControlThird.selectedSegmentIndex = 0
@@ -106,9 +106,9 @@ final class UnderlineCenterTabsViewController: ScrollViewController {
         
         let segmentControlFifth = UnderlineSegmentedControl(
             items: [
-                .init(title: "One", accesibilityId: "UnderlineCenterSegmentedFive1"),
-                .init(title: "Two", accesibilityId: "UnderlineCenterSegmentedFive2"),
-                .init(title: "Three", accesibilityId: "UnderlineCenterSegmentedFive3"),
+                .init(title: "One", badgeStyle: .default, accesibilityId: "UnderlineCenterSegmentedFive1"),
+                .init(title: "Two", badgeStyle: .default, accesibilityId: "UnderlineCenterSegmentedFive2"),
+                .init(title: "Three", badgeStyle: .additional, accesibilityId: "UnderlineCenterSegmentedFive3")
             ]
         )
         segmentControlFifth.selectedSegmentIndex = 0

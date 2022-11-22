@@ -36,6 +36,9 @@ public struct UnderlineSliderScheme: AppThemeScheme {
     /// Thumb color.
     public var thumbColor = ControlParameter<AColor>()
     
+    /// Badge scheme.
+    public var badgeScheme: BadgeScheme
+    
     public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
@@ -56,6 +59,8 @@ public struct UnderlineSliderScheme: AppThemeScheme {
         thumbColor.set(parameter: theme.colors.elementAccent.withAlpha(alpha), for: .disabled)
         
         itemScheme.titleColor.set(parameter: theme.colors.textSecondary, for: .disabled)
+        
+        badgeScheme = BadgeScheme(theme: theme)
     }
     
 }
