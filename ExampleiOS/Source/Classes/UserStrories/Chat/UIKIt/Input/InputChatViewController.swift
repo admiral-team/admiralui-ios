@@ -20,6 +20,7 @@ final class InputChatViewController: UIViewController, AnyAppThemable {
         static let segmentViewHeight: CGFloat = LayoutGrid.doubleModule * 3
     }
 
+
     // MARK: - Private Properties
 
     private let viewModel = InputChatViewModel()
@@ -56,16 +57,6 @@ final class InputChatViewController: UIViewController, AnyAppThemable {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureLayout()
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        binder.bindToKeyboardNotifications()
-    }
-
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        binder.unbindFromKeyboardNotifications()
     }
 
     // MARK: - AnyAppThemable
