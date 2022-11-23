@@ -4,6 +4,7 @@
 //
 //  Created on 12.04.2022.
 //
+// swiftlint:disable all
 
 import AdmiralUIKit
 import Foundation
@@ -14,26 +15,8 @@ final class TextMessageViewModel {
 
     var chatMessages: [ChatMessageCellViewModel] = [
         ChatMessageCellViewModel(
-            message: "Привет, какой у вас вопрос ?",
-            time: "12:34",
-            image: nil,
-            didSelect: nil,
-            header: nil,
-            direction: .left,
-            name: "Антон"
-        ),
-        ChatMessageCellViewModel(
-            message: "Будем рады ответить !",
-            time: "12:34",
-            image: nil,
-            didSelect: nil,
-            header: nil,
-            direction: .left,
-            state: .error
-        ),
-        ChatMessageCellViewModel(
-            message: "Повторная попытка отправки сообщения ?",
-            time: "12:34",
+            message: "Hello",
+            time: "14:52",
             image: nil,
             didSelect: nil,
             header: nil,
@@ -41,14 +24,41 @@ final class TextMessageViewModel {
             chatStatus: .sent
         ),
         ChatMessageCellViewModel(
-            message: "Каким образом использовать ChatBubbleView ?",
-            time: "12:34",
+            message: "At breakpoint boundaries, miniunits divide the screen into a fixed master grid, and multiples of mini units map to fluid grid column widths and row heights.",
+            time: "14:52",
             image: nil,
             didSelect: nil,
             header: nil,
             direction: .right,
+            chatStatus: .loading
+        ),
+        ChatMessageCellViewModel(
+            message: "At breakpoint boundaries, mini units divide",
+            time: "14:52",
+            image: nil,
+            didSelect: nil,
+            header: nil,
+            direction: .left,
             chatStatus: .sent,
-            state: .error
+            name: "Татьяна"
+        ),
+        ChatMessageCellViewModel(
+            message: "Text message",
+            time: "14:52",
+            image: nil,
+            didSelect: nil,
+            header: nil,
+            direction: .left,
+            chatStatus: .sent
+        ),
+        ChatMessageCellViewModel(
+            message: "At breakpoint boundaries, miniunits divide the screen into a fixed master grid, and multiples of mini units map to fluid grid column widths and row heights.",
+            time: "14:52",
+            image: nil,
+            didSelect: nil,
+            header: nil,
+            direction: .right,
+            chatStatus: .sent
         )
     ]
 

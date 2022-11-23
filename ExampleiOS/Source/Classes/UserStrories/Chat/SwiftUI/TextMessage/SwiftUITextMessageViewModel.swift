@@ -4,6 +4,7 @@
 //
 //  Created on 31.01.2022.
 //
+// swiftlint:disable all
 
 import SwiftUI
 import AdmiralSwiftUI
@@ -49,26 +50,38 @@ final class SwiftUITextMessageViewModel: ObservableObject {
     
     @Published var chatBubleItems = [
         ChatBubbleItem(
-            text: "Привет, какой у Вас вопрос?",
-            direction: .left,
-            time: "12:34",
-            status: nil,
-            name: "Антон",
-            isRoundAllCorners: true
-        ),
-        ChatBubbleItem(
-            text: "Будем рады ответить !",
+            text: "Hello",
             direction: .right,
-            time: "12:35",
+            time: "14:52",
             status: .read,
             isRoundAllCorners: true
         ),
         ChatBubbleItem(
-            text: "Каким образом использовать ChatBubbleView?",
+            text: "At breakpoint boundaries, miniunits divide the screen into a fixed master grid, and multiples of mini units map to fluid grid column widths and row heights.",
             direction: .right,
-            time: "12:39",
-            status: .error,
-            name: "Пользователь"
+            time: "14:52",
+            status: .loading,
+            isRoundAllCorners: true
+        ),
+        ChatBubbleItem(
+            text: "At breakpoint boundaries, mini units divide",
+            direction: .left,
+            time: "14:52",
+            status: .read,
+            name: "Татьяна"
+        ),
+        ChatBubbleItem(
+            text: "Text message",
+            direction: .left,
+            time: "14:52",
+            status: .read
+        ),
+        ChatBubbleItem(
+            text: "At breakpoint boundaries, miniunits divide the screen into a fixed master grid, and multiples of mini units map to fluid grid column widths and row heights.",
+            direction: .right,
+            time: "14:52",
+            status: .read,
+            isRoundAllCorners: true
         )
     ]
     
