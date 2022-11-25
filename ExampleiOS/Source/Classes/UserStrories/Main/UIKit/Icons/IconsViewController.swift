@@ -155,8 +155,9 @@ final class IconsViewController: UIViewController, AnyAppThemable {
     }
     
     private func configureSegment() {
-        segmentControl.insertTitle("Outline", forSegmentAt: 0)
-        segmentControl.insertTitle("Solid", forSegmentAt: 1)
+        segmentControl.setItems([
+            StandardSegmentedItem(title: "Outline", accesibilityId: "SegmentControlOutline"),
+            StandardSegmentedItem(title: "Solid", accesibilityId: "SegmentControlSolid")])
         segmentControl.selectedSegmentIndex = 0
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged(_:)), for: .valueChanged)
     }

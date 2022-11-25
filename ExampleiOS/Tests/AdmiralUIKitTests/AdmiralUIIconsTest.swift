@@ -19,11 +19,11 @@ class AdmiralUIKitIconsTest: XCTestCase {
         app.launch()
         
         app.tables/*@START_MENU_TOKEN@*/.staticTexts["Icons"]/*[[".cells.staticTexts[\"Icons\"]",".staticTexts[\"Icons\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        app.staticTexts["Solid"].tap()
-        app.staticTexts["Outline"].tap()
+        app.otherElements.matching(identifier: "SegmentControlSolid").element.tap()
+        app.otherElements.matching(identifier: "SegmentControlOutline").element.tap()
         
-        app.windows.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .collectionView).element.swipeUp()
-        app.windows.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .collectionView).element.swipeDown()
+        app.windows.children(matching: .other).element.swipeUp()
+        app.windows.children(matching: .other).element.swipeDown()
         
         app.buttons["Ellipse"].tap()
         
