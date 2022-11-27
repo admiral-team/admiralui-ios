@@ -20,17 +20,20 @@ class AdmiralUIKitButtonsTests: XCTestCase {
         
         app.tables.staticTexts["Buttons"].tap()
         app.tables/*@START_MENU_TOKEN@*/.staticTexts["Primary buttons"]/*[[".cells.staticTexts[\"Primary buttons\"]",".staticTexts[\"Primary buttons\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        app.staticTexts["Disabled"].tap()
-        app.staticTexts["Default"].tap()
+        app.otherElements.matching(identifier: "SegmentControlDisabled").element.tap()
+        app.otherElements.matching(identifier: "SegmentControlDefault").element.tap()
         
-        app.buttons["Ellipse"].tap()
+        app.buttons["PrimaryButtonBig"].press(forDuration: 2)
+        app.buttons["secondPrimaryButtonBig"].press(forDuration: 2)
+        app.buttons["thirdPrimaryButtonBig"].press(forDuration: 2)
+        app.buttons["primaryButtonMedium"].press(forDuration: 2)
+        app.buttons["secondPrimaryButtonMedium"].press(forDuration: 2)
+        app.buttons["thirdPrimaryButtonMedium"].press(forDuration: 2)
+        app.buttons["primaryButtonSmall"].press(forDuration: 2)
+        app.buttons["secondPrimaryButtonSmall"].press(forDuration: 2)
+        app.buttons["thirdPrimaryButtonSmall"].press(forDuration: 2)
         
-        app.staticTexts["Light"].tap()
-        app.staticTexts["Dark"].tap()
-        app.staticTexts["SME Light"].tap()
-        app.staticTexts["SME Dark"].tap()
-        
-        app.buttons["Ellipse"].tap()
+        changeThemes(app: app)
     }
     
     func testSecondaryButtons() throws {
@@ -39,17 +42,20 @@ class AdmiralUIKitButtonsTests: XCTestCase {
         
         app.tables.staticTexts["Buttons"].tap()
         app.tables.staticTexts["Secondary buttons"].tap()
-        app.staticTexts["Disabled"].tap()
-        app.staticTexts["Default"].tap()
+        app.otherElements.matching(identifier: "SegmentControlDisabled").element.tap()
+        app.otherElements.matching(identifier: "SegmentControlDefault").element.tap()
         
-        app.buttons["Ellipse"].tap()
+        app.buttons["SecondaryPrimaryButtonBig"].press(forDuration: 2)
+        app.buttons["SecondarySecondPrimaryButtonBig"].press(forDuration: 2)
+        app.buttons["SecondaryThirdPrimaryButtonBig"].press(forDuration: 2)
+        app.buttons["SecondaryPrimaryButtonMedium"].press(forDuration: 2)
+        app.buttons["SecondarySecondPrimaryButtonMedium"].press(forDuration: 2)
+        app.buttons["SecondaryThirdPrimaryButtonMedium"].press(forDuration: 2)
+        app.buttons["SecondaryPrimaryButtonSmall"].press(forDuration: 2)
+        app.buttons["SecondarySecondPrimaryButtonSmall"].press(forDuration: 2)
+        app.buttons["SecondaryThirdPrimaryButtonSmall"].press(forDuration: 2)
         
-        app.staticTexts["Light"].tap()
-        app.staticTexts["Dark"].tap()
-        app.staticTexts["SME Light"].tap()
-        app.staticTexts["SME Dark"].tap()
-        
-        app.buttons["Ellipse"].tap()
+        changeThemes(app: app)
     }
     
     func testGhostButtons() throws {
@@ -58,17 +64,20 @@ class AdmiralUIKitButtonsTests: XCTestCase {
         
         app.tables.staticTexts["Buttons"].tap()
         app.tables.staticTexts["Ghost buttons"].tap()
-        app.staticTexts["Disabled"].tap()
-        app.staticTexts["Default"].tap()
+        app.otherElements.matching(identifier: "SegmentControlDisabled").element.tap()
+        app.otherElements.matching(identifier: "SegmentControlDefault").element.tap()
         
-        app.buttons["Ellipse"].tap()
+        app.buttons["GhostPrimaryButtonBig"].press(forDuration: 2)
+        app.buttons["GhostSecondPrimaryButtonBig"].press(forDuration: 2)
+        app.buttons["GhostThirdPrimaryButtonBig"].press(forDuration: 2)
+        app.buttons["GhostPrimaryButtonMedium"].press(forDuration: 2)
+        app.buttons["GhostSecondPrimaryButtonMedium"].press(forDuration: 2)
+        app.buttons["GhostThirdPrimaryButtonMedium"].press(forDuration: 2)
+        app.buttons["GhostPrimaryButtonSmall"].press(forDuration: 2)
+        app.buttons["GhostSecondPrimaryButtonSmall"].press(forDuration: 2)
+        app.buttons["GhostThirdPrimaryButtonSmall"].press(forDuration: 2)
         
-        app.staticTexts["Light"].tap()
-        app.staticTexts["Dark"].tap()
-        app.staticTexts["SME Light"].tap()
-        app.staticTexts["SME Dark"].tap()
-        
-        app.buttons["Ellipse"].tap()
+        changeThemes(app: app)
     }
     
     func testRules() throws {
@@ -77,20 +86,13 @@ class AdmiralUIKitButtonsTests: XCTestCase {
         
         app.tables.staticTexts["Buttons"].tap()
         app.tables.staticTexts["Rules"].tap()
-        app.staticTexts["Disabled"].tap()
-        app.staticTexts["Default"].tap()
+        app.otherElements.matching(identifier: "SegmentControlDisabled").element.tap()
+        app.otherElements.matching(identifier: "SegmentControlDefault").element.tap()
         
         app.staticTexts["Я согласен с условиями договора и подтверждаю свое согласие на обработку персональных данных"].tap()
         app.staticTexts["Я согласен с условиями договора и подтверждаю свое согласие на обработку персональных данных"].tap()
         
-        app.buttons["Ellipse"].tap()
-        
-        app.staticTexts["Light"].tap()
-        app.staticTexts["Dark"].tap()
-        app.staticTexts["SME Light"].tap()
-        app.staticTexts["SME Dark"].tap()
-        
-        app.buttons["Ellipse"].tap()
+        changeThemes(app: app)
     }
     
     func testOtherButtons() throws {
@@ -99,15 +101,21 @@ class AdmiralUIKitButtonsTests: XCTestCase {
         
         app.tables.staticTexts["Buttons"].tap()
         app.tables.staticTexts["Other buttons"].tap()
-        app.staticTexts["Disabled"].tap()
-        app.staticTexts["Default"].tap()
+        app.otherElements.matching(identifier: "SegmentControlDisabled").element.tap()
+        app.otherElements.matching(identifier: "SegmentControlDefault").element.tap()
         
+        app.buttons["OtherButton"].press(forDuration: 2)
+        
+        changeThemes(app: app)
+    }
+    
+    func changeThemes(app: XCUIApplication) {
         app.buttons["Ellipse"].tap()
         
-        app.staticTexts["Light"].tap()
-        app.staticTexts["Dark"].tap()
-        app.staticTexts["SME Light"].tap()
-        app.staticTexts["SME Dark"].tap()
+        app.otherElements.matching(identifier: "ThemeSwitchButton_Light").element.tap()
+        app.otherElements.matching(identifier: "ThemeSwitchButton_Dark").element.tap()
+        app.otherElements.matching(identifier: "ThemeSwitchButton_SME Light").element.tap()
+        app.otherElements.matching(identifier: "ThemeSwitchButton_SME Dark").element.tap()
         
         app.buttons["Ellipse"].tap()
     }

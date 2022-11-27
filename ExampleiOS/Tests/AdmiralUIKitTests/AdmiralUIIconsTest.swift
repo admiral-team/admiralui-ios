@@ -4,6 +4,7 @@
 //
 
 import XCTest
+import ExampleiOS
 
 class AdmiralUIKitIconsTest: XCTestCase {
 
@@ -19,25 +20,29 @@ class AdmiralUIKitIconsTest: XCTestCase {
         app.launch()
         
         app.tables/*@START_MENU_TOKEN@*/.staticTexts["Icons"]/*[[".cells.staticTexts[\"Icons\"]",".staticTexts[\"Icons\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        app.staticTexts["Solid"].tap()
-        app.staticTexts["Outline"].tap()
+        app.otherElements.matching(identifier: "SegmentControlSolid").element.tap()
+        app.otherElements.matching(identifier: "SegmentControlOutline").element.tap()
         
-        app.windows.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .collectionView).element.swipeUp()
-        app.windows.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .collectionView).element.swipeDown()
+        app.windows.children(matching: .other).element.swipeUp()
+        app.windows.children(matching: .other).element.swipeDown()
         
-        app.buttons["Ellipse"].tap()
-        
-        app.staticTexts["Light"].tap()
-        app.staticTexts["Dark"].tap()
-        app.staticTexts["SME Light"].tap()
-        app.staticTexts["SME Dark"].tap()
-        
-        app.buttons["Ellipse"].tap()
+        changeThemes(app: app)
         
         _ = app.textFields["Поиск"]
         app.textFields["Поиск"].tap()
         app.textFields["Поиск"].typeText("Bank")
         app.buttons["closeSolid"].tap()
+    }
+    
+    func changeThemes(app: XCUIApplication) {
+        app.buttons["Ellipse"].tap()
+        
+        app.otherElements.matching(identifier: "ThemeSwitchButton_Light").element.tap()
+        app.otherElements.matching(identifier: "ThemeSwitchButton_Dark").element.tap()
+        app.otherElements.matching(identifier: "ThemeSwitchButton_SME Light").element.tap()
+        app.otherElements.matching(identifier: "ThemeSwitchButton_SME Dark").element.tap()
+        
+        app.buttons["Ellipse"].tap()
     }
 
     func testLaunchPerformance() throws {
