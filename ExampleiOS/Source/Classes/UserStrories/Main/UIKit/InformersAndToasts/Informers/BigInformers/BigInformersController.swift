@@ -31,9 +31,9 @@ final class BigInformersController: ScrollViewController {
     // MARK: - Initializers
     
     override func loadView() {
-        segmentControl = StandardSegmentedControl(
-            titles: ["Default",
-                     "Disabled"])
+        segmentControl.setItems([
+        StandardSegmentedItem(title: "Default", accesibilityId: "SegmentControlDefault"),
+        StandardSegmentedItem(title: "Disabled", accesibilityId: "SegmentControlDisabled")])
         super.loadView()
     }
     
