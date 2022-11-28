@@ -37,7 +37,9 @@ final class OutlineSliderTabsViewController: ScrollViewController {
     private func configureUI() {
         configureSegmentControlls()
         views.forEach() { stackView.addArrangedSubview($0) }
-        segmentControl.setTitles(["Default", "Disabled"])
+        segmentControl.setItems([
+        StandardSegmentedItem(title: "Default", accesibilityId: "SegmentControlDefault"),
+        StandardSegmentedItem(title: "Disabled", accesibilityId: "SegmentControlDisabled")])
         segmentControl.selectedSegmentIndex = 0
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
     }
@@ -45,9 +47,9 @@ final class OutlineSliderTabsViewController: ScrollViewController {
     private func configureSegmentControlls() {
         let segmentControlFirst = OutlineSliderTabSegmentedControl(
             items: [
-                .init(title: "One", badgeStyle: nil, accesibilityId: "OutlineSliderTabOne1"),
-                .init(title: "Two", badgeStyle: nil, accesibilityId: "OutlineSliderTabOne2"),
-                .init(title: "Three", badgeStyle: nil, accesibilityId: "OutlineSliderTabOne3")
+                .init(title: "One", badgeStyle: nil, accesibilityId: "OutlineSliderTabOne1000"),
+                .init(title: "Two", badgeStyle: nil, accesibilityId: "OutlineSliderTabOne2000"),
+                .init(title: "Three", badgeStyle: nil, accesibilityId: "OutlineSliderTabOne3000")
             ]
         )
         segmentControlFirst.selectedSegmentIndex = 0

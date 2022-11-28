@@ -20,41 +20,28 @@ class AdmiralUIKitTabsTest: XCTestCase {
         
         app.tables.staticTexts["Tabs"].tap()
         app.tables.staticTexts["Standard Tabs"].tap()
-        app.staticTexts["Disabled"].tap()
-        app.staticTexts["Default"].tap()
+        app.otherElements.matching(identifier: "SegmentControlDisabled").element.tap()
+        app.otherElements.matching(identifier: "SegmentControlDefault").element.tap()
         
-        let scrollViewsQuery = XCUIApplication().scrollViews
-        let element5 = scrollViewsQuery.children(matching: .other).element(boundBy: 1)
-        let element = element5.children(matching: .other).element(boundBy: 0)
-        element.staticTexts["Two"].tap()
-        element.staticTexts["One"].tap()
+        app.otherElements.matching(identifier: "segmentControl1Two").element.tap()
+        app.otherElements.matching(identifier: "segmentControl1One").element.tap()
         
-        let element2 = element5.children(matching: .other).element(boundBy: 1)
-        element2.staticTexts["Two"].tap()
-        element2.staticTexts["One"].tap()
-        element2.staticTexts["Three"].tap()
+        app.otherElements.matching(identifier: "segmentControl2Two").element.tap()
+        app.otherElements.matching(identifier: "segmentControl2Three").element.tap()
+        app.otherElements.matching(identifier: "segmentControl2One").element.tap()
         
-        let element3 = element5.children(matching: .other).element(boundBy: 2)
-        element3.staticTexts["Two"].tap()
-        element3.staticTexts["One"].tap()
-        element3.staticTexts["Three"].tap()
-        element3.staticTexts["Four"].tap()
+        app.otherElements.matching(identifier: "segmentControl3Two").element.tap()
+        app.otherElements.matching(identifier: "segmentControl3Three").element.tap()
+        app.otherElements.matching(identifier: "segmentControl3Four").element.tap()
+        app.otherElements.matching(identifier: "segmentControl3One").element.tap()
         
-        let element4 = element5.children(matching: .other).element(boundBy: 3)
-        element4.staticTexts["Two"].tap()
-        element4.staticTexts["One"].tap()
-        element4.staticTexts["Three"].tap()
-        element4.staticTexts["Four"].tap()
-        scrollViewsQuery.otherElements.staticTexts["Five"].tap()
+        app.otherElements.matching(identifier: "segmentControl4Two").element.tap()
+        app.otherElements.matching(identifier: "segmentControl4Three").element.tap()
+        app.otherElements.matching(identifier: "segmentControl4Four").element.tap()
+        app.otherElements.matching(identifier: "segmentControl4Five").element.tap()
+        app.otherElements.matching(identifier: "segmentControl4One").element.tap()
         
-        app.buttons["Ellipse"].tap()
-        
-        app.staticTexts["Light"].tap()
-        app.staticTexts["Dark"].tap()
-        app.staticTexts["SME Light"].tap()
-        app.staticTexts["SME Dark"].tap()
-        
-        app.buttons["Ellipse"].tap()
+        changeThemes(app: app)
     }
     
     func testLogoTabs() throws {
@@ -63,47 +50,28 @@ class AdmiralUIKitTabsTest: XCTestCase {
         
         app.tables.staticTexts["Tabs"].tap()
         app.tables.staticTexts["Logo Tabs"].tap()
-        app.staticTexts["Disabled"].tap()
-        app.staticTexts["Default"].tap()
+        app.otherElements.matching(identifier: "SegmentControlDisabled").element.tap()
+        app.otherElements.matching(identifier: "SegmentControlDefault").element.tap()
         
-        let element3 = app.scrollViews.children(matching: .other).element(boundBy: 1)
-        let element = element3.children(matching: .other).element(boundBy: 0).children(matching: .other).element
-        element.children(matching: .other).element(boundBy: 2).children(matching: .other).element(boundBy: 1).tap()
-        element.children(matching: .other).element(boundBy: 1).children(matching: .other).element(boundBy: 0).tap()
+        app.otherElements.matching(identifier: "LogoTabOne2").element.tap()
+        app.otherElements.matching(identifier: "LogoTabOne1").element.tap()
         
-        let element8 = element3.children(matching: .other).element(boundBy: 1).children(matching: .other).element
-        let element2 = element8.children(matching: .other).element(boundBy: 2)
-        element2.children(matching: .other).element(boundBy: 1).tap()
-        element8.children(matching: .other).element(boundBy: 1).children(matching: .other).element(boundBy: 0).tap()
-        element2.children(matching: .other).element(boundBy: 2).tap()
+        app.otherElements.matching(identifier: "LogoTabTwo2").element.tap()
+        app.otherElements.matching(identifier: "LogoTabTwo3").element.tap()
+        app.otherElements.matching(identifier: "LogoTabTwo1").element.tap()
         
-        let element9 = element3.children(matching: .other).element(boundBy: 2).children(matching: .other).element
-        let element4 = element9.children(matching: .other).element(boundBy: 2)
-        element4.children(matching: .other).element(boundBy: 1).tap()
+        app.otherElements.matching(identifier: "LogoTabThree2").element.tap()
+        app.otherElements.matching(identifier: "LogoTabThree3").element.tap()
+        app.otherElements.matching(identifier: "LogoTabThree4").element.tap()
+        app.otherElements.matching(identifier: "LogoTabThree1").element.tap()
         
-        let element5 = element9.children(matching: .other).element(boundBy: 1)
-        element5.children(matching: .other).element(boundBy: 0).tap()
-        element4.children(matching: .other).element(boundBy: 2).tap()
-        element5.children(matching: .other).element(boundBy: 3).tap()
+        app.otherElements.matching(identifier: "LogoTabFour2").element.tap()
+        app.otherElements.matching(identifier: "LogoTabFour3").element.tap()
+        app.otherElements.matching(identifier: "LogoTabFour4").element.tap()
+        app.otherElements.matching(identifier: "LogoTabFour5").element.tap()
+        app.otherElements.matching(identifier: "LogoTabFour1").element.tap()
         
-        let element10 = element3.children(matching: .other).element(boundBy: 3).children(matching: .other).element
-        let element6 = element10.children(matching: .other).element(boundBy: 2)
-        element6.children(matching: .other).element(boundBy: 1).tap()
-        
-        let element7 = element10.children(matching: .other).element(boundBy: 1)
-        element7.children(matching: .other).element(boundBy: 0).tap()
-        element6.children(matching: .other).element(boundBy: 2).tap()
-        element7.children(matching: .other).element(boundBy: 3).tap()
-        element7.children(matching: .other).element(boundBy: 4).tap()
-        
-        app.buttons["Ellipse"].tap()
-        
-        app.staticTexts["Light"].tap()
-        app.staticTexts["Dark"].tap()
-        app.staticTexts["SME Light"].tap()
-        app.staticTexts["SME Dark"].tap()
-        
-        app.buttons["Ellipse"].tap()
+        changeThemes(app: app)
     }
     
     func testInformerTabs() throws {
@@ -112,47 +80,47 @@ class AdmiralUIKitTabsTest: XCTestCase {
         
         app.tables.staticTexts["Tabs"].tap()
         app.tables.staticTexts["Informer Tabs"].tap()
-        app.staticTexts["Disabled"].tap()
-        app.staticTexts["Default"].tap()
+        app.otherElements.matching(identifier: "SegmentControlDisabled").element.tap()
+        app.otherElements.matching(identifier: "SegmentControlDefault").element.tap()
         
-        let element3 = app.scrollViews.children(matching: .other).element(boundBy: 1)
-        let element = element3.children(matching: .other).element(boundBy: 0).children(matching: .other).element(boundBy: 0).children(matching: .other).element
-        element.children(matching: .other).element(boundBy: 1).staticTexts["в месяц"].tap()
-        element.children(matching: .other).element(boundBy: 0).staticTexts["в месяц"].tap()
+        app.otherElements.matching(identifier: "InformerTabOne2").element.tap()
+        app.otherElements.matching(identifier: "InformerTabOne1").element.tap()
         
-        let element2 = element3.children(matching: .other).element(boundBy: 1).children(matching: .other).element(boundBy: 0).children(matching: .other).element
-        element2.children(matching: .other).element(boundBy: 1).tap()
-        element2.children(matching: .other).element(boundBy: 0).tap()
-        element2.children(matching: .other).element(boundBy: 2).tap()
+        app.otherElements.matching(identifier: "InformerTabTwo2").element.tap()
+        app.otherElements.matching(identifier: "InformerTabTwo3").element.tap()
+        app.otherElements.matching(identifier: "InformerTabTwo1").element.tap()
         
-        app.buttons["Ellipse"].tap()
-        
-        app.staticTexts["Light"].tap()
-        app.staticTexts["Dark"].tap()
-        app.staticTexts["SME Light"].tap()
-        app.staticTexts["SME Dark"].tap()
-        
-        app.buttons["Ellipse"].tap()
+        changeThemes(app: app)
     }
     
-    func testIconTabs() throws {
+    func testOutlineSliderTabs() throws {
         let app = XCUIApplication()
         app.launch()
+        
         app.tables.staticTexts["Tabs"].tap()
-        app.tables.staticTexts["Icon Tabs"].tap()
-        app.staticTexts["Disabled"].tap()
-        app.staticTexts["Default"].tap()
+        app.tables.staticTexts["Outline Slider Tabs"].tap()
+        app.otherElements.matching(identifier: "SegmentControlDisabled").element.tap()
+        app.otherElements.matching(identifier: "SegmentControlDefault").element.tap()
         
-        let element3 = app.scrollViews.children(matching: .other).element(boundBy: 1)
-        let element = element3.children(matching: .other).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element
-        element.children(matching: .other).element(boundBy: 1).tap()
-        element.children(matching: .other).element(boundBy: 0).tap()
+        app.collectionViews.children(matching: .other).otherElements.matching(identifier: "OutlineSliderTabOne2000").element.tap()
+//        app.otherElements.matching(identifier: "OutlineSliderTabOne2000").element.tap()
+//        app.otherElements.matching(identifier: "OutlineSliderTabOne3").element.tap()
+//        app.otherElements.matching(identifier: "OutlineSliderTabOne1").element.tap()
+
+//        app.otherElements.matching(identifier: "OutlineSliderTabTwo2").element.tap()
+//        app.otherElements.matching(identifier: "OutlineSliderTabTwo3").element.tap()
+//        app.otherElements.matching(identifier: "OutlineSliderTabTwo4").element.tap()
+//        app.otherElements.matching(identifier: "OutlineSliderTabTwo5").element.tap()
+//        app.otherElements.matching(identifier: "OutlineSliderTabTwo6").element.tap()
+//        app.otherElements.matching(identifier: "OutlineSliderTabTwo7").element.tap()
+//        app.otherElements.matching(identifier: "OutlineSliderTabTwo8").element.tap()
+//        app.otherElements.matching(identifier: "OutlineSliderTabTwo9").element.tap()
+//        app.otherElements.matching(identifier: "OutlineSliderTabTwo1").element.tap()
         
-        let element2 = element3.children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element
-        element2.children(matching: .other).element(boundBy: 1).tap()
-        element2.children(matching: .other).element(boundBy: 0).tap()
-        element2.children(matching: .other).element(boundBy: 2).tap()
-                
+        changeThemes(app: app)
+    }
+    
+    func changeThemes(app: XCUIApplication) {
         app.buttons["Ellipse"].tap()
         
         app.staticTexts["Light"].tap()
