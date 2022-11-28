@@ -47,7 +47,7 @@ struct NormalBadgesSwiftUIView: View {
                 value: Int(viewModel.items[index].rawValue),
                 offset: CGPoint(x: 6, y: .zero)
             ) {
-                AssetSymbol.Category.Solid.bonus.image
+                AssetSymbol.Category.Solid.diamond.image
                     .foregroundColor(scheme.imageTintColor.swiftUIColor)
                     .frame(width: LayoutGrid.halfModule * 11, height: LayoutGrid.halfModule * 11)
                     .background(

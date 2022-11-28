@@ -8,20 +8,37 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-struct CalendarViewCellColorScheme {
+/**
+ CalendarViewCellColorScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - CalendarViewCellColorScheme() - Initialize default CalendarViewCellColorScheme with default themezation
+Example to create CalendarViewCellColorScheme:
+Code
+ ```
+let scheme = CalendarViewCellColorScheme()
+ ```
+ */
+public struct CalendarViewCellColorScheme: AppThemeScheme {
+
+    /// Background color.
+    public var backgroundColors = CalendarParameters<AColor>()
+
+    /// Text color.
+    public var textColors = CalendarParameters<AColor>()
+
+    /// Selected background color.
+    public var selectedBackgroundColors = CalendarParameters<AColor>()
+
+    /// Border color.
+    public var borderColors = CalendarParameters<AColor>()
+
+    /// Title label font.
+    public var titleLabelFont: AFont
+
+    /// Point background color.
+    public var pointBackgroundColor: AColor
     
-    var backgroundColors = CalendarParameters<AColor>()
-    var textColors = CalendarParameters<AColor>()
-    var selectedBackgroundColors = CalendarParameters<AColor>()
-    var borderColors = CalendarParameters<AColor>()
-    var titleLabelFont: AFont
-    var pointBackgroundColor: AColor
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         titleLabelFont = theme.fonts.body1
@@ -52,16 +69,26 @@ struct CalendarViewCellColorScheme {
     
 }
 
-struct CalendarParameters<P> {
-    
-    var parameters: [String: P?] = [:]
-    
-    mutating func set(parameter: P?, state: CalendarCellState) {
+/// A container for setting value for difference state.
+public struct CalendarParameters<P> {
+
+    // Parameters with generic values.
+    public var parameters: [String: P?] = [:]
+
+    /// Setting value for state.
+    /// - Parameters:
+    ///   - parameter: Any value. For Example text color.
+    ///   - state: Calendar cell state.
+    public mutating func set(parameter: P?, state: CalendarCellState) {
         let key = paramKey(state: state)
         parameters[key] = parameter
     }
-    
-    func parameter(for state: CalendarCellState) -> P? {
+
+    /// Getting parameter.
+    /// - Parameters:
+    ///   - state: Calendar cell state.
+    /// - Returns: Any value.
+    public func parameter(for state: CalendarCellState) -> P? {
         let key = paramKey(state: state)
         let defaultKey = paramKey(state: .normal)
         

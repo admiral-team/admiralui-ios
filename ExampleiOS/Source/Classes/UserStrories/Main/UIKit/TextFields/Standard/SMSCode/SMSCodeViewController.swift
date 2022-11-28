@@ -53,6 +53,8 @@ final class SMSCodeViewController: ScrollViewController {
         textField.placeholder = "СМС-код"
         textField.info = "Additional text"
         textField.keyboardType = .numberPad
+        textField.accessibilityIdentifier = "OTPTextField"
+        textField.inputTextAccessibilityId = "OTPInputTextField"
         
         let cell = TextFieldTextView(textField: textField, titleText: "")
         

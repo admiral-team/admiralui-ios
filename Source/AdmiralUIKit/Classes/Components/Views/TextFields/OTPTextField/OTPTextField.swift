@@ -39,12 +39,13 @@ public class OTPTextField: TextFieldInput, AnyAppThemable, AccessibilitySupport 
         get { return  decorationView.informerLabel.numberOfLines }
         set { decorationView.informerLabel.numberOfLines = newValue }
     }
-    
-    // MARK: - Internal Properties
-    
-    var scheme = OTPTextFieldScheme() {
+
+    /// Color scheme.
+    public var scheme = OTPTextFieldScheme() {
         didSet { updateScheme() }
     }
+    
+    // MARK: - Internal Properties
     
     var placeholderFont = UIFont.systemFont(ofSize: 16)
     

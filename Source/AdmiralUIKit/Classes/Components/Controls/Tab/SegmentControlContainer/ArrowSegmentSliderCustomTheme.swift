@@ -8,15 +8,25 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-public struct ArrowSegmentSliderCustomTheme {
-    var imageTintColor: AColor
-    var backgroundColor: AColor
+/**
+ ArrowSegmentSliderCustomTheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - ArrowSegmentSliderCustomTheme() - Initialize default ArrowSegmentSliderCustomTheme with default themezation
+Example to create ArrowSegmentSliderCustomTheme:
+Code
+ ```
+let scheme = ArrowSegmentSliderCustomTheme()
+ ```
+ */
+public struct ArrowSegmentSliderCustomTheme: AppThemeScheme {
 
-    init() {
-        self.init(theme: AppTheme.default)
-    }
+    /// Image tint color.
+    public var imageTintColor: AColor
+
+    /// Background color.
+    public var backgroundColor: AColor
     
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         backgroundColor = .clear
         imageTintColor = theme.colors.backgroundAdditionalOne
     }

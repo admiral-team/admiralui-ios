@@ -17,16 +17,17 @@ public class IconListView: BaseListView, TralingListViewComponent, AnyAppThemabl
     public var image: UIImage? {
         didSet { imageView.image = image }
     }
+
+    /// Color scheme.
+    public var scheme = IconListViewScheme() {
+        didSet { updateScheme() }
+    }
     
     // MARK: Internal Properties
     
     /// The state of the view. Default is normal.
     override var state: UIControl.State {
         didSet { configure(for: state) }
-    }
-    
-    var scheme = IconListViewScheme() {
-        didSet { updateScheme() }
     }
     
     // MARK: - Private Properties

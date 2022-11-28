@@ -10,7 +10,7 @@ import AdmiralTheme
 
 final public class IconTabsItem: UIControl, AnyAppThemable, AccessibilitySupport {
     
-    // MARK: - Internal Properties
+    // MARK: - Public Properties
     
     public override var isSelected: Bool {
         didSet { updateScheme() }
@@ -23,6 +23,13 @@ final public class IconTabsItem: UIControl, AnyAppThemable, AccessibilitySupport
     public override var isHighlighted: Bool {
         didSet { updateScheme() }
     }
+
+    /// Color scheme.
+    public var scheme = IconTabsItemScheme() {
+        didSet { updateScheme() }
+    }
+
+    // MARK: - Internal Properties
     
     var title: String? {
         get { return titleLabel.text }
@@ -32,10 +39,6 @@ final public class IconTabsItem: UIControl, AnyAppThemable, AccessibilitySupport
     var image: UIImage? {
         get { return imageView.image }
         set { imageView.image = newValue }
-    }
-    
-    var scheme = IconTabsItemScheme() {
-        didSet { updateScheme() }
     }
     
     // MARK: - AccessibilitySupport

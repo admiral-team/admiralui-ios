@@ -29,31 +29,39 @@ public final class InputNumberScheme: AppThemeScheme {
     /// The text color
     public var textColor = ControlParameter<AColor>()
 
-    /// The tint color
-    public var tintColor = ControlParameter<AColor>()
+    // The buttons visual scheme
+    public var buttonScheme: InputNumberButtonScheme
 
-    /// The background color
-    public var backgroundColor = ControlParameter<AColor>()
+    /// Text field background color
+    public var textFieldBackground = ControlParameter<AColor>()
+
+    /// Placeholder text field color.
+    public var placeholderColor = ControlParameter<AColor>()
+
+    /// The text field font
+    public var textFieldFont: AFont
 
     // MARK: - Initializer
 
     public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
-        
+
+        buttonScheme = InputNumberButtonScheme(theme: theme)
+        textFieldFont = theme.fonts.body1
+
         titleFont.set(parameter: theme.fonts.body1, for: .normal)
         numberFont.set(parameter: theme.fonts.body1, for: .normal)
         
         textColor.set(parameter: theme.colors.textPrimary, for: .normal)
-        tintColor.set(parameter: theme.colors.textSecondary, for: .normal)
-        backgroundColor.set(parameter: theme.colors.backgroundAdditionalOne, for: .normal)
-        
         textColor.set(parameter: theme.colors.textPrimary, for: .highlighted)
-        tintColor.set(parameter: theme.colors.textSecondary, for: .highlighted)
-        backgroundColor.set(parameter: theme.colors.backgroundAdditionalOnePressed, for: .highlighted)
-        
         textColor.set(parameter: theme.colors.textSecondary, for: .disabled)
-        tintColor.set(parameter: theme.colors.elementPrimary.withAlpha(alpha), for: .disabled)
-        backgroundColor.set(parameter: theme.colors.backgroundAdditionalOne, for: .disabled)
+
+        textFieldBackground.set(parameter: theme.colors.backgroundAdditionalOne, for: .normal)
+        textFieldBackground.set(parameter: theme.colors.backgroundAdditionalOnePressed, for: .highlighted)
+        textFieldBackground.set(parameter: theme.colors.backgroundAdditionalOne.withAlpha(alpha), for: .disabled)
+
+        placeholderColor.set(parameter: theme.colors.textMask, for: .normal)
+        placeholderColor.set(parameter: theme.colors.textMask.withAlpha(alpha), for: .disabled)
     }
     
 }

@@ -52,6 +52,8 @@ final class ZeroScreenViewController: BaseViewController {
         addSubviews()
         configureConstraints()
         zeroScreen.delegate = self
+        zeroScreen.accessibilityIdentifier = "ZeroScreen"
+        zeroScreen.primaryButtonAccesibilityId = "ZeroScreenPrimaryButton"
     }
     
     private func addSubviews() {

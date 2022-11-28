@@ -41,7 +41,9 @@ final class CheckBoxesCellView: UIView, AnyAppThemable, AccessibilitySupport {
         textCheckboxTitle: String,
         checkBoxesControlState: CheckControlState,
         isSelected: Bool,
-        titleText: String
+        titleText: String,
+        firstCheckBoxAccessibilityId: String,
+        secondCheckBoxAccessibilityId: String
     ) {
         super.init(frame: .zero)
         
@@ -49,11 +51,13 @@ final class CheckBoxesCellView: UIView, AnyAppThemable, AccessibilitySupport {
         checkBoxFirstControl.text = nil
         checkBoxFirstControl.isSelected = isSelected
         checkBoxFirstControl.checkState = checkBoxesControlState
+        checkBoxFirstControl.accessibilityIdentifier = firstCheckBoxAccessibilityId
         checkBoxFirstControl.addTarget(self, action: #selector(changeCheckBox(_:)), for: .touchUpInside)
         
         checkBoxSecondControl.text = textCheckboxTitle
         checkBoxSecondControl.isSelected = isSelected
         checkBoxSecondControl.checkState = checkBoxesControlState
+        checkBoxSecondControl.accessibilityIdentifier = secondCheckBoxAccessibilityId
         checkBoxSecondControl.addTarget(self, action: #selector(changeCheckBox(_:)), for: .touchUpInside)
         
         commonInit()
