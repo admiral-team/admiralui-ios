@@ -21,7 +21,7 @@ final class TextMessageViewModel {
             didSelect: nil,
             header: nil,
             direction: .right,
-            chatStatus: .sent
+            chatStatus: .read
         ),
         ChatMessageCellViewModel(
             message: "At breakpoint boundaries, miniunits divide the screen into a fixed master grid, and multiples of mini units map to fluid grid column widths and row heights.",
@@ -39,7 +39,6 @@ final class TextMessageViewModel {
             didSelect: nil,
             header: nil,
             direction: .left,
-            chatStatus: .sent,
             name: "Татьяна"
         ),
         ChatMessageCellViewModel(
@@ -48,8 +47,7 @@ final class TextMessageViewModel {
             image: nil,
             didSelect: nil,
             header: nil,
-            direction: .left,
-            chatStatus: .sent
+            direction: .left
         ),
         ChatMessageCellViewModel(
             message: "At breakpoint boundaries, miniunits divide the screen into a fixed master grid, and multiples of mini units map to fluid grid column widths and row heights.",
@@ -57,8 +55,7 @@ final class TextMessageViewModel {
             image: nil,
             didSelect: nil,
             header: nil,
-            direction: .right,
-            chatStatus: .sent
+            direction: .right
         )
     ]
 

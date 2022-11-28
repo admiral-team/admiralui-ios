@@ -67,20 +67,17 @@ final class SwiftUITextMessageViewModel: ObservableObject {
             text: "At breakpoint boundaries, mini units divide",
             direction: .left,
             time: "14:52",
-            status: .read,
             name: "Татьяна"
         ),
         ChatBubbleItem(
             text: "Text message",
             direction: .left,
-            time: "14:52",
-            status: .read
+            time: "14:52"
         ),
         ChatBubbleItem(
             text: "At breakpoint boundaries, miniunits divide the screen into a fixed master grid, and multiples of mini units map to fluid grid column widths and row heights.",
             direction: .right,
             time: "14:52",
-            status: .read,
             isRoundAllCorners: true
         )
     ]

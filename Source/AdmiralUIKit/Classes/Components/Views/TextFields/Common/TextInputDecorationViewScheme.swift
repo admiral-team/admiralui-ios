@@ -35,12 +35,15 @@ public struct TextInputDecorationViewScheme: AppThemeScheme {
     /// Name label min font.
     public var nameLabelMinFont: AFont
     
+    public var leadingText: AFont
+    
     public init(theme: AppTheme = .default) {
         nameFont = theme.fonts.subhead3
         nameEnableFont = theme.fonts.body1
         placeholderFont = theme.fonts.body1
         informerFont = theme.fonts.subhead3
         nameLabelMinFont = theme.fonts.subhead3
+        leadingText = theme.fonts.body1
     }
     
 }
