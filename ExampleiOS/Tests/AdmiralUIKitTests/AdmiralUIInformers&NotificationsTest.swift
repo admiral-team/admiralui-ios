@@ -83,10 +83,10 @@ class AdmiralUIInformers_NotificationsTest: XCTestCase {
     func changeThemes(app: XCUIApplication) {
         app.buttons["Ellipse"].tap()
         
-        app.staticTexts["Light"].tap()
-        app.staticTexts["Dark"].tap()
-        app.staticTexts["SME Light"].tap()
-        app.staticTexts["SME Dark"].tap()
+        app.otherElements.matching(identifier: "ThemeSwitchButton_Light").element.tap()
+        app.otherElements.matching(identifier: "ThemeSwitchButton_Dark").element.tap()
+        app.otherElements.matching(identifier: "ThemeSwitchButton_SME Light").element.tap()
+        app.otherElements.matching(identifier: "ThemeSwitchButton_SME Dark").element.tap()
         
         app.buttons["Ellipse"].tap()
     }
