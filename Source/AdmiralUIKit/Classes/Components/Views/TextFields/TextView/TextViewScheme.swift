@@ -8,26 +8,52 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-struct TextViewScheme {
+/**
+ TextViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - TextViewScheme() - Initialize default TextViewScheme with default themezation
+Example to create TextViewScheme:
+Code
+ ```
+let scheme = TextViewScheme()
+ ```
+ */
+public struct TextViewScheme: AppThemeScheme {
+
+    /// Tint color.
+    public var tintColor: AColor
+
+    /// Text color.
+    public var textColor: AColor
+
+    /// Error color.
+    public var errorColor: AColor
+
+    /// Disabled color.
+    public var disabledColor: AColor
+
+    /// Underline color.
+    public var underlineColor: AColor
+
+    /// Placeholder color.
+    public var placeholderColor: AColor
+
+    /// Name label font.
+    public var nameFont: AFont
+
+    /// Text field font.
+    public var textFieldFont: AFont
+
+    /// Placeholder font.
+    public var placeholderFont: AFont
+
+    /// Informer font.
+    public var informerFont: AFont
+
+    /// Name label min font.
+    public var nameLabelMinFont: AFont
     
-    var tintColor: AColor
-    var textColor: AColor
-    var errorColor: AColor
-    var disabledColor: AColor
-    var underlineColor: AColor
-    var placeholderColor: AColor
-    
-    var nameFont: AFont
-    var textFieldFont: AFont
-    var placeholderFont: AFont
-    var informerFont: AFont
-    var nameLabelMinFont: AFont
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         tintColor = theme.colors.elementAccent

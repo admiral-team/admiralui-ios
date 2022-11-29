@@ -20,16 +20,24 @@ public class ButtonListView: BaseListView, TralingListViewComponent, AnyAppThema
     
     /// The closure sign that button did select.
     public var didSelect: (() -> Void)?
-    
+
+    /// Color scheme.
+    public var scheme = ButtonListViewScheme() {
+        didSet { updateScheme() }
+    }
+
+    /// The button accessibility id
+    public var buttonAccesibilityId: String? {
+        didSet {
+            ghostButton.accessibilityIdentifier = buttonAccesibilityId
+        }
+    }
+
     // MARK: Internal Properties
     
     /// The state of the view. Default is normal.
     override var state: UIControl.State {
         didSet { configure(for: state) }
-    }
-    
-    var scheme = ButtonListViewScheme() {
-        didSet { updateScheme() }
     }
     
     // MARK: - AccessibilitySupport

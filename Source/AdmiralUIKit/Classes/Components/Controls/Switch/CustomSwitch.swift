@@ -10,7 +10,14 @@ import AdmiralTheme
 
 /// A control that offers a binary choice, such as On/Off.
 open class CustomSwitch: UISwitch, AnyAppThemable {
-    
+
+    // MARK: - Public Properties
+
+    /// Color scheme.
+    public var scheme = CustomSwitchScheme() {
+        didSet { updateScheme() }
+    }
+
     // MARK: - Initializers
     
     /// Initializes and returns a newly allocated view object with the specified frame rectangle.
@@ -28,8 +35,7 @@ open class CustomSwitch: UISwitch, AnyAppThemable {
     // MARK: - AnyAppThemable
     
     open func apply(theme: AppTheme) {
-        tintColor = theme.colors.elementPrimary.uiColor
-        onTintColor = theme.colors.elementAccent.uiColor
+        scheme = CustomSwitchScheme(theme: theme)
     }
     
     // MARK: - Private Methods
@@ -39,4 +45,13 @@ open class CustomSwitch: UISwitch, AnyAppThemable {
         clipsToBounds = true
     }
 
+    private func updateScheme() {
+        configure()
+    }
+
+    private func configure() {
+        onTintColor = scheme.onTintColor.uiColor
+        tintColor = isEnabled ? scheme.textColor.uiColor : scheme.disabledTextColor.uiColor
+        onTintColor = isEnabled ? scheme.tintColor.uiColor : scheme.disabledTintColor.uiColor
+    }
 }

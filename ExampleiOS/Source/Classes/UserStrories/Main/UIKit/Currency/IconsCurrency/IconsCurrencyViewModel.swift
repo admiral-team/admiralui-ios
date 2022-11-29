@@ -25,29 +25,29 @@ final class IconsCurrencyViewModel {
             currencyText: "USD",
             buyText: "100,88",
             sellText: "94.65",
-            sellCellType: .arrowUp,
-            buyCellType: .arrowDown
+            sellCellType: .arrowDown,
+            buyCellType: .arrowUp
         ),
         CurrencyItem(
             currencyText: "EUR",
             buyText: "108,88",
             sellText: "120.65",
-            sellCellType: .arrowUp,
-            buyCellType: .arrowDown
+            sellCellType: .arrowDown,
+            buyCellType: .arrowUp
         ),
         CurrencyItem(
             currencyText: "GBR",
             buyText: "28,88",
             sellText: "18.65",
-            sellCellType: .arrowUp,
-            buyCellType: .arrowDown
+            sellCellType: .arrowDown,
+            buyCellType: .arrowUp
         ),
         CurrencyItem(
             currencyText: "CNY",
             buyText: "19,88",
             sellText: "9.65",
-            sellCellType: .arrowUp,
-            buyCellType: .arrowDown
+            sellCellType: .arrowDown,
+            buyCellType: .arrowUp
         )
     ]
 

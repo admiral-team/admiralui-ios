@@ -62,30 +62,43 @@ public class InputNumber: UIControl, AnyAppThemable, AccessibilitySupport {
     public var stepValue: Double = 1.0 {
         didSet { inputStepValue = stepValue }
     }
-    
+
+    /// Color scheme.
+    public var scheme = InputNumberScheme() {
+        didSet { updateScheme() }
+    }
+
     public override var intrinsicContentSize: CGSize {
         return CGSize(width: UIView.noIntrinsicMetric, height: Constants.height)
     }
-    
+
+    /// The minus button accesibility identifier
+    public var minusButtonAccesibilityId: String? {
+        didSet {
+            minusButton.accessibilityIdentifier = minusButtonAccesibilityId
+        }
+    }
+
+    /// The plus button accesibility identifier
+    public var plusButtonAccesibilityId: String? {
+        didSet {
+            plusButton.accessibilityIdentifier = plusButtonAccesibilityId
+        }
+    }
+
     // MARK: - AccessibilitySupport
     
     public var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
         didSet { updateFonts() }
     }
-    
-    // MARK: Internal Properties
-    
-    var scheme = InputNumberScheme() {
-        didSet { updateScheme() }
-    }
-    
+
     // MARK: - Private Properties
     
     private let titleLabel = UILabel()
     private let numberLabel = UILabel()
     private let minusButton = CustomButton()
     private let plusButton = CustomButton()
-        
+
     private var inputStepValue: Double = 1.0
     private var timer: Timer?
     private var runCount: Float = 0

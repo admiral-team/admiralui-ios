@@ -20,9 +20,9 @@ import AdmiralTheme
 /// A view object for sign empty list view.
 @available(iOS 14.0.0, *)
 public struct ListCellEmpty: View,
-                             LeadingListViewComponent,
+                             CenterListViewComponent,
                              TralingListViewComponent,
-                             ImageListViewComponent {
+                             LeadingListViewComponent {
     
     public var isEnabled: Bool = false
     

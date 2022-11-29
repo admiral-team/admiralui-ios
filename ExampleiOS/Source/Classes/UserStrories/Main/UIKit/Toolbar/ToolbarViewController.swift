@@ -17,10 +17,11 @@ final class ToolbarViewController: BaseTableViewController, CodeInputControlDele
     private let toolbar = Toolbar()
     private let stepper = InputNumber()
     private var items = [ToolbarItem]()
-    private let item1 = ToolbarItem(title: "Оплатить", image: Asset.Toolbar.card.image)
-    private let item2 = ToolbarItem(title: "Пополнить", image: Asset.Toolbar.getCash.image)
-    private let item3 = ToolbarItem(title: "Подробнее", image: Asset.Toolbar.info.image)
-    private let item4 = ToolbarItem(title: "Настройки", image: Asset.Toolbar.settings.image)
+    private let item1 = ToolbarItem(title: "Оплатить", image: Asset.Toolbar.card.image, accesibilityId: "ToolBarItemOne")
+    private let item2 = ToolbarItem(title: "Пополнить", image: Asset.Toolbar.getCash.image, accesibilityId: "ToolBarItemTwo")
+    private let item3 = ToolbarItem(title: "Подробнее", image: Asset.Toolbar.info.image,
+                                    accesibilityId: "ToolBarItemThree")
+    private let item4 = ToolbarItem(title: "Настройки", image: Asset.Toolbar.settings.image, accesibilityId: "ToolBarItemFour")
 
     private enum Constants {
         static let selectedItem: Int = 1
@@ -52,6 +53,8 @@ final class ToolbarViewController: BaseTableViewController, CodeInputControlDele
         stepper.maximumValue = 4
         stepper.text = "Количество пунктов"
         stepper.addTarget(self, action: #selector(stepperValueChanged(_:)), for: .valueChanged)
+        stepper.minusButtonAccesibilityId = "ToolBarInputNumberMinusButton"
+        stepper.plusButtonAccesibilityId = "ToolBarInputNumberPlusButton"
         
         addSubviews()
         setupToolbar()
@@ -66,6 +69,7 @@ final class ToolbarViewController: BaseTableViewController, CodeInputControlDele
         toolbar.selectionStyle = .selected
         toolbar.selectedItem = Constants.selectedItem
         toolbar.setToolbarItemWidth(width: LayoutGrid.doubleModule * 4)
+        toolbar.accessibilityIdentifier = "ToolBar"
     }
     
     @objc private func stepperValueChanged(_ stepper: InputNumber) {

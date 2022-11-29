@@ -10,17 +10,17 @@ import AdmiralUIResources
 import UIKit
 
 /// Custom ghost button with left and right titles
-class HeaderButtonWithArrow: UIControl, AnyAppThemable, AccessibilitySupport {
+public class HeaderButtonWithArrow: UIControl, AnyAppThemable, AccessibilitySupport {
     
     // MARK: - Override states
     
     /// A Boolean value indicating whether the control is in the selected state.
-    override var isSelected: Bool {
+    override public var isSelected: Bool {
         didSet { updateScheme() }
     }
     
     /// A Boolean value indicating whether the control draws a highlight.
-    override var isHighlighted: Bool {
+    override public var isHighlighted: Bool {
         get { return super.isHighlighted }
         set {
             highlight() {
@@ -31,36 +31,36 @@ class HeaderButtonWithArrow: UIControl, AnyAppThemable, AccessibilitySupport {
     }
     
     /// A Boolean value indicating whether the control is in the enabled state.
-    override var isEnabled: Bool {
+    override public var isEnabled: Bool {
         didSet { updateScheme() }
     }
     
     /// Text for button label
-    var text: String? {
+    public var text: String? {
         get { return textLabel.text }
         set { textLabel.text = newValue }
     }
+
+    public var scheme = HeaderButtonWithArrowScheme() {
+        didSet { updateScheme() }
+    }
     
     /// Image arrow is up state.
-    var dropDownHeaderType: DropDownHeaderType? = .down {
+    public var dropDownHeaderType: DropDownHeaderType? = .down {
         didSet {
             arrowImageView.image = dropDownHeaderType?.image
         }
     }
     
     /// A Boolean value indicating whether the control highlight animated.
-    var shouldAnimateHighlighting: Bool = true
+    public var shouldAnimateHighlighting: Bool = true
     
     /// Highlight animation duration.
-    var animationDuration: TimeInterval = Durations.Default.single
-        
-    var scheme = HeaderButtonWithArrowScheme() {
-        didSet { updateScheme() }
-    }
+    public var animationDuration: TimeInterval = Durations.Default.single
     
     // MARK: - AccessibilitySupport
     
-    var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
+    public var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
         didSet { updateSchemeFonts() }
     }
     
@@ -71,7 +71,7 @@ class HeaderButtonWithArrow: UIControl, AnyAppThemable, AccessibilitySupport {
     
     // MARK: - AnyAppThemable
     
-    func apply(theme: AppTheme) {
+    public func apply(theme: AppTheme) {
         scheme = HeaderButtonWithArrowScheme(theme: theme)
     }
     

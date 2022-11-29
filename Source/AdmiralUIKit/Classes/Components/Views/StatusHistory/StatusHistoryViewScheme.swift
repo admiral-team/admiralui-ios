@@ -9,20 +9,37 @@ import UIKit
 import AdmiralTheme
 import AdmiralUIResources
 
-struct StatusHistoryViewScheme {
+/**
+ StatusHistoryViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - StatusHistoryViewScheme() - Initialize default StatusHistoryViewScheme with default themezation
+Example to create StatusHistoryViewScheme:
+Code
+ ```
+let scheme = StatusHistoryViewScheme()
+ ```
+ */
+public struct StatusHistoryViewScheme: AppThemeScheme {
+
+    /// Background color.
+    public var backgroundColor: AColor
+
+    /// Status history date view scheme.
+    public var statusHistoryDateViewScheme: StatusHistoryDateViewScheme
+
+    /// Status history base images view scheme.
+    public var statusHistoryBaseImagesViewScheme: StatusHistoryBaseImagesViewScheme
+
+    /// Status history summa view scheme.
+    public var statusHistorySummaViewScheme: StatusHistorySumViewScheme
+
+    /// Status history title view scheme.
+    public var statusHistoryTitleViewScheme: StatusHistoryTitleViewScheme
+
+    /// Status history status view scheme.
+    public var statusHistoryStatusViewScheme: StatusHistoryStatusViewScheme
     
-    var backgroundColor: AColor
-    var statusHistoryDateViewScheme: StatusHistoryDateViewScheme
-    var statusHistoryBaseImagesViewScheme: StatusHistoryBaseImagesViewScheme
-    var statusHistorySummaViewScheme: StatusHistorySumViewScheme
-    var statusHistoryTitleViewScheme: StatusHistoryTitleViewScheme
-    var statusHistoryStatusViewScheme: StatusHistoryStatusViewScheme
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         backgroundColor = theme.colors.backgroundAdditionalOne
         
         statusHistoryDateViewScheme = StatusHistoryDateViewScheme(theme: theme)

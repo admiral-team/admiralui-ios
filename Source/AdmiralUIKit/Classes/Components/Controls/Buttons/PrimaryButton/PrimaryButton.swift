@@ -13,7 +13,8 @@ import AdmiralUIResources
 open class PrimaryButton: CustomButton, AnyAppThemable, AccessibilitySupport {
    
     // MARK: - Public Properties
-    
+
+    /// Color scheme.
     public var scheme = PrimaryButtonCustomScheme() {
         didSet { updateScheme() }
     }

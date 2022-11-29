@@ -9,19 +9,31 @@ import UIKit
 import AdmiralTheme
 import AdmiralUIResources
 
-public struct ToolbarItemColorScheme {
-    
-    public var titleColor = ToolbarItemParameters<AColor>()
-    public var imageColor = ToolbarItemParameters<AColor>()
- 
-    public var titleLabelFontVertical: UIFont
-    public var titleLabelFontHorizontal: UIFont
+/**
+ ToolbarItemColorScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - ToolbarItemColorScheme() - Initialize default ToolbarItemColorScheme with default themezation
+Example to create ToolbarItemColorScheme:
+Code
+ ```
+let scheme = ToolbarItemColorScheme()
+ ```
+ */
+public struct ToolbarItemColorScheme: AppThemeScheme {
 
-    public init() {
-        self.init(theme: AppTheme.default)
-    }
+    /// Title color.
+    public var titleColor = ToolbarItemParameters<AColor>()
+
+    /// Image color.
+    public var imageColor = ToolbarItemParameters<AColor>()
+
+    /// Title vertical label font.
+    public var titleLabelFontVertical: UIFont
+
+    /// Title label horizontal font.
+    public var titleLabelFontHorizontal: UIFont
     
-    public init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
         
         titleLabelFontVertical = theme.fonts.caption2.uiFont

@@ -110,7 +110,7 @@ final class IconsViewController: UIViewController, AnyAppThemable {
     private func configureDataSource() {
         for image in AdmiralUIResources.Asset.allImages {
             let title = nameSectionTitle(image.name)
-            
+
             if image.name.contains(Constants.outlineKey) {
                 if let indexSection = outlineImageSections.firstIndex(where: { $0.title == title }) {
                     outlineImageSections[indexSection].icons.append(image)
@@ -125,7 +125,7 @@ final class IconsViewController: UIViewController, AnyAppThemable {
                 }
             }
         }
-        
+
         outlineImageSections.sort { sectionFirst, sectionSecond -> Bool in
             (sectionFirst.size.width * sectionFirst.size.height) < (sectionSecond.size.width * sectionSecond.size.height)
         }
@@ -190,19 +190,19 @@ final class IconsViewController: UIViewController, AnyAppThemable {
             searchOutlineImageSections.sort { sectionFirst, sectionSecond -> Bool in
                 (sectionFirst.size.width * sectionFirst.size.height) < (sectionSecond.size.width * sectionSecond.size.height)
             }
-            
+
             searchSolidImageSections.sort { sectionFirst, sectionSecond -> Bool in
                 (sectionFirst.size.width * sectionFirst.size.height) < (sectionSecond.size.width * sectionSecond.size.height)
             }
-            
+
             dataSource = segmentControl.selectedSegmentIndex == 0 ? searchOutlineImageSections : searchSolidImageSections
         }
-        
+
         for image in AdmiralUIResources.Asset.allImages {
             let title = nameSectionTitle(image.name)
-            
+
             guard image.name.lowercased().contains(text.lowercased().replacingOccurrences(of: " ", with: "")) else { continue }
-            
+
             if image.name.contains(Constants.outlineKey) {
                 if let indexSection = searchOutlineImageSections.firstIndex(where: { $0.title == title }) {
                     searchOutlineImageSections[indexSection].icons.append(image)
@@ -304,7 +304,7 @@ extension IconsViewController: UICollectionViewDelegateFlowLayout {
         
         guard
             let cell = collectionView.cellForItem(at: indexPath) as? IconCell,
-            let title = getOriginalName(imageAsset.name.components(separatedBy: "/").last) ,
+            let title = getOriginalName(imageAsset.name.components(separatedBy: "/").last),
             let font = informer.titleFont,
             let theme = theme
         else { return }

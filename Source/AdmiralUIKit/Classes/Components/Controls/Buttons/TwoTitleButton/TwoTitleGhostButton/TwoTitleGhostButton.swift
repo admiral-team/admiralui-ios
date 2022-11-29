@@ -51,7 +51,8 @@ public class TwoTitleGhostButton: UIControl, AnyAppThemable, AccessibilitySuppor
     
     /// Highlight animation duration.
     open var animationDuration: TimeInterval = Durations.Default.single
-    
+
+    /// Color scheme.
     open var scheme = TwoTitleGhostButtonScheme() {
         didSet { updateScheme() }
     }

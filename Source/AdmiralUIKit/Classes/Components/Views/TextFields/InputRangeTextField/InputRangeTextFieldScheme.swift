@@ -8,18 +8,30 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-struct InputRangeTextFieldScheme {
-    var slider: SliderScheme
-    var textField: TextFieldScheme
-    var valueFont: AFont
+/**
+ InputRangeTextFieldScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - InputRangeTextFieldScheme() - Initialize default InputRangeTextFieldScheme with default themezation
+Example to create InputRangeTextFieldScheme:
+Code
+ ```
+let scheme = InputRangeTextFieldScheme()
+ ```
+ */
+public struct InputRangeTextFieldScheme: AppThemeScheme {
 
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    /// Slider scheme.
+    public var sliderScheme: SliderScheme
+
+    /// Text field scheme.
+    public var textFieldScheme: TextFieldScheme
+
+    /// Value font.
+    public var valueFont: AFont
+
+    public init(theme: AppTheme = .default) {
         self.valueFont = theme.fonts.subhead3
-        self.textField = TextFieldScheme(theme: theme)
-        self.slider = SliderScheme(theme: theme)
+        self.textFieldScheme = TextFieldScheme(theme: theme)
+        self.sliderScheme = SliderScheme(theme: theme)
     }
 }

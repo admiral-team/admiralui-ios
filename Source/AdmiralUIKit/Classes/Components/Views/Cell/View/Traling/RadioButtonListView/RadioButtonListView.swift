@@ -42,6 +42,18 @@ public class RadioButtonListView: BaseListView, TralingListViewComponent, AnyApp
         }
     }
 
+    /// Color scheme.
+    public var scheme = RadioButtonListViewScheme() {
+        didSet { updateScheme() }
+    }
+
+    /// The radio button accessibility id
+    public var radioButtonAccesibilityId: String? {
+        didSet {
+            radioButton.checkControlAccesibilityId = radioButtonAccesibilityId
+        }
+    }
+
     /// Tap action.
     public var didSelect: (() -> Void)?
     
@@ -50,10 +62,6 @@ public class RadioButtonListView: BaseListView, TralingListViewComponent, AnyApp
     /// The state of the view. Default is normal.
     override var state: UIControl.State {
         didSet { configure(for: state) }
-    }
-    
-    var scheme = RadioButtonListViewScheme() {
-        didSet { updateScheme() }
     }
     
     // MARK: - Private Properties

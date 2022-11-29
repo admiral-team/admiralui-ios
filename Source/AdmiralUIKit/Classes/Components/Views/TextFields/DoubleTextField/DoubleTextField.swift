@@ -37,6 +37,11 @@ public class DoubleTextField<T1, T2>: UIView, AnyAppThemable, AccessibilitySuppo
     
     /// Second Text Field.
     public let secondTextField: T2
+
+    /// Color scheme.
+    public var scheme = DoubleTextFieldScheme() {
+        didSet { updateScheme() }
+    }
     
     /// Alignment textfields. 3 state: Fixed width first textfeild, fixed width second textfield, ratio first to second textfield.
     public var alignment: Alignment {
@@ -58,8 +63,6 @@ public class DoubleTextField<T1, T2>: UIView, AnyAppThemable, AccessibilitySuppo
             layoutIfNeeded()
         }
     }
-    
-    var scheme = DoubleTextFieldScheme()
     
     // MARK: - AccessibilitySupport
     

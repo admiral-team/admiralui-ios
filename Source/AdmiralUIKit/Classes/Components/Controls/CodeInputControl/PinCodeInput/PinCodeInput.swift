@@ -11,9 +11,9 @@ import AdmiralTheme
 /// Control to input secure text pin code etc.
 open class PinCodeInput: CodeInputControl, AnyAppThemable {
     
-    // MARK: - Internal Properties
+    // MARK: - Public Properties
     
-    var scheme = PinCodeInputScheme() {
+    public var scheme = PinCodeInputScheme() {
         didSet { updateScheme() }
     }
     

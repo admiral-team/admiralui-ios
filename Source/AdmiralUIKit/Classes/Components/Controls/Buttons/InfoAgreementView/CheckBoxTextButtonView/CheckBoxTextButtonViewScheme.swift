@@ -8,18 +8,29 @@
 import UIKit
 import AdmiralTheme
 
-struct CheckBoxTextButtonViewScheme {
+/**
+ CheckBoxTextButtonViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - CheckBoxTextButtonViewScheme() - Initialize default CheckBoxTextButtonViewScheme with default themezation
+Example to create CheckBoxTextButtonViewScheme:
+Code
+ ```
+let scheme = CheckBoxTextButtonViewScheme()
+ ```
+ */
+public struct CheckBoxTextButtonViewScheme: AppThemeScheme {
+
+    /// Background color
+    public var backgroundColor: AColor
+
+    /// Check text control scheme.
+    public var checkTextControl = CheckTextControlScheme()
+
+    /// Primary link scheme.
+    public var primaryLinkScheme = TagControlCustomScheme()
     
-    var backgroundColor: UIColor
-    var checkTextControl = CheckTextControlScheme()
-    var primaryLinkScheme = TagControlCustomScheme()
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
-        backgroundColor = .clear
+    public init(theme: AppTheme = .default) {
+        backgroundColor = theme.colors.backgroundBasic.withAlpha(0.0)
         checkTextControl = CheckTextControlScheme(theme: theme)
         primaryLinkScheme = TagControlCustomScheme(theme: theme)
     }

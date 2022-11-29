@@ -8,22 +8,40 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-struct ChatInputTextFieldScheme {
+/**
+ ChatBubbleViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - ChatBubbleViewScheme() - Initialize default ChatBubbleViewScheme with default themezation
+Example to create ChatBubbleViewScheme:
+Code
+ ```
+let scheme = ChatBubbleViewScheme()
+ ```
+ */
+public struct ChatInputTextFieldScheme: AppThemeScheme {
 
-    var tintColor = ChatInputTextFieldParameters<AColor>()
-    var textColor = ChatInputTextFieldParameters<AColor>()
-    var placeholderColor = ChatInputTextFieldParameters<AColor>()
-    var textFieldBackgroundColor = ChatInputTextFieldParameters<AColor>()
-    var imageTintColor: AColor
+    /// Tint color.
+    public var tintColor = ChatInputTextFieldParameters<AColor>()
 
-    var textFieldFont: AFont
-    var placeholderFont: AFont
+    /// Text color.
+    public var textColor = ChatInputTextFieldParameters<AColor>()
 
-    init() {
-        self.init(theme: AppTheme.default)
-    }
+    /// Placeholder color.
+    public var placeholderColor = ChatInputTextFieldParameters<AColor>()
 
-    init(theme: AppTheme) {
+    /// Text field background color.
+    public var textFieldBackgroundColor = ChatInputTextFieldParameters<AColor>()
+
+    /// Image tint color.
+    public var imageTintColor: AColor
+
+    /// Text field font.
+    public var textFieldFont: AFont
+
+    /// Placeholder font.
+    public var placeholderFont: AFont
+
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         imageTintColor = theme.colors.elementPrimary
@@ -54,14 +72,25 @@ struct ChatInputTextFieldScheme {
 
 }
 
+/// A container for setting value for difference state.
 public struct ChatInputTextFieldParameters<P> {
+
+    /// Parameters with generic values.
     public var parameters: [String: P?] = [:]
 
+    /// Setting value for state.
+    /// - Parameters:
+    ///   - parameter: Any value. For Example text color
+    ///   - state: Text input state.
     public mutating func set(parameter: P?, state: TextInputState) {
         let key = paramKey(state: state)
         parameters[key] = parameter
     }
 
+    /// Getting parameter.
+    /// - Parameters:
+    ///   - state: Text input state.
+    /// - Returns: Any value.
     public func parameter(for state: TextInputState) -> P? {
         let key = paramKey(state: state)
         let defaultKey = paramKey(state: state)

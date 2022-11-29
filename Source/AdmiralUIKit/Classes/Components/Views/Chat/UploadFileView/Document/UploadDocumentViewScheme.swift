@@ -8,34 +8,62 @@
 import AdmiralTheme
 import AdmiralUIResources
 
+/**
+ UploadDocumentViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - UploadDocumentViewScheme() - Initialize default UploadDocumentViewScheme with default themezation
+Example to create UploadDocumentViewScheme:
+Code
+ ```
+let scheme = UploadDocumentViewScheme()
+ ```
+ */
 public struct UploadDocumentViewScheme: AppThemeScheme {
 
     // MARK: - Public properties
 
-    public let sizeTextFont: AFont
-    public let timeTextFont: AFont
+    /// Text size font.
+    public var sizeTextFont: AFont
 
+    /// Text time font.
+    public var timeTextFont: AFont
+
+    /// Message text font.
     public var messageTextFont: AFont
+
+    /// Message text color.
     public var messageTextColor: AColor
 
-    public let textFont: AFont
+    /// Text font.
+    public var textFont: AFont
+
+    /// Background color.
     public var backgroundColor = UploadDocumentParameters<AColor>()
+
+    /// Name text color.
     public var nameTextColor = UploadDocumentParameters<AColor>()
+
+    /// Time text color.
     public var timeTextColor = UploadDocumentParameters<AColor>()
+
+    /// Size color.
     public var sizeColor = UploadDocumentParameters<AColor>()
+
+    /// Circle color.
     public var circleColor = UploadDocumentParameters<AColor>()
+
+    /// Chevron color.
     public var chevronColor = UploadDocumentParameters<AColor>()
-    
+
+    /// Progress view scheme.
     public var progressViewScheme: ProgressViewScheme
+
+    /// Chat bubble status view scheme.
     public var chatBubbleStatusViewScheme: ChatBubbleStatusViewScheme
 
     // MARK: - Initializer
 
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-
-    public init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         textFont = theme.fonts.body1
         timeTextFont = theme.fonts.caption1
         sizeTextFont = theme.fonts.caption2
