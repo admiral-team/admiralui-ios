@@ -10,13 +10,21 @@ import AdmiralUIKit
 import AdmiralSwiftUI
 
 struct ContentView: View {
+    
+    @State var text: String? = "Text"
         
     var body: some View {
         VStack() {
             Spacer()
-            PrimaryButton(text: "SwitUI", action: {})
+            SwiftUI.Button("", action: {})
+                .buttonStyle(PrimaryButtonStyle())
+            TextView($text, placeholder: "Place", name: "Name")
+            StandardTextField(
+                $text,
+                placeholder: "Placeholder",
+                name: "Name")
             WrapedPrimaryButton(text: .constant("UIKit"))
-                .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
+                .fixedSize(horizontal: false, vertical: true)
             Spacer()
         }.padding(.horizontal)
     }

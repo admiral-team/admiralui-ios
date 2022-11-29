@@ -9,20 +9,37 @@ import AdmiralTheme
 import AdmiralUIResources
 import UIKit
 
-struct TitleSubtitleHeaderScheme {
-    
-    var backgroundColor: AColor
-    var defaultTitleFont: AFont
-    var titleFont = TitleHeaderViewParameters<AFont>()
-    var subtitleFont = TitleHeaderViewParameters<AFont>()
-    var titleColor = TitleHeaderViewParameters<AColor>()
-    var subtitleColor = TitleHeaderViewParameters<AColor>()
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+/**
+ TitleSubtitleHeaderScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - TitleSubtitleHeaderScheme() - Initialize default TitleSubtitleHeaderScheme with default themezation
+Example to create TitleSubtitleHeaderScheme:
+Code
+ ```
+let scheme = TitleSubtitleHeaderScheme()
+ ```
+ */
+public struct TitleSubtitleHeaderScheme: AppThemeScheme {
+
+    /// Background color.
+    public var backgroundColor: AColor
+
+    /// Default title font.
+    public var defaultTitleFont: AFont
+
+    /// Title font.
+    public var titleFont = TitleHeaderViewParameters<AFont>()
+
+    /// Subtitle font.
+    public var subtitleFont = TitleHeaderViewParameters<AFont>()
+
+    /// Title color.
+    public var titleColor = TitleHeaderViewParameters<AColor>()
+
+    /// Subtitle color.
+    public var subtitleColor = TitleHeaderViewParameters<AColor>()
+
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
         backgroundColor = theme.colors.backgroundBasic
         

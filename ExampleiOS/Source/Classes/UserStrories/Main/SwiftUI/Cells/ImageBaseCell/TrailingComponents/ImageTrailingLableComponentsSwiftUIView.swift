@@ -29,7 +29,7 @@ struct ImageTrailingLableComponentsSwiftUIView: View {
                     .padding()
                 LazyVStack(alignment: .leading) {
                     ListCell(
-                        leadingView: { ImageCardListView(cardImage: Image(uiImage: Asset.Card.visa.image)) },
+                        leadingView: { LeadingCardListView(cardImage: Image(uiImage: Asset.Card.visa.image)) },
                         centerView: { TitleListView(title: "Title") },
                         trailingView: { ArrowListView() },
                         isSelected:
@@ -39,7 +39,7 @@ struct ImageTrailingLableComponentsSwiftUIView: View {
                             ))
                         .disabled(isEnabledControlsState != 0)
                     ListCell(
-                        leadingView: { ImageCardListView(cardImage: Image(uiImage: Asset.Card.visa.image)) },
+                        leadingView: { LeadingCardListView(cardImage: Image(uiImage: Asset.Card.visa.image)) },
                         centerView: { TitleListView(title: "Title") },
                         trailingView: { RadioButtonListView(isControlSelected: $isRadioButtonListViewControlSelected) },
                         isSelected:
@@ -49,7 +49,7 @@ struct ImageTrailingLableComponentsSwiftUIView: View {
                             ))
                         .disabled(isEnabledControlsState != 0)
                     ListCell(
-                        leadingView: { ImageCardListView(cardImage: Image(uiImage: Asset.Card.visa.image)) },
+                        leadingView: { LeadingCardListView(cardImage: Image(uiImage: Asset.Card.visa.image)) },
                         centerView: { TitleListView(title: "Title") },
                         trailingView: { CheckBoxListView(isControlSelected: $isCheckBoxViewControlSelected) },
                         isSelected:
@@ -59,12 +59,12 @@ struct ImageTrailingLableComponentsSwiftUIView: View {
                             ))
                         .disabled(isEnabledControlsState != 0)
                     ListCell(
-                        leadingView: { ImageCardListView(cardImage: Image(uiImage: Asset.Card.visa.image)) },
+                        leadingView: { LeadingCardListView(cardImage: Image(uiImage: Asset.Card.visa.image)) },
                         centerView: { TitleListView(title: "Title") },
                         trailingView: { SwitchListView(isSwitchSelected: $isSwitchSelected) })
                         .disabled(isEnabledControlsState != 0)
                     ListCell(
-                        leadingView: { ImageCardListView(cardImage: Image(uiImage: Asset.Card.rnb.image)) },
+                        leadingView: { LeadingCardListView(cardImage: Image(uiImage: Asset.Card.rnb.image)) },
                         centerView: { TitleListView(title: "Title") },
                         trailingView: { IconListView(image: Image(uiImage: Asset.Card.rnb.image)) },
                         isSelected:
@@ -74,7 +74,7 @@ struct ImageTrailingLableComponentsSwiftUIView: View {
                             ))
                         .disabled(isEnabledControlsState != 0)
                     ListCell(
-                        leadingView: { ImageCardListView(cardImage: Image(uiImage: Asset.Card.visa.image)) },
+                        leadingView: { LeadingCardListView(cardImage: Image(uiImage: Asset.Card.visa.image)) },
                         centerView: { TitleListView(title: "Title") },
                         trailingView: { CardListView(image: Image(uiImage: Asset.Card.visa.image)) },
                         isSelected:
@@ -84,7 +84,7 @@ struct ImageTrailingLableComponentsSwiftUIView: View {
                             ))
                         .disabled(isEnabledControlsState != 0)
                     ListCell(
-                        leadingView: { ImageCardListView(cardImage: Image(uiImage: Asset.Card.visa.image)) },
+                        leadingView: { LeadingCardListView(cardImage: Image(uiImage: Asset.Card.visa.image)) },
                         centerView: { TitleListView(title: "Title") },
                         trailingView: { DatePercentListView(date: "Date", percent: "Text") },
                         isSelected:
@@ -94,7 +94,7 @@ struct ImageTrailingLableComponentsSwiftUIView: View {
                             ))
                         .disabled(isEnabledControlsState != 0)
                     ListCell(
-                        leadingView: { ImageCardListView(cardImage: Image(uiImage: Asset.Card.visa.image)) },
+                        leadingView: { LeadingCardListView(cardImage: Image(uiImage: Asset.Card.visa.image)) },
                         centerView: { TitleListView(title: "Title") },
                         trailingView: { ImageWithSubtitleListView(subtitle: "Subtitle", image: Image(uiImage: Asset.Tabs.mirLogo.image)) },
                         isSelected:
@@ -104,7 +104,7 @@ struct ImageTrailingLableComponentsSwiftUIView: View {
                             ))
                         .disabled(isEnabledControlsState != 0)
                     ListCell(
-                        leadingView: { ImageCardListView(cardImage: Image(uiImage: Asset.Card.visa.image)) },
+                        leadingView: { LeadingCardListView(cardImage: Image(uiImage: Asset.Card.visa.image)) },
                         centerView: { TitleListView(title: "Title") },
                         trailingView: { SubtitleWithImageListView(subtitle: "Subtitle", image: Image(uiImage: Asset.Tabs.mirLogo.image)) },
                         isSelected:

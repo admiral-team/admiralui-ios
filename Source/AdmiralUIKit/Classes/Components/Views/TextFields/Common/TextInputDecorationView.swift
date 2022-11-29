@@ -21,7 +21,9 @@ final class TextInputDecorationView: UIView, AnyAppThemable, AccessibilitySuppor
         var nameLabelHeight: CGFloat = LayoutGrid.doubleModule
         var textInputSpacingTop: CGFloat = LayoutGrid.module
         var textInputMinHeight: CGFloat = 5 * LayoutGrid.halfModule
+        var textInputSpacingLeading: CGFloat = .zero
         var placeholderSpacingLeading: CGFloat = LayoutGrid.halfModule - 2
+        var placeholderSpacingTop: CGFloat = .zero
         var separatorSpacingTop: CGFloat = LayoutGrid.halfModule
         var separtorBoxHeight: CGFloat = LayoutGrid.halfModule
         var infoLabelSpacingTop: CGFloat = LayoutGrid.module
@@ -124,9 +126,11 @@ final class TextInputDecorationView: UIView, AnyAppThemable, AccessibilitySuppor
 
     private var textInputTopConstraint: NSLayoutConstraint?
     private var textInputHeightConstraint: NSLayoutConstraint?
+    private var textInputLeadingConstraing: NSLayoutConstraint?
     
     private var placeholderHeightConstraint: NSLayoutConstraint?
     private var placeholderSpacingLeadingConstraint: NSLayoutConstraint?
+    private var placeholderSpacingTopConstraint: NSLayoutConstraint?
 
     private var textLabelTopConstraint: NSLayoutConstraint?
     private var textLabelLeadingConstraint = NSLayoutConstraint()
@@ -256,6 +260,8 @@ final class TextInputDecorationView: UIView, AnyAppThemable, AccessibilitySuppor
         placeholderHeightConstraint?.constant = layoutParameters.textInputMinHeight
         separatorSpacingTopConstraint?.constant = layoutParameters.separatorSpacingTop
         separtorBoxHeightConstraint?.constant = layoutParameters.separtorBoxHeight
+        textInputLeadingConstraing?.constant = layoutParameters.textInputSpacingLeading
+        placeholderSpacingTopConstraint?.constant = layoutParameters.placeholderSpacingTop
         
         if enablePlaceholderOffset {
             guard let leftLabelWidth = leftLabelWidth else {
@@ -266,7 +272,7 @@ final class TextInputDecorationView: UIView, AnyAppThemable, AccessibilitySuppor
         } else {
             placeholderSpacingLeadingConstraint?.constant = 0
         }
-        
+
         if trailingView == nil {
             trailingViewSpacingLeadingConstraint?.constant = 0
             trailingViewHeightConstraint?.constant = 0
@@ -319,6 +325,7 @@ final class TextInputDecorationView: UIView, AnyAppThemable, AccessibilitySuppor
         
         textInputTopConstraint = top
         textInputHeightConstraint = height
+        textInputLeadingConstraing = leading
         
         NSLayoutConstraint.activate([top, bottom, leading, trailing, height])
     }
@@ -365,7 +372,8 @@ final class TextInputDecorationView: UIView, AnyAppThemable, AccessibilitySuppor
 
         placeholderSpacingLeadingConstraint = leading
         placeholderHeightConstraint = height
-        
+        placeholderSpacingTopConstraint = top
+
         NSLayoutConstraint.activate([top, leading, trailing, height])
     }
 

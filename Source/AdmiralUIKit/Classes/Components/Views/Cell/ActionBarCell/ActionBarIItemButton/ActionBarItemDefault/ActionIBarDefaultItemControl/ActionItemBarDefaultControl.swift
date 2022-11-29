@@ -49,10 +49,15 @@ class ActionItemBarDefaultControl: UIControl, AnyAppThemable {
 
     // MARK: - Initializer
 
-    init(style: ActionBarItemImageStyle?, image: UIImage) {
+    init(
+        style: ActionBarItemImageStyle?,
+        image: UIImage,
+        accessibilityId: String? = nil
+    ) {
         super.init(frame: .zero)
         self.imageStyle = style
         self.iconImageView.image = image
+        accessibilityIdentifier = accessibilityId
         commonInit()
     }
 

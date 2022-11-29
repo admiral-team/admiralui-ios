@@ -8,19 +8,31 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-struct SmallInformerScheme {
-    
-    var titleLabelTextColors = InformerParameters<AColor>()
-    var backgroundColors = InformerParameters<AColor>()
-    var wrapViewBackgroundColors = InformerParameters<AColor>()
-    
-    var titleLabelFont: AFont
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+/**
+ SmallInformerScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - SmallInformerScheme() - Initialize default SmallInformerScheme with default themezation
+Example to create SmallInformerScheme:
+Code
+ ```
+let scheme = SmallInformerScheme()
+ ```
+ */
+public struct SmallInformerScheme: AppThemeScheme {
+
+    /// Title label text color.
+    public var titleLabelTextColors = InformerParameters<AColor>()
+
+    /// Background color.
+    public var backgroundColors = InformerParameters<AColor>()
+
+    /// Wrap view background color.
+    public var wrapViewBackgroundColors = InformerParameters<AColor>()
+
+    /// Title label font.
+    public var titleLabelFont: AFont
+
+    public init(theme: AppTheme = .default) {
         
         titleLabelFont = theme.fonts.body2
         

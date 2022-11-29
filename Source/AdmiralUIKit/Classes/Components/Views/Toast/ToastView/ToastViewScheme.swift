@@ -9,26 +9,46 @@ import UIKit
 import AdmiralTheme
 import AdmiralUIResources
 
-struct ToastViewScheme {
+/**
+ ToastViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - ToastViewScheme() - Initialize default ToastViewScheme with default themezation
+Example to create ToastViewScheme:
+Code
+ ```
+let scheme = ToastViewScheme()
+ ```
+ */
+public struct ToastViewScheme: AppThemeScheme {
 
-    var titleTextColor = ToastViewParameters<AColor>()
-    var closeTintColor = ToastViewParameters<AColor>()
-    var closeTitleColor = ToastViewParameters<AColor>()
-    var backgroundColor = ToastViewParameters<AColor>()
-    var imageTintColor =  ToastImageParameters<AColor>()
-    
-    var titleTextFont: AFont
-    var closeTitleFont: AFont
-    
-    var countDownTimerViewScheme = CountDownTimerViewScheme()
-    
-    var primaryLinkScheme = TagControlCustomScheme()
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    /// Title text color.
+    public var titleTextColor = ToastViewParameters<AColor>()
+
+    /// Close tint color.
+    public var closeTintColor = ToastViewParameters<AColor>()
+
+    /// Close title color.
+    public var closeTitleColor = ToastViewParameters<AColor>()
+
+    /// Background color.
+    public var backgroundColor = ToastViewParameters<AColor>()
+
+    /// Image tint color.
+    public var imageTintColor =  ToastImageParameters<AColor>()
+
+    /// Title text font.
+    public var titleTextFont: AFont
+
+    /// Close title font.
+    public var closeTitleFont: AFont
+
+    /// Count down time view scheme.
+    public var countDownTimerViewScheme = CountDownTimerViewScheme()
+
+    /// Primary link scheme.
+    public var primaryLinkScheme = TagControlCustomScheme()
+
+    public init(theme: AppTheme = .default) {
         
         let alpha = theme.colors.disabledAlpha
         
@@ -110,15 +130,27 @@ struct ToastViewScheme {
     
 }
 
+/// A container for setting value for difference state.
 public struct ToastViewParameters<P> {
-    
+
+    // Parameters with generic values.
     public var parameters: [String: P?] = [:]
-    
+
+    /// Setting value for state.
+    /// - Parameters:
+    ///   - parameter: Any value. For Example text color
+    ///   - isEnabled: Enabled state.
+    ///   - type: Toast view type.
     public mutating func set(parameter: P?, isEnabled: Bool, type: ToastViewType) {
         let key = paramKey(isEnabled: isEnabled, type: type)
         parameters[key] = parameter
     }
-    
+
+    /// Getting parameter
+    /// - Parameters:
+    ///   - isEnabled: Enabled state.
+    ///   - type: Toast view type.
+    /// - Returns: Any value.
     public func parameter(isEnabled: Bool, type: ToastViewType) -> P? {
         let key = paramKey(isEnabled: isEnabled, type: type)
         let defaultKey = paramKey(isEnabled: true, type: .default)
@@ -133,15 +165,27 @@ public struct ToastViewParameters<P> {
     
 }
 
+/// A container for setting value for difference state.
 public struct ToastImageParameters<P> {
-    
+
+    // Parameters with generic values.
     public var parameters: [String: P?] = [:]
-    
+
+    /// Setting value for state.
+    /// - Parameters:
+    ///   - parameter: Any value. For Example text color
+    ///   - isEnabled: Enabled state.
+    ///   - type: Toast view type.
     public mutating func set(parameter: P?, isEnabled: Bool, type: ToastImageType) {
         let key = paramKey(isEnabled: isEnabled, type: type)
         parameters[key] = parameter
     }
-    
+
+    /// Getting parameter
+    /// - Parameters:
+    ///   - isEnabled: Enabled state.
+    ///   - type: Toast view type.
+    /// - Returns: Any value.
     public func parameter(isEnabled: Bool, type: ToastImageType) -> P? {
         let key = paramKey(isEnabled: isEnabled, type: type)
         let defaultKey = paramKey(isEnabled: true, type: .info)

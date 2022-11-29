@@ -8,20 +8,31 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-struct ButtonListViewScheme {
+/**
+ ButtonListViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - ButtonListViewScheme() - Initialize default ButtonListViewScheme with default themezation
+Example to create ButtonListViewScheme:
+Code
+ ```
+let scheme = ButtonListViewScheme()
+ ```
+ */
+public struct ButtonListViewScheme: AppThemeScheme {
+
+    /// Background color.
+    public var backgroundColor = ControlParameter<AColor>()
+
+    /// Button text color.
+    public var buttonTextColor = ControlParameter<AColor>()
+
+    /// Button background color.
+    public var buttonBackgroundColor = ControlParameter<AColor>()
+
+    /// Button font.
+    public var buttonFont: AFont
     
-    var backgroundColor = ControlParameter<AColor>()
-    
-    var buttonTextColor = ControlParameter<AColor>()
-    var buttonBackgroundColor = ControlParameter<AColor>()
-    
-    var buttonFont: AFont
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         backgroundColor.set(parameter: theme.colors.backgroundSelected, for: .highlighted)

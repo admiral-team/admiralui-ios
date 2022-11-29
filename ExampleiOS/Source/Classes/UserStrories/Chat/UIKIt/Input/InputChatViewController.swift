@@ -20,6 +20,7 @@ final class InputChatViewController: UIViewController, AnyAppThemable {
         static let segmentViewHeight: CGFloat = LayoutGrid.doubleModule * 3
     }
 
+
     // MARK: - Private Properties
 
     private let viewModel = InputChatViewModel()
@@ -58,16 +59,6 @@ final class InputChatViewController: UIViewController, AnyAppThemable {
         configureLayout()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        binder.bindToKeyboardNotifications()
-    }
-
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        binder.unbindFromKeyboardNotifications()
-    }
-
     // MARK: - AnyAppThemable
 
     func apply(theme: AppTheme) {
@@ -91,6 +82,9 @@ final class InputChatViewController: UIViewController, AnyAppThemable {
         chatInputView.actionState = .attachFiles
         chatInputView.placeholder = Constants.chatPlaceHolder
         chatInputView.chatInputDelegate = self
+        chatInputView.chatButtonAccesibilityId = "ChatInputButton"
+        chatInputView.chatButtonActionAccesibilityId = "ChatInputButtonAction"
+        chatInputView.inputTextAccesibilityId = "ChatInputTextField"
         segmentControl.setTitles(["Default", "Disabled"])
         segmentControl.selectedSegmentIndex = 0
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)

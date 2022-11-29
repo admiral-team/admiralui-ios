@@ -8,17 +8,28 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-public struct CalendarHorizontalHeaderViewScheme {
+/**
+ CalendarHorizontalHeaderViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - CalendarHorizontalHeaderViewScheme() - Initialize default CalendarHorizontalHeaderViewScheme with default themezation
+Example to create CalendarHorizontalHeaderViewScheme:
+Code
+ ```
+let scheme = CalendarHorizontalHeaderViewScheme()
+ ```
+ */
+public struct CalendarHorizontalHeaderViewScheme: AppThemeScheme {
 
-    var backgroundColor: AColor
-    var buttonWithArrowScheme: ButtonWithArrowScheme
-    var ghostButtonCustomScheme: GhostButtonCustomScheme
+    /// Background color.
+    public var backgroundColor: AColor
 
-    public init() {
-        self.init(theme: AppTheme.default)
-    }
+    /// Button with arrow scheme.
+    public var buttonWithArrowScheme: ButtonWithArrowScheme
+
+    /// Ghost button custom scheme.
+    public var ghostButtonCustomScheme: GhostButtonCustomScheme
     
-    public init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         backgroundColor = theme.colors.backgroundBasic
         buttonWithArrowScheme = ButtonWithArrowScheme(theme: theme)
         ghostButtonCustomScheme = GhostButtonCustomScheme(theme: theme)

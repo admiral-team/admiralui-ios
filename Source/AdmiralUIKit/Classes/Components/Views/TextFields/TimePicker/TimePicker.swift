@@ -40,8 +40,9 @@ public final class TimePicker: UIControl, AnyAppThemable, UIKeyInput, UITextInpu
     }
     
     // MARK: - Public Properties
-    
-    internal var scheme = TimePickerCustomTheme() {
+
+    /// Color scheme.
+    public var scheme = TimePickerCustomTheme() {
         didSet { updateScheme() }
     }
     
