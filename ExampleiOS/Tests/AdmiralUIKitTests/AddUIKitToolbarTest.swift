@@ -19,20 +19,23 @@ class AddUIKitToolbarTest: XCTestCase {
         app.launch()
         
         app.tables.staticTexts["Tool bar"].tap()
-
-        app.buttons["minusOutline"].tap()
-        app.buttons["minusOutline"].tap()
-        app.buttons["minusOutline"].tap()
-        app.buttons["plusOutline"].tap()
-        app.buttons["plusOutline"].tap()
-        app.buttons["plusOutline"].tap()
+        app.buttons["ToolBarInputNumberMinusButton"].tap()
+        app.buttons["ToolBarInputNumberMinusButton"].tap()
+        app.buttons["ToolBarInputNumberMinusButton"].tap()
+        app.buttons["ToolBarInputNumberPlusButton"].tap()
+        app.buttons["ToolBarInputNumberPlusButton"].tap()
+        app.buttons["ToolBarInputNumberPlusButton"].tap()
+        app.otherElements.matching(identifier: "ToolBarItemOne").element.tap()
+        app.otherElements.matching(identifier: "ToolBarItemTwo").element.tap()
+        app.otherElements.matching(identifier: "ToolBarItemThree").element.tap()
+        app.otherElements.matching(identifier: "ToolBarItemFour").element.tap()
         
         app.buttons["Ellipse"].tap()
         
-        app.staticTexts["Light"].tap()
-        app.staticTexts["Dark"].tap()
-        app.staticTexts["SME Light"].tap()
-        app.staticTexts["SME Dark"].tap()
+        app.otherElements.matching(identifier: "ThemeSwitchButton_Light").element.tap()
+        app.otherElements.matching(identifier: "ThemeSwitchButton_Dark").element.tap()
+        app.otherElements.matching(identifier: "ThemeSwitchButton_SME Light").element.tap()
+        app.otherElements.matching(identifier: "ThemeSwitchButton_SME Dark").element.tap()
         
         app.buttons["Ellipse"].tap()
     }
