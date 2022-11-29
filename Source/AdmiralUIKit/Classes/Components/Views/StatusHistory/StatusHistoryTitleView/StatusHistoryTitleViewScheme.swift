@@ -9,19 +9,31 @@ import UIKit
 import AdmiralTheme
 import AdmiralUIResources
 
-struct StatusHistoryTitleViewScheme {
+/**
+ StatusHistoryTitleViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - StatusHistoryTitleViewScheme() - Initialize default StatusHistoryTitleViewScheme with default themezation
+Example to create StatusHistoryTitleViewScheme:
+Code
+ ```
+let scheme = StatusHistoryTitleViewScheme()
+ ```
+ */
+public struct StatusHistoryTitleViewScheme: AppThemeScheme {
+
+    /// Title font.
+    public var titleFont: AFont
+
+    /// Title color.
+    public var titleColor: AColor
+
+    /// Subtitle font.
+    public var subtitleFont: AFont
+
+    /// Subtitle color.
+    public var subtitleColor: AColor
     
-    var titleFont: AFont
-    var titleColor: AColor
-    
-    var subtitleFont: AFont
-    var subtitleColor: AColor
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         titleFont = theme.fonts.body1
         titleColor = theme.colors.textPrimary
         

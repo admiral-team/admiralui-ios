@@ -9,16 +9,25 @@ import UIKit
 import AdmiralTheme
 import AdmiralUIResources
 
-struct InfoAgreementViewScheme {
-    
-    var backgroundColor: AColor
-    var checkBoxTextButtonViewTheme = CheckBoxTextButtonViewScheme()
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+/**
+ InfoAgreementViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - InfoAgreementViewScheme() - Initialize default InfoAgreementViewScheme with default themezation
+Example to create InfoAgreementViewScheme:
+Code
+ ```
+let scheme = InfoAgreementViewScheme()
+ ```
+ */
+public struct InfoAgreementViewScheme: AppThemeScheme {
+
+    /// Background color.
+    public var backgroundColor: AColor
+
+    /// Check box text button biew scheme.
+    public var checkBoxTextButtonViewTheme = CheckBoxTextButtonViewScheme()
+
+    public init(theme: AppTheme = .default) {
         backgroundColor = theme.colors.backgroundBasic
         checkBoxTextButtonViewTheme = CheckBoxTextButtonViewScheme(theme: theme)
     }

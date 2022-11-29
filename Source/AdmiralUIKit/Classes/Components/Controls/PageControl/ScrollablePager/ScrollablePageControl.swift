@@ -59,8 +59,8 @@ public class ScrollablePageControl: UIView, AppThemeable {
     public override var intrinsicContentSize: CGSize {
         return CGSize(width: itemSize * CGFloat(displayCount), height: itemSize)
     }
-    
-    var scheme = PageControlViewScheme() {
+
+    public var scheme = PageControlViewScheme() {
         didSet { updateScheme() }
     }
     

@@ -76,10 +76,10 @@ final class ImageBaseCellDetailViewController: ScrollViewController {
         }
     }
     
-    private func configureCardCell() -> ListCell<ImageCardListView, TitleListView, ArrowListView> {
+    private func configureCardCell() -> ListCell<LeadingCardListView, TitleListView, ArrowListView> {
         let titleListView = TitleListView()
         titleListView.title = "Card Place"
-        let cardListView = ImageCardListView()
+        let cardListView = LeadingCardListView()
         cardListView.cardImage = Asset.Card.visa.image
         return ListCell(leadingView: cardListView, centerView: titleListView, tralingView: ArrowListView())
     }

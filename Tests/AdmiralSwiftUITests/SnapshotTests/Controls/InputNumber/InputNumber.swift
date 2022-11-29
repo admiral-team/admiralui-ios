@@ -50,7 +50,7 @@ final class InputNumberSnapshotTests: XCTestCase {
         Appearance.shared.theme = .default
         
         let scheme = InputNumberScheme()
-        scheme.backgroundColor.set(parameter: AColor(color: .systemPink), for: .normal)
+        scheme.buttonScheme.backgroundColor.set(parameter: AColor(color: .systemPink), for: .normal, style: .default)
         let newSchemeProvider: SchemeProvider<InputNumberScheme> = SchemeProvider<InputNumberScheme>(scheme: scheme)
 
         let inputNumber = InputNumber(

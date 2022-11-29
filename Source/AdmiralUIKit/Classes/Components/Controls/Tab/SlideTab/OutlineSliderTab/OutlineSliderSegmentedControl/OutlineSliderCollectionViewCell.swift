@@ -14,13 +14,22 @@ class OutlineSliderItem: BaseOutlineSliderItem {
     var title: String?
     var scheme: OutlineSliderScheme
     var badgeStyle: BadgeStyle?
-    
-    init(isEnabled: Bool, isSelected: Bool, title: String?, scheme: OutlineSliderScheme, badgeStyle: BadgeStyle? = nil) {
+    var accesibilityId: String?
+
+    init(
+        isEnabled: Bool,
+        isSelected: Bool,
+        title: String?,
+        scheme: OutlineSliderScheme,
+        badgeStyle: BadgeStyle? = nil,
+        accesibilityId: String? = nil
+    ) {
         self.isEnabled = isEnabled
         self.isSelected = isSelected
         self.title = title
         self.scheme = scheme
         self.badgeStyle = badgeStyle
+        self.accesibilityId = accesibilityId
     }
 }
 
@@ -110,6 +119,7 @@ class OutlineSliderCollectionViewCell: UICollectionViewCell, AnyAppThemable, Acc
         setSelected(isSelected: outlineSliderModel.isSelected)
         scheme = outlineSliderModel.scheme
         style = outlineSliderModel.badgeStyle
+        accessibilityIdentifier = outlineSliderModel.accesibilityId
     }
     
     // MARK: - Private Methods

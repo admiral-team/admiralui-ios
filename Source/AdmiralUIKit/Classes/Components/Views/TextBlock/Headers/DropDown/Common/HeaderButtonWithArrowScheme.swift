@@ -8,19 +8,28 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-struct HeaderButtonWithArrowScheme {
-    
-    var textColor = ControlParameter<AColor>()
-    var titleLabelFont: AFont
-    
-    var imageColor = ControlParameter<AColor>()
-    
+/**
+ HeaderButtonWithArrowScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - HeaderButtonWithArrowScheme() - Initialize default HeaderButtonWithArrowScheme with default themezation
+Example to create HeaderButtonWithArrowScheme:
+Code
+ ```
+let scheme = HeaderButtonWithArrowScheme()
+ ```
+ */
+public struct HeaderButtonWithArrowScheme: AppThemeScheme {
 
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    /// Text color.
+    public var textColor = ControlParameter<AColor>()
+
+    /// Title label font.
+    public var titleLabelFont: AFont
+
+    /// Image tint color.
+    public var imageColor = ControlParameter<AColor>()
+
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         titleLabelFont = theme.fonts.body1

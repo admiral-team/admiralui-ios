@@ -9,28 +9,58 @@ import UIKit
 import AdmiralTheme
 import AdmiralUIResources
 
-struct CardViewScheme {
+/**
+ CardViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - CardViewScheme() - Initialize default CardViewScheme with default themezation
+Example to create CardViewScheme:
+Code
+ ```
+let scheme = CardViewScheme()
+ ```
+ */
+public struct CardViewScheme: AppThemeScheme {
 
-    var topLabelTextColor: AColor
-    var nameLabelTextColor: AColor
-    var amountLabelTextColor: AColor
-    var statusLabelTextColors = CardViewSchemeParameter<AColor>()
-    var statusImageViewColors = CardViewSchemeParameter<AColor>()
-    var backgroundColor: AColor
-    var statusBackGroundViewColors = CardViewSchemeParameter<AColor>()
-    var subtitleLabelTextColor: AColor
+    /// Top label text color.
+    public var topLabelTextColor: AColor
+
+    /// Name label text color.
+    public var nameLabelTextColor: AColor
+
+    /// Amount label text color.
+    public var amountLabelTextColor: AColor
+
+    /// Status label text color.
+    public var statusLabelTextColors = CardViewSchemeParameter<AColor>()
+
+    /// Status image view color.
+    public var statusImageViewColors = CardViewSchemeParameter<AColor>()
+
+    /// Background color.
+    public var backgroundColor: AColor
+
+    /// Status background view colors.
+    public var statusBackGroundViewColors = CardViewSchemeParameter<AColor>()
+
+    /// Subtitle label text color.
+    public var subtitleLabelTextColor: AColor
+
+    /// Top label font.
+    public var topLabelFont: UIFont
+
+    /// Name label font.
+    public var nameLabelFont: UIFont
+
+    /// Amount label font.
+    public var amountLabelFont: UIFont
+
+    /// Status label font.
+    public var statusLabelFont: UIFont
+
+    /// Subtitle label font.
+    public var subtitleLabelFont: UIFont
     
-    var topLabelFont: UIFont
-    var nameLabelFont: UIFont
-    var amountLabelFont: UIFont
-    var statusLabelFont: UIFont
-    var subtitleLabelFont: UIFont
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         topLabelFont = theme.fonts.caption1.uiFont
         nameLabelFont = theme.fonts.headline.uiFont
         amountLabelFont = theme.fonts.title1.uiFont
@@ -66,16 +96,26 @@ struct CardViewScheme {
     
 }
 
-struct CardViewSchemeParameter<P> {
-    
-    var parameters: [String: P?] = [:]
-    
-    mutating func set(parameter: P?, style: CardStatusStyle) {
+/// A container for setting value for difference state.
+public struct CardViewSchemeParameter<P> {
+
+    /// Parameters with generic values.
+    public var parameters: [String: P?] = [:]
+
+    /// Setting value for state.
+    /// - Parameters:
+    ///   - parameter: Any value. For Example text color
+    ///   - style: Card status style.
+    public mutating func set(parameter: P?, style: CardStatusStyle) {
         let key = paramKey(style: style)
         parameters[key] = parameter
     }
-    
-    func parameter(style: CardStatusStyle) -> P? {
+
+    /// Getting parameter.
+    /// - Parameters:
+    ///   - style: Card status style.
+    /// - Returns: Any value.
+    public func parameter(style: CardStatusStyle) -> P? {
         let key = paramKey(style: style)
         let defaultKey = paramKey(style: .default)
         

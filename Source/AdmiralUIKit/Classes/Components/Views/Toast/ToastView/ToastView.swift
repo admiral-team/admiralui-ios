@@ -60,7 +60,7 @@ public enum ToastImageType: String {
  toastView.imageType = .success
  toastView.linkAction = {}
  toastView.closeAction ={}
-```
+ ```
  */
 open class ToastView: UIView, AnyAppThemable {
     
@@ -147,10 +147,16 @@ open class ToastView: UIView, AnyAppThemable {
     open var cardStatusStyle: CardStatusStyle = .noStatus {
         didSet { configure() }
     }
-    
-    // MARK: - Internal Properties
-    
-    var scheme = ToastViewScheme() {
+
+    /// The close button accesibility Id
+    public var closeButtonAccesibilityId: String? {
+        didSet {
+            closeButton.accessibilityIdentifier = closeButtonAccesibilityId
+        }
+    }
+
+    /// Color scheme.
+    public var scheme = ToastViewScheme() {
         didSet { configure() }
     }
     
@@ -207,7 +213,7 @@ open class ToastView: UIView, AnyAppThemable {
     
     private let iconImageView = UIImageView()
     private let countDownTimer = CountDownTimerView()
-   
+
     private let titleLabel = UILabel()
     private let linkControl = PrimaryLinkControl()
     

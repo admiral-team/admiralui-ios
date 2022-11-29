@@ -37,10 +37,10 @@ final class SwitcherViewController: ScrollViewController {
     }
     
     private func configureSwithes() {
-        let onSwitch = SwitcherCellView(isOn: true, title: "On")
+        let onSwitch = SwitcherCellView(isOn: true, title: "On", accesibilityId: "SwitcherOne")
         views.append(onSwitch)
         
-        let offSwitch = SwitcherCellView(isOn: false, title: "Off")
+        let offSwitch = SwitcherCellView(isOn: false, title: "Off", accesibilityId: "SwitcherTwo")
         views.append(offSwitch)
     }
     

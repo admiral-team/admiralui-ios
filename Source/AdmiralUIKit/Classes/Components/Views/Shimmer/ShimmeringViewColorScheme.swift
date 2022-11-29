@@ -9,15 +9,22 @@ import UIKit
 import AdmiralTheme
 import AdmiralUIResources
 
-struct ShimmeringViewColorScheme {
+/**
+ ShimmeringViewColorScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - ShimmeringViewColorScheme() - Initialize default ShimmeringViewColorScheme with default themezation
+Example to create ShimmeringViewColorScheme:
+Code
+ ```
+let scheme = ShimmeringViewColorScheme()
+ ```
+ */
+public struct ShimmeringViewColorScheme: AppThemeScheme {
+
+    /// Background color.
+    public var backgroundColor: AColor
     
-    var backgroundColor: AColor
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         backgroundColor = theme.colors.backgroundAdditionalOne
     }
     

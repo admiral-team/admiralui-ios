@@ -186,10 +186,9 @@ public class CalendarView: UIView, AnyAppThemable {
             }
         }
     }
-    
-    // MARK: - Internal Properties
-    
-    var scheme = CalendarViewScheme() {
+
+    /// Color scheme.
+    public var scheme = CalendarViewScheme() {
         didSet { configure() }
     }
     
@@ -220,6 +219,26 @@ public class CalendarView: UIView, AnyAppThemable {
         case .vertical:
             calendarVerticalView?.reloadData()
         }
+    }
+
+    public func setHorizontalCalendarAccessibilitiesIds(
+        accessibilityId: String,
+        headerLeftButtonId: String,
+        headerRightButtonId: String,
+        headerChoiseButtonId: String,
+        headerButtonWithArrowId: String
+    ) {
+        calendarHorizontalView?.accessibilityIdentifier = accessibilityId
+        calendarHorizontalView?.setHeaderAccessibilityIds(
+            headerLeftButtonId: headerLeftButtonId,
+            headerRightButtonId: headerRightButtonId,
+            headerChoiseButtonId: headerChoiseButtonId,
+            headerButtonWithArrowId: headerButtonWithArrowId
+        )
+    }
+
+    public func setVerticalCalendarAccessibilitiesIds(accessibilityId: String) {
+        calendarVerticalView?.accessibilityIdentifier = accessibilityId
     }
     
     // MARK: - AppTheamable
