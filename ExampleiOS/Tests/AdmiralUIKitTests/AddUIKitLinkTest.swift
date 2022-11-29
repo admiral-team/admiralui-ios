@@ -19,15 +19,15 @@ class AddUIKitLinksTest: XCTestCase {
         app.launch()
         
         app.tables.staticTexts["Links"].tap()
-        app.staticTexts["Disabled"].tap()
-        app.staticTexts["Default"].tap()
+        app.otherElements.matching(identifier: "SegmentControlDisabled").element.tap()
+        app.otherElements.matching(identifier: "SegmentControlDefault").element.tap()
         
         app.buttons["Ellipse"].tap()
         
-        app.staticTexts["Light"].tap()
-        app.staticTexts["Dark"].tap()
-        app.staticTexts["SME Light"].tap()
-        app.staticTexts["SME Dark"].tap()
+        app.otherElements.matching(identifier: "ThemeSwitchButton_Light").element.tap()
+        app.otherElements.matching(identifier: "ThemeSwitchButton_Dark").element.tap()
+        app.otherElements.matching(identifier: "ThemeSwitchButton_SME Light").element.tap()
+        app.otherElements.matching(identifier: "ThemeSwitchButton_SME Dark").element.tap()
         
         app.buttons["Ellipse"].tap()
     }
