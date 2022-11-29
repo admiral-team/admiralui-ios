@@ -106,7 +106,7 @@ public final class UploadImageGridView: UIView, AnyAppThemable {
         [.leftSide, .rightSide],
         [.top, .bottomLeft, .bottomRight],
         [.topLeft, .topRight, .bottomLeft, .bottomRight],
-        [.none , .none, .none, .bottomLeft, .bottomRight],
+        [.top , .none, .none, .bottomLeft, .bottomRight],
         [.topLeft, .topRight, .none, .none, .bottomLeft, .bottomRight]
     ]
 

@@ -239,6 +239,7 @@ public class InputRangeTextField: UIView, AnyAppThemable, AccessibilitySupport {
         textField.forceOpened = true
         textField.isSeparatorHidden = true
         textField.trailingViewStyle = .small
+        textField.isMonoSpaceDigitFontEnabled = true
         
         minValueLabel.backgroundColor = .clear
         maxValueLabel.backgroundColor = .clear
