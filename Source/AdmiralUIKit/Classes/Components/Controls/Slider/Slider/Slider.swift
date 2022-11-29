@@ -56,9 +56,30 @@ public final class Slider: UIControl, AnyAppThemable {
         CGSize(width: UIView.noIntrinsicMetric, height: Constants.height)
     }
     
-    // MARK: - Internal Properties
+    /// The lower thumb image accesibility Id
+    public var thumbImageAccesibilityId: String? {
+        get {
+            return thumbView.accessibilityIdentifier
+        } set {
+            thumbView.accessibilityIdentifier = newValue
+        }
+    }
 
-    var scheme = SliderScheme()
+    /// The progress view accesibility Id
+    public var progressViewAccesibilityId: String? {
+        get {
+            return progressView.accessibilityIdentifier
+        } set {
+            progressView.accessibilityIdentifier = newValue
+        }
+    }
+
+    /// Color scheme.
+    public var scheme = SliderScheme() {
+        didSet {
+            updateScheme()
+        }
+    }
 
     // MARK: - Private properties
 
@@ -132,7 +153,7 @@ public final class Slider: UIControl, AnyAppThemable {
         
         thumbView.isUserInteractionEnabled = false
         progressView.isUserInteractionEnabled = false
-                        
+
         configure(for: state)
     }
 

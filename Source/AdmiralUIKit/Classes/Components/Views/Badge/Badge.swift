@@ -27,7 +27,7 @@ public enum BadgeStyle: Int {
 }
 
 /// The state of badge.
-enum BadgeState: Int {
+public enum BadgeState: Int {
     /// The normal state of the badge
     case normal
     /// The disabled state of the badge

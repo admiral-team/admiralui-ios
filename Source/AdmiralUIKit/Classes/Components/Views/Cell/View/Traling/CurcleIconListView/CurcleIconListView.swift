@@ -17,16 +17,17 @@ public class CurcleIconListView: BaseListView, TralingListViewComponent, AnyAppT
     public var image: UIImage? {
         didSet { imageView.image = image }
     }
+
+    /// Color scheme.
+    public var scheme = CurcleIconListViewScheme() {
+        didSet { updateScheme() }
+    }
     
     // MARK: Internal Properties
     
     /// The state of the view. Default is normal.
     override var state: UIControl.State {
         didSet { configure(for: state) }
-    }
-    
-    var scheme = CurcleIconListViewScheme() {
-        didSet { updateScheme() }
     }
     
     // MARK: - Private Properties

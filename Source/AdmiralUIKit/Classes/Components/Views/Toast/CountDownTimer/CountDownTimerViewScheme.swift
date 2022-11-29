@@ -9,18 +9,28 @@ import UIKit
 import AdmiralTheme
 import AdmiralUIResources
 
-struct CountDownTimerViewScheme {
+/**
+ CountDownTimerViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - CountDownTimerViewScheme() - Initialize default CountDownTimerViewScheme with default themezation
+Example to create CountDownTimerViewScheme:
+Code
+ ```
+let scheme = CountDownTimerViewScheme()
+ ```
+ */
+public struct CountDownTimerViewScheme: AppThemeScheme {
 
-    var titleTextColor: AColor
-    var titleTextFont: AFont
+    /// Title text color.
+    public var titleTextColor: AColor
+
+    /// Title text font.
+    public var titleTextFont: AFont
+
+    /// Tint color.
+    public var tintColor: AColor
     
-    var tintColor: AColor
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         titleTextColor = theme.colors.textAccent
         titleTextFont = theme.fonts.subhead3
         

@@ -11,16 +11,18 @@ import AdmiralUIResources
 
 /// A view object with arrow image view.
 public class ArrowListView: BaseListView, TralingListViewComponent, AnyAppThemable {
+
+    // MARK: - Public Properties
+
+    public var scheme = ArrowListViewScheme() {
+        didSet { updateScheme() }
+    }
     
     // MARK: Internal Properties
     
     /// The state of the view. Default is normal.
     override var state: UIControl.State {
         didSet { configure(for: state) }
-    }
-    
-    var scheme = ArrowListViewScheme() {
-        didSet { updateScheme() }
     }
     
     // MARK: - Private Properties

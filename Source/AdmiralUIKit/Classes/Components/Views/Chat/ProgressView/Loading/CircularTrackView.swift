@@ -33,6 +33,29 @@ public class CircularTrackView: UIView, AnyAppThemable {
         static let alpha: CGFloat = 0.4
     }
 
+    // MARK: - Public properties
+
+    /// Property serves for presenteting animation circle indicator.
+    public var isAnimating = false {
+        didSet {
+            if isAnimating {
+                startAnimating()
+            } else {
+                stopAnimating()
+            }
+        }
+    }
+
+    /// Color scheme.
+    var scheme = CircularTrackViewScheme() {
+        didSet { updateColors() }
+    }
+
+    /// The control style.
+    open var style: ProgressViewStyle = .default {
+        didSet { updateColors() }
+    }
+
     // MARK: - Private properties
 
     private let indicator = CAShapeLayer()
@@ -52,29 +75,6 @@ public class CircularTrackView: UIView, AnyAppThemable {
             indicator.lineWidth = lineWidth
             setNeedsLayout()
         }
-    }
-
-    // MARK: - Public properties
-
-    public var isAnimating = false {
-        didSet {
-            if isAnimating {
-                startAnimating()
-            } else {
-                stopAnimating()
-            }
-        }
-    }
-
-    // MARK: - Internal properties
-
-    /// The control style.
-    open var style: ProgressViewStyle = .default {
-        didSet { updateColors() }
-    }
-
-    var scheme = CircularTrackViewScheme() {
-        didSet { updateColors() }
     }
 
     // MARK: - Initializer

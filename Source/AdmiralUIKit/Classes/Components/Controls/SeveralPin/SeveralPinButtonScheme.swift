@@ -8,22 +8,43 @@
 import AdmiralTheme
 import AdmiralUIResources
 
+/**
+ SeveralPinButtonScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - SeveralPinButtonScheme() - Initialize default SeveralPinButtonScheme with default themezation
+Example to create SeveralPinButtonScheme:
+Code
+ ```
+let scheme = SeveralPinButtonScheme()
+ ```
+ */
 public struct SeveralPinButtonScheme: AppThemeScheme {
 
+    /// Border color.
     public let borderColor: AColor
+
+    /// Border pressed color.
     public let borderColorPressed: AColor
+
+    /// Border disabled color.
     public let borderColorDisabled: AColor
+
+    /// Background color.
     public let backgroundColor: AColor
+
+    /// Text color.
     public let textColor: AColor
+
+    /// Shadow color.
     public let shadowColor: AColor
+
+    /// Disabled color.
     public let disabledColor: AColor
+
+    /// Font.
     public let font: AFont
 
-    public init() {
-        self.init(theme: AppTheme.default)
-    }
-
-    public init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         disabledColor = theme.colors.textPrimary.withAlpha(alpha)

@@ -8,9 +8,9 @@
 import UIKit
 import AdmiralTheme
 
-open class TableListCell<I, L, T>: UITableViewCell, AnyAppThemable where L: LeadingListViewComponent,
+open class TableListCell<I, L, T>: UITableViewCell, AnyAppThemable where L: CenterListViewComponent,
                                                                          T: TralingListViewComponent,
-                                                                         I: ImageListViewComponent,
+                                                                         I: LeadingListViewComponent,
                                                                          L: AnyAppThemable,
                                                                          T: AnyAppThemable,
                                                                          I: AnyAppThemable {
@@ -40,10 +40,9 @@ open class TableListCell<I, L, T>: UITableViewCell, AnyAppThemable where L: Lead
     open var isEnabled: Bool = true {
         didSet { listCell?.isEnabled = isEnabled }
     }
-    
-    // MARK: - Internal Properties
-    
-    var scheme = TableListCellScheme() {
+
+    /// Color scheme.
+    open var scheme = TableListCellScheme() {
         didSet { updateScheme() }
     }
 

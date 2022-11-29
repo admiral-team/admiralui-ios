@@ -37,18 +37,27 @@ final class RadioControlsCellView: UIView, AnyAppThemable, AccessibilitySupport 
     
     // MARK: - Initializer
 
-    init(textCheckboxTitle: String, checkBoxesControlState: CheckControlState, isSelected: Bool, titleText: String) {
+    init(
+        textCheckboxTitle: String,
+        checkBoxesControlState: CheckControlState,
+        isSelected: Bool,
+        titleText: String,
+        radioButtonFirstAccesibilityId: String,
+        radioButtonSecondAccesibilityId: String
+    ) {
         super.init(frame: .zero)
         
         titleLabel.text = titleText
         radioFirstControl.text = nil
         radioFirstControl.isSelected = isSelected
         radioFirstControl.checkState = checkBoxesControlState
+        radioFirstControl.accessibilityIdentifier = radioButtonFirstAccesibilityId
         radioFirstControl.addTarget(self, action: #selector(changeCheckBox(_:)), for: .touchUpInside)
 
         radioSecondControl.text = textCheckboxTitle
         radioSecondControl.isSelected = isSelected
         radioSecondControl.checkState = checkBoxesControlState
+        radioSecondControl.accessibilityIdentifier = radioButtonSecondAccesibilityId
         radioSecondControl.addTarget(self, action: #selector(changeCheckBox(_:)), for: .touchUpInside)
 
         commonInit()

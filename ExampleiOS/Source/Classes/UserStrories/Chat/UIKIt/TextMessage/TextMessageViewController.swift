@@ -40,15 +40,7 @@ final class TextMessageViewController: UIViewController, AnyAppThemable {
         super.viewDidLoad()
         configureLayout()
     }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-    }
-
+    
     // MARK: - AnyAppThemable
 
     func apply(theme: AppTheme) {

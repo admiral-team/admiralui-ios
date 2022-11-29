@@ -8,6 +8,16 @@
 import AdmiralTheme
 import AdmiralUIResources
 
+/**
+ TextOperationViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - TextOperationViewScheme() - Initialize default TextOperationViewScheme with default themezation
+Example to create TextOperationViewScheme:
+Code
+ ```
+let scheme = TextOperationViewScheme()
+ ```
+ */
 public struct TextOperationViewScheme: AppThemeScheme {
 
     // MARK: - Public properties
@@ -38,11 +48,7 @@ public struct TextOperationViewScheme: AppThemeScheme {
 
     // MARK: - Initializer
 
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-
-    public init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         backgroundColor.set(parameter: theme.colors.backgroundAdditionalOne, style: .default)
         backgroundColor.set(parameter: theme.colors.backgroundError, style: .error)
         backgroundColor.set(parameter: theme.colors.backgroundSuccess, style: .success)
@@ -62,15 +68,28 @@ public struct TextOperationViewScheme: AppThemeScheme {
 
 }
 
+/// A container for setting value for difference state.
 public struct TextOperationViewSchemeParameters<P> {
-    var parameters: [String: P?] = [:]
 
-    mutating func set(parameter: P?, style: TextOperationViewStyle) {
+    // Parameters with generic values.
+    public var parameters: [String: P?] = [:]
+
+    /// Setting value for state.
+    /// - Parameters:
+    ///   - parameter: Any value. For Example text color
+    ///   - state: State.
+    ///   - style: Style text operation view.
+    public mutating func set(parameter: P?, style: TextOperationViewStyle) {
         let key = paramKey(style: style)
         parameters[key] = parameter
     }
 
-    func parameter(style: TextOperationViewStyle) -> P? {
+    /// Getting parameter.
+    /// - Parameters:
+    ///   - state: State.
+    ///   - style: Style text operation  view.
+    /// - Returns: Any value.
+    public func parameter(style: TextOperationViewStyle) -> P? {
         let key = paramKey(style: style)
         let defaultKey = paramKey(style: style)
 

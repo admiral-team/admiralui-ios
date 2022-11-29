@@ -9,19 +9,31 @@ import UIKit
 import AdmiralTheme
 import AdmiralUIResources
 
-struct StatusHistorySumViewScheme {
+/**
+ StatusHistorySumViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - StatusHistorySumViewScheme() - Initialize default StatusHistorySumViewScheme with default themezation
+Example to create StatusHistorySumViewScheme:
+Code
+ ```
+let scheme = StatusHistorySumViewScheme()
+ ```
+ */
+public struct StatusHistorySumViewScheme: AppThemeScheme {
+
+    /// Sum text color.
+    public var sumTextColor = StatusHistorySummaViewParameters<AColor>()
+
+    /// Sum text font.
+    public var sumTextFont = StatusHistorySummaViewParameters<UIFont>()
+
+    /// Cross out text color.
+    public var crossOutTextColor = StatusHistorySummaViewParameters<AColor>()
+
+    /// Cross out text font.
+    public var crossOutTextFont = StatusHistorySummaViewParameters<UIFont>()
     
-    var sumTextColor = StatusHistorySummaViewParameters<AColor>()
-    var sumTextFont = StatusHistorySummaViewParameters<UIFont>()
-    
-    var crossOutTextColor = StatusHistorySummaViewParameters<AColor>()
-    var crossOutTextFont = StatusHistorySummaViewParameters<UIFont>()
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         sumTextColor.set(
             parameter: theme.colors.textAccent,
             for: .increase,
@@ -92,15 +104,29 @@ struct StatusHistorySumViewScheme {
     }
 }
 
-struct StatusHistorySummaViewParameters<P> {
-    var parameters: [String: P?] = [:]
-    
-    mutating func set(parameter: P?, for state: StatusHistorySumType, type: StatusHistoryViewType) {
+
+/// A container for setting value for difference state.
+public struct StatusHistorySummaViewParameters<P> {
+
+    /// Parameters with generic values.
+    public var parameters: [String: P?] = [:]
+
+    /// Setting value for state.
+    /// - Parameters:
+    ///   - parameter: Any value. For Example text color
+    ///   - state: Status history sum type.
+    ///   - type: Status history view type.
+    public mutating func set(parameter: P?, for state: StatusHistorySumType, type: StatusHistoryViewType) {
         let key = paramKey(state: state, type: type)
         parameters[key] = parameter
     }
-    
-    func parameter(for state: StatusHistorySumType, type: StatusHistoryViewType) -> P? {
+
+    /// Getting parameter
+    /// - Parameters:
+    ///   - state: Status history sum type.
+    ///   - type: Status history view type.
+    /// - Returns: Any value.
+    public func parameter(for state: StatusHistorySumType, type: StatusHistoryViewType) -> P? {
         let key = paramKey(state: state, type: type)
         let defaultKey = paramKey(state: .decrease, type: .standard)
         
