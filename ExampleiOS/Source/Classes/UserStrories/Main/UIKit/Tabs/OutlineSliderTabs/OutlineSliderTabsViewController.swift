@@ -47,9 +47,9 @@ final class OutlineSliderTabsViewController: ScrollViewController {
     private func configureSegmentControlls() {
         let segmentControlFirst = OutlineSliderTabSegmentedControl(
             items: [
-                .init(title: "One", badgeStyle: nil, accesibilityId: "OutlineSliderTabOne1000"),
-                .init(title: "Two", badgeStyle: nil, accesibilityId: "OutlineSliderTabOne2000"),
-                .init(title: "Three", badgeStyle: nil, accesibilityId: "OutlineSliderTabOne3000")
+                .init(title: "One", badgeStyle: nil, accesibilityId: "OutlineSliderTabOne1"),
+                .init(title: "Two", badgeStyle: nil, accesibilityId: "OutlineSliderTabOne2"),
+                .init(title: "Three", badgeStyle: nil, accesibilityId: "OutlineSliderTabOne3")
             ]
         )
         segmentControlFirst.selectedSegmentIndex = 0
