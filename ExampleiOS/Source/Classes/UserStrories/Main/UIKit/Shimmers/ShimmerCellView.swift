@@ -196,7 +196,7 @@ final class ShimmerCellView: UIView, AnyAppThemable {
             tralingImageViewShimmerView.heightAnchor.constraint(equalToConstant: LayoutGrid.doubleModule),
             tralingImageViewShimmerView.widthAnchor.constraint(equalToConstant: 28.0),
             
-            heightAnchor.constraint(equalToConstant: 68.0),
+            heightAnchor.constraint(equalToConstant: LayoutGrid.module * 9),
 
             contentViewShimmeringView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: LayoutGrid.doubleModule),
             trailingAnchor.constraint(equalTo: contentViewShimmeringView.trailingAnchor, constant: LayoutGrid.doubleModule),

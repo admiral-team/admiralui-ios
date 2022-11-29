@@ -14,6 +14,8 @@ public class BottomSheetHeaderTitleSubtitleView: UIView, AnyAppThemable {
     // MARK: - Public Properties
     
     open weak var delegate: BottomSheetHeaderDelegate?
+
+    /// Color scheme.
     public var scheme = BottomSheetHeaderTitleSubtitleViewScheme() {
         didSet { updateScheme() }
     }

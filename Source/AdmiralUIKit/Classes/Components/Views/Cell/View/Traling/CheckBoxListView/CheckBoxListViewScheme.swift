@@ -9,18 +9,28 @@ import UIKit
 import AdmiralTheme
 import AdmiralUIResources
 
-struct CheckBoxListViewScheme {
-    
-    var backgroundColor = ControlParameter<AColor>()
-    var checkBoxTintColor = ControlParameter<AColor>()
-    
-    var checkBoxScheme = CheckTextControlScheme()
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+/**
+ CheckBoxListViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - CheckBoxListViewScheme() - Initialize default CheckBoxListViewScheme with default themezation
+Example to create CheckBoxListViewScheme:
+Code
+ ```
+let scheme = CheckBoxListViewScheme()
+ ```
+ */
+public struct CheckBoxListViewScheme: AppThemeScheme {
+
+    /// Background color.
+    public var backgroundColor = ControlParameter<AColor>()
+
+    /// Check box tint color.
+    public var checkBoxTintColor = ControlParameter<AColor>()
+
+    /// Check box scheme.
+    public var checkBoxScheme = CheckTextControlScheme()
+
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         backgroundColor.set(parameter: theme.colors.backgroundSelected, for: .highlighted)

@@ -8,6 +8,16 @@
 import AdmiralTheme
 import AdmiralUIResources
 
+/**
+ UploadImageGridViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - UploadImageGridViewScheme() - Initialize default UploadImageGridViewScheme with default themezation
+Example to create UploadImageGridViewScheme:
+Code
+ ```
+let scheme = UploadImageGridViewScheme()
+ ```
+ */
 public struct UploadImageGridViewScheme: AppThemeScheme {
 
     // MARK: - Public properties
@@ -26,11 +36,7 @@ public struct UploadImageGridViewScheme: AppThemeScheme {
 
     // MARK: - Initializer
 
-    public init() {
-        self.init(theme: AppTheme.default)
-    }
-
-    public init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
         uploadImageViewScheme = UploadImageViewScheme(theme: theme)
         chatBubbleStatusScheme = ChatBubbleStatusViewScheme(theme: theme)

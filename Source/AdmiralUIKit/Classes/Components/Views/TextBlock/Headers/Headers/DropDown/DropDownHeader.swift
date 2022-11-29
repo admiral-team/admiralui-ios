@@ -41,19 +41,18 @@ public class DropDownHeader: UIView, AnyAppThemable, AccessibilitySupport {
     public var headerStyle: HeaderStyle = .title {
         didSet { updateHeaderStyle() }
     }
+
+    /// Color scheme.
+    public var scheme = DropDownHeaderScheme() {
+        didSet { updateScheme() }
+    }
     
     // MARK: - AccessibilitySupport
     
     public var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
         didSet { updateSchemeFonts() }
     }
-    
-    // MARK: - Internal Properties
-    
-    var scheme = DropDownHeaderScheme() {
-        didSet { updateScheme() }
-    }
-    
+
     // MARK: - Private Properties
     
     private let textLabel = UILabel()

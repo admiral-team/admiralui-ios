@@ -26,7 +26,7 @@ struct ImageLableComponentsSwiftUIView: View {
                     .padding()
                 ScrollView(showsIndicators: false) {
                     ListCell(
-                        leadingView: { ImageCardListView(cardImage: Image(uiImage: Asset.Card.visa.image)) },
+                        leadingView: { LeadingCardListView(cardImage: Image(uiImage: Asset.Card.visa.image)) },
                         centerView: { TitleListView(title: "Card Place") },
                         trailingView: { ArrowListView() },
                         isSelected:

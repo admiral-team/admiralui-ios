@@ -12,7 +12,8 @@ import AdmiralTheme
 open class SecondaryButton: CustomButton, AnyAppThemable, AccessibilitySupport {
     
     // MARK: - Public Properties
-    
+
+    /// Color scheme.
     public var scheme = SecondaryButtonCustomScheme() {
         didSet { updateScheme() }
     }

@@ -8,6 +8,26 @@
 import UIKit
 import AdmiralTheme
 
+/// Item for Logo  tab.
+public struct StandardSegmentedItem {
+    
+    // MARK: - Public Properties
+    
+    /// The title label.
+    public let title: String?
+    
+    /// The accesibility identifier
+    public var accesibilityId: String?
+    
+    // MARK: - Initializer
+    
+    public init(title: String?, accesibilityId: String? = nil) {
+        self.title = title
+        self.accesibilityId = accesibilityId
+    }
+    
+}
+
 /// A horizontal control that consists of multiple segments, each segment functioning as a discrete text button.
 public class StandardSegmentedControl: PlainSegmentedControl, AnyAppThemable {
     
@@ -15,9 +35,8 @@ public class StandardSegmentedControl: PlainSegmentedControl, AnyAppThemable {
         didSet { configureThumbView() }
     }
     
-    // MARK: - Internal Properties
-    
-    var scheme = StandardSegmentedScheme() {
+    /// Color scheme.
+    public var scheme = StandardSegmentedScheme() {
         didSet { updateScheme() }
     }
     
@@ -26,13 +45,19 @@ public class StandardSegmentedControl: PlainSegmentedControl, AnyAppThemable {
     private var textItems: [StandardSegmentedView] {
         return items as? [StandardSegmentedView] !! fatalError("This is not TextTabSegmentView class")
     }
-            
+    
     // MARK: - Initializer
+    
+    /// Initializes and returns a newly allocated view object with items.
+    public convenience init(items: [StandardSegmentedItem?]) {
+        self.init(frame: .zero)
+        setItems(items)
+    }
     
     /// Initializes and returns a newly allocated view object with titles.
     public convenience init(titles: [String?]) {
         self.init(frame: .zero)
-        setTitles(titles)
+        setItems(titles.map { StandardSegmentedItem(title: $0) })
     }
     
     /// Initializes and returns a newly allocated view object with the specified frame rectangle.
@@ -49,10 +74,17 @@ public class StandardSegmentedControl: PlainSegmentedControl, AnyAppThemable {
     
     // MARK: - Public Methods
     
+    /// Sets items.
+    /// - Parameter items: The list of items to display in the segments.
+    public func setItems(_ items: [StandardSegmentedItem?]) {
+        let labels = items.map() { return createItem($0) }
+        set(items: labels)
+    }
+    
     /// Sets titles.
-    /// - Parameter titles: A strings to display in the segments.
+    /// - Parameter titles: The list of strings to display in the segments.
     public func setTitles(_ titles: [String?]) {
-        let labels = titles.map() { createItem(title: $0) }
+        let labels = titles.map() { return createItem(StandardSegmentedItem(title: $0)) }
         set(items: labels)
     }
     
@@ -61,7 +93,7 @@ public class StandardSegmentedControl: PlainSegmentedControl, AnyAppThemable {
     ///   - title: A string to use as the segment’s title.
     ///   - segment: An index number identifying a segment in the control.
     public func insertTitle(_ title: String?, forSegmentAt segment: Int) {
-        let label = createItem(title: title)
+        let label = createItem(StandardSegmentedItem(title: title))
         insert(item: label, at: segment)
     }
     
@@ -106,7 +138,7 @@ public class StandardSegmentedControl: PlainSegmentedControl, AnyAppThemable {
     public func apply(theme: AppTheme) {
         self.scheme = StandardSegmentedScheme(theme: theme)
     }
-        
+    
     // MARK: - Internal Methods
     
     override func configure(for state: UIControl.State) {
@@ -117,7 +149,7 @@ public class StandardSegmentedControl: PlainSegmentedControl, AnyAppThemable {
     }
     
     // MARK: - Private Methods
-
+    
     private func commonInit() {
         apply(theme: defaultTheme)
         height = LayoutGrid.quadrupleModule
@@ -135,12 +167,12 @@ public class StandardSegmentedControl: PlainSegmentedControl, AnyAppThemable {
         thumbView.layer.borderColor = scheme.thumbColor.parameter(for: state)?.cgColor
     }
     
-    private func createItem(title: String?) -> StandardSegmentedView {
-        let item = StandardSegmentedView()
-        item.title = title
-        item.scheme = scheme
-
-        return item
+    private func createItem(_ item: StandardSegmentedItem?) -> StandardSegmentedView {
+        let standartSegmentView = StandardSegmentedView()
+        standartSegmentView.title = item?.title
+        standartSegmentView.accessibilityIdentifier = item?.accesibilityId
+        standartSegmentView.scheme = scheme
+        return standartSegmentView
     }
     
     private func updateScheme() {

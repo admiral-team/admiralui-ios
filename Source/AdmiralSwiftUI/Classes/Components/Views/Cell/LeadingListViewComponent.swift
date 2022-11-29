@@ -8,14 +8,14 @@
 import SwiftUI
 
 /**
- LeadingListViewComponent - The protocol for left list cell.
+ LeadingListViewComponent - The protocol for image view list cell.
  
  Public protocol properties:
 
  - isHighlighted: Bool { get set } - A Boolean value indicating whether the control draws a highlight.
- - isHighlightedEnabled: Bool { get set } - A Boolean value indicating whether the view can draws a highlight.
+ - isHighlightedEnabled: Bool { get set } - A Boolean value indicating whether the view can  draws a highlight.
  */
-/// The protocol for left list cell.
+/// The protocol for image view list cell.
 @available(iOS 14.0.0, *)
 public protocol LeadingListViewComponent: View {
     

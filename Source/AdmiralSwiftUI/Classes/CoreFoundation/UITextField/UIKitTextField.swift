@@ -104,6 +104,7 @@ struct UIKitTextField: UIViewRepresentable {
 
     var onSubmit: (() -> Void)?
     var onCursorPosition: ((Int, Int, String) -> (Int))?
+    var updateWidth: Binding<CGFloat>? = nil
     var accessibilityIdentifier: String?
 
     // MARK: - Initializer
@@ -128,7 +129,9 @@ struct UIKitTextField: UIViewRepresentable {
         font: UIFont? = nil,
         onSubmit: (() -> Void)? = nil,
         onCursorPosition: ((Int, Int, String) -> (Int))? = nil,
-        accessibilityIdentifier: String? = nil) {
+        updateWidth: Binding<CGFloat>? = nil,
+        accessibilityIdentifier: String? = nil)
+    {
         self.text = text
         self.isResponder = isResponder
         self.isFirstResponder = isFirstResponder
@@ -148,6 +151,7 @@ struct UIKitTextField: UIViewRepresentable {
         self.font = font
         self.onSubmit = onSubmit
         self.onCursorPosition = onCursorPosition
+        self.updateWidth = updateWidth
         self.accessibilityIdentifier = accessibilityIdentifier
     }
 
@@ -159,6 +163,7 @@ struct UIKitTextField: UIViewRepresentable {
         textField.setContentHuggingPriority(.defaultHigh, for: .vertical)
         textField.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         textField.delegate = context.coordinator
+
         textField.addTarget(context.coordinator, action: #selector(context.coordinator.textFieldDidChange), for: .editingChanged)
         
         if context.environment.isEnabled {
@@ -203,6 +208,14 @@ struct UIKitTextField: UIViewRepresentable {
                     }
                 }
             }
+        }
+
+        updateSizes(uiView: uiView)
+    }
+
+    private func updateSizes(uiView: UITextField) {
+        DispatchQueue.main.async {
+            self.updateWidth?.wrappedValue = uiView.intrinsicContentSize.width
         }
     }
     

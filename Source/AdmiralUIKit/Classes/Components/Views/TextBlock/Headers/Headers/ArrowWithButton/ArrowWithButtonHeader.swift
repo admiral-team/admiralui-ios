@@ -67,17 +67,15 @@ public class ArrowWithButtonHeader: UIView, AnyAppThemable, AccessibilitySupport
     public var dropDownHeaderType: DropDownHeaderType? {
         didSet { updateImageView() }
     }
+
+    public var scheme = ArrowWithButtonHeaderScheme() {
+        didSet { updateScheme() }
+    }
     
     // MARK: - AccessibilitySupport
     
     public var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
         didSet { updateSchemeFonts() }
-    }
-    
-    // MARK: - Internal Properties
-    
-    var scheme = ArrowWithButtonHeaderScheme() {
-        didSet { updateScheme() }
     }
     
     // MARK: - Private Properties

@@ -121,8 +121,9 @@ open class CardView: UIView, AnyAppThemable {
         get { return layer.cornerRadius }
         set { layer.cornerRadius = newValue }
     }
-    
-    var scheme = CardViewScheme() {
+
+    /// Color scheme.
+    public var scheme = CardViewScheme() {
         didSet { configure() }
     }
     
