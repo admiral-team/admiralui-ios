@@ -65,7 +65,6 @@ final class PrimaryButtonsViewController: ScrollViewController {
     private func configureTwoTitleButton() {
         let primaryTwoTitle = TwoTitleButton()
         primaryTwoTitle.leftButtonTitle = "08.06.20 - 14.08.20"
-        primaryTwoTitle.accesibilityId = "TwoTitleButton"
         primaryTwoTitle.rightButtonTitle = "Выбрать"
         let twoTitleContainer = BigButtonContainerView(button: primaryTwoTitle)
         buttonsContainer.buttonViews.append(twoTitleContainer)
