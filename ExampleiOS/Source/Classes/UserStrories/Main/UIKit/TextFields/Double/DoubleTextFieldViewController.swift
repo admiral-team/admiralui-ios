@@ -54,11 +54,16 @@ final class DoubleTextFieldViewController: ScrollViewController {
         firstTextField.text = "Text"
         firstTextField.placeholder = "Placeholder"
         firstTextField.info = "Additional text"
-        
+        firstTextField.inputTextAccessibilityId = "FirstTextFieldInput"
+        firstTextField.accessibilityIdentifier = "FirstTextField"
+
         let secondTextField = TextField()
         secondTextField.name = "Optional label"
         secondTextField.text = "Text"
         secondTextField.placeholder = "Placeholder"
+        secondTextField.info = "Additional text"
+        secondTextField.inputTextAccessibilityId = "SecondTextFieldInput"
+        secondTextField.accessibilityIdentifier = "SecondTextField"
         secondTextField.info = "Additional text"
         
         let textField = DoubleTextField(

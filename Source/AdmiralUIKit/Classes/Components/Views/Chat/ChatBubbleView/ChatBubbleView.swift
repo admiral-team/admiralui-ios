@@ -87,6 +87,11 @@ public final class ChatBubbleView: UIView, AnyAppThemable {
         set { chatStatusBubbleView.timeTitle = newValue }
     }
 
+    /// Color scheme.
+    public var scheme = ChatBubbleViewScheme() {
+        didSet { updateScheme() }
+    }
+
     public var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
         didSet { updateFonts() }
     }
@@ -106,12 +111,6 @@ public final class ChatBubbleView: UIView, AnyAppThemable {
         default:
             return [.layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
         }
-    }
-
-    // MARK: - Internal Properties
-
-    var scheme = ChatBubbleViewScheme() {
-        didSet { updateScheme() }
     }
 
     // MARK: - Private properties

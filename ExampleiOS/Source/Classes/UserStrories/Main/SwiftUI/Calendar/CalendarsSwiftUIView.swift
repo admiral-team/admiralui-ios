@@ -19,7 +19,7 @@ struct CalendarsSwiftUIView: View {
     
     public var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Calendars") {
+        NavigationContentView(navigationTitle: "Calendar") {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
             ScrollView(showsIndicators: false) {

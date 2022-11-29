@@ -62,14 +62,17 @@ final class GhostButtonViewController: ScrollViewController {
     
     private func configureBigButton() {
         let primaryButtonBig = createPrimaryButton(name: "Big Button", image: heartImage, direction: .left)
+        primaryButtonBig.accessibilityIdentifier = "GhostPrimaryButtonBig"
         let bigContainer = BigButtonContainerView(button: primaryButtonBig)
         buttonsContainer.buttonViews.append(bigContainer)
         
         let secondPrimaryButtonBig = createPrimaryButton(name: "Big Button", image: maintenanceImage, direction: .right)
+        secondPrimaryButtonBig.accessibilityIdentifier = "GhostSecondPrimaryButtonBig"
         let secondBigContainer = BigButtonContainerView(button: secondPrimaryButtonBig)
         buttonsContainer.buttonViews.append(secondBigContainer)
         
         let thirdPrimaryButtonBig = createPrimaryButton(name: "Big Button", image: nil, direction: nil)
+        thirdPrimaryButtonBig.accessibilityIdentifier = "GhostThirdPrimaryButtonBig"
         let thirdBigContainer = BigButtonContainerView(button: thirdPrimaryButtonBig)
         buttonsContainer.buttonViews.append(thirdBigContainer)
     }
@@ -78,14 +81,20 @@ final class GhostButtonViewController: ScrollViewController {
     
     private func configureMediumButton() {
         let primaryButtonMedium = createPrimaryButton(name: "Medium Button", image: heartImage, direction: .left)
+        primaryButtonMedium.accessibilityIdentifier = "GhostPrimaryButtonMedium"
+
         let mediumContainer = MediumButtonContainerView(button: primaryButtonMedium)
         buttonsContainer.buttonViews.append(mediumContainer)
 
         let secondPrimaryButtonMedium = createPrimaryButton(name: "Medium Button", image: maintenanceImage, direction: .right)
+        secondPrimaryButtonMedium.accessibilityIdentifier = "GhostSecondPrimaryButtonMedium"
+
         let secondMediumContainer = MediumButtonContainerView(button: secondPrimaryButtonMedium)
         buttonsContainer.buttonViews.append(secondMediumContainer)
 
         let thirdPrimaryButtonMedium = createPrimaryButton(name: "Medium Button", image: nil, direction: nil)
+        thirdPrimaryButtonMedium.accessibilityIdentifier = "GhostThirdPrimaryButtonMedium"
+
         let thirdMediumContainer = MediumButtonContainerView(button: thirdPrimaryButtonMedium)
         buttonsContainer.buttonViews.append(thirdMediumContainer)
     }
@@ -94,14 +103,19 @@ final class GhostButtonViewController: ScrollViewController {
     
     func configureSmallButton() {
         let primaryButtonSmall = createPrimaryButton(name: "Small Button", image: heartImage, direction: .left)
+        primaryButtonSmall.accessibilityIdentifier = "GhostPrimaryButtonSmall"
+
         let smallContainer = SmallButtonContainerView(button: primaryButtonSmall)
         buttonsContainer.buttonViews.append(smallContainer)
         
         let secondPrimaryButtonSmall = createPrimaryButton(name: "Small Button", image: maintenanceImage, direction: .right)
+        secondPrimaryButtonSmall.accessibilityIdentifier = "GhostSecondPrimaryButtonSmall"
+
         let secondSmallContainer = SmallButtonContainerView(button: secondPrimaryButtonSmall)
         buttonsContainer.buttonViews.append(secondSmallContainer)
         
         let thirdPrimaryButtonSmall = createPrimaryButton(name: "Small Button", image: nil, direction: nil)
+        thirdPrimaryButtonSmall.accessibilityIdentifier = "GhostThirdPrimaryButtonSmall"
         let thirdSmallContainer = SmallButtonContainerView(button: thirdPrimaryButtonSmall)
         buttonsContainer.buttonViews.append(thirdSmallContainer)
     }

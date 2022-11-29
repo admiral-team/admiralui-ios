@@ -8,7 +8,16 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-/// The scheme of UploadImageView.
+/**
+ UploadImageViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - UploadImageViewScheme() - Initialize default UploadImageViewScheme with default themezation
+Example to create UploadImageViewScheme:
+Code
+ ```
+let scheme = UploadImageViewScheme()
+ ```
+ */
 public struct UploadImageViewScheme: AppThemeScheme {
 
     // MARK: - Public properties
@@ -21,11 +30,7 @@ public struct UploadImageViewScheme: AppThemeScheme {
 
     // MARK: - Initializer
 
-    public init() {
-        self.init(theme: AppTheme.default)
-    }
-
-    public init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         chatBubbleColor = theme.colors.backgroundModalView.withAlpha(alpha)

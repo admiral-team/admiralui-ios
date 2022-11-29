@@ -8,20 +8,37 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-struct MapButtonScheme: AppThemeScheme {
+/**
+ MapButtonScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - MapButtonScheme() - Initialize default MapButtonScheme with default themezation
+Example to create MapButtonScheme:
+Code
+ ```
+let scheme = MapButtonScheme()
+ ```
+ */
+public struct MapButtonScheme: AppThemeScheme {
 
-    var backgroundColor: AColor
-    var selectedBacgroundColor: AColor
-    var highlightedBackgroundColor: AColor
-    var disabledBacgroundColor: AColor
-    let imageTintColor: AColor
-    let shadowColor: AColor
+    /// Background color.
+    public var backgroundColor: AColor
 
-    init() {
-        self.init(theme: AppTheme.default)
-    }
+    /// Selected background color.
+    public var selectedBacgroundColor: AColor
 
-    init(theme: AppTheme) {
+    /// Highlighted background color.
+    public var highlightedBackgroundColor: AColor
+
+    /// Disabled background color.
+    public var disabledBacgroundColor: AColor
+
+    /// Image tint color.
+    public var imageTintColor: AColor
+
+    /// Shadow color.
+    public var shadowColor: AColor
+
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         backgroundColor = theme.colors.backgroundExtraSurface

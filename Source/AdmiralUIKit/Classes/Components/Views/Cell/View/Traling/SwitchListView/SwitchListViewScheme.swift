@@ -9,15 +9,22 @@ import UIKit
 import AdmiralTheme
 import AdmiralUIResources
 
-struct SwitchListViewScheme {
+/**
+ SwitchListViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - SwitchListViewScheme() - Initialize default SwitchListViewScheme with default themezation
+Example to create SwitchListViewScheme:
+Code
+ ```
+let scheme = SwitchListViewScheme()
+ ```
+ */
+public struct SwitchListViewScheme: AppThemeScheme {
+
+    /// Background color.
+    public var backgroundColor = ControlParameter<AColor>()
     
-    var backgroundColor = ControlParameter<AColor>()
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         backgroundColor.set(parameter: theme.colors.backgroundSelected, for: .highlighted)
         backgroundColor.set(parameter: theme.colors.backgroundBasic, for: .normal)
     }

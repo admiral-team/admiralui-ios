@@ -9,15 +9,22 @@ import UIKit
 import AdmiralTheme
 import AdmiralUIResources
 
-public struct PinCodeKeyboardCustomScheme {
+/**
+ PinCodeKeyboardCustomScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - PinCodeKeyboardCustomScheme() - Initialize default PinCodeKeyboardCustomScheme with default themezation
+Example to create PinCodeKeyboardCustomScheme:
+Code
+ ```
+let scheme = PinCodeKeyboardCustomScheme()
+ ```
+ */
+public struct PinCodeKeyboardCustomScheme: AppThemeScheme {
 
-    var backgroundColor: AColor
+    /// Background color.
+    public var backgroundColor: AColor
 
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         backgroundColor = theme.colors.backgroundBasic
     }
     

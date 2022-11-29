@@ -126,15 +126,16 @@ public final class TextOperationView: UIView, AnyAppThemable {
         }
     }
 
+    /// Color scheme.
+    public var scheme = TextOperationViewScheme() {
+        didSet { updateScheme() }
+    }
+
     public var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
         didSet { updateFonts() }
     }
 
-    // MARK: - Internal Properties
-
-    var scheme = TextOperationViewScheme() {
-        didSet { updateScheme() }
-    }
+    // MARK: - Private Properties
 
     private var textBlockStackView: UIStackView = {
         let stackView = UIStackView()
