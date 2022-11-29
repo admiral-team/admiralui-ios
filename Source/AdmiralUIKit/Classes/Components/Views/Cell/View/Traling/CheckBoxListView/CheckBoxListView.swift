@@ -42,6 +42,18 @@ open class CheckBoxListView: BaseListView, TralingListViewComponent, AnyAppThema
         }
     }
 
+    /// Color scheme.
+    public var scheme = CheckBoxListViewScheme() {
+        didSet { updateScheme() }
+    }
+    
+    /// The check box accessibility id
+    public var checkBoxAccesibilityId: String? {
+        didSet {
+            checkBox.checkControlAccesibilityId = checkBoxAccesibilityId
+        }
+    }
+
     /// Tap action.
     public var didSelect: (() -> Void)?
     
@@ -50,10 +62,6 @@ open class CheckBoxListView: BaseListView, TralingListViewComponent, AnyAppThema
     /// The state of the view. Default is normal.
     override var state: UIControl.State {
         didSet { configure(for: state) }
-    }
-    
-    var scheme = CheckBoxListViewScheme() {
-        didSet { updateScheme() }
     }
     
     // MARK: - Private Properties

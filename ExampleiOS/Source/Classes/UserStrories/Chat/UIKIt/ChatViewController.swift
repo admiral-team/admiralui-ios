@@ -14,12 +14,11 @@ final class ChatViewController: BaseTableViewController {
 
     private let viewModel = ChatViewModel()
 
-    // MARK: - Initializer
+    // MARK: - Life Cycle
 
     override func viewDidLoad() {
-        setSegmentControl(hidden: true)
-
         super.viewDidLoad()
+        setSegmentControl(hidden: true)
         tableView.separatorStyle = .none
         tableViewManager.sections = createSections()
     }

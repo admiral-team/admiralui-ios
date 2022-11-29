@@ -58,7 +58,7 @@ public final class CurrencyView: UIView, AnyAppThemable {
 
     // MARK: - Public Properties
 
-    /// An image of Currency.
+    /// An image.
     public var image: UIImage? = nil {
         didSet {
             imageView.image = image
@@ -66,21 +66,21 @@ public final class CurrencyView: UIView, AnyAppThemable {
         }
     }
 
-    /// The text of currencyTextLabel.
+    /// The text of currency text label.
     public var currencyText: String? = nil {
         didSet {
             currencyTextLabel.text = currencyText
         }
     }
 
-    /// The text of buyTextLabel.
+    /// The text of buy text label.
     public var buyText: String? = nil {
         didSet {
             buyTextLabel.text = buyText
         }
     }
 
-    /// The text of sellTextLabel.
+    /// The text of sell text label.
     public var sellText: String? = nil {
         didSet {
             sellTextLabel.text = sellText
@@ -101,11 +101,12 @@ public final class CurrencyView: UIView, AnyAppThemable {
         }
     }
 
-    // MARK: - Internal Properties
-
-    var scheme = CurrencyViewScheme() {
+    /// Color scheme.
+    public var scheme = CurrencyViewScheme() {
         didSet { updateScheme() }
     }
+
+    // MARK: - Internal Properties
 
     var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
         didSet { updateFonts() }
@@ -265,7 +266,7 @@ private extension CurrencyView {
         switch sellCellType {
         case .arrowUp:
             sellTrailing.constant = LayoutGrid.tripleModule
-            sellImageView.image = Asset.Location.Outline.gpsOutline.image
+            sellImageView.image = Asset.System.Outline.arrowUpOutline.image
             sellImageView.isHidden = false
             sellImageTrailing.constant = .zero
         case .arrowDown:

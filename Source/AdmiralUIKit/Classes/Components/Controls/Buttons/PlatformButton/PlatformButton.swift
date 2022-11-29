@@ -29,7 +29,8 @@ import AdmiralUIResources
 open class PlatformButton: CustomButton, AnyAppThemable, AccessibilitySupport {
    
     // MARK: - Public Properties
-    
+
+    /// Color scheme.
     public var scheme = PlatformButtonCustomScheme() {
         didSet { updateScheme() }
     }

@@ -35,6 +35,8 @@ import AdmiralUIResources
 
 /// A specialized view for receiving search-related information from the user.
 public class SearchBar: UIView, UITextFieldDelegate, AnyAppThemable {
+
+    // MARK: - Public Properties
     
     /// The search bar’s delegate object.
     public weak var delegate: SearchBarDelegate?
@@ -70,6 +72,13 @@ public class SearchBar: UIView, UITextFieldDelegate, AnyAppThemable {
     public var searchImage: UIImage? = Asset.System.Outline.searchOutline.image {
         didSet { updateSearchImageView() }
     }
+
+    /// Color scheme.
+    public var scheme = SearchBarColorScheme() {
+        didSet { updateScheme() }
+    }
+
+    // MARK: - Private Properties
     
     private let backgroundView = UIView()
     private let textField = UITextField()
@@ -91,10 +100,8 @@ public class SearchBar: UIView, UITextFieldDelegate, AnyAppThemable {
         constraint.isActive = true
         return constraint
     }()
-    
-    private var scheme = SearchBarColorScheme() {
-        didSet { updateScheme() }
-    }
+
+    // MARK: - Public Methods
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -109,6 +116,8 @@ public class SearchBar: UIView, UITextFieldDelegate, AnyAppThemable {
     public func apply(theme: AppTheme) {
         scheme = SearchBarColorScheme(theme: theme)
     }
+
+    // MARK: - Private Methods
     
     private func updateScheme() {
         backgroundView.backgroundColor = scheme.backgroundColor.uiColor

@@ -48,14 +48,14 @@ public enum SeparatorStyle {
     Separator(separatorStyle: .short)
 */
 public class Separator: UIView, AnyAppThemable {
-    
+
+    /// Separator style.
     public var separatorStyle: SeparatorStyle = .short {
         didSet { updateSeparatorStyle() }
     }
-    
-    // MARK: - Internal Properties
-    
-    var scheme = SeparatorScheme() {
+
+    /// Color scheme.
+    public var scheme = SeparatorScheme() {
         didSet { updateScheme() }
     }
     

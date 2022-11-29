@@ -9,16 +9,25 @@ import AdmiralTheme
 import AdmiralUIResources
 import UIKit
 
-struct ButtonDropDownScheme {
-    
-    var backgroundColor: AColor
-    var ghostButtonScheme: HeaderButtonWithArrowScheme
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+/**
+ ButtonDropDownScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - ButtonDropDownScheme() - Initialize default ButtonDropDownScheme with default themezation
+Example to create ButtonDropDownScheme:
+Code
+ ```
+let scheme = ButtonDropDownScheme()
+ ```
+ */
+public struct ButtonDropDownScheme: AppThemeScheme {
+
+    /// Background color.
+    public var backgroundColor: AColor
+
+    /// Ghost button scheme.
+    public var ghostButtonScheme: HeaderButtonWithArrowScheme
+
+    public init(theme: AppTheme = .default) {
         backgroundColor = theme.colors.backgroundBasic
         
         ghostButtonScheme = HeaderButtonWithArrowScheme(theme: theme)

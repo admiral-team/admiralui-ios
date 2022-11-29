@@ -9,16 +9,25 @@ import UIKit
 import AdmiralTheme
 import AdmiralUIResources
 
-struct CurcleIconListViewScheme {
-    
-    var backgroundColor = ControlParameter<AColor>()
-    var imageTintColor = ControlParameter<AColor>()
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+/**
+ CurcleIconListViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - CurcleIconListViewScheme() - Initialize default CurcleIconListViewScheme with default themezation
+Example to create CurcleIconListViewScheme:
+Code
+ ```
+let scheme = CurcleIconListViewScheme()
+ ```
+ */
+public struct CurcleIconListViewScheme: AppThemeScheme {
+
+    /// Background color.
+    public var backgroundColor = ControlParameter<AColor>()
+
+    /// Image tint color.
+    public var imageTintColor = ControlParameter<AColor>()
+
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         backgroundColor.set(parameter: theme.colors.backgroundSelected, for: .highlighted)

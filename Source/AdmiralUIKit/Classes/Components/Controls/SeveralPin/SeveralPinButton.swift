@@ -36,10 +36,16 @@ open class SeveralPinButton: CustomButton, AnyAppThemable, AccessibilitySupport 
 
     // MARK: - Public Properties
 
+    /// Style.
     public var style: SeveralPinButtonSize = .medium {
         didSet {
             updateScheme()
         }
+    }
+
+    /// Color scheme.
+    public var scheme = SeveralPinButtonScheme() {
+        didSet { updateScheme() }
     }
 
     public var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
@@ -72,12 +78,6 @@ open class SeveralPinButton: CustomButton, AnyAppThemable, AccessibilitySupport 
         case .medium:
             return CGSize(width: LayoutGrid.halfModule * 8, height: LayoutGrid.halfModule * 8)
         }
-    }
-
-    // MARK: - Internal Properties
-
-    var scheme = SeveralPinButtonScheme() {
-        didSet { updateScheme() }
     }
 
     // MARK: - Initializers

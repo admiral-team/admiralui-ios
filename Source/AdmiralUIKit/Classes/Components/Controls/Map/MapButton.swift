@@ -51,9 +51,8 @@ open class MapButton: CustomButton, AnyAppThemable {
         }
     }
 
-    // MARK: - Internal properties
-
-    var scheme = MapButtonScheme() {
+    /// Color scheme.
+    public var scheme = MapButtonScheme() {
         didSet { updateScheme() }
     }
 

@@ -46,25 +46,51 @@ final class StandardTabsViewController: ScrollViewController {
     }
 
     private func configureSegmentControlls() {
-        let segmentControl1 = StandardSegmentedControl(titles: ["One", "Two"])
+        let segmentControl1 = StandardSegmentedControl(
+            items: [
+                .init(title: "One", accesibilityId: "segmentControl1One"),
+                .init(title: "Two", accesibilityId: "segmentControl1Two")
+            ]
+        )
         segmentControl.selectedSegmentIndex = 0
 
         let view1 = TabsView<StandardSegmentedControl>(segmentView: segmentControl1, title: "Two controls")
         views.append(view1)
         
-        let segmentControl2 = StandardSegmentedControl(titles: ["One", "Two", "Three"])
+        let segmentControl2 = StandardSegmentedControl(
+            items: [
+                .init(title: "One", accesibilityId: "segmentControl2One"),
+                .init(title: "Two", accesibilityId: "segmentControl2Two"),
+                .init(title: "Three", accesibilityId: "segmentControl2Three")
+            ]
+        )
         segmentControl.selectedSegmentIndex = 0
 
         let view2 = TabsView<StandardSegmentedControl>(segmentView: segmentControl2, title: "Three controls")
         views.append(view2)
 
-        let segmentControl3 = StandardSegmentedControl(titles: ["One", "Two", "Three", "Four"])
+        let segmentControl3 = StandardSegmentedControl(
+            items: [
+                .init(title: "One", accesibilityId: "segmentControl3One"),
+                .init(title: "Two", accesibilityId: "segmentControl3Two"),
+                .init(title: "Three", accesibilityId: "segmentControl3Three"),
+                .init(title: "Four", accesibilityId: "segmentControl3Four")
+            ]
+        )
         segmentControl.selectedSegmentIndex = 0
 
         let view3 = TabsView<StandardSegmentedControl>(segmentView: segmentControl3, title: "Four controls")
         views.append(view3)
 
-        let segmentControl4 = StandardSegmentedControl(titles: ["One", "Two", "Three", "Four", "Five"])
+        let segmentControl4 = StandardSegmentedControl(
+            items: [
+                .init(title: "One", accesibilityId: "segmentControl4One"),
+                .init(title: "Two", accesibilityId: "segmentControl4Two"),
+                .init(title: "Three", accesibilityId: "segmentControl4Three"),
+                .init(title: "Four", accesibilityId: "segmentControl4Four"),
+                .init(title: "Five", accesibilityId: "segmentControl4Five")
+            ]
+        )
         segmentControl.selectedSegmentIndex = 0
 
         let view4 = TabsView<StandardSegmentedControl>(segmentView: segmentControl4, title: "Five controls")

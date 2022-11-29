@@ -17,16 +17,17 @@ public class CardListView: BaseListView, TralingListViewComponent, AnyAppThemabl
     public var cardImage: UIImage? {
         didSet { imageView.image = cardImage }
     }
+
+    /// Color scheme.
+    public var scheme = CardListViewScheme() {
+        didSet { updateScheme() }
+    }
     
     // MARK: Internal Properties
     
     /// The state of the view. Default is normal.
     override var state: UIControl.State {
         didSet { configure(for: state) }
-    }
-    
-    var scheme = CardListViewScheme() {
-        didSet { updateScheme() }
     }
     
     // MARK: - Private Properties
