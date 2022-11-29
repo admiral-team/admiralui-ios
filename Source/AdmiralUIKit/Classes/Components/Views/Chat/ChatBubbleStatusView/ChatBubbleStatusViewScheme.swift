@@ -8,17 +8,28 @@
 import AdmiralTheme
 import AdmiralUIResources
 
+/**
+ ChatBubbleStatusViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - ChatBubbleStatusViewScheme() - Initialize default ChatBubbleStatusViewScheme with default themezation
+Example to create ChatBubbleStatusViewScheme:
+Code
+ ```
+let scheme = ChatBubbleStatusViewScheme()
+ ```
+ */
 public struct ChatBubbleStatusViewScheme: AppThemeScheme {
 
+    /// Text font.
     public var textFont: AFont
+
+    /// Text color.
     public var textColor = ChatBubbleStatusViewParameters<AColor>()
+
+    /// Image color.
     public var imageColor = ChatBubbleStatusViewParameters<AColor>()
 
-    public init() {
-        self.init(theme: AppTheme.default)
-    }
-
-    public init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         textColor.set(parameter: theme.colors.textAccentAdditional, status: .loading, direction: .right, style: .default)
         textColor.set(parameter: theme.colors.textAccentAdditional, status: .error, direction: .right, style: .default)
         textColor.set(parameter: theme.colors.textAccentAdditional, status: .sent, direction: .right, style: .default)
@@ -66,15 +77,30 @@ public struct ChatBubbleStatusViewScheme: AppThemeScheme {
 
 }
 
+/// A container for setting value for difference state.
 public struct ChatBubbleStatusViewParameters<P> {
-    
+
+    /// Parameters with generic values.
     public var parameters: [String: P?] = [:]
 
+    /// Setting value for state.
+    /// - Parameters:
+    ///   - parameter: Any value. For Example text color
+    ///   - status: Chat status.
+    ///   - direction: Chat direction.
+    ///   - style: Chat bubble status style.
     public mutating func set(parameter: P?, status: ChatStatus, direction: ChatDirection, style: ChatBubbleStatusStyle) {
         let key = paramKey(status: status, direction: direction, style: style)
         parameters[key] = parameter
     }
 
+
+    /// Getting parameter.
+    /// - Parameters:
+    ///   - status: Chat status.
+    ///   - direction:  Chat direction.
+    ///   - style: Chat bubble status style.
+    /// - Returns: Any value.
     public func parameter(for status: ChatStatus, direction: ChatDirection, style: ChatBubbleStatusStyle) -> P? {
         let key = paramKey(status: status, direction: direction, style: style)
         let defaultKey = paramKey(status: status, direction: direction, style: style)

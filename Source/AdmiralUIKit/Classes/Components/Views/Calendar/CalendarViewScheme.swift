@@ -9,16 +9,25 @@ import UIKit
 import AdmiralTheme
 import AdmiralUIResources
 
-struct CalendarViewScheme {
+/**
+ CalendarViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - CalendarViewScheme() - Initialize default CalendarViewScheme with default themezation
+Example to create CalendarViewScheme:
+Code
+ ```
+let scheme = CalendarViewScheme()
+ ```
+ */
+public struct CalendarViewScheme: AppThemeScheme {
+
+    /// Calendar vertical view scheme.
+    public var calendarVerticalViewScheme: CalendarVerticalViewScheme
+
+    /// Calendar horizontal view scheme.
+    public var calendarHorizontalViewScheme: CalendarHorizontalViewScheme
     
-    var calendarVerticalViewScheme: CalendarVerticalViewScheme
-    var calendarHorizontalViewScheme: CalendarHorizontalViewScheme
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         calendarVerticalViewScheme = CalendarVerticalViewScheme(theme: theme)
         calendarHorizontalViewScheme = CalendarHorizontalViewScheme(theme: theme)
     }

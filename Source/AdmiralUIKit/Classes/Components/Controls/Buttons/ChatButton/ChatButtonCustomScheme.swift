@@ -8,22 +8,40 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-public struct ChatButtonCustomScheme {
+/**
+ ChatButtonCustomScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - ChatButtonCustomScheme() - Initialize default ChatButtonCustomScheme with default themezation
+Example to create ChatButtonCustomScheme:
+Code
+ ```
+let scheme = ChatButtonCustomScheme()
+ ```
+ */
+public struct ChatButtonCustomScheme: AppThemeScheme {
 
-    var normalTextColor: AColor
-    var disabledTextColor: AColor
-    var backgroundLayerColor: AColor
-    var backgroundNormalColor: AColor
-    var backgroundHightlightedColor: AColor
-    var backgroundDisabledColor: AColor
+    /// Normal text color.
+    public var normalTextColor: AColor
 
-    var titleLabelFont: AFont
+    /// Disabled text color.
+    public var disabledTextColor: AColor
 
-    init() {
-        self.init(theme: AppTheme.default)
-    }
+    /// Background layer color.
+    public var backgroundLayerColor: AColor
 
-    init(theme: AppTheme) {
+    /// Background normal color.
+    public var backgroundNormalColor: AColor
+
+    /// Background hightlighted color.
+    public var backgroundHightlightedColor: AColor
+
+    /// Background disabled color.
+    public var backgroundDisabledColor: AColor
+
+    /// Title label font.
+    public var titleLabelFont: AFont
+
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         titleLabelFont = theme.fonts.body1

@@ -57,7 +57,7 @@ struct ChatSwiftUIView: View {
 
     private func navigationView(scheme: SwiftUIContentViewScheme) -> some View {
         NavigationContentView(
-            navigationTitle: "Чат",
+            navigationTitle: "Chat",
             isShowBackButton: true,
             isShowThemeSwitchSwiftUIView: true,
             navigationBarDisplayMode: .large

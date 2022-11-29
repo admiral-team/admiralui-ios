@@ -15,7 +15,7 @@ public protocol InfoAgreementViewDelegate: AnyObject {
 
 /// Complex user interface element which contains checkbox, title label and transparent button with text.
 public class InfoAgreementView: UIView, AnyAppThemable {
-        
+
     // MARK: - Public Properties
     
     /// Delegate SegmentButtonsView.
@@ -66,10 +66,30 @@ public class InfoAgreementView: UIView, AnyAppThemable {
             updateItems()
         }
     }
-    
-    // MARK: Internal Properties
-    
-    var scheme = InfoAgreementViewScheme() {
+
+    /// The action button accessibility identifier
+    public var actionButtonAccesibilityId: String? {
+        didSet {
+            actionButton.accessibilityIdentifier = actionButtonAccesibilityId
+        }
+    }
+
+    /// The alternative button identifier
+    public var alternativeButtonAccesibilityId: String? {
+        didSet {
+            alternativeButton.accessibilityIdentifier = alternativeButtonAccesibilityId
+        }
+    }
+
+    /// The check box accessibility identifier
+    public var checkBoxTextAccesibilityId: String? {
+        didSet {
+            checkBoxTextButtonView.accessibilityIdentifier = checkBoxTextAccesibilityId
+        }
+    }
+
+    /// Color scheme.
+    public var scheme = InfoAgreementViewScheme() {
         didSet { updateScheme() }
     }
     

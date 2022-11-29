@@ -9,19 +9,31 @@ import UIKit
 import AdmiralTheme
 import AdmiralUIResources
 
-struct ImageWithSubtitleListViewScheme {
+/**
+ ImageWithSubtitleListViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - ImageWithSubtitleListViewScheme() - Initialize default ImageWithSubtitleListViewScheme with default themezation
+Example to create ImageWithSubtitleListViewScheme:
+Code
+ ```
+let scheme = ImageWithSubtitleListViewScheme()
+ ```
+ */
+public struct ImageWithSubtitleListViewScheme: AppThemeScheme {
+
+    /// Background color.
+    public var backgroundColor = ControlParameter<AColor>()
+
+    /// Image tint color.
+    public var imageTintColor = ControlParameter<AColor>()
+
+    /// Subtitle label text color.
+    public var subtitleLabelTextColor = ControlParameter<AColor>()
+
+    /// Subtitle font.
+    public var subtitleFont: AFont
     
-    var backgroundColor = ControlParameter<AColor>()
-    var imageTintColor = ControlParameter<AColor>()
-    var subtitleLabelTextColor = ControlParameter<AColor>()
-    
-    var subtitleFont: AFont
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
         
         backgroundColor.set(parameter: theme.colors.backgroundSelected, for: .highlighted)

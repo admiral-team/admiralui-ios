@@ -5,61 +5,56 @@
 //  Created on 11.11.2020.
 //
 
-import UIKit
 import AdmiralUIKit
-import AdmiralTheme
+import UIKit
 
-final class NumberViewController: ScrollViewController {
-    
-    var textFields: [UIView] = []
-    
-    // MARK: - Initializers
-    
+final class NumberViewController: BaseTableViewController {
+
+    // MARK: - Life Cycle
+
     override func viewDidLoad() {
+        setSegmentControl(hidden: true)
+
         super.viewDidLoad()
-        configureUI()
+        tableView.separatorStyle = .none
+        tableViewManager.sections = createSections()
     }
 
-    override func apply(theme: AppTheme) {
-        super.apply(theme: theme)
-        textFields.forEach({ ($0 as? AppThemeCompatible)?.apply(theme: theme) })
-    }
-    
     // MARK: - Private Methods
-    
-    private func configureUI() {
-        configureTextFields()
-        
-        textFields.forEach() {
-            $0.translatesAutoresizingMaskIntoConstraints = false
-            stackView.addArrangedSubview($0)
-        }
+
+    private func createSections() -> [MainSectionViewModel] {
+        let items: [TableViewListItem] = [
+            MainTitleTableViewCellViewModel(
+                title: "Default",
+                didSelect: { [weak self] in self?.presentDefaultNumber() }),
+
+            MainTitleTableViewCellViewModel(
+                title: "Secondary",
+                didSelect: { [weak self] in self?.presentSecondaryNumber() }),
+
+            MainTitleTableViewCellViewModel(
+                title: "Input",
+                didSelect: { [weak self] in self?.presentInputNumber() })
+        ]
+
+        return [MainSectionViewModel(items: items)]
     }
-    
-    private func configureTextFields() {
-        let textFieldSix = createInputNumberTextFieldView()
-        textFields.append(textFieldSix)
+
+    private func presentDefaultNumber() {
+        let viewController = InputNumberDefaultViewController()
+        viewController.title = "Default"
+        navigationController?.pushViewController(viewController, animated: true)
     }
-    
-    private func createInputNumberTextFieldView()-> ControlCellView<InputNumber> {
-        let inputTextField = InputNumber()
-        inputTextField.text = "Optional label"
-        inputTextField.value = 1
-        inputTextField.minimumValue = 0
-        inputTextField.maximumValue = 20000
-        
-        let statuses = ["Default", "Disabled"]
-        let cell = ControlCellView<InputNumber>(textField: inputTextField, statuses: statuses)
-        
-        cell.changeStateAction = { state in
-            switch state {
-            case .normal:
-                inputTextField.isEnabled = true
-            default:
-                inputTextField.isEnabled = false
-            }
-        }
-        
-        return cell
+
+    private func presentSecondaryNumber() {
+        let viewController = InputNumberDefaultViewController()
+        viewController.title = "Secondary"
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+
+    private func presentInputNumber() {
+        let viewController = InputNumberViewController()
+        viewController.title = "Input"
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }

@@ -97,27 +97,31 @@ final class SwiftUIUploadingPhotoViewModel: ObservableObject {
             .store(in: &cancellables)
 
         gridItems = [
-           UploadGridItem(
-               models: buildModels(gridItem: 0, count: 1),
-               direction: .left
-           ),
-           UploadGridItem(
-               models: buildModels(gridItem: 1, count: 2),
-               direction: .left
-           ),
-           UploadGridItem(
-               models: buildModels(gridItem: 2, count: 3),
-               direction: .left
-           ),
-           UploadGridItem(
-               models: buildModels(gridItem: 3, count: 4),
-               direction: .left
-           ),
-           UploadGridItem(
-               models: buildModels(gridItem: 5, count: 6),
-               direction: .right
-           )
-       ]
+            UploadGridItem(
+                models: buildModels(gridItem: 0, count: 1),
+                direction: .left
+            ),
+            UploadGridItem(
+                models: buildModels(gridItem: 1, count: 2),
+                direction: .left
+            ),
+            UploadGridItem(
+                models: buildModels(gridItem: 2, count: 3),
+                direction: .left
+            ),
+            UploadGridItem(
+                models: buildModels(gridItem: 3, count: 4),
+                direction: .left
+            ),
+            UploadGridItem(
+                models: buildModels(gridItem: 4, count: 5),
+                direction: .left
+            ),
+            UploadGridItem(
+                models: buildModels(gridItem: 5, count: 6),
+                direction: .right
+            )
+        ]
     }
     
     // MARK: - Private methods

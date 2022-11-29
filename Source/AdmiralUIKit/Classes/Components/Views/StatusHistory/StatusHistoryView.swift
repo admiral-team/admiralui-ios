@@ -104,10 +104,9 @@ public class StatusHistoryView: UIView, AnyAppThemable {
     public var status: StatusHistory = .hold {
         didSet { statusHistoryStatusView.status = status }
     }
-    
-    // MARK: - Internal Properties
-    
-    var scheme = StatusHistoryViewScheme() {
+
+    /// Color scheme.
+    public var scheme = StatusHistoryViewScheme() {
         didSet { updateScheme() }
     }
     

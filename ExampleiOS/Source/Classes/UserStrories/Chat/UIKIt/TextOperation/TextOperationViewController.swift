@@ -9,12 +9,14 @@ import AdmiralUIKit
 import AdmiralTheme
 import UIKit
 
- final class TextOperationViewController: UIViewController, AnyAppThemable {
+final class TextOperationViewController: UIViewController, AnyAppThemable {
 
     // MARK: - Private Properties
 
     private let viewModel = TextOperationViewModel()
     private let themeSwitchView = ThemeSwitchView(frame: .zero)
+
+    // MARK: - Computed Properties
 
     private var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
@@ -42,14 +44,6 @@ import UIKit
     override func viewDidLoad() {
         super.viewDidLoad()
         configureLayout()
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
     }
 
     // MARK: - AnyAppThemable
@@ -104,12 +98,12 @@ import UIKit
         configureUI()
     }
 
- }
+}
 
- extension TextOperationViewController: UITableViewDelegate {
+extension TextOperationViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         UITableView.automaticDimension
     }
 
- }
+}

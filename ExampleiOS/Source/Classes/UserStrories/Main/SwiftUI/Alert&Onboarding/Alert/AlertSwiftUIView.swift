@@ -37,7 +37,7 @@ struct AlertSwiftUIView: View {
                 .foregroundColor(scheme.descriptionLabelTextColor.swiftUIColor)
             
             SwiftUI.Button("Показать Alert", action: {
-                withAnimation(.easeInOut(duration: Durations.Default.double)) {
+                withAnimation(.easeInOut(duration: Durations.Default.single)) {
                     self.show.toggle()
                 }
             })
@@ -53,13 +53,13 @@ struct AlertSwiftUIView: View {
                   message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
                   buttonTitle: "Хорошо",
                   buttonAction: {
-                    withAnimation(.easeInOut(duration: Durations.Default.double)) {
+                    withAnimation(.easeInOut(duration: Durations.Default.single)) {
                         self.show.toggle()
                     }
                 },
                   additionalButtonTitle: "Отмена",
                   additionalButtonAction: {
-                    withAnimation(.easeInOut(duration: Durations.Default.double)) {
+                    withAnimation(.easeInOut(duration: Durations.Default.single)) {
                         self.show.toggle()
                     }
                   })

@@ -8,17 +8,31 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-struct BadgeScheme {
-    var font: AFont
-    var textColor = BadgeParameters<AColor>()
-    var borderColor: AColor
-    var backgroundColor = BadgeParameters<AColor>()
+/**
+ BadgeScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - BadgeScheme() - Initialize default BadgeScheme with default themezation
+Example to create BadgeScheme:
+Code
+ ```
+let scheme = BadgeScheme()
+ ```
+ */
+public struct BadgeScheme: AppThemeScheme {
+
+    /// Text font.
+    public var font: AFont
+
+    /// Text color.
+    public var textColor = BadgeParameters<AColor>()
+
+    /// Border color.
+    public var borderColor: AColor
+
+    /// Background color.
+    public var backgroundColor = BadgeParameters<AColor>()
     
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
         font = theme.fonts.caption2
         borderColor = theme.colors.backgroundBasic
@@ -74,15 +88,28 @@ struct BadgeScheme {
     }
 }
 
-struct BadgeParameters<P> {
-    var parameters: [String: P?] = [:]
-    
-    mutating func set(parameter: P?, for state: BadgeState, style: BadgeStyle) {
+/// A container for setting value for difference state.
+public struct BadgeParameters<P> {
+
+    /// Parameters with generic values.
+    public var parameters: [String: P?] = [:]
+
+    /// Setting value for state.
+    /// - Parameters:
+    ///   - parameter: Any value. For Example text color
+    ///   - state: State.
+    ///   - style: Style badge view.
+    public mutating func set(parameter: P?, for state: BadgeState, style: BadgeStyle) {
         let key = paramKey(state: state, style: style)
         parameters[key] = parameter
     }
-    
-    func parameter(for state: BadgeState, style: BadgeStyle) -> P? {
+
+    /// Getting parameter
+    /// - Parameters:
+    ///   - state: State.
+    ///   - style: Style badge view.
+    /// - Returns: Any value.
+    public func parameter(for state: BadgeState, style: BadgeStyle) -> P? {
         let key = paramKey(state: state, style: style)
         let defaultKey = paramKey(state: .normal, style: style)
         

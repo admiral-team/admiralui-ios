@@ -248,7 +248,7 @@ class MainViewController: UIViewController, AnyAppThemable {
 
             MainTableViewCellViewModel(
                 title: "Chat",
-                subtitle: "Чат",
+                subtitle: "Chat",
                 image: Asset.Main.chat.image,
                 didSelect: { [weak self] in self?.presentChat() }),
 
@@ -284,11 +284,12 @@ extension MainViewController: SearchBarDelegate {
     }
     
     func searchBar(_ searchBar: SearchBar, textDidChange searchText: String) {
-        if searchText.isEmpty {
+        let textWithoutSpaces = searchText.trimmingCharacters(in: .whitespaces)
+        if textWithoutSpaces.isEmpty {
             tableViewManager.sections = [MainSectionViewModel(items: items)]
             isSearching = false
         } else {
-            filterData(text: searchText)
+            filterData(text: textWithoutSpaces)
             isSearching = true
         }
     }
@@ -456,7 +457,7 @@ extension MainViewController {
 
     private func presentChat() {
         let viewController = ChatViewController()
-        viewController.title = "Чат"
+        viewController.title = "Chat"
         navigationController?.pushViewController(viewController, animated: true)
     }
 

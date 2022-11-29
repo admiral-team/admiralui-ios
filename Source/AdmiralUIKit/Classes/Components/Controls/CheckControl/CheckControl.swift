@@ -54,6 +54,11 @@ public class CheckControl: UIControl, AppThemeable {
     public override var isHighlighted: Bool {
         didSet { updateState() }
     }
+
+    /// Color scheme.
+    public var scheme = CheckControlScheme() {
+        didSet { updateState() }
+    }
     
     // MARK: - Internal Parameters
     
@@ -62,10 +67,6 @@ public class CheckControl: UIControl, AppThemeable {
     
     /// Default Image control.
     var defaultImage: UIImage = UIImage()
-    
-    var scheme = CheckControlScheme() {
-        didSet { updateState() }
-    }
     
     // MARK: - Private Parameters
 

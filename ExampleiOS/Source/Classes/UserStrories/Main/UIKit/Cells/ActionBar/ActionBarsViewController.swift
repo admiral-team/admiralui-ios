@@ -57,18 +57,18 @@ final class ActionBarsViewController: ScrollViewController {
         }
     }
 
-    private func createTitleListView(item: ActionBarViewModel.ActionBarItem) -> ListCell<ImageCardListView, TitleLargeSubtitleListView, SubtitleWithImageListView> {
+    private func createTitleListView(item: ActionBarViewModel.ActionBarItem) -> ListCell<LeadingCardListView, TitleLargeSubtitleListView, SubtitleWithImageListView> {
         let titleListView = TitleLargeSubtitleListView()
         titleListView.title = item.title
         titleListView.subtitle = item.subTitle
-        let cardListView = ImageCardListView()
+        let cardListView = LeadingCardListView()
         cardListView.cardImage = item.cardImage
 
         let swipeView = SubtitleWithImageListView()
         swipeView.subtitle = item.swipeSubtitle
         swipeView.image = item.swipeImage
 
-        return ListCell<ImageCardListView, TitleLargeSubtitleListView, SubtitleWithImageListView>(
+        return ListCell<LeadingCardListView, TitleLargeSubtitleListView, SubtitleWithImageListView>(
             leadingView: cardListView,
             centerView: titleListView,
             tralingView: swipeView

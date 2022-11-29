@@ -56,21 +56,30 @@ final class RadioButtonViewController: ScrollViewController {
             textCheckboxTitle: "Text",
             checkBoxesControlState: .normal,
             isSelected: false,
-            titleText: "Default")
+            titleText: "Default",
+            radioButtonFirstAccesibilityId: "RadioControlsFirstDefault",
+            radioButtonSecondAccesibilityId: "RadioControlsFirstDefault"
+        )
         views.append(defaultRadioButtonView)
         
         let selectedRadioButtonView = RadioControlsCellView(
             textCheckboxTitle: "Text",
             checkBoxesControlState: .normal,
             isSelected: true,
-            titleText: "Selected")
+            titleText: "Selected",
+            radioButtonFirstAccesibilityId: "RadioControlsFirstSelected",
+            radioButtonSecondAccesibilityId: "RadioControlsFirstSelected"
+        )
         views.append(selectedRadioButtonView)
         
         let errorRadioButtonView = RadioControlsCellView(
             textCheckboxTitle: "Text",
             checkBoxesControlState: .error,
             isSelected: false,
-            titleText: "Error")
+            titleText: "Error",
+            radioButtonFirstAccesibilityId: "RadioControlsFirstError",
+            radioButtonSecondAccesibilityId: "RadioControlsFirstError"
+        )
         views.append(errorRadioButtonView)
     }
     
