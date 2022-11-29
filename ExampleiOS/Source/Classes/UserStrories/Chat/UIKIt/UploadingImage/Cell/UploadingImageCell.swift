@@ -159,6 +159,7 @@ extension UploadingImageCell: TableViewListItemConfigurable {
         uploadImageGridView.chatStatus = item.chatStatus
         uploadImageGridView.chatTime = item.chatTime
         uploadImageGridView.state = item.state
+        uploadImageGridView.accessibilityIdentifier = "UploadImageGridView"
         titleLabel.text = item.titleLabelText
 
         leadingConstraint.isActive = item.chatDirection == .left

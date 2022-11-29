@@ -9,38 +9,43 @@ import UIKit
 import AdmiralTheme
 import AdmiralUIResources
 
-/// The scheme of ActionBarControl.
-struct ActionBarViewSecondaryScheme: AppThemeScheme {
+/**
+ ActionBarViewSecondaryScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - ActionBarViewSecondaryScheme() - Initialize default ActionBarViewSecondaryScheme with default themezation
+Example to create ActionBarViewSecondaryScheme:
+Code
+ ```
+let scheme = ActionBarViewSecondaryScheme()
+ ```
+ */
+public struct ActionBarViewSecondaryScheme: AppThemeScheme {
 
     // MARK: - Public properties
 
     /// The settings of ActionBarButtonStyle.
-    struct ActionBarControl {
-        var imageViewAlpha = ControlParameter<CGFloat>()
-        var backgroundColor = ActionBarControlSchemeTwoParameters<AColor>()
+    public struct ActionBarControl {
+        public var imageViewAlpha = ControlParameter<CGFloat>()
+        public var backgroundColor = ActionBarControlSchemeTwoParameters<AColor>()
     }
 
-    var actionBarControl = ActionBarControl()
+    public var actionBarControl = ActionBarControl()
 
     /// The textColor of ActionBarControl.
-    var textColor: AColor
+    public var textColor: AColor
 
     /// The font of text.
-    var textFont: AFont
+    public var textFont: AFont
 
     /// The tint color of image.
-    var imageTintColor: AColor
+    public var imageTintColor: AColor
 
     /// An alpha component for ImageView.
-    var alpha: CGFloat
+    public var alpha: CGFloat
 
     // MARK: - Initializer
 
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         textColor = theme.colors.textStaticWhite
         textFont = theme.fonts.caption1
         alpha = theme.colors.disabledAlpha
@@ -76,15 +81,27 @@ struct ActionBarViewSecondaryScheme: AppThemeScheme {
     }
 }
 
+/// A container for setting value for difference state.
 public struct ActionBarControlSchemeTwoParameters<P> {
 
+    /// Parameters with generic values.
     public var parameters: [String: P?] = [:]
 
+    /// Setting value for state.
+    /// - Parameters:
+    ///   - parameter: Any value. For Example text color
+    ///   - style: Action bar item image style.
+    ///   - control: Control state.
     public mutating func set(parameter: P?, style: ActionBarItemImageStyle, control: UIControl.State) {
         let key = paramKey(style: style, control: control)
         parameters[key] = parameter
     }
 
+    /// Getting parameter
+    /// - Parameters:
+    ///   - style: Action bar item image style.
+    ///   - control: Control state.
+    /// - Returns: Any value.
     public func parameter(for style: ActionBarItemImageStyle, control: UIControl.State) -> P? {
         let key = paramKey(style: style, control: control)
         let defaultKey = paramKey(style: style, control: control)

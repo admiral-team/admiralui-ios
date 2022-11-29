@@ -8,23 +8,43 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-struct BigInformerScheme {
-    
-    var titleLabelTextColors = InformerParameters<AColor>()
-    var descriptionLabelTextColors = InformerParameters<AColor>()
-    var linkLabelTextColors = InformerParameters<AColor>()
-    var wrapViewBackgroundColors = InformerParameters<AColor>()
-    var backgroundColors = InformerParameters<AColor>()
-    
-    var titleLabelFont: AFont
-    var descriptionLabelFont: AFont
-    var linkLabelFont: AFont
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+/**
+ BigInformerScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - BigInformerScheme() - Initialize default BigInformerScheme with default themezation
+Example to create BigInformerScheme:
+Code
+ ```
+let scheme = BigInformerScheme()
+ ```
+ */
+public struct BigInformerScheme: AppThemeScheme {
+
+    /// Title label text color.
+    public var titleLabelTextColors = InformerParameters<AColor>()
+
+    /// Description label text color.
+    public var descriptionLabelTextColors = InformerParameters<AColor>()
+
+    /// Link label text color.
+    public var linkLabelTextColors = InformerParameters<AColor>()
+
+    /// Wrap view background color.
+    public var wrapViewBackgroundColors = InformerParameters<AColor>()
+
+    /// Background color.
+    public var backgroundColors = InformerParameters<AColor>()
+
+    /// Title label font.
+    public var titleLabelFont: AFont
+
+    /// Description label font.
+    public var descriptionLabelFont: AFont
+
+    /// Link label font.
+    public var linkLabelFont: AFont
+
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         titleLabelFont = theme.fonts.subtitle2
@@ -90,16 +110,28 @@ struct BigInformerScheme {
     
 }
 
-struct InformerParameters<P> {
-    
-    var parameters: [String: P?] = [:]
-    
-    mutating func set(parameter: P?, isEnabled: Bool, style: InformerStyle) {
+/// A container for setting value for difference state.
+public struct InformerParameters<P> {
+
+    /// Parameters with generic values.
+    public var parameters: [String: P?] = [:]
+
+    /// Setting value for state.
+    /// - Parameters:
+    ///   - parameter: Any value. For Example text color.
+    ///   - isEnabled: Enabled state.
+    ///   - style: Informer style.
+    public mutating func set(parameter: P?, isEnabled: Bool, style: InformerStyle) {
         let key = paramKey(isEnabled: isEnabled, style: style)
         parameters[key] = parameter
     }
-    
-    func parameter(isEnabled: Bool, style: InformerStyle) -> P? {
+
+    /// Getting parameter.
+    /// - Parameters:
+    ///   - isEnabled: Enabled state.
+    ///   - style: Informer style.
+    /// - Returns: Any value.
+    public func parameter(isEnabled: Bool, style: InformerStyle) -> P? {
         let key = paramKey(isEnabled: isEnabled, style: style)
         let defaultKey = paramKey(isEnabled: true, style: style)
         

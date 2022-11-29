@@ -376,14 +376,18 @@ extension CalendarVerticalView: UICollectionViewDataSource {
         let isTail = isStartDate || isEndDate
         let hasPoint = Set(pointDates).contains(day.date.removeTimeStamp())
         
-        cell.configureWith(model: .init(
-                            title: day.number,
-                            isDisplayedInMonth: day.isDisplayedInMonth,
-                            isSelected: isSelected,
-                            isTail: isTail,
-                            isCurrentDay: day.isCurrentDay,
-                            isActive: isActive,
-                            hasPoint: hasPoint))
+        cell.configureWith(
+            model: .init(
+                title: day.number,
+                isDisplayedInMonth: day.isDisplayedInMonth,
+                isSelected: isSelected,
+                isTail: isTail,
+                isCurrentDay: day.isCurrentDay,
+                isActive: isActive,
+                hasPoint: hasPoint,
+                accesibilityId: day.date.dateToString()
+            )
+        )
         cell.scheme = scheme.calendarViewCellColorScheme
         return cell
     }

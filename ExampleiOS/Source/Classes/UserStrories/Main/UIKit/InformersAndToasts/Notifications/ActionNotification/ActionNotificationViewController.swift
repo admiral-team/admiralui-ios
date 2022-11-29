@@ -90,6 +90,8 @@ final class ActionNotificationViewController: BaseViewController, AccessibilityS
         view.closeAction = {}
         view.closeTitle = "Отмена"
         view.timerDuration = 5
+        view.closeButtonAccesibilityId = "ActionNotificationToastCloseButton"
+        view.accessibilityIdentifier = "ActionNotificationToastView"
       
         var config = BannerNotification.Config.default
         config.displayingTime = 5.0

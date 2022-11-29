@@ -46,7 +46,13 @@ final class UnderlineSliderTabsViewController: ScrollViewController {
     }
     
     private func configureSegmentControlls() {
-        let segmentControlFirst = UnderlineSegmentedControl(items: ["One", "Two", "Three"])
+        let segmentControlFirst = UnderlineSegmentedControl(
+            items: [
+                .init(title: "One", accesibilityId: "UnderlineSegmentedOne1"),
+                .init(title: "Two", accesibilityId: "UnderlineSegmentedOne2"),
+                .init(title: "Three", accesibilityId: "UnderlineSegmentedOne3")
+            ]
+        )
         segmentControlFirst.selectedSegmentIndex = 0
         segmentControlFirst.isScrollEnabled = false
         segmentControlFirst.contentInset = UIEdgeInsets(
@@ -59,10 +65,19 @@ final class UnderlineSliderTabsViewController: ScrollViewController {
         
         views.append(view1)
         
-        let segmentControlSecond = UnderlineSegmentedControl(items:
-                                                            ["One", "Two", "Three",
-                                                             "Four", "Five", "Six",
-                                                             "Seven", "Eight", "Nine"])
+        let segmentControlSecond = UnderlineSegmentedControl(
+            items: [
+                .init(title: "One", accesibilityId: "UnderlineSegmentedTwo1"),
+                .init(title: "Two", accesibilityId: "UnderlineSegmentedTwo2"),
+                .init(title: "Three", accesibilityId: "UnderlineSegmentedTwo3"),
+                .init(title: "Four", accesibilityId: "UnderlineSegmentedTwo4"),
+                .init(title: "Five", accesibilityId: "UnderlineSegmentedTwo5"),
+                .init(title: "Six", accesibilityId: "UnderlineSegmentedTwo6"),
+                .init(title: "Seven", accesibilityId: "UnderlineSegmentedTwo7"),
+                .init(title: "Eight", accesibilityId: "UnderlineSegmentedTwo8"),
+                .init(title: "Nine", accesibilityId: "UnderlineSegmentedTwo9")
+            ]
+        )
         segmentControlSecond.selectedSegmentIndex = 0
         segmentControlSecond.isScrollEnabled = true
         segmentControlSecond.contentInset = UIEdgeInsets(

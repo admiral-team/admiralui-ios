@@ -8,22 +8,38 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-struct StandardSegmentedScheme {
-    
-    struct ItemScheme {
-        var titleColor = ControlParameter<AColor>()
-        var titleFont = ControlParameter<AFont>()
+/**
+ StandardSegmentedScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - StandardSegmentedScheme() - Initialize default StandardSegmentedScheme with default themezation
+Example to create StandardSegmentedScheme:
+Code
+ ```
+let scheme = StandardSegmentedScheme()
+ ```
+ */
+public struct StandardSegmentedScheme: AppThemeScheme {
+
+    /// Item scheme.
+    public struct ItemScheme {
+
+        /// Title color.
+        public var titleColor = ControlParameter<AColor>()
+
+        /// Title font.
+        public var titleFont = ControlParameter<AFont>()
     }
+
+    /// Item scheme.
+    public var itemScheme = ItemScheme()
+
+    /// Border color.
+    public var borderColor = ControlParameter<AColor>()
+
+    /// Thumb color.
+    public var thumbColor = ControlParameter<AColor>()
     
-    var itemScheme = ItemScheme()
-    var borderColor = ControlParameter<AColor>()
-    var thumbColor = ControlParameter<AColor>()
-    
-    init() {
-        //
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         itemScheme.titleColor.set(parameter: theme.colors.textPrimary, for: .normal)

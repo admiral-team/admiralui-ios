@@ -8,15 +8,25 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-struct FeedBackInputScheme {
-    var defaultColor = ControlParameter<AColor>()
-    var selectedColor = ControlParameter<AColor>()
+/**
+ FeedBackInputScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - FeedBackInputScheme() - Initialize default FeedBackInputScheme with default themezation
+Example to create FeedBackInputScheme:
+Code
+ ```
+let scheme = FeedBackInputScheme()
+ ```
+ */
+public struct FeedBackInputScheme: AppThemeScheme {
+
+    /// Default color.
+    public var defaultColor = ControlParameter<AColor>()
+
+    /// Selected color.
+    public var selectedColor = ControlParameter<AColor>()
     
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         defaultColor.set(parameter: theme.colors.elementAdditional, for: .normal)

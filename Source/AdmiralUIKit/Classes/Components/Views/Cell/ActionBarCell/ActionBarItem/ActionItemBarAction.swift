@@ -54,6 +54,9 @@ public class ActionItemBarAction {
     /// The text of ActionItemBar.
     public var text: String?
 
+    /// The accesibility id
+    public var accesibilityId: String?
+
     // MARK: - Initializer
 
     public init(
@@ -61,12 +64,14 @@ public class ActionItemBarAction {
         imageStyle: ActionBarItemImageStyle,
         style: ActionBarItemStyle = .default,
         text: String? = nil,
+        accesibilityId: String? = nil,
         handler: @escaping () -> Void
     ) {
         self.image = image
         self.imageStyle = imageStyle
         self.style = style
         self.text = text
+        self.accesibilityId = accesibilityId
         self.handler = handler
     }
 
@@ -76,6 +81,7 @@ public class ActionItemBarAction {
         backgroundColor: UIColor,
         style: ActionBarItemStyle = .default,
         text: String? = nil,
+        accesibilityId: String? = nil,
         handler: @escaping () -> Void
     ) {
         self.image = image
@@ -84,6 +90,7 @@ public class ActionItemBarAction {
         self.text = text
         self.handler = handler
         self.style = style
+        self.accesibilityId = accesibilityId
     }
 
 }

@@ -126,14 +126,13 @@ public final class UploadDocumentView: UIView, AnyAppThemable {
         }
     }
 
-    public var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
-        didSet { updateFonts() }
+    /// Color scheme.
+    public var scheme = UploadDocumentViewScheme() {
+        didSet { updateScheme() }
     }
 
-    // MARK: - Internal Properties
-
-    var scheme = UploadDocumentViewScheme() {
-        didSet { updateScheme() }
+    public var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
+        didSet { updateFonts() }
     }
 
     // MARK: - Private properties

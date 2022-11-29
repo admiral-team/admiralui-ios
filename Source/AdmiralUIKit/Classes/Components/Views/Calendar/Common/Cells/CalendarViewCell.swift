@@ -16,14 +16,20 @@ struct CalendarDayItem {
     let isCurrentDay: Bool
     var isActive: Bool = true
     var hasPoint: Bool = false
+    var accesibilityId: String? = nil
 }
 
 /// The style of calendar cell.
-enum CalendarCellState: UInt {
+public enum CalendarCellState: UInt {
+    /// Default state.
     case normal
+    /// Tail selected.
     case tailSelected
+    /// Cell selected.
     case selected
+    /// Cell with current date.
     case currentDate
+    /// Disabled state.
     case disabled
 }
 
@@ -90,6 +96,7 @@ class CalendarDayCell: UICollectionViewCell, AnyAppThemable, AccessibilitySuppor
         isDisplayedInMonth = model.isDisplayedInMonth
         
         pointView.isHidden = !(model.hasPoint && isDisplayedInMonth)
+        accessibilityIdentifier = model.accesibilityId
     }
     
     // MARK: - AnyAppTheamable

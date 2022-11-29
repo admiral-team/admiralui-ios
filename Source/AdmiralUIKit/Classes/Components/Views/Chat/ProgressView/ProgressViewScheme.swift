@@ -8,21 +8,32 @@
 import AdmiralTheme
 import AdmiralUIResources
 
+/**
+ ProgressViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - ProgressViewScheme() - Initialize default ProgressViewScheme with default themezation
+Example to create ProgressViewScheme:
+Code
+ ```
+let scheme = ProgressViewScheme()
+ ```
+ */
 public struct ProgressViewScheme: AppThemeScheme {
 
     // MARK: - Properties
 
+    /// Background color.
     public var backgroundColor = ProgressViewSchemeParameters<AColor>()
+
+    /// Icon color.
     public var iconColor = ProgressViewSchemeParameters<AColor>()
+
+    /// Circular track view scheme.
     public var circularTrackViewScheme = CircularTrackViewScheme()
     
     // MARK: - Initializer
 
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-
-    public init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         backgroundColor.set(parameter: theme.colors.elementStaticWhite, style: .default)
         backgroundColor.set(parameter: theme.colors.backgroundAccent, style: .accent)
 
@@ -34,15 +45,28 @@ public struct ProgressViewScheme: AppThemeScheme {
 
 }
 
+/// A container for setting value for difference state.
 public struct ProgressViewSchemeParameters<P> {
-    var parameters: [String: P?] = [:]
 
-    mutating func set(parameter: P?, style: ProgressViewStyle) {
+    // Parameters with generic values.
+    public var parameters: [String: P?] = [:]
+
+    /// Setting value for state.
+    /// - Parameters:
+    ///   - parameter: Any value. For Example text color
+    ///   - state: State.
+    ///   - style: Style progress view.
+    public mutating func set(parameter: P?, style: ProgressViewStyle) {
         let key = paramKey(style: style)
         parameters[key] = parameter
     }
 
-    func parameter(style: ProgressViewStyle) -> P? {
+    /// Getting parameter.
+    /// - Parameters:
+    ///   - state: State.
+    ///   - style: Style progress view.
+    /// - Returns: Any value.
+    public func parameter(style: ProgressViewStyle) -> P? {
         let key = paramKey(style: style)
         let defaultKey = paramKey(style: style)
 

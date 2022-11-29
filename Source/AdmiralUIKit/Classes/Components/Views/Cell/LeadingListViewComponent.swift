@@ -1,13 +1,13 @@
 //
-//  LeadingListViewComponent.swift
+//  CenterListViewComponent.swift
 //  AdmiralUI
 //
-//  Created on 17.11.2020.
+//  Created on 20.11.2020.
 //
 
 import UIKit
 
-/// The protocol for left list cell.
+/// The protocol for image view list cell.
 public protocol LeadingListViewComponent: UIView {
     
     /// A Boolean value indicating whether the view is in the enabled state.
