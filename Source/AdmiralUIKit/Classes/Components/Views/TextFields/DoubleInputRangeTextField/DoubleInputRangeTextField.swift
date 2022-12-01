@@ -331,10 +331,12 @@ public class DoubleInputRangeTextField: UIView, AnyAppThemable, AccessibilitySup
         leftTextField.forceOpened = true
         leftTextField.isSeparatorHidden = true
         leftTextField.trailingViewStyle = .small
+        leftTextField.isMonoSpaceDigitFontEnabled = true
         
         rightTextField.forceOpened = true
         rightTextField.isSeparatorHidden = true
         rightTextField.trailingViewStyle = .small
+        rightTextField.isMonoSpaceDigitFontEnabled = true
 
         minValueLabel.backgroundColor = .clear
         maxValueLabel.backgroundColor = .clear
