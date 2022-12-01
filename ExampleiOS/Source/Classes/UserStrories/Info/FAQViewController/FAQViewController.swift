@@ -113,7 +113,7 @@ final class FAQViewController: UIViewController, AnyAppThemable {
                 isExpanded: false,
                 didSelect: nil),
             FAQTableViewCellViewModel(
-                title: "Для каких версий операционной системы разработана библиотека? ",
+                title: "Для каких версий операционной системы разработана библиотека?",
                 subtitle: "Версия iOS 10 + / Android 5+",
                 isExpanded: false,
                 didSelect: nil),
