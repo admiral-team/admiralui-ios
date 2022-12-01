@@ -75,7 +75,8 @@ open class SmallInformer: UIView, AnyAppThemable, AccessibilitySupport {
         didSet { updateScheme() }
     }
 
-    var scheme = SmallInformerScheme() {
+    /// Color scheme.
+    public var scheme = SmallInformerScheme() {
         didSet { updateScheme() }
     }
     

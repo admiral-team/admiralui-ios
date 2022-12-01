@@ -7,6 +7,7 @@
 
 import AdmiralUIKit
 import AdmiralTheme
+import AdmiralUIResources
 import UIKit
 
 final class BadgeCellView<T>: UIView, AnyAppThemable, AccessibilitySupport where T: Badge {
@@ -98,6 +99,8 @@ final class BadgeCellView<T>: UIView, AnyAppThemable, AccessibilitySupport where
         inputTextField.minimumValue = 0
         inputTextField.maximumValue = 1000
         inputTextField.addTarget(self, action: #selector(stepperValueChanged(_:)), for: .valueChanged)
+        inputTextField.minusButtonAccesibilityId = "BadgeCellInputNumberMinusButton"
+        inputTextField.plusButtonAccesibilityId = "BadgeCellInputNumberPlusButton"
     }
     
     private func configureBadgeView() {
@@ -109,7 +112,7 @@ final class BadgeCellView<T>: UIView, AnyAppThemable, AccessibilitySupport where
     }
     
     private func configureImageViews() {
-        imageView.image = Asset.Badges.bonus.image
+        imageView.image = Asset.Badges.diamondSolid.image.withRenderingMode(.alwaysTemplate)
     }
     
     private func configureLabel() {

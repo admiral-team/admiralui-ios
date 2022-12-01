@@ -46,14 +46,20 @@ open class ZeroScreenView: UIView, AnyAppThemable {
     }
     
     // MARK: - Public Properties
-    
+
+    /// Color scheme.
     public var scheme = ZeroScreenScheme() {
         didSet { updateScheme() }
     }
     
-    
     public var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
         didSet { updateFonts() }
+    }
+
+    public var primaryButtonAccesibilityId: String? {
+        didSet {
+            primaryButton.accessibilityIdentifier = primaryButtonAccesibilityId
+        }
     }
     
     /// The delegate of ZeroScreenView.
@@ -176,9 +182,9 @@ open class ZeroScreenView: UIView, AnyAppThemable {
             let imageConstraint: NSLayoutConstraint
             
             if title != nil {
-                imageConstraint =  titleView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: LayoutGrid.halfModule * 6)
+                imageConstraint =  titleView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: LayoutGrid.module * 6)
             } else if subTitle != nil {
-                imageConstraint =  subTitleView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: LayoutGrid.halfModule * 6)
+                imageConstraint =  subTitleView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: LayoutGrid.module * 6)
             } else {
                 imageConstraint = imageView.centerYAnchor.constraint(equalTo: centerYAnchor)
             }

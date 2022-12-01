@@ -155,6 +155,11 @@ public class DoubleInputRangeTextField: UIView, AnyAppThemable, AccessibilitySup
         set { leftTextField.trailingView = newValue }
     }
 
+    /// Color scheme.
+    public var scheme = DoubleInputRangeTextFieldScheme() {
+        didSet { updateScheme() }
+    }
+
     // MARK: - Internal Properties
 
     let slider = DoubleSlider()
@@ -171,10 +176,6 @@ public class DoubleInputRangeTextField: UIView, AnyAppThemable, AccessibilitySup
 
     private var trailingLabelConstraint = NSLayoutConstraint()
     private var rightTextFieldTrailingConstraints = NSLayoutConstraint()
-
-    var scheme = InputRangeTextFieldScheme() {
-        didSet { updateScheme() }
-    }
 
     // MARK: - AccessibilitySupport
 
@@ -210,6 +211,27 @@ public class DoubleInputRangeTextField: UIView, AnyAppThemable, AccessibilitySup
         rightTextField.setText(maxValue, animated: animated)
     }
 
+    /// Sets the accesibility Ids
+     /// - Parameters:
+     ///   - leftTextFieldId: String?.
+     ///   - rightTextFieldId: String?.
+     ///   - doubleSliderLowerImageId: String?.
+     ///   - doubleSliderUpperImageId: String?.
+     ///   - doubleSliderProgressViewId: String?.
+     public func setAccessibilityidentifiers(
+         leftTextFieldId: String? = nil,
+         rightTextFieldId: String? = nil,
+         doubleSliderLowerImageId: String? = nil,
+         doubleSliderUpperImageId: String? = nil,
+         doubleSliderProgressViewId: String? = nil
+     ) {
+         leftTextField.inputTextField.accessibilityIdentifier = leftTextFieldId
+         rightTextField.inputTextField.accessibilityIdentifier = rightTextFieldId
+         slider.loweThubmImageAccesibilityId = doubleSliderLowerImageId
+         slider.upperThumbImageViewAccesibilityId = doubleSliderUpperImageId
+         slider.progressViewAccesibilityId = doubleSliderProgressViewId
+     }
+
     /// Sets the  state, allowing you to animate the change visually.
     /// - Parameters:
     ///   - state: State.
@@ -229,7 +251,7 @@ public class DoubleInputRangeTextField: UIView, AnyAppThemable, AccessibilitySup
     // MARK: - AppTheamable
 
     open func apply(theme: AppTheme) {
-        self.scheme = InputRangeTextFieldScheme(theme: theme)
+        self.scheme = DoubleInputRangeTextFieldScheme(theme: theme)
     }
 
     // MARK: - Private Methods
@@ -309,10 +331,12 @@ public class DoubleInputRangeTextField: UIView, AnyAppThemable, AccessibilitySup
         leftTextField.forceOpened = true
         leftTextField.isSeparatorHidden = true
         leftTextField.trailingViewStyle = .small
+        leftTextField.isMonoSpaceDigitFontEnabled = true
         
         rightTextField.forceOpened = true
         rightTextField.isSeparatorHidden = true
         rightTextField.trailingViewStyle = .small
+        rightTextField.isMonoSpaceDigitFontEnabled = true
 
         minValueLabel.backgroundColor = .clear
         maxValueLabel.backgroundColor = .clear
@@ -373,6 +397,8 @@ public class DoubleInputRangeTextField: UIView, AnyAppThemable, AccessibilitySup
         maxValueLabel.textColor = leftTextField.inputTextField.textColor
         fromLabel.textColor = leftTextField.decorationView.informerLabel.textColor
         destinationLabel.textColor = leftTextField.decorationView.informerLabel.textColor
+        trailingLabel.textColor = scheme.textFieldScheme.textColor.uiColor
+
         switch state {
         case .normal, .error:
             slider.isEnabled = true
@@ -382,9 +408,9 @@ public class DoubleInputRangeTextField: UIView, AnyAppThemable, AccessibilitySup
     }
 
     private func updateScheme() {
-        leftTextField.scheme = scheme.textField
-        rightTextField.scheme = scheme.textField
-        slider.scheme = scheme.slider
+        leftTextField.scheme = scheme.textFieldScheme
+        rightTextField.scheme = scheme.textFieldScheme
+        slider.scheme = scheme.sliderScheme
         configure(for: state)
         updateFonts()
     }
@@ -399,20 +425,20 @@ public class DoubleInputRangeTextField: UIView, AnyAppThemable, AccessibilitySup
             textStyle: scheme.valueFont.textStyle,
             adjustsFontForContentSize: adjustsFontForContentSizeCategory)
         trailingLabel.setDynamicFont(
-            font: scheme.textField.textFieldFont.uiFont,
-            textStyle: scheme.textField.textFieldFont.textStyle,
+            font: scheme.textFieldScheme.textFieldFont.uiFont,
+            textStyle: scheme.textFieldScheme.textFieldFont.textStyle,
             adjustsFontForContentSize: adjustsFontForContentSizeCategory)
         informerLabel.setDynamicFont(
-            font: scheme.textField.informerFont.uiFont,
-            textStyle: scheme.textField.informerFont.textStyle,
+            font: scheme.textFieldScheme.informerFont.uiFont,
+            textStyle: scheme.textFieldScheme.informerFont.textStyle,
             adjustsFontForContentSize: adjustsFontForContentSizeCategory)
         fromLabel.setDynamicFont(
-            font: scheme.textField.informerFont.uiFont,
-            textStyle: scheme.textField.informerFont.textStyle,
+            font: scheme.textFieldScheme.informerFont.uiFont,
+            textStyle: scheme.textFieldScheme.informerFont.textStyle,
             adjustsFontForContentSize: adjustsFontForContentSizeCategory)
         destinationLabel.setDynamicFont(
-            font: scheme.textField.informerFont.uiFont,
-            textStyle: scheme.textField.informerFont.textStyle,
+            font: scheme.textFieldScheme.informerFont.uiFont,
+            textStyle: scheme.textFieldScheme.informerFont.textStyle,
             adjustsFontForContentSize: adjustsFontForContentSizeCategory)
     }
 

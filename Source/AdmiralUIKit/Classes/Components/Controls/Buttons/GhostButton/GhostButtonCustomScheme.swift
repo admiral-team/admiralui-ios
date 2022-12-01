@@ -8,20 +8,34 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-public struct GhostButtonCustomScheme {
-    
-    var normalTextColor: AColor
-    var highlightedTextColor: AColor
-    var disabledTextColor: AColor
-    
-    var titleLabelFont: AFont
-    var activityIndicatorScheme: ActivityIndicatorScheme
+/**
+ GhostButtonCustomScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - GhostButtonCustomScheme() - Initialize default GhostButtonCustomScheme with default themezation
+Example to create GhostButtonCustomScheme:
+Code
+ ```
+let scheme = GhostButtonCustomScheme()
+ ```
+ */
+public struct GhostButtonCustomScheme: AppThemeScheme {
 
-    init() {
-        self.init(theme: AppTheme.default)
-    }
+    /// Normal text color.
+    public var normalTextColor: AColor
+
+    /// Highlighted text color.
+    public var highlightedTextColor: AColor
+
+    /// Disabled text color.
+    public var disabledTextColor: AColor
+
+    /// Title label font.
+    public var titleLabelFont: AFont
+
+    /// Activity indicator scheme.
+    public var activityIndicatorScheme: ActivityIndicatorScheme
     
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         titleLabelFont = theme.fonts.body1

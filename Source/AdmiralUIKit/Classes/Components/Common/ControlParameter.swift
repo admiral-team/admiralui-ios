@@ -8,7 +8,7 @@
 import AdmiralCore
 import UIKit
 
-typealias ControlParameter<P> = ParameterBox<UIControl.State,P>
+public typealias ControlParameter<P> = ParameterBox<UIControl.State,P>
 
 extension UIControl.State: DefaultRepresentable {
     public static var defaultValue: UIControl.State { return .normal }

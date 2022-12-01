@@ -8,21 +8,35 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-struct UnderlineSliderScheme {
-    
-    struct ItemScheme {
-        var titleFont = ControlParameter<AFont>()
-        var titleColor = ControlParameter<AColor>()
+/**
+ UnderlineSliderScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - UnderlineSliderScheme() - Initialize default UnderlineSliderScheme with default themezation
+Example to create UnderlineSliderScheme:
+Code
+ ```
+let scheme = UnderlineSliderScheme()
+ ```
+ */
+public struct UnderlineSliderScheme: AppThemeScheme {
+
+    /// Item scheme.
+    public struct ItemScheme {
+
+        /// Title font.
+        public var titleFont = ControlParameter<AFont>()
+
+        /// Title color.
+        public var titleColor = ControlParameter<AColor>()
     }
+
+    /// Items scheme.
+    public var itemScheme = ItemScheme()
+
+    /// Thumb color.
+    public var thumbColor = ControlParameter<AColor>()
     
-    var itemScheme = ItemScheme()
-    var thumbColor = ControlParameter<AColor>()
-    
-    init() {
-        //
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         itemScheme.titleFont.set(parameter: theme.fonts.body2, for: .normal)

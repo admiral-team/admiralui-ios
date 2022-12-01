@@ -48,6 +48,14 @@ final class HorizontalViewController: UIViewController, AnyAppThemable, Calendar
         calendarView.calendarDelegate = self
         calendarView.notActiveAfterDate = Date()
         calendarView.pointDates = [Date()]
+        
+        calendarView.setHorizontalCalendarAccessibilitiesIds(
+            accessibilityId: "HorizontalCalendar",
+            headerLeftButtonId: "HorizontalCalendarLeftButtonHeader",
+            headerRightButtonId: "HorizontalCalendarRightButtonHeader",
+            headerChoiseButtonId: "HorizontalCalendarChoiseButtonHeader",
+            headerButtonWithArrowId: "HorizontalCalendarButtonWithArrowHeader"
+        )
         calendarView.reloadData()
     }
 

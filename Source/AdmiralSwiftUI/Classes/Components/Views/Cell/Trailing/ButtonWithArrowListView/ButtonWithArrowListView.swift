@@ -32,7 +32,7 @@ import AdmiralUIResources
  */
 /// A view object with button and arrow image view.
 @available(iOS 14.0, *)
-public struct ButtonWithArrowListView: View, LeadingListViewComponent, TralingListViewComponent {
+public struct ButtonWithArrowListView: View, CenterListViewComponent, TralingListViewComponent {
     
     // MARK: - Public Properties
     

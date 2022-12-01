@@ -33,6 +33,7 @@ public enum Asset {
   }
   public enum Badges {
     public static let bonus = ImageAsset(name: "Badges/Bonus")
+    public static let diamondSolid = ImageAsset(name: "Badges/diamondSolid")
   }
   public enum Card {
     public static let mir = ImageAsset(name: "Card/Mir")
@@ -46,8 +47,8 @@ public enum Asset {
     public static let warning = ImageAsset(name: "Card/warning")
   }
   public enum Chat {
-    public static let comment = ImageAsset(name: "Chat/Comment")
-    public static let photo = ImageAsset(name: "Chat/Photo")
+    public static let comment = ImageAsset(name: "Chat/comment")
+    public static let photo = ImageAsset(name: "Chat/photo")
   }
   public enum Currency {
     public static let britain = ImageAsset(name: "Currency/Britain")
@@ -178,6 +179,7 @@ public enum Asset {
     ActionBar.union,
     ActionBar.mail,
     Badges.bonus,
+    Badges.diamondSolid,
     Card.mir,
     Card.visa,
     Card.applePay,

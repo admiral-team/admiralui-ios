@@ -66,8 +66,9 @@ open class MessageInformer: UIView, AnyAppThemable, AccessibilitySupport {
             }
         }
     }
-    
-    var scheme = MessageInformerScheme() {
+
+    /// Color scheme.
+    public var scheme = MessageInformerScheme() {
         didSet { updateScheme() }
     }
     

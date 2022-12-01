@@ -67,7 +67,6 @@ final class AlertController: BaseViewController, AccessibilitySupport {
         vc.title = "Header"
         vc.message = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         vc.image = Asset.PopUp.popUpImage.image
-
         vc.modalPresentationStyle = .custom
         vc.modalTransitionStyle = .crossDissolve
         let action = AlertAction(title: "Хорошо", style: .primary) { [weak self] _ in

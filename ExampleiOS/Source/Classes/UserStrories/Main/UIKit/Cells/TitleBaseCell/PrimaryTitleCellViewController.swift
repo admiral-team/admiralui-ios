@@ -78,6 +78,8 @@ final class PrimaryTitleCellViewController: ScrollViewController {
         buttonListView.didSelect = {
             print("Did select")
         }
+        buttonListView.accessibilityIdentifier = "ButtonListView"
+        buttonListView.buttonAccesibilityId = "ButtonListViewButton"
         let titleWithArrowListView = TitleWithArrowListView()
         titleWithArrowListView.title = title
         return ListCell(centerView: titleWithArrowListView, tralingView: buttonListView)

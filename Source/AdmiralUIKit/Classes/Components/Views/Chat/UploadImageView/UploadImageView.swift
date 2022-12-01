@@ -121,6 +121,11 @@ public final class UploadImageView: UIView, AnyAppThemable {
         }
     }
 
+    /// Color scheme.
+    public var scheme = UploadImageViewScheme() {
+        didSet { updateScheme() }
+    }
+
     /// The corner style of UploadImageView.
     public var cornerStyle: UploadImageViewCornerStyle = .allSides {
         didSet {
@@ -167,12 +172,6 @@ public final class UploadImageView: UIView, AnyAppThemable {
                 maskedView.layer.maskedCorners = []
             }
         }
-    }
-
-    // MARK: - Internal Properties
-
-    var scheme = UploadImageViewScheme() {
-        didSet { updateScheme() }
     }
 
     // MARK: - Private properties
@@ -286,6 +285,7 @@ extension UploadImageView {
         state = model.state ?? .default
         image = model.image
         style = model.style
+        accessibilityIdentifier = model.accesibilityId
     }
 
 }
