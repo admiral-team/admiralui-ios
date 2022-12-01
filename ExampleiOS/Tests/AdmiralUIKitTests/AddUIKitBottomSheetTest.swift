@@ -20,23 +20,15 @@ class AddUIKitBottomSheetTest: XCTestCase {
         
         app.tables.staticTexts["Bottom-sheet"].tap()
         
-        app.buttons["Ellipse"].tap()
-        
-        app.staticTexts["Light"].tap()
-        app.staticTexts["Dark"].tap()
-        app.staticTexts["SME Light"].tap()
-        app.staticTexts["SME Dark"].tap()
-        
-        app.buttons["Ellipse"].tap()
+        changeThemes(app: app)
         
         app.staticTexts["Показать Bottom-sheet"].tap()
-        
-        app.staticTexts["Зарплатная карта"].tap()
-        app.staticTexts["5 000.00 ₽"].tap()
-        app.staticTexts["Новая карта"].tap()
-        app.staticTexts["2 000 000.00 ₽ "].tap()
-        app.staticTexts["11 000.00 ₽ "].tap()
-        app.staticTexts["1000.00 ₽ "].tap()
+        app.cells["CellBottomSheetOne"].tap()
+        app.cells["CellBottomSheetTwo"].tap()
+        app.cells["CellBottomSheetThree"].tap()
+        app.cells["CellBottomSheetFour"].tap()
+        app.cells["CellBottomSheetFive"].tap()
+        app.cells["CellBottomSheetSix"].tap()
         app.staticTexts["Готово"].tap()
     }
     
@@ -46,17 +38,22 @@ class AddUIKitBottomSheetTest: XCTestCase {
         
         app.tables.staticTexts["Bottom-sheet"].tap()
         
-        app.buttons["Ellipse"].tap()
-        
-        app.staticTexts["Light"].tap()
-        app.staticTexts["Dark"].tap()
-        app.staticTexts["SME Light"].tap()
-        app.staticTexts["SME Dark"].tap()
-        
-        app.buttons["Ellipse"].tap()
+        changeThemes(app: app)
         
         app.staticTexts["Показать Bottom-sheet"].tap()
         app.staticTexts["Выбрать все карты"].tap()
         app.staticTexts["Готово"].tap()
+    }
+    
+    func changeThemes(app: XCUIApplication) {
+        
+        app.buttons["Ellipse"].tap()
+        
+        app.otherElements.matching(identifier: "ThemeSwitchButton_Light").element.tap()
+        app.otherElements.matching(identifier: "ThemeSwitchButton_Dark").element.tap()
+        app.otherElements.matching(identifier: "ThemeSwitchButton_SME Light").element.tap()
+        app.otherElements.matching(identifier: "ThemeSwitchButton_SME Dark").element.tap()
+        
+        app.buttons["Ellipse"].tap()
     }
 }
