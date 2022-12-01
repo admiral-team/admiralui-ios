@@ -51,7 +51,8 @@ public class TwoTitleButton: UIControl, AnyAppThemable, AccessibilitySupport {
     
     /// Highlight animation duration.
     open var animationDuration: TimeInterval = Durations.Default.single
-    
+
+    /// Color scheme.
     open var scheme = TwoTitleButtonScheme() {
         didSet { updateScheme() }
     }

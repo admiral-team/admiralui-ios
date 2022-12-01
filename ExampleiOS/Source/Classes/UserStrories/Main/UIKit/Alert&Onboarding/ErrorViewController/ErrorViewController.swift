@@ -62,6 +62,8 @@ final class ErrorViewController: UIViewController, AnyAppThemable {
         errorView.text = Constants.text
         errorView.buttonTitle = Constants.buttonTitle
         errorView.delegate = self
+        errorView.accessibilityIdentifier = "ErrorView"
+        errorView.ghostButtonAccesibilityId = "ErrorViewGhostButton"
     }
 
     private func addSubviews() {

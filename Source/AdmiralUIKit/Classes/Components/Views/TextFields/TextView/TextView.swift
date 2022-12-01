@@ -71,6 +71,11 @@ open class TextView: TextViewInput, AnyAppThemable, AccessibilitySupport {
     public var trailingViewStyle: TextInputTrailingViewStyle = .default {
         didSet { updateTrailingView() }
     }
+
+    /// Color scheme.
+    public var scheme = TextFieldScheme() {
+        didSet { updateScheme() }
+    }
     
     // MARK: - Internal Properties
         
@@ -78,10 +83,6 @@ open class TextView: TextViewInput, AnyAppThemable, AccessibilitySupport {
         didSet { configureState(anmated: false) }
     }
 
-    var scheme = TextFieldScheme() {
-        didSet { updateScheme() }
-    }
-    
     var decorationView: TextInputDecorationView!
     
     // MARK: - AccessibilitySupport

@@ -125,6 +125,14 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 
 
+### validate_spm_example
+
+```sh
+[bundle exec] fastlane validate_spm_example
+```
+
+
+
 ### validate_cocoapods_example
 
 ```sh
@@ -153,22 +161,6 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ```sh
 [bundle exec] fastlane start_next_release_version
-```
-
-
-
-### validate_spm_example
-
-```sh
-[bundle exec] fastlane validate_spm_example
-```
-
-
-
-### validate_carthage_example
-
-```sh
-[bundle exec] fastlane validate_carthage_example
 ```
 
 

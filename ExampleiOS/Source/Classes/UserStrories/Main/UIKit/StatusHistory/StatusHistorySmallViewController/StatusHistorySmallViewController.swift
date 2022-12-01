@@ -77,6 +77,9 @@ final class StatusHistorySmallViewController: UIViewController, AnyAppThemable {
         
         addSubviews()
         configureConstraints()
+
+        inputNumber.minusButtonAccesibilityId = "StatusHistorySmallInputNumberMinusButton"
+        inputNumber.plusButtonAccesibilityId = "StatusHistorySmallInputNumberPlusButton"
     }
     
     @objc private func changeInputNumber(_ inputNumber: InputNumber) {

@@ -9,19 +9,37 @@ import UIKit
 import AdmiralTheme
 import AdmiralUIResources
 
-public struct TimePickerCustomTheme {
+/**
+ TimePickerCustomTheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - TimePickerCustomTheme() - Initialize default TimePickerCustomTheme with default themezation
+Example to create TimePickerCustomTheme:
+Code
+ ```
+let scheme = TimePickerCustomTheme()
+ ```
+ */
+public struct TimePickerCustomTheme: AppThemeScheme {
+
+    /// Border color.
     var borderColor = ControlParameter<AColor>()
+
+    /// Background color.
     var backgroundColor: AColor
+
+    /// Left text color.
     var leftTextColor = TimePickerTextParameter<AColor>()
+
+    /// Right text color.
     var rightTextColor = TimePickerTextParameter<AColor>()
+
+    /// Separator color.
     var separatorColor = TimePickerTextParameter<AColor>()
+
+    /// Wheel text color
     var wheelTextColor = ControlParameter<AColor>()
     
-    public init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    public init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         backgroundColor = theme.colors.backgroundAdditionalTwo
@@ -77,15 +95,28 @@ public struct TimePickerCustomTheme {
 
 }
 
-struct TimePickerTextParameter<P> {
-    var parameters: [String: P?] = [:]
-    
-    mutating func set(parameter: P?, for state: TimePickerStates, controlState: UIControl.State) {
+/// A container for setting value for difference state.
+public struct TimePickerTextParameter<P> {
+
+    // Parameters with generic values.
+    public var parameters: [String: P?] = [:]
+
+    /// Setting value for state.
+    /// - Parameters:
+    ///   - parameter: Any value. For Example text color
+    ///   - state: Time picker state.
+    ///   - controlState: Control state.
+    public mutating func set(parameter: P?, for state: TimePickerStates, controlState: UIControl.State) {
         let key = paramKey(state: state, controlState: controlState)
         parameters[key] = parameter
     }
-    
-    func parameter(for state: TimePickerStates, controlState: UIControl.State) -> P? {
+
+    /// Getting parameter.
+    /// - Parameters:
+    ///   - state: Time picker state.
+    ///   - controlState: Control state.
+    /// - Returns: Any value.
+    public func parameter(for state: TimePickerStates, controlState: UIControl.State) -> P? {
         let key = paramKey(state: state, controlState: controlState)
         let defaultKey = paramKey(state: .defaultState, controlState: .normal)
         

@@ -47,13 +47,12 @@ public class ButtonDropDown: UIView, AnyAppThemable {
     public var dropDownHeaderType: DropDownHeaderType? {
         didSet { updateImageView() }
     }
-    
-    // MARK: - Internal Properties
-    
-    var scheme = ButtonDropDownScheme() {
+
+    /// Color scheme.
+    public var scheme = ButtonDropDownScheme() {
         didSet { updateScheme() }
     }
-    
+
     // MARK: - Private Properties
     
     private let ghostButton = HeaderButtonWithArrow()

@@ -134,7 +134,7 @@ enum SwiftUIItem: String, CaseIterable {
         case .currency:
             return "Таблица курсов валют"
         case .chat:
-            return "Чат"
+            return "Chat"
         case .admiralGun:
             return "Загрузка шаблонов"
         }

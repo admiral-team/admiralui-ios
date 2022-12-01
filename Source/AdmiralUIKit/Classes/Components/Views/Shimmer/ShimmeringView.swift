@@ -82,11 +82,14 @@ final public class ShimmeringView: UIView, AnyAppThemable {
         didSet { shimmerLayer?.shimmerFadeTime = shimmerFadeTime }
     }
 
-    let defaultView = UIView()
-    
-    var scheme = ShimmeringViewColorScheme() {
+    /// Color scheme.
+    public var scheme = ShimmeringViewColorScheme() {
         didSet { configure(for: state) }
     }
+
+    // MARK: - Internal Properties
+
+    let defaultView = UIView()
     
     var state: UIControl.State = .normal {
         didSet { configure(for: state) }

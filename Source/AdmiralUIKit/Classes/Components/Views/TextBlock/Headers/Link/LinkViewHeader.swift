@@ -60,10 +60,9 @@ public class LinkViewHeader: UIView, AnyAppThemable {
         get { return ghostButton.titleLabel?.text }
         set { ghostButton.setTitle(newValue, for: .normal) }
     }
-    
-    // MARK: - Internal Properties
-    
-    var scheme = LinkViewHeaderScheme() {
+
+    /// Color scheme.
+    public var scheme = LinkViewHeaderScheme() {
         didSet { updateScheme() }
     }
     

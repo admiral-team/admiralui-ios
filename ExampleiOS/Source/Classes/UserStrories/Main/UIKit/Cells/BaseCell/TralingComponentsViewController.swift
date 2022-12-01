@@ -94,6 +94,8 @@ final class TralingComponentsViewController: ScrollViewController {
     
     private func configureCheckBoxCell() -> ListCell<ListCellEmpty, TitleListView, CheckBoxListView> {
         let checkBoxCell = CheckBoxListView()
+        checkBoxCell.checkBoxAccesibilityId = "CheckBoxListViewCheckBox"
+        checkBoxCell.accessibilityIdentifier = "CheckBoxListView"
         checkBoxCell.isSelected = true
         checkBoxCell.didSelect = {}
         let titleListView = TitleListView()
@@ -106,6 +108,8 @@ final class TralingComponentsViewController: ScrollViewController {
         switchListView.didSelect = { isOn in
             print(isOn)
         }
+        switchListView.customSwitchAccesibilityId = "SwitchListViewSwitcher"
+        switchListView.accessibilityIdentifier = "SwitchListView"
         switchListView.isControlSelected = true
         let titleListView = TitleListView()
         titleListView.title = "Title"
