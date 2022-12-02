@@ -5,7 +5,7 @@ The visual component library for `iOS`<br/></br>
 </p>
 
 ## What is AdmiralUI?
-`AdmiralUI` - is a ready-made set of user interface elements.
+`AdmiralUI` - is a ready-made set of user interface elements. Learn more about `AdmiralUI` in [documentation](https://github.com/admiral-team/admiralui-ios/blob/develop/Documentation/info/documentation.pdf).
 
 ## Benefits of using a library:
 - Allows you to follow to a single visual style and interface solutions
