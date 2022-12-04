@@ -48,7 +48,7 @@ struct BankTextFieldSwiftUIView: View {
                     state: $state,
                     contentType: .numberPad,
                     placeholder: "1111 2222 3333 4444",
-                    info: .constant("Info"),
+                    info: .constant("Additional text"),
                     isResponder: $isResponder,
                     onCursorPosition: { startIndex, currentIndex, text in
                         guard text.count <= Constants.maxSymbols else { return startIndex }

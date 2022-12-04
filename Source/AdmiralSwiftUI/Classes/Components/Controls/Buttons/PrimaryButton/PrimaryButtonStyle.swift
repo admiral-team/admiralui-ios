@@ -162,14 +162,15 @@ private extension PrimaryButtonStyle {
         }
 
         func lable(scheme: PrimaryButtonScheme) -> some View {
-            configuration.label.accessibilityIdentifier(
+            let textColor = isEnabled ? scheme.textColor.parameter(for: .normal)?.swiftUIColor : scheme.textColor.parameter(for: .disabled)?.swiftUIColor
+            return configuration.label.accessibilityIdentifier(
                 PrimaryButtonAccessibilityIdentifiers
                     .lable
                     .accessibilityViewIdentifier(
                         accessibilityIdentifier: accessibilityIdentifier
                     )
             )
-            .foregroundColor(scheme.textColor.parameter(for: .normal)?.swiftUIColor)
+                .foregroundColor(textColor)
         }
 
         func contentButton(

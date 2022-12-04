@@ -9,7 +9,7 @@ import AdmiralUIKit
 import AdmiralTheme
 import UIKit
 
-final class ImageBaseCellDetailViewController: ScrollViewController {
+final class LeadingElementsViewController: ScrollViewController {
     
     var cells: [ListViewCell] = []
     
