@@ -109,37 +109,43 @@ final class BottomSheetExampleViewController: UIViewController, BottomSheetPrese
             isSelected: false,
             subtitle: "56 000.00 ₽",
             additionalTitle: nil,
-            image: Asset.Card.visa.image)
+            image: Asset.Card.visa.image,
+            cellAccesibilityId: "CellBottomSheetOne")
         let model1 = BottomSheetTableViewCellViewModel(
             title: "Карта",
             isSelected: false,
             subtitle: "5 000.00 ₽",
             additionalTitle: nil,
-            image: Asset.Card.visa.image)
+            image: Asset.Card.visa.image,
+            cellAccesibilityId: "CellBottomSheetTwo")
         let model2 = BottomSheetTableViewCellViewModel(
             title: "Новая карта",
             isSelected: false,
             subtitle: "200 000.00 ₽ ",
             additionalTitle: nil,
-            image: Asset.Card.visa.image)
+            image: Asset.Card.visa.image,
+            cellAccesibilityId: "CellBottomSheetThree")
         let model3 = BottomSheetTableViewCellViewModel(
             title: "Мультикарта",
             isSelected: false,
             subtitle: "2 000 000.00 ₽ ",
             additionalTitle: "• 6554",
-            image: Asset.Card.visa.image)
+            image: Asset.Card.visa.image,
+            cellAccesibilityId: "CellBottomSheetFour")
         let model4 = BottomSheetTableViewCellViewModel(
             title: "Мультикарта",
             isSelected: false,
             subtitle: "11 000.00 ₽ ",
             additionalTitle: "• 5544",
-            image: Asset.Card.visa.image)
+            image: Asset.Card.visa.image,
+            cellAccesibilityId: "CellBottomSheetFive")
         let model5 = BottomSheetTableViewCellViewModel(
             title: "Карта",
             isSelected: false,
             subtitle: "1000.00 ₽ ",
             additionalTitle: nil,
-            image: Asset.Card.visa.image)
+            image: Asset.Card.visa.image,
+            cellAccesibilityId: "CellBottomSheetSix")
         models.append(contentsOf: [model, model1, model2, model3, model4, model5])
         return models
     }
