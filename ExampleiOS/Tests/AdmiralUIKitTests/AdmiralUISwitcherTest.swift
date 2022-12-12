@@ -6,14 +6,14 @@
 import XCTest
 
 class AdmiralUISwitcherTest: XCTestCase {
-
+    
     override func setUpWithError() throws {
         continueAfterFailure = false
     }
-
+    
     override func tearDownWithError() throws {
     }
-
+    
     func testSwitcher() throws {
         let app = XCUIApplication()
         app.launch()
