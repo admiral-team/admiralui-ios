@@ -6,15 +6,15 @@
 import XCTest
 
 class AdmiralUIRadiobuttonTest: XCTestCase {
-
+    
     override func setUpWithError() throws {
         continueAfterFailure = false
     }
-
+    
     override func tearDownWithError() throws {
     }
-
-    func testExample() throws {
+    
+    func testRadiobutton() throws {
         let app = XCUIApplication()
         app.launch()
         
