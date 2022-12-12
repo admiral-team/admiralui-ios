@@ -30,9 +30,6 @@ final class SmallInformersViewController: ScrollViewController {
     // MARK: - Initializers
     
     override func loadView() {
-        segmentControl.setItems([
-        StandardSegmentedItem(title: "Default", accesibilityId: "SegmentControlDefault"),
-        StandardSegmentedItem(title: "Disabled", accesibilityId: "SegmentControlDisabled")])
         super.loadView()
     }
     
@@ -55,12 +52,20 @@ final class SmallInformersViewController: ScrollViewController {
     // MARK: - Private Methods
     
     private func configureUI() {
+        configureSegmentControl()
         configureBadgeViews()
         views.forEach() {
             stackView.addArrangedSubview($0)
         }
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
     }
+    
+    private func configureSegmentControl() {
+            segmentControl.setItems([
+                StandardSegmentedItem(title: "Default", accesibilityId: "SegmentControlDefault"),
+                StandardSegmentedItem(title: "Disabled", accesibilityId: "SegmentControlDisabled")]
+            )
+        }
     
     private func configureBadgeViews() {
         let defaultInformer = SmallInformerView()
