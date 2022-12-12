@@ -195,6 +195,25 @@ class AdmiralUIKitTabsTest: XCTestCase {
         changeThemes(app: app)
     }
     
+    func testIconTabs() {
+        let app = XCUIApplication()
+        app.launch()
+        
+        app.tables.staticTexts["Tabs"].tap()
+        app.tables.staticTexts["Icon Tabs"].tap()
+        app.otherElements.matching(identifier: "SegmentControlDisabled").element.tap()
+        app.otherElements.matching(identifier: "SegmentControlDefault").element.tap()
+        
+        app.otherElements.matching(identifier: "IconTabOne2").element.tap()
+        app.otherElements.matching(identifier: "IconTabOne1").element.tap()
+        
+        app.otherElements.matching(identifier: "IconTabTwo2").element.tap()
+        app.otherElements.matching(identifier: "IconTabTwo3").element.tap()
+        app.otherElements.matching(identifier: "IconTabTwo1").element.tap()
+        
+        changeThemes(app: app)
+    }
+    
     func changeThemes(app: XCUIApplication) {
         app.buttons["Ellipse"].tap()
         
