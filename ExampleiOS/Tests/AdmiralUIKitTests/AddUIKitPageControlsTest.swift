@@ -31,14 +31,7 @@ class AddUIKitPageControlsTest: XCTestCase {
         app.staticTexts["Eight"].tap()
         app.staticTexts["Nine"].tap()
         
-        app.buttons["Ellipse"].tap()
-        
-        app.otherElements.matching(identifier: "ThemeSwitchButton_Light").element.tap()
-        app.otherElements.matching(identifier: "ThemeSwitchButton_Dark").element.tap()
-        app.otherElements.matching(identifier: "ThemeSwitchButton_SME Light").element.tap()
-        app.otherElements.matching(identifier: "ThemeSwitchButton_SME Dark").element.tap()
-        
-        app.buttons["Ellipse"].tap()
+        changeThemes(app: app)
     }
     
     func testLinerNext() throws {
@@ -56,63 +49,10 @@ class AddUIKitPageControlsTest: XCTestCase {
         app.staticTexts["Next"].tap()
         app.staticTexts["Next"].tap()
         
-        app.buttons["Ellipse"].tap()
-        
-        app.otherElements.matching(identifier: "ThemeSwitchButton_Light").element.tap()
-        app.otherElements.matching(identifier: "ThemeSwitchButton_Dark").element.tap()
-        app.otherElements.matching(identifier: "ThemeSwitchButton_SME Light").element.tap()
-        app.otherElements.matching(identifier: "ThemeSwitchButton_SME Dark").element.tap()
-        
-        app.buttons["Ellipse"].tap()
+        changeThemes(app: app)
     }
     
-    func testCircle() throws {
-        let app = XCUIApplication()
-        app.launch()
-        
-        app.tables.staticTexts["Page Controls"].tap()
-        app.tables.staticTexts["Circle"].tap()
-        app.staticTexts["One"].tap()
-        app.staticTexts["Two"].tap()
-        app.staticTexts["Three"].tap()
-        app.staticTexts["Four"].tap()
-        app.staticTexts["Five"].tap()
-        app.staticTexts["Six"].tap()
-        app.staticTexts["Seven"].tap()
-        app.staticTexts["Seven"].swipeLeft()
-        app.staticTexts["Eight"].tap()
-        app.staticTexts["Nine"].tap()
-        
-        app.buttons["Ellipse"].tap()
-        
-        app.otherElements.matching(identifier: "ThemeSwitchButton_Light").element.tap()
-        app.otherElements.matching(identifier: "ThemeSwitchButton_Dark").element.tap()
-        app.otherElements.matching(identifier: "ThemeSwitchButton_SME Light").element.tap()
-        app.otherElements.matching(identifier: "ThemeSwitchButton_SME Dark").element.tap()
-        
-        app.buttons["Ellipse"].tap()
-    }
-    
-    func testCircleNext() throws {
-        let app = XCUIApplication()
-        app.launch()
-        
-        app.tables.staticTexts["Page Controls"].tap()
-        app.tables.staticTexts["Circle"].tap()
-        app.buttons["arrowRight"].tap()
-        app.buttons["arrowRight"].tap()
-        app.buttons["arrowRight"].tap()
-        app.buttons["arrowRight"].tap()
-        app.buttons["arrowRight"].tap()
-        app.buttons["arrowRight"].tap()
-        app.buttons["arrowRight"].tap()
-        app.buttons["arrowRight"].tap()
-        app.buttons["arrowRight"].tap()
-        app.buttons["arrowRight"].tap()
-        app.buttons["arrowRight"].tap()
-        app.buttons["arrowRight"].tap()
-        app.buttons["arrowRight"].tap()
-        
+    func changeThemes(app: XCUIApplication) {
         app.buttons["Ellipse"].tap()
         
         app.otherElements.matching(identifier: "ThemeSwitchButton_Light").element.tap()
