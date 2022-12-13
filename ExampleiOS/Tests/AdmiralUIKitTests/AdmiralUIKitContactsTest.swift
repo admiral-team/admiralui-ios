@@ -6,14 +6,14 @@
 import XCTest
 
 class AdmiralUIKitContactsTest: XCTestCase {
-
+    
     override func setUpWithError() throws {
         continueAfterFailure = false
     }
-
+    
     override func tearDownWithError() throws {
     }
-
+    
     func testContactsLight() throws {
         let app = XCUIApplication()
         app.launch()
@@ -24,9 +24,7 @@ class AdmiralUIKitContactsTest: XCTestCase {
         
         app.buttons["Ellipse"].tap()
         
-        app.buttons["Инфо"].tap()
-        app.tables.staticTexts["Контакты"].tap()
-        app.staticTexts["Телеграмм канал"].tap()
+        checkContacts(app: app)
     }
     
     func testContactsDark() throws {
@@ -39,9 +37,7 @@ class AdmiralUIKitContactsTest: XCTestCase {
         
         app.buttons["Ellipse"].tap()
         
-        app.buttons["Инфо"].tap()
-        app.tables.staticTexts["Контакты"].tap()
-        app.staticTexts["Телеграмм канал"].tap()
+        checkContacts(app: app)
     }
     
     func testContactsSMELight() throws {
@@ -54,9 +50,7 @@ class AdmiralUIKitContactsTest: XCTestCase {
         
         app.buttons["Ellipse"].tap()
         
-        app.buttons["Инфо"].tap()
-        app.tables.staticTexts["Контакты"].tap()
-        app.staticTexts["Телеграмм канал"].tap()
+        checkContacts(app: app)
     }
     
     func testContactsSMEDark() throws {
@@ -69,6 +63,10 @@ class AdmiralUIKitContactsTest: XCTestCase {
         
         app.buttons["Ellipse"].tap()
         
+        checkContacts(app: app)
+    }
+    
+    func checkContacts(app: XCUIApplication) {
         app.buttons["Инфо"].tap()
         app.tables.staticTexts["Контакты"].tap()
         app.staticTexts["Телеграмм канал"].tap()
