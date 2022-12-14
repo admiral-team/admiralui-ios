@@ -68,6 +68,7 @@ final class BottomSheetViewController: BaseViewController, AccessibilitySupport 
     
     private func setupButtons() {
         bottomButton.setTitle("Показать Bottom-sheet", for: [])
+        bottomButton.accessibilityIdentifier = "Show Bottom-sheet"
         bottomButton.addTarget(self, action: #selector(tapBottomButton), for: .touchUpInside)
     }
     
