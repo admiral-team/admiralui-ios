@@ -23,9 +23,6 @@ final class StaticNotificationsViewController: ScrollViewController {
     // MARK: - Initializers
     
     override func loadView() {
-        segmentControl = StandardSegmentedControl(
-            titles: ["Default",
-                     "Disabled"])
         super.loadView()
     }
     
@@ -48,6 +45,7 @@ final class StaticNotificationsViewController: ScrollViewController {
     // MARK: - Private Methods
     
     private func configureUI() {
+        configureSegmentControl()
         configureBadgeViews()
         views.forEach() {
             stackView.addArrangedSubview($0)
@@ -55,6 +53,13 @@ final class StaticNotificationsViewController: ScrollViewController {
         stackView.distribution = .fillEqually
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
     }
+    
+    private func configureSegmentControl() {
+            segmentControl.setItems([
+                StandardSegmentedItem(title: "Default", accesibilityId: "SegmentControlDefault"),
+                StandardSegmentedItem(title: "Disabled", accesibilityId: "SegmentControlDisabled")]
+            )
+        }
     
     private func configureBadgeViews() {
         let firstToastView = StaticNotificationView()
