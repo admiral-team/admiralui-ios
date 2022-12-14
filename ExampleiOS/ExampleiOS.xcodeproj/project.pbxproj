@@ -310,6 +310,7 @@
 		D6245A10289982460027F3CA /* AdmiralUIThemesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6245A0F289982460027F3CA /* AdmiralUIThemesTest.swift */; };
 		D6245A12289AA5530027F3CA /* AdmiralUIKitButtonsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6245A11289AA5530027F3CA /* AdmiralUIKitButtonsTest.swift */; };
 		D6245A1628A13AC70027F3CA /* AdmiralUITextBlocksTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6245A1528A13AC70027F3CA /* AdmiralUITextBlocksTest.swift */; };
+		D692BF4C293DFE7A005DF293 /* AdmiralUITagsandChipsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D692BF4B293DFE7A005DF293 /* AdmiralUITagsandChipsTest.swift */; };
 		D64BA9EE2934FD2F00490451 /* AdmiralUIInformers&NotificationsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64BA9ED2934FD2F00490451 /* AdmiralUIInformers&NotificationsTest.swift */; };
 		D6A1C8D928FF0ADB00E4DE0A /* AdmiralUIKitErrorViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1C8D828FF0ADB00E4DE0A /* AdmiralUIKitErrorViewTest.swift */; };
 		D6FFAE3C293619F80059EBC2 /* AdmiralUICheckboxTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FFAE3B293619F80059EBC2 /* AdmiralUICheckboxTest.swift */; };
@@ -812,6 +813,7 @@
 		D6245A0F289982460027F3CA /* AdmiralUIThemesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIThemesTest.swift; sourceTree = "<group>"; };
 		D6245A11289AA5530027F3CA /* AdmiralUIKitButtonsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIKitButtonsTest.swift; sourceTree = "<group>"; };
 		D6245A1528A13AC70027F3CA /* AdmiralUITextBlocksTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUITextBlocksTest.swift; sourceTree = "<group>"; };
+		D692BF4B293DFE7A005DF293 /* AdmiralUITagsandChipsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdmiralUITagsandChipsTest.swift; sourceTree = "<group>"; };
 		D64BA9ED2934FD2F00490451 /* AdmiralUIInformers&NotificationsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AdmiralUIInformers&NotificationsTest.swift"; sourceTree = "<group>"; };
 		D6A1C8D828FF0ADB00E4DE0A /* AdmiralUIKitErrorViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIKitErrorViewTest.swift; sourceTree = "<group>"; };
 		D6FFAE3B293619F80059EBC2 /* AdmiralUICheckboxTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUICheckboxTest.swift; sourceTree = "<group>"; };
@@ -2895,6 +2897,7 @@
 				D64BA9ED2934FD2F00490451 /* AdmiralUIInformers&NotificationsTest.swift */,
 				D6A1C8D828FF0ADB00E4DE0A /* AdmiralUIKitErrorViewTest.swift */,
 				D6FFAE3B293619F80059EBC2 /* AdmiralUICheckboxTest.swift */,
+				D692BF4B293DFE7A005DF293 /* AdmiralUITagsandChipsTest.swift */,
 			);
 			path = AdmiralUIKitTests;
 			sourceTree = "<group>";
@@ -3935,6 +3938,7 @@
 				D6245A06289981A60027F3CA /* AdmiralUIKitTestsLaunchTests.swift in Sources */,
 				D64BA9EE2934FD2F00490451 /* AdmiralUIInformers&NotificationsTest.swift in Sources */,
 				D6245A0E2899822F0027F3CA /* AdmiralUIIconsTest.swift in Sources */,
+				D692BF4C293DFE7A005DF293 /* AdmiralUITagsandChipsTest.swift in Sources */,
 				D6FFAE3C293619F80059EBC2 /* AdmiralUICheckboxTest.swift in Sources */,
 				D6245A10289982460027F3CA /* AdmiralUIThemesTest.swift in Sources */,
 				D6245A04289981A60027F3CA /* AdmiralUIKitTests.swift in Sources */,
