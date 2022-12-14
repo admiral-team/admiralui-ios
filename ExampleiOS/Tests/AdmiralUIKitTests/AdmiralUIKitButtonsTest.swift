@@ -6,20 +6,20 @@
 import XCTest
 
 class AdmiralUIKitButtonsTests: XCTestCase {
-
+    
     override func setUpWithError() throws {
         continueAfterFailure = false
     }
-
+    
     override func tearDownWithError() throws {
     }
-
+    
     func testPrimaryButtons() throws {
         let app = XCUIApplication()
         app.launch()
         
         app.tables.staticTexts["Buttons"].tap()
-        app.tables/*@START_MENU_TOKEN@*/.staticTexts["Primary buttons"]/*[[".cells.staticTexts[\"Primary buttons\"]",".staticTexts[\"Primary buttons\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app.tables.staticTexts["Primary buttons"].tap()
         app.otherElements.matching(identifier: "SegmentControlDisabled").element.tap()
         app.otherElements.matching(identifier: "SegmentControlDefault").element.tap()
         
@@ -119,7 +119,7 @@ class AdmiralUIKitButtonsTests: XCTestCase {
         
         app.buttons["Ellipse"].tap()
     }
-
+    
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
             measure(metrics: [XCTApplicationLaunchMetric()]) {

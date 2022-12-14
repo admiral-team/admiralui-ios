@@ -6,14 +6,14 @@
 import XCTest
 
 class AdmiralUIKitThemesTests: XCTestCase {
-
+    
     override func setUpWithError() throws {
         continueAfterFailure = false
     }
-
+    
     override func tearDownWithError() throws {
     }
-
+    
     func testThemes() throws {
         let app = XCUIApplication()
         app.launch()
