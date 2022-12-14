@@ -1,13 +1,11 @@
 //
-//  AdmiralUIKitUITests.swift
-//  AdmiralUIKitUITests
+//  AdmiralUIInformers&NotificationsTest.swift
+//  AdmiralUIKitTests
 //
 
 import XCTest
-import ExampleiOS
 
-
-class AdmiralUIKitTextBlockTests: XCTestCase {
+class AdmiralUIInformers_NotificationsTest: XCTestCase {
 
     override func setUpWithError() throws {
         continueAfterFailure = false
@@ -16,64 +14,68 @@ class AdmiralUIKitTextBlockTests: XCTestCase {
     override func tearDownWithError() throws {
     }
 
-    func testHeader() throws {
+    func testBigInformers() throws {
         let app = XCUIApplication()
         app.launch()
         
-        app.tables.staticTexts["Text Blocks"].tap()
-        app.staticTexts["Header"].tap()
-        app.staticTexts["Headline Secondary"].tap()
-        app.staticTexts["Title 1"].tap()
-        
-        changeThemes(app: app)
-    }
-    
-    func testAccordion() throws {
-        let app = XCUIApplication()
-        app.launch()
-        
-        app.tables.staticTexts["Text Blocks"].tap()
-        app.staticTexts["Accordion"].tap()
+        app.tables.staticTexts["Informers & Notifications"].tap()
+        app.tables.staticTexts["Informers"].tap()
+        app.tables.staticTexts["Big Informers"].tap()
         app.otherElements.matching(identifier: "SegmentControlDisabled").element.tap()
         app.otherElements.matching(identifier: "SegmentControlDefault").element.tap()
         
         changeThemes(app: app)
     }
     
-    func testParagraph() throws {
+    func testSmallInformers() throws {
         let app = XCUIApplication()
         app.launch()
         
-        app.tables.staticTexts["Text Blocks"].tap()
-        app.staticTexts["Paragraph"].tap()
+        app.tables.staticTexts["Informers & Notifications"].tap()
+        app.tables.staticTexts["Informers"].tap()
+        app.tables.staticTexts["Small Informers"].tap()
         app.otherElements.matching(identifier: "SegmentControlDisabled").element.tap()
         app.otherElements.matching(identifier: "SegmentControlDefault").element.tap()
         
         changeThemes(app: app)
     }
     
-    func testLink() throws {
+    func testToast() throws {
         let app = XCUIApplication()
         app.launch()
         
-        app.tables.staticTexts["Text Blocks"].tap()
-        app.staticTexts["Link"].tap()
-        app.otherElements.matching(identifier: "SegmentControlDisabled").element.tap()
-        app.otherElements.matching(identifier: "SegmentControlDefault").element.tap()
-        
-        app.staticTexts["Подробнее на сайте банка"].press(forDuration: 2)
+        app.tables.staticTexts["Informers & Notifications"].tap()
+        app.tables.staticTexts["Notifications"].tap()
+        app.tables.staticTexts["Toast"].tap()
+        app.staticTexts["Показать Toast"].tap()
+        app.staticTexts["Показать Toast"].tap()
         
         changeThemes(app: app)
     }
     
-    func testPadding() throws {
+    func testStatic() throws {
         let app = XCUIApplication()
         app.launch()
         
-        app.tables.staticTexts["Text Blocks"].tap()
-        app.staticTexts["Padding"].tap()
+        app.tables.staticTexts["Informers & Notifications"].tap()
+        app.tables.staticTexts["Notifications"].tap()
+        app.tables.staticTexts["Static"].tap()
         app.otherElements.matching(identifier: "SegmentControlDisabled").element.tap()
         app.otherElements.matching(identifier: "SegmentControlDefault").element.tap()
+        
+        changeThemes(app: app)
+    }
+    
+    func testAction() throws {
+        let app = XCUIApplication()
+        app.launch()
+        
+        app.tables.staticTexts["Informers & Notifications"].tap()
+        app.tables.staticTexts["Notifications"].tap()
+        app.tables.staticTexts["Action"].tap()
+        app.staticTexts["Показать Action"].tap()
+        app.staticTexts["Отмена"].tap()
+        app.staticTexts["Показать Action"].tap()
         
         changeThemes(app: app)
     }
@@ -87,13 +89,5 @@ class AdmiralUIKitTextBlockTests: XCTestCase {
         app.otherElements.matching(identifier: "ThemeSwitchButton_SME Dark").element.tap()
         
         app.buttons["Ellipse"].tap()
-    }
-
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
     }
 }

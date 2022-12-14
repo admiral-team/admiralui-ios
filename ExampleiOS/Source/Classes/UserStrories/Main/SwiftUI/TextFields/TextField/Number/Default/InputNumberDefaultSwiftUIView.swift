@@ -39,7 +39,7 @@ struct InputNumberDefaultSwiftUIView: View {
                         InputNumber(
                             titleText: .constant("Optional value"),
                             value: Binding<Double>(
-                                get: { return viewModel.items[itemIndex].currentValue },
+                                get: { viewModel.items[itemIndex].currentValue },
                                 set: {
                                     viewModel.items[itemIndex].currentValue = $0
                                 }
