@@ -40,7 +40,9 @@ final class UnderlineSliderTabsViewController: ScrollViewController {
         views.forEach() {
             stackView.addArrangedSubview($0)
         }
-        segmentControl.setTitles(["Default", "Disabled"])
+        segmentControl.setItems([
+        StandardSegmentedItem(title: "Default", accesibilityId: "SegmentControlDefault"),
+        StandardSegmentedItem(title: "Disabled", accesibilityId: "SegmentControlDisabled")])
         segmentControl.selectedSegmentIndex = 0
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
     }
@@ -90,7 +92,13 @@ final class UnderlineSliderTabsViewController: ScrollViewController {
         
         views.append(view2)
         
-        let segmentControlThird = UnderlineSegmentedControl(items: ["One", "Two", "Three", "Four"])
+        let segmentControlThird = UnderlineSegmentedControl(items: [
+            .init(title: "One", accesibilityId: "UnderlineSegmentedThree1"),
+            .init(title: "Two", accesibilityId: "UnderlineSegmentedThree2"),
+            .init(title: "Three", accesibilityId: "UnderlineSegmentedThree3"),
+            .init(title: "Four", accesibilityId: "UnderlineSegmentedThree4")
+           ]
+       )
         segmentControlThird.selectedSegmentIndex = 0
         segmentControlThird.contentInset = UIEdgeInsets(
             top: 0.0,
