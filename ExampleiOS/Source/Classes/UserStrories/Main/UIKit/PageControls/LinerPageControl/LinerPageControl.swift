@@ -64,6 +64,7 @@ final class LinerPageControl: BaseViewController {
         nextButton.addTarget(self, action: #selector(tapNexButton), for: .touchUpInside)
         nextButton.semanticContentAttribute = .forceRightToLeft
         nextButton.imageEdgeInsets = UIEdgeInsets(top: 0.0, left: LayoutGrid.doubleModule, bottom: 0.0, right: 0.0)
+        nextButton.accessibilityIdentifier = "NextLiner"
     }
     
     private func addSubviews() {
