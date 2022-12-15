@@ -20,40 +20,9 @@ class AdmiralUIPageControlsCircleTest: XCTestCase {
         
         app.tables.staticTexts["Page Controls"].tap()
         app.tables.staticTexts["Circle"].tap()
-        app.staticTexts["One"].tap()
-        app.staticTexts["Two"].tap()
-        app.staticTexts["Three"].tap()
-        app.staticTexts["Four"].tap()
-        app.staticTexts["Five"].tap()
-        app.staticTexts["Six"].tap()
-        app.staticTexts["Seven"].tap()
-        app.staticTexts["Seven"].swipeLeft()
-        app.staticTexts["Eight"].tap()
-        app.staticTexts["Nine"].tap()
-        
-        changeThemes(app: app)
-    }
-    
-    func testCircleNext() throws {
-        let app = XCUIApplication()
-        app.launch()
-        
-        app.tables.staticTexts["Page Controls"].tap()
-        app.tables.staticTexts["Circle"].tap()
-        app.buttons["arrowRight"].tap()
-        app.buttons["arrowRight"].tap()
-        app.buttons["arrowRight"].tap()
-        app.buttons["arrowRight"].tap()
-        app.buttons["arrowRight"].tap()
-        app.buttons["arrowRight"].tap()
-        app.buttons["arrowRight"].tap()
-        app.buttons["arrowRight"].tap()
-        app.buttons["arrowRight"].tap()
-        app.buttons["arrowRight"].tap()
-        app.buttons["arrowRight"].tap()
-        app.buttons["arrowRight"].tap()
-        app.buttons["arrowRight"].tap()
-        
+        for _ in 0..<53 {
+            app.otherElements.matching(identifier: "CircularPageControl").element.tap()
+        }
         changeThemes(app: app)
     }
     

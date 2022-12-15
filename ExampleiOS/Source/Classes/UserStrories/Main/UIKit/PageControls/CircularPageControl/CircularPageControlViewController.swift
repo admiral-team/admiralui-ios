@@ -48,6 +48,7 @@ final class CircularPageControlViewController: BaseViewController {
         pageControl.duration = 0.3
         pageControl.totalPages = segmentControl.selectedSegmentIndex + 1
         pageControl.currentPage = 0
+        pageControl.accessibilityIdentifier = "CircularPageControl"
     }
     
     private func configureSegment() {
