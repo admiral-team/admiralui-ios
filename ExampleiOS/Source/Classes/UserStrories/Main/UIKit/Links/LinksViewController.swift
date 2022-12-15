@@ -33,7 +33,9 @@ final class LinksViewController: ScrollViewController {
             stackView.addArrangedSubview($0)
         }
         
-        segmentControl.setTitles(["Default", "Disabled"])
+        segmentControl.setItems([
+        StandardSegmentedItem(title: "Default", accesibilityId: "SegmentControlDefault"),
+        StandardSegmentedItem(title: "Disabled", accesibilityId: "SegmentControlDisabled")])
         segmentControl.selectedSegmentIndex = 0
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
     }
@@ -44,17 +46,20 @@ final class LinksViewController: ScrollViewController {
         view1.style = .none
         view1.fontStyle = .body
         view1.leadingView = UIImageView(image: UIImage(asset: Asset.Links.arrowLeftBig))
+        view1.accessibilityIdentifier = "BigLink1"
         
         let view2 = PrimaryLinkControl()
         view2.style = .none
         view2.fontStyle = .body
         view2.trailingView = UIImageView(image: UIImage(asset: Asset.Links.arrowRightBig))
         view2.title = "Link"
+        view2.accessibilityIdentifier = "BigLink2"
         
         let view3 = PrimaryLinkControl()
         view3.fontStyle = .body
         view3.style = .none
         view3.title = "Link"
+        view3.accessibilityIdentifier = "BigLink3"
         
         addTags(views: [view1, view2, view3], titleText: "24 Link")
     }
@@ -65,17 +70,20 @@ final class LinksViewController: ScrollViewController {
         view1.style = .none
         view1.fontStyle = .subhead
         view1.leadingView = UIImageView(image: UIImage(asset: Asset.Links.arrowLeftSmall))
+        view1.accessibilityIdentifier = "SmallLink1"
         
         let view2 = PrimaryLinkControl()
         view2.style = .none
         view2.fontStyle = .subhead
         view2.trailingView = UIImageView(image: UIImage(asset: Asset.Links.arrowRightSmall))
         view2.title = "Link"
+        view2.accessibilityIdentifier = "SmallLink2"
         
         let view3 = PrimaryLinkControl()
         view3.fontStyle = .subhead
         view3.style = .none
         view3.title = "Link"
+        view3.accessibilityIdentifier = "SmallLink3"
         
         addTags(views: [view1, view2, view3], titleText: "18 Link")
     }
