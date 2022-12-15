@@ -13,26 +13,6 @@ class AddUIKitPageControlsTest: XCTestCase {
 
     override func tearDownWithError() throws {
     }
-
-    func testLiner() throws {
-        let app = XCUIApplication()
-        app.launch()
-        
-        app.tables.staticTexts["Page Controls"].tap()
-        app.tables.staticTexts["Liner"].tap()
-        app.staticTexts["Two"].tap()
-        app.staticTexts["One"].tap()
-        app.staticTexts["Three"].tap()
-        app.staticTexts["Four"].tap()
-        app.staticTexts["Five"].tap()
-        app.staticTexts["Six"].tap()
-        app.staticTexts["Seven"].tap()
-        app.staticTexts["Seven"].swipeLeft()
-        app.staticTexts["Eight"].tap()
-        app.staticTexts["Nine"].tap()
-        
-        changeThemes(app: app)
-    }
     
     func testLinerNext() throws {
         let app = XCUIApplication()
@@ -40,14 +20,7 @@ class AddUIKitPageControlsTest: XCTestCase {
         
         app.tables.staticTexts["Page Controls"].tap()
         app.tables.staticTexts["Liner"].tap()
-        app.staticTexts["Next"].tap()
-        app.staticTexts["Next"].tap()
-        app.staticTexts["Next"].tap()
-        app.staticTexts["Next"].tap()
-        app.staticTexts["Next"].tap()
-        app.staticTexts["Next"].tap()
-        app.staticTexts["Next"].tap()
-        app.staticTexts["Next"].tap()
+        app.buttons["NextLiner"].tap(withNumberOfTaps: 8, numberOfTouches: 1)
         
         changeThemes(app: app)
     }
