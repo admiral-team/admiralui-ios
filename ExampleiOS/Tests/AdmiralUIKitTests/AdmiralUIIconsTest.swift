@@ -19,11 +19,7 @@ class AdmiralUIKitIconsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-<<<<<<< HEAD
         app.tables.staticTexts["Icons"].tap()
-=======
-        app.tables/*@START_MENU_TOKEN@*/.staticTexts["Icons"]/*[[".cells.staticTexts[\"Icons\"]",".staticTexts[\"Icons\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
->>>>>>> feature/582-Add-Currency-Test-fix
         app.otherElements.matching(identifier: "SegmentControlSolid").element.tap()
         app.otherElements.matching(identifier: "SegmentControlOutline").element.tap()
         
