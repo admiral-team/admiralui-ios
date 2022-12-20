@@ -315,6 +315,7 @@
 		D64BA9EE2934FD2F00490451 /* AdmiralUIInformers&NotificationsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64BA9ED2934FD2F00490451 /* AdmiralUIInformers&NotificationsTest.swift */; };
 		D6A1C8D928FF0ADB00E4DE0A /* AdmiralUIKitErrorViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1C8D828FF0ADB00E4DE0A /* AdmiralUIKitErrorViewTest.swift */; };
 		D692BF50294731E2005DF293 /* AdmiralUIPageControlsCircleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D692BF4F294731E2005DF293 /* AdmiralUIPageControlsCircleTest.swift */; };
+		D692BF52294733EE005DF293 /* AdmiralUIOnboardingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D692BF51294733EE005DF293 /* AdmiralUIOnboardingTest.swift */; };
 		D6FFAE3C293619F80059EBC2 /* AdmiralUICheckboxTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FFAE3B293619F80059EBC2 /* AdmiralUICheckboxTest.swift */; };
 		D62ABB012900301B008D631B /* AdmiralUIKitAllertTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62ABB002900301B008D631B /* AdmiralUIKitAllertTest.swift */; };
 		D635591E28F59F5000614406 /* AddUIKitBottomSheetTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D635591D28F59F5000614406 /* AddUIKitBottomSheetTest.swift */; };
@@ -328,6 +329,8 @@
 		D6FF94F929227B0800101246 /* AdmiralUISwitcherTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FF94F829227B0800101246 /* AdmiralUISwitcherTest.swift */; };
 		D635591628F44DA600614406 /* AddUIKitPageControlsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D635591528F44DA600614406 /* AddUIKitPageControlsTest.swift */; };
 		D6C1E70028EB1FB800094890 /* AdmiralUIKitTabsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C1E6FF28EB1FB800094890 /* AdmiralUIKitTabsTest.swift */; };
+		D6E8EBD428FEE375000172F2 /* AdmiralUIKitCurrencyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E8EBD328FEE375000172F2 /* AdmiralUIKitCurrencyTest.swift */; };
+		D635592428F7016400614406 /* AdmiralUIKitContactsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D635592328F7016400614406 /* AdmiralUIKitContactsTest.swift */; };
 		E6117EF625F9754300214949 /* CardTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6117EF525F9754300214949 /* CardTextField.swift */; };
 		E63B50DE25DD2B1800993D21 /* ThemesRepostory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63B50DD25DD2B1800993D21 /* ThemesRepostory.swift */; };
 		E63B50E125DD3BCC00993D21 /* ColorToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63B50E025DD3BCC00993D21 /* ColorToken.swift */; };
@@ -832,6 +835,7 @@
 		D64BA9ED2934FD2F00490451 /* AdmiralUIInformers&NotificationsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AdmiralUIInformers&NotificationsTest.swift"; sourceTree = "<group>"; };
 		D6A1C8D828FF0ADB00E4DE0A /* AdmiralUIKitErrorViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIKitErrorViewTest.swift; sourceTree = "<group>"; };
 		D692BF4F294731E2005DF293 /* AdmiralUIPageControlsCircleTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIPageControlsCircleTest.swift; sourceTree = "<group>"; };
+		D692BF51294733EE005DF293 /* AdmiralUIOnboardingTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIOnboardingTest.swift; sourceTree = "<group>"; };
 		D6FFAE3B293619F80059EBC2 /* AdmiralUICheckboxTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUICheckboxTest.swift; sourceTree = "<group>"; };
 		D62ABB002900301B008D631B /* AdmiralUIKitAllertTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIKitAllertTest.swift; sourceTree = "<group>"; };
 		D635591D28F59F5000614406 /* AddUIKitBottomSheetTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUIKitBottomSheetTest.swift; sourceTree = "<group>"; };
@@ -845,6 +849,8 @@
 		D6FF94F829227B0800101246 /* AdmiralUISwitcherTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUISwitcherTest.swift; sourceTree = "<group>"; };
 		D635591528F44DA600614406 /* AddUIKitPageControlsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUIKitPageControlsTest.swift; sourceTree = "<group>"; };
 		D6C1E6FF28EB1FB800094890 /* AdmiralUIKitTabsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIKitTabsTest.swift; sourceTree = "<group>"; };
+		D6E8EBD328FEE375000172F2 /* AdmiralUIKitCurrencyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIKitCurrencyTest.swift; sourceTree = "<group>"; };
+		D635592328F7016400614406 /* AdmiralUIKitContactsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIKitContactsTest.swift; sourceTree = "<group>"; };
 		E6117EF525F9754300214949 /* CardTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTextField.swift; sourceTree = "<group>"; };
 		E63B50DD25DD2B1800993D21 /* ThemesRepostory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesRepostory.swift; sourceTree = "<group>"; };
 		E63B50E025DD3BCC00993D21 /* ColorToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorToken.swift; sourceTree = "<group>"; };
@@ -2940,6 +2946,9 @@
 				D6FF94FA29238F5500101246 /* AdmiralUIRadiobuttonTest.swift */,
 				D6FF94F829227B0800101246 /* AdmiralUISwitcherTest.swift */,
 				D635591528F44DA600614406 /* AddUIKitPageControlsTest.swift */,
+				D6E8EBD328FEE375000172F2 /* AdmiralUIKitCurrencyTest.swift */,
+				D692BF51294733EE005DF293 /* AdmiralUIOnboardingTest.swift */,
+				D635592328F7016400614406 /* AdmiralUIKitContactsTest.swift */,
 			);
 			path = AdmiralUIKitTests;
 			sourceTree = "<group>";
@@ -3977,14 +3986,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				D62ABB012900301B008D631B /* AdmiralUIKitAllertTest.swift in Sources */,
+				D6E8EBD428FEE375000172F2 /* AdmiralUIKitCurrencyTest.swift in Sources */,
 				D6245A1628A13AC70027F3CA /* AdmiralUITextBlocksTest.swift in Sources */,
 				D6FF94FB29238F5500101246 /* AdmiralUIRadiobuttonTest.swift in Sources */,
 				D6245A06289981A60027F3CA /* AdmiralUIKitTestsLaunchTests.swift in Sources */,
 				D635591C28F59D7600614406 /* AddUIKitToolbarTest.swift in Sources */,
 				D64BA9EE2934FD2F00490451 /* AdmiralUIInformers&NotificationsTest.swift in Sources */,
+				D635592428F7016400614406 /* AdmiralUIKitContactsTest.swift in Sources */,
 				D6245A0E2899822F0027F3CA /* AdmiralUIIconsTest.swift in Sources */,
 				D692BF4C293DFE7A005DF293 /* AdmiralUITagsandChipsTest.swift in Sources */,
 				D692BF50294731E2005DF293 /* AdmiralUIPageControlsCircleTest.swift in Sources */,
+				D692BF52294733EE005DF293 /* AdmiralUIOnboardingTest.swift in Sources */,
 				D6FFAE3C293619F80059EBC2 /* AdmiralUICheckboxTest.swift in Sources */,
 				D635591828F45E7C00614406 /* AddUIKitShimmersTest.swift in Sources */,
 				D635591228F066E700614406 /* AddUIKitLinkTest.swift in Sources */,
