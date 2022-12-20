@@ -183,8 +183,8 @@ final class TextInputDecorationView: UIView, AnyAppThemable, AccessibilitySuppor
             adjustsFontForContentSize: adjustsFontForContentSizeCategory)
         nameLabelMinFont = scheme.nameLabelMinFont.uiFont
         leadingTextLabel.setDynamicFont(
-            font: scheme.leadingText.uiFont,
-            textStyle: scheme.leadingText.textStyle,
+            font: scheme.leadingTextFont.uiFont,
+            textStyle: scheme.leadingTextFont.textStyle,
             adjustsFontForContentSize: adjustsFontForContentSizeCategory)
     }
     

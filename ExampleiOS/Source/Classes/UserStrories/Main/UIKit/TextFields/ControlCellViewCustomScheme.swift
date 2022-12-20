@@ -12,7 +12,10 @@ import UIKit
 
 struct ControlCellViewCustomScheme {
     
+    /// Title label font.
     var titleLabelFont: AFont
+    
+    // Title label color.
     var titleLabelTextColor: AColor
     
     init() {

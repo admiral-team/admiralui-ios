@@ -135,7 +135,6 @@ final class ControlCellView<T>: UIView, AnyAppThemable where T: UIView {
                 segmentControl.insertTitle(status, forSegmentAt: index)
             }
             segmentControl.selectedSegmentIndex = 0
-            
             segmentControl.addTarget(self, action: #selector(segmentedValueChanged(_:)), for: .valueChanged)
         }
     }
