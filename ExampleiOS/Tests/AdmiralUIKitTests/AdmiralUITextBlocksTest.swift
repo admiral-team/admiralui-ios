@@ -25,14 +25,7 @@ class AdmiralUIKitTextBlockTests: XCTestCase {
         app.staticTexts["Headline Secondary"].tap()
         app.staticTexts["Title 1"].tap()
         
-        app.buttons["Ellipse"].tap()
-        
-        app.staticTexts["Light"].tap()
-        app.staticTexts["Dark"].tap()
-        app.staticTexts["SME Light"].tap()
-        app.staticTexts["SME Dark"].tap()
-        
-        app.buttons["Ellipse"].tap()
+        changeThemes(app: app)
     }
     
     func testAccordion() throws {
@@ -41,17 +34,10 @@ class AdmiralUIKitTextBlockTests: XCTestCase {
         
         app.tables.staticTexts["Text Blocks"].tap()
         app.staticTexts["Accordion"].tap()
-        app.staticTexts["Disabled"].tap()
-        app.staticTexts["Default"].tap()
+        app.otherElements.matching(identifier: "SegmentControlDisabled").element.tap()
+        app.otherElements.matching(identifier: "SegmentControlDefault").element.tap()
         
-        app.buttons["Ellipse"].tap()
-        
-        app.staticTexts["Light"].tap()
-        app.staticTexts["Dark"].tap()
-        app.staticTexts["SME Light"].tap()
-        app.staticTexts["SME Dark"].tap()
-        
-        app.buttons["Ellipse"].tap()
+        changeThemes(app: app)
     }
     
     func testParagraph() throws {
@@ -60,17 +46,10 @@ class AdmiralUIKitTextBlockTests: XCTestCase {
         
         app.tables.staticTexts["Text Blocks"].tap()
         app.staticTexts["Paragraph"].tap()
-        app.staticTexts["Disabled"].tap()
-        app.staticTexts["Default"].tap()
+        app.otherElements.matching(identifier: "SegmentControlDisabled").element.tap()
+        app.otherElements.matching(identifier: "SegmentControlDefault").element.tap()
         
-        app.buttons["Ellipse"].tap()
-        
-        app.staticTexts["Light"].tap()
-        app.staticTexts["Dark"].tap()
-        app.staticTexts["SME Light"].tap()
-        app.staticTexts["SME Dark"].tap()
-        
-        app.buttons["Ellipse"].tap()
+        changeThemes(app: app)
     }
     
     func testLink() throws {
@@ -79,17 +58,12 @@ class AdmiralUIKitTextBlockTests: XCTestCase {
         
         app.tables.staticTexts["Text Blocks"].tap()
         app.staticTexts["Link"].tap()
-        app.staticTexts["Disabled"].tap()
-        app.staticTexts["Default"].tap()
+        app.otherElements.matching(identifier: "SegmentControlDisabled").element.tap()
+        app.otherElements.matching(identifier: "SegmentControlDefault").element.tap()
         
-        app.buttons["Ellipse"].tap()
+        app.staticTexts["Подробнее на сайте банка"].press(forDuration: 2)
         
-        app.staticTexts["Light"].tap()
-        app.staticTexts["Dark"].tap()
-        app.staticTexts["SME Light"].tap()
-        app.staticTexts["SME Dark"].tap()
-        
-        app.buttons["Ellipse"].tap()
+        changeThemes(app: app)
     }
     
     func testPadding() throws {
@@ -98,15 +72,19 @@ class AdmiralUIKitTextBlockTests: XCTestCase {
         
         app.tables.staticTexts["Text Blocks"].tap()
         app.staticTexts["Padding"].tap()
-        app.staticTexts["Disabled"].tap()
-        app.staticTexts["Default"].tap()
+        app.otherElements.matching(identifier: "SegmentControlDisabled").element.tap()
+        app.otherElements.matching(identifier: "SegmentControlDefault").element.tap()
         
+        changeThemes(app: app)
+    }
+    
+    func changeThemes(app: XCUIApplication) {
         app.buttons["Ellipse"].tap()
         
-        app.staticTexts["Light"].tap()
-        app.staticTexts["Dark"].tap()
-        app.staticTexts["SME Light"].tap()
-        app.staticTexts["SME Dark"].tap()
+        app.otherElements.matching(identifier: "ThemeSwitchButton_Light").element.tap()
+        app.otherElements.matching(identifier: "ThemeSwitchButton_Dark").element.tap()
+        app.otherElements.matching(identifier: "ThemeSwitchButton_SME Light").element.tap()
+        app.otherElements.matching(identifier: "ThemeSwitchButton_SME Dark").element.tap()
         
         app.buttons["Ellipse"].tap()
     }

@@ -40,7 +40,9 @@ final class LogoTabsViewController: ScrollViewController {
         views.forEach() {
             stackView.addArrangedSubview($0)
         }
-        segmentControl.setTitles(["Default", "Disabled"])
+        segmentControl.setItems([
+        StandardSegmentedItem(title: "Default", accesibilityId: "SegmentControlDefault"),
+        StandardSegmentedItem(title: "Disabled", accesibilityId: "SegmentControlDisabled")])
         segmentControl.selectedSegmentIndex = 0
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
     }
@@ -74,7 +76,7 @@ final class LogoTabsViewController: ScrollViewController {
                 .init(image: Asset.Tabs.visaLogo.image, accesibilityId: "LogoTabThree1"),
                 .init(image: Asset.Tabs.masterCardLogo.image, accesibilityId: "LogoTabThree2"),
                 .init(image: Asset.Tabs.mirLogo.image, accesibilityId: "LogoTabThree3"),
-                .init(image: Asset.Card.applePay.image, accesibilityId: "LogoTabThree3")
+                .init(image: Asset.Card.applePay.image, accesibilityId: "LogoTabThree4")
             ]
         )
         segmentControl3.selectedSegmentIndex = 0

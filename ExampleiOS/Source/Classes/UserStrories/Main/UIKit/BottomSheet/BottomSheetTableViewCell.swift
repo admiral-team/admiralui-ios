@@ -16,13 +16,15 @@ class BottomSheetTableViewCellViewModel {
     let image: UIImage
     let additionalTitle: String?
     var isSelected: Bool
+    var cellAccesibilityId: String?
     
-    init(title: String, isSelected: Bool, subtitle: String, additionalTitle: String?, image: UIImage) {
+    init(title: String, isSelected: Bool, subtitle: String, additionalTitle: String?, image: UIImage, cellAccesibilityId: String?) {
         self.title = title
         self.isSelected = isSelected
         self.subtitle = subtitle
         self.image = image
         self.additionalTitle = additionalTitle
+        self.cellAccesibilityId = cellAccesibilityId
     }
 }
 
@@ -74,6 +76,7 @@ final class BottomSheetTableViewCell: TableListCell<LeadingCardListView, TitleLa
         titleListView.subtitle = model.subtitle
         cardListView.cardImage = model.image
         checkBoxCell.isSelected = model.isSelected
+        accessibilityIdentifier = model.cellAccesibilityId
     }
     
 }

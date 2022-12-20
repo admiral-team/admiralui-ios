@@ -31,9 +31,6 @@ final class BigInformersController: ScrollViewController {
     // MARK: - Initializers
     
     override func loadView() {
-        segmentControl = StandardSegmentedControl(
-            titles: ["Default",
-                     "Disabled"])
         super.loadView()
     }
     
@@ -60,6 +57,7 @@ final class BigInformersController: ScrollViewController {
     // MARK: - Private Methods
     
     private func configureUI() {
+        configureSegmentControl()
         configureBadgeViews()
         
         views.forEach() {
@@ -68,6 +66,13 @@ final class BigInformersController: ScrollViewController {
         stackView.distribution = .fillEqually
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
     }
+    
+    private func configureSegmentControl() {
+            segmentControl.setItems([
+                StandardSegmentedItem(title: "Default", accesibilityId: "SegmentControlDefault"),
+                StandardSegmentedItem(title: "Disabled", accesibilityId: "SegmentControlDisabled")]
+            )
+        }
     
     private func configureBadgeViews() {
         let defaultInformer = BigInformerView()
