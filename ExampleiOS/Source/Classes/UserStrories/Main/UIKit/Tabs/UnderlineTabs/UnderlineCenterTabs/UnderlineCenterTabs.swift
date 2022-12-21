@@ -40,7 +40,9 @@ final class UnderlineCenterTabsViewController: ScrollViewController {
         views.forEach() {
             stackView.addArrangedSubview($0)
         }
-        segmentControl.setTitles(["Default", "Disabled"])
+        segmentControl.setItems([
+        StandardSegmentedItem(title: "Default", accesibilityId: "SegmentControlDefault"),
+        StandardSegmentedItem(title: "Disabled", accesibilityId: "SegmentControlDisabled")])
         segmentControl.selectedSegmentIndex = 0
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
     }
@@ -106,9 +108,9 @@ final class UnderlineCenterTabsViewController: ScrollViewController {
         
         let segmentControlFifth = UnderlineSegmentedControl(
             items: [
-                .init(title: "One", accesibilityId: "UnderlineCenterSegmentedFive1"),
-                .init(title: "Two", accesibilityId: "UnderlineCenterSegmentedFive2"),
-                .init(title: "Three", accesibilityId: "UnderlineCenterSegmentedFive3")
+                .init(title: "One", badgeStyle: .default, accesibilityId: "UnderlineCenterSegmentedFive1"),
+                .init(title: "Two", badgeStyle: .default, accesibilityId: "UnderlineCenterSegmentedFive2"),
+                .init(title: "Three", badgeStyle: .additional, accesibilityId: "UnderlineCenterSegmentedFive3")
             ]
         )
         segmentControlFifth.selectedSegmentIndex = 0

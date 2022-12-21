@@ -23,12 +23,6 @@ final class TagsChipsViewController: ScrollViewController {
     
     // MARK: - Initializers
     
-    override func loadView() {
-        segmentControl = StandardSegmentedControl(
-            titles: ["Default", "Disabled"])
-        super.loadView()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         hideSegmentView(false)
@@ -47,6 +41,7 @@ final class TagsChipsViewController: ScrollViewController {
     // MARK: - Private Methods
     
     private func configureUI() {
+        configureSegmentControl()
         configureDefaultTags()
         configureAdditionalTags()
         configureSuccessTags()
@@ -58,6 +53,13 @@ final class TagsChipsViewController: ScrollViewController {
         }
         
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
+    }
+    
+    private func configureSegmentControl() {
+        segmentControl.setItems([
+            StandardSegmentedItem(title: "Default", accesibilityId: "SegmentControlDefault"),
+            StandardSegmentedItem(title: "Disabled", accesibilityId: "SegmentControlDisabled")]
+        )
     }
     
     private func configureDefaultTags() {
