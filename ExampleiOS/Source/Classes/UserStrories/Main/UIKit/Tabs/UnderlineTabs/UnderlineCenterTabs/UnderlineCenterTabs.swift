@@ -108,9 +108,9 @@ final class UnderlineCenterTabsViewController: ScrollViewController {
         
         let segmentControlFifth = UnderlineSegmentedControl(
             items: [
-                .init(title: "One", accesibilityId: "UnderlineCenterSegmentedFive1"),
-                .init(title: "Two", accesibilityId: "UnderlineCenterSegmentedFive2"),
-                .init(title: "Three", accesibilityId: "UnderlineCenterSegmentedFive3")
+                .init(title: "One", badgeStyle: .default, accesibilityId: "UnderlineCenterSegmentedFive1"),
+                .init(title: "Two", badgeStyle: .default, accesibilityId: "UnderlineCenterSegmentedFive2"),
+                .init(title: "Three", badgeStyle: .additional, accesibilityId: "UnderlineCenterSegmentedFive3")
             ]
         )
         segmentControlFifth.selectedSegmentIndex = 0

@@ -15,14 +15,18 @@ public struct UnderlineSegmentedControlItem {
 
     /// The title label
     public let title: String?
+    
+    /// Badge style. Default is none.
+    public var badgeStyle: BadgeStyle?
 
     /// The accesibility id
     public let accesibilityId: String?
 
     // MARK: - Initializer
 
-    public init(title: String?, accesibilityId: String? = nil) {
+    public init(title: String?, badgeStyle: BadgeStyle? = nil, accesibilityId: String? = nil) {
         self.title = title
+        self.badgeStyle = badgeStyle
         self.accesibilityId = accesibilityId
     }
 
@@ -216,6 +220,7 @@ public class UnderlineSegmentedControl: BaseUnderlineSegmentedControl, AnyAppThe
             isSelected: false,
             title: item?.title,
             scheme: scheme,
+            badgeStyle: item?.badgeStyle,
             accesibilityId: item?.accesibilityId
         )
         return item

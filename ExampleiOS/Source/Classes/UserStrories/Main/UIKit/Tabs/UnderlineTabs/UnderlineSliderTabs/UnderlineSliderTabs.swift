@@ -92,13 +92,14 @@ final class UnderlineSliderTabsViewController: ScrollViewController {
         
         views.append(view2)
         
-        let segmentControlThird = UnderlineSegmentedControl(items: [
-            .init(title: "One", accesibilityId: "UnderlineSegmentedThree1"),
-            .init(title: "Two", accesibilityId: "UnderlineSegmentedThree2"),
-            .init(title: "Three", accesibilityId: "UnderlineSegmentedThree3"),
-            .init(title: "Four", accesibilityId: "UnderlineSegmentedThree4")
-           ]
-       )
+        let segmentControlThird = UnderlineSegmentedControl(
+            items: [
+                .init(title: "One", badgeStyle: .default, accesibilityId: "UnderlineSegmentedTwo1"),
+                .init(title: "Two", badgeStyle: .default, accesibilityId: "UnderlineSegmentedTwo2"),
+                .init(title: "Three", badgeStyle: .additional, accesibilityId: "UnderlineSegmentedTwo3"),
+                .init(title: "Four", accesibilityId: "UnderlineSegmentedTwo4")
+            ]
+        )
         segmentControlThird.selectedSegmentIndex = 0
         segmentControlThird.contentInset = UIEdgeInsets(
             top: 0.0,
