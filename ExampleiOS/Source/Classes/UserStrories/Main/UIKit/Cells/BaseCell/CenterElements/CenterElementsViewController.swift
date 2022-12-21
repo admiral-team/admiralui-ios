@@ -1,5 +1,5 @@
 //
-//  LeadingComponentsViewController.swift
+//  CenterElementsViewController.swift
 //  ExampleiOS
 //
 //  Created on 17.11.2020.
@@ -9,7 +9,7 @@ import AdmiralUIKit
 import AdmiralTheme
 import UIKit
 
-final class LeadingComponentsViewController: ScrollViewController {
+final class CenterElementsViewController: ScrollViewController {
     
     var cells: [ListViewCell] = []
     

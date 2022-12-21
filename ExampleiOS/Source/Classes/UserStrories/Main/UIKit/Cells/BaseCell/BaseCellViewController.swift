@@ -63,13 +63,13 @@ final class BaseCellViewController: ScrollViewController {
         
         switch view.tag {
         case 0:
-            let vc = ImageBaseCellDetailViewController()
+            let vc = LeadingElementsViewController()
             navigationController?.pushViewController(vc, animated: true)
         case 1:
-            let vc = LeadingComponentsViewController()
+            let vc = CenterElementsViewController()
             navigationController?.pushViewController(vc, animated: true)
         case 2:
-            let vc = TralingComponentsViewController()
+            let vc = TralingElementsViewController()
             navigationController?.pushViewController(vc, animated: true)
         default:
             break
