@@ -33,7 +33,10 @@ final class CenterElementsViewController: ScrollViewController {
         
         configureCells()
         
-        segmentControl.setTitles(["Default", "Disabled"])
+        segmentControl.setItems([
+        StandardSegmentedItem(title: "Default", accesibilityId: "SegmentControlDefault"),
+        StandardSegmentedItem(title: "Disabled", accesibilityId: "SegmentControlDisabled")])
+        segmentControl.selectedSegmentIndex = 0
         segmentControl.addTarget(self, action: #selector(changeSegment(_:)), for: .valueChanged)
         
         cells.forEach() {
@@ -129,7 +132,7 @@ final class CenterElementsViewController: ScrollViewController {
             print("Select")
         }
         let cell: ListCell<ListCellEmpty, TitleSubtitleButtonListView, ArrowListView> = ListCell(centerView: leadingView, tralingView: ArrowListView())
-        cell.accessibilityIdentifier = "TitleSubtitleButtonListView"
+        cell.accessibilityIdentifier = "TitleSubtitleButtonsListCell"
         return cell
     }
     

@@ -33,7 +33,10 @@ final class TralingElementsViewController: ScrollViewController {
         
         configureCells()
         
-        segmentControl.setTitles(["Default", "Disabled"])
+        segmentControl.setItems([
+        StandardSegmentedItem(title: "Default", accesibilityId: "SegmentControlDefault"),
+        StandardSegmentedItem(title: "Disabled", accesibilityId: "SegmentControlDisabled")])
+        segmentControl.selectedSegmentIndex = 0
         segmentControl.addTarget(self, action: #selector(changeSegment(_:)), for: .valueChanged)
         
         cells.forEach() {

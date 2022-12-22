@@ -31,7 +31,10 @@ final class LeadingElementsViewController: ScrollViewController {
     private func configureUI() {
         navigationItem.title = "Leading elements"
         
-        segmentControl.setTitles(["Default", "Disabled"])
+        segmentControl.setItems([
+        StandardSegmentedItem(title: "Default", accesibilityId: "SegmentControlDefault"),
+        StandardSegmentedItem(title: "Disabled", accesibilityId: "SegmentControlDisabled")])
+        segmentControl.selectedSegmentIndex = 0
         segmentControl.addTarget(self, action: #selector(changeSegment(_:)), for: .valueChanged)
         
         configureCells()
