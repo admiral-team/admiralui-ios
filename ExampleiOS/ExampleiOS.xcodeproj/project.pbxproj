@@ -164,6 +164,7 @@
 		3B59203F278D9A5700706DA6 /* AlertSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B59203E278D9A5700706DA6 /* AlertSwiftUIView.swift */; };
 		3B592041278DC75400706DA6 /* AlertCustomScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B592040278DC75400706DA6 /* AlertCustomScheme.swift */; };
 		3B8A8911287D80F9003174B7 /* SeparatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8A8910287D80F9003174B7 /* SeparatorViewController.swift */; };
+		3B9AD51B292E63FD00466CD6 /* ControlCellViewCustomScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9AD51A292E63FD00466CD6 /* ControlCellViewCustomScheme.swift */; };
 		3B9B1CF02885D9E8001D7049 /* ParagraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9B1CEF2885D9E8001D7049 /* ParagraphViewController.swift */; };
 		3B9DD043283C2927002F7706 /* UnderlineTabsUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9DD042283C2927002F7706 /* UnderlineTabsUIView.swift */; };
 		3B9DD046283C29F0002F7706 /* UnderlineCenterTabsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9DD045283C29F0002F7706 /* UnderlineCenterTabsSwiftUIView.swift */; };
@@ -680,6 +681,7 @@
 		3B59203E278D9A5700706DA6 /* AlertSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSwiftUIView.swift; sourceTree = "<group>"; };
 		3B592040278DC75400706DA6 /* AlertCustomScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCustomScheme.swift; sourceTree = "<group>"; };
 		3B8A8910287D80F9003174B7 /* SeparatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorViewController.swift; sourceTree = "<group>"; };
+		3B9AD51A292E63FD00466CD6 /* ControlCellViewCustomScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlCellViewCustomScheme.swift; sourceTree = "<group>"; };
 		3B9B1CEF2885D9E8001D7049 /* ParagraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParagraphViewController.swift; sourceTree = "<group>"; };
 		3B9DD042283C2927002F7706 /* UnderlineTabsUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineTabsUIView.swift; sourceTree = "<group>"; };
 		3B9DD045283C29F0002F7706 /* UnderlineCenterTabsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineCenterTabsSwiftUIView.swift; sourceTree = "<group>"; };
@@ -3138,6 +3140,7 @@
 				C6260AA4255B01EC007175C2 /* Feedback */,
 				C6260AA5255B01FF007175C2 /* Pincode */,
 				C6260ACD255C4527007175C2 /* ControlCellView.swift */,
+				3B9AD51A292E63FD00466CD6 /* ControlCellViewCustomScheme.swift */,
 				E6ABDBA9253F3B4900B90570 /* TextFieldsViewController.swift */,
 			);
 			path = TextFields;
@@ -4181,6 +4184,7 @@
 				0EF8F7152535D95A002F9CF4 /* IconCell.swift in Sources */,
 				E9B82B8C27B521D100FC7BB9 /* SizePreferenceKey.swift in Sources */,
 				C674990625D3FB8E00232C5F /* LogoTabsViewController.swift in Sources */,
+				3B9AD51B292E63FD00466CD6 /* ControlCellViewCustomScheme.swift in Sources */,
 				C6DCBFF22631A92C00754365 /* BottomSheetBottomViewCustomScheme.swift in Sources */,
 				C6BA67DD2632DE70001A7EB6 /* SwitcherCellViewCustomScheme.swift in Sources */,
 				E9DAC2E727FB3A9700842ACB /* NormalBadgesViewModel.swift in Sources */,

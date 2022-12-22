@@ -34,6 +34,7 @@ struct SwiftUITextMessageView: View {
                                 direction: item.direction,
                                 time: item.time,
                                 status: item.status,
+                                name: item.name,
                                 errorAction: { viewModel.showActionSheet = true })
                         }
                     }

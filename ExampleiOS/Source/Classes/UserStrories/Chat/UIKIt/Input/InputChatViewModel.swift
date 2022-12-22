@@ -4,6 +4,7 @@
 //
 //  Created on 27.01.2022.
 //
+// swiftlint:disable all
 
 import Foundation
 
@@ -30,13 +31,29 @@ final class InputChatViewModel {
     init() {
         messages = [
             ChatMessageCellViewModel(
-                message: "Привет, какой у вас вопрос ?",
-                time: dateTime,
+                message: "At breakpoint boundaries, mini units divide",
+                time: "14:52",
                 image: nil,
                 didSelect: nil,
                 header: nil,
-                direction: .left,
-                name: "Антон"
+                direction: .left
+            ),
+            ChatMessageCellViewModel(
+                message: "Text message",
+                time: "14:52",
+                image: nil,
+                didSelect: nil,
+                header: nil,
+                direction: .left
+            ),
+            ChatMessageCellViewModel(
+                message: "At breakpoint boundaries, miniunits divide the screen into a fixed master grid, and multiples of mini units map to fluid grid column widths and row heights.",
+                time: "14:52",
+                image: nil,
+                didSelect: nil,
+                header: nil,
+                direction: .right,
+                chatStatus: .loading
             )
         ]
     }

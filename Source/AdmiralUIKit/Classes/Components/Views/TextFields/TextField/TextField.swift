@@ -244,12 +244,14 @@ open class TextField: TextFieldInput, AnyAppThemable, AccessibilitySupport {
             decorationView.nameLabel.textColor = (isEditing || (isSelected && decorationView.isOpened)) ? scheme.tintColor.uiColor : scheme.underlineColor.uiColor
             decorationView.separatorView.lineColor = (isEditing || isSelected) ? scheme.tintColor.uiColor : scheme.underlineColor.uiColor
             decorationView.informerLabel.textColor = scheme.underlineColor.uiColor
+            decorationView.leadingTextLabel.textColor = scheme.textColor.uiColor
             decorationView.separatorView.lineMode = .solid
             decorationView.leadingTextLabel.textColor = scheme.textColor.uiColor
         case .error:
             inputTextField.textColor = scheme.textColor.uiColor
             decorationView.nameLabel.textColor = scheme.errorColor.uiColor
             decorationView.informerLabel.textColor = scheme.errorColor.uiColor
+            decorationView.leadingTextLabel.textColor = scheme.textColor.uiColor
             decorationView.separatorView.lineColor = scheme.errorColor.uiColor
             decorationView.leadingTextLabel.textColor = scheme.textColor.uiColor
             decorationView.separatorView.lineMode = .solid
@@ -257,6 +259,7 @@ open class TextField: TextFieldInput, AnyAppThemable, AccessibilitySupport {
             inputTextField.textColor = scheme.disabledColor.uiColor
             decorationView.nameLabel.textColor = scheme.disabledColor.uiColor
             decorationView.informerLabel.textColor = scheme.disabledColor.uiColor
+            decorationView.leadingTextLabel.textColor = scheme.disabledColor.uiColor
             decorationView.separatorView.lineColor = scheme.disabledColor.uiColor
             decorationView.leadingTextLabel.textColor = scheme.textColor.uiColor
             decorationView.separatorView.lineMode = .solid
@@ -264,6 +267,7 @@ open class TextField: TextFieldInput, AnyAppThemable, AccessibilitySupport {
             inputTextField.textColor = scheme.textColor.uiColor
             decorationView.nameLabel.textColor = scheme.underlineColor.uiColor
             decorationView.informerLabel.textColor = scheme.underlineColor.uiColor
+            decorationView.leadingTextLabel.textColor = scheme.textColor.uiColor
             decorationView.separatorView.lineColor = scheme.underlineColor.uiColor
             decorationView.leadingTextLabel.textColor = scheme.textColor.uiColor
             decorationView.separatorView.lineMode = .dashed(dash: LayoutGrid.halfModule, gap: LayoutGrid.halfModule, phase: 0)
