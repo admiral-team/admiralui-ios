@@ -89,7 +89,9 @@ final class TralingElementsViewController: ScrollViewController {
         radioButtonView.didSelect = {}
         let titleListView = TitleListView()
         titleListView.title = "Title"
-        return ListCell(centerView: titleListView, tralingView: radioButtonView)
+        let cell: ListCell<ListCellEmpty, TitleListView, RadioButtonListView> = ListCell(centerView: titleListView, tralingView: radioButtonView)
+        cell.accessibilityIdentifier = "RadioButtonCell"
+        return cell
     }
     
     private func configureCheckBoxCell() -> ListCell<ListCellEmpty, TitleListView, CheckBoxListView> {
@@ -100,7 +102,9 @@ final class TralingElementsViewController: ScrollViewController {
         checkBoxCell.didSelect = {}
         let titleListView = TitleListView()
         titleListView.title = "Title"
-        return ListCell(centerView: titleListView, tralingView: checkBoxCell)
+        let cell: ListCell<ListCellEmpty, TitleListView, CheckBoxListView> = ListCell(centerView: titleListView, tralingView: checkBoxCell)
+        cell.accessibilityIdentifier = "CheckBoxCell"
+        return cell
     }
     
     private func configureSwitchListViewCell() -> ListCell<ListCellEmpty, TitleListView, SwitchListView> {
@@ -113,7 +117,9 @@ final class TralingElementsViewController: ScrollViewController {
         switchListView.isControlSelected = true
         let titleListView = TitleListView()
         titleListView.title = "Title"
-        return ListCell(centerView: titleListView, tralingView: switchListView)
+        let cell: ListCell<ListCellEmpty, TitleListView, SwitchListView> = ListCell(centerView: titleListView, tralingView: switchListView)
+        cell.accessibilityIdentifier = "SwitchListViewCell"
+        return cell
     }
     
     private func configureCardListViewCell() -> ListCell<ListCellEmpty, TitleListView, CardListView> {
@@ -121,7 +127,9 @@ final class TralingElementsViewController: ScrollViewController {
         сardListView.cardImage = Asset.Card.visa.image
         let titleListView = TitleListView()
         titleListView.title = "Title"
-        return ListCell(centerView: titleListView, tralingView: сardListView)
+        let cell: ListCell<ListCellEmpty, TitleListView, CardListView> = ListCell(centerView: titleListView, tralingView: сardListView)
+        cell.accessibilityIdentifier = "CardListViewCell"
+        return cell
     }
     
     private func configureIconListViewCell() -> ListCell<ListCellEmpty, TitleListView, IconListView> {
@@ -129,7 +137,9 @@ final class TralingElementsViewController: ScrollViewController {
         iconListView.image = Asset.Main.calendar.image
         let titleListView = TitleListView()
         titleListView.title = "Title"
-        return ListCell(centerView: titleListView, tralingView: iconListView)
+        let cell: ListCell<ListCellEmpty, TitleListView, IconListView> = ListCell(centerView: titleListView, tralingView: iconListView)
+        cell.accessibilityIdentifier = "IconListViewCell"
+        return cell
     }
     
     private func configureDatePercentListViewCell() -> ListCell<ListCellEmpty, TitleListView, DatePercentListView> {
@@ -138,7 +148,9 @@ final class TralingElementsViewController: ScrollViewController {
         datePercentListView.percent = "Percent"
         let titleListView = TitleListView()
         titleListView.title = "Title"
-        return ListCell(centerView: titleListView, tralingView: datePercentListView)
+        let cell: ListCell<ListCellEmpty, TitleListView, DatePercentListView> = ListCell(centerView: titleListView, tralingView: datePercentListView)
+        cell.accessibilityIdentifier = "DatePercentListViewCell"
+        return cell
     }
     
     private func configureImageWithSubtitleListViewCell() -> ListCell<ListCellEmpty, TitleListView, ImageWithSubtitleListView> {
@@ -147,7 +159,9 @@ final class TralingElementsViewController: ScrollViewController {
         imageWithSubtitleListView.image = Asset.Card.mir.image
         let titleListView = TitleListView()
         titleListView.title = "Title"
-        return ListCell(centerView: titleListView, tralingView: imageWithSubtitleListView)
+        let cell: ListCell<ListCellEmpty, TitleListView, ImageWithSubtitleListView> = ListCell(centerView: titleListView, tralingView: imageWithSubtitleListView)
+        cell.accessibilityIdentifier = "ImageWithSubtitleListViewCell"
+        return cell
     }
     
     private func configureSubtitleWithImageListViewCell() -> ListCell<ListCellEmpty, TitleListView, SubtitleWithImageListView> {
@@ -156,7 +170,9 @@ final class TralingElementsViewController: ScrollViewController {
         imageWithSubtitleListView.image = Asset.Card.mir.image
         let titleListView = TitleListView()
         titleListView.title = "Title"
-        return ListCell(centerView: titleListView, tralingView: imageWithSubtitleListView)
+        let cell: ListCell<ListCellEmpty, TitleListView, SubtitleWithImageListView> = ListCell(centerView: titleListView, tralingView: imageWithSubtitleListView)
+        cell.accessibilityIdentifier = "SubtitleWithImageListViewCell"
+        return cell
     }
     
     private func configureCurcleIconListViewCell() -> ListCell<ListCellEmpty, TitleListView, CurcleIconListView> {
@@ -164,7 +180,9 @@ final class TralingElementsViewController: ScrollViewController {
         curcleIconListView.image = Asset.Card.rnb.image
         let titleListView = TitleListView()
         titleListView.title = "Title"
-        return ListCell(centerView: titleListView, tralingView: curcleIconListView)
+        let cell: ListCell<ListCellEmpty, TitleListView, CurcleIconListView> = ListCell(centerView: titleListView, tralingView: curcleIconListView)
+        cell.accessibilityIdentifier = "CurcleIconListViewCell"
+        return cell
     }
     
 }

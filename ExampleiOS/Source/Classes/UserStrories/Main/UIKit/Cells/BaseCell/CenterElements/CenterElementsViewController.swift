@@ -79,21 +79,27 @@ final class CenterElementsViewController: ScrollViewController {
     private func configureTitleCell(_ title: String?) -> ListCell<ListCellEmpty, TitleListView, ArrowListView> {
         let titleListView = TitleListView()
         titleListView.title = title
-        return ListCell(centerView: titleListView, tralingView: ArrowListView())
+        let cell: ListCell<ListCellEmpty, TitleListView, ArrowListView> = ListCell(centerView: titleListView, tralingView: ArrowListView())
+        cell.accessibilityIdentifier = "TitleCell"
+        return cell
     }
     
     private func configureTitleSubtitleCell(_ title: String?, subtitle: String?) -> ListCell<ListCellEmpty, TitleSubtitleListView, ArrowListView> {
         let titleSubtitleListView = TitleSubtitleListView()
         titleSubtitleListView.title = title
         titleSubtitleListView.subtitle = subtitle
-        return ListCell(centerView: titleSubtitleListView, tralingView: ArrowListView())
+        let cell: ListCell<ListCellEmpty, TitleSubtitleListView, ArrowListView> = ListCell(centerView: titleSubtitleListView, tralingView: ArrowListView())
+        cell.accessibilityIdentifier = "TitleSubtitleCell"
+        return cell
     }
     
     private func configureSubtitleTitleCell(_ title: String?, subtitle: String?) -> ListCell<ListCellEmpty, SubtitleTitleListView, ArrowListView> {
         let subtitleTitleListView = SubtitleTitleListView()
         subtitleTitleListView.title = title
         subtitleTitleListView.subtitle = subtitle
-        return ListCell(centerView: subtitleTitleListView, tralingView: ArrowListView())
+        let cell: ListCell<ListCellEmpty, SubtitleTitleListView, ArrowListView> = ListCell(centerView: subtitleTitleListView, tralingView: ArrowListView())
+        cell.accessibilityIdentifier = "SubtitleTitleCell"
+        return cell
     }
     
     private func configureTitleMoreDetaileTextMessageListView() -> ListCell<ListCellEmpty, TitleMoreDetailTextMessageListView, ArrowListView> {
@@ -105,7 +111,9 @@ final class CenterElementsViewController: ScrollViewController {
         leadingView.detaile = "Summ"
         leadingView.tagText = "Percent"
         leadingView.messageText = "Text Message"
-        return ListCell(centerView: leadingView, tralingView: ArrowListView())
+        let cell: ListCell<ListCellEmpty, TitleMoreDetailTextMessageListView, ArrowListView> = ListCell(centerView: leadingView, tralingView: ArrowListView())
+        cell.accessibilityIdentifier = "TitleMoreDetaileTextMessageListView"
+        return cell
     }
     
     private func configureTitleSubtitleButtonListView() -> ListCell<ListCellEmpty, TitleSubtitleButtonListView, ArrowListView> {
@@ -120,7 +128,9 @@ final class CenterElementsViewController: ScrollViewController {
         leadingView.didSelect = {
             print("Select")
         }
-        return ListCell(centerView: leadingView, tralingView: ArrowListView())
+        let cell: ListCell<ListCellEmpty, TitleSubtitleButtonListView, ArrowListView> = ListCell(centerView: leadingView, tralingView: ArrowListView())
+        cell.accessibilityIdentifier = "TitleSubtitleButtonListView"
+        return cell
     }
     
 }

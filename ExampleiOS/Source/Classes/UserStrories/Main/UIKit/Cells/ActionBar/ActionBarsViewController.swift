@@ -52,6 +52,7 @@ final class ActionBarsViewController: ScrollViewController {
     private func configureTitleCell() {
         viewModel.items.forEach { item in
             let actionCellView = ActionCellView(cellView: createTitleListView(item: item), style: item.type)
+            actionCellView.accessibilityIdentifier = item.accessibilityIdentifier
             item.actions.forEach { action in actionCellView.appendAction(action) }
             cells.append(ActionBarCellView(actionBars: [actionCellView], titleText: item.header))
         }
