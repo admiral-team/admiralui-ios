@@ -8,6 +8,7 @@
 import AdmiralUIKit
 import AdmiralTheme
 import UIKit
+// swiftlint:disable all
 
 final class TralingElementsViewController: ScrollViewController {
     
