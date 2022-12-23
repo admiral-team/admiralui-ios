@@ -31,7 +31,10 @@ final class LeadingElementsViewController: ScrollViewController {
     private func configureUI() {
         navigationItem.title = "Leading elements"
         
-        segmentControl.setTitles(["Default", "Disabled"])
+        segmentControl.setItems([
+        StandardSegmentedItem(title: "Default", accesibilityId: "SegmentControlDefault"),
+        StandardSegmentedItem(title: "Disabled", accesibilityId: "SegmentControlDisabled")])
+        segmentControl.selectedSegmentIndex = 0
         segmentControl.addTarget(self, action: #selector(changeSegment(_:)), for: .valueChanged)
         
         configureCells()
@@ -81,7 +84,9 @@ final class LeadingElementsViewController: ScrollViewController {
         titleListView.title = "Card Place"
         let cardListView = LeadingCardListView()
         cardListView.cardImage = Asset.Card.visa.image
-        return ListCell(leadingView: cardListView, centerView: titleListView, tralingView: ArrowListView())
+        let cell = ListCell(leadingView: cardListView, centerView: titleListView, tralingView: ArrowListView())
+        cell.accessibilityIdentifier = "CardCell"
+        return cell
     }
 
     private func configureLargeImageCell() -> ListCell<ImageListView, TitleListView, ArrowListView> {
@@ -89,7 +94,9 @@ final class LeadingElementsViewController: ScrollViewController {
         titleListView.title = "Label Place"
         let iconListView = ImageListView()
         iconListView.image = Asset.Card.rnb.image
-        return ListCell(leadingView: iconListView, centerView: titleListView, tralingView: ArrowListView())
+        let cell = ListCell(leadingView: iconListView, centerView: titleListView, tralingView: ArrowListView())
+        cell.accessibilityIdentifier = "LargeImageCell"
+        return cell
     }
 
     private func configureImageCell() -> ListCell<ImageListView, TitleListView, ArrowListView> {
@@ -97,7 +104,9 @@ final class LeadingElementsViewController: ScrollViewController {
         titleListView.title = "Icon Place"
         let iconListView = ImageListView()
         iconListView.image = Asset.Main.gem.image
-        return ListCell(leadingView: iconListView, centerView: titleListView, tralingView: ArrowListView())
+        let cell = ListCell(leadingView: iconListView, centerView: titleListView, tralingView: ArrowListView())
+        cell.accessibilityIdentifier = "ImageCell"
+        return cell
     }
     
     private func configureImageBackgroundListViewCell() -> ListCell<ImageBackgroundListView, TitleListView, ArrowListView> {
@@ -105,7 +114,9 @@ final class LeadingElementsViewController: ScrollViewController {
         titleListView.title = "Icon Place vs Background"
         let iconListView = ImageBackgroundListView()
         iconListView.image = Asset.Main.gem.image
-        return ListCell(leadingView: iconListView, centerView: titleListView, tralingView: ArrowListView())
+        let cell = ListCell(leadingView: iconListView, centerView: titleListView, tralingView: ArrowListView())
+        cell.accessibilityIdentifier = "ImageBackgroundListViewCell"
+        return cell
     }
     
     private func configureImageNameListViewCell() -> ListCell<ImageNameListView, TitleListView, ArrowListView> {
@@ -113,7 +124,9 @@ final class LeadingElementsViewController: ScrollViewController {
         titleListView.title = "Icon Name"
         let imageNameListView = ImageNameListView()
         imageNameListView.text = "IN"
-        return ListCell(leadingView: imageNameListView, centerView: titleListView, tralingView: ArrowListView())
+        let cell = ListCell(leadingView: imageNameListView, centerView: titleListView, tralingView: ArrowListView())
+        cell.accessibilityIdentifier = "ImageNameListViewCell"
+        return cell
     }
     
     
