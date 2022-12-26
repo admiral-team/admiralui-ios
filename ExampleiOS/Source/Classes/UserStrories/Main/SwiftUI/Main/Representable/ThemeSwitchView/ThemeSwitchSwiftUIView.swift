@@ -51,6 +51,7 @@ struct ThemeSwitchSwiftUIView: View {
                 isListHidden.toggle()
             })
             .buttonStyle(ThemeSwitchButtonStyle(isListHidden: $isListHidden))
+            .accessibility(identifier: "Ellipse")
         }
         .padding(LayoutGrid.doubleModule)
     }
@@ -100,6 +101,7 @@ struct ThemeSwitchSwiftUIView: View {
         .padding(LayoutGrid.module)
         .background(backgroundColor?.swiftUIColor)
         .clipShape(RoundedRectangle(cornerRadius: LayoutGrid.tripleModule))
+        .accessibility(identifier: self.items[index].identifier)
     }
 
 }
