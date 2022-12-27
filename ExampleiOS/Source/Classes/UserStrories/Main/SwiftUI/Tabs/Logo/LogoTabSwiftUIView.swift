@@ -11,6 +11,10 @@ import AdmiralSwiftUI
 
 @available(iOS 14.0.0, *)
 struct LogoTabSwiftUIView: View {
+
+    enum Constants {
+        static let tabFormatAccessibilityValue = "Page %i of %i"
+    }
     
     @State private var isEnabledControlsState: Int = 0
     @State private var isTwoItemControlsState: Int = 0
@@ -36,9 +40,16 @@ struct LogoTabSwiftUIView: View {
                             .foregroundColor(scheme.textColor.swiftUIColor)
                             .font(scheme.textFont.swiftUIFont)
                         VStack(alignment: .leading) {
-                            LogoTab(images: [Image(Asset.Tabs.visaLogo.name), Image(Asset.Tabs.masterCardLogo.name)],
-                                    selection: $isTwoItemControlsState)
+                            LogoTab(
+                                images: [
+                                    Image(Asset.Tabs.visaLogo.name),
+                                    Image(Asset.Tabs.masterCardLogo.name)
+                                ],
+                                selection: $isTwoItemControlsState,
+                                tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue
+                            )
                                 .disabled(isEnabledControlsState != 0)
+                                .accessibilityIdentifier("LogoTabTwoControls")
                             Spacer()
                         }
                     }
@@ -49,13 +60,17 @@ struct LogoTabSwiftUIView: View {
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)
                         VStack(alignment: .leading) {
-                            LogoTab(images: [
-                                Image(Asset.Tabs.visaLogo.name),
-                                Image(Asset.Tabs.masterCardLogo.name),
-                                Image(Asset.Tabs.mirLogo.name)
-                            ],
-                                    selection: $isThreeItemControlsState)
+                            LogoTab(
+                                images: [
+                                    Image(Asset.Tabs.visaLogo.name),
+                                    Image(Asset.Tabs.masterCardLogo.name),
+                                    Image(Asset.Tabs.mirLogo.name)
+                                ],
+                                selection: $isThreeItemControlsState,
+                                tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue
+                            )
                                 .disabled(isEnabledControlsState != 0)
+                                .accessibilityIdentifier("LogoTabThreeControls")
                             Spacer()
                         }
                     }
@@ -66,14 +81,18 @@ struct LogoTabSwiftUIView: View {
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)
                         VStack(alignment: .leading) {
-                            LogoTab(images: [
-                                Image(Asset.Tabs.visaLogo.name),
-                                Image(Asset.Tabs.masterCardLogo.name),
-                                Image(Asset.Tabs.mirLogo.name),
-                                Image(Asset.Card.applePay.name)
-                            ],
-                                    selection: $isFourItemControlsState)
+                            LogoTab(
+                                images: [
+                                    Image(Asset.Tabs.visaLogo.name),
+                                    Image(Asset.Tabs.masterCardLogo.name),
+                                    Image(Asset.Tabs.mirLogo.name),
+                                    Image(Asset.Card.applePay.name)
+                                ],
+                                selection: $isFourItemControlsState,
+                                tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue
+                            )
                                 .disabled(isEnabledControlsState != 0)
+                                .accessibilityIdentifier("LogoTabFourControls")
                             Spacer()
                         }
                     }
@@ -84,15 +103,19 @@ struct LogoTabSwiftUIView: View {
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)
                         VStack(alignment: .leading) {
-                            LogoTab(images: [
-                                Image(Asset.Tabs.visaLogo.name),
-                                Image(Asset.Tabs.masterCardLogo.name),
-                                Image(Asset.Tabs.mirLogo.name),
-                                Image(Asset.Card.applePay.name),
-                                Image(Asset.Card.googlePay.name)
-                            ],
-                                    selection: $isFiveItemControlsState)
+                            LogoTab(
+                                images: [
+                                    Image(Asset.Tabs.visaLogo.name),
+                                    Image(Asset.Tabs.masterCardLogo.name),
+                                    Image(Asset.Tabs.mirLogo.name),
+                                    Image(Asset.Card.applePay.name),
+                                    Image(Asset.Card.googlePay.name)
+                                ],
+                                selection: $isFiveItemControlsState,
+                                tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue
+                            )
                                 .disabled(isEnabledControlsState != 0)
+                                .accessibilityIdentifier("LogoTabFiveControls")
                             Spacer()
                         }
                     }

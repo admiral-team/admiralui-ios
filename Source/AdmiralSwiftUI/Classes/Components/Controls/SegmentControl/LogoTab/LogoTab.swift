@@ -52,6 +52,8 @@ public struct LogoTab: View {
     @State private var segmentSize: CGSize = .zero
     @State private var items: [Image] = []
 
+    private var tabAccessibilityValueFormatString = ""
+
     @ObservedObject private var schemeProvider: SchemeProvider<LogoTabScheme>
 
     // MARK: - Private Computed Properties
@@ -74,14 +76,21 @@ public struct LogoTab: View {
 
     // MARK: - Initializer
 
-    /// Initializes and returns a newly allocated view object with images and binding selection.
+    /// Initializer.
+    /// - Parameters:
+    ///   - images: Imageges.
+    ///   - selection: Selection index.
+    ///   - tabAccessibilityValueFormatString: Accessibility value for tab. Need use format "Page %i of %i".
+    ///   - schemeProvider: Scheme provider.
     public init(
         images: [Image],
         selection: Binding<Int>,
+        tabAccessibilityValueFormatString: String = "",
         schemeProvider: SchemeProvider<LogoTabScheme> = AppThemeSchemeProvider<LogoTabScheme>()
     ) {
         self._selection = selection
         self._items = .init(initialValue: images)
+        self.tabAccessibilityValueFormatString = tabAccessibilityValueFormatString
         self.schemeProvider = schemeProvider
     }
 
@@ -112,6 +121,9 @@ public struct LogoTab: View {
             .clipShape(RoundedRectangle(cornerRadius: Constants.segmentCornerRadius))
             self.activeSegmentView
         }
+        .accessibilityElement()
+        .accessibilityValue(String(format: tabAccessibilityValueFormatString, selection + 1, items.count))
+        .accessibilityAddTraits(.isButton)
 
     }
 

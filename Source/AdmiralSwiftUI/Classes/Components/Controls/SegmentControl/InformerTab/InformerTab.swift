@@ -74,6 +74,7 @@ public struct InformerTab: View {
 
     private var customView: AnyView
     private let items: [InformerSegmentedItem]
+    private var tabAccessibilityValueFormatString = ""
 
     // MARK: - Computed Properties
 
@@ -103,18 +104,27 @@ public struct InformerTab: View {
 
     // MARK: - Initializer
 
-    /// Initializes and returns a newly allocated view object.
+    /// Initializer
+    /// - Parameters:
+    ///   - items: Items tab.
+    ///   - customView: Custom view.
+    ///   - selection: Selection index.
+    ///   - offsetSegment: Offset segment.
+    ///   - tabAccessibilityValueFormatString: Accessibility value for tab. Need use format "%s, Page %i of %i".
+    ///   - schemeProvider: Scheme provider.
     public init(
         items: [InformerSegmentedItem],
         customView: AnyView = AnyView(EmptyView()),
         selection: Binding<Int> = .constant(0),
         offsetSegment: Binding<CGFloat> = .constant(0.0),
+        tabAccessibilityValueFormatString: String = "",
         schemeProvider: SchemeProvider<InformerTabScheme> = AppThemeSchemeProvider<InformerTabScheme>()
     ) {
         self._selection = selection
         self._offsetSegment = offsetSegment
         self.customView = customView
         self.items = items
+        self.tabAccessibilityValueFormatString = tabAccessibilityValueFormatString
         self.schemeProvider = schemeProvider
     }
 
@@ -131,6 +141,11 @@ public struct InformerTab: View {
                 .frame(height: Constants.segmentHeight)
                 .padding(.horizontal, offsetSegment)
             }
+            .accessibilityElement()
+            .accessibilityValue(
+                String(format: tabAccessibilityValueFormatString, items[selection].title + items[selection].subtitle, selection + 1, items.count))
+            .accessibilityAddTraits(.isButton)
+            
             Spacer()
                 .frame(height: LayoutGrid.halfModule)
             arrowSegmentSlider

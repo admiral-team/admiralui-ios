@@ -11,6 +11,10 @@ import AdmiralSwiftUI
 
 @available(iOS 14.0.0, *)
 struct InformerTabSwiftUIView: View {
+
+    enum Constants {
+        static let tabFormatAccessibilityValue = "%s. Page %i of %i"
+    }
     
     @State private var isEnabledControlsState: Int = 0
     @State private var isTwoItemControlsState: Int = 0
@@ -45,8 +49,11 @@ struct InformerTabSwiftUIView: View {
                                                         description: .constant("Выгодный вариант для  двухкомнатной квартиры или дачного дома"
                                                         ))),
                                 selection: $isTwoItemControlsState,
-                                offsetSegment: .constant(16.0))
+                                offsetSegment: .constant(16.0),
+                                tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue
+                            )
                                 .disabled(isEnabledControlsState != 0)
+                                .accessibilityIdentifier("InformerTabTwoID")
                             Spacer()
                         }
                     }
@@ -61,16 +68,19 @@ struct InformerTabSwiftUIView: View {
                             .foregroundColor(scheme.textColor.swiftUIColor)
                         VStack(alignment: .leading) {
                             InformerTab(items: [InformerSegmentedItem(title: "2 900 ₽", subtitle: "в месяц"),
-                                                             InformerSegmentedItem(title: "2 900 ₽", subtitle: "в месяц"),
-                                                             InformerSegmentedItem(title: "2 900 ₽", subtitle: "в месяц")],
-                                                     customView: AnyView(InfoSwiftUIView(
-                                                                            title: .constant("то получу в страховом случае"),
-                                                                            subtitle: .constant("до 1 500 000 ₽"),
-                                                                            description:
-                                                                                .constant("Выгодный вариант для  двухкомнатной квартиры или дачного дома"
-                                                                            ))),
-                                                     selection: $isThreeItemControlsState,
-                                                     offsetSegment: .constant(16.0))
+                                                InformerSegmentedItem(title: "2 900 ₽", subtitle: "в месяц"),
+                                                InformerSegmentedItem(title: "2 900 ₽", subtitle: "в месяц")],
+                                        customView: AnyView(InfoSwiftUIView(
+                                            title: .constant("то получу в страховом случае"),
+                                            subtitle: .constant("до 1 500 000 ₽"),
+                                            description:
+                                                    .constant("Выгодный вариант для  двухкомнатной квартиры или дачного дома"
+                                                             ))),
+                                        selection: $isThreeItemControlsState,
+                                        offsetSegment: .constant(16.0),
+                                        tabAccessibilityValueFormatString: ""
+                            )
+                                .accessibilityIdentifier("InformerTabThreeID")
                                 .disabled(isEnabledControlsState != 0)
                             Spacer()
                         }

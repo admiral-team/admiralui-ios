@@ -74,29 +74,48 @@ public struct OutlineSliderTab: View {
     @Binding private var selection: Int
     @Binding private var offset: CGFloat
 
+    private var tabAccessibilityValueFormatString = ""
     private let items: [OutlineSliderTabItem]
 
     // MARK: - Initializer
 
-    /// Initializes and returns a newly allocated view object with titles.
+    /// Initializer.
+    /// - Parameters:
+    ///   - items: Items tab.
+    ///   - selection: Selection index.
+    ///   - offset: Offset tab.
+    ///   - onTapAction: Tap closure.
+    ///   - tabAccessibilityValueFormatString: Accessibility value for tab. Need use format "Page %i of %i".
+    ///   - schemeProvider: Scheme provider.
     public init(
         items: [OutlineSliderTabItem],
         selection: Binding<Int>,
         offset: Binding<CGFloat> = .constant(0.0),
-        onTapAction: (() -> Void)? = nil,
-        schemeProvider: SchemeProvider<OutlineSliderTabScheme> = AppThemeSchemeProvider<OutlineSliderTabScheme>()
+        tabAccessibilityValueFormatString: String = "",
+        schemeProvider: SchemeProvider<OutlineSliderTabScheme> = AppThemeSchemeProvider<OutlineSliderTabScheme>(),
+        onTapAction: (() -> Void)? = nil
     ) {
         self._selection = selection
         self._offset = offset
         self.items = items
         self.onTapAction = onTapAction
+        self.tabAccessibilityValueFormatString = tabAccessibilityValueFormatString
         self.schemeProvider = schemeProvider
     }
 
+    /// Initializer.
+    /// - Parameters:
+    ///   - items: Items tab.
+    ///   - selection: Selection index.
+    ///   - offset: Offset tab.
+    ///   - onTapAction: Tap closure.
+    ///   - tabAccessibilityValueFormatString: Accessibility value for tab. Need use format "Page %i of %i".
+    ///   - schemeProvider: Scheme provider.
     public init(
         items: [String],
         selection: Binding<Int>,
         offset: Binding<CGFloat> = .constant(0.0),
+        tabAccessibilityValueFormatString: String = "",
         schemeProvider: SchemeProvider<OutlineSliderTabScheme> = AppThemeSchemeProvider<OutlineSliderTabScheme>(),
         onTapAction: (() -> Void)? = nil
     ) {
@@ -104,8 +123,9 @@ public struct OutlineSliderTab: View {
             items: items.map({ OutlineSliderTabItem(title: $0, badgeStyle: nil) }),
             selection: selection,
             offset: offset,
-            onTapAction: onTapAction,
-            schemeProvider: schemeProvider
+            tabAccessibilityValueFormatString: tabAccessibilityValueFormatString,
+            schemeProvider: schemeProvider,
+            onTapAction: onTapAction
         )
     }
 
@@ -130,6 +150,10 @@ public struct OutlineSliderTab: View {
             .frame(height: Constants.tabHeight + Constants.selectedLineWidth * 2)
         }
         .frame(height: Constants.tabHeight + Constants.selectedLineWidth * 2)
+        .accessibilityElement()
+        .accessibilityValue(
+            String(format: tabAccessibilityValueFormatString, items[selection].title, selection + 1, items.count))
+        .accessibilityAddTraits(.isButton)
     }
 
     // MARK: - Private Methods

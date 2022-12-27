@@ -12,6 +12,10 @@ import AdmiralUIResources
 
 @available(iOS 14.0.0, *)
 struct OutlineSliderTabSwiftUITab: View {
+
+    enum Constants {
+        static let tabFormatAccessibilityValue = "%s. Page %i of %i"
+    }
     
     // MARK: - Private Properties
     
@@ -51,8 +55,14 @@ struct OutlineSliderTabSwiftUITab: View {
                             .font(scheme.textFont.swiftUIFont)
                             .padding()
                         VStack(alignment: .leading) {
-                            OutlineSliderTab(items: outlineSliderTabItems, selection: $isTwoItemControlsState, offset: .constant(16.0))
+                            OutlineSliderTab(
+                                items: outlineSliderTabItems,
+                                selection: $isTwoItemControlsState,
+                                offset: .constant(16.0),
+                                tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue
+                            )
                                 .disabled(isEnabledControlsState != 0)
+                                .accessibilityIdentifier("OutlineSliderTabID")
                             Spacer()
                         }
                     }
@@ -66,8 +76,12 @@ struct OutlineSliderTabSwiftUITab: View {
                         VStack(alignment: .leading) {
                             OutlineSliderTab(
                                 items: ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven"],
-                                selection: $isThreeItemControlsState, offset: .constant(16.0))
+                                selection: $isThreeItemControlsState,
+                                offset: .constant(16.0),
+                                tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue
+                            )
                                 .disabled(isEnabledControlsState != 0)
+                                .accessibilityIdentifier("SliderControlsEleven")
                             Spacer()
                         }
                     }
@@ -81,8 +95,12 @@ struct OutlineSliderTabSwiftUITab: View {
                         VStack(alignment: .leading) {
                             OutlineSliderTab(
                                 items: outlineSliderTabNotifications,
-                                selection: $isFourItemControlsState, offset: .constant(16.0))
+                                selection: $isFourItemControlsState,
+                                offset: .constant(16.0),
+                                tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue
+                            )
                                 .disabled(isEnabledControlsState != 0)
+                                .accessibilityIdentifier("OutlineSliderTabNotificationsID")
                             Spacer()
                         }
                     }
