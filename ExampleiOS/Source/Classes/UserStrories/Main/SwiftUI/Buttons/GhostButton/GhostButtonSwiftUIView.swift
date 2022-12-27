@@ -33,7 +33,7 @@ struct GhostButtonSwiftUIView: View {
         NavigationContentView(navigationTitle: "Ghost Buttons") {
             scheme.backgroundColor.swiftUIColor
             ScrollView(.vertical, showsIndicators: false) {
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState, elementAccessibilityIdentifier: "StandardTab")
                 Spacer()
                     .frame(height: 44.0)
                 VStack(alignment: .leading) {
@@ -54,12 +54,15 @@ struct GhostButtonSwiftUIView: View {
             )
                 .buttonStyle(GhostButtonStyle(sizeType: .big))
                 .disabled(isEnabledControlsState != 0)
+                .accessibilityIdentifier("BigButtonLeftID")
             createButton(name: "Big Button", image: AdmiralUIResources.Asset.Category.Solid.maintenanceSolid.image, direction: .right)
                 .buttonStyle(GhostButtonStyle(sizeType: .big))
                 .disabled(isEnabledControlsState != 0)
+                .accessibilityIdentifier("BigButtonRightID")
             SwiftUI.Button("Big Button", action: {})
                 .buttonStyle(GhostButtonStyle(sizeType: .big))
                 .disabled(isEnabledControlsState != 0)
+                .accessibilityIdentifier("BigButtonNoneID")
         }
     }
     
@@ -68,12 +71,15 @@ struct GhostButtonSwiftUIView: View {
             createButton(name: "Medium Button", image: AdmiralUIResources.Asset.Category.Outline.heartOutline.image, direction: .left)
                 .buttonStyle(GhostButtonStyle(sizeType: .medium))
                 .disabled(isEnabledControlsState != 0)
+                .accessibilityIdentifier("MediumButtonLeftID")
             createButton(name: "Medium Button", image: AdmiralUIResources.Asset.Category.Solid.maintenanceSolid.image, direction: .right)
                 .buttonStyle(GhostButtonStyle(sizeType: .medium))
                 .disabled(isEnabledControlsState != 0)
+                .accessibilityIdentifier("MediumButtonRightID")
             SwiftUI.Button("Medium Button", action: {})
                 .buttonStyle(GhostButtonStyle(sizeType: .medium))
                 .disabled(isEnabledControlsState != 0)
+                .accessibilityIdentifier("MediumButtonNoneID")
         }
     }
     
@@ -83,13 +89,16 @@ struct GhostButtonSwiftUIView: View {
                 .buttonStyle(GhostButtonStyle(sizeType: .none))
                 .frame(width: 164)
                 .disabled(isEnabledControlsState != 0)
+                .accessibilityIdentifier("SmallButtonLeftID")
             createButton(name: "Small Button", image: AdmiralUIResources.Asset.Category.Solid.maintenanceSolid.image, direction: .right)
                 .buttonStyle(GhostButtonStyle(sizeType: .none))
                 .frame(width: 164)
                 .disabled(isEnabledControlsState != 0)
+                .accessibilityIdentifier("SmallButtonRightID")
             SwiftUI.Button("Small Button", action: {})
                 .buttonStyle(GhostButtonStyle(sizeType: .small))
                 .disabled(isEnabledControlsState != 0)
+                .accessibilityIdentifier("SmallButtonNoneID")
         }
     }
     

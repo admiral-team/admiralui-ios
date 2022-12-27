@@ -56,6 +56,7 @@ public struct StandardTab: View {
     @ObservedObject private var schemeProvider: SchemeProvider<StandardTabScheme>
 
     private let items: [String]
+    private var elementAccessibilityIdentifier: String
 
     // MARK: - Initializer
 
@@ -63,10 +64,12 @@ public struct StandardTab: View {
     public init(
         items: [String],
         selection: Binding<Int>,
+        elementAccessibilityIdentifier: String = "",
         schemeProvider: SchemeProvider<StandardTabScheme> = AppThemeSchemeProvider<StandardTabScheme>()
     ) {
         self._selection = selection
         self.items = items
+        self.elementAccessibilityIdentifier = elementAccessibilityIdentifier
         self.schemeProvider = schemeProvider
     }
 
@@ -79,6 +82,7 @@ public struct StandardTab: View {
                 HStack(spacing: 0.0) {
                     ForEach(0..<items.count, id: \.self) { index in
                         getSegmentView(for: index, width: geo.size.width)
+                            .accessibilityIdentifier("\(elementAccessibilityIdentifier)\(items[index])")
                         if index != items.count - 1, items.count != 2 {
                             Rectangle()
                                 .foregroundColor(scheme.borderColor.parameter(for: .normal)?.swiftUIColor ?? .clear)
