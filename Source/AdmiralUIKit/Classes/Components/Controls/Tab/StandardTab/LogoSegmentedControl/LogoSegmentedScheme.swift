@@ -9,23 +9,38 @@ import UIKit
 import AdmiralTheme
 import AdmiralUIResources
 
-struct LogoSegmentedScheme {
-    
-    struct ItemScheme {
-        var alpha = ControlParameter<CGFloat>()
-        var borderColor = ControlParameter<AColor>()
+/**
+ LogoSegmentedScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - LogoSegmentedScheme() - Initialize default LogoSegmentedScheme with default themezation
+Example to create LogoSegmentedScheme:
+Code
+ ```
+let scheme = LogoSegmentedScheme()
+ ```
+ */
+public struct LogoSegmentedScheme: AppThemeScheme {
+
+    /// Item scheme.
+    public struct ItemScheme {
+
+        /// Alpha.
+        public var alpha = ControlParameter<CGFloat>()
+
+        /// Border color.
+        public var borderColor = ControlParameter<AColor>()
     }
+
+    /// Item scheme.
+    public var itemScheme = ItemScheme()
+
+    /// Border color.
+    public var borderColor = ControlParameter<AColor>()
+
+    /// Thumb color.
+    public var thumbColor = ControlParameter<AColor>()
     
-    var itemScheme = ItemScheme()
-    
-    var borderColor = ControlParameter<AColor>()
-    var thumbColor = ControlParameter<AColor>()
-    
-    init() {
-        //
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         itemScheme.alpha.set(parameter: 1.0, for: [.selected, .disabled])

@@ -8,20 +8,34 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-struct IconTabsItemScheme {
-    
-    var titleColor = ControlParameter<AColor>()
-    var imageColor = ControlParameter<AColor>()
-    var contentViewBackGroundColor = ControlParameter<AColor>()
-    var backgroundColor: AColor
- 
-    var titleLabelFont: AFont
+/**
+ IconTabsItemScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - IconTabsItemScheme() - Initialize default IconTabsItemScheme with default themezation
+Example to create IconTabsItemScheme:
+Code
+ ```
+let scheme = IconTabsItemScheme()
+ ```
+ */
+public struct IconTabsItemScheme: AppThemeScheme {
 
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    /// Title color.
+    public var titleColor = ControlParameter<AColor>()
+
+    /// Image color.
+    public var imageColor = ControlParameter<AColor>()
+
+    /// Content view background color.
+    public var contentViewBackGroundColor = ControlParameter<AColor>()
+
+    /// Background color.
+    public var backgroundColor: AColor
+
+    /// Title label font.
+    public var titleLabelFont: AFont
+
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         titleLabelFont = theme.fonts.subhead2

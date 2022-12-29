@@ -9,15 +9,15 @@ import SwiftUI
 
 @available(iOS 14.0, *)
 enum CalendarsSwiftUIItem: Int, CaseIterable {
-    case horizontal
     case vertical
+    case horizontal
 
     var title: String {
         switch self {
-        case .horizontal:
-            return "Horizontal"
         case .vertical:
             return "Vertical"
+        case .horizontal:
+            return "Horizontal"
         }
     }
 }

@@ -30,15 +30,15 @@ public class TitleSubtitleListView: BaseListView, CenterListViewComponent, AnyAp
             subtitleLabel.text = subtitle
         }
     }
+
+    public var scheme = TitleSubtitleListViewScheme() {
+        didSet { updateScheme() }
+    }
     
     // MARK: Internal Properties
     
     /// The state of the view. Default is normal.
     override var state: UIControl.State {
-        didSet { updateScheme() }
-    }
-    
-    public var scheme = TitleSubtitleListViewScheme() {
         didSet { updateScheme() }
     }
     

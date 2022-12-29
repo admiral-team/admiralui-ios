@@ -46,7 +46,9 @@ final class RadioButtonViewController: ScrollViewController {
         views.forEach() {
             stackView.addArrangedSubview($0)
         }
-        segmentControl.setTitles(["Default", "Disabled"])
+        segmentControl.setItems([
+            StandardSegmentedItem(title: "Default", accesibilityId: "SegmentControlDefault"),
+            StandardSegmentedItem(title: "Disabled", accesibilityId: "SegmentControlDisabled")])
         segmentControl.selectedSegmentIndex = 0
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
     }
@@ -56,21 +58,30 @@ final class RadioButtonViewController: ScrollViewController {
             textCheckboxTitle: "Text",
             checkBoxesControlState: .normal,
             isSelected: false,
-            titleText: "Default")
+            titleText: "Default",
+            radioButtonFirstAccesibilityId: "RadioControlsFirstDefault",
+            radioButtonSecondAccesibilityId: "RadioControlsSecondDefault"
+        )
         views.append(defaultRadioButtonView)
         
         let selectedRadioButtonView = RadioControlsCellView(
             textCheckboxTitle: "Text",
             checkBoxesControlState: .normal,
             isSelected: true,
-            titleText: "Selected")
+            titleText: "Selected",
+            radioButtonFirstAccesibilityId: "RadioControlsFirstSelected",
+            radioButtonSecondAccesibilityId: "RadioControlsSecondSelected"
+        )
         views.append(selectedRadioButtonView)
         
         let errorRadioButtonView = RadioControlsCellView(
             textCheckboxTitle: "Text",
             checkBoxesControlState: .error,
             isSelected: false,
-            titleText: "Error")
+            titleText: "Error",
+            radioButtonFirstAccesibilityId: "RadioControlsFirstError",
+            radioButtonSecondAccesibilityId: "RadioControlsSecondError"
+        )
         views.append(errorRadioButtonView)
     }
     

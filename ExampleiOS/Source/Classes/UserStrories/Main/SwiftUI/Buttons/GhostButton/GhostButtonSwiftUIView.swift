@@ -34,7 +34,7 @@ struct GhostButtonSwiftUIView: View {
     
     public var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Ghost Buttons") {
+        NavigationContentView(navigationTitle: "Ghost buttons") {
             scheme.backgroundColor.swiftUIColor
             ScrollView(.vertical, showsIndicators: false) {
                 StandardTab(items: ["Default", "Disabled"],
@@ -57,7 +57,7 @@ struct GhostButtonSwiftUIView: View {
     
     private func createBigButton() -> some View {
         VStack(alignment: .center, spacing: 16.0) {
-            createButton(name: "Big Button", image: AdmiralUIResources.Asset.Category.Outline.heartOutline.image, direction: .left
+            createButton(name: "Big button", image: AdmiralUIResources.Asset.Category.Outline.heartOutline.image, direction: .left
             )
                 .buttonStyle(GhostButtonStyle(sizeType: .big))
                 .disabled(isEnabledControlsState != 0)
@@ -75,7 +75,7 @@ struct GhostButtonSwiftUIView: View {
     
     private func createMediumButton() -> some View {
         VStack(alignment: .center, spacing: 16.0) {
-            createButton(name: "Medium Button", image: AdmiralUIResources.Asset.Category.Outline.heartOutline.image, direction: .left)
+            createButton(name: "Medium button", image: AdmiralUIResources.Asset.Category.Outline.heartOutline.image, direction: .left)
                 .buttonStyle(GhostButtonStyle(sizeType: .medium))
                 .disabled(isEnabledControlsState != 0)
                 .accessibilityIdentifier("MediumButtonLeftID")
@@ -92,7 +92,7 @@ struct GhostButtonSwiftUIView: View {
     
     private func createSmallButton() -> some View {
         VStack(alignment: .leading, spacing: 16.0) {
-            createButton(name: "Small Button", image: AdmiralUIResources.Asset.Category.Outline.heartOutline.image, direction: .left)
+            createButton(name: "Small button", image: AdmiralUIResources.Asset.Category.Outline.heartOutline.image, direction: .left)
                 .buttonStyle(GhostButtonStyle(sizeType: .none))
                 .frame(width: 164)
                 .disabled(isEnabledControlsState != 0)

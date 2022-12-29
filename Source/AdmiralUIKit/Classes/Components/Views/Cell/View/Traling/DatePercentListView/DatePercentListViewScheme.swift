@@ -8,20 +8,34 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-struct DatePercentListViewScheme {
+/**
+ DatePercentListViewScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - DatePercentListViewScheme() - Initialize default DatePercentListViewScheme with default themezation
+Example to create DatePercentListViewScheme:
+Code
+ ```
+let scheme = DatePercentListViewScheme()
+ ```
+ */
+public struct DatePercentListViewScheme: AppThemeScheme {
+
+    /// Background color.
+    public var backgroundColor = ControlParameter<AColor>()
+
+    /// Title color.
+    public var titleColor = ControlParameter<AColor>()
+
+    /// Subtitle color.
+    public var subtitleColor = ControlParameter<AColor>()
+
+    /// Title font.
+    public var titleFont: AFont
+
+    /// Subtitle font.
+    public var subtitleFont: AFont
     
-    var backgroundColor = ControlParameter<AColor>()
-    var titleColor = ControlParameter<AColor>()
-    var subtitleColor = ControlParameter<AColor>()
-    
-    var titleFont: AFont
-    var subtitleFont: AFont
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         backgroundColor.set(parameter: theme.colors.backgroundSelected, for: .highlighted)

@@ -21,6 +21,7 @@ final class ActionBarViewModel {
         let swipeImage: UIImage
         let type: ActionBarViewStyle
         let actions: [ActionItemBarAction]
+        let accessibilityIdentifier: String?
     }
 
     // MARK: - Internal Properties
@@ -35,30 +36,35 @@ final class ActionBarViewModel {
                 image: Asset.ActionBar.closeOutline.image,
                 imageStyle: .error,
                 style: .default,
+                accesibilityId: "defaultActionItemBarActionOne",
                 handler: {}
             ),
             ActionItemBarAction(
                 image: Asset.ActionBar.union.image,
                 imageStyle: .accent,
                 style: .default,
+                accesibilityId: "defaultActionItemBarActionTwo",
                 handler: {}
             ),
             ActionItemBarAction(
                 image: Asset.ActionBar.arrowDownOutline.image,
                 imageStyle: .primary,
                 style: .default,
+                accesibilityId: "defaultActionItemBarActionThree",
                 handler: {}
             ),
             ActionItemBarAction(
                 image: Asset.ActionBar.arrowUpOutline.image,
                 imageStyle: .primary,
                 style: .default,
+                accesibilityId: "defaultActionItemBarActionFour",
                 handler: {}
             ),
             ActionItemBarAction(
                 image: Asset.ActionBar.moreOutline.image,
                 imageStyle: .accent,
                 style: .default,
+                accesibilityId: "defaultActionItemBarActionFive",
                 handler: {}
             )
         ]
@@ -71,6 +77,7 @@ final class ActionBarViewModel {
                 imageStyle: .attention,
                 style: .secondary,
                 text: "Text",
+                accesibilityId: "secondaryActionItemBarActionOne",
                 handler: {}
             ),
             ActionItemBarAction(
@@ -78,6 +85,7 @@ final class ActionBarViewModel {
                 imageStyle: .success,
                 style: .secondary,
                 text: "Text",
+                accesibilityId: "secondaryActionItemBarActionTwo",
                 handler: {}
             ),
             ActionItemBarAction(
@@ -85,6 +93,7 @@ final class ActionBarViewModel {
                 imageStyle: .accent,
                 style: .secondary,
                 text: "Text",
+                accesibilityId: "secondaryActionItemBarActionThree",
                 handler: {}
             )
         ]
@@ -102,7 +111,8 @@ final class ActionBarViewModel {
                 swipeSubtitle: "Swipe",
                 swipeImage: AdmiralUIResources.Asset.System.Outline.arrowLeftOutline.image,
                 type: .default,
-                actions: defaultActions
+                actions: defaultActions,
+                accessibilityIdentifier: "defaultAction"
             ),
             ActionBarItem(
                 header: "Secondary",
@@ -112,7 +122,8 @@ final class ActionBarViewModel {
                 swipeSubtitle: "Swipe",
                 swipeImage: AdmiralUIResources.Asset.System.Outline.arrowLeftOutline.image,
                 type: .secondary,
-                actions: secondaryActions
+                actions: secondaryActions,
+                accessibilityIdentifier: "secondaryAction"
             )
         ]
     }

@@ -41,7 +41,7 @@ open class TextViewInput: UIView {
     
     /// The text view’s delegate.
     public weak var delegate: TextViewInputDelegate?
-        
+
     /// The text that the text field displays.
     public var text: String? {
         get { return inputTextView.text }
@@ -61,7 +61,16 @@ open class TextViewInput: UIView {
     public var isEditing: Bool {
         get { return isTextViewEditing }
     }
-    
+
+    /// The input text accessibility identifier
+    public var inputTextAccessibilityId: String? {
+        get {
+            return inputTextView.accessibilityIdentifier
+        } set {
+            inputTextView.accessibilityIdentifier = newValue
+        }
+    }
+
     let inputTextView = UITextView()
     private var isTextViewEditing: Bool = false
     
@@ -88,7 +97,7 @@ open class TextViewInput: UIView {
 // MARK: - UITextFieldDelegate
 
 extension TextViewInput: UITextViewDelegate {
-        
+
     @objc open func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         return delegate?.textViewInputShouldBeginEditing?(self) ?? true
     }

@@ -8,6 +8,30 @@
 import UIKit
 import AdmiralTheme
 
+/// The UnderlineSegmentedControl model
+public struct UnderlineSegmentedControlItem {
+
+    // MARK: - Public Properties
+
+    /// The title label
+    public let title: String?
+    
+    /// Badge style. Default is none.
+    public var badgeStyle: BadgeStyle?
+
+    /// The accesibility id
+    public let accesibilityId: String?
+
+    // MARK: - Initializer
+
+    public init(title: String?, badgeStyle: BadgeStyle? = nil, accesibilityId: String? = nil) {
+        self.title = title
+        self.badgeStyle = badgeStyle
+        self.accesibilityId = accesibilityId
+    }
+
+}
+
 /// A horizontal control with scroll that consists of multiple segments, each segment functioning as a discrete text button.
 public class UnderlineSegmentedControl: BaseUnderlineSegmentedControl, AnyAppThemable {
     
@@ -16,9 +40,15 @@ public class UnderlineSegmentedControl: BaseUnderlineSegmentedControl, AnyAppThe
     }
     
     // MARK: - Public Properties
-    
+
+    /// Selected segment index.
     public override var selectedSegmentIndex: Int {
         didSet { configureThumbView() }
+    }
+
+    /// Color scheme.
+    public var scheme = UnderlineSliderScheme() {
+        didSet { updateScheme() }
     }
 
     // MARK: - Private Properties
@@ -26,18 +56,21 @@ public class UnderlineSegmentedControl: BaseUnderlineSegmentedControl, AnyAppThe
     private var textItems: [UnderlineSliderItem] {
         return items as? [UnderlineSliderItem] !! fatalError("This is not TextTabSegmentView class")
     }
-
-    private var scheme = UnderlineSliderScheme() {
-        didSet { updateScheme() }
-    }
     
     // MARK: - Initializer
-    
+
     /// Initializes and returns a newly allocated view object with items.
-    public init(items: [String?]) {
+    public init(items: [UnderlineSegmentedControlItem?]) {
         super.init()
         commonInit()
         setTitles(items)
+    }
+
+    /// Initializes and returns a newly allocated view object with strings.
+    public init(items: [String?]) {
+        super.init()
+        commonInit()
+        setTitles(items.map { .init(title: $0) } )
     }
     
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
@@ -59,20 +92,29 @@ public class UnderlineSegmentedControl: BaseUnderlineSegmentedControl, AnyAppThe
     }
     
     // MARK: - Public Methods
-    
+
     /// Sets titles.
     /// - Parameter titles: A strings to display in the segments.
-    public func setTitles(_ titles: [String?]) {
-        let labels = titles.map() { createItem(title: $0) }
+    public func setTitles(_ titles: [UnderlineSegmentedControlItem?]) {
+        let labels = titles.map() { createItem($0) }
         set(items: labels)
     }
-    
+
     /// Inserts a segment at a specific position in the receiver and gives it a title as content.
     /// - Parameters:
     ///   - title: A string to use as the segment’s title.
     ///   - segment: An index number identifying a segment in the control.
     public func insertTitle(_ title: String?, forSegmentAt segment: Int) {
-        let label = createItem(title: title)
+        let label = createItem(.init(title: title))
+        insert(item: label, at: segment)
+    }
+
+    /// Inserts a segment at a specific position in the receiver and gives it a title as content.
+    /// - Parameters:
+    ///   - item: The model that contains title and accesibility id
+    ///   - segment: An index number identifying a segment in the control.
+    public func insertItem(_ item: UnderlineSegmentedControlItem?, forSegmentAt segment: Int) {
+        let label = createItem(item)
         insert(item: label, at: segment)
     }
     
@@ -172,12 +214,15 @@ public class UnderlineSegmentedControl: BaseUnderlineSegmentedControl, AnyAppThe
         thumbView.backgroundColor = scheme.thumbColor.parameter(for: state)?.uiColor
     }
 
-    private func createItem(title: String?) -> UnderlineSliderItem {
+    private func createItem(_ item: UnderlineSegmentedControlItem?) -> UnderlineSliderItem {
         let item = UnderlineSliderItem(
             isEnabled: isEnabled,
             isSelected: false,
-            title: title,
-            scheme: scheme)
+            title: item?.title,
+            scheme: scheme,
+            badgeStyle: item?.badgeStyle,
+            accesibilityId: item?.accesibilityId
+        )
         return item
     }
     

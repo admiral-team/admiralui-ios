@@ -83,6 +83,9 @@ final class ThemeSwitchViewCoordinator: ThemeSwitchViewDelegate, ThemeSwitchView
 
     private func createItem(title: String?) -> ThemeSwitchComponentView {
         let item = ThemeSwitchComponentView()
+        if let title = title {
+            item.accessibilityIdentifier = "ThemeSwitchButton_" + title
+        }
         item.title = title
 
         return item

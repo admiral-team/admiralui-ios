@@ -10,17 +10,20 @@ import AdmiralTheme
 
 /// A view object with card image view.
 public class LeadingCardListView: BaseListView, LeadingListViewComponent, AnyAppThemable {
-    
+
+    // MARK: - Public Properties
+
     /// The image displayed in the card image view.
     public var cardImage: UIImage? {
         didSet { imageView.image = cardImage }
     }
-    
-    // MARK: Internal Properties
-    
-    var scheme = LeadingCardListViewScheme() {
+
+    /// Color scheme.
+    public var scheme = ImageCardListViewScheme() {
         didSet { updateScheme() }
     }
+    
+    // MARK: Internal Properties
     
     /// The state of the view. Default is normal.
     override var state: UIControl.State {
@@ -48,7 +51,7 @@ public class LeadingCardListView: BaseListView, LeadingListViewComponent, AnyApp
     // MARK: - Public Method
     
     open func apply(theme: AppTheme) {
-        scheme = LeadingCardListViewScheme(theme: theme)
+        scheme = ImageCardListViewScheme(theme: theme)
     }
     
     // MARK: - Private Methods

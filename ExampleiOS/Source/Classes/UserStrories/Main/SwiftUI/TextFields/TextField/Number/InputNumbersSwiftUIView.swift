@@ -18,7 +18,7 @@ struct InputNumbersSwiftUIView: View {
     @State private var selection: Int?
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
 
-    public var body: some View {
+    var body: some View {
         let scheme = schemeProvider.scheme
         NavigationContentView(navigationTitle: "Number") {
             scheme.backgroundColor.swiftUIColor.edgesIgnoringSafeArea(.all)
@@ -51,7 +51,7 @@ struct InputNumbersSwiftUIView: View {
     func view(for type: InputNumbersSwiftUIItem) -> some View {
         switch type {
         case .default:
-            InputNumberSwiftUIView()
+            InputNumberDefaultSwiftUIView()
         case .secondary:
             InputNumberSecondarySwiftUIView()
         case .input:

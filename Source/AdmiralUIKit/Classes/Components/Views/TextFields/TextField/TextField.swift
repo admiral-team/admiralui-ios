@@ -4,9 +4,9 @@
 //
 //  Created on 10.03.2021.
 //
-
-import UIKit
+import AdmiralCore
 import AdmiralTheme
+import UIKit
 
 open class TextField: TextFieldInput, AnyAppThemable, AccessibilitySupport {
     
@@ -69,12 +69,14 @@ open class TextField: TextFieldInput, AnyAppThemable, AccessibilitySupport {
         set { leftView = newValue }
     }
 
+    /// Left label width.
     public var leftLabelWidth: CGFloat? {
         didSet {
             decorationView.leftLabelWidth = leftLabelWidth
         }
     }
 
+    /// Content textfield width.
     public var contentWidth: CGFloat {
         get {
             inputTextField.invalidateIntrinsicContentSize()
@@ -84,6 +86,7 @@ open class TextField: TextFieldInput, AnyAppThemable, AccessibilitySupport {
         }
     }
 
+    /// Leading text.
     public var leadingText: String? {
         get { return decorationView.leadingTextLabel.text }
         set { decorationView.leadingText = newValue }
@@ -93,15 +96,23 @@ open class TextField: TextFieldInput, AnyAppThemable, AccessibilitySupport {
     public var trailingViewStyle: TextInputTrailingViewStyle = .default {
         didSet { updateTrailingView() }
     }
+
+    ///  The property that affects numeric characters, and leaves all other characters unchanged.
+    public var isMonoSpaceDigitFontEnabled: Bool = false {
+        didSet {
+            updateFonts()
+        }
+    }
+
+    /// Color scheme.
+    public var scheme = TextFieldScheme() {
+        didSet { updateScheme() }
+    }
     
     // MARK: - Internal Properties
         
     var forceOpened: Bool = false {
         didSet { configureState(anmated: false) }
-    }
-
-    var scheme = TextFieldScheme() {
-        didSet { updateScheme() }
     }
     
     var decorationView: TextInputDecorationView!
@@ -217,9 +228,10 @@ open class TextField: TextFieldInput, AnyAppThemable, AccessibilitySupport {
     
     private func updateFonts() {
         inputTextField.setDynamicFont(
-            font: scheme.textFieldFont.uiFont,
+            font: isMonoSpaceDigitFontEnabled ? scheme.textFieldFont.uiFont.monospacedDigitFont : scheme.textFieldFont.uiFont,
             textStyle: scheme.textFieldFont.textStyle,
-            adjustsFontForContentSize: adjustsFontForContentSizeCategory)
+            adjustsFontForContentSize: adjustsFontForContentSizeCategory
+        )
     }
     
     private func updateColors() {
@@ -232,24 +244,32 @@ open class TextField: TextFieldInput, AnyAppThemable, AccessibilitySupport {
             decorationView.nameLabel.textColor = (isEditing || (isSelected && decorationView.isOpened)) ? scheme.tintColor.uiColor : scheme.underlineColor.uiColor
             decorationView.separatorView.lineColor = (isEditing || isSelected) ? scheme.tintColor.uiColor : scheme.underlineColor.uiColor
             decorationView.informerLabel.textColor = scheme.underlineColor.uiColor
+            decorationView.leadingTextLabel.textColor = scheme.textColor.uiColor
             decorationView.separatorView.lineMode = .solid
+            decorationView.leadingTextLabel.textColor = scheme.textColor.uiColor
         case .error:
             inputTextField.textColor = scheme.textColor.uiColor
             decorationView.nameLabel.textColor = scheme.errorColor.uiColor
             decorationView.informerLabel.textColor = scheme.errorColor.uiColor
+            decorationView.leadingTextLabel.textColor = scheme.textColor.uiColor
             decorationView.separatorView.lineColor = scheme.errorColor.uiColor
+            decorationView.leadingTextLabel.textColor = scheme.textColor.uiColor
             decorationView.separatorView.lineMode = .solid
         case .disabled:
             inputTextField.textColor = scheme.disabledColor.uiColor
             decorationView.nameLabel.textColor = scheme.disabledColor.uiColor
             decorationView.informerLabel.textColor = scheme.disabledColor.uiColor
+            decorationView.leadingTextLabel.textColor = scheme.disabledColor.uiColor
             decorationView.separatorView.lineColor = scheme.disabledColor.uiColor
+            decorationView.leadingTextLabel.textColor = scheme.textColor.uiColor
             decorationView.separatorView.lineMode = .solid
         case .readOnly:
             inputTextField.textColor = scheme.textColor.uiColor
             decorationView.nameLabel.textColor = scheme.underlineColor.uiColor
             decorationView.informerLabel.textColor = scheme.underlineColor.uiColor
+            decorationView.leadingTextLabel.textColor = scheme.textColor.uiColor
             decorationView.separatorView.lineColor = scheme.underlineColor.uiColor
+            decorationView.leadingTextLabel.textColor = scheme.textColor.uiColor
             decorationView.separatorView.lineMode = .dashed(dash: LayoutGrid.halfModule, gap: LayoutGrid.halfModule, phase: 0)
         }
     }

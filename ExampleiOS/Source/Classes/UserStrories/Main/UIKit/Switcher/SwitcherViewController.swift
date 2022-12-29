@@ -31,16 +31,18 @@ final class SwitcherViewController: ScrollViewController {
         views.forEach() {
             stackView.addArrangedSubview($0)
         }
-        segmentControl.setTitles(["Default", "Disabled"])
+        segmentControl.setItems([
+        StandardSegmentedItem(title: "Default", accesibilityId: "SegmentControlDefault"),
+        StandardSegmentedItem(title: "Disabled", accesibilityId: "SegmentControlDisabled")])
         segmentControl.selectedSegmentIndex = 0
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
     }
     
     private func configureSwithes() {
-        let onSwitch = SwitcherCellView(isOn: true, title: "On")
+        let onSwitch = SwitcherCellView(isOn: true, title: "On", accesibilityId: "SwitcherOne")
         views.append(onSwitch)
         
-        let offSwitch = SwitcherCellView(isOn: false, title: "Off")
+        let offSwitch = SwitcherCellView(isOn: false, title: "Off", accesibilityId: "SwitcherTwo")
         views.append(offSwitch)
     }
     

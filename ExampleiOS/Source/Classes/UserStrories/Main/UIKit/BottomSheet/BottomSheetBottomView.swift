@@ -83,9 +83,11 @@ final class BottomSheetBottomView: UIView, AppThemeable, AccessibilitySupport {
     private func setupButtons() {
         leftButton.setTitle("Выбрать все карты", for: [])
         leftButton.contentHorizontalAlignment = .left
+        leftButton.accessibilityIdentifier = "SelectAllCards"
         leftButton.addTarget(self, action: #selector(tapLeftButton), for: .touchUpInside)
         rightButton.setTitle("Готово", for: [])
         rightButton.contentHorizontalAlignment = .right
+        rightButton.accessibilityIdentifier = "Done"
         rightButton.addTarget(self, action: #selector(tapRightButton), for: .touchUpInside)
     }
     

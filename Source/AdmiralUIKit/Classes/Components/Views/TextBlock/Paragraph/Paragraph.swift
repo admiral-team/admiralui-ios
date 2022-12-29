@@ -99,17 +99,16 @@ public class Paragraph: UIView, AnyAppThemable {
     public var paragraphStyle: ParagraphStyle = .primary {
         didSet { updateScheme() }
     }
+
+    /// Color scheme.
+    public var scheme = ParagraphScheme() {
+        didSet { updateScheme() }
+    }
     
     // MARK: - AccessibilitySupport
     
     public var adjustsFontForContentSizeCategory: Bool = Appearance.isAccessabilitySupportEnabled {
         didSet { updateFonts() }
-    }
-    
-    // MARK: - Internal Properties
-    
-    var scheme = ParagraphScheme() {
-        didSet { updateScheme() }
     }
     
     // MARK: - Private Properties

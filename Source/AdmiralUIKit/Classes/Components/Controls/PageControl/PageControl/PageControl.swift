@@ -28,6 +28,11 @@ public class PageControl: UIControl, AppThemeable {
     public override var isEnabled: Bool {
         didSet { configure(for: state) }
     }
+
+    /// Color scheme.
+    public var scheme = PageControlViewScheme() {
+        didSet { updateScheme() }
+    }
     
     // MARK: - Internal Properties
     
@@ -40,10 +45,6 @@ public class PageControl: UIControl, AppThemeable {
     var height: CGFloat = LayoutGrid.quadrupleModule
     
     // MARK: - Internal Properties
-    
-    var scheme = PageControlViewScheme() {
-        didSet { updateScheme() }
-    }
     
     lazy var stackView: UIStackView = {
         let stackView = UIStackView()

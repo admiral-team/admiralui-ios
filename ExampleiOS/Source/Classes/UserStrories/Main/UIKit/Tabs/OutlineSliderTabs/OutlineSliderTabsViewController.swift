@@ -37,13 +37,21 @@ final class OutlineSliderTabsViewController: ScrollViewController {
     private func configureUI() {
         configureSegmentControlls()
         views.forEach() { stackView.addArrangedSubview($0) }
-        segmentControl.setTitles(["Default", "Disabled"])
+        segmentControl.setItems([
+        StandardSegmentedItem(title: "Default", accesibilityId: "SegmentControlDefault"),
+        StandardSegmentedItem(title: "Disabled", accesibilityId: "SegmentControlDisabled")])
         segmentControl.selectedSegmentIndex = 0
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
     }
 
     private func configureSegmentControlls() {
-        let segmentControlFirst = OutlineSliderTabSegmentedControl(titles: ["One", "Two", "Three"])
+        let segmentControlFirst = OutlineSliderTabSegmentedControl(
+            items: [
+                .init(title: "One", badgeStyle: nil, accesibilityId: "OutlineSliderTabOne1"),
+                .init(title: "Two", badgeStyle: nil, accesibilityId: "OutlineSliderTabOne2"),
+                .init(title: "Three", badgeStyle: nil, accesibilityId: "OutlineSliderTabOne3")
+            ]
+        )
         segmentControlFirst.selectedSegmentIndex = 0
         segmentControlFirst.contentInset = UIEdgeInsets(
             top: 0.0,
@@ -54,10 +62,19 @@ final class OutlineSliderTabsViewController: ScrollViewController {
         let viewFirst = TabsView<OutlineSliderTabSegmentedControl>(segmentView: segmentControlFirst, title: "Three controls", segmentOffset: 0.0)
         views.append(viewFirst)
         
-        let segmentControlSecond = OutlineSliderTabSegmentedControl(titles:
-                                                                ["One", "Two", "Three",
-                                                                 "Four", "Five", "Six",
-                                                                 "Seven", "Eight", "Nine"])
+        let segmentControlSecond = OutlineSliderTabSegmentedControl(
+            items: [
+                .init(title: "One", badgeStyle: nil, accesibilityId: "OutlineSliderTabTwo1"),
+                .init(title: "Two", badgeStyle: nil, accesibilityId: "OutlineSliderTabTwo2"),
+                .init(title: "Three", badgeStyle: nil, accesibilityId: "OutlineSliderTabTwo3"),
+                .init(title: "Four", badgeStyle: nil, accesibilityId: "OutlineSliderTabTwo4"),
+                .init(title: "Five", badgeStyle: nil, accesibilityId: "OutlineSliderTabTwo5"),
+                .init(title: "Six", badgeStyle: nil, accesibilityId: "OutlineSliderTabTwo6"),
+                .init(title: "Seven", badgeStyle: nil, accesibilityId: "OutlineSliderTabTwo7"),
+                .init(title: "Eight", badgeStyle: nil, accesibilityId: "OutlineSliderTabTwo8"),
+                .init(title: "Nine", badgeStyle: nil, accesibilityId: "OutlineSliderTabTwo9")
+            ]
+        )
         segmentControlSecond.selectedSegmentIndex = 0
         segmentControlSecond.isScrollEnabled = true
         segmentControlSecond.contentInset = UIEdgeInsets(
@@ -69,10 +86,18 @@ final class OutlineSliderTabsViewController: ScrollViewController {
         views.append(viewSecond)
 
         let segmentControlThird = OutlineSliderTabSegmentedControl(items: [
-            OutlineSliderTabItem(title: "One", badgeStyle: .default),
-            OutlineSliderTabItem(title: "Two", badgeStyle: .default),
-            OutlineSliderTabItem(title: "Three", badgeStyle: .natural),
-            OutlineSliderTabItem(title: "Four", badgeStyle: .clear)
+            OutlineSliderTabItem(
+                title: "One", badgeStyle: .default, accesibilityId: "OutlineSliderTabThree1"
+            ),
+            OutlineSliderTabItem(
+                title: "Two", badgeStyle: .default, accesibilityId: "OutlineSliderTabThree2"
+            ),
+            OutlineSliderTabItem(
+                title: "Three", badgeStyle: .natural, accesibilityId: "OutlineSliderTabThree3"
+            ),
+            OutlineSliderTabItem(
+                title: "Four", badgeStyle: .clear, accesibilityId: "OutlineSliderTabThree4"
+            )
         ])
         segmentControlThird.selectedSegmentIndex = 0
         segmentControlThird.isScrollEnabled = true
@@ -88,5 +113,5 @@ final class OutlineSliderTabsViewController: ScrollViewController {
     @objc private func segmentedValueChanged(_ control: StandardSegmentedControl) {
         views.forEach({ $0.isEnabled = control.selectedSegmentIndex == 1 ? false : true })
     }
- 
+
 }

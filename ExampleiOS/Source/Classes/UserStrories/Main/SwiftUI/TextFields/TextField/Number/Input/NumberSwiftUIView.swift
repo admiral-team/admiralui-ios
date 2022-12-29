@@ -18,7 +18,7 @@ struct NumberSwiftUIView: View {
     @State private var startValue: Double = 0
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
 
-    public var body: some View {
+    var body: some View {
         let scheme = schemeProvider.scheme
         NavigationContentView(navigationTitle: "Input") {
             scheme.backgroundColor.swiftUIColor

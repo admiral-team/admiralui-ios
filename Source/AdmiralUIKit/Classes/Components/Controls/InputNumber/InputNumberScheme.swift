@@ -8,15 +8,16 @@
 import AdmiralTheme
 import AdmiralUIResources
 /**
- InputNumberScheme - the visual scheme of InputNumber.
+ InputNumberScheme - the visual scheme.
  You can create a by specifying the following parameters in init:
  - InputNumberScheme() - Initialize default InputNumberScheme with default themezation
- # Example to create InputNumberScheme:
+Example to create InputNumberScheme:
+Code
  ```
 let scheme = InputNumberScheme()
  ```
  */
-public struct InputNumberScheme {
+public struct InputNumberScheme: AppThemeScheme {
 
     // MARK: - Public Properties
 

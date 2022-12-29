@@ -22,12 +22,12 @@ import AdmiralUIResources
  # Code
  ```
  @State static var value: Double = 10.0
-    InputNumber(
-                titleText: .constant("Optional text"),
-                value: .constant(10),
-                minimumValue: .constant(5.0))
+ InputNumber(
+ titleText: .constant("Optional text"),
+ value: .constant(10),
+ minimumValue: .constant(5.0))
  ```
-*/
+ */
 @available(iOS 14.0, *)
 /// An object that displays an editable text area with incrementing or decrementing a value.
 public struct InputNumber: View {
@@ -218,29 +218,17 @@ public struct InputNumber: View {
                     .foregroundColor(scheme.textColor.parameter(for: isEnabled ? .normal : .disabled)?.swiftUIColor)
                 Spacer()
 
-                switch style {
-                case .default:
-                    minusButton()
-                        .buttonStyle(InputNumberButtonStyle(
-                                        isPressing: $isMinusPressing,
-                                        backgroundColor: scheme.backgroundColor,
-                                        tintColor: scheme.tintColor,
-                                        image: Image(uiImage: Asset.Service.Outline.minusOutline.image),
-                                        onTap: {
-                                            tapMinus()
-                                        }))
-                case .input:
-                    minusButton()
-                        .buttonStyle(NumberInputButtonStyle(
-                                        isPressing: $isMinusPressing,
-                                        backgroundColor: scheme.backgroundColor,
-                                        tintColor: scheme.tintColor,
-                                        image: Image(uiImage: Asset.Service.Outline.minusOutline.image),
-                                        type: .left,
-                                        onTap: {
-                                            tapMinus()
-                                        }))
-                }
+                minusButton()
+                    .buttonStyle(
+                        InputNumberButtonStyle(
+                            isPressing: $isMinusPressing,
+                            image: Image(uiImage: Asset.Service.Outline.minusOutline.image),
+                            style: style,
+                            type: .left,
+                            onTap: { tapMinus() },
+                            schemeProvider: .constant(scheme: scheme.buttonScheme)
+                        )
+                    )
                 Spacer()
                     .frame(width: spacerOffset)
 
@@ -248,29 +236,17 @@ public struct InputNumber: View {
 
                 Spacer()
                     .frame(width: spacerOffset)
-                switch style {
-                case .default:
-                    plusButton()
-                        .buttonStyle(InputNumberButtonStyle(
-                                        isPressing: $isPlusPressing,
-                                        backgroundColor: scheme.backgroundColor,
-                                        tintColor: scheme.tintColor,
-                                        image: Image(uiImage: Asset.Service.Outline.plusOutline.image),
-                                        onTap: {
-                                            tapPlus()
-                                        }))
-                case .input:
-                    plusButton()
-                        .buttonStyle(NumberInputButtonStyle(
-                                        isPressing: $isPlusPressing,
-                                        backgroundColor: scheme.backgroundColor,
-                                        tintColor: scheme.tintColor,
-                                        image: Image(uiImage: Asset.Service.Outline.plusOutline.image),
-                                        type: .right,
-                                        onTap: {
-                                            tapPlus()
-                                        }))
-                }
+                plusButton()
+                    .buttonStyle(
+                        InputNumberButtonStyle(
+                            isPressing: $isPlusPressing,
+                            image: Image(uiImage: Asset.Service.Outline.plusOutline.image),
+                            style: style,
+                            type: .right,
+                            onTap: { tapPlus() },
+                            schemeProvider: .constant(scheme: scheme.buttonScheme)
+                        )
+                    )
             }
             .frame(height: Constants.height)
             .onAppear(perform: {
@@ -302,7 +278,7 @@ public struct InputNumber: View {
 
         return HStack {
             switch style {
-            case .default:
+            case .default, .secondary:
                 defaultContent()
             case .input:
                 inputContent()
@@ -320,19 +296,19 @@ public struct InputNumber: View {
     @ViewBuilder
     private func plusButton() -> some View {
         Button(action: {}, label: {})
-        .onChange(of: isPlusPressing) { value in
-            if value {
-                timer?.invalidate()
-                timer = Timer.scheduledTimer(
-                    withTimeInterval: Constants.tick,
-                    repeats: true) { timer in
-                    runTimedPlusCode()
+            .onChange(of: isPlusPressing) { value in
+                if value {
+                    timer?.invalidate()
+                    timer = Timer.scheduledTimer(
+                        withTimeInterval: Constants.tick,
+                        repeats: true) { timer in
+                            runTimedPlusCode()
+                        }
+                } else {
+                    finishTimer()
                 }
-            } else {
-                finishTimer()
             }
-        }
-        .disabled(isPlusButtonDisabled)
+            .disabled(isPlusButtonDisabled)
     }
 
     @ViewBuilder
@@ -344,8 +320,8 @@ public struct InputNumber: View {
                     timer = Timer.scheduledTimer(
                         withTimeInterval: Constants.tick,
                         repeats: true) { timer in
-                        runTimedMinusCode()
-                    }
+                            runTimedMinusCode()
+                        }
                 } else {
                     finishTimer()
                 }
@@ -389,12 +365,12 @@ public struct InputNumber: View {
             updateWidth: $updatedWidth,
             accessibilityIdentifier: accessibilityIdentifier
         )
-            .fixedSize(horizontal: isFixedTextFieldSize(), vertical: true)
-            .frame(width: textFieldWidth())
-            .modifier(SizeAwareViewModifier(viewSize: $segmentSize))
-            .onChange(of: valueText) { _ in
-                updateTextValueState()
-            }
+        .fixedSize(horizontal: isFixedTextFieldSize(), vertical: true)
+        .frame(width: textFieldWidth())
+        .modifier(SizeAwareViewModifier(viewSize: $segmentSize))
+        .onChange(of: valueText) { _ in
+            updateTextValueState()
+        }
         Spacer()
             .frame(width: LayoutGrid.halfModule)
     }

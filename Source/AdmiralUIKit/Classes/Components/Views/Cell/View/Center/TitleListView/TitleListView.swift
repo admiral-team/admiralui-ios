@@ -16,16 +16,17 @@ open class TitleListView: BaseListView, CenterListViewComponent, AnyAppThemable,
     public var title: String? {
         didSet { titleLabel.text = title }
     }
+
+    /// Color scheme.
+    public var scheme = TitleListViewScheme() {
+        didSet { updateScheme() }
+    }
     
     // MARK: Internal Properties
     
     /// The state of the view. Default is normal.
     override var state: UIControl.State {
         didSet { configure(for: state) }
-    }
-    
-    var scheme = TitleListViewScheme() {
-        didSet { updateScheme() }
     }
     
     // MARK: - AccessibilitySupport

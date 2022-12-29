@@ -45,7 +45,9 @@ final class CheckboxViewController: ScrollViewController {
         views.forEach() {
             stackView.addArrangedSubview($0)
         }
-        segmentControl.setTitles(["Default", "Disabled"])
+        segmentControl.setItems([
+        StandardSegmentedItem(title: "Default", accesibilityId: "SegmentControlDefault"),
+        StandardSegmentedItem(title: "Disabled", accesibilityId: "SegmentControlDisabled")])
         segmentControl.selectedSegmentIndex = 0
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
     }
@@ -55,21 +57,30 @@ final class CheckboxViewController: ScrollViewController {
             textCheckboxTitle: "Text",
             checkBoxesControlState: .normal,
             isSelected: false,
-            titleText: "Default")
+            titleText: "Default",
+            firstCheckBoxAccessibilityId: "FirstCheckBoxesCellViewFirstControl",
+            secondCheckBoxAccessibilityId: "FirstCheckBoxesCellViewSecondControl"
+        )
         views.append(defaultCheckBox)
         
         let selectedCheckBox = CheckBoxesCellView(
             textCheckboxTitle: "Text",
             checkBoxesControlState: .normal,
             isSelected: true,
-            titleText: "Selected")
+            titleText: "Selected",
+            firstCheckBoxAccessibilityId: "SecondCheckBoxesCellViewFirstControl",
+            secondCheckBoxAccessibilityId: "SecondCheckBoxesCellViewSecondControl"
+        )
         views.append(selectedCheckBox)
         
         let errorCheckBox = CheckBoxesCellView(
             textCheckboxTitle: "Text",
             checkBoxesControlState: .error,
             isSelected: false,
-            titleText: "Error")
+            titleText: "Error",
+            firstCheckBoxAccessibilityId: "ThirdCheckBoxesCellViewFirstControl",
+            secondCheckBoxAccessibilityId: "ThirdCheckBoxesCellViewSecondControl"
+        )
         views.append(errorCheckBox)
     }
     

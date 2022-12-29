@@ -175,7 +175,7 @@ class MainViewController: UIViewController, AnyAppThemable {
                 didSelect: { [weak self] in self?.presentRadioAndSwitcher() }),
             
             MainTableViewCellViewModel(
-                title: "Сheckbox",
+                title: "Checkbox",
                 subtitle: "Селектор",
                 image: Asset.Main.checkboxes.image,
                 didSelect: { [weak self] in self?.presentCheckbox() }),
@@ -248,7 +248,7 @@ class MainViewController: UIViewController, AnyAppThemable {
 
             MainTableViewCellViewModel(
                 title: "Chat",
-                subtitle: "Чат",
+                subtitle: "Chat",
                 image: Asset.Main.chat.image,
                 didSelect: { [weak self] in self?.presentChat() }),
 
@@ -284,11 +284,12 @@ extension MainViewController: SearchBarDelegate {
     }
     
     func searchBar(_ searchBar: SearchBar, textDidChange searchText: String) {
-        if searchText.isEmpty {
+        let textWithoutSpaces = searchText.trimmingCharacters(in: .whitespaces)
+        if textWithoutSpaces.isEmpty {
             tableViewManager.sections = [MainSectionViewModel(items: items)]
             isSearching = false
         } else {
-            filterData(text: searchText)
+            filterData(text: textWithoutSpaces)
             isSearching = true
         }
     }
@@ -402,7 +403,7 @@ extension MainViewController {
     
     private func presentCalendar() {
         let viewController = CalendarsViewController()
-        viewController.title = "Calendars"
+        viewController.title = "Calendar"
         navigationController?.pushViewController(viewController, animated: true)
     }
     
@@ -456,7 +457,7 @@ extension MainViewController {
 
     private func presentChat() {
         let viewController = ChatViewController()
-        viewController.title = "Чат"
+        viewController.title = "Chat"
         navigationController?.pushViewController(viewController, animated: true)
     }
 

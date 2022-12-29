@@ -8,23 +8,40 @@
 import AdmiralTheme
 import AdmiralUIResources
 
-public struct PrimaryButtonCustomScheme {
-    
-    var normalTextColor: AColor
-    var disabledTextColor: AColor
-    
-    var backgroundLayerColor: AColor
-    var backgroundNormalColor: AColor
-    var backgroundHightlightedColor: AColor
-    var backgroundDisabledColor: AColor
-    
-    var titleLabelFont: AFont
+/**
+ PrimaryButtonCustomScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - PrimaryButtonCustomScheme() - Initialize default PrimaryButtonCustomScheme with default themezation
+Example to create PrimaryButtonCustomScheme:
+Code
+ ```
+let scheme = PrimaryButtonCustomScheme()
+ ```
+ */
+public struct PrimaryButtonCustomScheme: AppThemeScheme {
 
-    init() {
-        self.init(theme: AppTheme.default)
-    }
+    /// Normal text color.
+    public var normalTextColor: AColor
+
+    /// Disabled text color.
+    public var disabledTextColor: AColor
+
+    /// Background layer color.
+    public var backgroundLayerColor: AColor
+
+    /// Background normal color.
+    public var backgroundNormalColor: AColor
+
+    /// Background hightlighted color.
+    public var backgroundHightlightedColor: AColor
+
+    /// Background disabled color.
+    public var backgroundDisabledColor: AColor
+
+    /// Title label font.
+    public var titleLabelFont: AFont
     
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
 
         titleLabelFont = theme.fonts.body1

@@ -182,6 +182,10 @@ final class TextInputDecorationView: UIView, AnyAppThemable, AccessibilitySuppor
             textStyle: scheme.informerFont.textStyle,
             adjustsFontForContentSize: adjustsFontForContentSizeCategory)
         nameLabelMinFont = scheme.nameLabelMinFont.uiFont
+        leadingTextLabel.setDynamicFont(
+            font: scheme.leadingTextFont.uiFont,
+            textStyle: scheme.leadingTextFont.textStyle,
+            adjustsFontForContentSize: adjustsFontForContentSizeCategory)
     }
     
     private func commonInit() {
@@ -233,6 +237,7 @@ final class TextInputDecorationView: UIView, AnyAppThemable, AccessibilitySuppor
         informerLabel.backgroundColor = .clear
         separatorView.backgroundColor = .clear
         tapAreaView.backgroundColor = .clear
+        leadingTextLabel.backgroundColor = .clear
                 
         updateState()
     }

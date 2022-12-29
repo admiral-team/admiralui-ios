@@ -4,6 +4,7 @@
 //
 //  Created on 09.11.2021.
 //
+// swiftlint:disable all
 
 import Combine
 import UIKit
@@ -34,12 +35,12 @@ final class SwiftUIChatInputViewModel: ObservableObject {
             return formatter.string(from: Date())
         }()
 
-        init(text: String, status: ChatStatus? = nil, direction: ChatDirection = .right, name: String? = nil) {
+        init(text: String, status: ChatStatus? = nil, direction: ChatDirection = .right, name: String? = nil, time: String = "") {
             self.text = text
             self.status = status
             self.direction = direction
             self.name = name
-            time = dateTime
+            self.time = time
         }
 
         static func == (lhs: SwiftUIChatInputViewModel.ChatMessage, rhs: SwiftUIChatInputViewModel.ChatMessage) -> Bool {
@@ -59,9 +60,20 @@ final class SwiftUIChatInputViewModel: ObservableObject {
     ///  Messages list
     @Published var messages = [
         ChatMessage(
-            text: "Привет, какой у Вас вопрос?",
+            text: "At breakpoint boundaries, mini units divide",
             direction: .left,
-            name: "Антон"
+            time: "14:52"
+        ),
+        ChatMessage(
+            text: "Text message",
+            direction: .left,
+            time: "14:52"
+        ),
+        ChatMessage(
+            text: "At breakpoint boundaries, miniunits divide the screen into a fixed master grid, and multiples of mini units map to fluid grid column widths and row heights.",
+            status: .loading,
+            direction: .right,
+            time: "14:52"
         )
     ]
 

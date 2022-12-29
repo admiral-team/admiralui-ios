@@ -96,8 +96,9 @@ open class BigInformer: UIView, AnyAppThemable, AccessibilitySupport {
     open var style: InformerStyle = .default {
         didSet { updateScheme() }
     }
-    
-    var scheme = BigInformerScheme() {
+
+    /// Color scheme.
+    public var scheme = BigInformerScheme() {
         didSet { updateScheme() }
     }
     

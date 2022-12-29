@@ -9,15 +9,21 @@ import UIKit
 import AdmiralTheme
 import AdmiralUIResources
 
-struct ListCellScheme {
+/**
+ ListCellScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - ListCellScheme() - Initialize default ListCellScheme with default themezation
+Example to create ListCellScheme:
+Code
+ ```
+let scheme = ListCellScheme()
+ ```
+ */
+public struct ListCellScheme {
     
-    var backgroundColor = ControlParameter<AColor>()
+    public var backgroundColor = ControlParameter<AColor>()
     
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         backgroundColor.set(parameter: theme.colors.backgroundSelected, for: .highlighted)
         backgroundColor.set(parameter: theme.colors.backgroundBasic, for: .normal)
     }

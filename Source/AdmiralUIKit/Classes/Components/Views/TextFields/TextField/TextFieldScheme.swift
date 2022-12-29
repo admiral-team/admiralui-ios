@@ -8,40 +8,41 @@
 import AdmiralTheme
 import AdmiralUIResources
 /**
- TextFieldScheme - the visual scheme of InputNumber.
+ TextFieldScheme - the visual scheme.
  You can create a by specifying the following parameters in init:
  - TextFieldScheme() - Initialize default TextFieldScheme with default themezation
- # Example to create TextFieldScheme:
+Example to create TextFieldScheme:
+Code
  ```
 let scheme = TextFieldScheme()
  ```
  */
-public struct TextFieldScheme {
+public struct TextFieldScheme: AppThemeScheme {
 
     // MARK: - Public Properties
 
-    /// Tint  color
+    /// Tint color.
     public var tintColor: AColor
 
-    /// Text color
+    /// Text color.
     public var textColor: AColor
 
-    /// Error color
+    /// Error color.
     public var errorColor: AColor
 
-    /// Disabled color
+    /// Disabled color.
     public var disabledColor: AColor
 
-    /// Separator color
+    /// Underline color.
     public var underlineColor: AColor
 
-    /// Placeholder label color
+    /// Placeholder color.
     public var placeholderColor: AColor
 
-    /// Text field font
+    /// Text field font.
     public var textFieldFont: AFont
 
-    /// Informer label font 
+    /// Informer font.
     public var informerFont: AFont
 
     // MARK: - Initializer

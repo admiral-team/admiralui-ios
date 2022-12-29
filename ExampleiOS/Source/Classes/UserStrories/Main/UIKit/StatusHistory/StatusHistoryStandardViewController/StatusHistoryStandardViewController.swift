@@ -67,7 +67,10 @@ final class StatusHistoryStandardViewController: UIViewController, AnyAppThemabl
         statusView.statusText = "В обработке"
         statusView.statusImage = AdmiralUIResources.Asset.System.Solid.timeSolid.image
         statusView.status = .hold
-        
+
+        inputNumber.minusButtonAccesibilityId = "StatusHistoryStandartInputNumberMinusButton"
+        inputNumber.plusButtonAccesibilityId = "StatusHistoryStandartInputNumberPlusButton"
+
         addSubviews()
         configureConstraints()
     }

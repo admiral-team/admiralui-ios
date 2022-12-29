@@ -9,20 +9,37 @@ import AdmiralTheme
 import AdmiralUIResources
 import UIKit
 
-struct ArrowWithButtonHeaderScheme {
+/**
+ ArrowWithButtonHeaderScheme - the visual scheme.
+ You can create a by specifying the following parameters in init:
+ - ArrowWithButtonHeaderScheme() - Initialize default ArrowWithButtonHeaderScheme with default themezation
+Example to create ArrowWithButtonHeaderScheme:
+Code
+ ```
+let scheme = ArrowWithButtonHeaderScheme()
+ ```
+ */
+public struct ArrowWithButtonHeaderScheme: AppThemeScheme {
+
+    /// Background color.
+    public var backgroundColor: AColor
+
+    /// Default title font.
+    public var defaultTitleFont: AFont
+
+    /// Title font.
+    public var titleFont = TitleHeaderViewParameters<AFont>()
+
+    /// Text Color.
+    public var textColor = TitleHeaderViewParameters<AColor>()
+
+    /// Image tint color.
+    public var imageTintColor: AColor
+
+    /// Ghost button scheme.
+    public var ghostButtonScheme: GhostButtonCustomScheme
     
-    var backgroundColor: AColor
-    var defaultTitleFont: AFont
-    var titleFont = TitleHeaderViewParameters<AFont>()
-    var textColor = TitleHeaderViewParameters<AColor>()
-    var imageTintColor: AColor
-    var ghostButtonScheme: GhostButtonCustomScheme
-    
-    init() {
-        self.init(theme: AppTheme.default)
-    }
-    
-    init(theme: AppTheme) {
+    public init(theme: AppTheme = .default) {
         let alpha = theme.colors.disabledAlpha
         backgroundColor = theme.colors.backgroundBasic
         
