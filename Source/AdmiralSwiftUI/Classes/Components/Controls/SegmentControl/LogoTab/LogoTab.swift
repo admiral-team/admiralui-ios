@@ -122,8 +122,20 @@ public struct LogoTab: View {
             self.activeSegmentView
         }
         .accessibilityElement()
-        .accessibilityValue(String(format: tabAccessibilityValueFormatString, selection + 1, items.count))
         .accessibilityAddTraits(.isButton)
+        .accessibilityValue(String(format: tabAccessibilityValueFormatString, selection + 1, items.count))
+        .accessibilityAdjustableAction { direction in
+            switch direction {
+            case .increment:
+                guard selection < (items.count - 1) else { break }
+                selection += 1
+            case .decrement:
+                guard selection > 0 else { break }
+                selection -= 1
+            @unknown default:
+                break
+            }
+        }
 
     }
 

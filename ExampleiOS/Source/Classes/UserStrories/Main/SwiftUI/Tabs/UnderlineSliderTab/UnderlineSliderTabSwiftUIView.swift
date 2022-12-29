@@ -12,6 +12,10 @@ import AdmiralSwiftUI
 @available(iOS 14.0.0, *)
 struct UnderlineSliderTabSwiftUIView: View {
     
+    enum Constants {
+        static let tabFormatAccessibilityValue = "%@. Page %i of %i"
+    }
+    
     @State private var isEnabledControlsState: Int = 0
     @State private var isTwoItemControlsState: Int = 0
     @State private var isThreeItemControlsState: Int = 0
@@ -31,7 +35,10 @@ struct UnderlineSliderTabSwiftUIView: View {
                 HStack {
                   Spacer()
                 }
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: ["Default", "Disabled"],
+                            selection: $isEnabledControlsState,
+                            tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue)
+                    .accessibility(identifier: "SegmentControl")
                     .padding()
                 Spacer()
                     .frame(height: 16.0)
@@ -45,9 +52,11 @@ struct UnderlineSliderTabSwiftUIView: View {
                             UnderlineTab(
                                 items: ["One", "Two", "Three"],
                                 selection: $isTwoItemControlsState,
-                                offset: .constant(16.0)
+                                offset: .constant(16.0),
+                                tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue
                             )
                             .disabled(isEnabledControlsState != 0)
+                            .accessibilityIdentifier("UnderlineTabThreeControls")
                             Spacer()
                         }
                     }
@@ -63,9 +72,11 @@ struct UnderlineSliderTabSwiftUIView: View {
                             UnderlineTab(
                                 items: ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven"],
                                 selection: $isThreeItemControlsState,
-                                offset: .constant(16.0)
+                                offset: .constant(16.0),
+                                tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue
                             )
                             .disabled(isEnabledControlsState != 0)
+                            .accessibilityIdentifier("UnderlineTabSliderControls")
                             Spacer()
                         }
                     }
@@ -81,9 +92,11 @@ struct UnderlineSliderTabSwiftUIView: View {
                             UnderlineTab(
                                 items: underlineTabItems,
                                 selection: $isStaticControlsState,
-                                offset: .constant(16.0)
+                                offset: .constant(16.0),
+                                tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue
                             )
                             .disabled(isEnabledControlsState != 0)
+                            .accessibilityIdentifier("UnderlineTabNotifications")
                             Spacer()
                         }
                     }

@@ -56,7 +56,7 @@ public struct StandardTab: View {
     @ObservedObject private var schemeProvider: SchemeProvider<StandardTabScheme>
 
     private let items: [String]
-    private var elementAccessibilityIdentifier: String
+    private var tabAccessibilityValueFormatString: String
 
     // MARK: - Initializer
 
@@ -64,12 +64,12 @@ public struct StandardTab: View {
     public init(
         items: [String],
         selection: Binding<Int>,
-        elementAccessibilityIdentifier: String = "",
+        tabAccessibilityValueFormatString: String = "",
         schemeProvider: SchemeProvider<StandardTabScheme> = AppThemeSchemeProvider<StandardTabScheme>()
     ) {
         self._selection = selection
         self.items = items
-        self.elementAccessibilityIdentifier = elementAccessibilityIdentifier
+        self.tabAccessibilityValueFormatString = tabAccessibilityValueFormatString
         self.schemeProvider = schemeProvider
     }
 
@@ -82,7 +82,6 @@ public struct StandardTab: View {
                 HStack(spacing: 0.0) {
                     ForEach(0..<items.count, id: \.self) { index in
                         getSegmentView(for: index, width: geo.size.width)
-                            .accessibilityIdentifier("\(elementAccessibilityIdentifier)\(items[index])")
                         if index != items.count - 1, items.count != 2 {
                             Rectangle()
                                 .foregroundColor(scheme.borderColor.parameter(for: .normal)?.swiftUIColor ?? .clear)
@@ -116,6 +115,22 @@ public struct StandardTab: View {
         }
         .background(Color.clear)
         .clipShape(RoundedRectangle(cornerRadius: Constants.segmentCornerRadius))
+        .accessibilityElement()
+        .accessibilityValue(
+            String(format: tabAccessibilityValueFormatString, items[selection], selection + 1, items.count))
+        .accessibilityAddTraits(.isButton)
+        .accessibilityAdjustableAction { direction in
+            switch direction {
+            case .increment:
+                guard selection < (items.count - 1) else { break }
+                selection += 1
+            case .decrement:
+                guard selection > 0 else { break }
+                selection -= 1
+            @unknown default:
+                break
+            }
+        }
     }
 
     // MARK: - Private Methods

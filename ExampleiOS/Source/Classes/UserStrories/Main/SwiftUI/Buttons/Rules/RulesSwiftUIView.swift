@@ -14,6 +14,10 @@ import AdmiralUIResources
 @available(iOS 14.0.0, *)
 struct RulesSwiftUIView: View {
     
+    enum Constants {
+        static let tabFormatAccessibilityValue = "%@. Page %i of %i"
+    }
+    
     // MARK: - Internal Properties
 
     @State private var isDefaultCheckBoxSelected: Bool = false
@@ -28,7 +32,10 @@ struct RulesSwiftUIView: View {
         NavigationContentView(navigationTitle: "Rules") {
             scheme.backgroundColor.swiftUIColor
             ScrollView(.vertical, showsIndicators: false) {
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState, elementAccessibilityIdentifier: "StandardTab")
+                StandardTab(items: ["Default", "Disabled"],
+                            selection: $isEnabledControlsState,
+                            tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue)
+                    .accessibility(identifier: "SegmentControl")
                 Spacer()
                     .frame(height: 44.0)
                 

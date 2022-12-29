@@ -154,6 +154,18 @@ public struct OutlineSliderTab: View {
         .accessibilityValue(
             String(format: tabAccessibilityValueFormatString, items[selection].title, selection + 1, items.count))
         .accessibilityAddTraits(.isButton)
+        .accessibilityAdjustableAction { direction in
+            switch direction {
+            case .increment:
+                guard selection < (items.count - 1) else { break }
+                selection += 1
+            case .decrement:
+                guard selection > 0 else { break }
+                selection -= 1
+            @unknown default:
+                break
+            }
+        }
     }
 
     // MARK: - Private Methods

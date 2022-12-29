@@ -14,7 +14,7 @@ import AdmiralUIResources
 struct OutlineSliderTabSwiftUITab: View {
 
     enum Constants {
-        static let tabFormatAccessibilityValue = "%s. Page %i of %i"
+        static let tabFormatAccessibilityValue = "%@. Page %i of %i"
     }
     
     // MARK: - Private Properties
@@ -44,7 +44,10 @@ struct OutlineSliderTabSwiftUITab: View {
                 HStack {
                   Spacer()
                 }
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: ["Default", "Disabled"],
+                            selection: $isEnabledControlsState,
+                            tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue)
+                    .accessibility(identifier: "SegmentControl")
                     .padding()
                 Spacer()
                     .frame(height: 16.0)
@@ -62,7 +65,7 @@ struct OutlineSliderTabSwiftUITab: View {
                                 tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue
                             )
                                 .disabled(isEnabledControlsState != 0)
-                                .accessibilityIdentifier("OutlineSliderTabID")
+                                .accessibilityIdentifier("OutlineSliderTabThreeControls")
                             Spacer()
                         }
                     }
@@ -81,7 +84,7 @@ struct OutlineSliderTabSwiftUITab: View {
                                 tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue
                             )
                                 .disabled(isEnabledControlsState != 0)
-                                .accessibilityIdentifier("SliderControlsEleven")
+                                .accessibilityIdentifier("OutlineSliderTabElevenControls")
                             Spacer()
                         }
                     }
@@ -100,7 +103,7 @@ struct OutlineSliderTabSwiftUITab: View {
                                 tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue
                             )
                                 .disabled(isEnabledControlsState != 0)
-                                .accessibilityIdentifier("OutlineSliderTabNotificationsID")
+                                .accessibilityIdentifier("OutlineSliderTabNotifications")
                             Spacer()
                         }
                     }

@@ -13,7 +13,7 @@ import AdmiralSwiftUI
 struct LogoTabSwiftUIView: View {
 
     enum Constants {
-        static let tabFormatAccessibilityValue = "Page %i of %i"
+        static let tabFormatAccessibilityValue = "%@. Page %i of %i"
     }
     
     @State private var isEnabledControlsState: Int = 0
@@ -31,7 +31,10 @@ struct LogoTabSwiftUIView: View {
                 HStack {
                     Spacer()
                 }
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: ["Default", "Disabled"],
+                            selection: $isEnabledControlsState,
+                            tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue)
+                    .accessibility(identifier: "SegmentControl")
                 Spacer()
                     .frame(height: 16.0)
                 VStack(alignment: .leading) {

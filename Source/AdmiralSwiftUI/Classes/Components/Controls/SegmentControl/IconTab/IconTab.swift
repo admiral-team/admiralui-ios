@@ -74,6 +74,8 @@ public struct IconTab: View {
 
     @Binding private var selection: Int
     private var models: [IconTabModel] = []
+    
+    private var tabAccessibilityValueFormatString = ""
 
     @ObservedObject private var schemeProvider: SchemeProvider<IconTabScheme>
 
@@ -82,10 +84,12 @@ public struct IconTab: View {
     public init(
         models: [IconTabModel],
         selection: Binding<Int>,
+        tabAccessibilityValueFormatString: String = "",
         schemeProvider: SchemeProvider<IconTabScheme> = AppThemeSchemeProvider<IconTabScheme>()
     ) {
         self._selection = selection
         self.models = models
+        self.tabAccessibilityValueFormatString = tabAccessibilityValueFormatString
         self.schemeProvider = schemeProvider
     }
 
@@ -103,6 +107,21 @@ public struct IconTab: View {
         }
         .foregroundColor(scheme.backgroundColor.swiftUIColor)
         .frame(height: Constants.height)
+        .accessibilityElement()
+        .accessibilityAddTraits(.isButton)
+        .accessibilityValue(String(format: tabAccessibilityValueFormatString, models[selection].text, selection + 1, models.count))
+        .accessibilityAdjustableAction { direction in
+            switch direction {
+            case .increment:
+                guard selection < (models.count - 1) else { break }
+                selection += 1
+            case .decrement:
+                guard selection > 0 else { break }
+                selection -= 1
+            @unknown default:
+                break
+            }
+        }
     }
 
     // MARK: - Private properties

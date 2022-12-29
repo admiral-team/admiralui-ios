@@ -11,6 +11,10 @@ import AdmiralSwiftUI
 
 @available(iOS 14.0.0, *)
 struct IconTabsSwiftUI: View {
+    
+    enum Constants {
+        static let tabFormatAccessibilityValue = "%@. Page %i of %i"
+    }
 
     @State private var isEnabledControlsState: Int = 0
     @State private var isTwoItemControlsState: Int = 0
@@ -26,7 +30,10 @@ struct IconTabsSwiftUI: View {
                 HStack {
                   Spacer()
                 }
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: ["Default", "Disabled"],
+                            selection: $isEnabledControlsState,
+                            tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue)
+                    .accessibility(identifier: "SegmentControl")
                 Spacer()
                     .frame(height: 16.0)
                 VStack(alignment: .leading) {
@@ -45,9 +52,11 @@ struct IconTabsSwiftUI: View {
                                     text: "Two"
                                 )
                             ],
-                            selection: $isTwoItemControlsState
+                            selection: $isTwoItemControlsState,
+                            tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue
                         )
                         .disabled(isEnabledControlsState != 0)
+                        .accessibilityIdentifier("IconTabTwoControls")
                     }
                     Spacer()
                         .frame(height: 24.0)
@@ -70,9 +79,11 @@ struct IconTabsSwiftUI: View {
                                         text: "Three"
                                     )
                                 ],
-                                selection: $isThreeItemControlsState
+                                selection: $isThreeItemControlsState,
+                                tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue
                             )
                             .disabled(isEnabledControlsState != 0)
+                            .accessibilityIdentifier("IconTabThreeControls")
                     }
                     Spacer()
                         .frame(height: 24.0)
@@ -104,9 +115,11 @@ struct IconTabsSwiftUI: View {
                                         text: "Five"
                                     )
                                 ],
-                                selection: $isFourItemControlsState
+                                selection: $isFourItemControlsState,
+                                tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue
                             )
                             .disabled(isEnabledControlsState != 0)
+                            .accessibilityIdentifier("IconTabEmbeddedInScrollView")
                         }
                     }
                 }

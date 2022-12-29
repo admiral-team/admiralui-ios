@@ -13,7 +13,7 @@ import AdmiralSwiftUI
 struct InformerTabSwiftUIView: View {
 
     enum Constants {
-        static let tabFormatAccessibilityValue = "%s. Page %i of %i"
+        static let tabFormatAccessibilityValue = "%@. Page %i of %i"
     }
     
     @State private var isEnabledControlsState: Int = 0
@@ -29,7 +29,10 @@ struct InformerTabSwiftUIView: View {
                 HStack {
                     Spacer()
                 }
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: ["Default", "Disabled"],
+                            selection: $isEnabledControlsState,
+                            tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue)
+                    .accessibility(identifier: "SegmentControl")
                     .padding(.horizontal, 16.0)
                 Spacer()
                     .frame(height: 16.0)
@@ -53,7 +56,7 @@ struct InformerTabSwiftUIView: View {
                                 tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue
                             )
                                 .disabled(isEnabledControlsState != 0)
-                                .accessibilityIdentifier("InformerTabTwoID")
+                                .accessibilityIdentifier("InformerTabTwoControls")
                             Spacer()
                         }
                     }
@@ -78,9 +81,9 @@ struct InformerTabSwiftUIView: View {
                                                              ))),
                                         selection: $isThreeItemControlsState,
                                         offsetSegment: .constant(16.0),
-                                        tabAccessibilityValueFormatString: ""
+                                        tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue
                             )
-                                .accessibilityIdentifier("InformerTabThreeID")
+                                .accessibilityIdentifier("InformerTabThreeControls")
                                 .disabled(isEnabledControlsState != 0)
                             Spacer()
                         }

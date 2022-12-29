@@ -145,6 +145,18 @@ public struct InformerTab: View {
             .accessibilityValue(
                 String(format: tabAccessibilityValueFormatString, items[selection].title + items[selection].subtitle, selection + 1, items.count))
             .accessibilityAddTraits(.isButton)
+            .accessibilityAdjustableAction { direction in
+                switch direction {
+                case .increment:
+                    guard selection < (items.count - 1) else { break }
+                    selection += 1
+                case .decrement:
+                    guard selection > 0 else { break }
+                    selection -= 1
+                @unknown default:
+                    break
+                }
+            }
             
             Spacer()
                 .frame(height: LayoutGrid.halfModule)

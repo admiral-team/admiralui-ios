@@ -13,6 +13,11 @@ import AdmiralUIResources
 @available(iOS 14.0.0, *)
 struct PrimaryButtonsSwiftUIView: View {
     
+    enum Constants {
+        static let tabFormatAccessibilityValue = "%@ Page %i of %i"
+    }
+
+    
     // MARK: - Image Direction
     
     enum ImageDirection {
@@ -32,7 +37,10 @@ struct PrimaryButtonsSwiftUIView: View {
         NavigationContentView(navigationTitle: "Primary Buttons") {
             scheme.backgroundColor.swiftUIColor
             ScrollView(.vertical, showsIndicators: false) {
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState, elementAccessibilityIdentifier: "StandardTab")
+                StandardTab(items: ["Default", "Disabled"],
+                            selection: $isEnabledControlsState,
+                            tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue)
+                    .accessibility(identifier: "SegmentControl")
                 Spacer()
                     .frame(height: 44.0)
                 VStack(alignment: .leading, spacing: 16.0) {

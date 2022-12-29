@@ -232,7 +232,7 @@ public class PlainSegmentedControl: UIControl {
                 options: [.curveEaseInOut],
                 animations: {
                     self.thumbView.frame = CGRect(
-                        orfigin: origin,
+                        origin: origin,
                         size: CGSize(width: segmentWidth + viewBorderWidth, height: self.height))
                 }, completion: nil)
         } else {
