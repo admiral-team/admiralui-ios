@@ -33,13 +33,13 @@ struct InformerTabSwiftUIView: View {
                             selection: $isEnabledControlsState,
                             tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue)
                     .accessibility(identifier: "SegmentControl")
-                    .padding(.horizontal, 16.0)
+                    .padding(.horizontal, LayoutGrid.doubleModule)
                 Spacer()
-                    .frame(height: 16.0)
+                    .frame(height: LayoutGrid.doubleModule)
                 VStack(alignment: .leading) {
-                    VStack(alignment: .leading, spacing: 16.0) {
+                    VStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
                         Text("Two controls")
-                            .padding(.horizontal, 16.0)
+                            .padding(.horizontal, LayoutGrid.doubleModule)
                             .foregroundColor(scheme.textColor.swiftUIColor)
                             .font(scheme.textFont.swiftUIFont)
                         VStack(alignment: .leading) {
@@ -52,7 +52,7 @@ struct InformerTabSwiftUIView: View {
                                                         description: .constant("Выгодный вариант для  двухкомнатной квартиры или дачного дома"
                                                         ))),
                                 selection: $isTwoItemControlsState,
-                                offsetSegment: .constant(16.0),
+                                offsetSegment: .constant(LayoutGrid.doubleModule),
                                 tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue
                             )
                                 .disabled(isEnabledControlsState != 0)
@@ -61,7 +61,7 @@ struct InformerTabSwiftUIView: View {
                         }
                     }
                     Spacer()
-                        .frame(height: 24.0)
+                        .frame(height: LayoutGrid.tripleModule)
                     
                     
                     VStack(alignment: .leading, spacing: 16.0) {

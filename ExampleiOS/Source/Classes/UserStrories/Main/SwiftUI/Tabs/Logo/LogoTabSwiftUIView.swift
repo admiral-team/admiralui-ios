@@ -36,9 +36,9 @@ struct LogoTabSwiftUIView: View {
                             tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue)
                     .accessibility(identifier: "SegmentControl")
                 Spacer()
-                    .frame(height: 16.0)
+                    .frame(height: LayoutGrid.doubleModule)
                 VStack(alignment: .leading) {
-                    VStack(alignment: .leading, spacing: 16.0) {
+                    VStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
                         Text("Two controls")
                             .foregroundColor(scheme.textColor.swiftUIColor)
                             .font(scheme.textFont.swiftUIFont)
@@ -57,8 +57,8 @@ struct LogoTabSwiftUIView: View {
                         }
                     }
                     Spacer()
-                        .frame(height: 24.0)
-                    VStack(alignment: .leading, spacing: 16.0) {
+                        .frame(height: LayoutGrid.tripleModule)
+                    VStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
                         Text("Three controls")
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)
@@ -78,8 +78,8 @@ struct LogoTabSwiftUIView: View {
                         }
                     }
                     Spacer()
-                        .frame(height: 24.0)
-                    VStack(alignment: .leading, spacing: 16.0) {
+                        .frame(height: LayoutGrid.tripleModule)
+                    VStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
                         Text("Four controls")
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)
@@ -100,8 +100,8 @@ struct LogoTabSwiftUIView: View {
                         }
                     }
                     Spacer()
-                        .frame(height: 24.0)
-                    VStack(alignment: .leading, spacing: 16.0) {
+                        .frame(height: LayoutGrid.tripleModule)
+                    VStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
                         Text("Five controls")
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)

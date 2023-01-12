@@ -43,7 +43,7 @@ struct UnderlineSliderTabSwiftUIView: View {
                 Spacer()
                     .frame(height: 16.0)
                 VStack(alignment: .leading) {
-                    VStack(alignment: .leading, spacing: 16.0) {
+                    VStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
                         Text("Three controls")
                             .foregroundColor(scheme.textColor.swiftUIColor)
                             .font(scheme.textFont.swiftUIFont)
@@ -52,7 +52,7 @@ struct UnderlineSliderTabSwiftUIView: View {
                             UnderlineTab(
                                 items: ["One", "Two", "Three"],
                                 selection: $isTwoItemControlsState,
-                                offset: .constant(16.0),
+                                offset: .constant(LayoutGrid.doubleModule),
                                 tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue
                             )
                             .disabled(isEnabledControlsState != 0)
@@ -61,9 +61,9 @@ struct UnderlineSliderTabSwiftUIView: View {
                         }
                     }
                     Spacer()
-                        .frame(height: 24.0)
+                        .frame(height: LayoutGrid.tripleModule)
 
-                    VStack(alignment: .leading, spacing: 16.0) {
+                    VStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
                         Text("Slider controls")
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)
@@ -72,7 +72,7 @@ struct UnderlineSliderTabSwiftUIView: View {
                             UnderlineTab(
                                 items: ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven"],
                                 selection: $isThreeItemControlsState,
-                                offset: .constant(16.0),
+                                offset: .constant(LayoutGrid.doubleModule),
                                 tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue
                             )
                             .disabled(isEnabledControlsState != 0)
@@ -83,7 +83,7 @@ struct UnderlineSliderTabSwiftUIView: View {
                     Spacer()
                         .frame(height: 24.0)
 
-                    VStack(alignment: .leading, spacing: 16.0) {
+                    VStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
                         Text("Notifications")
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)

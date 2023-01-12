@@ -35,9 +35,9 @@ struct IconTabsSwiftUI: View {
                             tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue)
                     .accessibility(identifier: "SegmentControl")
                 Spacer()
-                    .frame(height: 16.0)
+                    .frame(height: LayoutGrid.doubleModule)
                 VStack(alignment: .leading) {
-                    VStack(alignment: .leading, spacing: 16.0) {
+                    VStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
                         Text("Two controls")
                             .foregroundColor(scheme.textColor.swiftUIColor)
                             .font(scheme.textFont.swiftUIFont)
@@ -59,8 +59,8 @@ struct IconTabsSwiftUI: View {
                         .accessibilityIdentifier("IconTabTwoControls")
                     }
                     Spacer()
-                        .frame(height: 24.0)
-                    VStack(alignment: .leading, spacing: 16.0) {
+                        .frame(height: LayoutGrid.tripleModule)
+                    VStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
                         Text("Three controls")
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)
@@ -86,8 +86,8 @@ struct IconTabsSwiftUI: View {
                             .accessibilityIdentifier("IconTabThreeControls")
                     }
                     Spacer()
-                        .frame(height: 24.0)
-                    VStack(alignment: .leading, spacing: 16.0) {
+                        .frame(height: LayoutGrid.tripleModule)
+                    VStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
                         Text("Embedded in ScrollView")
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)
