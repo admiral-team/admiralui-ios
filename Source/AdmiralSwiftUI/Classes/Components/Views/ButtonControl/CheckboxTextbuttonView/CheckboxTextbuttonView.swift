@@ -62,6 +62,8 @@ public struct CheckboxTextbuttonView: View {
 
     // MARK: Internal Properties
 
+    var checkBoxAccessibilityIdentifier: String
+    var linkButtonAccessibilityIdentifier: String
     @ObservedObject var schemeProvider: SchemeProvider<CheckboxTextbuttonViewScheme>
 
     // MARK: - Initializer
@@ -71,12 +73,16 @@ public struct CheckboxTextbuttonView: View {
         title: String,
         isSelected: Binding<Bool>,
         subtitleButtonTitle: String? = nil,
+        checkBoxAccessibilityIdentifier: String = "",
+        linkButtonAccessibilityIdentifier: String = "",
         subtitleButtonAction: @escaping () -> () = {},
         schemeProvider: SchemeProvider<CheckboxTextbuttonViewScheme> = AppThemeSchemeProvider<CheckboxTextbuttonViewScheme>()
     ) {
         self.title = title
         self._isSelected = isSelected
         self.subtitleButtonTitle = subtitleButtonTitle
+        self.checkBoxAccessibilityIdentifier = checkBoxAccessibilityIdentifier
+        self.linkButtonAccessibilityIdentifier = linkButtonAccessibilityIdentifier
         self.subtitleButtonAction = subtitleButtonAction
         self.schemeProvider = schemeProvider
     }
@@ -90,6 +96,7 @@ public struct CheckboxTextbuttonView: View {
         VStack(alignment: .leading) {
             HStack(alignment: .top, spacing: 0){
                 CheckBox(isSelected: $isSelected, text: "", checkState: .normal)
+                    .accessibilityIdentifier(checkBoxAccessibilityIdentifier)
                 Spacer()
                     .frame(width: Constants.spacing)
                 VStack(alignment: .leading, spacing: Constants.spacing) {
@@ -102,6 +109,7 @@ public struct CheckboxTextbuttonView: View {
                     if let subtitleButtonTitle = subtitleButtonTitle {
                         Button(action: subtitleButtonAction, label: {})
                             .buttonStyle(PrimaryLinkControlStyle(text: subtitleButtonTitle, direction: .left, style: .default))
+                            .accessibilityIdentifier(linkButtonAccessibilityIdentifier)
                     }
                 }
             }

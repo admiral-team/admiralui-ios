@@ -12,6 +12,10 @@ import AdmiralSwiftUI
 @available(iOS 14.0.0, *)
 struct StandardTabSwiftUIView: View {
     
+    enum Constants {
+        static let tabFormatAccessibilityValue = "%@. Page %i of %i"
+    }
+    
     @State private var isEnabledControlsState: Int = 0
     @State private var isTwoItemControlsState: Int = 0
     @State private var isThreeItemControlsState: Int = 0
@@ -27,7 +31,10 @@ struct StandardTabSwiftUIView: View {
                 HStack {
                   Spacer()
                 }
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: ["Default", "Disabled"],
+                            selection: $isEnabledControlsState,
+                            tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue)
+                    .accessibility(identifier: "SegmentControl")
                 Spacer()
                     .frame(height: 54.0)
                 VStack(alignment: .leading) {
@@ -36,8 +43,11 @@ struct StandardTabSwiftUIView: View {
                             .foregroundColor(scheme.textColor.swiftUIColor)
                             .font(scheme.textFont.swiftUIFont)
                         VStack(alignment: .leading) {
-                            StandardTab(items: ["One", "Two"], selection: $isTwoItemControlsState)
+                            StandardTab(items: ["One", "Two"],
+                                        selection: $isTwoItemControlsState,
+                                        tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue)
                                 .disabled(isEnabledControlsState != 0)
+                                .accessibility(identifier: "StandardTabTwoControls")
                             Spacer()
                         }
                     }
@@ -48,8 +58,11 @@ struct StandardTabSwiftUIView: View {
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)
                         VStack(alignment: .leading) {
-                            StandardTab(items: ["One", "Two", "Three"], selection: $isThreeItemControlsState)
+                            StandardTab(items: ["One", "Two", "Three"],
+                                        selection: $isThreeItemControlsState,
+                                        tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue)
                                 .disabled(isEnabledControlsState != 0)
+                                .accessibility(identifier: "StandardTabThreeControls")
                             Spacer()
                         }
                     }
@@ -60,8 +73,11 @@ struct StandardTabSwiftUIView: View {
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)
                         VStack(alignment: .leading) {
-                            StandardTab(items: ["One", "Two", "Three", "Four"], selection: $isFourItemControlsState)
+                            StandardTab(items: ["One", "Two", "Three", "Four"],
+                                        selection: $isFourItemControlsState,
+                                        tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue)
                                 .disabled(isEnabledControlsState != 0)
+                                .accessibility(identifier: "StandardTabFourControls")
                             Spacer()
                         }
                     }
@@ -72,8 +88,11 @@ struct StandardTabSwiftUIView: View {
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)
                         VStack(alignment: .leading) {
-                            StandardTab(items: ["One", "Two", "Three", "Four", "Five"], selection: $isFiveItemControlsState)
+                            StandardTab(items: ["One", "Two", "Three", "Four", "Five"],
+                                        selection: $isFiveItemControlsState,
+                                        tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue)
                                 .disabled(isEnabledControlsState != 0)
+                                .accessibility(identifier: "StandardTabFiveControls")
                             Spacer()
                         }
                     }

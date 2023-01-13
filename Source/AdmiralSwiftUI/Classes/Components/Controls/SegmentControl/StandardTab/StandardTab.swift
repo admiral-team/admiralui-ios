@@ -56,6 +56,7 @@ public struct StandardTab: View {
     @ObservedObject private var schemeProvider: SchemeProvider<StandardTabScheme>
 
     private let items: [String]
+    private var tabAccessibilityValueFormatString: String
 
     // MARK: - Initializer
 
@@ -63,10 +64,12 @@ public struct StandardTab: View {
     public init(
         items: [String],
         selection: Binding<Int>,
+        tabAccessibilityValueFormatString: String = "",
         schemeProvider: SchemeProvider<StandardTabScheme> = AppThemeSchemeProvider<StandardTabScheme>()
     ) {
         self._selection = selection
         self.items = items
+        self.tabAccessibilityValueFormatString = tabAccessibilityValueFormatString
         self.schemeProvider = schemeProvider
     }
 
@@ -112,6 +115,22 @@ public struct StandardTab: View {
         }
         .background(Color.clear)
         .clipShape(RoundedRectangle(cornerRadius: Constants.segmentCornerRadius))
+        .accessibilityElement()
+        .accessibilityValue(
+            String(format: tabAccessibilityValueFormatString, items[selection], selection + 1, items.count))
+        .accessibilityAddTraits(.isButton)
+        .accessibilityAdjustableAction { direction in
+            switch direction {
+            case .increment:
+                guard selection < (items.count - 1) else { break }
+                selection += 1
+            case .decrement:
+                guard selection > 0 else { break }
+                selection -= 1
+            @unknown default:
+                break
+            }
+        }
     }
 
     // MARK: - Private Methods
