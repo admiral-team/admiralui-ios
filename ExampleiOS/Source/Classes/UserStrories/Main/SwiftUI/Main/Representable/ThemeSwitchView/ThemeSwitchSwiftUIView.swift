@@ -101,6 +101,9 @@ struct ThemeSwitchSwiftUIView: View {
         .padding(LayoutGrid.module)
         .background(backgroundColor?.swiftUIColor)
         .clipShape(RoundedRectangle(cornerRadius: LayoutGrid.tripleModule))
+        .accessibilityElement()
+        .accessibilityAddTraits(.isButton)
+        .accessibility(identifier: items[index].identifier)
     }
 
 }
