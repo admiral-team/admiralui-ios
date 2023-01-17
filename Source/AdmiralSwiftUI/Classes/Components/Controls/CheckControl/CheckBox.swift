@@ -45,6 +45,8 @@ public struct CheckBox: View {
     
     @Environment(\.isEnabled) private var isEnabled
     
+    private var checkBoxValueFormatString = ""
+    
     @ObservedObject private var schemeProvider: SchemeProvider<CheckControlScheme>
 
     // MARK: - Computed Properties
@@ -59,11 +61,13 @@ public struct CheckBox: View {
         isSelected: Binding<Bool>,
         text: String,
         checkState: CheckControlState,
+        checkBoxValueFormatString: String = "",
         schemeProvider: SchemeProvider<CheckControlScheme> = AppThemeSchemeProvider<CheckControlScheme>()
     ) {
         self._isSelected = isSelected
         self._text = .init(initialValue: text)
         self._checkState = .init(initialValue: checkState)
+        self.checkBoxValueFormatString = checkBoxValueFormatString
         self.schemeProvider = schemeProvider
     }
     
@@ -102,6 +106,8 @@ public struct CheckBox: View {
                     .font(scheme.textFont.swiftUIFont)
             }
         }
+        .accessibilityElement()
+        .accessibilityValue(String(format: checkBoxValueFormatString, isSelected ? "enable" : "disable"))
         .onTapGesture {
             isSelected.toggle()
         }

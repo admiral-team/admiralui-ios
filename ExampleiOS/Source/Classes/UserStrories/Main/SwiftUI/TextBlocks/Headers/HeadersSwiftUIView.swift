@@ -51,7 +51,8 @@ struct HeadersSwiftUIView: View {
                             buttonTitle: "Button",
                             buttonAction: {},
                             dropDownHeaderType: .down,
-                            headerStyle: .title)
+                            headerStyle: .title,
+                            buttonAccesibilityId: "Title1TitleArrowWithButtonHeader")
                         TitleHeader(
                             title: "Title",
                             textAligment: .center,
@@ -87,7 +88,8 @@ struct HeadersSwiftUIView: View {
                             buttonTitle: "Button",
                             buttonAction: {},
                             dropDownHeaderType: .down,
-                            headerStyle: .body)
+                            headerStyle: .body,
+                            buttonAccesibilityId: "Subtitle2TitleArrowWithButtonHeader")
                         TitleHeader(
                             title: "Title",
                             textAligment: .center,
@@ -126,7 +128,8 @@ struct HeadersSwiftUIView: View {
                             buttonTitle: "Button",
                             buttonAction: {},
                             dropDownHeaderType: .down,
-                            headerStyle: .headline)
+                            headerStyle: .headline,
+                            buttonAccesibilityId: "HeadlineTitleArrowWithButtonHeader")
                         TitleHeader(
                             title: "Title",
                             textAligment: .center,

@@ -12,6 +12,10 @@ import AdmiralSwiftUI
 @available(iOS 14.0.0, *)
 struct ImageLableComponentsSwiftUIView: View {
     
+    enum Constants {
+        static let tabFormatAccessibilityValue = "%@. Page %i of %i"
+    }
+    
     @State private var selectedIndex: Int?
     @State private var isEnabledControlsState: Int = 0
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
@@ -22,7 +26,10 @@ struct ImageLableComponentsSwiftUIView: View {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
             VStack(alignment: .leading, spacing: 0.0) {
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: ["Default", "Disabled"],
+                            selection: $isEnabledControlsState,
+                            tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue)
+                    .accessibility(identifier: "SegmentControl")
                     .padding()
                 ScrollView(showsIndicators: false) {
                     ListCell(
@@ -34,6 +41,7 @@ struct ImageLableComponentsSwiftUIView: View {
                                 get: { self.selectedIndex == 0 },
                                 set: { _, _ in self.selectedIndex = self.selectedIndex == 0 ? nil : 0 }
                             ))
+                        .accessibility(identifier: "LeadingCardTitleArrowListCell")
                         .disabled(isEnabledControlsState != 0)
                     ListCell(
                         leadingView: { ImageListView(image: Image(uiImage: Asset.Card.rnb.image)) },
@@ -44,6 +52,7 @@ struct ImageLableComponentsSwiftUIView: View {
                                 get: { self.selectedIndex == 1 },
                                 set: { _, _ in self.selectedIndex = self.selectedIndex == 1 ? nil : 1 }
                             ))
+                        .accessibility(identifier: "FirstImageTitleArrowListCell")
                         .disabled(isEnabledControlsState != 0)
                     ListCell(
                         leadingView: { ImageNameListView(text: "IN") },
@@ -54,6 +63,7 @@ struct ImageLableComponentsSwiftUIView: View {
                                 get: { self.selectedIndex == 2 },
                                 set: { _, _ in self.selectedIndex = self.selectedIndex == 2 ? nil : 2 }
                             ))
+                        .accessibility(identifier: "SecondImageTitleArrowListCell")
                         .disabled(isEnabledControlsState != 0)
                     ListCell(
                         leadingView: { ImageBackgroundListView(image: Image(uiImage: Asset.Main.gem.image), renderingMode: .template) },
@@ -64,6 +74,7 @@ struct ImageLableComponentsSwiftUIView: View {
                                 get: { self.selectedIndex == 3 },
                                 set: { _, _ in self.selectedIndex = self.selectedIndex == 3 ? nil : 3 }
                             ))
+                        .accessibility(identifier: "ThirdImageTitleArrowListCell")
                         .disabled(isEnabledControlsState != 0)
                     ListCell(
                         leadingView: { ImageListView(image: Image(uiImage: Asset.Main.gem.image), renderingMode: .template) },
@@ -74,6 +85,7 @@ struct ImageLableComponentsSwiftUIView: View {
                                 get: { self.selectedIndex == 4 },
                                 set: { _, _ in self.selectedIndex = self.selectedIndex == 4 ? nil : 4 }
                             ))
+                        .accessibility(identifier: "FourthImageTitleArrowListCell")
                         .disabled(isEnabledControlsState != 0)
                 }
                 .padding(.bottom, LayoutGrid.doubleModule * 4)

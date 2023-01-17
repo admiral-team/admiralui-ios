@@ -46,6 +46,8 @@ public struct ButtonWithArrowListView: View, CenterListViewComponent, TralingLis
     var action: () -> ()
 
     // MARK: - Private Properties
+    
+    private var accesibilityId: String
 
     @ObservedObject private var schemeProvider: SchemeProvider<ButtonWithArrowListViewScheme>
     
@@ -55,12 +57,14 @@ public struct ButtonWithArrowListView: View, CenterListViewComponent, TralingLis
     public init(
         text: String,
         image: Image = Image(uiImage: Asset.System.Outline.chevronDownOutline.image),
+        accesibilityId: String = "",
         schemeProvider: SchemeProvider<ButtonWithArrowListViewScheme> = AppThemeSchemeProvider<ButtonWithArrowListViewScheme>(),
         action: @escaping () -> ()
     ) {
         self._text = Binding(get: { return text }, set: { _ in })
         self._image = Binding(get: { return image }, set: { _ in })
         self.action = action
+        self.accesibilityId = accesibilityId
         self.schemeProvider = schemeProvider
     }
 
@@ -75,6 +79,7 @@ public struct ButtonWithArrowListView: View, CenterListViewComponent, TralingLis
                     schemeProvider: .constant(scheme: scheme.button)
                 )
             )
+            .accessibility(identifier: accesibilityId)
     }
 
 }

@@ -37,6 +37,8 @@ public struct LinkView: View {
     public var buttonAction: () -> ()
 
     // MARK: - Private Properties
+    
+    private var accesibilityId: String
 
     @ObservedObject private var schemeProvider: SchemeProvider<LinkViewScheme>
 
@@ -45,11 +47,13 @@ public struct LinkView: View {
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     public init(
         buttonTitle: String,
+        accesibilityId: String = "",
         schemeProvider: SchemeProvider<LinkViewScheme> = AppThemeSchemeProvider<LinkViewScheme>(),
         buttonAction: @escaping () -> ()
     ) {
         self._buttonTitle = Binding(get: { return buttonTitle }, set: { _ in })
         self.buttonAction = buttonAction
+        self.accesibilityId = accesibilityId
         self.schemeProvider = schemeProvider
     }
 
@@ -61,6 +65,7 @@ public struct LinkView: View {
                 HStack(spacing: 0.0) {
                     ButtonListView(
                         text: buttonTitle,
+                        accesibilityId: accesibilityId,
                         schemeProvider: .constant(scheme: schemeProvider.scheme.contentListViewScheme),
                         action: buttonAction)
                     Spacer()

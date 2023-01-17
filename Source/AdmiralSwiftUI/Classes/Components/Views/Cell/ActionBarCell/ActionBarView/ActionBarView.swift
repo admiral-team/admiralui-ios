@@ -79,6 +79,7 @@ public struct ActionBarView: View {
                         .frame(width: LayoutGrid.doubleModule)
                     ForEach(actions, id: \.self) { action in
                         controlView(action: action, scheme: scheme)
+                            .accessibility(identifier: action.accesibilityId)
                     }
                     Spacer()
                         .frame(width: LayoutGrid.halfModule)
