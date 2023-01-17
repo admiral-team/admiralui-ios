@@ -78,6 +78,7 @@ public struct UnderlineTab: View {
 
     @ObservedObject private var schemeProvider: SchemeProvider<UnderlineTabScheme>
 
+    private var tabAccessibilityValueFormatString = ""
     private let items: [UnderlineTabItem]
 
     // MARK: - Computed Properties
@@ -102,12 +103,14 @@ public struct UnderlineTab: View {
         selection: Binding<Int>,
         offset: Binding<CGFloat> = .constant(0.0),
         isStaticTabs: Binding<Bool> = .constant(false),
+        tabAccessibilityValueFormatString: String = "",
         schemeProvider: SchemeProvider<UnderlineTabScheme> = AppThemeSchemeProvider<UnderlineTabScheme>()
     ) {
         self._selection = selection
         self._offset = offset
         self.items = items
         self._isStaticTabs = isStaticTabs
+        self.tabAccessibilityValueFormatString = tabAccessibilityValueFormatString
         self.schemeProvider = schemeProvider
     }
 
@@ -117,6 +120,7 @@ public struct UnderlineTab: View {
         selection: Binding<Int>,
         offset: Binding<CGFloat> = .constant(0.0),
         isStaticTabs: Binding<Bool> = .constant(false),
+        tabAccessibilityValueFormatString: String = "",
         schemeProvider: SchemeProvider<UnderlineTabScheme> = AppThemeSchemeProvider<UnderlineTabScheme>()
     ) {
         self.init(
@@ -124,6 +128,7 @@ public struct UnderlineTab: View {
             selection: selection,
             offset: offset,
             isStaticTabs: isStaticTabs,
+            tabAccessibilityValueFormatString: tabAccessibilityValueFormatString,
             schemeProvider: schemeProvider
         )
     }
@@ -169,6 +174,22 @@ public struct UnderlineTab: View {
 
             isShowStartPositionActiveSegment = true
             setActiveSegmentX()
+        }
+        .accessibilityElement()
+        .accessibilityValue(
+            String(format: tabAccessibilityValueFormatString, items[selection].title, selection + 1, items.count))
+        .accessibilityAddTraits(.isButton)
+        .accessibilityAdjustableAction { direction in
+            switch direction {
+            case .increment:
+                guard selection < (items.count - 1) else { break }
+                selection += 1
+            case .decrement:
+                guard selection > 0 else { break }
+                selection -= 1
+            @unknown default:
+                break
+            }
         }
     }
 

@@ -13,6 +13,11 @@ import AdmiralUIResources
 @available(iOS 14.0.0, *)
 struct PrimaryButtonsSwiftUIView: View {
     
+    enum Constants {
+        static let tabFormatAccessibilityValue = "%@ Page %i of %i"
+    }
+
+    
     // MARK: - Image Direction
     
     enum ImageDirection {
@@ -32,7 +37,10 @@ struct PrimaryButtonsSwiftUIView: View {
         NavigationContentView(navigationTitle: "Primary buttons") {
             scheme.backgroundColor.swiftUIColor
             ScrollView(.vertical, showsIndicators: false) {
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: ["Default", "Disabled"],
+                            selection: $isEnabledControlsState,
+                            tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue)
+                    .accessibility(identifier: "SegmentControl")
                 Spacer()
                     .frame(height: 44.0)
                 VStack(alignment: .leading, spacing: 16.0) {
@@ -45,6 +53,7 @@ struct PrimaryButtonsSwiftUIView: View {
                     )
                     .frame(height: LayoutGrid.doubleModule * 3)
                     .disabled(isEnabledControlsState != 0)
+                    .accessibilityIdentifier("TwoTitlePrimaryButtonStyleID")
                     createBigButton()
                     createMediumButton()
                     createSmallButton()
@@ -63,14 +72,19 @@ struct PrimaryButtonsSwiftUIView: View {
                          direction: .left)
                 .buttonStyle(PrimaryButtonStyle(sizeType: .big))
                 .disabled(isEnabledControlsState != 0)
+                .accessibilityIdentifier("BigButtonLeftID")
+
             createButton(name: "Big button",
                          image: AdmiralUIResources.Asset.Category.Solid.maintenanceSolid.image,
                          direction: .right)
                 .buttonStyle(PrimaryButtonStyle(sizeType: .big))
                 .disabled(isEnabledControlsState != 0)
+                .accessibilityIdentifier("BigButtonRightID")
+
             SwiftUI.Button("Big button", action: {})
                 .buttonStyle(PrimaryButtonStyle(sizeType: .big))
                 .disabled(isEnabledControlsState != 0)
+                .accessibilityIdentifier("BigButtonNoneID")
         }
     }
     
@@ -79,12 +93,17 @@ struct PrimaryButtonsSwiftUIView: View {
             createButton(name: "Medium button", image: AdmiralUIResources.Asset.Category.Outline.heartOutline.image, direction: .left)
                 .buttonStyle(PrimaryButtonStyle(sizeType: .medium))
                 .disabled(isEnabledControlsState != 0)
-            createButton(name: "Medium button", image: AdmiralUIResources.Asset.Category.Solid.maintenanceSolid.image, direction: .right)
+                .accessibilityIdentifier("MediumButtonLeftID")
+            
+            createButton(name: "Medium Button", image: AdmiralUIResources.Asset.Category.Solid.maintenanceSolid.image, direction: .right)
                 .buttonStyle(PrimaryButtonStyle(sizeType: .medium))
                 .disabled(isEnabledControlsState != 0)
+                .accessibilityIdentifier("MediumButtonRightID")
+
             SwiftUI.Button("Medium button", action: {})
                 .buttonStyle(PrimaryButtonStyle(sizeType: .medium))
                 .disabled(isEnabledControlsState != 0)
+                .accessibilityIdentifier("MediumButtonNoneID")
         }
     }
     
@@ -94,13 +113,23 @@ struct PrimaryButtonsSwiftUIView: View {
                 .buttonStyle(PrimaryButtonStyle(sizeType: .none))
                 .frame(width: 164)
                 .disabled(isEnabledControlsState != 0)
+                .accessibilityIdentifier("SmallButtonLeftID")
+            
+            createButton(name: "Small Button", image: AdmiralUIResources.Asset.Category.Solid.maintenanceSolid.image, direction: .right)
+                .buttonStyle(PrimaryButtonStyle(sizeType: .none))
+                .frame(width: 164)
+                .disabled(isEnabledControlsState != 0)
+                .accessibilityIdentifier("SmallButtonRightID")
+
             createButton(name: "Small button", image: AdmiralUIResources.Asset.Category.Solid.maintenanceSolid.image, direction: .right)
                 .buttonStyle(PrimaryButtonStyle(sizeType: .none))
                 .frame(width: 164)
                 .disabled(isEnabledControlsState != 0)
+            
             SwiftUI.Button("Small button", action: {})
                 .buttonStyle(PrimaryButtonStyle(sizeType: .small))
                 .disabled(isEnabledControlsState != 0)
+                .accessibilityIdentifier("SmallButtonNoneID")
         }
     }
     
