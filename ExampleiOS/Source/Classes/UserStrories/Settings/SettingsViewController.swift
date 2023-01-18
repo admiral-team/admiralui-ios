@@ -53,7 +53,8 @@ final class SettingsViewController: BaseTableViewController {
             title: "Переключить на Swift UI",
             image: Asset.Settings.chip.image,
             isOn: defaults.bool(forKey: UserDefaults.Keys.isSwiftUIOn),
-            key: UserDefaults.Keys.isSwiftUIOn)
+            key: UserDefaults.Keys.isSwiftUIOn,
+            accessibilityId: "SwitchToSwiftUI")
         swiftUISwitchItem.delegate = self
         swiftUISwitchItem.isEnabled = isEnabled
         
@@ -63,7 +64,8 @@ final class SettingsViewController: BaseTableViewController {
             title: "Автоматическое переключение темы",
             image: Asset.Settings.chip.image,
             isOn: defaults.bool(forKey: UserDefaults.Keys.isSystemChangeThemeOn),
-            key: UserDefaults.Keys.isSystemChangeThemeOn)
+            key: UserDefaults.Keys.isSystemChangeThemeOn,
+            accessibilityId: "AutomaticChangeTheme")
         systemChangeThemeItem.delegate = self
         systemChangeThemeItem.isEnabled = isEnabled
         

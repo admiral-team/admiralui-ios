@@ -24,13 +24,16 @@ class SwitcherListTableViewCellViewModel: TableViewListItem {
     var isEnabled: Bool = true
     
     var didSelect: (() -> Void)?
+    
+    var accessibilityId: String
 
-    init(title: String, image: UIImage, isOn: Bool, didSelect: (() -> Void)? = nil, key: String) {
+    init(title: String, image: UIImage, isOn: Bool, didSelect: (() -> Void)? = nil, key: String, accessibilityId: String = "") {
         self.title = title
         self.image = image
         self.isOn = isOn
         self.didSelect = didSelect
         self.key = key
+        self.accessibilityId = accessibilityId
     }
 }
 
@@ -95,6 +98,7 @@ final class SwitcherListTableViewCell: TableListCell<ImageListView, TitleListVie
         delegate = item.delegate
         listCell?.isEnabled = item.isEnabled
         key = item.key
+        switchListView.customSwitchAccesibilityId = item.accessibilityId
     }
     
 }
