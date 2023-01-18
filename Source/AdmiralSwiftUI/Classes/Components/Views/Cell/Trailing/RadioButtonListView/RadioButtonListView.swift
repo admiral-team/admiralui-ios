@@ -45,6 +45,8 @@ public struct RadioButtonListView: View, TralingListViewComponent {
     
     /// The state of the view. Default is normal.
     @State var state: ControlState = .normal
+    
+    private var radioControlValueFormatString: String = ""
 
     @ObservedObject private var schemeProvider: SchemeProvider<RadioButtonListViewScheme>
     
@@ -53,9 +55,11 @@ public struct RadioButtonListView: View, TralingListViewComponent {
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     public init(
         isControlSelected: Binding<Bool>,
+        radioControlValueFormatString: String = "",
         schemeProvider: SchemeProvider<RadioButtonListViewScheme> = AppThemeSchemeProvider<RadioButtonListViewScheme>()
     ) {
         self._isControlSelected = isControlSelected
+        self.radioControlValueFormatString = radioControlValueFormatString
         self.schemeProvider = schemeProvider
     }
 
@@ -65,6 +69,7 @@ public struct RadioButtonListView: View, TralingListViewComponent {
         let scheme = schemeProvider.scheme
         RadioControl(
             isSelected: $isControlSelected,
+            radioControlValueFormatString: radioControlValueFormatString,
             schemeProvider: .constant(scheme: scheme.radioButtonScheme)
         )
     }

@@ -49,6 +49,7 @@ struct ActionBarSwiftUIView: View {
                                     image: AdmiralUIResources.AssetSymbol.System.Outline.arrowLeft.image,
                                     renderingMode: .template
                                 )
+                                    .accessibility(identifier: "DefaultCellSwipe")
                             },
                             isSelected:
                                 Binding(
@@ -60,23 +61,28 @@ struct ActionBarSwiftUIView: View {
                             ActionItemBarAction(
                                 image: Image(uiImage: Asset.ActionBar.moreOutline.image),
                                 imageStyle: .accent,
-                                handler: {}),
+                                handler: {},
+                                accesibilityId: "DefaultFirstAction"),
                             ActionItemBarAction(
                                 image: Image(uiImage: Asset.ActionBar.arrowUpOutline.image),
                                 imageStyle: .primary,
-                                handler: {}),
+                                handler: {},
+                                accesibilityId: "DefaultSecondAction"),
                             ActionItemBarAction(
                                 image: Image(uiImage: Asset.ActionBar.arrowDownOutline.image),
                                 imageStyle: .primary,
-                                handler: {}),
+                                handler: {},
+                                accesibilityId: "DefaultThirdAction"),
                             ActionItemBarAction(
                                 image: Image(uiImage: Asset.ActionBar.union.image),
                                 imageStyle: .accent,
-                                handler: {}),
+                                handler: {},
+                                accesibilityId: "DefaultFourthAction"),
                             ActionItemBarAction(
                                 image: Image(uiImage: Asset.ActionBar.closeOutline.image),
                                 imageStyle: .error,
-                                handler: {})
+                                handler: {},
+                                accesibilityId: "DefaultFifthAction")
                         ],
                         style: .default
                     )
@@ -96,6 +102,7 @@ struct ActionBarSwiftUIView: View {
                                 subtitle: "Swipe",
                                 image: AdmiralUIResources.AssetSymbol.System.Outline.arrowLeft.image,
                                 renderingMode: .template)
+                                    .accessibility(identifier: "SecondaryCellSwipe")
                             },
                             isSelected:
                                 Binding(
@@ -109,22 +116,22 @@ struct ActionBarSwiftUIView: View {
                                 imageStyle: .accent,
                                 style: .secondary,
                                 text: "Text",
-                                handler: {}
-                            ),
+                                handler: {},
+                                accesibilityId: "SecondaryFirstAction"),
                             ActionItemBarAction(
                                 image: Image(uiImage: Asset.ActionBar.union.image),
                                 imageStyle: .success,
                                 style: .secondary,
                                 text: "Text",
-                                handler: {}
-                            ),
+                                handler: {},
+                                accesibilityId: "SecondarySecondAction"),
                             ActionItemBarAction(
                                 image: Image(uiImage: Asset.ActionBar.shape.image),
                                 imageStyle: .attention,
                                 style: .secondary,
                                 text: "Text",
-                                handler: {}
-                            )
+                                handler: {},
+                                accesibilityId: "SecondaryThirdAction")
                         ],
                         style: .secondary
                     )

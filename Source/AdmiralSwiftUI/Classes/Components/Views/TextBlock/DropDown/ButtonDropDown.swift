@@ -43,6 +43,8 @@ public struct ButtonDropDown: View {
     @Binding public var drropDownHeaderType: DropDownHeaderType
 
     // MARK: - Private Properties
+    
+    private var buttonAccesibilityId: String
 
     @ObservedObject private var schemeProvider: SchemeProvider<ButtonDropDownScheme>
 
@@ -52,11 +54,13 @@ public struct ButtonDropDown: View {
     public init(
         buttonTitle: String,
         dropDownHeaderType: DropDownHeaderType = .down,
+        buttonAccesibilityId: String = "",
         schemeProvider: SchemeProvider<ButtonDropDownScheme> = AppThemeSchemeProvider<ButtonDropDownScheme>(),
         buttonAction: @escaping () -> ()
     ) {
         self._buttonTitle = Binding(get: { return buttonTitle }, set: { _ in })
         self._drropDownHeaderType = Binding(get: { return         dropDownHeaderType }, set: { _ in })
+        self.buttonAccesibilityId = buttonAccesibilityId
         self.buttonAction = buttonAction
         self.schemeProvider = schemeProvider
     }
@@ -68,6 +72,7 @@ public struct ButtonDropDown: View {
                     ButtonWithArrowListView(
                         text: buttonTitle,
                         image: drropDownHeaderType.image,
+                        accesibilityId: buttonAccesibilityId,
                         schemeProvider: .constant(scheme: schemeProvider.scheme.centerViewScheme),
                         action: buttonAction
                     )

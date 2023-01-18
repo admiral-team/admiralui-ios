@@ -44,6 +44,8 @@ public struct CheckBoxListView: View, TralingListViewComponent {
 
     /// The state of the view. Default is normal.
     @State var state: ControlState = .normal
+    
+    private var checkBoxValueFormatString = ""
 
     @ObservedObject private var schemeProvider: SchemeProvider<CheckBoxListViewScheme>
     
@@ -52,9 +54,11 @@ public struct CheckBoxListView: View, TralingListViewComponent {
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     public init(
         isControlSelected: Binding<Bool>,
+        checkBoxValueFormatString: String = "",
         schemeProvider: SchemeProvider<CheckBoxListViewScheme> = AppThemeSchemeProvider<CheckBoxListViewScheme>()
     ) {
         self._isControlSelected = isControlSelected
+        self.checkBoxValueFormatString = checkBoxValueFormatString
         self.schemeProvider = schemeProvider
     }
 

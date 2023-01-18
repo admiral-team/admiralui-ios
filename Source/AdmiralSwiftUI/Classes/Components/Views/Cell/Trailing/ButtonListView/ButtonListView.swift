@@ -41,6 +41,8 @@ public struct ButtonListView: View, TralingListViewComponent {
     var action: () -> ()
 
     // MARK: - Private Properties
+    
+    private var accesibilityId: String
 
     @ObservedObject private var schemeProvider: SchemeProvider<ButtonListViewScheme>
     
@@ -49,11 +51,13 @@ public struct ButtonListView: View, TralingListViewComponent {
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     public init(
         text: String,
+        accesibilityId: String = "",
         schemeProvider: SchemeProvider<ButtonListViewScheme> = AppThemeSchemeProvider<ButtonListViewScheme>(),
         action: @escaping () -> ()
     ) {
         self._text = Binding(get: { return text }, set: { _ in })
         self.action = action
+        self.accesibilityId = accesibilityId
         self.schemeProvider = schemeProvider
     }
 
@@ -63,6 +67,7 @@ public struct ButtonListView: View, TralingListViewComponent {
         HStack(alignment: .center) {
             Button(text, action: action)
                 .buttonStyle(GhostButtonStyle(schemeProvider: .constant(scheme: schemeProvider.scheme.buttonScheme)))
+                .accessibility(identifier: accesibilityId)
         }
     }
     

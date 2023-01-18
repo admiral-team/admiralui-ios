@@ -45,6 +45,8 @@ public struct RadioControl: View {
     // MARK: - Private Properties
     
     @Environment(\.isEnabled) private var isEnabled
+    
+    private var radioControlValueFormatString = ""
 
     @ObservedObject private var schemeProvider: SchemeProvider<CheckControlScheme>
 
@@ -60,11 +62,13 @@ public struct RadioControl: View {
         isSelected: Binding<Bool>,
         text: String = "",
         checkState: CheckControlState = .normal,
+        radioControlValueFormatString: String = "",
         schemeProvider: SchemeProvider<CheckControlScheme> = AppThemeSchemeProvider<CheckControlScheme>()
     ) {
         self._isSelected = isSelected
         self._text = .init(initialValue: text)
         self._checkState = .init(initialValue: checkState)
+        self.radioControlValueFormatString = radioControlValueFormatString
         self.schemeProvider = schemeProvider
     }
 
@@ -84,9 +88,11 @@ public struct RadioControl: View {
                     .foregroundColor(textColor?.swiftUIColor)
                     .font(scheme.textFont.swiftUIFont)
             }
-        }.onTapGesture {
+        }
+        .accessibilityElement()
+        .accessibilityValue(String(format: radioControlValueFormatString, isSelected ? "enable" : "disable"))
+        .onTapGesture {
             isSelected.toggle()
         }
     }
-    
 }
