@@ -45,6 +45,7 @@ class BaseTabBarController: UITabBarController, AppThemeable {
                 title: Constants.mainTabBarTitle,
                 image: AdmiralUIResources.Asset.System.Solid.starSolid.image,
                 tag: 0)
+            mainVC.tabBarItem.accessibilityIdentifier = "MainTabBarItem"
             return mainVC
         } else {
             return UINavigationController()
@@ -60,6 +61,7 @@ class BaseTabBarController: UITabBarController, AppThemeable {
             title: Constants.mainTabBarTitle,
             image: AdmiralUIResources.Asset.System.Solid.starSolid.image,
             tag: 0)
+        mainVC.tabBarItem.accessibilityIdentifier = "MainTabBarItem"
         return BaseNavigationController(rootViewController: mainVC)
     }
     
@@ -70,6 +72,7 @@ class BaseTabBarController: UITabBarController, AppThemeable {
             title: Constants.chatTitle,
             image: AdmiralUIResources.Asset.Category.Solid.chatSolid.image,
             tag: 2)
+        chatVC.tabBarItem.accessibilityIdentifier = "ChatTabBarItem"
         return BaseNavigationController(rootViewController: chatVC)
     }
     
@@ -82,6 +85,7 @@ class BaseTabBarController: UITabBarController, AppThemeable {
                 title: Constants.chatTitle,
                 image: AdmiralUIResources.Asset.Category.Solid.chatSolid.image,
                 tag: 0)
+            chatVC.tabBarItem.accessibilityIdentifier = "ChatTabBarItem"
             return chatVC
         } else {
             return UINavigationController()
@@ -113,6 +117,7 @@ class BaseTabBarController: UITabBarController, AppThemeable {
             title: Constants.infoTitle,
             image: AdmiralUIResources.Asset.Category.Solid.mobileSolid.image,
             tag: 1)
+        infoVC.tabBarItem.accessibilityIdentifier = "InfoTabBarItem"
         return BaseNavigationController(rootViewController: infoVC)
     }
     
@@ -123,6 +128,7 @@ class BaseTabBarController: UITabBarController, AppThemeable {
             title: Constants.settingsTitle,
             image: Asset.TabBar.settings.image,
             tag: 3)
+        settingsVC.tabBarItem.accessibilityIdentifier = "SeatingTabBarItem"
         return BaseNavigationController(rootViewController: settingsVC)
     }
     
