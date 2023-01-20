@@ -31,9 +31,9 @@ struct StandardTabSwiftUIView: View {
                 HStack {
                   Spacer()
                 }
-                StandardTab(items: ["Default", "Disabled"],
+                StandardTab(items: [StandartTabItem(text: "Default", accessibilityId: "SegmentControlDefault"),
+                                    StandartTabItem(text: "Disabled", accessibilityId: "SegmentControlDisabled")],
                             selection: $isEnabledControlsState)
-                    .accessibility(identifier: "SegmentControl")
                 Spacer()
                     .frame(height: 54.0)
                 VStack(alignment: .leading) {
