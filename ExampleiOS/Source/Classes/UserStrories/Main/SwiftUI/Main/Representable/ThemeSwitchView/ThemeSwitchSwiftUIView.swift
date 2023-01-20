@@ -32,24 +32,6 @@ struct ThemeSwitchSwiftUIView: View {
                 VStack(spacing: .zero) {
                     if !isListHidden {
                         scrollView(geometry: geometry)
-                            .accessibilityElement()
-                            .accessibility(addTraits: .isButton)
-                            .accessibility(identifier: "ThemeSwitchSwiftUI")
-                            .accessibilityValue("Page \(selectedIndex + 1) of \(items.count)")
-                            .accessibilityAdjustableAction { direction in
-                                switch direction {
-                                case .increment:
-                                    guard selectedIndex < (items.count - 1) else { break }
-                                    selectedIndex += 1
-                                    coordinator.didSelect(nil, at: selectedIndex)
-                                case .decrement:
-                                    guard selectedIndex > 0 else { break }
-                                    selectedIndex -= 1
-                                    coordinator.didSelect(nil, at: selectedIndex)
-                                @unknown default:
-                                    break
-                                }
-                            }
                     }
                     switchButton
                 }
@@ -80,7 +62,7 @@ struct ThemeSwitchSwiftUIView: View {
         HStack {
             Spacer().frame(width: LayoutGrid.doubleModule)
             HStack {
-                Spacer().frame(width: LayoutGrid.doubleModule - 2)
+                Spacer().frame(width: LayoutGrid.doubleModule)
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 14) {
                         ForEach(0..<items.count, id: \.self) { index in
@@ -90,7 +72,8 @@ struct ThemeSwitchSwiftUIView: View {
                     .padding(.vertical, LayoutGrid.module)
                     .frame(minWidth: geometry.size.width - ((LayoutGrid.doubleModule * 4) - LayoutGrid.halfModule))
                 }
-                Spacer().frame(width: LayoutGrid.doubleModule - 2)
+                Spacer()
+                    .frame(width: LayoutGrid.doubleModule)
             }
             .background(schemeProvider.scheme.backgroundColor.swiftUIColor)
             .clipShape(RoundedRectangle(cornerRadius: LayoutGrid.tripleModule))
@@ -100,7 +83,6 @@ struct ThemeSwitchSwiftUIView: View {
             )
             Spacer().frame(width: LayoutGrid.doubleModule)
         }
-        .accessibility(identifier: "Ellipse")
     }
 
     @ViewBuilder
@@ -111,9 +93,6 @@ struct ThemeSwitchSwiftUIView: View {
             Text(items[index].displayName)
                 .font(schemeProvider.scheme.font.swiftUIFont)
                 .foregroundColor(textColor?.swiftUIColor)
-                .accessibilityElement()
-                .accessibility(addTraits: .isButton)
-                .accessibility(identifier: items[index].identifier)
                 .onTapGesture {
                     selectedIndex = index
                     coordinator.didSelect(nil, at: index)
@@ -122,6 +101,9 @@ struct ThemeSwitchSwiftUIView: View {
         .padding(LayoutGrid.module)
         .background(backgroundColor?.swiftUIColor)
         .clipShape(RoundedRectangle(cornerRadius: LayoutGrid.tripleModule))
+        .accessibilityElement()
+        .accessibility(addTraits: .isButton)
+        .accessibility(identifier: items[index].identifier)
     }
 
 }

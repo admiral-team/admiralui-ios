@@ -33,8 +33,7 @@ struct TralingComponentsSwiftUIView: View {
                 .edgesIgnoringSafeArea(.all)
             ScrollView(showsIndicators: false) {
                 StandardTab(items: ["Default", "Disabled"],
-                            selection: $isEnabledControlsState,
-                            tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue)
+                            selection: $isEnabledControlsState)
                     .accessibility(identifier: "SegmentControl")
                     .padding()
                 LazyVStack(alignment: .leading) {

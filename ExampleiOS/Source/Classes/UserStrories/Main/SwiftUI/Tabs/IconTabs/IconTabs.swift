@@ -30,10 +30,11 @@ struct IconTabsSwiftUI: View {
                 HStack {
                   Spacer()
                 }
-                StandardTab(items: ["Default", "Disabled"],
-                            selection: $isEnabledControlsState,
-                            tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue)
-                    .accessibility(identifier: "SegmentControl")
+                StandardTab(items: [
+                    StandartTabItem(text: "Default", accessibilityId: "SegmentControlDefault"),
+                    StandartTabItem(text: "Disabled", accessibilityId: "SegmentControlDisabled")
+                ],
+                            selection: $isEnabledControlsState)
                 Spacer()
                     .frame(height: LayoutGrid.doubleModule)
                 VStack(alignment: .leading) {
@@ -45,18 +46,18 @@ struct IconTabsSwiftUI: View {
                             models: [
                                 IconTabModel(
                                     image: Image(uiImage: Asset.IconTabs.mobile.image),
-                                    text: "One"
+                                    text: "One",
+                                    accessibilityId: "TwoControlsFirst"
                                 ),
                                 IconTabModel(
                                     image: Image(uiImage: Asset.IconTabs.card.image),
-                                    text: "Two"
+                                    text: "Two",
+                                    accessibilityId: "TwoControlsSecond"
                                 )
                             ],
-                            selection: $isTwoItemControlsState,
-                            tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue
+                            selection: $isTwoItemControlsState
                         )
                         .disabled(isEnabledControlsState != 0)
-                        .accessibilityIdentifier("IconTabTwoControls")
                     }
                     Spacer()
                         .frame(height: LayoutGrid.tripleModule)
@@ -68,22 +69,23 @@ struct IconTabsSwiftUI: View {
                                 models: [
                                     IconTabModel(
                                         image: Image(uiImage: Asset.IconTabs.mobile.image),
-                                        text: "One"
+                                        text: "One",
+                                        accessibilityId: "ThreeControlsFirst"
                                     ),
                                     IconTabModel(
                                         image: Image(uiImage: Asset.IconTabs.card.image),
-                                        text: "Two"
+                                        text: "Two",
+                                        accessibilityId: "ThreeControlsSecond"
                                     ),
                                     IconTabModel(
                                         image: Image(uiImage: Asset.IconTabs.account.image),
-                                        text: "Three"
+                                        text: "Three",
+                                        accessibilityId: "ThreeControlsThird"
                                     )
                                 ],
-                                selection: $isThreeItemControlsState,
-                                tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue
+                                selection: $isThreeItemControlsState
                             )
                             .disabled(isEnabledControlsState != 0)
-                            .accessibilityIdentifier("IconTabThreeControls")
                     }
                     Spacer()
                         .frame(height: LayoutGrid.tripleModule)
@@ -96,30 +98,33 @@ struct IconTabsSwiftUI: View {
                                 models: [
                                     IconTabModel(
                                         image: Image(uiImage: Asset.IconTabs.mobile.image),
-                                        text: "One"
+                                        text: "One",
+                                        accessibilityId: "EmbeddedInScrollViewFirst"
                                     ),
                                     IconTabModel(
                                         image: Image(uiImage: Asset.IconTabs.card.image),
-                                        text: "Two"
+                                        text: "Two",
+                                        accessibilityId: "EmbeddedInScrollViewSecond"
                                     ),
                                     IconTabModel(
                                         image: Image(uiImage: Asset.IconTabs.account.image),
-                                        text: "Three"
+                                        text: "Three",
+                                        accessibilityId: "EmbeddedInScrollViewThird"
                                     ),
                                     IconTabModel(
                                         image: Image(uiImage: Asset.IconTabs.account.image),
-                                        text: "Four"
+                                        text: "Four",
+                                        accessibilityId: "EmbeddedInScrollViewFourth"
                                     ),
                                     IconTabModel(
                                         image: Image(uiImage: Asset.IconTabs.account.image),
-                                        text: "Five"
+                                        text: "Five",
+                                        accessibilityId: "EmbeddedInScrollViewFifth"
                                     )
                                 ],
-                                selection: $isFourItemControlsState,
-                                tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue
+                                selection: $isFourItemControlsState
                             )
                             .disabled(isEnabledControlsState != 0)
-                            .accessibilityIdentifier("IconTabEmbeddedInScrollView")
                         }
                     }
                 }

@@ -9,12 +9,19 @@ import AdmiralTheme
 import SwiftUI
 
 public struct InformerSegmentedItem {
+    /// Title item.
     var title: String
+    
+    /// Subtitle item.
     var subtitle: String
+    
+    /// The informer segment item accessibility id
+    public let accessibilityId: String
 
-    public init(title: String, subtitle: String) {
+    public init(title: String, subtitle: String, accessibilityId: String = "") {
         self.title = title
         self.subtitle = subtitle
+        self.accessibilityId = accessibilityId
     }
 }
 /**
@@ -74,7 +81,6 @@ public struct InformerTab: View {
 
     private var customView: AnyView
     private let items: [InformerSegmentedItem]
-    private var tabAccessibilityValueFormatString = ""
 
     // MARK: - Computed Properties
 
@@ -110,21 +116,18 @@ public struct InformerTab: View {
     ///   - customView: Custom view.
     ///   - selection: Selection index.
     ///   - offsetSegment: Offset segment.
-    ///   - tabAccessibilityValueFormatString: Accessibility value for tab. Need use format "%s, Page %i of %i".
     ///   - schemeProvider: Scheme provider.
     public init(
         items: [InformerSegmentedItem],
         customView: AnyView = AnyView(EmptyView()),
         selection: Binding<Int> = .constant(0),
         offsetSegment: Binding<CGFloat> = .constant(0.0),
-        tabAccessibilityValueFormatString: String = "",
         schemeProvider: SchemeProvider<InformerTabScheme> = AppThemeSchemeProvider<InformerTabScheme>()
     ) {
         self._selection = selection
         self._offsetSegment = offsetSegment
         self.customView = customView
         self.items = items
-        self.tabAccessibilityValueFormatString = tabAccessibilityValueFormatString
         self.schemeProvider = schemeProvider
     }
 
@@ -141,23 +144,6 @@ public struct InformerTab: View {
                 .frame(height: Constants.segmentHeight)
                 .padding(.horizontal, offsetSegment)
             }
-            .accessibilityElement()
-            .accessibilityValue(
-                String(format: tabAccessibilityValueFormatString, items[selection].title + items[selection].subtitle, selection + 1, items.count))
-            .accessibilityAddTraits(.isButton)
-            .accessibilityAdjustableAction { direction in
-                switch direction {
-                case .increment:
-                    guard selection < (items.count - 1) else { break }
-                    selection += 1
-                case .decrement:
-                    guard selection > 0 else { break }
-                    selection -= 1
-                @unknown default:
-                    break
-                }
-            }
-            
             Spacer()
                 .frame(height: LayoutGrid.halfModule)
             arrowSegmentSlider
@@ -216,6 +202,9 @@ public struct InformerTab: View {
             .contentShape(Rectangle())
             .onTapGesture { onItemTap(index: index) }
             .modifier(SizeAwareViewModifier(viewSize: $segmentSize))
+            .accessibilityElement()
+            .accessibilityAddTraits(.isButton)
+            .accessibility(identifier: items[index].accessibilityId)
             .eraseToAnyView()
     }
 

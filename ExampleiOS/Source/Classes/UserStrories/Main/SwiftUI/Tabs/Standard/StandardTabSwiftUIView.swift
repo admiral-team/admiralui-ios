@@ -32,8 +32,7 @@ struct StandardTabSwiftUIView: View {
                   Spacer()
                 }
                 StandardTab(items: ["Default", "Disabled"],
-                            selection: $isEnabledControlsState,
-                            tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue)
+                            selection: $isEnabledControlsState)
                     .accessibility(identifier: "SegmentControl")
                 Spacer()
                     .frame(height: 54.0)
@@ -44,8 +43,7 @@ struct StandardTabSwiftUIView: View {
                             .font(scheme.textFont.swiftUIFont)
                         VStack(alignment: .leading) {
                             StandardTab(items: ["One", "Two"],
-                                        selection: $isTwoItemControlsState,
-                                        tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue)
+                                        selection: $isTwoItemControlsState)
                                 .disabled(isEnabledControlsState != 0)
                                 .accessibility(identifier: "StandardTabTwoControls")
                             Spacer()
@@ -59,8 +57,7 @@ struct StandardTabSwiftUIView: View {
                             .foregroundColor(scheme.textColor.swiftUIColor)
                         VStack(alignment: .leading) {
                             StandardTab(items: ["One", "Two", "Three"],
-                                        selection: $isThreeItemControlsState,
-                                        tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue)
+                                        selection: $isThreeItemControlsState)
                                 .disabled(isEnabledControlsState != 0)
                                 .accessibility(identifier: "StandardTabThreeControls")
                             Spacer()
@@ -74,8 +71,7 @@ struct StandardTabSwiftUIView: View {
                             .foregroundColor(scheme.textColor.swiftUIColor)
                         VStack(alignment: .leading) {
                             StandardTab(items: ["One", "Two", "Three", "Four"],
-                                        selection: $isFourItemControlsState,
-                                        tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue)
+                                        selection: $isFourItemControlsState)
                                 .disabled(isEnabledControlsState != 0)
                                 .accessibility(identifier: "StandardTabFourControls")
                             Spacer()
@@ -89,8 +85,7 @@ struct StandardTabSwiftUIView: View {
                             .foregroundColor(scheme.textColor.swiftUIColor)
                         VStack(alignment: .leading) {
                             StandardTab(items: ["One", "Two", "Three", "Four", "Five"],
-                                        selection: $isFiveItemControlsState,
-                                        tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue)
+                                        selection: $isFiveItemControlsState)
                                 .disabled(isEnabledControlsState != 0)
                                 .accessibility(identifier: "StandardTabFiveControls")
                             Spacer()

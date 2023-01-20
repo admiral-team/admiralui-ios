@@ -20,9 +20,27 @@ struct UnderlineCenterTabSwiftUIView: View {
     @State private var isNotificationsControlsState: Int = 0
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
     
-    private let notificationTabItems = [UnderlineTabItem(title: "One", badgeStyle: .default),
-                                     UnderlineTabItem(title: "Two", badgeStyle: .default),
-                                     UnderlineTabItem(title: "Three", badgeStyle: .additional)]
+    private let twoControllsTabItems = [UnderlineTabItem(title: "One", badgeStyle: nil, accessibilityId: "TwoControlsFirst"),
+                                        UnderlineTabItem(title: "Two", badgeStyle: nil, accessibilityId: "TwoControlsSecond")]
+    
+    private let threeControllsTabItems = [UnderlineTabItem(title: "One", badgeStyle: nil, accessibilityId: "ThreeControlsFirst"),
+                                          UnderlineTabItem(title: "Two", badgeStyle: nil, accessibilityId: "ThreeControlsSecond"),
+                                          UnderlineTabItem(title: "Three", badgeStyle: nil, accessibilityId: "ThreeControlsThird")]
+    
+    private let fourControllsTabItems = [UnderlineTabItem(title: "One", badgeStyle: nil, accessibilityId: "FourControlsFirst"),
+                                         UnderlineTabItem(title: "Two", badgeStyle: nil, accessibilityId: "FourControlsSecond"),
+                                         UnderlineTabItem(title: "Three", badgeStyle: nil, accessibilityId: "FourControlsThird"),
+                                         UnderlineTabItem(title: "Four", badgeStyle: nil, accessibilityId: "FourControlsFourth")]
+    
+    private let fiveControllsTabItems = [UnderlineTabItem(title: "One", badgeStyle: nil, accessibilityId: "FiveControlsFirst"),
+                                         UnderlineTabItem(title: "Two", badgeStyle: nil, accessibilityId: "FiveControlsSecond"),
+                                         UnderlineTabItem(title: "Three", badgeStyle: nil, accessibilityId: "FiveControlsThird"),
+                                         UnderlineTabItem(title: "Four", badgeStyle: nil, accessibilityId: "FiveControlsFourth"),
+                                         UnderlineTabItem(title: "Five", badgeStyle: nil, accessibilityId: "FiveControlsFifth")]
+    
+    private let notificationTabItems = [UnderlineTabItem(title: "One", badgeStyle: .default, accessibilityId: "NotificationsFirst"),
+                                        UnderlineTabItem(title: "Two", badgeStyle: .default, accessibilityId: "NotificationsSecond"),
+                                        UnderlineTabItem(title: "Three", badgeStyle: .additional, accessibilityId: "NotificationsThird")]
     
     public var body: some View {
         let scheme = schemeProvider.scheme
@@ -32,7 +50,9 @@ struct UnderlineCenterTabSwiftUIView: View {
                 HStack {
                   Spacer()
                 }
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: [StandartTabItem(text: "Default", accessibilityId: "SegmentControlDefault"),
+                                    StandartTabItem(text: "Disabled", accessibilityId: "SegmentControlDisabled")],
+                            selection: $isEnabledControlsState)
                     .padding()
                 Spacer()
                     .frame(height: 16.0)
@@ -44,7 +64,7 @@ struct UnderlineCenterTabSwiftUIView: View {
                             .padding()
                         VStack(alignment: .leading) {
                             UnderlineTab(
-                                items: ["One", "Two"],
+                                items: twoControllsTabItems,
                                 selection: $isTwoItemControlsState,
                                 offset: .constant(16.0),
                                 isStaticTabs: .constant(true)
@@ -63,7 +83,7 @@ struct UnderlineCenterTabSwiftUIView: View {
                             .padding()
                         VStack(alignment: .leading) {
                             UnderlineTab(
-                                items: ["One", "Two", "Three"],
+                                items: threeControllsTabItems,
                                 selection: $isThreeItemControlsState,
                                 offset: .constant(16.0),
                                 isStaticTabs: .constant(true)
@@ -82,7 +102,7 @@ struct UnderlineCenterTabSwiftUIView: View {
                             .padding()
                         VStack(alignment: .leading) {
                             UnderlineTab(
-                                items: ["One", "Two", "Three", "Four"],
+                                items: fourControllsTabItems,
                                 selection: $isFourItemControlsState,
                                 offset: .constant(16.0),
                                 isStaticTabs: .constant(true)
@@ -101,7 +121,7 @@ struct UnderlineCenterTabSwiftUIView: View {
                         .padding()
                     VStack(alignment: .leading) {
                         UnderlineTab(
-                            items: ["One", "Two", "Three", "Four", "Five"],
+                            items: fiveControllsTabItems,
                             selection: $isFiveItemControlsState,
                             offset: .constant(16.0),
                             isStaticTabs: .constant(true)

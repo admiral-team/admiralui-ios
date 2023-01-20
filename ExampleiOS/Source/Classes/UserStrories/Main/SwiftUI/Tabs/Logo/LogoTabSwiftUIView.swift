@@ -23,6 +23,24 @@ struct LogoTabSwiftUIView: View {
     @State private var isFiveItemControlsState: Int = 0
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
     
+    private var twoControlsItems = [LogoTabItem(image: Image(Asset.Tabs.visaLogo.name), accessibilityId: "TwoControlsFirst"),
+                                    LogoTabItem(image: Image(Asset.Tabs.masterCardLogo.name), accessibilityId: "TwoControlsSecond")]
+    
+    private var threeControlsItems = [LogoTabItem(image: Image(Asset.Tabs.visaLogo.name), accessibilityId: "ThreeControlsFirst"),
+                                      LogoTabItem(image: Image(Asset.Tabs.masterCardLogo.name), accessibilityId: "ThreeControlsSecond"),
+                                      LogoTabItem(image: Image(Asset.Tabs.mirLogo.name), accessibilityId: "ThreeControlsThird")]
+    
+    private var fourControlsItems = [LogoTabItem(image: Image(Asset.Tabs.visaLogo.name), accessibilityId: "FourControlsFirst"),
+                                      LogoTabItem(image: Image(Asset.Tabs.masterCardLogo.name), accessibilityId: "FourControlsSecond"),
+                                      LogoTabItem(image: Image(Asset.Tabs.mirLogo.name), accessibilityId: "FourControlsThird"),
+                                     LogoTabItem(image: Image(Asset.Card.applePay.name), accessibilityId: "FourControlsFourth")]
+    
+    private var fiveControlsItems = [LogoTabItem(image: Image(Asset.Tabs.visaLogo.name), accessibilityId: "FiveControlsFirst"),
+                                      LogoTabItem(image: Image(Asset.Tabs.masterCardLogo.name), accessibilityId: "FiveControlsSecond"),
+                                      LogoTabItem(image: Image(Asset.Tabs.mirLogo.name), accessibilityId: "FiveControlsThird"),
+                                     LogoTabItem(image: Image(Asset.Card.applePay.name), accessibilityId: "FiveControlsFourth"),
+                                     LogoTabItem(image: Image(Asset.Card.googlePay.name), accessibilityId: "FiveControlsFourth")]
+    
     public var body: some View {
         let scheme = schemeProvider.scheme
         NavigationContentView(navigationTitle: "Logo Tabs") {
@@ -31,10 +49,9 @@ struct LogoTabSwiftUIView: View {
                 HStack {
                     Spacer()
                 }
-                StandardTab(items: ["Default", "Disabled"],
-                            selection: $isEnabledControlsState,
-                            tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue)
-                    .accessibility(identifier: "SegmentControl")
+                StandardTab(items: [StandartTabItem(text: "Default", accessibilityId: "SegmentControlDefault"),
+                                    StandartTabItem(text: "Disabled", accessibilityId: "SegmentControlDisabled")],
+                            selection: $isEnabledControlsState)
                 Spacer()
                     .frame(height: LayoutGrid.doubleModule)
                 VStack(alignment: .leading) {
@@ -44,15 +61,10 @@ struct LogoTabSwiftUIView: View {
                             .font(scheme.textFont.swiftUIFont)
                         VStack(alignment: .leading) {
                             LogoTab(
-                                images: [
-                                    Image(Asset.Tabs.visaLogo.name),
-                                    Image(Asset.Tabs.masterCardLogo.name)
-                                ],
-                                selection: $isTwoItemControlsState,
-                                tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue
+                                items: twoControlsItems,
+                                selection: $isTwoItemControlsState
                             )
                                 .disabled(isEnabledControlsState != 0)
-                                .accessibilityIdentifier("LogoTabTwoControls")
                             Spacer()
                         }
                     }
@@ -64,16 +76,10 @@ struct LogoTabSwiftUIView: View {
                             .foregroundColor(scheme.textColor.swiftUIColor)
                         VStack(alignment: .leading) {
                             LogoTab(
-                                images: [
-                                    Image(Asset.Tabs.visaLogo.name),
-                                    Image(Asset.Tabs.masterCardLogo.name),
-                                    Image(Asset.Tabs.mirLogo.name)
-                                ],
-                                selection: $isThreeItemControlsState,
-                                tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue
+                                items: threeControlsItems,
+                                selection: $isThreeItemControlsState
                             )
                                 .disabled(isEnabledControlsState != 0)
-                                .accessibilityIdentifier("LogoTabThreeControls")
                             Spacer()
                         }
                     }
@@ -85,17 +91,10 @@ struct LogoTabSwiftUIView: View {
                             .foregroundColor(scheme.textColor.swiftUIColor)
                         VStack(alignment: .leading) {
                             LogoTab(
-                                images: [
-                                    Image(Asset.Tabs.visaLogo.name),
-                                    Image(Asset.Tabs.masterCardLogo.name),
-                                    Image(Asset.Tabs.mirLogo.name),
-                                    Image(Asset.Card.applePay.name)
-                                ],
-                                selection: $isFourItemControlsState,
-                                tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue
+                                items: fourControlsItems,
+                                selection: $isFourItemControlsState
                             )
                                 .disabled(isEnabledControlsState != 0)
-                                .accessibilityIdentifier("LogoTabFourControls")
                             Spacer()
                         }
                     }
@@ -107,18 +106,10 @@ struct LogoTabSwiftUIView: View {
                             .foregroundColor(scheme.textColor.swiftUIColor)
                         VStack(alignment: .leading) {
                             LogoTab(
-                                images: [
-                                    Image(Asset.Tabs.visaLogo.name),
-                                    Image(Asset.Tabs.masterCardLogo.name),
-                                    Image(Asset.Tabs.mirLogo.name),
-                                    Image(Asset.Card.applePay.name),
-                                    Image(Asset.Card.googlePay.name)
-                                ],
-                                selection: $isFiveItemControlsState,
-                                tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue
+                                items: fiveControlsItems,
+                                selection: $isFiveItemControlsState
                             )
                                 .disabled(isEnabledControlsState != 0)
-                                .accessibilityIdentifier("LogoTabFiveControls")
                             Spacer()
                         }
                     }

@@ -44,12 +44,16 @@ public struct IconTabModel {
 
     /// The text of IconTabModel
     public let text: String
+    
+    /// The icon tab accessibility id
+    public let accessibilityId: String
 
     // MARK: - Initializer
 
-    public init(image: Image, text: String) {
+    public init(image: Image, text: String, accessibilityId: String = "") {
         self.image = image
         self.text = text
+        self.accessibilityId = accessibilityId
     }
 
 }
@@ -74,8 +78,6 @@ public struct IconTab: View {
 
     @Binding private var selection: Int
     private var models: [IconTabModel] = []
-    
-    private var tabAccessibilityValueFormatString = ""
 
     @ObservedObject private var schemeProvider: SchemeProvider<IconTabScheme>
 
@@ -84,12 +86,10 @@ public struct IconTab: View {
     public init(
         models: [IconTabModel],
         selection: Binding<Int>,
-        tabAccessibilityValueFormatString: String = "",
         schemeProvider: SchemeProvider<IconTabScheme> = AppThemeSchemeProvider<IconTabScheme>()
     ) {
         self._selection = selection
         self.models = models
-        self.tabAccessibilityValueFormatString = tabAccessibilityValueFormatString
         self.schemeProvider = schemeProvider
     }
 
@@ -107,21 +107,6 @@ public struct IconTab: View {
         }
         .foregroundColor(scheme.backgroundColor.swiftUIColor)
         .frame(height: Constants.height)
-        .accessibilityElement()
-        .accessibilityAddTraits(.isButton)
-        .accessibilityValue(String(format: tabAccessibilityValueFormatString, models[selection].text, selection + 1, models.count))
-        .accessibilityAdjustableAction { direction in
-            switch direction {
-            case .increment:
-                guard selection < (models.count - 1) else { break }
-                selection += 1
-            case .decrement:
-                guard selection > 0 else { break }
-                selection -= 1
-            @unknown default:
-                break
-            }
-        }
     }
 
     // MARK: - Private properties
@@ -146,6 +131,9 @@ public struct IconTab: View {
                 .opacity(scheme.alphaColor.parameter(for: isEnabled ? controlState : .disabled) ?? 1.0)
                 .font(scheme.titleFont.parameter(for: controlState)?.swiftUIFont)
         }
+        .accessibilityElement()
+        .accessibilityAddTraits(.isButton)
+        .accessibility(identifier: models[index].accessibilityId)
         .padding(.horizontal, Constants.contentPadding)
     }
 
