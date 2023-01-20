@@ -27,8 +27,7 @@ struct ImageLableComponentsSwiftUIView: View {
                 .edgesIgnoringSafeArea(.all)
             VStack(alignment: .leading, spacing: 0.0) {
                 StandardTab(items: ["Default", "Disabled"],
-                            selection: $isEnabledControlsState,
-                            tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue)
+                            selection: $isEnabledControlsState)
                     .accessibility(identifier: "SegmentControl")
                     .padding()
                 ScrollView(showsIndicators: false) {

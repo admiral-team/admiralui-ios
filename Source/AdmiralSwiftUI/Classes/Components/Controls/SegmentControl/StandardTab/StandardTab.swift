@@ -27,6 +27,26 @@ import SwiftUI
 */
 /// A horizontal control that consists of multiple segments, each segment functioning as a discrete text button.
 @available(iOS 14.0, *)
+public struct StandartTabItem {
+
+    // MARK: - Properties
+
+    /// The text of IconTabModel
+    public let text: String
+    
+    /// The icon tab accessibility id
+    public let accessibilityId: String
+
+    // MARK: - Initializer
+
+    public init(text: String, accessibilityId: String = "") {
+        self.text = text
+        self.accessibilityId = accessibilityId
+    }
+
+}
+
+@available(iOS 14.0, *)
 public struct StandardTab: View {
 
     // MARK: - Constants
@@ -55,22 +75,32 @@ public struct StandardTab: View {
 
     @ObservedObject private var schemeProvider: SchemeProvider<StandardTabScheme>
 
-    private let items: [String]
-    private var tabAccessibilityValueFormatString: String
+    private let items: [StandartTabItem]
 
     // MARK: - Initializer
+    
+    /// Initializes and returns a newly allocated view object with titles and binding selection.
+    public init(
+        items: [StandartTabItem],
+        selection: Binding<Int>,
+        schemeProvider: SchemeProvider<StandardTabScheme> = AppThemeSchemeProvider<StandardTabScheme>()
+    ) {
+        self._selection = selection
+        self.items = items
+        self.schemeProvider = schemeProvider
+    }
 
     /// Initializes and returns a newly allocated view object with titles and binding selection.
     public init(
         items: [String],
         selection: Binding<Int>,
-        tabAccessibilityValueFormatString: String = "",
         schemeProvider: SchemeProvider<StandardTabScheme> = AppThemeSchemeProvider<StandardTabScheme>()
     ) {
-        self._selection = selection
-        self.items = items
-        self.tabAccessibilityValueFormatString = tabAccessibilityValueFormatString
-        self.schemeProvider = schemeProvider
+        self.init(
+            items: items.map { StandartTabItem(text: $0, accessibilityId: "") },
+            selection: selection,
+            schemeProvider: schemeProvider
+            )
     }
 
     // MARK: - Body
@@ -115,22 +145,6 @@ public struct StandardTab: View {
         }
         .background(Color.clear)
         .clipShape(RoundedRectangle(cornerRadius: Constants.segmentCornerRadius))
-        .accessibilityElement()
-        .accessibilityValue(
-            String(format: tabAccessibilityValueFormatString, items[selection], selection + 1, items.count))
-        .accessibilityAddTraits(.isButton)
-        .accessibilityAdjustableAction { direction in
-            switch direction {
-            case .increment:
-                guard selection < (items.count - 1) else { break }
-                selection += 1
-            case .decrement:
-                guard selection > 0 else { break }
-                selection -= 1
-            @unknown default:
-                break
-            }
-        }
     }
 
     // MARK: - Private Methods
@@ -173,7 +187,7 @@ public struct StandardTab: View {
         }
         let scheme = schemeProvider.scheme
         let isSelected = tabSelection == index
-        return Text(items[index])
+        return Text(items[index].text)
             .foregroundColor(isEnabled ?
                              scheme.titleColor.parameter(for: .normal)?.swiftUIColor
                              : scheme.titleColor.parameter(for: .disabled)?.swiftUIColor)
@@ -186,6 +200,9 @@ public struct StandardTab: View {
             .contentShape(Rectangle())
             .onTapGesture { onItemTap(index: index, width: width) }
             .modifier(SizeAwareViewModifier(viewSize: $segmentSize))
+            .accessibilityElement()
+            .accessibility(addTraits: .isButton)
+            .accessibility(identifier: items[index].accessibilityId)
             .eraseToAnyView()
     }
 

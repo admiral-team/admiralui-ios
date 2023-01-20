@@ -30,9 +30,7 @@ struct InformerTabSwiftUIView: View {
                     Spacer()
                 }
                 StandardTab(items: ["Default", "Disabled"],
-                            selection: $isEnabledControlsState,
-                            tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue)
-                    .accessibility(identifier: "SegmentControl")
+                            selection: $isEnabledControlsState)
                     .padding(.horizontal, LayoutGrid.doubleModule)
                 Spacer()
                     .frame(height: LayoutGrid.doubleModule)
@@ -44,19 +42,17 @@ struct InformerTabSwiftUIView: View {
                             .font(scheme.textFont.swiftUIFont)
                         VStack(alignment: .leading) {
                             InformerTab(
-                                items: [InformerSegmentedItem(title: "2 900 ₽", subtitle: "в месяц"),
-                                        InformerSegmentedItem(title: "2 900 ₽", subtitle: "в месяц")],
+                                items: [InformerSegmentedItem(title: "2 900 ₽", subtitle: "в месяц", accessibilityId: "TwoControlsFirst"),
+                                        InformerSegmentedItem(title: "2 900 ₽", subtitle: "в месяц", accessibilityId: "TwoControlsSecond")],
                                 customView: AnyView(InfoSwiftUIView(
                                                         title: .constant("то получу в страховом случае"),
                                                         subtitle: .constant("до 1 500 000 ₽"),
                                                         description: .constant("Выгодный вариант для  двухкомнатной квартиры или дачного дома"
                                                         ))),
                                 selection: $isTwoItemControlsState,
-                                offsetSegment: .constant(LayoutGrid.doubleModule),
-                                tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue
+                                offsetSegment: .constant(LayoutGrid.doubleModule)
                             )
                                 .disabled(isEnabledControlsState != 0)
-                                .accessibilityIdentifier("InformerTabTwoControls")
                             Spacer()
                         }
                     }
@@ -70,9 +66,9 @@ struct InformerTabSwiftUIView: View {
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)
                         VStack(alignment: .leading) {
-                            InformerTab(items: [InformerSegmentedItem(title: "2 900 ₽", subtitle: "в месяц"),
-                                                InformerSegmentedItem(title: "2 900 ₽", subtitle: "в месяц"),
-                                                InformerSegmentedItem(title: "2 900 ₽", subtitle: "в месяц")],
+                            InformerTab(items: [InformerSegmentedItem(title: "2 900 ₽", subtitle: "в месяц", accessibilityId: "ThreeControlsFirst"),
+                                                InformerSegmentedItem(title: "2 900 ₽", subtitle: "в месяц", accessibilityId: "ThreeControlsSecond"),
+                                                InformerSegmentedItem(title: "2 900 ₽", subtitle: "в месяц", accessibilityId: "ThreeControlsThird")],
                                         customView: AnyView(InfoSwiftUIView(
                                             title: .constant("то получу в страховом случае"),
                                             subtitle: .constant("до 1 500 000 ₽"),
@@ -80,10 +76,8 @@ struct InformerTabSwiftUIView: View {
                                                     .constant("Выгодный вариант для  двухкомнатной квартиры или дачного дома"
                                                              ))),
                                         selection: $isThreeItemControlsState,
-                                        offsetSegment: .constant(16.0),
-                                        tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue
+                                        offsetSegment: .constant(16.0)
                             )
-                                .accessibilityIdentifier("InformerTabThreeControls")
                                 .disabled(isEnabledControlsState != 0)
                             Spacer()
                         }

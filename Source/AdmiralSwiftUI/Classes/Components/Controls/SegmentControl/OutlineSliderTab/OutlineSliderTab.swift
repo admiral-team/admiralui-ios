@@ -74,7 +74,6 @@ public struct OutlineSliderTab: View {
     @Binding private var selection: Int
     @Binding private var offset: CGFloat
 
-    private var tabAccessibilityValueFormatString = ""
     private let items: [OutlineSliderTabItem]
 
     // MARK: - Initializer
@@ -85,13 +84,11 @@ public struct OutlineSliderTab: View {
     ///   - selection: Selection index.
     ///   - offset: Offset tab.
     ///   - onTapAction: Tap closure.
-    ///   - tabAccessibilityValueFormatString: Accessibility value for tab. Need use format "Page %i of %i".
     ///   - schemeProvider: Scheme provider.
     public init(
         items: [OutlineSliderTabItem],
         selection: Binding<Int>,
         offset: Binding<CGFloat> = .constant(0.0),
-        tabAccessibilityValueFormatString: String = "",
         schemeProvider: SchemeProvider<OutlineSliderTabScheme> = AppThemeSchemeProvider<OutlineSliderTabScheme>(),
         onTapAction: (() -> Void)? = nil
     ) {
@@ -99,7 +96,6 @@ public struct OutlineSliderTab: View {
         self._offset = offset
         self.items = items
         self.onTapAction = onTapAction
-        self.tabAccessibilityValueFormatString = tabAccessibilityValueFormatString
         self.schemeProvider = schemeProvider
     }
 
@@ -109,13 +105,11 @@ public struct OutlineSliderTab: View {
     ///   - selection: Selection index.
     ///   - offset: Offset tab.
     ///   - onTapAction: Tap closure.
-    ///   - tabAccessibilityValueFormatString: Accessibility value for tab. Need use format "Page %i of %i".
     ///   - schemeProvider: Scheme provider.
     public init(
         items: [String],
         selection: Binding<Int>,
         offset: Binding<CGFloat> = .constant(0.0),
-        tabAccessibilityValueFormatString: String = "",
         schemeProvider: SchemeProvider<OutlineSliderTabScheme> = AppThemeSchemeProvider<OutlineSliderTabScheme>(),
         onTapAction: (() -> Void)? = nil
     ) {
@@ -123,7 +117,6 @@ public struct OutlineSliderTab: View {
             items: items.map({ OutlineSliderTabItem(title: $0, badgeStyle: nil) }),
             selection: selection,
             offset: offset,
-            tabAccessibilityValueFormatString: tabAccessibilityValueFormatString,
             schemeProvider: schemeProvider,
             onTapAction: onTapAction
         )
@@ -150,22 +143,6 @@ public struct OutlineSliderTab: View {
             .frame(height: Constants.tabHeight + Constants.selectedLineWidth * 2)
         }
         .frame(height: Constants.tabHeight + Constants.selectedLineWidth * 2)
-        .accessibilityElement()
-        .accessibilityValue(
-            String(format: tabAccessibilityValueFormatString, items[selection].title, selection + 1, items.count))
-        .accessibilityAddTraits(.isButton)
-        .accessibilityAdjustableAction { direction in
-            switch direction {
-            case .increment:
-                guard selection < (items.count - 1) else { break }
-                selection += 1
-            case .decrement:
-                guard selection > 0 else { break }
-                selection -= 1
-            @unknown default:
-                break
-            }
-        }
     }
 
     // MARK: - Private Methods
@@ -184,7 +161,11 @@ public struct OutlineSliderTab: View {
         } else {
             strokeColor = isEnabled ? scheme.borderColor.parameter(for: .normal) : scheme.borderColor.parameter(for: .disabled)
         }
-        return roundView(scheme: scheme, isSelected: isSelected, strokeColor: strokeColor?.swiftUIColor, index: index)            .eraseToAnyView()
+        return roundView(scheme: scheme, isSelected: isSelected, strokeColor: strokeColor?.swiftUIColor, index: index)
+            .accessibilityElement()
+            .accessibilityAddTraits(.isButton)
+            .accessibilityIdentifier(items[index].accessibilityId)
+            .eraseToAnyView()
     }
 
     @ViewBuilder

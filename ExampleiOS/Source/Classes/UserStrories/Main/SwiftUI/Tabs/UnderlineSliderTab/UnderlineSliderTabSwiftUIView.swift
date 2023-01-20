@@ -22,10 +22,26 @@ struct UnderlineSliderTabSwiftUIView: View {
     @State private var isStaticControlsState: Int = 0
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
     
-    private let underlineTabItems = [UnderlineTabItem(title: "One", badgeStyle: .default),
-                                     UnderlineTabItem(title: "Two", badgeStyle: .default),
-                                     UnderlineTabItem(title: "Three", badgeStyle: .additional),
-                                     UnderlineTabItem(title: "Four", badgeStyle: nil)]
+    private let threeControllsTabItems = [UnderlineTabItem(title: "One", badgeStyle: nil, accessibilityId: "ThreeControlsFirst"),
+                                          UnderlineTabItem(title: "Two", badgeStyle: nil, accessibilityId: "ThreeControlsSecond"),
+                                          UnderlineTabItem(title: "Three", badgeStyle: nil, accessibilityId: "ThreeControlsThird")]
+    
+    private let sliferControllsTabItems = [UnderlineTabItem(title: "One", badgeStyle: nil, accessibilityId: "SliderControlsFirst"),
+                                           UnderlineTabItem(title: "Two", badgeStyle: nil, accessibilityId: "SliderControlsSecond"),
+                                           UnderlineTabItem(title: "Three", badgeStyle: nil, accessibilityId: "SliderControlsThird"),
+                                           UnderlineTabItem(title: "Four", badgeStyle: nil, accessibilityId: "SliderControlsFourth"),
+                                           UnderlineTabItem(title: "Five", badgeStyle: nil, accessibilityId: "SliderControlsFifth"),
+                                           UnderlineTabItem(title: "Seven", badgeStyle: nil, accessibilityId: "SliderControlsSeventh"),
+                                           UnderlineTabItem(title: "Eight", badgeStyle: nil, accessibilityId: "SliderControlsEighth"),
+                                           UnderlineTabItem(title: "Nine", badgeStyle: nil, accessibilityId: "SliderControlsNineth"),
+                                           UnderlineTabItem(title: "Ten", badgeStyle: nil, accessibilityId: "SliderControlsTenth"),
+                                           UnderlineTabItem(title: "Eleven", badgeStyle: nil, accessibilityId: "SliderControlsEleventh")
+    ]
+    
+    private let notificationsTabItems = [UnderlineTabItem(title: "One", badgeStyle: .default, accessibilityId: "NotificationsFirst"),
+                                         UnderlineTabItem(title: "Two", badgeStyle: .default, accessibilityId: "NotificationsSecond"),
+                                         UnderlineTabItem(title: "Three", badgeStyle: .additional, accessibilityId: "NotificationsThird"),
+                                         UnderlineTabItem(title: "Four", badgeStyle: nil, accessibilityId: "NotificationsFourth")]
     
     var body: some View {
         let scheme = schemeProvider.scheme
@@ -35,10 +51,9 @@ struct UnderlineSliderTabSwiftUIView: View {
                 HStack {
                   Spacer()
                 }
-                StandardTab(items: ["Default", "Disabled"],
-                            selection: $isEnabledControlsState,
-                            tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue)
-                    .accessibility(identifier: "SegmentControl")
+                StandardTab(items: [StandartTabItem(text: "Default", accessibilityId: "SegmentControlDefault"),
+                                    StandartTabItem(text: "Disabled", accessibilityId: "SegmentControlDisabled")],
+                            selection: $isEnabledControlsState)
                     .padding()
                 Spacer()
                     .frame(height: 16.0)
@@ -50,13 +65,11 @@ struct UnderlineSliderTabSwiftUIView: View {
                             .padding()
                         VStack(alignment: .leading) {
                             UnderlineTab(
-                                items: ["One", "Two", "Three"],
+                                items: threeControllsTabItems,
                                 selection: $isTwoItemControlsState,
-                                offset: .constant(LayoutGrid.doubleModule),
-                                tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue
+                                offset: .constant(LayoutGrid.doubleModule)
                             )
                             .disabled(isEnabledControlsState != 0)
-                            .accessibilityIdentifier("UnderlineTabThreeControls")
                             Spacer()
                         }
                     }
@@ -70,13 +83,11 @@ struct UnderlineSliderTabSwiftUIView: View {
                             .padding()
                         VStack(alignment: .leading) {
                             UnderlineTab(
-                                items: ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven"],
+                                items: sliferControllsTabItems,
                                 selection: $isThreeItemControlsState,
-                                offset: .constant(LayoutGrid.doubleModule),
-                                tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue
+                                offset: .constant(LayoutGrid.doubleModule)
                             )
                             .disabled(isEnabledControlsState != 0)
-                            .accessibilityIdentifier("UnderlineTabSliderControls")
                             Spacer()
                         }
                     }
@@ -90,13 +101,11 @@ struct UnderlineSliderTabSwiftUIView: View {
                             .padding()
                         VStack(alignment: .leading) {
                             UnderlineTab(
-                                items: underlineTabItems,
+                                items: notificationsTabItems,
                                 selection: $isStaticControlsState,
-                                offset: .constant(16.0),
-                                tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue
+                                offset: .constant(16.0)
                             )
                             .disabled(isEnabledControlsState != 0)
-                            .accessibilityIdentifier("UnderlineTabNotifications")
                             Spacer()
                         }
                     }

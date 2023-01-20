@@ -25,6 +25,26 @@ import SwiftUI
  ```
 */
 @available(iOS 14.0, *)
+/// Item for Underline tab.
+ public struct LogoTabItem {
+
+     // MARK: - Public Properties
+
+     /// Title item.
+     public let image: Image
+     
+     /// The logo item accessibility id
+     public let accessibilityId: String
+
+     // MARK: - Initializer
+
+     public init(image: Image, accessibilityId: String = "") {
+         self.image = image
+         self.accessibilityId = accessibilityId
+     }
+
+ }
+@available(iOS 14.0, *)
 /// A horizontal control that consists of multiple segments, each segment functioning as a discrete image button.
 public struct LogoTab: View {
 
@@ -50,9 +70,7 @@ public struct LogoTab: View {
     @Binding private var selection: Int
 
     @State private var segmentSize: CGSize = .zero
-    @State private var items: [Image] = []
-
-    private var tabAccessibilityValueFormatString = ""
+    @State private var items: [LogoTabItem] = []
 
     @ObservedObject private var schemeProvider: SchemeProvider<LogoTabScheme>
 
@@ -75,23 +93,35 @@ public struct LogoTab: View {
     }
 
     // MARK: - Initializer
+    /// Initializer.
+    /// - Parameters:
+    ///   - images: Imageges.
+    ///   - selection: Selection index.
+    ///   - schemeProvider: Scheme provider.
+    public init(
+        items: [LogoTabItem],
+        selection: Binding<Int>,
+        schemeProvider: SchemeProvider<LogoTabScheme> = AppThemeSchemeProvider<LogoTabScheme>()
+    ) {
+        self._selection = selection
+        self._items = .init(initialValue: items)
+        self.schemeProvider = schemeProvider
+    }
 
     /// Initializer.
     /// - Parameters:
     ///   - images: Imageges.
     ///   - selection: Selection index.
-    ///   - tabAccessibilityValueFormatString: Accessibility value for tab. Need use format "Page %i of %i".
     ///   - schemeProvider: Scheme provider.
     public init(
         images: [Image],
         selection: Binding<Int>,
-        tabAccessibilityValueFormatString: String = "",
         schemeProvider: SchemeProvider<LogoTabScheme> = AppThemeSchemeProvider<LogoTabScheme>()
     ) {
-        self._selection = selection
-        self._items = .init(initialValue: images)
-        self.tabAccessibilityValueFormatString = tabAccessibilityValueFormatString
-        self.schemeProvider = schemeProvider
+        self.init(
+            items: images.map { LogoTabItem(image: $0, accessibilityId: "")},
+            selection: selection,
+            schemeProvider: schemeProvider)
     }
 
     // MARK: - Body
@@ -121,22 +151,6 @@ public struct LogoTab: View {
             .clipShape(RoundedRectangle(cornerRadius: Constants.segmentCornerRadius))
             self.activeSegmentView
         }
-        .accessibilityElement()
-        .accessibilityAddTraits(.isButton)
-        .accessibilityValue(String(format: tabAccessibilityValueFormatString, selection + 1, items.count))
-        .accessibilityAdjustableAction { direction in
-            switch direction {
-            case .increment:
-                guard selection < (items.count - 1) else { break }
-                selection += 1
-            case .decrement:
-                guard selection > 0 else { break }
-                selection -= 1
-            @unknown default:
-                break
-            }
-        }
-
     }
 
     // MARK: - Private Methods
@@ -154,14 +168,16 @@ public struct LogoTab: View {
         guard index < items.count else {
             return EmptyView().eraseToAnyView()
         }
-        return
-            self.items[index]
+        return items[index].image
             .opacity((isEnabled ? scheme.alphaLogo.parameter(for: .normal) : scheme.alphaLogo.parameter(for: .disabled)) ?? 1.0)
             .padding(.vertical, Constants.segmentYPadding)
             .frame(minWidth: 0, maxWidth: .infinity)
             .contentShape(Rectangle())
             .onTapGesture { onItemTap(index: index) }
             .modifier(SizeAwareViewModifier(viewSize: $segmentSize))
+            .accessibilityElement()
+            .accessibilityAddTraits(.isButton)
+            .accessibility(identifier: items[index].accessibilityId)
             .eraseToAnyView()
     }
 

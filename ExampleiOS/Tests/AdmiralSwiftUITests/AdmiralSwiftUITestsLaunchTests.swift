@@ -21,12 +21,22 @@ class AdmiralSwiftUITestsLaunchTests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
 
+        
+        
+        
+        let elementsQuery = XCUIApplication().scrollViews.otherElements
+        elementsQuery.buttons["Tabs, Вкладки"].tap()
+        elementsQuery.buttons["Icon Tabs"].tap()
+        elementsQuery.buttons["TwoControlsSecond"].tap()
+        elementsQuery.buttons["TwoControlsFirst"].tap()
+        
+        app.buttons["SegmentControlDisabled"].tap()
+        app.buttons["SegmentControlDefault"].tap()
+        
+                
         // Insert steps here to perform after app launch but before taking a screenshot,
         // such as logging into a test account or navigating somewhere in the app
 
-        let attachment = XCTAttachment(screenshot: app.screenshot())
-        attachment.name = "Launch Screen"
-        attachment.lifetime = .keepAlways
-        add(attachment)
+
     }
 }

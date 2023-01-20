@@ -13,10 +13,6 @@ import AdmiralSwiftUI
 @available(iOS 14.0.0, *)
 struct LeadingComponentsSwiftUIView: View {
     
-    enum Constants {
-        static let tabFormatAccessibilityValue = "%@. Page %i of %i"
-    }
-    
     @State private var selectedIndex: Int?
     @State private var isEnabledControlsState: Int = 0
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
@@ -28,8 +24,7 @@ struct LeadingComponentsSwiftUIView: View {
                 .edgesIgnoringSafeArea(.all)
             ScrollView(showsIndicators: false) {
                 StandardTab(items: ["Default", "Disabled"],
-                            selection: $isEnabledControlsState,
-                            tabAccessibilityValueFormatString: Constants.tabFormatAccessibilityValue)
+                            selection: $isEnabledControlsState)
                     .accessibility(identifier: "SegmentControl")
                     .padding()
                 LazyVStack(alignment: .leading) {
