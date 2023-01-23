@@ -39,7 +39,7 @@ struct LogoTabSwiftUIView: View {
                                       LogoTabItem(image: Image(Asset.Tabs.masterCardLogo.name), accessibilityId: "FiveControlsSecond"),
                                       LogoTabItem(image: Image(Asset.Tabs.mirLogo.name), accessibilityId: "FiveControlsThird"),
                                      LogoTabItem(image: Image(Asset.Card.applePay.name), accessibilityId: "FiveControlsFourth"),
-                                     LogoTabItem(image: Image(Asset.Card.googlePay.name), accessibilityId: "FiveControlsFourth")]
+                                     LogoTabItem(image: Image(Asset.Card.googlePay.name), accessibilityId: "FiveControlsFive")]
     
     public var body: some View {
         let scheme = schemeProvider.scheme

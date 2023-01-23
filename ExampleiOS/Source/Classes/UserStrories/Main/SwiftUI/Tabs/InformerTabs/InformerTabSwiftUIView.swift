@@ -29,9 +29,9 @@ struct InformerTabSwiftUIView: View {
                 HStack {
                     Spacer()
                 }
-                StandardTab(items: ["Default", "Disabled"],
+                StandardTab(items: [StandartTabItem(text: "Default", accessibilityId: "SegmentControlDefault"),
+                                    StandartTabItem(text: "Disabled", accessibilityId: "SegmentControlDisabled")],
                             selection: $isEnabledControlsState)
-                    .padding(.horizontal, LayoutGrid.doubleModule)
                 Spacer()
                     .frame(height: LayoutGrid.doubleModule)
                 VStack(alignment: .leading) {
