@@ -68,14 +68,14 @@ class AdmiralSwiftUITabsTest: XCTestCase {
         app.buttons["SegmentControlDisabled"].tap()
         app.buttons["SegmentControlDefault"].tap()
         
+        changeThemes(app: app)
+        
         app.buttons["TwoControlsSecond"].tap()
         app.buttons["TwoControlsFirst"].tap()
         
         app.buttons["ThreeControlsSecond"].tap()
         app.buttons["ThreeControlsThird"].tap()
         app.buttons["ThreeControlsFirst"].tap()
-        
-        changeThemes(app: app)
     }
     
     func testOutlineSliderTabs() throws {
@@ -87,6 +87,8 @@ class AdmiralSwiftUITabsTest: XCTestCase {
         
         app.buttons["SegmentControlDisabled"].tap()
         app.buttons["SegmentControlDefault"].tap()
+        
+        changeThemes(app: app)
         
         app.buttons["ThreeControlsSecond"].tap()
         app.buttons["ThreeControlsThird"].tap()
@@ -108,8 +110,6 @@ class AdmiralSwiftUITabsTest: XCTestCase {
         app.buttons["NotificationsThird"].tap()
         app.buttons["NotificationsFourth"].tap()
         app.buttons["NotificationsFirst"].tap()
-        
-        changeThemes(app: app)
     }
     
     func testUnderlineSliderTabs() throws {
@@ -159,6 +159,8 @@ class AdmiralSwiftUITabsTest: XCTestCase {
         app.buttons["SegmentControlDisabled"].tap()
         app.buttons["SegmentControlDefault"].tap()
         
+        changeThemes(app: app)
+        
         app.buttons["TwoControlsSecond"].tap()
         app.buttons["TwoControlsFirst"].tap()
         
@@ -176,8 +178,6 @@ class AdmiralSwiftUITabsTest: XCTestCase {
         app.buttons["FiveControlsFourth"].tap()
         app.buttons["FiveControlsFifth"].tap()
         app.buttons["FiveControlsFirst"].tap()
-        
-        changeThemes(app: app)
     }
     
     func testIconTabs() throws {
@@ -207,13 +207,44 @@ class AdmiralSwiftUITabsTest: XCTestCase {
         app.buttons["EmbeddedInScrollViewFifth"].tap()
     }
     
+    func testStandartTabs() throws {
+        let app = XCUIApplication()
+        app.launch()
+        
+        app.buttons["Tabs, Вкладки"].tap()
+        app.buttons["Standard Tabs"].tap()
+        
+        app.buttons["SegmentControlDisabled"].tap()
+        app.buttons["SegmentControlDefault"].tap()
+        
+        changeThemes(app: app)
+        
+        app.buttons["TwoControlsSecond"].tap()
+        app.buttons["TwoControlsFirst"].tap()
+        
+        app.buttons["ThreeControlsSecond"].tap()
+        app.buttons["ThreeControlsThird"].tap()
+        app.buttons["ThreeControlsFirst"].tap()
+        
+        app.buttons["FourControlsSecond"].tap()
+        app.buttons["FourControlsThird"].tap()
+        app.buttons["FourControlsFourth"].tap()
+        app.buttons["FourControlsFirst"].tap()
+        
+        app.buttons["FiveControlsSecond"].tap()
+        app.buttons["FiveControlsThird"].tap()
+        app.buttons["FiveControlsFourth"].tap()
+        app.buttons["FiveControlsFifth"].tap()
+        app.buttons["FiveControlsFirst"].tap()
+    }
+    
     func changeThemes(app: XCUIApplication) {
         app.buttons["Ellipse"].tap()
         
-        app.buttons["Light"].tap()
         app.buttons["Dark"].tap()
         app.buttons["SME Light"].tap()
         app.buttons["SME Dark"].tap()
+        app.buttons["Light"].tap()
         
         app.buttons["Ellipse"].tap()
     }

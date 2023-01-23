@@ -36,6 +36,8 @@ class AdmiralSwiftUIButtonsTest: XCTestCase {
         app.buttons["SegmentControlDisabled"].tap()
         app.buttons["SegmentControlDefault"].tap()
         
+        changeThemes(app: app)
+        
         app.buttons["TwoTitlePrimaryButtonStyleID"].press(forDuration: 1)
         app.buttons["BigButtonLeftID"].press(forDuration: 1)
         app.buttons["BigButtonRightID"].press(forDuration: 1)
@@ -46,8 +48,6 @@ class AdmiralSwiftUIButtonsTest: XCTestCase {
         app.buttons["SmallButtonLeftID"].press(forDuration: 1)
         app.buttons["SmallButtonRightID"].press(forDuration: 1)
         app.buttons["SmallButtonNoneID"].press(forDuration: 1)
-        
-        changeThemes(app: app)
     }
     
     func testSecondaryButtons() throws {
@@ -60,6 +60,8 @@ class AdmiralSwiftUIButtonsTest: XCTestCase {
         app.buttons["SegmentControlDisabled"].tap()
         app.buttons["SegmentControlDefault"].tap()
         
+        changeThemes(app: app)
+        
         app.buttons["BigButtonLeftID"].press(forDuration: 1)
         app.buttons["BigButtonRightID"].press(forDuration: 1)
         app.buttons["BigButtonNoneID"].press(forDuration: 1)
@@ -69,8 +71,6 @@ class AdmiralSwiftUIButtonsTest: XCTestCase {
         app.buttons["SmallButtonLeftID"].press(forDuration: 1)
         app.buttons["SmallButtonRightID"].press(forDuration: 1)
         app.buttons["SmallButtonNoneID"].press(forDuration: 1)
-        
-        changeThemes(app: app)
     }
     
     func testGhostButtons() throws {
@@ -83,6 +83,8 @@ class AdmiralSwiftUIButtonsTest: XCTestCase {
         app.buttons["SegmentControlDisabled"].tap()
         app.buttons["SegmentControlDefault"].tap()
         
+        changeThemes(app: app)
+        
         app.buttons["BigButtonLeftID"].press(forDuration: 1)
         app.buttons["BigButtonRightID"].press(forDuration: 1)
         app.buttons["BigButtonNoneID"].press(forDuration: 1)
@@ -92,8 +94,6 @@ class AdmiralSwiftUIButtonsTest: XCTestCase {
         app.buttons["SmallButtonLeftID"].press(forDuration: 1)
         app.buttons["SmallButtonRightID"].press(forDuration: 1)
         app.buttons["SmallButtonNoneID"].press(forDuration: 1)
-        
-        changeThemes(app: app)
     }
     
     func testRules() throws {
@@ -106,10 +106,10 @@ class AdmiralSwiftUIButtonsTest: XCTestCase {
         app.buttons["SegmentControlDisabled"].tap()
         app.buttons["SegmentControlDefault"].tap()
         
-        app.staticTexts["Я согласен с условиями договора и подтверждаю свое согласие на обработку персональных данных"].tap()
-        app.staticTexts["Я согласен с условиями договора и подтверждаю свое согласие на обработку персональных данных"].tap()
-        
         changeThemes(app: app)
+       
+        app.buttons["CheckBoxAccessibilityIdentifier"].tap()
+        app.buttons["LinkButtonAccessibilityIdentifier"].tap()
     }
     
     func testOtherButtons() throws {
@@ -122,18 +122,18 @@ class AdmiralSwiftUIButtonsTest: XCTestCase {
         app.buttons["SegmentControlDisabled"].tap()
         app.buttons["SegmentControlDefault"].tap()
         
-        app.buttons["AppleWalletButtonID"].tap()
-        
         changeThemes(app: app)
+        
+        app.buttons["AppleWalletButtonID"].tap()
     }
     
     func changeThemes(app: XCUIApplication) {
         app.buttons["Ellipse"].tap()
         
-        app.buttons["Light"].tap()
         app.buttons["Dark"].tap()
         app.buttons["SME Light"].tap()
         app.buttons["SME Dark"].tap()
+        app.buttons["Light"].tap()
         
         app.buttons["Ellipse"].tap()
     }
