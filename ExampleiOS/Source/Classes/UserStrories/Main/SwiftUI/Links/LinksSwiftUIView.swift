@@ -23,7 +23,9 @@ struct LinksSwiftUIView: View {
         NavigationContentView(navigationTitle: "Links") {
             scheme.backgroundColor.swiftUIColor
             VStack(alignment: .leading, spacing: LayoutGrid.tripleModule) {
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: [StandartTabItem(text: "Default", accessibilityId: "SegmentControlDefault"),
+                                    StandartTabItem(text: "Disabled", accessibilityId: "SegmentControlDisabled")],
+                            selection: $isEnabledControlsState)
                 Spacer()
                     .frame(height: LayoutGrid.halfModule)
                 VStack(alignment: .leading, spacing: LayoutGrid.tripleModule) {
@@ -38,6 +40,7 @@ struct LinksSwiftUIView: View {
                                 direction: .left,
                                 style: .default
                             ))
+                            .accessibility(identifier: "24LinkFirst")
                             .disabled(isEnabledControlsState != 0)
                         SwiftUI.Button("Small Button", action: {})
                             .buttonStyle(PrimaryLinkControlStyle(
@@ -46,6 +49,7 @@ struct LinksSwiftUIView: View {
                                 direction: .right,
                                 style: .default
                             ))
+                            .accessibility(identifier: "24LinkSecond")
                             .disabled(isEnabledControlsState != 0)
                         SwiftUI.Button("Small Button", action: {})
                             .buttonStyle(PrimaryLinkControlStyle(
@@ -54,6 +58,7 @@ struct LinksSwiftUIView: View {
                                 direction: .left,
                                 style: .default
                             ))
+                            .accessibility(identifier: "24LinkThird")
                             .disabled(isEnabledControlsState != 0)
                     }
                 }
@@ -71,6 +76,7 @@ struct LinksSwiftUIView: View {
                                 direction: .left,
                                 style: .medium
                             ))
+                            .accessibility(identifier: "18LinkFirst")
                             .disabled(isEnabledControlsState != 0)
                         SwiftUI.Button("Small Button", action: {})
                             .buttonStyle(PrimaryLinkControlStyle(
@@ -79,6 +85,7 @@ struct LinksSwiftUIView: View {
                                 direction: .right,
                                 style: .medium
                             ))
+                            .accessibility(identifier: "18LinkSecont")
                             .disabled(isEnabledControlsState != 0)
                         SwiftUI.Button("Small Button", action: {})
                             .buttonStyle(PrimaryLinkControlStyle(
@@ -87,6 +94,7 @@ struct LinksSwiftUIView: View {
                                 direction: .left,
                                 style: .medium
                             ))
+                            .accessibility(identifier: "18LinkThird")
                             .disabled(isEnabledControlsState != 0)
                     }
 

@@ -33,7 +33,9 @@ struct CheckBoxSwiftUIView: View {
                     HStack {
                       Spacer()
                     }
-                    StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                    StandardTab(items: [StandartTabItem(text: "Default", accessibilityId: "SegmentControlDefault"),
+                                        StandartTabItem(text: "Disabled", accessibilityId: "SegmentControlDisabled")],
+                                selection: $isEnabledControlsState)
                     Spacer()
                         .frame(height: 16.0)
                     VStack(alignment: .leading, spacing: 16.0) {
@@ -41,8 +43,10 @@ struct CheckBoxSwiftUIView: View {
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)
                         CheckBox(isSelected: $isDefaultCheckBoxSelected, text: "", checkState: .normal)
+                            .accessibility(identifier: "DefaultCheckBoxFirst")
                             .disabled(isEnabledControlsState != 0)
                         CheckBox(isSelected: $isDefaultCheckBoxTextSelected, text: "Text", checkState: .normal)
+                            .accessibility(identifier: "DefaultCheckBoxSecond")
                             .disabled(isEnabledControlsState != 0)
                         Spacer()
                     }
@@ -54,8 +58,10 @@ struct CheckBoxSwiftUIView: View {
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)
                         CheckBox(isSelected: $isSelectedCheckBoxSelected, text: "", checkState: .normal)
+                            .accessibility(identifier: "SelectedCheckBoxFirst")
                             .disabled(isEnabledControlsState != 0)
                         CheckBox(isSelected: $isSelectedCheckBoxTextSelected, text: "Text", checkState: .normal)
+                            .accessibility(identifier: "SelectedCheckBoxSecond")
                             .disabled(isEnabledControlsState != 0)
                         Spacer()
                     }
@@ -68,8 +74,10 @@ struct CheckBoxSwiftUIView: View {
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)
                         CheckBox(isSelected: $isErrorCheckBoxSelected, text: "", checkState: .error)
+                            .accessibility(identifier: "ErrorCheckBoxFirst")
                             .disabled(isEnabledControlsState != 0)
                         CheckBox(isSelected: $isErrorCheckBoxTextSelected, text: "Text", checkState: .error)
+                            .accessibility(identifier: "ErrorCheckBoxSecond")
                             .disabled(isEnabledControlsState != 0)
                         Spacer()
                     }

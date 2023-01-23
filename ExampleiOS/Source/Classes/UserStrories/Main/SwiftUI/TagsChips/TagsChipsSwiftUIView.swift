@@ -21,7 +21,9 @@ struct TagsChipsSwiftUIView: View {
         NavigationContentView(navigationTitle: "Tags & Chips") {
             scheme.backgroundColor.swiftUIColor
             ScrollView(showsIndicators: false) {
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: [StandartTabItem(text: "Default", accessibilityId: "SegmentControlDefault"),
+                                    StandartTabItem(text: "Disabled", accessibilityId: "SegmentControlDisabled")],
+                            selection: $isEnabledControlsState)
                     .padding()
                 LazyVStack(alignment: .leading, spacing: LayoutGrid.tripleModule) {
                     VStack(alignment: .leading) {
@@ -79,10 +81,12 @@ struct TagsChipsSwiftUIView: View {
                 configureLeadingTraiingTagControl(title: "Chip",
                                                   tagStyle: .default,
                                                   leftImage: Image(uiImage: Asset.TagsChips.carSolid.image),
-                                                  rightButtonImage: Image(uiImage: AdmiralUIResources.Asset.Service.Solid.closeSolid.image))
+                                                  rightButtonImage: Image(uiImage: AdmiralUIResources.Asset.Service.Solid.closeSolid.image),
+                                                  rightButtonAccessibilityID: "DefaultRightButtonFirst")
                 configureTrailingTagControl(title: "Chip",
                                             tagStyle: .default,
-                                            rightButtonImage: Image(uiImage: AdmiralUIResources.Asset.Service.Solid.closeSolid.image))
+                                            rightButtonImage: Image(uiImage: AdmiralUIResources.Asset.Service.Solid.closeSolid.image),
+                                            rightButtonAccessibilityID: "DefaultRightButtonSecond")
                 configureLeadingTagControl(title: "Icons",
                                            tagStyle: .default,
                                            leftImage: Image(uiImage: Asset.TagsChips.carSolid.image))
@@ -171,7 +175,7 @@ struct TagsChipsSwiftUIView: View {
             tapTagControl: {})
     }
     
-    private func configureLeadingTraiingTagControl(title: String, tagStyle: TagStyle, leftImage: Image, rightButtonImage: Image) -> some View {
+    private func configureLeadingTraiingTagControl(title: String, tagStyle: TagStyle, leftImage: Image, rightButtonImage: Image, rightButtonAccessibilityID: String) -> some View {
         TagControl(
             title: title,
             tagStyle: tagStyle,
@@ -180,11 +184,12 @@ struct TagsChipsSwiftUIView: View {
                 SwiftUI.Button(action: {}, label: {
                     rightButtonImage
                 })
+                    .accessibility(identifier: rightButtonAccessibilityID)
             },
             tapTagControl: {})
     }
     
-    private func configureTrailingTagControl(title: String, tagStyle: TagStyle, rightButtonImage: Image) -> some View {
+    private func configureTrailingTagControl(title: String, tagStyle: TagStyle, rightButtonImage: Image, rightButtonAccessibilityID: String) -> some View {
         TagControl(
             title: title,
             tagStyle: tagStyle,
@@ -192,6 +197,7 @@ struct TagsChipsSwiftUIView: View {
                 SwiftUI.Button(action: {}, label: {
                     rightButtonImage
                 })
+                    .accessibility(identifier: rightButtonAccessibilityID)
             },
             tapTagControl: {})
     }

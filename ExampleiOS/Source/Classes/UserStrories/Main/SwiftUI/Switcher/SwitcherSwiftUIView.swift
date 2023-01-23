@@ -25,7 +25,9 @@ struct SwitcherSwiftUIView: View {
                 HStack {
                   Spacer()
                 }
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: [StandartTabItem(text: "Default", accessibilityId: "SegmentControlDefault"),
+                                    StandartTabItem(text: "Disabled", accessibilityId: "SegmentControlDisabled")],
+                            selection: $isEnabledControlsState)
                 Spacer()
                     .frame(height: 54.0)
                 HStack {
@@ -34,6 +36,7 @@ struct SwitcherSwiftUIView: View {
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)
                         CustomSwitch(isOn: $isCustomSwitchOn)
+                            .accessibility(identifier: "SwitcherOn")
                             .disabled(isEnabledControlsState != 0)
                     }
                     Spacer()
@@ -47,6 +50,7 @@ struct SwitcherSwiftUIView: View {
                         .font(scheme.textFont.swiftUIFont)
                         .foregroundColor(scheme.textColor.swiftUIColor)
                     CustomSwitch(isOn: $isCustomSwitchOff)
+                        .accessibility(identifier: "SwitcherOff")
                         .disabled(isEnabledControlsState != 0)
                 }
                 Spacer()
