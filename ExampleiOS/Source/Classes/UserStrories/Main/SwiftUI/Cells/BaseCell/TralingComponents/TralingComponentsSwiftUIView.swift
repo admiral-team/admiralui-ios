@@ -21,7 +21,7 @@ struct TralingComponentsSwiftUIView: View {
     @State var isRadioButtonListViewControlSelected = true
     @State var isCheckBoxViewControlSelected = true
     @State var isSwitchSelected = true
-
+    
     @State private var selectedIndex: Int?
     @State private var isEnabledControlsState: Int = 0
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
@@ -32,9 +32,11 @@ struct TralingComponentsSwiftUIView: View {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
             ScrollView(showsIndicators: false) {
-                StandardTab(items: ["Default", "Disabled"],
+                StandardTab(items: [
+                    StandartTabItem(text: "Default", accessibilityId: "SegmentControlDefault"),
+                    StandartTabItem(text: "Disabled", accessibilityId: "SegmentControlDisabled")
+                ],
                             selection: $isEnabledControlsState)
-                    .accessibility(identifier: "SegmentControl")
                     .padding()
                 LazyVStack(alignment: .leading) {
                     LazyVStack {
@@ -46,11 +48,13 @@ struct TralingComponentsSwiftUIView: View {
                                     get: { self.selectedIndex == 0 },
                                     set: { _, _ in self.selectedIndex = self.selectedIndex == 0 ? nil : 0 }
                                 ))
+                            .accessibilityElement()
                             .accessibility(identifier: "ArrowListCell")
                         ListCell(
                             centerView: { TitleListView(title: "Title") },
                             trailingView: { RadioButtonListView(isControlSelected: $isRadioButtonListViewControlSelected,
                                                                 radioControlValueFormatString: Constants.radioControlValueFormatString)
+                                    .accessibilityElement()
                                     .accessibility(identifier: "RadioButtonListView")
                             },
                             isSelected:
@@ -62,6 +66,7 @@ struct TralingComponentsSwiftUIView: View {
                             centerView: { TitleListView(title: "Title") },
                             trailingView: { CheckBoxListView(isControlSelected: $isCheckBoxViewControlSelected,
                                                              checkBoxValueFormatString: Constants.checkBoxValueFormatString)
+                                    .accessibilityElement()
                                     .accessibility(identifier: "CheckBoxListView")
                             },
                             isSelected:
@@ -71,7 +76,10 @@ struct TralingComponentsSwiftUIView: View {
                                 ))
                         ListCell(
                             centerView: { TitleListView(title: "Title") },
-                            trailingView: { SwitchListView(isSwitchSelected: $isSwitchSelected) })
+                            trailingView: { SwitchListView(isSwitchSelected: $isSwitchSelected)
+                                    .accessibilityElement()
+                                    .accessibility(identifier: "SwitcherListView")
+                            })
                     }
                     LazyVStack {
                         ListCell(
@@ -82,6 +90,7 @@ struct TralingComponentsSwiftUIView: View {
                                     get: { self.selectedIndex == 4 },
                                     set: { _, _ in self.selectedIndex = self.selectedIndex == 4 ? nil : 4 }
                                 ))
+                            .accessibilityElement()
                             .accessibility(identifier: "TitleIconListCell")
                         ListCell(
                             centerView: { TitleListView(title: "Title") },
@@ -91,6 +100,7 @@ struct TralingComponentsSwiftUIView: View {
                                     get: { self.selectedIndex == 5 },
                                     set: { _, _ in self.selectedIndex = self.selectedIndex == 5 ? nil : 5 }
                                 ))
+                            .accessibilityElement()
                             .accessibility(identifier: "TitleCardListCell")
                         ListCell(
                             centerView: { TitleListView(title: "Title") },
@@ -100,6 +110,7 @@ struct TralingComponentsSwiftUIView: View {
                                     get: { self.selectedIndex == 6 },
                                     set: { _, _ in self.selectedIndex = self.selectedIndex == 6 ? nil : 6 }
                                 ))
+                            .accessibilityElement()
                             .accessibility(identifier: "TitleDatePercentListCell")
                         ListCell(
                             centerView: { TitleListView(title: "Title") },
@@ -109,6 +120,7 @@ struct TralingComponentsSwiftUIView: View {
                                     get: { self.selectedIndex == 7 },
                                     set: { _, _ in self.selectedIndex = self.selectedIndex == 7 ? nil : 7 }
                                 ))
+                            .accessibilityElement()
                             .accessibility(identifier: "TitleImageWithSubtitleListCell")
                         ListCell(
                             centerView: { TitleListView(title: "Title") },
@@ -118,6 +130,7 @@ struct TralingComponentsSwiftUIView: View {
                                     get: { self.selectedIndex == 8 },
                                     set: { _, _ in self.selectedIndex = self.selectedIndex == 8 ? nil : 8 }
                                 ))
+                            .accessibilityElement()
                             .accessibility(identifier: "TitleSubtitleWithImageListCell")
                         ListCell(
                             centerView: { TitleListView(title: "Title") },
@@ -127,6 +140,7 @@ struct TralingComponentsSwiftUIView: View {
                                     get: { self.selectedIndex == 9 },
                                     set: { _, _ in self.selectedIndex = self.selectedIndex == 9 ? nil : 9 }
                                 ))
+                            .accessibilityElement()
                             .accessibility(identifier: "TitleBadgeArrowListCell")
                         ListCell(
                             centerView: { TitleListView(title: "Title") },
@@ -136,6 +150,7 @@ struct TralingComponentsSwiftUIView: View {
                                     get: { self.selectedIndex == 10 },
                                     set: { _, _ in self.selectedIndex = self.selectedIndex == 10 ? nil : 10 }
                                 ))
+                            .accessibilityElement()
                             .accessibility(identifier: "TitleSubtitleImageArrowListCell")
                         ListCell(
                             centerView: { TitleListView(title: "Title").fixedSize() },
@@ -151,6 +166,7 @@ struct TralingComponentsSwiftUIView: View {
                                 ),
                             centerLayoutPriority: 0.0,
                             trailingLayoutPriority: 1.0)
+                            .accessibilityElement()
                             .accessibility(identifier: "TitleTagControlListCell")
                     }
                 }

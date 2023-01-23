@@ -27,7 +27,11 @@ struct ActionBarSwiftUIView: View {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
             ScrollView(showsIndicators: false) {
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: [
+                    StandartTabItem(text: "Default", accessibilityId: "SegmentControlDefault"),
+                    StandartTabItem(text: "Disabled", accessibilityId: "SegmentControlDisabled")
+                ],
+                            selection: $isEnabledControlsState)
                     .padding()
                 LazyVStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
                     HStack {
@@ -49,6 +53,7 @@ struct ActionBarSwiftUIView: View {
                                     image: AdmiralUIResources.AssetSymbol.System.Outline.arrowLeft.image,
                                     renderingMode: .template
                                 )
+                                    .accessibilityElement()
                                     .accessibility(identifier: "DefaultCellSwipe")
                             },
                             isSelected:
@@ -102,6 +107,7 @@ struct ActionBarSwiftUIView: View {
                                 subtitle: "Swipe",
                                 image: AdmiralUIResources.AssetSymbol.System.Outline.arrowLeft.image,
                                 renderingMode: .template)
+                                    .accessibilityElement()
                                     .accessibility(identifier: "SecondaryCellSwipe")
                             },
                             isSelected:
