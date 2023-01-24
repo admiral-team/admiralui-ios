@@ -85,7 +85,7 @@ struct LinksSwiftUIView: View {
                                 direction: .right,
                                 style: .medium
                             ))
-                            .accessibility(identifier: "18LinkSecont")
+                            .accessibility(identifier: "18LinkSecond")
                             .disabled(isEnabledControlsState != 0)
                         SwiftUI.Button("Small Button", action: {})
                             .buttonStyle(PrimaryLinkControlStyle(

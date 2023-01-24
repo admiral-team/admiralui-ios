@@ -36,6 +36,7 @@ struct SwitcherSwiftUIView: View {
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)
                         CustomSwitch(isOn: $isCustomSwitchOn)
+                            .accessibilityElement()
                             .accessibility(identifier: "SwitcherOn")
                             .disabled(isEnabledControlsState != 0)
                     }
@@ -50,6 +51,7 @@ struct SwitcherSwiftUIView: View {
                         .font(scheme.textFont.swiftUIFont)
                         .foregroundColor(scheme.textColor.swiftUIColor)
                     CustomSwitch(isOn: $isCustomSwitchOff)
+                        .accessibilityElement()
                         .accessibility(identifier: "SwitcherOff")
                         .disabled(isEnabledControlsState != 0)
                 }
