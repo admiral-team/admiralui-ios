@@ -49,6 +49,7 @@ struct LinerSwiftUIView: View {
                 }
             }
             .buttonStyle(PrimaryButtonStyle(isLoading: .constant(false), sizeType: .small))
+            .accessibility(identifier: "NextLinerPageControll")
         }
     }
 }

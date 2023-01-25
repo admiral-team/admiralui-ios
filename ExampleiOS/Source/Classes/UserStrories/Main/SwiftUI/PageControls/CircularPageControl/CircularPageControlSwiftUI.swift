@@ -55,6 +55,7 @@ struct CircularPageCOntrolSwiftUI: View {
                                     style: .default
                                 )
                             )
+                            .accessibility(identifier: "NextCircularPageControll")
                         Spacer()
                     }
                 }

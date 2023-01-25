@@ -44,7 +44,8 @@ struct ActionNotificationSwiftUIView: View {
                             imageType: .info,
                             type: .default,
                             timerDuration: 5,
-                            closeView: { AnyView(Text("Отмена")) })
+                            closeView: { AnyView(Text("Отмена")) },
+                            accessibilityIdentifier: "ToastViewDown")
                     }
                     .buttonStyle(GhostButtonStyle())
                 }
