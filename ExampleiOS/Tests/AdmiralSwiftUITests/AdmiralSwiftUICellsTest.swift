@@ -1,11 +1,11 @@
 //
-//  AdmiralSwiftUICellsTextBlockTest.swift
+//  AdmiralSwiftUICellsTest.swift
 //  AdmiralSwiftUITests
 //
 
 import XCTest
 
-class AdmiralSwiftUICellsTextBlockTest: XCTestCase {
+class AdmiralSwiftUICellsTest: XCTestCase {
     
     override func setUpWithError() throws {
         continueAfterFailure = false
