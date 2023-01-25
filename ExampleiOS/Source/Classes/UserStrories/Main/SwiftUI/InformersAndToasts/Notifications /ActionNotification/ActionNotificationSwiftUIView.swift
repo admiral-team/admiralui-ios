@@ -48,6 +48,7 @@ struct ActionNotificationSwiftUIView: View {
                             accessibilityIdentifier: "ToastViewDown")
                     }
                     .buttonStyle(GhostButtonStyle())
+                    .accessibility(identifier: "ShowToast")
                 }
                 .padding(LayoutGrid.doubleModule)
             }
