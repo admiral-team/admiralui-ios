@@ -54,6 +54,9 @@ struct AlertOnboardingSwiftUIView: View {
                             centerView: { TitleListView(title: item.title) },
                             trailingView: { ArrowListView() }
                         )
+                            .accessibilityElement()
+                            .accessibility(addTraits: .isButton)
+                            .accessibility(identifier: item.title)
                     }
                 }
             }

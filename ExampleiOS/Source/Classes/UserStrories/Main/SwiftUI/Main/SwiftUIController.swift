@@ -133,11 +133,14 @@ struct CustomSwiftUIView: View {
 
     private var scrollView: some View {
         ScrollView(showsIndicators: false) {
-            LazyVStack(alignment: .leading) {
+            VStack(alignment: .leading) {
                 ForEach(viewModel.filteredItems, id: \.self) { item in
                     NavigationLink(destination: view(for: item)) {
                         ItemSwiftUIRow(item: item)
                             .frame(height: 68)
+                            .accessibilityElement()
+                            .accessibilityAddTraits(.isButton)
+                            .accessibility(identifier: item.title)
                     }
                 }
             }
