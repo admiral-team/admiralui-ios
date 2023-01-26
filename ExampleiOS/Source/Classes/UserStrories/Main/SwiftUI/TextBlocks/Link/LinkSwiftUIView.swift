@@ -24,12 +24,17 @@ struct LinkSwiftUIView: View {
                 .edgesIgnoringSafeArea(.all)
             ScrollView(showsIndicators: false) {
                 ScrollView(showsIndicators: false) {
-                    StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                    StandardTab(items: [
+                        StandartTabItem(text: "Default", accessibilityId: "SegmentControlDefault"),
+                        StandartTabItem(text: "Disabled", accessibilityId: "SegmentControlDisabled")
+                    ],
+                                selection: $isEnabledControlsState)
                     Spacer()
                         .frame(height: 16.0)
                     VStack(spacing: 0.0) {
                         LinkView(
                             buttonTitle: "Подробнее на сайте банка",
+                            accesibilityId: "ButtonBank",
                             buttonAction: {})
                             .disabled(isEnabledControlsState != 0)
                     }

@@ -23,9 +23,11 @@ struct LeadingComponentsSwiftUIView: View {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
             ScrollView(showsIndicators: false) {
-                StandardTab(items: ["Default", "Disabled"],
+                StandardTab(items: [
+                    StandartTabItem(text: "Default", accessibilityId: "SegmentControlDefault"),
+                    StandartTabItem(text: "Disabled", accessibilityId: "SegmentControlDisabled")
+                ],
                             selection: $isEnabledControlsState)
-                    .accessibility(identifier: "SegmentControl")
                     .padding()
                 LazyVStack(alignment: .leading) {
                     ListCell(
@@ -37,6 +39,7 @@ struct LeadingComponentsSwiftUIView: View {
                                 set: { _, _ in self.selectedIndex = self.selectedIndex == 0 ? nil : 0 }
                             ))
                         .disabled(isEnabledControlsState != 0)
+                        .accessibilityElement()
                         .accessibility(identifier: "TitleListView")
                     ListCell(
                         centerView: { TitleSubtitleListView(title: "Title", subtitle: "Subtitle") },
@@ -47,6 +50,7 @@ struct LeadingComponentsSwiftUIView: View {
                                 set: { _, _ in self.selectedIndex = self.selectedIndex == 1 ? nil : 1 }
                             ))
                         .disabled(isEnabledControlsState != 0)
+                        .accessibilityElement()
                         .accessibility(identifier: "TitleSubtitleListView")
                     ListCell(
                         centerView: { SubtitleTitleListView(title: "Title", subtitle: "Subtitle") },
@@ -57,6 +61,7 @@ struct LeadingComponentsSwiftUIView: View {
                                 set: { _, _ in self.selectedIndex = self.selectedIndex == 2 ? nil : 2 }
                             ))
                         .disabled(isEnabledControlsState != 0)
+                        .accessibilityElement()
                         .accessibility(identifier: "SubtitleTitleListView")
                     ListCell(
                         centerView: { TitleMoreDetailTextMessageListView(
@@ -76,6 +81,7 @@ struct LeadingComponentsSwiftUIView: View {
                                 set: { _, _ in self.selectedIndex = self.selectedIndex == 3 ? nil : 3 }
                             ))
                         .disabled(isEnabledControlsState != 0)
+                        .accessibilityElement()
                         .accessibility(identifier: "TitleMoreDetailTextMessageListView")
                     ListCell(
                         centerView: { TitleSubtitleButtonListView(
@@ -93,6 +99,7 @@ struct LeadingComponentsSwiftUIView: View {
                                 set: { _, _ in self.selectedIndex = self.selectedIndex == 4 ? nil : 4 }
                             ))
                         .disabled(isEnabledControlsState != 0)
+                        .accessibilityElement()
                         .accessibility(identifier: "TitleSubtitleButtonListView")
                 }
                 .padding(.bottom, LayoutGrid.doubleModule * 4)
