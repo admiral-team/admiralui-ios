@@ -32,8 +32,10 @@ class AdmiralSwiftUILinerPageControl: XCTestCase {
         
         app.buttons["Page Controls"].tap()
         app.buttons["Liner"].tap()
-        app.buttons["NextLinerPageControll"].tap(withNumberOfTaps: 10, numberOfTouches: 1)
         
+        for _ in 0..<10 {
+            app.buttons["NextLinerPageControll"].tap()
+        }
         app.buttons["Ellipse"].tap()
         
         app.buttons["Dark"].tap()
