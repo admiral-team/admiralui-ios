@@ -96,6 +96,8 @@ public struct CheckboxTextbuttonView: View {
         VStack(alignment: .leading) {
             HStack(alignment: .top, spacing: 0){
                 CheckBox(isSelected: $isSelected, text: "", checkState: .normal)
+                    .accessibilityElement()
+                    .accessibilityAddTraits(.isButton)
                     .accessibilityIdentifier(checkBoxAccessibilityIdentifier)
                 Spacer()
                     .frame(width: Constants.spacing)
