@@ -26,9 +26,11 @@ struct ImageLableComponentsSwiftUIView: View {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
             VStack(alignment: .leading, spacing: 0.0) {
-                StandardTab(items: ["Default", "Disabled"],
+                StandardTab(items: [
+                    StandartTabItem(text: "Default", accessibilityId: "SegmentControlDefault"),
+                    StandartTabItem(text: "Disabled", accessibilityId: "SegmentControlDisabled")
+                ],
                             selection: $isEnabledControlsState)
-                    .accessibility(identifier: "SegmentControl")
                     .padding()
                 ScrollView(showsIndicators: false) {
                     ListCell(
@@ -40,6 +42,7 @@ struct ImageLableComponentsSwiftUIView: View {
                                 get: { self.selectedIndex == 0 },
                                 set: { _, _ in self.selectedIndex = self.selectedIndex == 0 ? nil : 0 }
                             ))
+                        .accessibilityElement()
                         .accessibility(identifier: "LeadingCardTitleArrowListCell")
                         .disabled(isEnabledControlsState != 0)
                     ListCell(
@@ -51,6 +54,7 @@ struct ImageLableComponentsSwiftUIView: View {
                                 get: { self.selectedIndex == 1 },
                                 set: { _, _ in self.selectedIndex = self.selectedIndex == 1 ? nil : 1 }
                             ))
+                        .accessibilityElement()
                         .accessibility(identifier: "FirstImageTitleArrowListCell")
                         .disabled(isEnabledControlsState != 0)
                     ListCell(
@@ -62,6 +66,7 @@ struct ImageLableComponentsSwiftUIView: View {
                                 get: { self.selectedIndex == 2 },
                                 set: { _, _ in self.selectedIndex = self.selectedIndex == 2 ? nil : 2 }
                             ))
+                        .accessibilityElement()
                         .accessibility(identifier: "SecondImageTitleArrowListCell")
                         .disabled(isEnabledControlsState != 0)
                     ListCell(
@@ -73,6 +78,7 @@ struct ImageLableComponentsSwiftUIView: View {
                                 get: { self.selectedIndex == 3 },
                                 set: { _, _ in self.selectedIndex = self.selectedIndex == 3 ? nil : 3 }
                             ))
+                        .accessibilityElement()
                         .accessibility(identifier: "ThirdImageTitleArrowListCell")
                         .disabled(isEnabledControlsState != 0)
                     ListCell(
@@ -84,6 +90,7 @@ struct ImageLableComponentsSwiftUIView: View {
                                 get: { self.selectedIndex == 4 },
                                 set: { _, _ in self.selectedIndex = self.selectedIndex == 4 ? nil : 4 }
                             ))
+                        .accessibilityElement()
                         .accessibility(identifier: "FourthImageTitleArrowListCell")
                         .disabled(isEnabledControlsState != 0)
                 }
