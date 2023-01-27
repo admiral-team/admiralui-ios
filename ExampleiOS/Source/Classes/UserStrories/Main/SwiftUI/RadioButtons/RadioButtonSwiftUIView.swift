@@ -33,7 +33,9 @@ struct RadioButtonSwiftUIView: View {
                     HStack {
                       Spacer()
                     }
-                    StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                    StandardTab(items: [StandartTabItem(text: "Default", accessibilityId: "SegmentControlDefault"),
+                                        StandartTabItem(text: "Disabled", accessibilityId: "SegmentControlDisabled")],
+                                selection: $isEnabledControlsState)
                     Spacer()
                         .frame(height: 16.0)
                     VStack(alignment: .leading, spacing: 16.0) {
@@ -41,6 +43,7 @@ struct RadioButtonSwiftUIView: View {
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)
                         RadioControl(isSelected: $isDefaultRadioButtonSelected, text: "", checkState: .normal)
+                            .accessibility(identifier: "DefaultRadioButtonFirst")
                             .disabled(isEnabledControlsState != 0)
                             .onChange(of: isDefaultRadioButtonSelected) { value in
                                 if value {
@@ -50,6 +53,7 @@ struct RadioButtonSwiftUIView: View {
                                 }
                             }
                         RadioControl(isSelected: $isDefaultRadioButtonTextSelected, text: "Text", checkState: .normal)
+                            .accessibility(identifier: "DefaultRadioButtonSecond")
                             .disabled(isEnabledControlsState != 0)
                             .onChange(of: isDefaultRadioButtonTextSelected) { value in
                                 if value {
@@ -68,6 +72,7 @@ struct RadioButtonSwiftUIView: View {
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)
                         RadioControl(isSelected: $isSelectedRadioButtonSelected, text: "", checkState: .normal)
+                            .accessibility(identifier: "SelectedRadioButtonFirst")
                             .disabled(isEnabledControlsState != 0)
                             .onChange(of: isSelectedRadioButtonSelected) { value in
                                 if value {
@@ -77,6 +82,7 @@ struct RadioButtonSwiftUIView: View {
                                 }
                             }
                         RadioControl(isSelected: $isSelectedRadioButtonTextSelected, text: "Text", checkState: .normal)
+                            .accessibility(identifier: "SelectedRadioButtonSecond")
                             .disabled(isEnabledControlsState != 0)
                             .onChange(of: isSelectedRadioButtonTextSelected) { value in
                                 if value {
@@ -96,6 +102,7 @@ struct RadioButtonSwiftUIView: View {
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)
                         RadioControl(isSelected: $isErrorRadioButtonSelected, text: "", checkState: .error)
+                            .accessibility(identifier: "ErrorRadioButtonFirst")
                             .disabled(isEnabledControlsState != 0)
                             .onChange(of: isErrorRadioButtonSelected) { value in
                                 if value {
@@ -105,6 +112,7 @@ struct RadioButtonSwiftUIView: View {
                                 }
                             }
                         RadioControl(isSelected: $isErrorRadioButtonTextSelected, text: "Text", checkState: .error)
+                            .accessibility(identifier: "ErrorRadioButtonSecond")
                             .disabled(isEnabledControlsState != 0)
                             .onChange(of: isErrorRadioButtonTextSelected) { value in
                                 if value {

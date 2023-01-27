@@ -21,7 +21,7 @@ class AdmiralSwiftUITestsLaunchTests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
 
-        
+
         
         
         let elementsQuery = XCUIApplication().scrollViews.otherElements
