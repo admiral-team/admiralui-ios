@@ -46,6 +46,9 @@ public struct ErrorView: View {
 
     /// Action button.
     public var buttonAction: () -> ()
+    
+    /// Button accessibility identifier.
+    private var buttonAccessibilityId: String
 
     /// Flag loading button.
     @Binding public var isLoadingButton: Bool
@@ -62,13 +65,15 @@ public struct ErrorView: View {
         buttonTitle: String? = nil,
         isLoadingButton: Binding<Bool> = .constant(false),
         buttonAction: @escaping () -> () = {},
-        schemeProvider: SchemeProvider<ErrorViewScheme> = AppThemeSchemeProvider<ErrorViewScheme>()
+        schemeProvider: SchemeProvider<ErrorViewScheme> = AppThemeSchemeProvider<ErrorViewScheme>(),
+        buttonAccessibilityId: String = ""
     ) {
         self.text = text
         self.buttonTitle = buttonTitle
         self.buttonAction = buttonAction
         self._isLoadingButton = isLoadingButton
         self.schemeProvider = schemeProvider
+        self.buttonAccessibilityId = buttonAccessibilityId
     }
 
     // MARK: - Body
@@ -90,6 +95,7 @@ public struct ErrorView: View {
             if let buttonTitle = buttonTitle {
                 Button(buttonTitle, action: buttonAction)
                     .buttonStyle(GhostButtonStyle(isLoading: $isLoadingButton))
+                    .accessibility(identifier: buttonAccessibilityId)
             }
             Spacer()
         })

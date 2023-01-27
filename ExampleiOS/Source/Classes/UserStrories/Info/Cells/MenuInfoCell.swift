@@ -21,14 +21,18 @@ struct MenuInfoCellViewModel: TableViewListItem {
     
     var didSelect: (() -> Void)?
     
+    var accessibilityId: String
+    
     init(
         title: String,
         image: UIImage,
-        didSelect: (() -> Void)? = nil
+        didSelect: (() -> Void)? = nil,
+        accessibilityId: String = ""
     ) {
         self.title = title
         self.image = image
         self.didSelect = didSelect
+        self.accessibilityId = accessibilityId
     }
 }
 
@@ -159,6 +163,7 @@ extension MenuInfoCell: TableViewListItemConfigurable {
         
         titleLabel.text = item.title
         iconImageView.image = item.image
+        self.accessibilityIdentifier = item.accessibilityId
     }
     
 }
