@@ -130,7 +130,8 @@ public class ToastPresenter: ObservableObject {
                 timerDuration: timerDuration,
                 closeAction: closeAction,
                 closeView: view.closeView,
-                type: view.type)
+                type: view.type,
+                accessibilityIdentifier: view.accessibilityIdentifier)
         } else {
             return ToastView(
                 title: view.title,
@@ -141,7 +142,8 @@ public class ToastPresenter: ObservableObject {
                 imageColorType: view.imageColorType,
                 closeAction: closeAction,
                 closeView: view.closeView,
-                type: view.type)
+                type: view.type,
+                accessibilityIdentifier: view.accessibilityIdentifier)
         }
     }
 

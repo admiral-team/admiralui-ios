@@ -67,6 +67,7 @@ public struct BigInformer: View {
     private var subtitle: String?
     private var link: String?
     private var informerStyle: InformerStyleSwiftUI = .default
+    private var linkAccessibilityID: String
     private let onDetail: (() -> Void)?
     
     @ObservedObject private var schemeProvider: SchemeProvider<BigInformerScheme>
@@ -85,6 +86,7 @@ public struct BigInformer: View {
         subtitle: String? = nil,
         link: String? = nil,
         informerStyle: InformerStyleSwiftUI = .default,
+        linkAccessibilityID: String = "",
         schemeProvider: SchemeProvider<BigInformerScheme> = AppThemeSchemeProvider<BigInformerScheme>(),
         onDetail: (() -> Void)? = nil
     ) {
@@ -92,6 +94,7 @@ public struct BigInformer: View {
         self.subtitle = subtitle
         self.link = link
         self.informerStyle = informerStyle
+        self.linkAccessibilityID = linkAccessibilityID
         self.schemeProvider = schemeProvider
         self.onDetail = onDetail
     }
@@ -157,6 +160,9 @@ public struct BigInformer: View {
                     .font(linkFont)
                     .lineLimit(1)
                     .padding(Constants.labelEdgeInsets)
+                    .accessibilityElement()
+                    .accessibility(addTraits: .isButton)
+                    .accessibility(identifier: linkAccessibilityID)
                     .onTapGesture {
                         guard let onDetail = onDetail else { return }
                         onDetail()

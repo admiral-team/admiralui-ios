@@ -103,7 +103,8 @@ struct CustomSwiftUIView: View {
                                 linkAction: {},
                                 imageType: model.imageType,
                                 imageColorType: model.imageType,
-                                type: model.type
+                                type: model.type,
+                                accessibilityIdentifier: model.accessibilityIdentifier
                             )
                         )
                     case .action:
@@ -113,7 +114,8 @@ struct CustomSwiftUIView: View {
                                 timerDuration: model.timerDuration,
                                 closeAction: {},
                                 closeView: model.closeView ?? { AnyView(EmptyView()) },
-                                type: model.type
+                                type: model.type,
+                                accessibilityIdentifier: model.accessibilityIdentifier
                             )
                         )
                     }
