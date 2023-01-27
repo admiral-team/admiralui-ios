@@ -30,7 +30,9 @@ struct SmallInformersSwiftUIView: View {
         NavigationContentView(navigationTitle: "Small Informers") {
             scheme.backgroundColor.swiftUIColor
             ScrollView(.vertical, showsIndicators: false) {
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: [StandartTabItem(text: "Default", accessibilityId: "SegmentControlDefault"),
+                                    StandartTabItem(text: "Disabled", accessibilityId: "SegmentControlDisabled")],
+                            selection: $isEnabledControlsState)
                     .padding()
                 Spacer()
                     .frame(height: 36.0)

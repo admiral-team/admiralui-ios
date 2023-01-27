@@ -22,7 +22,9 @@ struct StaticNotificationsSwiftUIView: View {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
             ScrollView(showsIndicators: false) {
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: [StandartTabItem(text: "Default", accessibilityId: "SegmentControlDefault"),
+                                    StandartTabItem(text: "Disabled", accessibilityId: "SegmentControlDisabled")],
+                            selection: $isEnabledControlsState)
                     .padding()
                 LazyVStack(alignment: .leading) {
                     VStack {
@@ -42,7 +44,8 @@ struct StaticNotificationsSwiftUIView: View {
                             imageType: .info,
                             imageColorType: .info,
                             closeAction: {},
-                            type: .default)
+                            type: .default,
+                            accessibilityIdentifier: "DefaultToastViewFirst")
                             .disabled(isEnabledControlsState != 0)
                         ToastView(
                             title: "At breakpoint boundaries, mini units divide the screen into a fixed master grid.",
@@ -52,7 +55,8 @@ struct StaticNotificationsSwiftUIView: View {
                             imageType: .info,
                             imageColorType: .info,
                             closeAction: {},
-                            type: .additional)
+                            type: .additional,
+                            accessibilityIdentifier: "DefaultToastViewSecond")
                             .disabled(isEnabledControlsState != 0)
                     }
                     Spacer()
@@ -75,7 +79,8 @@ struct StaticNotificationsSwiftUIView: View {
                             imageType: .success,
                             imageColorType: .success,
                             closeAction: {},
-                            type: .default)
+                            type: .default,
+                            accessibilityIdentifier: "SuccessToastViewFirst")
                             .disabled(isEnabledControlsState != 0)
                         ToastView(
                             title: "At breakpoint boundaries, mini units divide the screen into a fixed master grid.",
@@ -85,7 +90,8 @@ struct StaticNotificationsSwiftUIView: View {
                             imageType: .success,
                             imageColorType: .success,
                             closeAction: {},
-                            type: .success)
+                            type: .success,
+                            accessibilityIdentifier: "SuccessToastViewSecond")
                             .disabled(isEnabledControlsState != 0)
                     }
                     
@@ -109,7 +115,8 @@ struct StaticNotificationsSwiftUIView: View {
                             imageType: .attention,
                             imageColorType: .attention,
                             closeAction: {},
-                            type: .default)
+                            type: .default,
+                            accessibilityIdentifier: "AttentionToastViewFirst")
                             .disabled(isEnabledControlsState != 0)
                         ToastView(
                             title: "At breakpoint boundaries, mini units divide the screen into a fixed master grid.",
@@ -119,7 +126,8 @@ struct StaticNotificationsSwiftUIView: View {
                             imageType: .attention,
                             imageColorType: .attention,
                             closeAction: {},
-                            type: .attention)
+                            type: .attention,
+                            accessibilityIdentifier: "AttentionToastViewSecond")
                             .disabled(isEnabledControlsState != 0)
                     }
                     
@@ -143,7 +151,8 @@ struct StaticNotificationsSwiftUIView: View {
                             imageType: .error,
                             imageColorType: .error,
                             closeAction: {},
-                            type: .default)
+                            type: .default,
+                            accessibilityIdentifier: "ErrorToastViewFirst")
                             .disabled(isEnabledControlsState != 0)
                         ToastView(
                             title: "At breakpoint boundaries, mini units divide the screen into a fixed master grid.",
@@ -153,7 +162,8 @@ struct StaticNotificationsSwiftUIView: View {
                             imageType: .error,
                             imageColorType: .error,
                             closeAction: {},
-                            type: .error)
+                            type: .error,
+                            accessibilityIdentifier: "ErrorToastViewSecond")
                             .disabled(isEnabledControlsState != 0)
                     }
                     

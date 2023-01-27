@@ -42,9 +42,11 @@ struct ToastNotificationsSwiftUIView: View {
                             title: "At breakpoint boundaries, mini units divide the screen into a fixed master grid.",
                             linkText: "Link Text",
                             imageType: isShow ? .info : .error,
-                            type: isShow ? .default : .error)
+                            type: isShow ? .default : .error,
+                            accessibilityIdentifier: "ToastViewUp")
                     }
                     .buttonStyle(GhostButtonStyle())
+                    .accessibility(identifier: "ShowToast")
                 }
                 .padding(LayoutGrid.doubleModule)
             }
