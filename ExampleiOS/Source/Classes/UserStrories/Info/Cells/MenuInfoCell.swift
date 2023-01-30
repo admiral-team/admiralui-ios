@@ -164,6 +164,7 @@ extension MenuInfoCell: TableViewListItemConfigurable {
         titleLabel.text = item.title
         iconImageView.image = item.image
         self.accessibilityIdentifier = item.accessibilityId
+        self.accessibilityTraits = .button
     }
     
 }
