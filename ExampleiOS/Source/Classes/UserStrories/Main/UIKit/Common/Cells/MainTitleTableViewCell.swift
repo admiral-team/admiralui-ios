@@ -21,14 +21,18 @@ struct MainTitleTableViewCellViewModel: TableViewListItem {
     
     var didSelect: (() -> Void)?
     
+    var accessibilityId: String?
+    
     init(
         title: String,
         subtitle: String? = "",
-        didSelect: (() -> Void)? = nil
+        didSelect: (() -> Void)? = nil,
+        accessibilityId: String? = nil
     ) {
         self.title = title
         self.didSelect = didSelect
         self.subtitle = subtitle
+        self.accessibilityId = accessibilityId
     }
 }
 
@@ -164,6 +168,7 @@ extension MainTitleTableViewCell: TableViewListItemConfigurable {
         guard let item = item as? MainTitleTableViewCellViewModel else { return }
         titleLabel.text = item.title
         subtitleLabel.text = item.subtitle
+        self.accessibilityIdentifier = item.accessibilityId
     }
     
 }

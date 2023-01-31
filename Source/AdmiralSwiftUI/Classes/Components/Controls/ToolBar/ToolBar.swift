@@ -120,6 +120,9 @@ public struct ToolBar: View {
                         onTap: onTap,
                         isEnabled: item.isEnabled
                     )
+                        .accessibilityElement()
+                        .accessibilityAddTraits(.isButton)
+                        .accessibility(identifier: item.accessibilityId)
                 } else {
                     Button(action: {
                         guard item.isEnabled else { return }
@@ -137,6 +140,7 @@ public struct ToolBar: View {
                             isEnabled: item.isEnabled
                         )
                     )
+                    .accessibility(identifier: item.accessibilityId)
                 }
             }
         }

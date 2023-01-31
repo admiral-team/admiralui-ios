@@ -138,16 +138,19 @@ final class ThemeViewController: BaseTableViewController {
                     guard let self = self else { return }
                     guard self.isEditingEnabled else { return }
                     self.presentName()
-                }),
+                },
+                accessibillityId: theme.displayName),
             MenuListViewModel(
                 title: "Colors",
                 subtitle: "Цвета темы",
-                didSelect: { [weak self] in self?.presentColors() }),
+                didSelect: { [weak self] in self?.presentColors() },
+                accessibillityId: "Colors"),
             
             MenuListViewModel(
                 title: "Fonts",
                 subtitle: "Шрифты темы",
-                didSelect: { [weak self] in self?.presentFonts() })
+                didSelect: { [weak self] in self?.presentFonts() },
+                accessibillityId: "Fonts")
         ]
         
         return [MainSectionViewModel(items: items)]
