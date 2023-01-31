@@ -128,6 +128,9 @@ public struct AlertView: View {
 
     /// Action additionalButtonAction.
     private var additionalButtonAction: (() -> ())?
+    
+    /// AlertView accessibility identifier
+    private var accessibilityId: String
 
     @ObservedObject private var schemeProvider: SchemeProvider<AlertViewScheme>
 
@@ -162,7 +165,8 @@ public struct AlertView: View {
         schemeProvider: SchemeProvider<AlertViewScheme> = AppThemeSchemeProvider<AlertViewScheme>(),
         buttonAction: (() -> ())? = nil,
         additionalButtonTitle: String? = nil,
-        additionalButtonAction: (() -> ())? = nil
+        additionalButtonAction: (() -> ())? = nil,
+        accessibilityId: String = ""
     ) {
         self._isLoading = isLoading
         self.imageType = imageType
@@ -178,7 +182,7 @@ public struct AlertView: View {
         self.additionalButtonTitle = additionalButtonTitle
         self.additionalButtonAction = additionalButtonAction
         self.schemeProvider = schemeProvider
-
+        self.accessibilityId = accessibilityId
     }
 
     // MARK: - Body
@@ -223,6 +227,7 @@ public struct AlertView: View {
                         .buttonStyle(PrimaryButtonStyle(
                             isLoading: $isLoading,
                             schemeProvider: .constant(scheme: scheme.buttonScheme)))
+                        .accessibility(identifier: AlertViewAccessibilityIdentifiers.mainButton.accessibilityViewIdentifier(accessibilityIdentifier: accessibilityId))
                 }
                 if let additionalButtonTitle = additionalButtonTitle,
                    let additionalButtonAction = additionalButtonAction {
@@ -232,6 +237,7 @@ public struct AlertView: View {
                         Spacer()
                         Button(additionalButtonTitle, action: additionalButtonAction)
                             .buttonStyle(GhostButtonStyle())
+                            .accessibility(identifier: AlertViewAccessibilityIdentifiers.additionalButton.accessibilityViewIdentifier(accessibilityIdentifier: accessibilityId))
                         Spacer()
                     }
                 }

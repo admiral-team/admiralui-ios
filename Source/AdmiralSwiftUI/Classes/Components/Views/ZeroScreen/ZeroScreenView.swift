@@ -55,6 +55,9 @@ public struct ZeroScreenView: View {
 
     /// Action button.
     public var buttonAction: () -> ()
+    
+    /// Button accessibility identifier.
+    private var buttonAccessibilityId: String
 
     /// Flag loading button.
     @Binding  public var isLoadingButton: Bool
@@ -73,7 +76,8 @@ public struct ZeroScreenView: View {
         buttonTitle: String? = nil,
         isLoadingButton: Binding<Bool> = .constant(false),
         buttonAction: @escaping () -> () = {},
-        schemeProvider: SchemeProvider<ZeroScreenViewScheme> = AppThemeSchemeProvider<ZeroScreenViewScheme>()
+        schemeProvider: SchemeProvider<ZeroScreenViewScheme> = AppThemeSchemeProvider<ZeroScreenViewScheme>(),
+        buttonAccessibilityId: String = ""
     ) {
         self.image = image
         self.title = title
@@ -82,6 +86,7 @@ public struct ZeroScreenView: View {
         self.buttonAction = buttonAction
         self.schemeProvider = schemeProvider
         self._isLoadingButton = isLoadingButton
+        self.buttonAccessibilityId = buttonAccessibilityId
     }
 
     // MARK: - Body
@@ -122,6 +127,7 @@ public struct ZeroScreenView: View {
                         isLoading: $isLoadingButton,
                         schemeProvider: .constant(scheme: scheme.buttonScheme)
                     ))
+                    .accessibility(identifier: buttonAccessibilityId)
             }
             Spacer()
                 .frame(height: LayoutGrid.doubleModule)

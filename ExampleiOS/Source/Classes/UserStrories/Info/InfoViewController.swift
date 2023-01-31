@@ -92,17 +92,20 @@ final class InfoViewController: UIViewController, AnyAppThemable {
             MenuInfoCellViewModel(
                 title: "Инфо",
                 image: Asset.Info.infoSolid.image,
-                didSelect: { [weak self] in self?.presentInformation() }),
+                didSelect: { [weak self] in self?.presentInformation() },
+                accessibilityId: "Info"),
             
             MenuInfoCellViewModel(
                 title: "Контакты",
                 image: Asset.Info.emailSolid.image,
-                didSelect: { [weak self] in self?.presentContacts() }),
+                didSelect: { [weak self] in self?.presentContacts() },
+                accessibilityId: "Contacts"),
             
             MenuInfoCellViewModel(
                 title: "FAQ",
                 image: Asset.Info.helpSolid.image,
-                didSelect: { [weak self] in self?.presentFAQ() })
+                didSelect: { [weak self] in self?.presentFAQ() },
+                accessibilityId: "FAQ")
         ]
         
         return [MainSectionViewModel(items: items)]
