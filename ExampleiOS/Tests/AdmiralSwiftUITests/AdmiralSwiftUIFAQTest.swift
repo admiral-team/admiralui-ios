@@ -37,7 +37,7 @@ class AdmiralSwiftUIFAQTest: XCTestCase {
         app.buttons["Ellipse"].tap()
         
         app.buttons["InfoTabBarItem"].tap()
-        app.tables.staticTexts["FAQ"].tap()
+        app.cells["FAQ"].tap()
         
         tapFAQ(app: app)
     }
@@ -53,7 +53,7 @@ class AdmiralSwiftUIFAQTest: XCTestCase {
         app.buttons["Ellipse"].tap()
         
         app.buttons["InfoTabBarItem"].tap()
-        app.tables.staticTexts["FAQ"].tap()
+        app.cells["FAQ"].tap()
         
         tapFAQ(app: app)
     }

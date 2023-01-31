@@ -37,7 +37,7 @@ class AdmiralSwiftUIInfoTest: XCTestCase {
         app.buttons["Ellipse"].tap()
         
         app.buttons["InfoTabBarItem"].tap()
-        app.tables.staticTexts["Инфо"].tap()
+        app.cells["Info"].tap()
         sleep(2)
     }
     
@@ -52,7 +52,7 @@ class AdmiralSwiftUIInfoTest: XCTestCase {
         app.buttons["Ellipse"].tap()
         
         app.buttons["InfoTabBarItem"].tap()
-        app.tables.staticTexts["Инфо"].tap()
+        app.cells["Info"].tap()
         sleep(2)
     }
     
@@ -67,7 +67,7 @@ class AdmiralSwiftUIInfoTest: XCTestCase {
         app.buttons["Ellipse"].tap()
         
         app.buttons["InfoTabBarItem"].tap()
-        app.tables.staticTexts["Инфо"].tap()
+        app.cells["Info"].tap()
         sleep(2)
     }
     
@@ -82,7 +82,7 @@ class AdmiralSwiftUIInfoTest: XCTestCase {
         app.buttons["Ellipse"].tap()
         
         app.buttons["InfoTabBarItem"].tap()
-        app.tables.staticTexts["Инфо"].tap()
+        app.cells["Info"].tap()
         sleep(2)
     }
 }

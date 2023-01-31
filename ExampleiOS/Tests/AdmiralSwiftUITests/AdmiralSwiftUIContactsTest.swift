@@ -33,7 +33,7 @@ class AdmiralSwiftUIContactsTest: XCTestCase {
         app.buttons["Ellipse"].tap()
         app.buttons["Dark"].tap()
         app.buttons["InfoTabBarItem"].tap()
-        app.tables.staticTexts["Контакты"].tap()
+        app.cells["Contacts"].tap()
         app.staticTexts["Телеграмм канал"].tap()
     }
     
@@ -44,7 +44,7 @@ class AdmiralSwiftUIContactsTest: XCTestCase {
         app.buttons["Ellipse"].tap()
         app.buttons["Light"].tap()
         app.buttons["InfoTabBarItem"].tap()
-        app.tables.staticTexts["Контакты"].tap()
+        app.cells["Contacts"].tap()
         app.staticTexts["Телеграмм канал"].tap()
     }
     
@@ -55,7 +55,7 @@ class AdmiralSwiftUIContactsTest: XCTestCase {
         app.buttons["Ellipse"].tap()
         app.buttons["SME Dark"].tap()
         app.buttons["InfoTabBarItem"].tap()
-        app.tables.staticTexts["Контакты"].tap()
+        app.cells["Contacts"].tap()
         app.staticTexts["Телеграмм канал"].tap()
     }
     
@@ -66,7 +66,7 @@ class AdmiralSwiftUIContactsTest: XCTestCase {
         app.buttons["Ellipse"].tap()
         app.buttons["SME Light"].tap()
         app.buttons["InfoTabBarItem"].tap()
-        app.tables.staticTexts["Контакты"].tap()
+        app.cells["Contacts"].tap()
         app.staticTexts["Телеграмм канал"].tap()
     }
 }
