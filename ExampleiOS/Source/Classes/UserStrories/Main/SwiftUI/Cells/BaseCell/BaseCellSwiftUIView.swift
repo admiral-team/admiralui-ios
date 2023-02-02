@@ -49,11 +49,11 @@ struct BaseCellSwiftUIView: View {
     func view(for type: BaseCellSwiftUIItem) -> some View {
         switch type {
         case .center:
-            LeadingComponentsSwiftUIView()
+            CenterElementsSwiftUIView()
         case .leading:
-            ImageLableComponentsSwiftUIView()
+            LeadingElementsSwiftUIView()
         case .traling:
-            TralingComponentsSwiftUIView()
+            TralingElementsSwiftUIView()
         }
     }
     

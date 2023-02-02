@@ -10,7 +10,7 @@ import AdmiralTheme
 import AdmiralSwiftUI
 
 @available(iOS 14.0.0, *)
-struct TralingComponentsSwiftUIView: View {
+struct TralingElementsSwiftUIView: View {
     
     enum Constants {
         static let tabFormatAccessibilityValue = "%@. Page %i of %i"

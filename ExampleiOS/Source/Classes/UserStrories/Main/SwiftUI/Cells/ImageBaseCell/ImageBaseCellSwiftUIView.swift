@@ -45,7 +45,7 @@ struct ImageBaseCellSwiftUIView: View {
     func view(for type: ImageBaseCellSwiftUIItem) -> some View {
         switch type {
         case .lable:
-            ImageLableComponentsSwiftUIView()
+            LeadingElementsSwiftUIView()
         case .leading:
             ImageLeadingLableComponentsSwiftUIView()
         case .trailing:
