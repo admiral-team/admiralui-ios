@@ -39,7 +39,8 @@ struct ZeroScreenSwiftUIView: View {
                                subtitle: Constants.subTitle,
                                buttonTitle: Constants.buttonTitle,
                                isLoadingButton: .constant(false),
-                               buttonAction: {})
+                               buttonAction: {},
+                               buttonAccessibilityId: "ZeroScreenButton")
             }
             .background(scheme.backgroundColor.swiftUIColor)
         }

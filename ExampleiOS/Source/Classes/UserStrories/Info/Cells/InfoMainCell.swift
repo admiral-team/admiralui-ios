@@ -20,12 +20,16 @@ struct InfoMainCellViewModel: TableViewListItem {
     
     var didSelect: (() -> Void)?
     
+    var accessibilityId: String
+    
     init(
         title: String,
-        didSelect: (() -> Void)? = nil
+        didSelect: (() -> Void)? = nil,
+        accessibilityId: String = ""
     ) {
         self.title = title
         self.didSelect = didSelect
+        self.accessibilityId = accessibilityId
     }
 }
 
@@ -140,6 +144,7 @@ extension InfoMainCell: TableViewListItemConfigurable {
     func configure(for item: TableViewListItem) {
         guard let item = item as? InfoMainCellViewModel else { return }
         titleLabel.text = item.title
+        self.accessibilityIdentifier = item.accessibilityId
     }
     
 }

@@ -27,7 +27,10 @@ struct FlagsCurrencySwiftUIView: View {
                         image: Image(uiImage: Asset.arrowDown.image),
                         renderingMode: .template)
                     },
-                    trailingView: { ButtonListView(text: "Button", action: {}) })
+                    trailingView: { ButtonListView(text: "Button",
+                                                   accesibilityId: "FlagsButton",
+                                                   action: {}) 
+                    })
                     .frame(height: LayoutGrid.doubleModule)
                 VStack(alignment: .leading, spacing: 0.0, content: {
                     CurrencyHeaderView(
