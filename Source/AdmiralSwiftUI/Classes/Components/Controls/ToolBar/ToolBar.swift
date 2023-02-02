@@ -118,11 +118,9 @@ public struct ToolBar: View {
                         badgeStyle: item.badgeStyle,
                         itemType: item.type,
                         onTap: onTap,
-                        isEnabled: item.isEnabled
+                        isEnabled: item.isEnabled,
+                        accessibityId: item.accessibilityId
                     )
-                        .accessibilityElement()
-                        .accessibilityAddTraits(.isButton)
-                        .accessibility(identifier: item.accessibilityId)
                 } else {
                     Button(action: {
                         guard item.isEnabled else { return }
