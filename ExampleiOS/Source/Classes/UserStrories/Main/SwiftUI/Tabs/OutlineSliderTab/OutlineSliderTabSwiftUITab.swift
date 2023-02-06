@@ -39,6 +39,7 @@ struct OutlineSliderTabSwiftUITab: View {
                                            OutlineSliderTabItem(title: "Three", badgeStyle: nil, accessibilityId: "SliderControlsThird"),
                                            OutlineSliderTabItem(title: "Four", badgeStyle: nil, accessibilityId: "SliderControlsFourth"),
                                            OutlineSliderTabItem(title: "Five", badgeStyle: nil, accessibilityId: "SliderControlsFifth"),
+                                           OutlineSliderTabItem(title: "Six", badgeStyle: nil, accessibilityId: "SliderControlsSixth"),
                                            OutlineSliderTabItem(title: "Seven", badgeStyle: nil, accessibilityId: "SliderControlsSeventh"),
                                            OutlineSliderTabItem(title: "Eight", badgeStyle: nil, accessibilityId: "SliderControlsEighth"),
                                            OutlineSliderTabItem(title: "Nine", badgeStyle: nil, accessibilityId: "SliderControlsNineth"),
