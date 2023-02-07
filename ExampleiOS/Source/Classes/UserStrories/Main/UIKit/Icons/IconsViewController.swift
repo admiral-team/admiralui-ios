@@ -108,23 +108,23 @@ final class IconsViewController: UIViewController, AnyAppThemable {
     }
     
     private func configureDataSource() {
-        for image in AdmiralUIResources.Asset.allImages {
-            let title = nameSectionTitle(image.name)
-
-            if image.name.contains(Constants.outlineKey) {
-                if let indexSection = outlineImageSections.firstIndex(where: { $0.title == title }) {
-                    outlineImageSections[indexSection].icons.append(image)
-                } else {
-                    outlineImageSections.append(ImageSectionViewModel(title: title, icons: [image], size: image.image.size))
-                }
-            } else {
-                if let indexSection = solidImageSections.firstIndex(where: { $0.title == title }) {
-                    solidImageSections[indexSection].icons.append(image)
-                } else {
-                    solidImageSections.append(ImageSectionViewModel(title: title, icons: [image], size: image.image.size))
-                }
-            }
-        }
+//        for image in AdmiralUIResources.Asset.allImages {
+//            let title = nameSectionTitle(image.name)
+//
+//            if image.name.contains(Constants.outlineKey) {
+//                if let indexSection = outlineImageSections.firstIndex(where: { $0.title == title }) {
+//                    outlineImageSections[indexSection].icons.append(image)
+//                } else {
+//                    outlineImageSections.append(ImageSectionViewModel(title: title, icons: [image], size: image.image.size))
+//                }
+//            } else {
+//                if let indexSection = solidImageSections.firstIndex(where: { $0.title == title }) {
+//                    solidImageSections[indexSection].icons.append(image)
+//                } else {
+//                    solidImageSections.append(ImageSectionViewModel(title: title, icons: [image], size: image.image.size))
+//                }
+//            }
+//        }
 
         outlineImageSections.sort { sectionFirst, sectionSecond -> Bool in
             (sectionFirst.size.width * sectionFirst.size.height) < (sectionSecond.size.width * sectionSecond.size.height)
@@ -186,37 +186,37 @@ final class IconsViewController: UIViewController, AnyAppThemable {
         searchOutlineImageSections.removeAll()
         searchSolidImageSections.removeAll()
         
-        defer {
-            searchOutlineImageSections.sort { sectionFirst, sectionSecond -> Bool in
-                (sectionFirst.size.width * sectionFirst.size.height) < (sectionSecond.size.width * sectionSecond.size.height)
-            }
+//        defer {
+//            searchOutlineImageSections.sort { sectionFirst, sectionSecond -> Bool in
+//                (sectionFirst.size.width * sectionFirst.size.height) < (sectionSecond.size.width * sectionSecond.size.height)
+//            }
+//
+//            searchSolidImageSections.sort { sectionFirst, sectionSecond -> Bool in
+//                (sectionFirst.size.width * sectionFirst.size.height) < (sectionSecond.size.width * sectionSecond.size.height)
+//            }
+//
+//            dataSource = segmentControl.selectedSegmentIndex == 0 ? searchOutlineImageSections : searchSolidImageSections
+//        }
 
-            searchSolidImageSections.sort { sectionFirst, sectionSecond -> Bool in
-                (sectionFirst.size.width * sectionFirst.size.height) < (sectionSecond.size.width * sectionSecond.size.height)
-            }
-
-            dataSource = segmentControl.selectedSegmentIndex == 0 ? searchOutlineImageSections : searchSolidImageSections
-        }
-
-        for image in AdmiralUIResources.Asset.allImages {
-            let title = nameSectionTitle(image.name)
-
-            guard image.name.lowercased().contains(text.lowercased().replacingOccurrences(of: " ", with: "")) else { continue }
-
-            if image.name.contains(Constants.outlineKey) {
-                if let indexSection = searchOutlineImageSections.firstIndex(where: { $0.title == title }) {
-                    searchOutlineImageSections[indexSection].icons.append(image)
-                } else {
-                    searchOutlineImageSections.append(ImageSectionViewModel(title: title, icons: [image], size: image.image.size))
-                }
-            } else {
-                if let indexSection = searchSolidImageSections.firstIndex(where: { $0.title == title }) {
-                    searchSolidImageSections[indexSection].icons.append(image)
-                } else {
-                    searchSolidImageSections.append(ImageSectionViewModel(title: title, icons: [image], size: image.image.size))
-                }
-            }
-        }
+//        for image in AdmiralUIResources.Asset.allImages {
+//            let title = nameSectionTitle(image.name)
+//
+//            guard image.name.lowercased().contains(text.lowercased().replacingOccurrences(of: " ", with: "")) else { continue }
+//
+//            if image.name.contains(Constants.outlineKey) {
+//                if let indexSection = searchOutlineImageSections.firstIndex(where: { $0.title == title }) {
+//                    searchOutlineImageSections[indexSection].icons.append(image)
+//                } else {
+//                    searchOutlineImageSections.append(ImageSectionViewModel(title: title, icons: [image], size: image.image.size))
+//                }
+//            } else {
+//                if let indexSection = searchSolidImageSections.firstIndex(where: { $0.title == title }) {
+//                    searchSolidImageSections[indexSection].icons.append(image)
+//                } else {
+//                    searchSolidImageSections.append(ImageSectionViewModel(title: title, icons: [image], size: image.image.size))
+//                }
+//            }
+//        }
     }
     
     private func getOriginalName(_ text: String?) -> String? {

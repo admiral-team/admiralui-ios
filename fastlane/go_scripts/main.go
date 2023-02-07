@@ -54,6 +54,22 @@ func main() {
 		id := os.Args[3]
 		path := os.Args[4]
 		figma.LoadDocumentation(token, id, path)
+	case "uploadNexusLib":
+		// var nexus NexusParameter
+		// nexus.repository = os.Args[2]
+		// repository := os.Args[2]
+		// group_id := os.Args[3]
+		// artifact_id := os.Args[4]
+		// version := os.Args[5]
+		// ziped_framework_path := os.Args[6]
+		// extension := os.Args[7]
+		// nexus.UploadToNexus(ctx, nexus)
+		// fmt.Println(repository)
+		// fmt.Println(group_id)
+		// fmt.Println(artifact_id)
+		// fmt.Println(version)
+		// fmt.Println(ziped_framework_path)
+		// fmt.Println(extension)
 	default:
 		fmt.Println("Unknown command")
 	}

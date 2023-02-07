@@ -69,6 +69,14 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 
 
+### upload_nexus_lib
+
+```sh
+[bundle exec] fastlane upload_nexus_lib
+```
+
+
+
 ### generate_colors
 
 ```sh

@@ -153,6 +153,41 @@ lane :run_tests_app do |options|
   )
 end
 
+lane :upload_nexus_lib do |options|
+  branch = options[:branch]
+
+  upload_nexus_framework(
+    scheme: "AdmiralSwiftUI", 
+    artifact_id: "admiral-swiftui",
+    branch: branch
+  )
+
+  upload_nexus_framework(
+    scheme: "AdmiralUIKit", 
+    artifact_id: "admiral-uikit",
+    branch: branch
+
+  )
+
+  upload_nexus_framework(
+    scheme: "AdmiralTheme", 
+    artifact_id: "admiral-theme",
+    branch: branch
+  )
+
+  upload_nexus_framework(
+    scheme: "AdmiralUIResources", 
+    artifact_id: "admiral-resources",
+    branch: branch
+  )
+
+  upload_nexus_framework(
+    scheme: "AdmiralCore", 
+    artifact_id: "admiral-core",
+    branch: branch
+  )
+end
+
 # Code Genearation Methods
 
 lane :generate_colors do
@@ -428,6 +463,35 @@ lane :build_git_packages do |options|
     artifact_id: "admiral-resources",
     branch: branch
   )
+end
+
+def upload_nexus_framework(scheme:, artifact_id:, branch:)
+  root_path = "Products/xcframeworks"
+  framework_path = root_path + "/#{scheme}.xcframework"
+  ziped_framework_path = framework_path + ".zip"
+  current_branch = (branch == "main" || branch == "master" || branch == nil) ? "" : "-#{branch}"
+
+  create_xcframework(
+    workspace: ENV['PROJECT_WORKSPACE_PATH'],
+    scheme: scheme,
+    destinations: ['iOS'],
+    xcframework_output_directory: root_path
+  )
+
+  zip(
+    path: framework_path,
+    output_path: ziped_framework_path
+  )
+  repository = ENV['NEXUS_REPOSITORY_NAME']
+  group_id = ENV['NEXUS_GROUP_ID'] + current_branch
+  system("cd ./go_scripts && ./main uploadNexusLib #{repository} #{group_id} #{artifact_id} #{current_lib_external_version} #{artifact_id} #{ziped_framework_path} #{'zip'}")
+  # nexus_upload_maven(
+  #   repository: ENV['NEXUS_REPOSITORY_NAME'],
+  #   group_id: "#{ENV['NEXUS_GROUP_ID']}#{current_branch}",
+  #   artifact_id: artifact_id,
+  #   version: current_lib_external_version,
+  #   assets: [{ 'path' => ziped_framework_path, 'extension' => 'zip' }]
+  # )
 end
 
 
