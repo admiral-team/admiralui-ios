@@ -344,6 +344,8 @@
 		D6B7250C2988097B00071009 /* AdmiralSwiftUIContactsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B7250B2988097B00071009 /* AdmiralSwiftUIContactsTest.swift */; };
 		D6C1E70028EB1FB800094890 /* AdmiralUIKitTabsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C1E6FF28EB1FB800094890 /* AdmiralUIKitTabsTest.swift */; };
 		D6D74667297AD58E00C46884 /* AdmiralSwiftUITabsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D74666297AD58E00C46884 /* AdmiralSwiftUITabsTest.swift */; };
+		D6E595132989558000519F59 /* AdmiralSwiftUIThemesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E595122989558000519F59 /* AdmiralSwiftUIThemesTest.swift */; };
+		D6E595152989591C00519F59 /* AdmiralSwiftUIToolbarTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E595142989591C00519F59 /* AdmiralSwiftUIToolbarTest.swift */; };
 		D6E8EBD428FEE375000172F2 /* AdmiralUIKitCurrencyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E8EBD328FEE375000172F2 /* AdmiralUIKitCurrencyTest.swift */; };
 		D6FF94F929227B0800101246 /* AdmiralUISwitcherTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FF94F829227B0800101246 /* AdmiralUISwitcherTest.swift */; };
 		D6FF94FB29238F5500101246 /* AdmiralUIRadiobuttonTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FF94FA29238F5500101246 /* AdmiralUIRadiobuttonTest.swift */; };
@@ -881,6 +883,8 @@
 		D6B7250B2988097B00071009 /* AdmiralSwiftUIContactsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralSwiftUIContactsTest.swift; sourceTree = "<group>"; };
 		D6C1E6FF28EB1FB800094890 /* AdmiralUIKitTabsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIKitTabsTest.swift; sourceTree = "<group>"; };
 		D6D74666297AD58E00C46884 /* AdmiralSwiftUITabsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralSwiftUITabsTest.swift; sourceTree = "<group>"; };
+		D6E595122989558000519F59 /* AdmiralSwiftUIThemesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralSwiftUIThemesTest.swift; sourceTree = "<group>"; };
+		D6E595142989591C00519F59 /* AdmiralSwiftUIToolbarTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralSwiftUIToolbarTest.swift; sourceTree = "<group>"; };
 		D6E8EBD328FEE375000172F2 /* AdmiralUIKitCurrencyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIKitCurrencyTest.swift; sourceTree = "<group>"; };
 		D6FF94F829227B0800101246 /* AdmiralUISwitcherTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUISwitcherTest.swift; sourceTree = "<group>"; };
 		D6FF94FA29238F5500101246 /* AdmiralUIRadiobuttonTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIRadiobuttonTest.swift; sourceTree = "<group>"; };
@@ -3568,6 +3572,8 @@
 				D666871529880B8800BCED86 /* AdmiralSwiftUIFAQTest.swift */,
 				D6B2931E2987A59E00CE20AC /* AdmiralSwiftUICurrencyTest.swift */,
 				D6B293202987A7AD00CE20AC /* AdmiralSwiftUIInfoTest.swift */,
+				D6E595122989558000519F59 /* AdmiralSwiftUIThemesTest.swift */,
+				D6E595142989591C00519F59 /* AdmiralSwiftUIToolbarTest.swift */,
 				D6B665B22981390D00F209D8 /* AdmiralSwiftUIInformersAndNotificationsTest.swift */,
 				D6B665B42981499B00F209D8 /* AdmiralSwiftUILinerPageControl.swift */,
 				D6573D29298154AF00F546F9 /* AdmiralSwiftUICircularPageControlTest.swift */,
@@ -4544,6 +4550,8 @@
 				D6573D2A298154AF00F546F9 /* AdmiralSwiftUICircularPageControlTest.swift in Sources */,
 				D6B2931F2987A59E00CE20AC /* AdmiralSwiftUICurrencyTest.swift in Sources */,
 				D6B665B52981499B00F209D8 /* AdmiralSwiftUILinerPageControl.swift in Sources */,
+				D6E595152989591C00519F59 /* AdmiralSwiftUIToolbarTest.swift in Sources */,
+				D6E595132989558000519F59 /* AdmiralSwiftUIThemesTest.swift in Sources */,
 				D6B665B32981390D00F209D8 /* AdmiralSwiftUIInformersAndNotificationsTest.swift in Sources */,
 				D6D74667297AD58E00C46884 /* AdmiralSwiftUITabsTest.swift in Sources */,
 				E97CAD5D27206BF7001283A1 /* AdmiralSwiftUITests.swift in Sources */,

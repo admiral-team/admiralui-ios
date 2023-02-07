@@ -203,6 +203,7 @@ public struct InputNumber: View {
         self.isResponder = isResponder
         self.formatter = formatter
         self.onCursorPosition = onCursorPosition
+        self.accessibilityIdentifier = accessibilityIdentifier
     }
 
     // MARK: - Body
@@ -229,10 +230,12 @@ public struct InputNumber: View {
                             schemeProvider: .constant(scheme: scheme.buttonScheme)
                         )
                     )
+                    .accessibility(identifier: InputNumberAccessibilityIdentifiers.minus.accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier))
                 Spacer()
                     .frame(width: spacerOffset)
 
                 mainContent()
+                    .accessibility(identifier: InputNumberAccessibilityIdentifiers.count.accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier))
 
                 Spacer()
                     .frame(width: spacerOffset)
@@ -247,6 +250,7 @@ public struct InputNumber: View {
                             schemeProvider: .constant(scheme: scheme.buttonScheme)
                         )
                     )
+                    .accessibility(identifier: InputNumberAccessibilityIdentifiers.plus.accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier))
             }
             .frame(height: Constants.height)
             .onAppear(perform: {
@@ -363,7 +367,7 @@ public struct InputNumber: View {
             onSubmit: onSubmit,
             onCursorPosition: onCursorPosition,
             updateWidth: $updatedWidth,
-            accessibilityIdentifier: accessibilityIdentifier
+            accessibilityIdentifier: InputNumberAccessibilityIdentifiers.count.accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier)
         )
         .fixedSize(horizontal: isFixedTextFieldSize(), vertical: true)
         .frame(width: textFieldWidth())

@@ -27,6 +27,7 @@ public struct ToolBarItemSelectable: View {
     let itemType: ToolbarItemType
     let onTap: (Int) -> ()
     let isEnabled: Bool
+    let accessibityId: String?
 
     // MARK: - Computed Properties
 
@@ -89,6 +90,9 @@ public struct ToolBarItemSelectable: View {
             onTap(assignedPage)
             currentPage = assignedPage
         }
+        .accessibilityElement()
+        .accessibilityAddTraits(.isButton)
+        .accessibility(identifier: accessibityId ?? "")
         Spacer()
     }
 

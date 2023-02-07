@@ -16,10 +16,10 @@ struct ToolBarSwiftUIView: View {
     
     @State private var startValue: Double = 4.0
     @State private var sliceItemArray = [
-        ToolBarItem(title: "Оплатить", image: Image(uiImage: Asset.Toolbar.card.image)),
-        ToolBarItem(title: "Пополнить", image: Image(uiImage: Asset.Toolbar.getCash.image)),
-        ToolBarItem(title: "Подробнее", image: Image(uiImage: Asset.Toolbar.info.image)),
-        ToolBarItem(title: "Настройки", image: Image(uiImage: Asset.Toolbar.settings.image))
+        ToolBarItem(title: "Оплатить", image: Image(uiImage: Asset.Toolbar.card.image), accessibilityId: "ToolbarPay"),
+        ToolBarItem(title: "Пополнить", image: Image(uiImage: Asset.Toolbar.getCash.image), accessibilityId: "ToolbarAdd"),
+        ToolBarItem(title: "Подробнее", image: Image(uiImage: Asset.Toolbar.info.image), accessibilityId: "ToolbarDetail"),
+        ToolBarItem(title: "Настройки", image: Image(uiImage: Asset.Toolbar.settings.image), accessibilityId: "ToolbarSetting")
     ]
     @State private var toolbarType: ToolBarType = .vertical
     @State private var selectedIndex: Int = 1
@@ -42,7 +42,8 @@ struct ToolBarSwiftUIView: View {
                     titleText: .constant("Количество пунктов"),
                     value: $startValue,
                     minimumValue: .constant(1.0),
-                    maximumValue: .constant(4.0))
+                    maximumValue: .constant(4.0),
+                    accessibilityIdentifier: "InputNumberToolbar")
                     .onChange(of: startValue, perform: { value in
                         let sliceItems = Array(items[0...(Int(value) - 1)])
                         sliceItemArray = sliceItems

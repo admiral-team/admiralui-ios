@@ -61,6 +61,7 @@ final class ThemesViewController: BaseTableViewController {
     
     private func setupButtons() {
         bottomButton.setTitle("Создать новую тему", for: [])
+        bottomButton.accessibilityIdentifier = "Create new theme"
         bottomButton.addTarget(self, action: #selector(didTapBottomButton), for: .touchUpInside)
     }
     
@@ -73,7 +74,8 @@ final class ThemesViewController: BaseTableViewController {
             return MainTitleTableViewCellViewModel(
                 title: theme.displayName ?? "",
                 subtitle: isSelected ? "Выбрано" : "",
-                didSelect: { [weak self] in self?.present(theme: theme) }
+                didSelect: { [weak self] in self?.present(theme: theme) },
+                accessibilityId: theme.identifier
             )
         }
         

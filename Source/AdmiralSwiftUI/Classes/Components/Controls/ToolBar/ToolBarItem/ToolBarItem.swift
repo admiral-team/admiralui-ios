@@ -63,6 +63,8 @@ public struct ToolBarItem: Hashable, Identifiable {
 
     /// A Boolean value that indicates whether the view is enabled
     public var isEnabled: Bool = true
+    
+    public var accessibilityId: String
 
     // MARK: - Initializer
 
@@ -71,13 +73,15 @@ public struct ToolBarItem: Hashable, Identifiable {
         image: Image,
         badgeStyle: ToolBarBadgeStyle? = nil,
         type: ToolbarItemType = .default,
-        isEnabled: Bool = true
+        isEnabled: Bool = true,
+        accessibilityId: String = ""
     ) {
         self.title = title
         self.image = image
         self.badgeStyle = badgeStyle
         self.type = type
         self.isEnabled = isEnabled
+        self.accessibilityId = accessibilityId
     }
 
     // MARK: - Public Methods

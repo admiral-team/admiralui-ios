@@ -118,7 +118,8 @@ public struct ToolBar: View {
                         badgeStyle: item.badgeStyle,
                         itemType: item.type,
                         onTap: onTap,
-                        isEnabled: item.isEnabled
+                        isEnabled: item.isEnabled,
+                        accessibityId: item.accessibilityId
                     )
                 } else {
                     Button(action: {
@@ -137,6 +138,7 @@ public struct ToolBar: View {
                             isEnabled: item.isEnabled
                         )
                     )
+                    .accessibility(identifier: item.accessibilityId)
                 }
             }
         }
