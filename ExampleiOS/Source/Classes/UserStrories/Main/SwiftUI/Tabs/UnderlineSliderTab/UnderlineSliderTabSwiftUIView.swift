@@ -31,6 +31,7 @@ struct UnderlineSliderTabSwiftUIView: View {
                                            UnderlineTabItem(title: "Three", badgeStyle: nil, accessibilityId: "SliderControlsThird"),
                                            UnderlineTabItem(title: "Four", badgeStyle: nil, accessibilityId: "SliderControlsFourth"),
                                            UnderlineTabItem(title: "Five", badgeStyle: nil, accessibilityId: "SliderControlsFifth"),
+                                           UnderlineTabItem(title: "Six", badgeStyle: nil, accessibilityId: "SliderControlsSixth"),
                                            UnderlineTabItem(title: "Seven", badgeStyle: nil, accessibilityId: "SliderControlsSeventh"),
                                            UnderlineTabItem(title: "Eight", badgeStyle: nil, accessibilityId: "SliderControlsEighth"),
                                            UnderlineTabItem(title: "Nine", badgeStyle: nil, accessibilityId: "SliderControlsNineth"),
