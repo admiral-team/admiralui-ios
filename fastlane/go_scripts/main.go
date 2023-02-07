@@ -9,6 +9,7 @@ import (
 	"main/pullRequests"
 	"main/release"
 	"main/telegram"
+	"main/nexus"
 	"os"
 	"strconv"
 
@@ -55,21 +56,15 @@ func main() {
 		path := os.Args[4]
 		figma.LoadDocumentation(token, id, path)
 	case "uploadNexusLib":
-		// var nexus NexusParameter
-		// nexus.repository = os.Args[2]
-		// repository := os.Args[2]
-		// group_id := os.Args[3]
-		// artifact_id := os.Args[4]
-		// version := os.Args[5]
-		// ziped_framework_path := os.Args[6]
-		// extension := os.Args[7]
-		// nexus.UploadToNexus(ctx, nexus)
-		// fmt.Println(repository)
-		// fmt.Println(group_id)
-		// fmt.Println(artifact_id)
-		// fmt.Println(version)
-		// fmt.Println(ziped_framework_path)
-		// fmt.Println(extension)
+		nexusItem := &nexus.NexusParameter{
+			Repository : os.Args[2],
+			GroupId : os.Args[3],
+			ArtifactId : os.Args[4],
+			Version : os.Args[5],
+			ZipedFrameworkPath : os.Args[6],
+			Extension : os.Args[7],
+		}
+		nexus.UploadToNexus(ctx, *nexusItem)
 	default:
 		fmt.Println("Unknown command")
 	}
