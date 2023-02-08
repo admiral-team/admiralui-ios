@@ -4025,7 +4025,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftgen >/dev/null; then\n    cd ..\n    swiftgen config run --config .swiftgen.yml\n    #swiftgen config run --config .swiftgenExample.yml\nelse\n    echo \"SwiftGen does not exist, download from https://github.com/AliSoftware/SwiftGen\"\n    exit 1\nfi\n";
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftgen >/dev/null; then\n    cd ..\n    swiftgen config run --config .swiftgen.yml\n    swiftgen config run --config .swiftgenExample.yml\nelse\n    echo \"SwiftGen does not exist, download from https://github.com/AliSoftware/SwiftGen\"\n    exit 1\nfi\n";
 		};
 		E6D91C8925320D3C00DCE489 /* Swift Lint */ = {
 			isa = PBXShellScriptBuildPhase;
