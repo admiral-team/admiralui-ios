@@ -3,6 +3,8 @@ package nexus
 import (
 	"bytes"
 	"context"
+	b64 "encoding/base64"
+	"encoding/json"
 	"fmt"
 	"io"
 	"io/ioutil"
@@ -12,14 +14,40 @@ import (
 )
 
 func UploadToNexus(ctx context.Context, nexus NexusParameter) {
-	url := "http://deepstack.local:82/v1/vision/custom/combined"
-	b, w := createMultipartFormData("image", "C:\\go_sort\\temp\\person.jpg")
+	fmt.Println("ArtifactId:", nexus.ArtifactId)
+	fmt.Println("Extension:", nexus.Extension)
+	fmt.Println("GroupId:", nexus.GroupId)
+	fmt.Println("Repository:", nexus.Repository)
+	fmt.Println("Version:", nexus.Version)
+	fmt.Println("ZipedFrameworkPath:", nexus.ZipedFrameworkPath)
+	fmt.Println("NexusUrl:", nexus.NexusUrl)
 
-	req, err := http.NewRequest("POST", url, &b)
+	url := nexus.NexusUrl + "/service/rest/v1/components?repository=" + nexus.Repository
+	fmt.Println("url:", url)
+
+	b, w := createMultipartFormData(nexus.Extension, nexus.ZipedFrameworkPath)
+
+	values := map[string]interface{}{
+		"maven2.groupId":          nexus.GroupId,
+		"maven2.artifactId":       nexus.ArtifactId,
+		"maven2.version":          nexus.Version,
+		"maven2.generate-pom":     true,
+		"maven2.packaging":        true,
+		"maven2.asset0":           &b,
+		"maven2.asset0.extension": nexus.Extension,
+	}
+
+	jsonValue, _ := json.Marshal(values)
+
+	bytes := bytes.NewBuffer(jsonValue)
+
+	req, err := http.NewRequest("POST", url, bytes)
 	if err != nil {
 		return
 	}
+	token := b64.StdEncoding.EncodeToString([]byte(nexus.Username + ":" + nexus.Password))
 	req.Header.Set("Content-Type", w.FormDataContentType())
+	req.Header.Set("Authorization", "Basic "+token)
 
 	client := &http.Client{}
 	response, error := client.Do(req)

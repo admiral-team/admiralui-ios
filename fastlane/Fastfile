@@ -484,14 +484,9 @@ def upload_nexus_framework(scheme:, artifact_id:, branch:)
   )
   repository = ENV['NEXUS_REPOSITORY_NAME']
   group_id = ENV['NEXUS_GROUP_ID'] + current_branch
-  system("cd ./go_scripts && ./main uploadNexusLib #{repository} #{group_id} #{artifact_id} #{current_lib_external_version} #{artifact_id} #{ziped_framework_path} #{'zip'}")
-  # nexus_upload_maven(
-  #   repository: ENV['NEXUS_REPOSITORY_NAME'],
-  #   group_id: "#{ENV['NEXUS_GROUP_ID']}#{current_branch}",
-  #   artifact_id: artifact_id,
-  #   version: current_lib_external_version,
-  #   assets: [{ 'path' => ziped_framework_path, 'extension' => 'zip' }]
-  # )
+  user = ENV['NEXUS_USERNAME']
+  password = ENV['NEXUS_PASSWORD']
+  system("cd ./go_scripts && ./main uploadNexusLib #{repository} #{group_id} #{artifact_id} #{current_lib_external_version} #{ziped_framework_path} #{'zip'} #{user} #{password}")
 end
 
 

@@ -7,4 +7,7 @@ type NexusParameter struct {
 	Version            string
 	ZipedFrameworkPath string
 	Extension          string
+	NexusUrl           string
+	Username           string
+	Password           string
 }

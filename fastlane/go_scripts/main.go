@@ -6,10 +6,10 @@ import (
 	"log"
 	"main/auth"
 	"main/issues"
+	"main/nexus"
 	"main/pullRequests"
 	"main/release"
 	"main/telegram"
-	"main/nexus"
 	"os"
 	"strconv"
 
@@ -57,12 +57,15 @@ func main() {
 		figma.LoadDocumentation(token, id, path)
 	case "uploadNexusLib":
 		nexusItem := &nexus.NexusParameter{
-			Repository : os.Args[2],
-			GroupId : os.Args[3],
-			ArtifactId : os.Args[4],
-			Version : os.Args[5],
-			ZipedFrameworkPath : os.Args[6],
-			Extension : os.Args[7],
+			Repository:         os.Args[2],
+			GroupId:            os.Args[3],
+			ArtifactId:         os.Args[4],
+			Version:            os.Args[5],
+			ZipedFrameworkPath: os.Args[6],
+			Extension:          os.Args[7],
+			NexusUrl:           os.Args[8],
+			Username:           os.Args[9],
+			Password:           os.Args[10],
 		}
 		nexus.UploadToNexus(ctx, *nexusItem)
 	default:
