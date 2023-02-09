@@ -4,10 +4,8 @@ import (
 	"bytes"
 	"context"
 	b64 "encoding/base64"
-	"encoding/json"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"mime/multipart"
 	"net/http"
 	"os"
@@ -25,39 +23,31 @@ func UploadToNexus(ctx context.Context, nexus NexusParameter) {
 	url := nexus.NexusUrl + "/service/rest/v1/components?repository=" + nexus.Repository
 	fmt.Println("url:", url)
 
-	b, w := createMultipartFormData(nexus.Extension, nexus.ZipedFrameworkPath)
+	_, writer := createMultipartFormData(nexus.Extension, nexus.ZipedFrameworkPath)
 
-	values := map[string]interface{}{
-		"maven2.groupId":          nexus.GroupId,
-		"maven2.artifactId":       nexus.ArtifactId,
-		"maven2.version":          nexus.Version,
-		"maven2.generate-pom":     true,
-		"maven2.packaging":        true,
-		"maven2.asset0":           &b,
-		"maven2.asset0.extension": nexus.Extension,
-	}
+	body := &bytes.Buffer{}
+	defer writer.Close()
 
-	jsonValue, _ := json.Marshal(values)
+	_ = writer.WriteField("maven2.groupId", nexus.GroupId)
+	_ = writer.WriteField("maven2.artifactId", nexus.ArtifactId)
+	_ = writer.WriteField("maven2.version", nexus.Version)
+	_ = writer.WriteField("maven2.generate-pom", fmt.Sprintf("%t", true))
+	_ = writer.WriteField("maven2.packaging", fmt.Sprintf("%t", true))
+	_ = writer.WriteField("maven2.asset0", nexus.ZipedFrameworkPath)
+	_ = writer.WriteField("maven2.asset0.extension", nexus.Extension)
 
-	bytes := bytes.NewBuffer(jsonValue)
-
-	req, err := http.NewRequest("POST", url, bytes)
+	req, err := http.NewRequest("POST", url, body)
 	if err != nil {
 		return
 	}
 	token := b64.StdEncoding.EncodeToString([]byte(nexus.Username + ":" + nexus.Password))
-	req.Header.Set("Content-Type", w.FormDataContentType())
+	req.Header.Set("Content-Type", writer.FormDataContentType())
 	req.Header.Set("Authorization", "Basic "+token)
 
 	client := &http.Client{}
 	response, error := client.Do(req)
 	check(error)
 	defer response.Body.Close()
-
-	fmt.Println("response Status:", response.Status)
-	fmt.Println("response Headers:", response.Header)
-	body, _ := ioutil.ReadAll(response.Body)
-	fmt.Println("response Body:", string(body))
 }
 
 func check(e error) {
