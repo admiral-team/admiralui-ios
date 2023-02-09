@@ -12,6 +12,7 @@ struct SizePreferenceKey: PreferenceKey {
     static var defaultValue: CGSize = .zero
     static func reduce(value: inout CGSize, nextValue: () -> CGSize) {
         let next = nextValue()
+        value.width = value.width.rounded()
         if next == .zero {
             return
         }
