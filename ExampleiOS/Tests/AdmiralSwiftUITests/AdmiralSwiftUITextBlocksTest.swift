@@ -30,7 +30,7 @@ class AdmiralSwiftUITextBlocksTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Text Blocks, Текстовые блоки"].tap()
+        app.buttons["Text Blocks"].tap()
         app.buttons["Header"].tap()
         
         changeThemes(app: app)
@@ -43,7 +43,7 @@ class AdmiralSwiftUITextBlocksTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Text Blocks, Текстовые блоки"].tap()
+        app.buttons["Text Blocks"].tap()
         app.buttons["Accordion"].tap()
         
         app.buttons["SegmentControlDisabled"].tap()
@@ -59,7 +59,7 @@ class AdmiralSwiftUITextBlocksTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Text Blocks, Текстовые блоки"].tap()
+        app.buttons["Text Blocks"].tap()
         app.buttons["Paragraph"].tap()
         
         changeThemes(app: app)
@@ -72,7 +72,7 @@ class AdmiralSwiftUITextBlocksTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Text Blocks, Текстовые блоки"].tap()
+        app.buttons["Text Blocks"].tap()
         app.buttons["Link"].tap()
         
         app.buttons["SegmentControlDisabled"].tap()
@@ -87,7 +87,7 @@ class AdmiralSwiftUITextBlocksTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Text Blocks, Текстовые блоки"].tap()
+        app.buttons["Text Blocks"].tap()
         app.buttons["Padding"].tap()
         
         app.buttons["SegmentControlDisabled"].tap()

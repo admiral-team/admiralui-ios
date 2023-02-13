@@ -30,7 +30,7 @@ class AdmiralSwiftUISwitcherTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Switcher, Переключатель"].tap()
+        app.buttons["Switcher"].tap()
         
         app.buttons["SegmentControlDisabled"].tap()
         app.buttons["SegmentControlDefault"].tap()

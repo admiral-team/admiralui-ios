@@ -453,7 +453,6 @@
 		E95553CF27A2CBE300A14BCA /* TextOperationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95553CE27A2CBE300A14BCA /* TextOperationViewModel.swift */; };
 		E95DC44727A12DDA00532BDC /* Publishers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95DC44627A12DDA00532BDC /* Publishers+Extensions.swift */; };
 		E97CAD5D27206BF7001283A1 /* AdmiralSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97CAD5C27206BF7001283A1 /* AdmiralSwiftUITests.swift */; };
-		E97CAD5F27206BF7001283A1 /* AdmiralSwiftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97CAD5E27206BF7001283A1 /* AdmiralSwiftUITestsLaunchTests.swift */; };
 		E9A18D7F27393ED900668C03 /* SwiftUIChatItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A18D7E27393ED900668C03 /* SwiftUIChatItem.swift */; };
 		E9A18D87273946BD00668C03 /* SwiftUIChatInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A18D86273946BD00668C03 /* SwiftUIChatInputView.swift */; };
 		E9A18D8B2739523300668C03 /* SwiftUITextMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A18D8A2739523300668C03 /* SwiftUITextMessageView.swift */; };
@@ -995,7 +994,6 @@
 		E95DC44627A12DDA00532BDC /* Publishers+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Publishers+Extensions.swift"; sourceTree = "<group>"; };
 		E97CAD5A27206BF7001283A1 /* AdmiralSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdmiralSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E97CAD5C27206BF7001283A1 /* AdmiralSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralSwiftUITests.swift; sourceTree = "<group>"; };
-		E97CAD5E27206BF7001283A1 /* AdmiralSwiftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralSwiftUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E9A18D7E27393ED900668C03 /* SwiftUIChatItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIChatItem.swift; sourceTree = "<group>"; };
 		E9A18D86273946BD00668C03 /* SwiftUIChatInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIChatInputView.swift; sourceTree = "<group>"; };
 		E9A18D8A2739523300668C03 /* SwiftUITextMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITextMessageView.swift; sourceTree = "<group>"; };
@@ -3586,7 +3584,6 @@
 				D6B665B42981499B00F209D8 /* AdmiralSwiftUILinerPageControl.swift */,
 				D6573D29298154AF00F546F9 /* AdmiralSwiftUICircularPageControlTest.swift */,
 				D6D74666297AD58E00C46884 /* AdmiralSwiftUITabsTest.swift */,
-				E97CAD5E27206BF7001283A1 /* AdmiralSwiftUITestsLaunchTests.swift */,
 			);
 			path = AdmiralSwiftUITests;
 			sourceTree = "<group>";
@@ -4553,7 +4550,6 @@
 				D6766CFF297EDF6E000761A4 /* AdmiralSwiftUITextBlocksTest.swift in Sources */,
 				D666871629880B8800BCED86 /* AdmiralSwiftUIFAQTest.swift in Sources */,
 				D655714929753B6B00A07F60 /* AdmiralSwiftUIButtonsTest.swift in Sources */,
-				E97CAD5F27206BF7001283A1 /* AdmiralSwiftUITestsLaunchTests.swift in Sources */,
 				D6B2931D2984238E00CE20AC /* AdmiralSwiftUIAlertTest.swift in Sources */,
 				D6573D2A298154AF00F546F9 /* AdmiralSwiftUICircularPageControlTest.swift in Sources */,
 				D6B2931F2987A59E00CE20AC /* AdmiralSwiftUICurrencyTest.swift in Sources */,

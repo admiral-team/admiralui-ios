@@ -30,7 +30,7 @@ class AdmiralSwiftUIInformersAndNotificationsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Informers & Notifications, Информеры"].tap()
+        app.buttons["Informers & Notifications"].tap()
         app.buttons["Informers"].tap()
         app.buttons["Big Informers"].tap()
         
@@ -47,7 +47,7 @@ class AdmiralSwiftUIInformersAndNotificationsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Informers & Notifications, Информеры"].tap()
+        app.buttons["Informers & Notifications"].tap()
         app.buttons["Informers"].tap()
         app.buttons["Small Informers"].tap()
         
@@ -61,7 +61,7 @@ class AdmiralSwiftUIInformersAndNotificationsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Informers & Notifications, Информеры"].tap()
+        app.buttons["Informers & Notifications"].tap()
         app.buttons["Notifications"].tap()
         app.buttons["Toast"].tap()
         app.buttons["ShowToast"].tap()
@@ -74,7 +74,7 @@ class AdmiralSwiftUIInformersAndNotificationsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Informers & Notifications, Информеры"].tap()
+        app.buttons["Informers & Notifications"].tap()
         app.buttons["Notifications"].tap()
         app.buttons["Static"].tap()
         
@@ -88,7 +88,7 @@ class AdmiralSwiftUIInformersAndNotificationsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Informers & Notifications, Информеры"].tap()
+        app.buttons["Informers & Notifications"].tap()
         app.buttons["Notifications"].tap()
         app.buttons["Action"].tap()
         app.buttons["ShowToast"].tap()

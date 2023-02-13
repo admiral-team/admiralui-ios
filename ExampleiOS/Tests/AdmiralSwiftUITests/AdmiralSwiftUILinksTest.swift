@@ -30,7 +30,7 @@ class AdmiralSwiftUILinksTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Links, Ссылки"].tap()
+        app.buttons["Links"].tap()
         
         app.buttons["SegmentControlDisabled"].tap()
         app.buttons["SegmentControlDefault"].tap()

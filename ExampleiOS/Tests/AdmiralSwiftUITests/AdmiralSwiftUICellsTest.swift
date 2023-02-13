@@ -30,7 +30,7 @@ class AdmiralSwiftUICellsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Cells, Списки"].tap()
+        app.buttons["Cells"].tap()
         app.buttons["Base Cells"].tap()
         app.buttons["Leading Elements"].tap()
         
@@ -50,7 +50,7 @@ class AdmiralSwiftUICellsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Cells, Списки"].tap()
+        app.buttons["Cells"].tap()
         app.buttons["Base Cells"].tap()
         app.buttons["Center Elements"].tap()
         
@@ -70,7 +70,7 @@ class AdmiralSwiftUICellsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Cells, Списки"].tap()
+        app.buttons["Cells"].tap()
         app.buttons["Base Cells"].tap()
         app.buttons["Trailing Elements"].tap()
         
@@ -97,7 +97,7 @@ class AdmiralSwiftUICellsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Cells, Списки"].tap()
+        app.buttons["Cells"].tap()
         app.buttons["Actionbar"].tap()
         
         app.buttons["SegmentControlDisabled"].tap()

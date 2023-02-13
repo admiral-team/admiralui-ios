@@ -30,7 +30,7 @@ class AdmiralSwiftUISpinnerTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Spinner, Демонстрация процесса загрузки"].tap()
+        app.buttons["Spinner"].tap()
         
         app.buttons["SpinnerMedium"].tap()
         app.buttons["SpinnerBig"].tap()
