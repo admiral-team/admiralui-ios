@@ -3,9 +3,10 @@ package nexus
 import (
 	"bytes"
 	"context"
+	"crypto/tls"
 	b64 "encoding/base64"
 	"fmt"
-	"io"
+	"io/ioutil"
 	"mime/multipart"
 	"net/http"
 	"os"
@@ -23,61 +24,65 @@ func UploadToNexus(ctx context.Context, nexus NexusParameter) {
 	url := nexus.NexusUrl + "/service/rest/v1/components?repository=" + nexus.Repository
 	fmt.Println("url:", url)
 
-	_, writer := createMultipartFormData(nexus.Extension, nexus.ZipedFrameworkPath)
-
-	body := &bytes.Buffer{}
-	defer writer.Close()
+	var requestBody bytes.Buffer
+	writer := multipart.NewWriter(&requestBody)
 
 	_ = writer.WriteField("maven2.groupId", nexus.GroupId)
 	_ = writer.WriteField("maven2.artifactId", nexus.ArtifactId)
 	_ = writer.WriteField("maven2.version", nexus.Version)
 	_ = writer.WriteField("maven2.generate-pom", fmt.Sprintf("%t", true))
 	_ = writer.WriteField("maven2.packaging", fmt.Sprintf("%t", true))
-	_ = writer.WriteField("maven2.asset0", nexus.ZipedFrameworkPath)
-	_ = writer.WriteField("maven2.asset0.extension", nexus.Extension)
 
-	req, err := http.NewRequest("POST", url, body)
+	file, err := os.Open(nexus.ZipedFrameworkPath)
 	if err != nil {
-		return
+		panic(err)
+	}
+	fileContents, err := ioutil.ReadAll(file)
+	if err != nil {
+		panic(err)
+	}
+	fi, err := file.Stat()
+	if err != nil {
+		panic(err)
+	}
+	file.Close()
+
+	part, err := writer.CreateFormFile("maven2.asset1", fi.Name())
+	if err != nil {
+		panic(err)
+	}
+	part.Write(fileContents)
+	writer.WriteField("maven2.asset1.extension", nexus.Extension)
+
+	writer.Close()
+
+	req, err := http.NewRequest("POST", url, &requestBody)
+	if err != nil {
+		panic(err)
 	}
 	token := b64.StdEncoding.EncodeToString([]byte(nexus.Username + ":" + nexus.Password))
 	req.Header.Set("Content-Type", writer.FormDataContentType())
 	req.Header.Set("Authorization", "Basic "+token)
 
-	client := &http.Client{}
+	tr := &http.Transport{
+		TLSClientConfig: &tls.Config{
+			InsecureSkipVerify: true,
+		},
+	}
+
+	client := &http.Client{
+		Transport: tr,
+	}
+
 	response, error := client.Do(req)
-	check(error)
-	defer response.Body.Close()
-}
-
-func check(e error) {
-	if e != nil {
-		panic(e)
-	}
-}
-
-func createMultipartFormData(fieldName, fileName string) (bytes.Buffer, *multipart.Writer) {
-	var b bytes.Buffer
-	var err error
-	w := multipart.NewWriter(&b)
-	var fw io.Writer
-	file := mustOpen(fileName)
-	if fw, err = w.CreateFormFile(fieldName, file.Name()); err != nil {
-		fmt.Println("Error: ", err)
-	}
-	if _, err = io.Copy(fw, file); err != nil {
-		fmt.Println("Error: ", err)
-	}
-	w.Close()
-	return b, w
-}
-
-func mustOpen(f string) *os.File {
-	r, err := os.Open(f)
-	if err != nil {
-		pwd, _ := os.Getwd()
-		fmt.Println("PWD: ", pwd)
+	if error != nil {
 		panic(err)
 	}
-	return r
+	defer response.Body.Close()
+
+	responseBody, err := ioutil.ReadAll(response.Body)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(string(responseBody))
 }
