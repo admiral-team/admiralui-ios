@@ -15,6 +15,7 @@ class UITextFieldAccesabilityUITests: XCTestCase {
         super.setUp()
         self.app = XCUIApplication()
         self.app.launch()
+        checkFramework(width: app, framework: .switUI)
     }
 
     func test_text_field() {

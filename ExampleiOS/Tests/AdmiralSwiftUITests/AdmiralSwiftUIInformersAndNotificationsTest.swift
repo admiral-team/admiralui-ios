@@ -14,21 +14,11 @@ class AdmiralSwiftUIInformersAndNotificationsTest: XCTestCase {
     override func tearDownWithError() throws {
     }
     
-    func testCheckSwiftUI() throws {
-        let app = XCUIApplication()
-        app.launch()
-        
-        app.buttons["SeatingTabBarItem"].tap()
-        let swiftUISwitcher = app.switches["SwitchToSwiftUI"]
-        
-        if swiftUISwitcher.value as? String == "0" {
-            swiftUISwitcher.tap()
-        }
-    }
-    
     func testBigInformers() {
         let app = XCUIApplication()
         app.launch()
+        
+        checkFramework(width: app, framework: .switUI)
         
         app.buttons["Informers & Notifications"].tap()
         app.buttons["Informers"].tap()
@@ -47,6 +37,8 @@ class AdmiralSwiftUIInformersAndNotificationsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .switUI)
+        
         app.buttons["Informers & Notifications"].tap()
         app.buttons["Informers"].tap()
         app.buttons["Small Informers"].tap()
@@ -61,6 +53,8 @@ class AdmiralSwiftUIInformersAndNotificationsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .switUI)
+        
         app.buttons["Informers & Notifications"].tap()
         app.buttons["Notifications"].tap()
         app.buttons["Toast"].tap()
@@ -73,6 +67,8 @@ class AdmiralSwiftUIInformersAndNotificationsTest: XCTestCase {
     func testStatic() {
         let app = XCUIApplication()
         app.launch()
+        
+        checkFramework(width: app, framework: .switUI)
         
         app.buttons["Informers & Notifications"].tap()
         app.buttons["Notifications"].tap()
@@ -87,6 +83,8 @@ class AdmiralSwiftUIInformersAndNotificationsTest: XCTestCase {
     func testAction() {
         let app = XCUIApplication()
         app.launch()
+        
+        checkFramework(width: app, framework: .switUI)
         
         app.buttons["Informers & Notifications"].tap()
         app.buttons["Notifications"].tap()

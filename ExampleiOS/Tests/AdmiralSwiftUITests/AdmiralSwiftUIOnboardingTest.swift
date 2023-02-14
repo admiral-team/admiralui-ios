@@ -18,6 +18,8 @@ class AdmiralSwiftUIOnboardingTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .switUI)
+        
         app.buttons["Alerts"].tap()
         app.buttons["Onboarding"].tap()
         app.buttons["NextStep"].tap()

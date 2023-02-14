@@ -18,6 +18,8 @@ class AdmiralSwiftUIErrorViewTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .switUI)
+        
         app.buttons["Alerts"].tap()
         app.buttons["Error View"].tap()
         app.buttons["ErrorViewButton"].tap()

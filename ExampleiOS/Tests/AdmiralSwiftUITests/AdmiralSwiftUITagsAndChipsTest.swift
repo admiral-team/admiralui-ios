@@ -14,21 +14,11 @@ class AdmiralSwiftUITagsAndChips: XCTestCase {
     override func tearDownWithError() throws {
     }
     
-    func testCheckSwiftUI() throws {
-        let app = XCUIApplication()
-        app.launch()
-        
-        app.buttons["SeatingTabBarItem"].tap()
-        let swiftUISwitcher = app.switches["SwitchToSwiftUI"]
-        
-        if swiftUISwitcher.value as? String == "0" {
-            swiftUISwitcher.tap()
-        }
-    }
-    
     func testTagsAndChips() throws {
         let app = XCUIApplication()
         app.launch()
+        
+        checkFramework(width: app, framework: .switUI)
         
         app.buttons["Tags & Chips"].tap()
         

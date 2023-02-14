@@ -14,15 +14,11 @@ class AdmiralSwiftUIToolbarTest: XCTestCase {
     override func tearDownWithError() throws {
     }
     
-    func testCheckSwiftUI() throws {
-        let app = XCUIApplication()
-        app.launch()
-        
-    }
-    
     func testToolbar() throws {
         let app = XCUIApplication()
         app.launch()
+        
+        checkFramework(width: app, framework: .switUI)
         
         app.buttons["Tool bar"].tap()
         app.buttons["ToolbarAdd"].tap()

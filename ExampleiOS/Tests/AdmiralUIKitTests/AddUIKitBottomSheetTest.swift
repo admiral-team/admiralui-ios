@@ -18,6 +18,8 @@ class AddUIKitBottomSheetTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .UIKit)
+        
         app.tables.staticTexts["Bottom-sheet"].tap()
         
         changeThemes(app: app)
@@ -35,6 +37,8 @@ class AddUIKitBottomSheetTest: XCTestCase {
     func testBottomSheetAllCards() throws {
         let app = XCUIApplication()
         app.launch()
+        
+        checkFramework(width: app, framework: .UIKit)
         
         app.tables.staticTexts["Bottom-sheet"].tap()
         

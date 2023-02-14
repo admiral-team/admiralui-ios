@@ -20,6 +20,8 @@ class AdmiralUIKitTextBlockTests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .UIKit)
+        
         app.tables.staticTexts["Text Blocks"].tap()
         app.staticTexts["Header"].tap()
         app.staticTexts["Headline Secondary"].tap()
@@ -31,6 +33,8 @@ class AdmiralUIKitTextBlockTests: XCTestCase {
     func testAccordion() throws {
         let app = XCUIApplication()
         app.launch()
+        
+        checkFramework(width: app, framework: .UIKit)
         
         app.tables.staticTexts["Text Blocks"].tap()
         app.staticTexts["Accordion"].tap()
@@ -44,6 +48,8 @@ class AdmiralUIKitTextBlockTests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .UIKit)
+        
         app.tables.staticTexts["Text Blocks"].tap()
         app.staticTexts["Paragraph"].tap()
         app.otherElements.matching(identifier: "SegmentControlDisabled").element.tap()
@@ -55,6 +61,8 @@ class AdmiralUIKitTextBlockTests: XCTestCase {
     func testLink() throws {
         let app = XCUIApplication()
         app.launch()
+        
+        checkFramework(width: app, framework: .UIKit)
         
         app.tables.staticTexts["Text Blocks"].tap()
         app.staticTexts["Link"].tap()
@@ -70,6 +78,8 @@ class AdmiralUIKitTextBlockTests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .UIKit)
+        
         app.tables.staticTexts["Text Blocks"].tap()
         app.staticTexts["Padding"].tap()
         app.otherElements.matching(identifier: "SegmentControlDisabled").element.tap()
@@ -80,6 +90,8 @@ class AdmiralUIKitTextBlockTests: XCTestCase {
     
     func changeThemes(app: XCUIApplication) {
         app.buttons["Ellipse"].tap()
+        
+        checkFramework(width: app, framework: .UIKit)
         
         app.otherElements.matching(identifier: "ThemeSwitchButton_Light").element.tap()
         app.otherElements.matching(identifier: "ThemeSwitchButton_Dark").element.tap()

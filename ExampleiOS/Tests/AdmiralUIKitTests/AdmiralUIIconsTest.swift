@@ -19,6 +19,8 @@ class AdmiralUIKitIconsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .UIKit)
+        
         app.tables.staticTexts["Icons"].tap()
         app.otherElements.matching(identifier: "SegmentControlSolid").element.tap()
         app.otherElements.matching(identifier: "SegmentControlOutline").element.tap()
@@ -36,6 +38,8 @@ class AdmiralUIKitIconsTest: XCTestCase {
     
     func changeThemes(app: XCUIApplication) {
         app.buttons["Ellipse"].tap()
+        
+        checkFramework(width: app, framework: .UIKit)
         
         app.otherElements.matching(identifier: "ThemeSwitchButton_Light").element.tap()
         app.otherElements.matching(identifier: "ThemeSwitchButton_Dark").element.tap()

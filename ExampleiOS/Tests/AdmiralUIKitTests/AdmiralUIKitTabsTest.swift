@@ -18,6 +18,8 @@ class AdmiralUIKitTabsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .UIKit)
+        
         app.tables.staticTexts["Tabs"].tap()
         app.tables.staticTexts["Standard Tabs"].tap()
         app.otherElements.matching(identifier: "SegmentControlDisabled").element.tap()
@@ -47,6 +49,8 @@ class AdmiralUIKitTabsTest: XCTestCase {
     func testLogoTabs() throws {
         let app = XCUIApplication()
         app.launch()
+        
+        checkFramework(width: app, framework: .UIKit)
         
         app.tables.staticTexts["Tabs"].tap()
         app.tables.staticTexts["Logo Tabs"].tap()
@@ -78,6 +82,8 @@ class AdmiralUIKitTabsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .UIKit)
+        
         app.tables.staticTexts["Tabs"].tap()
         app.tables.staticTexts["Informer Tabs"].tap()
         app.otherElements.matching(identifier: "SegmentControlDisabled").element.tap()
@@ -96,6 +102,8 @@ class AdmiralUIKitTabsTest: XCTestCase {
     func testOutlineSliderTabs() throws {
         let app = XCUIApplication()
         app.launch()
+        
+        checkFramework(width: app, framework: .UIKit)
         
         app.tables.staticTexts["Tabs"].tap()
         app.tables.staticTexts["Outline Slider Tabs"].tap()
@@ -129,6 +137,8 @@ class AdmiralUIKitTabsTest: XCTestCase {
     func testUnderlineSliderTabs() throws {
         let app = XCUIApplication()
         app.launch()
+        
+        checkFramework(width: app, framework: .UIKit)
         
         app.tables.staticTexts["Tabs"].tap()
         app.tables.staticTexts["Underline Tabs"].tap()
@@ -164,6 +174,8 @@ class AdmiralUIKitTabsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .UIKit)
+        
         app.tables.staticTexts["Tabs"].tap()
         app.tables.staticTexts["Underline Tabs"].tap()
         app.tables.staticTexts["Center"].tap()
@@ -198,6 +210,8 @@ class AdmiralUIKitTabsTest: XCTestCase {
     func testIconTabs() {
         let app = XCUIApplication()
         app.launch()
+        
+        checkFramework(width: app, framework: .UIKit)
         
         app.tables.staticTexts["Tabs"].tap()
         app.tables.staticTexts["Icon Tabs"].tap()

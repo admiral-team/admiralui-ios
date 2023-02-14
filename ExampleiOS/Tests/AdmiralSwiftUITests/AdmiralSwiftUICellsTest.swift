@@ -14,21 +14,11 @@ class AdmiralSwiftUICellsTest: XCTestCase {
     override func tearDownWithError() throws {
     }
     
-    func testCheckSwiftUI() throws {
-        let app = XCUIApplication()
-        app.launch()
-        
-        app.buttons["SeatingTabBarItem"].tap()
-        let swiftUISwitcher = app.switches["SwitchToSwiftUI"]
-        
-        if swiftUISwitcher.value as? String == "0" {
-            swiftUISwitcher.tap()
-        }
-    }
-    
     func testLeadingElements() throws {
         let app = XCUIApplication()
         app.launch()
+        
+        checkFramework(width: app, framework: .switUI)
         
         app.buttons["Cells"].tap()
         app.buttons["Base Cells"].tap()
@@ -50,6 +40,8 @@ class AdmiralSwiftUICellsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .switUI)
+        
         app.buttons["Cells"].tap()
         app.buttons["Base Cells"].tap()
         app.buttons["Center Elements"].tap()
@@ -69,6 +61,8 @@ class AdmiralSwiftUICellsTest: XCTestCase {
     func testTrailinElements() throws {
         let app = XCUIApplication()
         app.launch()
+        
+        checkFramework(width: app, framework: .switUI)
         
         app.buttons["Cells"].tap()
         app.buttons["Base Cells"].tap()
@@ -96,6 +90,8 @@ class AdmiralSwiftUICellsTest: XCTestCase {
     func testActionBar() throws {
         let app = XCUIApplication()
         app.launch()
+        
+        checkFramework(width: app, framework: .switUI)
         
         app.buttons["Cells"].tap()
         app.buttons["Actionbar"].tap()

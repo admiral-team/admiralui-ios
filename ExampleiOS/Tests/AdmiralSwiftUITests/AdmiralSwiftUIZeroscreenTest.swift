@@ -18,6 +18,8 @@ class AdmiralSwiftUIZeroscreenTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .switUI)
+        
         app.buttons["Alerts"].tap()
         app.buttons["Zeroscreen"].tap()
         app.buttons["ZeroScreenButton"].tap()

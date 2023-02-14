@@ -14,21 +14,11 @@ class AdmiralSwiftUICurrencyTest: XCTestCase {
     override func tearDownWithError() throws {
     }
     
-    func testCheckSwiftUI() throws {
-        let app = XCUIApplication()
-        app.launch()
-        
-        app.buttons["SeatingTabBarItem"].tap()
-        let swiftUISwitcher = app.switches["SwitchToSwiftUI"]
-        
-        if swiftUISwitcher.value as? String == "0" {
-            swiftUISwitcher.tap()
-        }
-    }
-    
     func testCurrencyDefault() throws {
         let app = XCUIApplication()
         app.launch()
+        
+        checkFramework(width: app, framework: .switUI)
         
         app.buttons["Currency"].tap()
         app.buttons["Default"].tap()
@@ -40,6 +30,8 @@ class AdmiralSwiftUICurrencyTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .switUI)
+        
         app.buttons["Currency"].tap()
         app.buttons["Icons"].tap()
         
@@ -50,6 +42,8 @@ class AdmiralSwiftUICurrencyTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .switUI)
+        
         app.buttons["Currency"].tap()
         app.buttons["Flags"].tap()
         
@@ -59,6 +53,8 @@ class AdmiralSwiftUICurrencyTest: XCTestCase {
     func testCurrencyIconsFlags() throws {
         let app = XCUIApplication()
         app.launch()
+        
+        checkFramework(width: app, framework: .switUI)
         
         app.buttons["Currency"].tap()
         app.buttons["Icons & Flags"].tap()

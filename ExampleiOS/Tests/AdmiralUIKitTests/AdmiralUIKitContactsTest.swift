@@ -18,10 +18,10 @@ class AdmiralUIKitContactsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .UIKit)
+        
         app.buttons["Ellipse"].tap()
-        
         app.otherElements.matching(identifier: "ThemeSwitchButton_Light").element.tap()
-        
         app.buttons["Ellipse"].tap()
         
         checkContacts(app: app)
@@ -31,10 +31,10 @@ class AdmiralUIKitContactsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .UIKit)
+        
         app.buttons["Ellipse"].tap()
-        
         app.otherElements.matching(identifier: "ThemeSwitchButton_Dark").element.tap()
-        
         app.buttons["Ellipse"].tap()
         
         checkContacts(app: app)
@@ -44,10 +44,10 @@ class AdmiralUIKitContactsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .UIKit)
+        
         app.buttons["Ellipse"].tap()
-        
         app.otherElements.matching(identifier: "ThemeSwitchButton_SME Light").element.tap()
-        
         app.buttons["Ellipse"].tap()
         
         checkContacts(app: app)
@@ -57,10 +57,10 @@ class AdmiralUIKitContactsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .UIKit)
+        
         app.buttons["Ellipse"].tap()
-        
         app.otherElements.matching(identifier: "ThemeSwitchButton_SME Dark").element.tap()
-        
         app.buttons["Ellipse"].tap()
         
         checkContacts(app: app)

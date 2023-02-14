@@ -18,6 +18,8 @@ class AdmiralUIKitThemesTests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .UIKit)
+        
         app.tables.staticTexts["Themes"].tap()
         app.tables.staticTexts["Light"].tap()
         app.buttons["Применить"].tap()

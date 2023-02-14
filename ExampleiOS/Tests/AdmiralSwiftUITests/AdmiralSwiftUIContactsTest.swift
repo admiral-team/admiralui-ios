@@ -14,21 +14,11 @@ class AdmiralSwiftUIContactsTest: XCTestCase {
     override func tearDownWithError() throws {
     }
     
-    func testCheckSwiftUI() throws {
-        let app = XCUIApplication()
-        app.launch()
-        
-        app.buttons["SeatingTabBarItem"].tap()
-        let swiftUISwitcher = app.switches["SwitchToSwiftUI"]
-        
-        if swiftUISwitcher.value as? String == "0" {
-            swiftUISwitcher.tap()
-        }
-    }
-    
     func testDarkContact() throws {
         let app = XCUIApplication()
         app.launch()
+        
+        checkFramework(width: app, framework: .switUI)
         
         app.buttons["Ellipse"].tap()
         app.buttons["Dark"].tap()
@@ -41,6 +31,8 @@ class AdmiralSwiftUIContactsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .switUI)
+        
         app.buttons["Ellipse"].tap()
         app.buttons["Light"].tap()
         app.buttons["InfoTabBarItem"].tap()
@@ -52,6 +44,8 @@ class AdmiralSwiftUIContactsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .switUI)
+        
         app.buttons["Ellipse"].tap()
         app.buttons["SME Dark"].tap()
         app.buttons["InfoTabBarItem"].tap()
@@ -62,6 +56,8 @@ class AdmiralSwiftUIContactsTest: XCTestCase {
     func testSMELightContact() throws {
         let app = XCUIApplication()
         app.launch()
+        
+        checkFramework(width: app, framework: .switUI)
         
         app.buttons["Ellipse"].tap()
         app.buttons["SME Light"].tap()

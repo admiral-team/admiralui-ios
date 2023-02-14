@@ -163,6 +163,8 @@
 		3B574AAC27D29344006FEF9A /* AdmiralGunViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B574AAB27D29344006FEF9A /* AdmiralGunViewModel.swift */; };
 		3B59203F278D9A5700706DA6 /* AlertSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B59203E278D9A5700706DA6 /* AlertSwiftUIView.swift */; };
 		3B592041278DC75400706DA6 /* AlertCustomScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B592040278DC75400706DA6 /* AlertCustomScheme.swift */; };
+		3B5A3BF6299BFD540055B74C /* CheckCurrentFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5A3BF5299BFD540055B74C /* CheckCurrentFramework.swift */; };
+		3B5A3BF8299C02A90055B74C /* CheckCurrentFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5A3BF5299BFD540055B74C /* CheckCurrentFramework.swift */; };
 		3B8A8911287D80F9003174B7 /* SeparatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8A8910287D80F9003174B7 /* SeparatorViewController.swift */; };
 		3B9AD51B292E63FD00466CD6 /* ControlCellViewCustomScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9AD51A292E63FD00466CD6 /* ControlCellViewCustomScheme.swift */; };
 		3B9B1CF02885D9E8001D7049 /* ParagraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9B1CEF2885D9E8001D7049 /* ParagraphViewController.swift */; };
@@ -704,6 +706,7 @@
 		3B574AAB27D29344006FEF9A /* AdmiralGunViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralGunViewModel.swift; sourceTree = "<group>"; };
 		3B59203E278D9A5700706DA6 /* AlertSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSwiftUIView.swift; sourceTree = "<group>"; };
 		3B592040278DC75400706DA6 /* AlertCustomScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCustomScheme.swift; sourceTree = "<group>"; };
+		3B5A3BF5299BFD540055B74C /* CheckCurrentFramework.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckCurrentFramework.swift; sourceTree = "<group>"; };
 		3B8A8910287D80F9003174B7 /* SeparatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorViewController.swift; sourceTree = "<group>"; };
 		3B9AD51A292E63FD00466CD6 /* ControlCellViewCustomScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlCellViewCustomScheme.swift; sourceTree = "<group>"; };
 		3B9B1CEF2885D9E8001D7049 /* ParagraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParagraphViewController.swift; sourceTree = "<group>"; };
@@ -3022,6 +3025,7 @@
 		D6245A0C289981B90027F3CA /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				3B5A3BF5299BFD540055B74C /* CheckCurrentFramework.swift */,
 				E97CAD5B27206BF7001283A1 /* AdmiralSwiftUITests */,
 				D6245A02289981A60027F3CA /* AdmiralUIKitTests */,
 			);
@@ -4100,6 +4104,7 @@
 				D635591E28F59F5000614406 /* AddUIKitBottomSheetTest.swift in Sources */,
 				D635592628F712E700614406 /* AdmiralUIKitFAQTest.swift in Sources */,
 				D6FF94F929227B0800101246 /* AdmiralUISwitcherTest.swift in Sources */,
+				3B5A3BF8299C02A90055B74C /* CheckCurrentFramework.swift in Sources */,
 				D6245A12289AA5530027F3CA /* AdmiralUIKitButtonsTest.swift in Sources */,
 				D62613022955B14800CE854F /* AdmiralUICellsTest.swift in Sources */,
 				D635592228F6FA3B00614406 /* AdmiralUIKitInfoTest.swift in Sources */,
@@ -4575,6 +4580,7 @@
 				D6D74667297AD58E00C46884 /* AdmiralSwiftUITabsTest.swift in Sources */,
 				E97CAD5D27206BF7001283A1 /* AdmiralSwiftUITests.swift in Sources */,
 				D6B665A72980046200F209D8 /* AdmiralSwiftUICheckboxTest.swift in Sources */,
+				3B5A3BF6299BFD540055B74C /* CheckCurrentFramework.swift in Sources */,
 				D6B665A52980026300F209D8 /* AdmiralSwiftUIRadiobuttonTest.swift in Sources */,
 				D6B665AF29800A9B00F209D8 /* AdmiralSwiftUISpinnerTest.swift in Sources */,
 				D6B665A3298000E200F209D8 /* AdmiralSwiftUITagsAndChipsTest.swift in Sources */,

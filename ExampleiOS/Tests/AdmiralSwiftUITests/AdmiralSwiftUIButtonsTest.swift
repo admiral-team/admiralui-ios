@@ -14,21 +14,11 @@ class AdmiralSwiftUIButtonsTest: XCTestCase {
     override func tearDownWithError() throws {
     }
     
-    func testCheckSwiftUI() throws {
-        let app = XCUIApplication()
-        app.launch()
-        
-        app.buttons["SeatingTabBarItem"].tap()
-        let swiftUISwitcher = app.switches["SwitchToSwiftUI"]
-        
-        if swiftUISwitcher.value as? String == "0" {
-            swiftUISwitcher.tap()
-        }
-    }
-    
     func testPrimaryButtons() throws {
         let app = XCUIApplication()
         app.launch()
+        
+        checkFramework(width: app, framework: .switUI)
         
         app.buttons["Buttons"].tap()
         app.buttons["Primary buttons"].tap()
@@ -54,6 +44,8 @@ class AdmiralSwiftUIButtonsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .switUI)
+        
         app.buttons["Buttons"].tap()
         app.buttons["Secondary buttons"].tap()
         
@@ -76,6 +68,8 @@ class AdmiralSwiftUIButtonsTest: XCTestCase {
     func testGhostButtons() throws {
         let app = XCUIApplication()
         app.launch()
+        
+        checkFramework(width: app, framework: .switUI)
         
         app.buttons["Buttons"].tap()
         app.buttons["Ghost buttons"].tap()
@@ -100,6 +94,8 @@ class AdmiralSwiftUIButtonsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .switUI)
+        
         app.buttons["Buttons"].tap()
         app.buttons["Rules"].tap()
         
@@ -115,6 +111,8 @@ class AdmiralSwiftUIButtonsTest: XCTestCase {
     func testOtherButtons() throws {
         let app = XCUIApplication()
         app.launch()
+        
+        checkFramework(width: app, framework: .switUI)
         
         app.buttons["Buttons"].tap()
         app.buttons["Other buttons"].tap()

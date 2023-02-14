@@ -18,6 +18,8 @@ class AdmiralUICellsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .UIKit)
+        
         app.tables.staticTexts["Cells"].tap()
         app.staticTexts["Base Cells"].tap()
         app.staticTexts["Leading elements"].tap()
@@ -38,6 +40,8 @@ class AdmiralUICellsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .UIKit)
+        
         app.tables.staticTexts["Cells"].tap()
         app.staticTexts["Base Cells"].tap()
         app.staticTexts["Center elements"].tap()
@@ -57,6 +61,8 @@ class AdmiralUICellsTest: XCTestCase {
     func testTrailingElements() throws {
         let app = XCUIApplication()
         app.launch()
+        
+        checkFramework(width: app, framework: .UIKit)
         
         app.tables.staticTexts["Cells"].tap()
         app.staticTexts["Base Cells"].tap()
@@ -83,6 +89,8 @@ class AdmiralUICellsTest: XCTestCase {
     func testActionbar() throws {
         let app = XCUIApplication()
         app.launch()
+        
+        checkFramework(width: app, framework: .UIKit)
         
         app.tables.staticTexts["Cells"].tap()
         app.staticTexts["Actionbar"].tap()

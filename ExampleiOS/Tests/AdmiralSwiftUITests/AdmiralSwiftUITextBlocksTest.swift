@@ -14,21 +14,11 @@ class AdmiralSwiftUITextBlocksTest: XCTestCase {
     override func tearDownWithError() throws {
     }
     
-    func testCheckSwiftUI() throws {
-        let app = XCUIApplication()
-        app.launch()
-        
-        app.buttons["SeatingTabBarItem"].tap()
-        let swiftUISwitcher = app.switches["SwitchToSwiftUI"]
-        
-        if swiftUISwitcher.value as? String == "0" {
-            swiftUISwitcher.tap()
-        }
-    }
-    
     func testHeader() throws {
         let app = XCUIApplication()
         app.launch()
+        
+        checkFramework(width: app, framework: .switUI)
         
         app.buttons["Text Blocks"].tap()
         app.buttons["Header"].tap()
@@ -42,6 +32,8 @@ class AdmiralSwiftUITextBlocksTest: XCTestCase {
     func testAccordion() throws {
         let app = XCUIApplication()
         app.launch()
+        
+        checkFramework(width: app, framework: .switUI)
         
         app.buttons["Text Blocks"].tap()
         app.buttons["Accordion"].tap()
@@ -59,6 +51,8 @@ class AdmiralSwiftUITextBlocksTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .switUI)
+        
         app.buttons["Text Blocks"].tap()
         app.buttons["Paragraph"].tap()
         
@@ -71,6 +65,8 @@ class AdmiralSwiftUITextBlocksTest: XCTestCase {
     func testLink() throws {
         let app = XCUIApplication()
         app.launch()
+        
+        checkFramework(width: app, framework: .switUI)
         
         app.buttons["Text Blocks"].tap()
         app.buttons["Link"].tap()
@@ -86,6 +82,8 @@ class AdmiralSwiftUITextBlocksTest: XCTestCase {
     func testPadding() throws {
         let app = XCUIApplication()
         app.launch()
+        
+        checkFramework(width: app, framework: .switUI)
         
         app.buttons["Text Blocks"].tap()
         app.buttons["Padding"].tap()
