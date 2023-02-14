@@ -30,13 +30,11 @@ class AdmiralSwiftUIButtonsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Buttons, Кнопки"].tap()
+        app.buttons["Buttons"].tap()
         app.buttons["Primary buttons"].tap()
         
         app.buttons["SegmentControlDisabled"].tap()
         app.buttons["SegmentControlDefault"].tap()
-        
-        changeThemes(app: app)
         
         app.buttons["TwoTitlePrimaryButtonStyleID"].press(forDuration: 1)
         app.buttons["BigButtonLeftID"].press(forDuration: 1)
@@ -48,13 +46,15 @@ class AdmiralSwiftUIButtonsTest: XCTestCase {
         app.buttons["SmallButtonLeftID"].press(forDuration: 1)
         app.buttons["SmallButtonRightID"].press(forDuration: 1)
         app.buttons["SmallButtonNoneID"].press(forDuration: 1)
+        
+        changeThemes(app: app)
     }
     
     func testSecondaryButtons() throws {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Buttons, Кнопки"].tap()
+        app.buttons["Buttons"].tap()
         app.buttons["Secondary buttons"].tap()
         
         app.buttons["SegmentControlDisabled"].tap()
@@ -77,7 +77,7 @@ class AdmiralSwiftUIButtonsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Buttons, Кнопки"].tap()
+        app.buttons["Buttons"].tap()
         app.buttons["Ghost buttons"].tap()
         
         app.buttons["SegmentControlDisabled"].tap()
@@ -100,7 +100,7 @@ class AdmiralSwiftUIButtonsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Buttons, Кнопки"].tap()
+        app.buttons["Buttons"].tap()
         app.buttons["Rules"].tap()
         
         app.buttons["SegmentControlDisabled"].tap()
@@ -116,7 +116,7 @@ class AdmiralSwiftUIButtonsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Buttons, Кнопки"].tap()
+        app.buttons["Buttons"].tap()
         app.buttons["Other buttons"].tap()
         
         app.buttons["SegmentControlDisabled"].tap()

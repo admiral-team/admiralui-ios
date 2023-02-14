@@ -30,7 +30,7 @@ class AdmiralSwiftUICheckboxTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Сheckbox, Селектор"].tap()
+        app.buttons["Сheckbox"].tap()
         
         app.buttons["SegmentControlDisabled"].tap()
         app.buttons["SegmentControlDefault"].tap()

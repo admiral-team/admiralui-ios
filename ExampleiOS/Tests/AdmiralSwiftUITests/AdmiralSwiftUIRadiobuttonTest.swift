@@ -30,7 +30,7 @@ class AdmiralSwiftUIRadiobuttonTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Radiobutton, Радио кнопка"].tap()
+        app.buttons["Radiobutton"].tap()
         
         app.buttons["SegmentControlDisabled"].tap()
         app.buttons["SegmentControlDefault"].tap()

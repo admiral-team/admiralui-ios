@@ -30,7 +30,7 @@ class AdmiralSwiftUITabsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Tabs, Вкладки"].tap()
+        app.buttons["Tabs"].tap()
         app.buttons["Logo Tabs"].tap()
         
         app.buttons["SegmentControlDisabled"].tap()
@@ -62,7 +62,7 @@ class AdmiralSwiftUITabsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Tabs, Вкладки"].tap()
+        app.buttons["Tabs"].tap()
         app.buttons["Informer Tabs"].tap()
         
         app.buttons["SegmentControlDisabled"].tap()
@@ -82,7 +82,7 @@ class AdmiralSwiftUITabsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Tabs, Вкладки"].tap()
+        app.buttons["Tabs"].tap()
         app.buttons["Outline Slider Tabs"].tap()
         
         app.buttons["SegmentControlDisabled"].tap()
@@ -117,7 +117,7 @@ class AdmiralSwiftUITabsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Tabs, Вкладки"].tap()
+        app.buttons["Tabs"].tap()
         app.buttons["Underline Tabs"].tap()
         app.buttons["Slider"].tap()
         
@@ -154,7 +154,7 @@ class AdmiralSwiftUITabsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Tabs, Вкладки"].tap()
+        app.buttons["Tabs"].tap()
         app.buttons["Underline Tabs"].tap()
         app.buttons["Center"].tap()
         
@@ -186,7 +186,7 @@ class AdmiralSwiftUITabsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Tabs, Вкладки"].tap()
+        app.buttons["Tabs"].tap()
         app.buttons["Icon Tabs"].tap()
         
         app.buttons["SegmentControlDisabled"].tap()
@@ -213,7 +213,7 @@ class AdmiralSwiftUITabsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Tabs, Вкладки"].tap()
+        app.buttons["Tabs"].tap()
         app.buttons["Standard Tabs"].tap()
         
         app.buttons["SegmentControlDisabled"].tap()

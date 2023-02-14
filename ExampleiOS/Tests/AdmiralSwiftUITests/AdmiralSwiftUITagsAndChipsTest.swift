@@ -30,7 +30,7 @@ class AdmiralSwiftUITagsAndChips: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Tags & Chips, Тэги и чипсы"].tap()
+        app.buttons["Tags & Chips"].tap()
         
         app.buttons["SegmentControlDisabled"].tap()
         app.buttons["SegmentControlDefault"].tap()
