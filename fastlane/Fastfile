@@ -128,6 +128,7 @@ lane :run_all_tests do |options|
   run_tests_ukit(devices: options[:devices])
   run_tests_swiftui(devices: options[:devices])
   system("cd ../Tools/SnapShotsCoverage && swift build && swift run")
+  run_ui_tests_ukit_swiftui(devices: options[:devices])
 end
 
 lane :run_tests_ukit do |options|
@@ -136,6 +137,10 @@ end
 
 lane :run_tests_swiftui do |options|
   run_tests_app(scheme: 'AdmiralSwiftUI', configuration: "Debug", devices: options[:devices], clean: true)
+end
+
+lane :run_ui_tests_ukit_swiftui do |options|
+  run_tests_app(scheme: 'ExampleiOS', configuration: "Debug", devices: options[:devices], clean: true)
 end
 
 lane :run_tests_app do |options|
