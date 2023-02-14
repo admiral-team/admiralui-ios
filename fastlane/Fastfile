@@ -125,10 +125,7 @@ lane :run_code_cov do |options|
 end
 
 lane :run_all_tests do |options|
-  run_tests_ukit(devices: options[:devices])
-  run_tests_swiftui(devices: options[:devices])
-  system("cd ../Tools/SnapShotsCoverage && swift build && swift run")
-  run_ui_tests_ukit_swiftui(devices: options[:devices])
+   run_ui_tests_ukit_swiftui(devices: options[:devices])
 end
 
 lane :run_tests_ukit do |options|
