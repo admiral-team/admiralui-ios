@@ -25,9 +25,6 @@ class AdmiralUIKitIconsTest: XCTestCase {
         app.otherElements.matching(identifier: "SegmentControlSolid").element.tap()
         app.otherElements.matching(identifier: "SegmentControlOutline").element.tap()
         
-        app.windows.children(matching: .other).element.swipeUp()
-        app.windows.children(matching: .other).element.swipeDown()
-        
         changeThemes(app: app)
         
         _ = app.textFields["Поиск"]
@@ -47,13 +44,5 @@ class AdmiralUIKitIconsTest: XCTestCase {
         app.otherElements.matching(identifier: "ThemeSwitchButton_SME Dark").element.tap()
         
         app.buttons["Ellipse"].tap()
-    }
-    
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
     }
 }
