@@ -24,13 +24,13 @@ class AddUIKitLinksTest: XCTestCase {
         app.otherElements.matching(identifier: "SegmentControlDisabled").element.tap()
         app.otherElements.matching(identifier: "SegmentControlDefault").element.tap()
         
-        app.otherElements.matching(identifier: "BigLink1").element.press(forDuration: 1)
-        app.otherElements.matching(identifier: "BigLink2").element.press(forDuration: 1)
-        app.otherElements.matching(identifier: "BigLink3").element.press(forDuration: 1)
+        app.otherElements.matching(identifier: "BigLink1").element.press(forDuration: 0.1)
+        app.otherElements.matching(identifier: "BigLink2").element.press(forDuration: 0.1)
+        app.otherElements.matching(identifier: "BigLink3").element.press(forDuration: 0.1)
         
-        app.otherElements.matching(identifier: "SmallLink1").element.press(forDuration: 1)
-        app.otherElements.matching(identifier: "SmallLink2").element.press(forDuration: 1)
-        app.otherElements.matching(identifier: "SmallLink3").element.press(forDuration: 1)
+        app.otherElements.matching(identifier: "SmallLink1").element.press(forDuration: 0.1)
+        app.otherElements.matching(identifier: "SmallLink2").element.press(forDuration: 0.1)
+        app.otherElements.matching(identifier: "SmallLink3").element.press(forDuration: 0.1)
         
         app.buttons["Ellipse"].tap()
         

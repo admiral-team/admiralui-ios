@@ -21,7 +21,7 @@ class AdmiralSwiftUIContactsTest: XCTestCase {
         checkFramework(width: app, framework: .switUI)
         
         app.buttons["Ellipse"].tap()
-        app.buttons["Dark"].tap()
+        app.buttons["ThemeSwitchButton_Dark"].tap()
         app.buttons["InfoTabBarItem"].tap()
         app.cells["Contacts"].tap()
         app.staticTexts["Телеграмм канал"].tap()
@@ -34,7 +34,7 @@ class AdmiralSwiftUIContactsTest: XCTestCase {
         checkFramework(width: app, framework: .switUI)
         
         app.buttons["Ellipse"].tap()
-        app.buttons["Light"].tap()
+        app.buttons["ThemeSwitchButton_Light"].tap()
         app.buttons["InfoTabBarItem"].tap()
         app.cells["Contacts"].tap()
         app.staticTexts["Телеграмм канал"].tap()
@@ -47,7 +47,7 @@ class AdmiralSwiftUIContactsTest: XCTestCase {
         checkFramework(width: app, framework: .switUI)
         
         app.buttons["Ellipse"].tap()
-        app.buttons["SME Dark"].tap()
+        app.buttons["ThemeSwitchButton_SME Dark"].tap()
         app.buttons["InfoTabBarItem"].tap()
         app.cells["Contacts"].tap()
         app.staticTexts["Телеграмм канал"].tap()
@@ -60,7 +60,7 @@ class AdmiralSwiftUIContactsTest: XCTestCase {
         checkFramework(width: app, framework: .switUI)
         
         app.buttons["Ellipse"].tap()
-        app.buttons["SME Light"].tap()
+        app.buttons["ThemeSwitchButton_SME Light"].tap()
         app.buttons["InfoTabBarItem"].tap()
         app.cells["Contacts"].tap()
         app.staticTexts["Телеграмм канал"].tap()

@@ -26,10 +26,10 @@ class AdmiralSwiftUIErrorViewTest: XCTestCase {
         
         app.buttons["Ellipse"].tap()
         
-        app.buttons["Dark"].tap()
-        app.buttons["Light"].tap()
-        app.buttons["SME Light"].tap()
-        app.buttons["SME Dark"].tap()
+        app.buttons["ThemeSwitchButton_Dark"].tap()
+        app.buttons["ThemeSwitchButton_SME Light"].tap()
+        app.buttons["ThemeSwitchButton_SME Dark"].tap()
+        app.buttons["ThemeSwitchButton_Light"].tap()
         
         app.buttons["Ellipse"].tap()
     }

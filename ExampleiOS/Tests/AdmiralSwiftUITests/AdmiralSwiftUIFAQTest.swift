@@ -22,7 +22,7 @@ class AdmiralSwiftUIFAQTest: XCTestCase {
         
         app.buttons["Ellipse"].tap()
         
-        app.buttons["Dark"].tap()
+        app.buttons["ThemeSwitchButton_Dark"].tap()
         
         app.buttons["Ellipse"].tap()
         
@@ -40,7 +40,7 @@ class AdmiralSwiftUIFAQTest: XCTestCase {
         
         app.buttons["Ellipse"].tap()
         
-        app.buttons["Light"].tap()
+        app.buttons["ThemeSwitchButton_Light"].tap()
         
         app.buttons["Ellipse"].tap()
         

@@ -22,7 +22,7 @@ class AdmiralSwiftUIInfoTest: XCTestCase {
         
         app.buttons["Ellipse"].tap()
         
-        app.buttons["Dark"].tap()
+        app.buttons["ThemeSwitchButton_Dark"].tap()
         
         app.buttons["Ellipse"].tap()
         
@@ -39,7 +39,7 @@ class AdmiralSwiftUIInfoTest: XCTestCase {
         
         app.buttons["Ellipse"].tap()
         
-        app.buttons["Light"].tap()
+        app.buttons["ThemeSwitchButton_Light"].tap()
         
         app.buttons["Ellipse"].tap()
         
@@ -55,8 +55,8 @@ class AdmiralSwiftUIInfoTest: XCTestCase {
         checkFramework(width: app, framework: .switUI)
         
         app.buttons["Ellipse"].tap()
-        
-        app.buttons["SME Dark"].tap()
+
+        app.buttons["ThemeSwitchButton_SME Dark"].tap()
         
         app.buttons["Ellipse"].tap()
         
@@ -73,7 +73,7 @@ class AdmiralSwiftUIInfoTest: XCTestCase {
         
         app.buttons["Ellipse"].tap()
         
-        app.buttons["SME Light"].tap()
+        app.buttons["ThemeSwitchButton_Light"].tap()
         
         app.buttons["Ellipse"].tap()
         

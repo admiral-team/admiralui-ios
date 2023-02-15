@@ -26,16 +26,16 @@ class AdmiralSwiftUIButtonsTest: XCTestCase {
         app.buttons["SegmentControlDisabled"].tap()
         app.buttons["SegmentControlDefault"].tap()
         
-        app.buttons["TwoTitlePrimaryButtonStyleID"].press(forDuration: 1)
-        app.buttons["BigButtonLeftID"].press(forDuration: 1)
-        app.buttons["BigButtonRightID"].press(forDuration: 1)
-        app.buttons["BigButtonNoneID"].press(forDuration: 1)
-        app.buttons["MediumButtonLeftID"].press(forDuration: 1)
-        app.buttons["MediumButtonRightID"].press(forDuration: 1)
-        app.buttons["MediumButtonNoneID"].press(forDuration: 1)
-        app.buttons["SmallButtonLeftID"].press(forDuration: 1)
-        app.buttons["SmallButtonRightID"].press(forDuration: 1)
-        app.buttons["SmallButtonNoneID"].press(forDuration: 1)
+        app.buttons["TwoTitlePrimaryButtonStyleID"].press(forDuration: 0.1)
+        app.buttons["BigButtonLeftID"].press(forDuration: 0.1)
+        app.buttons["BigButtonRightID"].press(forDuration: 0.1)
+        app.buttons["BigButtonNoneID"].press(forDuration: 0.1)
+        app.buttons["MediumButtonLeftID"].press(forDuration: 0.1)
+        app.buttons["MediumButtonRightID"].press(forDuration: 0.1)
+        app.buttons["MediumButtonNoneID"].press(forDuration: 0.1)
+        app.buttons["SmallButtonLeftID"].press(forDuration: 0.1)
+        app.buttons["SmallButtonRightID"].press(forDuration: 0.1)
+        app.buttons["SmallButtonNoneID"].press(forDuration: 0.1)
         
         changeThemes(app: app)
     }
@@ -54,15 +54,15 @@ class AdmiralSwiftUIButtonsTest: XCTestCase {
         
         changeThemes(app: app)
         
-        app.buttons["BigButtonLeftID"].press(forDuration: 1)
-        app.buttons["BigButtonRightID"].press(forDuration: 1)
-        app.buttons["BigButtonNoneID"].press(forDuration: 1)
-        app.buttons["MediumButtonLeftID"].press(forDuration: 1)
-        app.buttons["MediumButtonRightID"].press(forDuration: 1)
-        app.buttons["MediumButtonNoneID"].press(forDuration: 1)
-        app.buttons["SmallButtonLeftID"].press(forDuration: 1)
-        app.buttons["SmallButtonRightID"].press(forDuration: 1)
-        app.buttons["SmallButtonNoneID"].press(forDuration: 1)
+        app.buttons["BigButtonLeftID"].press(forDuration: 0.1)
+        app.buttons["BigButtonRightID"].press(forDuration: 0.1)
+        app.buttons["BigButtonNoneID"].press(forDuration: 0.1)
+        app.buttons["MediumButtonLeftID"].press(forDuration: 0.1)
+        app.buttons["MediumButtonRightID"].press(forDuration: 0.1)
+        app.buttons["MediumButtonNoneID"].press(forDuration: 0.1)
+        app.buttons["SmallButtonLeftID"].press(forDuration: 0.1)
+        app.buttons["SmallButtonRightID"].press(forDuration: 0.1)
+        app.buttons["SmallButtonNoneID"].press(forDuration: 0.1)
     }
     
     func testGhostButtons() throws {
@@ -79,15 +79,15 @@ class AdmiralSwiftUIButtonsTest: XCTestCase {
         
         changeThemes(app: app)
         
-        app.buttons["BigButtonLeftID"].press(forDuration: 1)
-        app.buttons["BigButtonRightID"].press(forDuration: 1)
-        app.buttons["BigButtonNoneID"].press(forDuration: 1)
-        app.buttons["MediumButtonLeftID"].press(forDuration: 1)
-        app.buttons["MediumButtonRightID"].press(forDuration: 1)
-        app.buttons["MediumButtonNoneID"].press(forDuration: 1)
-        app.buttons["SmallButtonLeftID"].press(forDuration: 1)
-        app.buttons["SmallButtonRightID"].press(forDuration: 1)
-        app.buttons["SmallButtonNoneID"].press(forDuration: 1)
+        app.buttons["BigButtonLeftID"].press(forDuration: 0.1)
+        app.buttons["BigButtonRightID"].press(forDuration: 0.1)
+        app.buttons["BigButtonNoneID"].press(forDuration: 0.1)
+        app.buttons["MediumButtonLeftID"].press(forDuration: 0.1)
+        app.buttons["MediumButtonRightID"].press(forDuration: 0.1)
+        app.buttons["MediumButtonNoneID"].press(forDuration: 0.1)
+        app.buttons["SmallButtonLeftID"].press(forDuration: 0.1)
+        app.buttons["SmallButtonRightID"].press(forDuration: 0.1)
+        app.buttons["SmallButtonNoneID"].press(forDuration: 0.1)
     }
     
     func testRules() throws {
@@ -128,10 +128,10 @@ class AdmiralSwiftUIButtonsTest: XCTestCase {
     func changeThemes(app: XCUIApplication) {
         app.buttons["Ellipse"].tap()
         
-        app.buttons["Dark"].tap()
-        app.buttons["SME Light"].tap()
-        app.buttons["SME Dark"].tap()
-        app.buttons["Light"].tap()
+        app.buttons["ThemeSwitchButton_Dark"].tap()
+        app.buttons["ThemeSwitchButton_SME Light"].tap()
+        app.buttons["ThemeSwitchButton_SME Dark"].tap()
+        app.buttons["ThemeSwitchButton_Light"].tap()
         
         app.buttons["Ellipse"].tap()
     }
