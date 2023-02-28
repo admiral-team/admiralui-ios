@@ -82,7 +82,7 @@ final class CircularPageControlViewController: BaseViewController {
     
     @objc private func segmentedValueChanged(_ control: OutlineSliderTabSegmentedControl) {
         pageControl.totalPages = control.selectedSegmentIndex + 1
-        pageControl.setPage(0, animated: false)
+        pageControl.setPage(0, animated: true)
     }
 
 }
