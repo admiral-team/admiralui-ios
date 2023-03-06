@@ -1,4 +1,5 @@
 fastlane_require 'dotenv'
+require_relative 'nexus_info'
 require_relative 'build_info'
 require_relative 'version'
 require_relative 'utils'
@@ -152,6 +153,41 @@ lane :run_tests_app do |options|
     devices: devices,
     ensure_devices_found: true,
     result_bundle: true
+  )
+end
+
+lane :upload_nexus_lib do |options|
+  branch = options[:branch]
+
+  upload_nexus_framework(
+    scheme: "AdmiralSwiftUI", 
+    artifact_id: "admiral-swiftui",
+    branch: branch
+  )
+
+  upload_nexus_framework(
+    scheme: "AdmiralUIKit", 
+    artifact_id: "admiral-uikit",
+    branch: branch
+
+  )
+
+  upload_nexus_framework(
+    scheme: "AdmiralTheme", 
+    artifact_id: "admiral-theme",
+    branch: branch
+  )
+
+  upload_nexus_framework(
+    scheme: "AdmiralUIResources", 
+    artifact_id: "admiral-resources",
+    branch: branch
+  )
+
+  upload_nexus_framework(
+    scheme: "AdmiralCore", 
+    artifact_id: "admiral-core",
+    branch: branch
   )
 end
 
@@ -433,3 +469,35 @@ lane :build_git_packages do |options|
 end
 
 
+def upload_nexus_framework(scheme:, artifact_id:, branch:)
+  root_path = "Products/xcframeworks"
+  framework_path = root_path + "/#{scheme}.xcframework"
+  ziped_framework_path = framework_path + ".zip"
+  current_branch = (branch == "main" || branch == "master" || branch == nil) ? "" : "-#{branch}"
+
+  create_xcframework(
+    workspace: ENV['PROJECT_WORKSPACE_PATH'],
+    scheme: scheme,
+    destinations: ['iOS'],
+    xcframework_output_directory: root_path
+  )
+
+  zip(
+    path: framework_path,
+    output_path: ziped_framework_path
+  )
+  
+  nexus_info = NexusInfo.new()
+  nexus_info.repository = ENV['NEXUS_REPOSITORY_NAME']
+  nexus_info.group_id = ENV['NEXUS_GROUP_ID']
+  nexus_info.artifact_id = artifact_id
+  nexus_info.version = current_lib_external_version
+  nexus_info.ziped_framework_path = ziped_framework_path
+  nexus_info.extension = "zip"
+  nexus_info.nexus_url = ENV['NEXUS_URL']
+  nexus_info.username = ENV['NEXUS_USERNAME']
+  nexus_info.password = ENV['NEXUS_PASSWORD']
+
+  nexus_info_json_string = formatted_nexus_info_json(nexus_info: nexus_info)
+  system("cd ./go_scripts && ./main uploadNexusLib #{nexus_info_json_string}")
+end
