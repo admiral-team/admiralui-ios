@@ -6,24 +6,25 @@ public struct CreateXCFramework {
     // MARK: - Constants
 
     private enum Constants {
-        static let schemeName = "SnapshotTesting"
+        static let schemeName = "swift-snapshot-testing"
         static let inputPath = "swift-snapshot-testing"
-        static let outputPath = "TestDependencies"
+        static let outputPath = "LocalDependencies"
     }
 
     // MARK: - Main
 
     public static func main() throws {
         let frameWorkBulder = CreateXCFramework()
-        let currentPath = FileManager.default.currentDirectoryPath
-        let inputPath = currentPath + "/" + Constants.inputPath
-        let outputPath = frameWorkBulder.generateUrl(for: currentPath, with: Constants.outputPath)
-
+        let rootPath = FileManager.default.currentDirectoryPath
+        let inputPath = rootPath + "/" + Constants.inputPath
+        let outputPath = frameWorkBulder.generateUrl(for: rootPath, with: Constants.outputPath)
+        
         let builder = CommandBuilder(
             scheme: Constants.schemeName,
             path: inputPath,
             outputPath: outputPath,
             enableLibraryEvolution: false,
+            rootPath: rootPath,
             platforms: [.simulator, .ios]
         )
 

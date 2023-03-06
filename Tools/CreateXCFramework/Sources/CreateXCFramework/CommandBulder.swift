@@ -15,6 +15,7 @@ struct CommandBuilder {
     private let scheme: String
     private let enableLibraryEvolution: Bool
     private let outputPath: String
+    private let rootPath: String
 
     // MARK: - Internal Properties
 
@@ -24,26 +25,18 @@ struct CommandBuilder {
 
     init(
         scheme: String,
-        path: String?,
-        outputPath: String?,
+        path: String,
+        outputPath: String,
         enableLibraryEvolution: Bool = false,
+        rootPath: String,
         platforms: [Platform] = []
     ) {
         self.scheme = scheme
         self.enableLibraryEvolution = enableLibraryEvolution
         self.platforms = platforms.isEmpty ? [.ios, .simulator] : platforms
-
-        if let value = path {
-            self.path = (value as NSString).expandingTildeInPath
-        } else {
-            self.path = FileManager.default.currentDirectoryPath
-        }
-
-        if let value = outputPath {
-            self.outputPath = (((value as NSString).expandingTildeInPath) as NSString).appendingPathComponent("Build")
-        } else {
-            self.outputPath = (FileManager.default.currentDirectoryPath as NSString).appendingPathComponent("Build")
-        }
+        self.path = (path as NSString).expandingTildeInPath
+        self.rootPath = rootPath
+        self.outputPath = (outputPath as NSString).expandingTildeInPath
     }
 }
 
@@ -53,8 +46,9 @@ extension CommandBuilder {
 
     private var buildDirCommand: String { "BUILD_DIR='\(outputPath)'" }
     private var frameworksPath: String { "\(outputPath)/frameworks" }
-    private var xcframeworkPath: String { "\(outputPath)/xcframeworks" }
+    private var xcframeworkPath: String { "\(outputPath)" }
     private var resourcesPath: String { "\(outputPath)/resources" }
+    private var snapShotTestingPath: String { "\(rootPath)/swift-snapshot-testing"}
 
     // MARK: - Private Computed Properties
 
@@ -65,7 +59,10 @@ extension CommandBuilder {
     // MARK: - Computed Properties
 
     var cleanupCommand: String {
-        let commands = platforms.map { "rm -rf \(outputPath)/\($0.buildFolder)" } + ["rm -rf \(frameworksPath)"]
+        let commands = platforms.map { "rm -rf \(outputPath)/\($0.buildFolder)" } +
+        ["rm -rf \(frameworksPath)"] +
+        ["rm -rf \(resourcesPath)"] +
+        ["rm -rf \(snapShotTestingPath)"]
         return commands.joined(separator: "; ")
     }
 

@@ -15,8 +15,5 @@ let package = Package(
         .executableTarget(
             name: "CreateXCFramework",
             dependencies: []),
-        .testTarget(
-            name: "CreateXCFrameworkTests",
-            dependencies: ["CreateXCFramework"]),
     ]
 )
