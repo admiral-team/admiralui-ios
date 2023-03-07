@@ -163,6 +163,8 @@
 		3B574AAC27D29344006FEF9A /* AdmiralGunViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B574AAB27D29344006FEF9A /* AdmiralGunViewModel.swift */; };
 		3B59203F278D9A5700706DA6 /* AlertSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B59203E278D9A5700706DA6 /* AlertSwiftUIView.swift */; };
 		3B592041278DC75400706DA6 /* AlertCustomScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B592040278DC75400706DA6 /* AlertCustomScheme.swift */; };
+		3B5A3BF6299BFD540055B74C /* CheckCurrentFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5A3BF5299BFD540055B74C /* CheckCurrentFramework.swift */; };
+		3B5A3BF8299C02A90055B74C /* CheckCurrentFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5A3BF5299BFD540055B74C /* CheckCurrentFramework.swift */; };
 		3B8A8911287D80F9003174B7 /* SeparatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8A8910287D80F9003174B7 /* SeparatorViewController.swift */; };
 		3B9AD51B292E63FD00466CD6 /* ControlCellViewCustomScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9AD51A292E63FD00466CD6 /* ControlCellViewCustomScheme.swift */; };
 		3B9B1CF02885D9E8001D7049 /* ParagraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9B1CEF2885D9E8001D7049 /* ParagraphViewController.swift */; };
@@ -302,7 +304,6 @@
 		C6E04A86256C256600C32381 /* SmallInformersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E04A85256C256600C32381 /* SmallInformersViewController.swift */; };
 		C6E04A8F256D609500C32381 /* BigInformerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E04A8E256D609500C32381 /* BigInformerView.swift */; };
 		C6E04AA8256E937600C32381 /* MessageInformerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E04AA7256E937600C32381 /* MessageInformerView.swift */; };
-		D6245A04289981A60027F3CA /* AdmiralUIKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6245A03289981A60027F3CA /* AdmiralUIKitTests.swift */; };
 		D6245A06289981A60027F3CA /* AdmiralUIKitTestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6245A05289981A60027F3CA /* AdmiralUIKitTestsLaunchTests.swift */; };
 		D6245A0E2899822F0027F3CA /* AdmiralUIIconsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6245A0D2899822F0027F3CA /* AdmiralUIIconsTest.swift */; };
 		D6245A10289982460027F3CA /* AdmiralUIThemesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6245A0F289982460027F3CA /* AdmiralUIThemesTest.swift */; };
@@ -456,7 +457,6 @@
 		E95553CD27A2C84000A14BCA /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95553CC27A2C84000A14BCA /* ChatViewModel.swift */; };
 		E95553CF27A2CBE300A14BCA /* TextOperationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95553CE27A2CBE300A14BCA /* TextOperationViewModel.swift */; };
 		E95DC44727A12DDA00532BDC /* Publishers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95DC44627A12DDA00532BDC /* Publishers+Extensions.swift */; };
-		E97CAD5D27206BF7001283A1 /* AdmiralSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97CAD5C27206BF7001283A1 /* AdmiralSwiftUITests.swift */; };
 		E9A18D7F27393ED900668C03 /* SwiftUIChatItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A18D7E27393ED900668C03 /* SwiftUIChatItem.swift */; };
 		E9A18D87273946BD00668C03 /* SwiftUIChatInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A18D86273946BD00668C03 /* SwiftUIChatInputView.swift */; };
 		E9A18D8B2739523300668C03 /* SwiftUITextMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A18D8A2739523300668C03 /* SwiftUITextMessageView.swift */; };
@@ -704,6 +704,7 @@
 		3B574AAB27D29344006FEF9A /* AdmiralGunViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralGunViewModel.swift; sourceTree = "<group>"; };
 		3B59203E278D9A5700706DA6 /* AlertSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSwiftUIView.swift; sourceTree = "<group>"; };
 		3B592040278DC75400706DA6 /* AlertCustomScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCustomScheme.swift; sourceTree = "<group>"; };
+		3B5A3BF5299BFD540055B74C /* CheckCurrentFramework.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckCurrentFramework.swift; sourceTree = "<group>"; };
 		3B8A8910287D80F9003174B7 /* SeparatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorViewController.swift; sourceTree = "<group>"; };
 		3B9AD51A292E63FD00466CD6 /* ControlCellViewCustomScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlCellViewCustomScheme.swift; sourceTree = "<group>"; };
 		3B9B1CEF2885D9E8001D7049 /* ParagraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParagraphViewController.swift; sourceTree = "<group>"; };
@@ -844,7 +845,6 @@
 		C6E04A8E256D609500C32381 /* BigInformerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigInformerView.swift; sourceTree = "<group>"; };
 		C6E04AA7256E937600C32381 /* MessageInformerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInformerView.swift; sourceTree = "<group>"; };
 		D6245A01289981A60027F3CA /* AdmiralUIKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdmiralUIKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D6245A03289981A60027F3CA /* AdmiralUIKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIKitTests.swift; sourceTree = "<group>"; };
 		D6245A05289981A60027F3CA /* AdmiralUIKitTestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIKitTestsLaunchTests.swift; sourceTree = "<group>"; };
 		D6245A0D2899822F0027F3CA /* AdmiralUIIconsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIIconsTest.swift; sourceTree = "<group>"; };
 		D6245A0F289982460027F3CA /* AdmiralUIThemesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIThemesTest.swift; sourceTree = "<group>"; };
@@ -1001,7 +1001,6 @@
 		E95553CE27A2CBE300A14BCA /* TextOperationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOperationViewModel.swift; sourceTree = "<group>"; };
 		E95DC44627A12DDA00532BDC /* Publishers+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Publishers+Extensions.swift"; sourceTree = "<group>"; };
 		E97CAD5A27206BF7001283A1 /* AdmiralSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdmiralSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E97CAD5C27206BF7001283A1 /* AdmiralSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralSwiftUITests.swift; sourceTree = "<group>"; };
 		E9A18D7E27393ED900668C03 /* SwiftUIChatItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIChatItem.swift; sourceTree = "<group>"; };
 		E9A18D86273946BD00668C03 /* SwiftUIChatInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIChatInputView.swift; sourceTree = "<group>"; };
 		E9A18D8A2739523300668C03 /* SwiftUITextMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITextMessageView.swift; sourceTree = "<group>"; };
@@ -2987,7 +2986,6 @@
 		D6245A02289981A60027F3CA /* AdmiralUIKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				D6245A03289981A60027F3CA /* AdmiralUIKitTests.swift */,
 				D6245A05289981A60027F3CA /* AdmiralUIKitTestsLaunchTests.swift */,
 				D6245A0D2899822F0027F3CA /* AdmiralUIIconsTest.swift */,
 				D6C1E6FF28EB1FB800094890 /* AdmiralUIKitTabsTest.swift */,
@@ -3022,6 +3020,7 @@
 		D6245A0C289981B90027F3CA /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				3B5A3BF5299BFD540055B74C /* CheckCurrentFramework.swift */,
 				E97CAD5B27206BF7001283A1 /* AdmiralSwiftUITests */,
 				D6245A02289981A60027F3CA /* AdmiralUIKitTests */,
 			);
@@ -3571,7 +3570,6 @@
 		E97CAD5B27206BF7001283A1 /* AdmiralSwiftUITests */ = {
 			isa = PBXGroup;
 			children = (
-				E97CAD5C27206BF7001283A1 /* AdmiralSwiftUITests.swift */,
 				D6B665A2298000E200F209D8 /* AdmiralSwiftUITagsAndChipsTest.swift */,
 				D6B665A42980026300F209D8 /* AdmiralSwiftUIRadiobuttonTest.swift */,
 				D6B665A62980046200F209D8 /* AdmiralSwiftUICheckboxTest.swift */,
@@ -4095,11 +4093,11 @@
 				D635591428F067EA00614406 /* AddUIKitSpinnerTest.swift in Sources */,
 				D6A1C8D728FF091000E4DE0A /* AdmiralUIKitZeroscreenTest.swift in Sources */,
 				D6C1E70028EB1FB800094890 /* AdmiralUIKitTabsTest.swift in Sources */,
-				D6245A04289981A60027F3CA /* AdmiralUIKitTests.swift in Sources */,
 				D6A1C8D928FF0ADB00E4DE0A /* AdmiralUIKitErrorViewTest.swift in Sources */,
 				D635591E28F59F5000614406 /* AddUIKitBottomSheetTest.swift in Sources */,
 				D635592628F712E700614406 /* AdmiralUIKitFAQTest.swift in Sources */,
 				D6FF94F929227B0800101246 /* AdmiralUISwitcherTest.swift in Sources */,
+				3B5A3BF8299C02A90055B74C /* CheckCurrentFramework.swift in Sources */,
 				D6245A12289AA5530027F3CA /* AdmiralUIKitButtonsTest.swift in Sources */,
 				D62613022955B14800CE854F /* AdmiralUICellsTest.swift in Sources */,
 				D635592228F6FA3B00614406 /* AdmiralUIKitInfoTest.swift in Sources */,
@@ -4573,8 +4571,8 @@
 				D6B665B32981390D00F209D8 /* AdmiralSwiftUIInformersAndNotificationsTest.swift in Sources */,
 				D65DC725299A4A0000353D15 /* AdmiralSwiftUIErrorViewTest.swift in Sources */,
 				D6D74667297AD58E00C46884 /* AdmiralSwiftUITabsTest.swift in Sources */,
-				E97CAD5D27206BF7001283A1 /* AdmiralSwiftUITests.swift in Sources */,
 				D6B665A72980046200F209D8 /* AdmiralSwiftUICheckboxTest.swift in Sources */,
+				3B5A3BF6299BFD540055B74C /* CheckCurrentFramework.swift in Sources */,
 				D6B665A52980026300F209D8 /* AdmiralSwiftUIRadiobuttonTest.swift in Sources */,
 				D6B665AF29800A9B00F209D8 /* AdmiralSwiftUISpinnerTest.swift in Sources */,
 				D6B665A3298000E200F209D8 /* AdmiralSwiftUITagsAndChipsTest.swift in Sources */,

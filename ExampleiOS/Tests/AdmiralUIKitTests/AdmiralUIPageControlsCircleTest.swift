@@ -18,6 +18,8 @@ class AdmiralUIPageControlsCircleTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .UIKit)
+        
         app.tables.staticTexts["Page Controls"].tap()
         app.tables.staticTexts["Circle"].tap()
         for _ in 0..<53 {

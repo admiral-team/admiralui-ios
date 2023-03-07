@@ -18,6 +18,8 @@ class AdmiralUICellsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .UIKit)
+        
         app.tables.staticTexts["Cells"].tap()
         app.staticTexts["Base Cells"].tap()
         app.staticTexts["Leading elements"].tap()
@@ -38,6 +40,8 @@ class AdmiralUICellsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .UIKit)
+        
         app.tables.staticTexts["Cells"].tap()
         app.staticTexts["Base Cells"].tap()
         app.staticTexts["Center elements"].tap()
@@ -57,6 +61,8 @@ class AdmiralUICellsTest: XCTestCase {
     func testTrailingElements() throws {
         let app = XCUIApplication()
         app.launch()
+        
+        checkFramework(width: app, framework: .UIKit)
         
         app.tables.staticTexts["Cells"].tap()
         app.staticTexts["Base Cells"].tap()
@@ -84,6 +90,8 @@ class AdmiralUICellsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .UIKit)
+        
         app.tables.staticTexts["Cells"].tap()
         app.staticTexts["Actionbar"].tap()
         
@@ -91,17 +99,17 @@ class AdmiralUICellsTest: XCTestCase {
         app.otherElements.matching(identifier: "SegmentControlDefault").element.tap()
         
         app.otherElements.matching(identifier: "defaultAction").element.swipeLeft()
-        app.otherElements.matching(identifier: "defaultActionItemBarActionOne").element.press(forDuration: 1)
-        app.otherElements.matching(identifier: "defaultActionItemBarActionTwo").element.press(forDuration: 1)
-        app.otherElements.matching(identifier: "defaultActionItemBarActionThree").element.press(forDuration: 1)
-        app.otherElements.matching(identifier: "defaultActionItemBarActionFour").element.press(forDuration: 1)
-        app.otherElements.matching(identifier: "defaultActionItemBarActionFive").element.press(forDuration: 1)
+        app.otherElements.matching(identifier: "defaultActionItemBarActionOne").element.press(forDuration: 0.1)
+        app.otherElements.matching(identifier: "defaultActionItemBarActionTwo").element.press(forDuration: 0.1)
+        app.otherElements.matching(identifier: "defaultActionItemBarActionThree").element.press(forDuration: 0.1)
+        app.otherElements.matching(identifier: "defaultActionItemBarActionFour").element.press(forDuration: 0.1)
+        app.otherElements.matching(identifier: "defaultActionItemBarActionFive").element.press(forDuration: 0.1)
         app.otherElements.matching(identifier: "defaultAction").element.swipeRight()
         
         app.otherElements.matching(identifier: "secondaryAction").element.swipeLeft()
-        app.otherElements.matching(identifier: "secondaryActionItemBarActionOne").element.press(forDuration: 1)
-        app.otherElements.matching(identifier: "secondaryActionItemBarActionTwo").element.press(forDuration: 1)
-        app.otherElements.matching(identifier: "secondaryActionItemBarActionThree").element.press(forDuration: 1)
+        app.otherElements.matching(identifier: "secondaryActionItemBarActionOne").element.press(forDuration: 0.1)
+        app.otherElements.matching(identifier: "secondaryActionItemBarActionTwo").element.press(forDuration: 0.1)
+        app.otherElements.matching(identifier: "secondaryActionItemBarActionThree").element.press(forDuration: 0.1)
         app.otherElements.matching(identifier: "secondaryAction").element.swipeRight()
         
         changeThemes(app: app)

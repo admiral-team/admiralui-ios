@@ -18,6 +18,8 @@ class AddUIKitCurrencyTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .UIKit)
+        
         app.tables.staticTexts["Currency"].tap()
         app.tables.staticTexts["Default"].tap()
         changeThemes(app: app)
@@ -26,6 +28,8 @@ class AddUIKitCurrencyTest: XCTestCase {
     func testCurrencyIcons() throws {
         let app = XCUIApplication()
         app.launch()
+        
+        checkFramework(width: app, framework: .UIKit)
         
         app.tables.staticTexts["Currency"].tap()
         app.tables.staticTexts["Icons"].tap()
@@ -36,6 +40,8 @@ class AddUIKitCurrencyTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .UIKit)
+        
         app.tables.staticTexts["Currency"].tap()
         app.tables.staticTexts["Flags"].tap()
         changeThemes(app: app)
@@ -44,6 +50,8 @@ class AddUIKitCurrencyTest: XCTestCase {
     func testCurrencyIconsFlags() throws {
         let app = XCUIApplication()
         app.launch()
+        
+        checkFramework(width: app, framework: .UIKit)
         
         app.tables.staticTexts["Currency"].tap()
         app.tables.staticTexts["Icons & Flags"].tap()

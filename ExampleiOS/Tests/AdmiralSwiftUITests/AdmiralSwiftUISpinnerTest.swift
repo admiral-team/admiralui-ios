@@ -14,21 +14,11 @@ class AdmiralSwiftUISpinnerTest: XCTestCase {
     override func tearDownWithError() throws {
     }
     
-    func testCheckSwiftUI() throws {
-        let app = XCUIApplication()
-        app.launch()
-        
-        app.buttons["SeatingTabBarItem"].tap()
-        let swiftUISwitcher = app.switches["SwitchToSwiftUI"]
-        
-        if swiftUISwitcher.value as? String == "0" {
-            swiftUISwitcher.tap()
-        }
-    }
-    
     func testSpinner() throws {
         let app = XCUIApplication()
         app.launch()
+        
+        checkFramework(width: app, framework: .switUI)
         
         app.buttons["Spinner"].tap()
         
@@ -38,10 +28,10 @@ class AdmiralSwiftUISpinnerTest: XCTestCase {
         
         app.buttons["Ellipse"].tap()
         
-        app.buttons["Dark"].tap()
-        app.buttons["SME Light"].tap()
-        app.buttons["Light"].tap()
-        app.buttons["Dark"].tap()
+        app.buttons["ThemeSwitchButton_Dark"].tap()
+        app.buttons["ThemeSwitchButton_SME Light"].tap()
+        app.buttons["ThemeSwitchButton_SME Dark"].tap()
+        app.buttons["ThemeSwitchButton_Light"].tap()
         
         app.buttons["Ellipse"].tap()
     }

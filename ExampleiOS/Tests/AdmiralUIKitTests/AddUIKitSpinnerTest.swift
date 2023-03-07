@@ -18,6 +18,8 @@ class AddUIKitSpinnerTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .UIKit)
+        
         app.tables.staticTexts["Spinner"].tap()
         app.staticTexts["Medium"].tap()
         app.staticTexts["Big"].tap()
