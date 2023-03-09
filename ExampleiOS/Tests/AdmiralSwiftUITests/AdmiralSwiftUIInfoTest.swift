@@ -14,25 +14,15 @@ class AdmiralSwiftUIInfoTest: XCTestCase {
     override func tearDownWithError() throws {
     }
     
-    func testCheckSwiftUI() throws {
-        let app = XCUIApplication()
-        app.launch()
-        
-        app.buttons["SeatingTabBarItem"].tap()
-        let swiftUISwitcher = app.switches["SwitchToSwiftUI"]
-        
-        if swiftUISwitcher.value as? String == "0" {
-            swiftUISwitcher.tap()
-        }
-    }
-    
     func testInfoDark() throws {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .switUI)
+        
         app.buttons["Ellipse"].tap()
         
-        app.buttons["Dark"].tap()
+        app.buttons["ThemeSwitchButton_Dark"].tap()
         
         app.buttons["Ellipse"].tap()
         
@@ -45,9 +35,11 @@ class AdmiralSwiftUIInfoTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .switUI)
+        
         app.buttons["Ellipse"].tap()
         
-        app.buttons["Light"].tap()
+        app.buttons["ThemeSwitchButton_Light"].tap()
         
         app.buttons["Ellipse"].tap()
         
@@ -60,9 +52,11 @@ class AdmiralSwiftUIInfoTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Ellipse"].tap()
+        checkFramework(width: app, framework: .switUI)
         
-        app.buttons["SME Dark"].tap()
+        app.buttons["Ellipse"].tap()
+
+        app.buttons["ThemeSwitchButton_SME Dark"].tap()
         
         app.buttons["Ellipse"].tap()
         
@@ -75,9 +69,11 @@ class AdmiralSwiftUIInfoTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .switUI)
+        
         app.buttons["Ellipse"].tap()
         
-        app.buttons["SME Light"].tap()
+        app.buttons["ThemeSwitchButton_Light"].tap()
         
         app.buttons["Ellipse"].tap()
         

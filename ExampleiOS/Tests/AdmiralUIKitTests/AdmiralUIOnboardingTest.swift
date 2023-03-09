@@ -18,6 +18,8 @@ class AdmiralUIOnboardingTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .UIKit)
+        
         app.tables.staticTexts["Alerts"].tap()
         app.tables.staticTexts["Onboarding"].tap()
         app.buttons["arrowRight"].tap()
