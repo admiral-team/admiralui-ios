@@ -18,6 +18,8 @@ class AdmiralUIKitButtonsTests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .UIKit)
+        
         app.tables.staticTexts["Buttons"].tap()
         app.tables.staticTexts["Primary buttons"].tap()
         app.otherElements.matching(identifier: "SegmentControlDisabled").element.tap()
@@ -39,6 +41,8 @@ class AdmiralUIKitButtonsTests: XCTestCase {
     func testSecondaryButtons() throws {
         let app = XCUIApplication()
         app.launch()
+        
+        checkFramework(width: app, framework: .UIKit)
         
         app.tables.staticTexts["Buttons"].tap()
         app.tables.staticTexts["Secondary buttons"].tap()
@@ -62,6 +66,8 @@ class AdmiralUIKitButtonsTests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .UIKit)
+        
         app.tables.staticTexts["Buttons"].tap()
         app.tables.staticTexts["Ghost buttons"].tap()
         app.otherElements.matching(identifier: "SegmentControlDisabled").element.tap()
@@ -84,6 +90,8 @@ class AdmiralUIKitButtonsTests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .UIKit)
+        
         app.tables.staticTexts["Buttons"].tap()
         app.tables.staticTexts["Rules"].tap()
         app.otherElements.matching(identifier: "SegmentControlDisabled").element.tap()
@@ -98,6 +106,8 @@ class AdmiralUIKitButtonsTests: XCTestCase {
     func testOtherButtons() throws {
         let app = XCUIApplication()
         app.launch()
+        
+        checkFramework(width: app, framework: .UIKit)
         
         app.tables.staticTexts["Buttons"].tap()
         app.tables.staticTexts["Other buttons"].tap()
@@ -118,13 +128,5 @@ class AdmiralUIKitButtonsTests: XCTestCase {
         app.otherElements.matching(identifier: "ThemeSwitchButton_SME Dark").element.tap()
         
         app.buttons["Ellipse"].tap()
-    }
-    
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
     }
 }

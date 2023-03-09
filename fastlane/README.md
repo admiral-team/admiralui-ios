@@ -61,6 +61,14 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 
 
+### run_ui_tests_ukit_swiftui
+
+```sh
+[bundle exec] fastlane run_ui_tests_ukit_swiftui
+```
+
+
+
 ### run_tests_app
 
 ```sh

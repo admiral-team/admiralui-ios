@@ -103,7 +103,7 @@ struct ThemeSwitchSwiftUIView: View {
         .clipShape(RoundedRectangle(cornerRadius: LayoutGrid.tripleModule))
         .accessibilityElement()
         .accessibility(addTraits: .isButton)
-        .accessibility(identifier: items[index].identifier)
+        .accessibility(identifier: "ThemeSwitchButton_" + items[index].identifier)
     }
 
 }

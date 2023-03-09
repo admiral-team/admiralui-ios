@@ -6,6 +6,7 @@ import (
 	"log"
 	"main/auth"
 	"main/issues"
+	"main/nexus"
 	"main/pullRequests"
 	"main/release"
 	"main/telegram"
@@ -54,6 +55,11 @@ func main() {
 		id := os.Args[3]
 		path := os.Args[4]
 		figma.LoadDocumentation(token, id, path)
+	case "uploadNexusLib":
+		nexusItem := nexus.ConfigureNexusParameters(os.Args[2])
+		if err := nexusItem.Upload(); err != nil {
+			log.Fatal(err)
+		}
 	default:
 		fmt.Println("Unknown command")
 	}

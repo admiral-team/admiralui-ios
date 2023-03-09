@@ -18,6 +18,8 @@ class AdmiralUIKitFAQTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .UIKit)
+        
         app.buttons["Ellipse"].tap()
         
         app.otherElements.matching(identifier: "ThemeSwitchButton_Light").element.tap()
@@ -30,6 +32,8 @@ class AdmiralUIKitFAQTest: XCTestCase {
     func testDarkFAQ() throws {
         let app = XCUIApplication()
         app.launch()
+        
+        checkFramework(width: app, framework: .UIKit)
         
         app.buttons["Ellipse"].tap()
         
