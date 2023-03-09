@@ -18,6 +18,8 @@ class AdmiralUIRadiobuttonTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .UIKit)
+        
         app.tables.staticTexts["Radiobutton"].tap()
         app.otherElements.matching(identifier: "SegmentControlDisabled").element.tap()
         app.otherElements.matching(identifier: "SegmentControlDefault").element.tap()

@@ -18,6 +18,8 @@ class AdmiralUIInformers_NotificationsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .UIKit)
+        
         app.tables.staticTexts["Informers & Notifications"].tap()
         app.tables.staticTexts["Informers"].tap()
         app.tables.staticTexts["Big Informers"].tap()
@@ -30,6 +32,8 @@ class AdmiralUIInformers_NotificationsTest: XCTestCase {
     func testSmallInformers() throws {
         let app = XCUIApplication()
         app.launch()
+        
+        checkFramework(width: app, framework: .UIKit)
         
         app.tables.staticTexts["Informers & Notifications"].tap()
         app.tables.staticTexts["Informers"].tap()
@@ -44,6 +48,8 @@ class AdmiralUIInformers_NotificationsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .UIKit)
+        
         app.tables.staticTexts["Informers & Notifications"].tap()
         app.tables.staticTexts["Notifications"].tap()
         app.tables.staticTexts["Toast"].tap()
@@ -57,6 +63,8 @@ class AdmiralUIInformers_NotificationsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .UIKit)
+        
         app.tables.staticTexts["Informers & Notifications"].tap()
         app.tables.staticTexts["Notifications"].tap()
         app.tables.staticTexts["Static"].tap()
@@ -69,6 +77,8 @@ class AdmiralUIInformers_NotificationsTest: XCTestCase {
     func testAction() throws {
         let app = XCUIApplication()
         app.launch()
+        
+        checkFramework(width: app, framework: .UIKit)
         
         app.tables.staticTexts["Informers & Notifications"].tap()
         app.tables.staticTexts["Notifications"].tap()

@@ -19,12 +19,11 @@ class AdmiralUIKitIconsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .UIKit)
+        
         app.tables.staticTexts["Icons"].tap()
         app.otherElements.matching(identifier: "SegmentControlSolid").element.tap()
         app.otherElements.matching(identifier: "SegmentControlOutline").element.tap()
-        
-        app.windows.children(matching: .other).element.swipeUp()
-        app.windows.children(matching: .other).element.swipeDown()
         
         changeThemes(app: app)
         
@@ -37,19 +36,13 @@ class AdmiralUIKitIconsTest: XCTestCase {
     func changeThemes(app: XCUIApplication) {
         app.buttons["Ellipse"].tap()
         
+        checkFramework(width: app, framework: .UIKit)
+        
         app.otherElements.matching(identifier: "ThemeSwitchButton_Light").element.tap()
         app.otherElements.matching(identifier: "ThemeSwitchButton_Dark").element.tap()
         app.otherElements.matching(identifier: "ThemeSwitchButton_SME Light").element.tap()
         app.otherElements.matching(identifier: "ThemeSwitchButton_SME Dark").element.tap()
         
         app.buttons["Ellipse"].tap()
-    }
-    
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
     }
 }
