@@ -14,23 +14,13 @@ class AdmiralSwiftUITextBlocksTest: XCTestCase {
     override func tearDownWithError() throws {
     }
     
-    func testCheckSwiftUI() throws {
-        let app = XCUIApplication()
-        app.launch()
-        
-        app.buttons["SeatingTabBarItem"].tap()
-        let swiftUISwitcher = app.switches["SwitchToSwiftUI"]
-        
-        if swiftUISwitcher.value as? String == "0" {
-            swiftUISwitcher.tap()
-        }
-    }
-    
     func testHeader() throws {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Text Blocks, Текстовые блоки"].tap()
+        checkFramework(width: app, framework: .switUI)
+        
+        app.buttons["Text Blocks"].tap()
         app.buttons["Header"].tap()
         
         changeThemes(app: app)
@@ -43,7 +33,9 @@ class AdmiralSwiftUITextBlocksTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Text Blocks, Текстовые блоки"].tap()
+        checkFramework(width: app, framework: .switUI)
+        
+        app.buttons["Text Blocks"].tap()
         app.buttons["Accordion"].tap()
         
         app.buttons["SegmentControlDisabled"].tap()
@@ -59,7 +51,9 @@ class AdmiralSwiftUITextBlocksTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Text Blocks, Текстовые блоки"].tap()
+        checkFramework(width: app, framework: .switUI)
+        
+        app.buttons["Text Blocks"].tap()
         app.buttons["Paragraph"].tap()
         
         changeThemes(app: app)
@@ -72,7 +66,9 @@ class AdmiralSwiftUITextBlocksTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Text Blocks, Текстовые блоки"].tap()
+        checkFramework(width: app, framework: .switUI)
+        
+        app.buttons["Text Blocks"].tap()
         app.buttons["Link"].tap()
         
         app.buttons["SegmentControlDisabled"].tap()
@@ -87,7 +83,9 @@ class AdmiralSwiftUITextBlocksTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Text Blocks, Текстовые блоки"].tap()
+        checkFramework(width: app, framework: .switUI)
+        
+        app.buttons["Text Blocks"].tap()
         app.buttons["Padding"].tap()
         
         app.buttons["SegmentControlDisabled"].tap()
@@ -99,10 +97,10 @@ class AdmiralSwiftUITextBlocksTest: XCTestCase {
     func changeThemes(app: XCUIApplication) {
         app.buttons["Ellipse"].tap()
         
-        app.buttons["Dark"].tap()
-        app.buttons["SME Light"].tap()
-        app.buttons["SME Dark"].tap()
-        app.buttons["Light"].tap()
+        app.buttons["ThemeSwitchButton_Dark"].tap()
+        app.buttons["ThemeSwitchButton_SME Light"].tap()
+        app.buttons["ThemeSwitchButton_SME Dark"].tap()
+        app.buttons["ThemeSwitchButton_Light"].tap()
         
         app.buttons["Ellipse"].tap()
     }

@@ -18,6 +18,8 @@ class AdmiralUIKitThemesTests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .UIKit)
+        
         app.tables.staticTexts["Themes"].tap()
         app.tables.staticTexts["Light"].tap()
         app.buttons["Применить"].tap()
@@ -27,13 +29,5 @@ class AdmiralUIKitThemesTests: XCTestCase {
         app.buttons["Применить"].tap()
         app.tables.staticTexts["SME Dark"].tap()
         app.buttons["Применить"].tap()
-    }
-    
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
     }
 }

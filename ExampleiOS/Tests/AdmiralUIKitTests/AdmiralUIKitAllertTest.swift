@@ -18,6 +18,8 @@ class AdmiralUIKitAllertTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        checkFramework(width: app, framework: .UIKit)
+        
         app.tables.staticTexts["Alerts"].tap()
         app.tables.staticTexts["Alert"].tap()
         app.staticTexts["Показать Alert"].tap()

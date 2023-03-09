@@ -14,47 +14,39 @@ class AdmiralSwiftUIButtonsTest: XCTestCase {
     override func tearDownWithError() throws {
     }
     
-    func testCheckSwiftUI() throws {
-        let app = XCUIApplication()
-        app.launch()
-        
-        app.buttons["SeatingTabBarItem"].tap()
-        let swiftUISwitcher = app.switches["SwitchToSwiftUI"]
-        
-        if swiftUISwitcher.value as? String == "0" {
-            swiftUISwitcher.tap()
-        }
-    }
-    
     func testPrimaryButtons() throws {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Buttons, Кнопки"].tap()
+        checkFramework(width: app, framework: .switUI)
+        
+        app.buttons["Buttons"].tap()
         app.buttons["Primary buttons"].tap()
         
         app.buttons["SegmentControlDisabled"].tap()
         app.buttons["SegmentControlDefault"].tap()
         
-        changeThemes(app: app)
+        app.buttons["TwoTitlePrimaryButtonStyleID"].press(forDuration: 0.1)
+        app.buttons["BigButtonLeftID"].press(forDuration: 0.1)
+        app.buttons["BigButtonRightID"].press(forDuration: 0.1)
+        app.buttons["BigButtonNoneID"].press(forDuration: 0.1)
+        app.buttons["MediumButtonLeftID"].press(forDuration: 0.1)
+        app.buttons["MediumButtonRightID"].press(forDuration: 0.1)
+        app.buttons["MediumButtonNoneID"].press(forDuration: 0.1)
+        app.buttons["SmallButtonLeftID"].press(forDuration: 0.1)
+        app.buttons["SmallButtonRightID"].press(forDuration: 0.1)
+        app.buttons["SmallButtonNoneID"].press(forDuration: 0.1)
         
-        app.buttons["TwoTitlePrimaryButtonStyleID"].press(forDuration: 1)
-        app.buttons["BigButtonLeftID"].press(forDuration: 1)
-        app.buttons["BigButtonRightID"].press(forDuration: 1)
-        app.buttons["BigButtonNoneID"].press(forDuration: 1)
-        app.buttons["MediumButtonLeftID"].press(forDuration: 1)
-        app.buttons["MediumButtonRightID"].press(forDuration: 1)
-        app.buttons["MediumButtonNoneID"].press(forDuration: 1)
-        app.buttons["SmallButtonLeftID"].press(forDuration: 1)
-        app.buttons["SmallButtonRightID"].press(forDuration: 1)
-        app.buttons["SmallButtonNoneID"].press(forDuration: 1)
+        changeThemes(app: app)
     }
     
     func testSecondaryButtons() throws {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Buttons, Кнопки"].tap()
+        checkFramework(width: app, framework: .switUI)
+        
+        app.buttons["Buttons"].tap()
         app.buttons["Secondary buttons"].tap()
         
         app.buttons["SegmentControlDisabled"].tap()
@@ -62,22 +54,24 @@ class AdmiralSwiftUIButtonsTest: XCTestCase {
         
         changeThemes(app: app)
         
-        app.buttons["BigButtonLeftID"].press(forDuration: 1)
-        app.buttons["BigButtonRightID"].press(forDuration: 1)
-        app.buttons["BigButtonNoneID"].press(forDuration: 1)
-        app.buttons["MediumButtonLeftID"].press(forDuration: 1)
-        app.buttons["MediumButtonRightID"].press(forDuration: 1)
-        app.buttons["MediumButtonNoneID"].press(forDuration: 1)
-        app.buttons["SmallButtonLeftID"].press(forDuration: 1)
-        app.buttons["SmallButtonRightID"].press(forDuration: 1)
-        app.buttons["SmallButtonNoneID"].press(forDuration: 1)
+        app.buttons["BigButtonLeftID"].press(forDuration: 0.1)
+        app.buttons["BigButtonRightID"].press(forDuration: 0.1)
+        app.buttons["BigButtonNoneID"].press(forDuration: 0.1)
+        app.buttons["MediumButtonLeftID"].press(forDuration: 0.1)
+        app.buttons["MediumButtonRightID"].press(forDuration: 0.1)
+        app.buttons["MediumButtonNoneID"].press(forDuration: 0.1)
+        app.buttons["SmallButtonLeftID"].press(forDuration: 0.1)
+        app.buttons["SmallButtonRightID"].press(forDuration: 0.1)
+        app.buttons["SmallButtonNoneID"].press(forDuration: 0.1)
     }
     
     func testGhostButtons() throws {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Buttons, Кнопки"].tap()
+        checkFramework(width: app, framework: .switUI)
+        
+        app.buttons["Buttons"].tap()
         app.buttons["Ghost buttons"].tap()
         
         app.buttons["SegmentControlDisabled"].tap()
@@ -85,22 +79,24 @@ class AdmiralSwiftUIButtonsTest: XCTestCase {
         
         changeThemes(app: app)
         
-        app.buttons["BigButtonLeftID"].press(forDuration: 1)
-        app.buttons["BigButtonRightID"].press(forDuration: 1)
-        app.buttons["BigButtonNoneID"].press(forDuration: 1)
-        app.buttons["MediumButtonLeftID"].press(forDuration: 1)
-        app.buttons["MediumButtonRightID"].press(forDuration: 1)
-        app.buttons["MediumButtonNoneID"].press(forDuration: 1)
-        app.buttons["SmallButtonLeftID"].press(forDuration: 1)
-        app.buttons["SmallButtonRightID"].press(forDuration: 1)
-        app.buttons["SmallButtonNoneID"].press(forDuration: 1)
+        app.buttons["BigButtonLeftID"].press(forDuration: 0.1)
+        app.buttons["BigButtonRightID"].press(forDuration: 0.1)
+        app.buttons["BigButtonNoneID"].press(forDuration: 0.1)
+        app.buttons["MediumButtonLeftID"].press(forDuration: 0.1)
+        app.buttons["MediumButtonRightID"].press(forDuration: 0.1)
+        app.buttons["MediumButtonNoneID"].press(forDuration: 0.1)
+        app.buttons["SmallButtonLeftID"].press(forDuration: 0.1)
+        app.buttons["SmallButtonRightID"].press(forDuration: 0.1)
+        app.buttons["SmallButtonNoneID"].press(forDuration: 0.1)
     }
     
     func testRules() throws {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Buttons, Кнопки"].tap()
+        checkFramework(width: app, framework: .switUI)
+        
+        app.buttons["Buttons"].tap()
         app.buttons["Rules"].tap()
         
         app.buttons["SegmentControlDisabled"].tap()
@@ -116,7 +112,9 @@ class AdmiralSwiftUIButtonsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Buttons, Кнопки"].tap()
+        checkFramework(width: app, framework: .switUI)
+        
+        app.buttons["Buttons"].tap()
         app.buttons["Other buttons"].tap()
         
         app.buttons["SegmentControlDisabled"].tap()
@@ -130,10 +128,10 @@ class AdmiralSwiftUIButtonsTest: XCTestCase {
     func changeThemes(app: XCUIApplication) {
         app.buttons["Ellipse"].tap()
         
-        app.buttons["Dark"].tap()
-        app.buttons["SME Light"].tap()
-        app.buttons["SME Dark"].tap()
-        app.buttons["Light"].tap()
+        app.buttons["ThemeSwitchButton_Dark"].tap()
+        app.buttons["ThemeSwitchButton_SME Light"].tap()
+        app.buttons["ThemeSwitchButton_SME Dark"].tap()
+        app.buttons["ThemeSwitchButton_Light"].tap()
         
         app.buttons["Ellipse"].tap()
     }

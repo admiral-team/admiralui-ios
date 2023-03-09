@@ -14,23 +14,13 @@ class AdmiralSwiftUITabsTest: XCTestCase {
     override func tearDownWithError() throws {
     }
     
-    func testCheckSwiftUI() throws {
-        let app = XCUIApplication()
-        app.launch()
-        
-        app.buttons["SeatingTabBarItem"].tap()
-        let swiftUISwitcher = app.switches["SwitchToSwiftUI"]
-        
-        if swiftUISwitcher.value as? String == "0" {
-            swiftUISwitcher.tap()
-        }
-    }
-    
     func testLogoTabs() throws {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Tabs, Вкладки"].tap()
+        checkFramework(width: app, framework: .switUI)
+        
+        app.buttons["Tabs"].tap()
         app.buttons["Logo Tabs"].tap()
         
         app.buttons["SegmentControlDisabled"].tap()
@@ -62,7 +52,9 @@ class AdmiralSwiftUITabsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Tabs, Вкладки"].tap()
+        checkFramework(width: app, framework: .switUI)
+        
+        app.buttons["Tabs"].tap()
         app.buttons["Informer Tabs"].tap()
         
         app.buttons["SegmentControlDisabled"].tap()
@@ -82,7 +74,9 @@ class AdmiralSwiftUITabsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Tabs, Вкладки"].tap()
+        checkFramework(width: app, framework: .switUI)
+        
+        app.buttons["Tabs"].tap()
         app.buttons["Outline Slider Tabs"].tap()
         
         app.buttons["SegmentControlDisabled"].tap()
@@ -100,6 +94,7 @@ class AdmiralSwiftUITabsTest: XCTestCase {
         app.buttons["SliderControlsFourth"].tap()
         app.buttons["SliderControlsFifth"].tap()
         app.buttons["SliderControlsFifth"].swipeLeft()
+        app.buttons["SliderControlsSixth"].tap()
         app.buttons["SliderControlsSeventh"].tap()
         app.buttons["SliderControlsEighth"].tap()
         app.buttons["SliderControlsNineth"].tap()
@@ -116,7 +111,9 @@ class AdmiralSwiftUITabsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Tabs, Вкладки"].tap()
+        checkFramework(width: app, framework: .switUI)
+        
+        app.buttons["Tabs"].tap()
         app.buttons["Underline Tabs"].tap()
         app.buttons["Slider"].tap()
         
@@ -134,6 +131,7 @@ class AdmiralSwiftUITabsTest: XCTestCase {
         app.buttons["SliderControlsFirst"].tap()
         app.buttons["SliderControlsFourth"].tap()
         app.buttons["SliderControlsFifth"].tap()
+        app.buttons["SliderControlsSixth"].tap()
         app.buttons["SliderControlsSeventh"].tap()
         app.buttons["SliderControlsEighth"].tap()
         app.buttons["SliderControlsEighth"].swipeLeft()
@@ -152,7 +150,9 @@ class AdmiralSwiftUITabsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Tabs, Вкладки"].tap()
+        checkFramework(width: app, framework: .switUI)
+        
+        app.buttons["Tabs"].tap()
         app.buttons["Underline Tabs"].tap()
         app.buttons["Center"].tap()
         
@@ -184,7 +184,9 @@ class AdmiralSwiftUITabsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Tabs, Вкладки"].tap()
+        checkFramework(width: app, framework: .switUI)
+        
+        app.buttons["Tabs"].tap()
         app.buttons["Icon Tabs"].tap()
         
         app.buttons["SegmentControlDisabled"].tap()
@@ -211,7 +213,9 @@ class AdmiralSwiftUITabsTest: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Tabs, Вкладки"].tap()
+        checkFramework(width: app, framework: .switUI)
+        
+        app.buttons["Tabs"].tap()
         app.buttons["Standard Tabs"].tap()
         
         app.buttons["SegmentControlDisabled"].tap()
@@ -241,10 +245,10 @@ class AdmiralSwiftUITabsTest: XCTestCase {
     func changeThemes(app: XCUIApplication) {
         app.buttons["Ellipse"].tap()
         
-        app.buttons["Dark"].tap()
-        app.buttons["SME Light"].tap()
-        app.buttons["SME Dark"].tap()
-        app.buttons["Light"].tap()
+        app.buttons["ThemeSwitchButton_Dark"].tap()
+        app.buttons["ThemeSwitchButton_SME Light"].tap()
+        app.buttons["ThemeSwitchButton_SME Dark"].tap()
+        app.buttons["ThemeSwitchButton_Light"].tap()
         
         app.buttons["Ellipse"].tap()
     }

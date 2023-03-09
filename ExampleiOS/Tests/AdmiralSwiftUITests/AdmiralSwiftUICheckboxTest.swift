@@ -14,23 +14,13 @@ class AdmiralSwiftUICheckboxTest: XCTestCase {
     override func tearDownWithError() throws {
     }
     
-    func testCheckSwiftUI() throws {
-        let app = XCUIApplication()
-        app.launch()
-        
-        app.buttons["SeatingTabBarItem"].tap()
-        let swiftUISwitcher = app.switches["SwitchToSwiftUI"]
-        
-        if swiftUISwitcher.value as? String == "0" {
-            swiftUISwitcher.tap()
-        }
-    }
-    
     func testCheckbox() throws {
         let app = XCUIApplication()
         app.launch()
         
-        app.buttons["Сheckbox, Селектор"].tap()
+        checkFramework(width: app, framework: .switUI)
+        
+        app.buttons["Сheckbox"].tap()
         
         app.buttons["SegmentControlDisabled"].tap()
         app.buttons["SegmentControlDefault"].tap()
@@ -46,10 +36,10 @@ class AdmiralSwiftUICheckboxTest: XCTestCase {
         
         app.buttons["Ellipse"].tap()
         
-        app.buttons["Dark"].tap()
-        app.buttons["SME Light"].tap()
-        app.buttons["Light"].tap()
-        app.buttons["SME Dark"].tap()
+        app.buttons["ThemeSwitchButton_Dark"].tap()
+        app.buttons["ThemeSwitchButton_SME Light"].tap()
+        app.buttons["ThemeSwitchButton_SME Dark"].tap()
+        app.buttons["ThemeSwitchButton_Light"].tap()
         
         app.buttons["Ellipse"].tap()
     }
