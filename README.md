@@ -37,7 +37,7 @@ A live example of using the `AdmiralUI` library is our demo application, which i
 ### Project structure
 The project is divided into 5 modules:
 * `AdmiralUIResources` - all resources (icons / fonts / colors)
-* `AdmiralCore` - the common extension for other modules
+* `AdmiralCore` - an extensions for other modules
 * `AdmiralTheme` - app theme manager
 * `AdmrialUIKit`- component library on UIKit
 * `AdmiralSwiftUI` - component library on SwiftUI
