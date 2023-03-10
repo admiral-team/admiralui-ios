@@ -35,8 +35,9 @@ A live example of using the `AdmiralUI` library is our demo application, which i
 * Minimum supported versions: `UIKit: iOS 11.0`, `SwiftUI: iOS 14.0`
 
 ### Project structure
-The project is divided into 4 modules:
+The project is divided into 5 modules:
 * `AdmiralUIResources` - all resources (icons / fonts / colors)
+* `AdmiralCore` - the common extension for other modules
 * `AdmiralTheme` - app theme manager
 * `AdmrialUIKit`- component library on UIKit
 * `AdmiralSwiftUI` - component library on SwiftUI
