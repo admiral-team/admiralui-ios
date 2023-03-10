@@ -4,11 +4,11 @@ The visual component library for `iOS`<br/></br>
 <img src="/Documentation/ios.gif?raw=true" align="middle">
 </p>
 
-## What is AdmiralUI?
-`AdmiralUI` - is a ready-made set of user interface elements. 
-
 ## Setup and connection
 Library connection details in [wiki](https://github.com/admiral-team/admiralui-ios/wiki)
+
+## What is AdmiralUI?
+`AdmiralUI` - is a ready-made set of user interface elements. 
 
 ## Components overview: 
 
