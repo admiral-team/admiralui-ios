@@ -27,7 +27,7 @@ To learn more about the status of the `AdmiralUI` design system components and t
 - 📱 **Consistent style across platforms** - availible library for [Android](https://github.com/admiral-team/admiralui-android)
 
 ## Demo app
-A live example of using the `AdmiralUI` library is our demo application, which is located in the `ExampleiOS` directory. With it, you can evaluate all the components implemented in the library in different states, with the ability to switch built-in color themes and create your own.
+A live example of using the `AdmiralUI` library is our demo application, which is AdmiralUI.xcworkspace. With it, you can evaluate all the components implemented in the library in different states, with the ability to switch built-in color themes and create your own.
 
 ## General information
 * Primary development language `Swift 5+`
