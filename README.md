@@ -4,6 +4,9 @@ The visual component library for `iOS`<br/></br>
 <img src="/Documentation/ios.gif?raw=true" align="middle">
 </p>
 
+## Setup and connection
+Library connection details in [wiki](https://github.com/admiral-team/admiralui-ios/wiki)
+
 ## What is AdmiralUI?
 `AdmiralUI` - is a ready-made set of user interface elements. 
 
@@ -21,9 +24,6 @@ To learn more about the status of the `AdmiralUI` design system components and t
 - 🎨 **Themization** - support for different color palettes, the ability to create your own and instantly switch between them.
 - 🏗 **Support** - releases come out every two weeks, support `SwiftUI` and `UIKit`.
 - 📱 **Consistent style across platforms** - availible library for [Android](https://github.com/admiral-team/admiralui-android)
-
-## Setup and connection
-Library connection details in [wiki](https://github.com/admiral-team/admiralui-ios/wiki)
 
 ## Demo app
 A live example of using the `AdmiralUI` library is our demo application, which is located in the `ExampleiOS` directory. With it, you can evaluate all the components implemented in the library in different states, with the ability to switch built-in color themes and create your own.
