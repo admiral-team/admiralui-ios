@@ -26,7 +26,7 @@ To learn more about the status of the `AdmiralUI` design system components and t
 - 📱 **Consistent style across platforms** - availible library for [Android](https://github.com/admiral-team/admiralui-android)
 
 ## Demo app
-A live example of using the `AdmiralUI` library is our demo application, which is located in the `ExampleiOS` directory. With it, you can evaluate all the components implemented in the library in different states, with the ability to switch built-in color themes and create your own.
+A live example of using the `AdmiralUI` library is our demo application, which is `AdmiralUI.xcworkspace`. With it, you can evaluate all the components implemented in the library in different states, with the ability to switch built-in color themes and create your own.
 
 ## General information
 * Primary development language `Swift 5+`
@@ -34,8 +34,9 @@ A live example of using the `AdmiralUI` library is our demo application, which i
 * Minimum supported versions: `UIKit: iOS 11.0`, `SwiftUI: iOS 14.0`
 
 ### Project structure
-The project is divided into 4 modules:
+The project is divided into 5 modules:
 * `AdmiralUIResources` - all resources (icons / fonts / colors)
+* `AdmiralCore` - an extensions for other modules
 * `AdmiralTheme` - app theme manager
 * `AdmrialUIKit`- component library on UIKit
 * `AdmiralSwiftUI` - component library on SwiftUI
