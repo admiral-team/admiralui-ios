@@ -34,7 +34,7 @@ struct CircularPageCOntrolSwiftUI: View {
 
     public var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Circular Page Control") {
+        NavigationContentView(navigationTitle: "Circle") {
             scheme.backgroundColor.swiftUIColor
             ScrollView(.vertical) {
                 HStack {
