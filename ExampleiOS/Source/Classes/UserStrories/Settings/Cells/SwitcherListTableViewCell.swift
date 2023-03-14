@@ -76,6 +76,8 @@ final class SwitcherListTableViewCell: TableListCell<ImageListView, TitleListVie
     // MARK: - Private Methods
     
     private func commonInit() {
+        autoManage()
+        
         selectionStyle = .none
         
         switchListView.didSelect = { [weak self] isOn in
