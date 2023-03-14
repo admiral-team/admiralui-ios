@@ -44,6 +44,7 @@ struct SecondaryButtonsSwiftUIView: View {
                 }
                 .padding(.bottom, LayoutGrid.doubleModule * 4)
             }
+            .padding()
         }
     }
     
