@@ -131,9 +131,7 @@ private extension CirclePageControlStyle {
         var body: some View {
             contentView()
                 .onTapGesture {
-                    if step < totalPages {
-                        step += 1
-                    }
+                    step += 1
                     action?()
                 }
         }

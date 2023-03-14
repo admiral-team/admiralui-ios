@@ -34,7 +34,7 @@ struct CircularPageCOntrolSwiftUI: View {
 
     public var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Circular Page Control") {
+        NavigationContentView(navigationTitle: "Circle") {
             scheme.backgroundColor.swiftUIColor
             ScrollView(.vertical) {
                 HStack {
@@ -64,7 +64,16 @@ struct CircularPageCOntrolSwiftUI: View {
                                 CirclePageControlStyle(
                                     step: $step,
                                     totalPages: totalPages + 1,
-                                    style: .default
+                                    style: .default,
+                                    action: {
+                                        if step == sliferControllsTabItems.count - 1 {
+                                            totalPages = 0
+                                            step = 0
+                                        } else if step > totalPages + 1 {
+                                            totalPages += 1
+                                            step = 0
+                                        }
+                                    }
                                 )
                             )
                             .accessibility(identifier: "NextCircularPageControll")
