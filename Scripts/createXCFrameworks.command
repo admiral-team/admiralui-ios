@@ -6,62 +6,68 @@ cd "$DIR"
 cd ".."
 DIR="$PWD"
 
+ARCHIVE_ADMIRAL_SIMULATOR_PATH="$DIR/XCFrameworks/AdmiralUI-iphonesimulator.xcarchive"
+ARCHIVE_ADMIRAL_IPHONE_PATH="$DIR/XCFrameworks/AdmiralUI-iphoneos.xcarchive"
+ARCHIVE_SWIFTUI_SIMULATOR_PATH="$DIR/XCFrameworks/AdmiralSwiftUI-iphonesimulator.xcarchive"
+ARCHIVE_SWIFTUI_IPHONE_PATH="$DIR/XCFrameworks/AdmiralSwiftUI-iphoneos.xcarchive"
+PRODUCTS_PATH="/Products/Library/Frameworks/"
+
 xcodebuild archive \
  -scheme AdmiralUIKit \
- -archivePath "$DIR/XCFrameworks/AdmiralUI-iphonesimulator.xcarchive" \
+ -archivePath "$ARCHIVE_ADMIRAL_SIMULATOR_PATH" \
  -sdk iphonesimulator \
  SKIP_INSTALL=NO \
  BUILD_LIBRARIES_FOR_DISTRIBUTION=YES
  
 xcodebuild archive \
  -scheme AdmiralUIKit \
- -archivePath "$DIR/XCFrameworks/AdmiralUI-iphoneos.xcarchive" \
+ -archivePath "$ARCHIVE_ADMIRAL_IPHONE_PATH" \
  -sdk iphoneos \
  SKIP_INSTALL=NO \
  BUILD_LIBRARIES_FOR_DISTRIBUTION=YES
 
 # Admiral UIKit
 xcodebuild -create-xcframework \
- -framework "$DIR/XCFrameworks/AdmiralUI-iphonesimulator.xcarchive/Products/Library/Frameworks/AdmiralUIKit.framework" \
- -framework "$DIR/XCFrameworks/AdmiralUI-iphoneos.xcarchive/Products/Library/Frameworks/AdmiralUIKit.framework" \
+ -framework "${ARCHIVE_ADMIRAL_SIMULATOR_PATH}${PRODUCTS_PATH}AdmiralUIKit.framework" \
+ -framework "${ARCHIVE_ADMIRAL_IPHONE_PATH}${PRODUCTS_PATH}AdmiralUIKit.framework" \
  -output "$DIR/XCFrameworks/AdmiralUIKit.xcframework"
 
  xcodebuild -create-xcframework \
- -framework "$DIR/XCFrameworks/AdmiralUI-iphonesimulator.xcarchive/Products/Library/Frameworks/AdmiralTheme.framework" \
- -framework "$DIR/XCFrameworks/AdmiralUI-iphoneos.xcarchive/Products/Library/Frameworks/AdmiralTheme.framework" \
+ -framework "${ARCHIVE_ADMIRAL_SIMULATOR_PATH}${PRODUCTS_PATH}AdmiralTheme.framework" \
+ -framework "${ARCHIVE_ADMIRAL_IPHONE_PATH}${PRODUCTS_PATH}AdmiralTheme.framework" \
  -output "$DIR/XCFrameworks/AdmiralTheme.xcframework"
 
  xcodebuild -create-xcframework \
- -framework "$DIR/XCFrameworks/AdmiralUI-iphonesimulator.xcarchive/Products/Library/Frameworks/AdmiralUIResources.framework" \
- -framework "$DIR/XCFrameworks/AdmiralUI-iphoneos.xcarchive/Products/Library/Frameworks/AdmiralUIResources.framework" \
+ -framework "${ARCHIVE_ADMIRAL_SIMULATOR_PATH}${PRODUCTS_PATH}AdmiralUIResources.framework" \
+ -framework "${ARCHIVE_ADMIRAL_IPHONE_PATH}${PRODUCTS_PATH}AdmiralUIResources.framework" \
  -output "$DIR/XCFrameworks/AdmiralUIResources.xcframework"
 
   xcodebuild -create-xcframework \
- -framework "$DIR/XCFrameworks/AdmiralUI-iphonesimulator.xcarchive/Products/Library/Frameworks/AdmiralCore.framework" \
- -framework "$DIR/XCFrameworks/AdmiralUI-iphoneos.xcarchive/Products/Library/Frameworks/AdmiralCore.framework" \
+ -framework "${ARCHIVE_ADMIRAL_SIMULATOR_PATH}${PRODUCTS_PATH}AdmiralCore.framework" \
+ -framework "${ARCHIVE_ADMIRAL_IPHONE_PATH}${PRODUCTS_PATH}AdmiralCore.framework" \
  -output "$DIR/XCFrameworks/AdmiralCore.xcframework"
 
 # Admiral SwiftUI
  xcodebuild archive \
  -scheme AdmiralSwiftUI \
- -archivePath "$DIR/XCFrameworks/AdmiralSwiftUI-iphonesimulator.xcarchive" \
+ -archivePath "$ARCHIVE_SWIFTUI_SIMULATOR_PATH" \
  -sdk iphonesimulator \
  SKIP_INSTALL=NO \
  BUILD_LIBRARIES_FOR_DISTRIBUTION=YES
  
 xcodebuild archive \
  -scheme AdmiralSwiftUI \
- -archivePath "$DIR/XCFrameworks/AdmiralSwiftUI-iphoneos.xcarchive" \
+ -archivePath "$ARCHIVE_SWIFTUI_IPHONE_PATH" \
  -sdk iphoneos \
  SKIP_INSTALL=NO \
  BUILD_LIBRARIES_FOR_DISTRIBUTION=YES
 
 xcodebuild -create-xcframework \
- -framework "$DIR/XCFrameworks/AdmiralSwiftUI-iphonesimulator.xcarchive/Products/Library/Frameworks/AdmiralSwiftUI.framework" \
- -framework "$DIR/XCFrameworks/AdmiralSwiftUI-iphoneos.xcarchive/Products/Library/Frameworks/AdmiralSwiftUI.framework" \
+ -framework "${ARCHIVE_SWIFTUI_SIMULATOR_PATH}${PRODUCTS_PATH}AdmiralSwiftUI.framework" \
+ -framework "${ARCHIVE_SWIFTUI_IPHONE_PATH}${PRODUCTS_PATH}AdmiralSwiftUI.framework" \
  -output "$DIR/XCFrameworks/AdmiralSwiftUI.xcframework"
 
-rm -r "$DIR/XCFrameworks/AdmiralSwiftUI-iphonesimulator.xcarchive"
-rm -r "$DIR/XCFrameworks/AdmiralSwiftUI-iphoneos.xcarchive"
-rm -r "$DIR/XCFrameworks/AdmiralUI-iphonesimulator.xcarchive"
-rm -r "$DIR/XCFrameworks/AdmiralUI-iphoneos.xcarchive"
+rm -r "$ARCHIVE_ADMIRAL_SIMULATOR_PATH"
+rm -r "$ARCHIVE_ADMIRAL_IPHONE_PATH"
+rm -r "$ARCHIVE_SWIFTUI_SIMULATOR_PATH"
+rm -r "$ARCHIVE_SWIFTUI_IPHONE_PATH"
