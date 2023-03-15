@@ -37,10 +37,10 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 
 
-### run_all_tests
+### run_all_snapshot_tests
 
 ```sh
-[bundle exec] fastlane run_all_tests
+[bundle exec] fastlane run_all_snapshot_tests
 ```
 
 
@@ -61,10 +61,10 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 
 
-### run_ui_tests_ukit_swiftui
+### run_all_ui_tests
 
 ```sh
-[bundle exec] fastlane run_ui_tests_ukit_swiftui
+[bundle exec] fastlane run_all_ui_tests
 ```
 
 
@@ -73,6 +73,14 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ```sh
 [bundle exec] fastlane run_tests_app
+```
+
+
+
+### upload_nexus_lib
+
+```sh
+[bundle exec] fastlane upload_nexus_lib
 ```
 
 
