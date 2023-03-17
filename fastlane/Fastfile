@@ -468,12 +468,6 @@ lane :build_git_packages do |options|
     artifact_id: "admiral-resources",
     branch: branch
   )
-
-  build_package(
-    scheme: "AdmiralCore", 
-    artifact_id: "admiral-core",
-    branch: branch
-  )
 end
 
 
