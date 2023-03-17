@@ -69,7 +69,6 @@ jobs:
         if: ${{ github.event_name == 'push' }}
         run: bundle exec fastlane build_git_packages
       - name: Upload Artifacts
-        if: ${{ github.event_name == 'push' }}
         uses: actions/upload-artifact@v3
         with:
           name: Artifacts
