@@ -22,8 +22,8 @@ public final class AppThemeSchemeProvider<S>: SchemeProvider<S> where S: AppThem
     public init(manager: SwiftUIThemeManager = Appearance.shared.swiftuiThemeManager) {
         self.manager = manager
         super.init(scheme: S(theme: manager.theme))
-        manager.$theme.sink { [weak self] theme in
-            self?.scheme = S(theme: theme)
+        manager.objectWillChange.sink { [weak self] _ in
+            self?.scheme = S(theme: manager.theme)
         }.store(in: &subscribers)
     }
 }

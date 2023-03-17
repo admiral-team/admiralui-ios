@@ -19,7 +19,9 @@ public final class Appearance {
         get {
             return uikitThemeManager.theme
         } set {
-            swiftuiThemeManager.theme = newValue
+            if #available(iOS 13.0, *) {
+                swiftuiThemeManager.theme = newValue
+            }
             uikitThemeManager.theme = newValue
         }
     }

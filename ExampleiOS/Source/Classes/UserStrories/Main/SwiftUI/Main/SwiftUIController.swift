@@ -58,6 +58,7 @@ struct CustomSwiftUIView: View {
         ZToastNotificationsView(
             direction: viewModel.toastDirection,
             isAfterTouchUpdateTimer: viewModel.toastDirection == .up,
+            topOffset: UIApplication.shared.statusBarFrame.height,
             bottomOffset: 64.0,
             toastsDidDisappear: {
                 toastManager.model = nil
