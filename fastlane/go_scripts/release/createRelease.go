@@ -17,14 +17,14 @@ func CreateRelease(ctx context.Context, owner, repo string, tag string, token st
 	tagName := "12.0.0"
 	autoGenerateNotes := true
 	name := "AdmiralUIKit"
-	url := "http://www.google.com"
+	// var id int64 = 123512
+	// url := "https://github.com/admiral-team/admiralui-ios/blob/feature/741-script-xcframework/Examples/ExampleSPM/ExampleSPM/ContentView.swift"
 	releaseAsset := github.ReleaseAsset{
 		Label: &name,
-		Name:  &name,
-		URL:   &url,
 	}
-	var releaseAssets []*github.ReleaseAsset
-	releaseAssets[0] = &releaseAsset
+	releaseAssets := []*github.ReleaseAsset{
+		&releaseAsset,
+	}
 
 	release := github.RepositoryRelease{}
 	release.TagName = &tagName
