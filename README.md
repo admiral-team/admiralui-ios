@@ -20,7 +20,7 @@ To learn more about the status of the `AdmiralUI` design system components and t
 - Saves time for designers and developers
 
 ## Why AdmiralUI?
-- 💎 **Lots of ready made components** - 30+ `UIKit/SwiftUI` based components from buttons and text fields to timepicker and calendar..
+- 💎 **Lots of ready-made components** - 30+ `UIKit/SwiftUI` components - buttons and text fields, timepicker and calendar etc.
 - 🛠 **Customizability** - components have many custom properties.
 - 🎨 **Themization** - support different color palettes, an ability to create your own ones and instantly switch between them.
 - 🏗 **Support** - releases come out every two weeks, including `SwiftUI` and `UIKit`.
