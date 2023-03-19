@@ -40,11 +40,11 @@ func main() {
 		client := auth.GithubClient(os.Args[3], ctx)
 		issues.GetIssues(ctx, os.Getenv("OWNER"), os.Getenv("REPO"), *client)
 	case "createRelease":
-		buildInfo := configureBuildInfo(os.Args[2])
-		releaseBody := buildInfo.telegram_release_message()
-		telegramChatId, _ := strconv.Atoi(os.Args[4])
-		release.CreateRelease(ctx, os.Getenv("OWNER"), os.Getenv("REPO"), buildInfo.External_version, os.Args[3])
-		telegram.SendTextToTelegramChat(telegramChatId, releaseBody, os.Args[5])
+		buildInfo := "12.0.0"
+		// releaseBody := "Body"
+		// telegramChatId, _ := strconv.Atoi(os.Args[4])
+		release.CreateRelease(ctx, os.Getenv("OWNER"), os.Getenv("REPO"), buildInfo, "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")
+		// telegram.SendTextToTelegramChat(telegramChatId, releaseBody, os.Args[5])
 	case "build_failed":
 		buildInfo := configureBuildInfo(os.Args[2])
 		formatedBuildInfoFailed := buildInfo.build_failed_info(os.Args[5])

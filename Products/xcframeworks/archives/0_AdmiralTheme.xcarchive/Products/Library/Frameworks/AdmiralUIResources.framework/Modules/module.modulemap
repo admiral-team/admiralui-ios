@@ -1,0 +1,11 @@
+framework module AdmiralUIResources {
+  umbrella header "AdmiralUIResources.h"
+
+  export *
+  module * { export * }
+}
+
+module AdmiralUIResources.Swift {
+  header "AdmiralUIResources-Swift.h"
+  requires objc
+}

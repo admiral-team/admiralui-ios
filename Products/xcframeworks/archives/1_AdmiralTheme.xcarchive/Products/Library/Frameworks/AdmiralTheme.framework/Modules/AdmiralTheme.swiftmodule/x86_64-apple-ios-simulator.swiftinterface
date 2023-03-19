@@ -1,0 +1,433 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name AdmiralTheme
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+@_exported import AdmiralTheme
+import AdmiralUIResources
+import Combine
+import Foundation
+import Swift
+import SwiftUI
+import UIKit
+import _Concurrency
+import _StringProcessing
+open class FontPalette : Swift.Codable {
+  public var body1: AdmiralTheme.AFont
+  public var body2: AdmiralTheme.AFont
+  public var caption1: AdmiralTheme.AFont
+  public var caption2: AdmiralTheme.AFont
+  public var headline: AdmiralTheme.AFont
+  public var largeTitle1: AdmiralTheme.AFont
+  public var largeTitle2: AdmiralTheme.AFont
+  public var subhead1: AdmiralTheme.AFont
+  public var subhead2: AdmiralTheme.AFont
+  public var subhead3: AdmiralTheme.AFont
+  public var subhead4: AdmiralTheme.AFont
+  public var subtitle1: AdmiralTheme.AFont
+  public var subtitle2: AdmiralTheme.AFont
+  public var subtitle3: AdmiralTheme.AFont
+  public var title1: AdmiralTheme.AFont
+  public var title2: AdmiralTheme.AFont
+  public init(body1: AdmiralTheme.AFont, body2: AdmiralTheme.AFont, caption1: AdmiralTheme.AFont, caption2: AdmiralTheme.AFont, headline: AdmiralTheme.AFont, largeTitle1: AdmiralTheme.AFont, largeTitle2: AdmiralTheme.AFont, subhead1: AdmiralTheme.AFont, subhead2: AdmiralTheme.AFont, subhead3: AdmiralTheme.AFont, subhead4: AdmiralTheme.AFont, subtitle1: AdmiralTheme.AFont, subtitle2: AdmiralTheme.AFont, subtitle3: AdmiralTheme.AFont, title1: AdmiralTheme.AFont, title2: AdmiralTheme.AFont)
+  @objc deinit
+  open func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+extension AdmiralTheme.FontPalette {
+  public var all: [AdmiralTheme.AFont] {
+    get
+  }
+}
+extension AdmiralTheme.FontPalette {
+  public static var `default`: AdmiralTheme.FontPalette {
+    get
+  }
+}
+extension AdmiralTheme.FontPalette {
+  public static func registerDefaultFonts()
+}
+extension UIKit.UIFont.TextStyle : Swift.Codable {
+}
+@_hasMissingDesignatedInitializers public class ThemeDisposable {
+  @objc deinit
+}
+@available(iOS 14.0.0, *)
+final public class AppThemeSchemeProvider<S> : AdmiralTheme.SchemeProvider<S> where S : AdmiralTheme.AppThemeScheme {
+  public init(manager: AdmiralTheme.SwiftUIThemeManager = Appearance.shared.swiftuiThemeManager)
+  @objc deinit
+}
+@available(iOS 14.0.0, *)
+final public class AppThemeConstantSchemeProvider<S> where S : AdmiralTheme.AppThemeScheme {
+  final public var scheme: S
+  public init(scheme: S)
+  @objc deinit
+}
+extension UIKit.UIColor {
+  public var hexString: Swift.String {
+    get
+  }
+  convenience public init(red: Swift.Int, green: Swift.Int, blue: Swift.Int)
+  convenience public init(netHex: Swift.Int)
+  convenience public init(hexString: Swift.String)
+}
+final public class SwiftUIThemeManager {
+  final public var theme: AdmiralTheme.AppTheme {
+    get
+    set
+  }
+  public init()
+  @available(iOS 13.0, *)
+  public init(theme: AdmiralTheme.AppTheme)
+  @objc deinit
+}
+@available(iOS 13.0, *)
+extension AdmiralTheme.SwiftUIThemeManager : Combine.ObservableObject {
+  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
+}
+@available(iOS 13.0, *)
+public struct ObjectEnvironmentKey : SwiftUI.EnvironmentKey {
+  public static var defaultValue: AdmiralTheme.SwiftUIThemeManager
+  public typealias Value = AdmiralTheme.SwiftUIThemeManager
+}
+@available(iOS 13.0, *)
+extension SwiftUI.EnvironmentValues {
+  public var manager: AdmiralTheme.SwiftUIThemeManager {
+    get
+    set
+  }
+}
+@available(iOS 13.0, *)
+extension SwiftUI.View {
+  public func object(_ value: AdmiralTheme.SwiftUIThemeManager) -> some SwiftUI.View
+  
+}
+public class AFont : Swift.Codable {
+  final public let name: Swift.String
+  final public let family: Swift.String
+  final public let size: CoreFoundation.CGFloat
+  final public let weight: CoreFoundation.CGFloat
+  final public let letterSpacing: CoreFoundation.CGFloat
+  final public let textStyle: UIKit.UIFont.TextStyle?
+  public var uiFont: UIKit.UIFont {
+    get
+  }
+  public init(name: Swift.String, family: Swift.String, size: CoreFoundation.CGFloat, weight: CoreFoundation.CGFloat, letterSpacing: CoreFoundation.CGFloat, textStyle: UIKit.UIFont.TextStyle?)
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+@available(iOS 13.0.0, *)
+extension AdmiralTheme.AFont {
+  public var swiftUIFont: SwiftUI.Font {
+    get
+  }
+}
+extension UIKit.UIFont {
+  public class func registerFontWithFilenameString(filenameString: Swift.String, bundle: Foundation.Bundle)
+}
+extension UIKit.UIColor {
+  public func isLight(threshold: Swift.Float = 0.5) -> Swift.Bool?
+}
+public class UIKitThemeManager {
+  public var theme: AdmiralTheme.AppTheme {
+    get
+    set
+  }
+  public init()
+  public func observe(updates: ((AdmiralTheme.AppTheme) -> Swift.Void)?) -> AdmiralTheme.ThemeDisposable
+  @objc deinit
+}
+public protocol Theme {
+}
+open class AppTheme : AdmiralTheme.Theme, Swift.Codable, Swift.Equatable, Foundation.NSCopying {
+  public typealias ThemeIdentifier = Swift.String
+  public enum ThemeIdentifiers {
+    public static let light: Swift.String
+    public static let dark: Swift.String
+    public static let sMELight: Swift.String
+    public static let sMEDark: Swift.String
+  }
+  public var colors: AdmiralTheme.ColorPalette
+  public var fonts: AdmiralTheme.FontPalette
+  final public let identifier: AdmiralTheme.AppTheme.ThemeIdentifier
+  public var displayName: Swift.String?
+  public static var `default`: AdmiralTheme.AppTheme {
+    get
+  }
+  public static var light: AdmiralTheme.AppTheme {
+    get
+  }
+  public static var dark: AdmiralTheme.AppTheme {
+    get
+  }
+  public static var sMELight: AdmiralTheme.AppTheme {
+    get
+  }
+  public static var sMEDark: AdmiralTheme.AppTheme {
+    get
+  }
+  public init(id: AdmiralTheme.AppTheme.ThemeIdentifier, displayName: Swift.String? = nil, colors: AdmiralTheme.ColorPalette, fonts: AdmiralTheme.FontPalette)
+  public static func == (lhs: AdmiralTheme.AppTheme, rhs: AdmiralTheme.AppTheme) -> Swift.Bool
+  @objc public func copy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  @objc deinit
+  open func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+public struct AColor : Swift.Codable {
+  public let red: CoreFoundation.CGFloat
+  public let green: CoreFoundation.CGFloat
+  public let blue: CoreFoundation.CGFloat
+  public let alpha: CoreFoundation.CGFloat
+  public var uiColor: UIKit.UIColor {
+    get
+  }
+  public var cgColor: CoreGraphics.CGColor {
+    get
+  }
+  public static var clear: AdmiralTheme.AColor {
+    get
+  }
+  public init(red: CoreFoundation.CGFloat, green: CoreFoundation.CGFloat, blue: CoreFoundation.CGFloat, alpha: CoreFoundation.CGFloat)
+  public init(red: Swift.Int, green: Swift.Int, blue: Swift.Int)
+  public init(hexString: Swift.String)
+  public init(color: UIKit.UIColor)
+  public func hexString(withAplha: Swift.Bool = true) -> Swift.String
+  public func withAlpha(_ alpha: CoreFoundation.CGFloat) -> AdmiralTheme.AColor
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+@available(iOS 13.0.0, *)
+extension AdmiralTheme.AColor {
+  public var swiftUIColor: SwiftUI.Color {
+    get
+  }
+}
+extension UIKit.UIColor {
+  public var color: AdmiralTheme.AColor {
+    get
+  }
+}
+@available(iOS 14.0.0, *)
+public protocol AppThemeScheme {
+  init(theme: AdmiralTheme.AppTheme)
+}
+@available(iOS 14.0.0, *)
+public class SchemeProvider<S> : Combine.ObservableObject where S : AdmiralTheme.AppThemeScheme {
+  @Combine.Published @_projectedValueProperty($scheme) public var scheme: S {
+    get
+  }
+  public var $scheme: Combine.Published<S>.Publisher {
+    get
+  }
+  public static func constant(scheme: S) -> AdmiralTheme.SchemeProvider<S>
+  public init(scheme: S)
+  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @available(iOS 14.0.0, *)
+public class ManualSchemeProvider<S> : AdmiralTheme.SchemeProvider<S> where S : AdmiralTheme.AppThemeScheme {
+  public func update(scheme: S)
+  override public init(scheme: S)
+  @objc deinit
+}
+public enum ColorPaletteStyle : Swift.String, Swift.Codable {
+  case light
+  case dark
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+open class ColorPalette : Swift.Codable {
+  public var style: AdmiralTheme.ColorPaletteStyle
+  public var disabledAlpha: CoreFoundation.CGFloat
+  public var backgroundAccent: AdmiralTheme.AColor
+  public var backgroundAccentDark: AdmiralTheme.AColor
+  public var backgroundAccentPressed: AdmiralTheme.AColor
+  public var backgroundAdditionalOne: AdmiralTheme.AColor
+  public var backgroundAdditionalOnePressed: AdmiralTheme.AColor
+  public var backgroundAdditionalTwo: AdmiralTheme.AColor
+  public var backgroundAdditionalTwoPressed: AdmiralTheme.AColor
+  public var backgroundAttention: AdmiralTheme.AColor
+  public var backgroundAttentionPressed: AdmiralTheme.AColor
+  public var backgroundBasic: AdmiralTheme.AColor
+  public var backgroundError: AdmiralTheme.AColor
+  public var backgroundErrorPressed: AdmiralTheme.AColor
+  public var backgroundExtraSurface: AdmiralTheme.AColor
+  public var backgroundModalControl: AdmiralTheme.AColor
+  public var backgroundModalView: AdmiralTheme.AColor
+  public var backgroundSecondary: AdmiralTheme.AColor
+  public var backgroundSelected: AdmiralTheme.AColor
+  public var backgroundSelectedPressed: AdmiralTheme.AColor
+  public var backgroundShadow: AdmiralTheme.AColor
+  public var backgroundSuccess: AdmiralTheme.AColor
+  public var backgroundSuccessPressed: AdmiralTheme.AColor
+  public var elementAccent: AdmiralTheme.AColor
+  public var elementAccentAdditional: AdmiralTheme.AColor
+  public var elementAccentPressed: AdmiralTheme.AColor
+  public var elementAdditional: AdmiralTheme.AColor
+  public var elementAttention: AdmiralTheme.AColor
+  public var elementAttentionDefault: AdmiralTheme.AColor
+  public var elementAttentionPressed: AdmiralTheme.AColor
+  public var elementBarDivider: AdmiralTheme.AColor
+  public var elementContrast: AdmiralTheme.AColor
+  public var elementError: AdmiralTheme.AColor
+  public var elementErrorDefault: AdmiralTheme.AColor
+  public var elementErrorPressed: AdmiralTheme.AColor
+  public var elementExtra: AdmiralTheme.AColor
+  public var elementPrimary: AdmiralTheme.AColor
+  public var elementPrimaryPressed: AdmiralTheme.AColor
+  public var elementSecondary: AdmiralTheme.AColor
+  public var elementStaticWhite: AdmiralTheme.AColor
+  public var elementSuccess: AdmiralTheme.AColor
+  public var elementSuccessDefault: AdmiralTheme.AColor
+  public var elementSuccessPressed: AdmiralTheme.AColor
+  public var specialExtra01: AdmiralTheme.AColor
+  public var specialExtra02: AdmiralTheme.AColor
+  public var specialExtra03: AdmiralTheme.AColor
+  public var specialExtra04: AdmiralTheme.AColor
+  public var specialExtra05: AdmiralTheme.AColor
+  public var specialExtra06: AdmiralTheme.AColor
+  public var specialExtra07: AdmiralTheme.AColor
+  public var specialExtra08: AdmiralTheme.AColor
+  public var specialExtra09: AdmiralTheme.AColor
+  public var specialExtra10: AdmiralTheme.AColor
+  public var specialExtra11: AdmiralTheme.AColor
+  public var specialExtra12: AdmiralTheme.AColor
+  public var specialExtra13: AdmiralTheme.AColor
+  public var specialExtra14: AdmiralTheme.AColor
+  public var specialExtra15: AdmiralTheme.AColor
+  public var specialExtra16: AdmiralTheme.AColor
+  public var specialExtra17: AdmiralTheme.AColor
+  public var specialExtra18: AdmiralTheme.AColor
+  public var specialExtra19: AdmiralTheme.AColor
+  public var specialExtra20: AdmiralTheme.AColor
+  public var specialExtra21: AdmiralTheme.AColor
+  public var specialExtra22: AdmiralTheme.AColor
+  public var specialExtra23: AdmiralTheme.AColor
+  public var specialExtra24: AdmiralTheme.AColor
+  public var specialExtra25: AdmiralTheme.AColor
+  public var specialExtra26: AdmiralTheme.AColor
+  public var specialExtra27: AdmiralTheme.AColor
+  public var textAccent: AdmiralTheme.AColor
+  public var textAccentAdditional: AdmiralTheme.AColor
+  public var textAccentPressed: AdmiralTheme.AColor
+  public var textAdditional: AdmiralTheme.AColor
+  public var textAttention: AdmiralTheme.AColor
+  public var textAttentionDefault: AdmiralTheme.AColor
+  public var textAttentionPressed: AdmiralTheme.AColor
+  public var textContrast: AdmiralTheme.AColor
+  public var textError: AdmiralTheme.AColor
+  public var textErrorDefault: AdmiralTheme.AColor
+  public var textErrorPressed: AdmiralTheme.AColor
+  public var textMask: AdmiralTheme.AColor
+  public var textPrimary: AdmiralTheme.AColor
+  public var textSecondary: AdmiralTheme.AColor
+  public var textStaticWhite: AdmiralTheme.AColor
+  public var textSuccess: AdmiralTheme.AColor
+  public var textSuccessDefault: AdmiralTheme.AColor
+  public var textSuccessPressed: AdmiralTheme.AColor
+  public init(style: AdmiralTheme.ColorPaletteStyle, disabledAlpha: CoreFoundation.CGFloat, backgroundAccent: AdmiralTheme.AColor, backgroundAccentDark: AdmiralTheme.AColor, backgroundAccentPressed: AdmiralTheme.AColor, backgroundAdditionalOne: AdmiralTheme.AColor, backgroundAdditionalOnePressed: AdmiralTheme.AColor, backgroundAdditionalTwo: AdmiralTheme.AColor, backgroundAdditionalTwoPressed: AdmiralTheme.AColor, backgroundAttention: AdmiralTheme.AColor, backgroundAttentionPressed: AdmiralTheme.AColor, backgroundBasic: AdmiralTheme.AColor, backgroundError: AdmiralTheme.AColor, backgroundErrorPressed: AdmiralTheme.AColor, backgroundExtraSurface: AdmiralTheme.AColor, backgroundModalControl: AdmiralTheme.AColor, backgroundModalView: AdmiralTheme.AColor, backgroundSecondary: AdmiralTheme.AColor, backgroundSelected: AdmiralTheme.AColor, backgroundSelectedPressed: AdmiralTheme.AColor, backgroundShadow: AdmiralTheme.AColor, backgroundSuccess: AdmiralTheme.AColor, backgroundSuccessPressed: AdmiralTheme.AColor, elementAccent: AdmiralTheme.AColor, elementAccentAdditional: AdmiralTheme.AColor, elementAccentPressed: AdmiralTheme.AColor, elementAdditional: AdmiralTheme.AColor, elementAttention: AdmiralTheme.AColor, elementAttentionDefault: AdmiralTheme.AColor, elementAttentionPressed: AdmiralTheme.AColor, elementBarDivider: AdmiralTheme.AColor, elementContrast: AdmiralTheme.AColor, elementError: AdmiralTheme.AColor, elementErrorDefault: AdmiralTheme.AColor, elementErrorPressed: AdmiralTheme.AColor, elementExtra: AdmiralTheme.AColor, elementPrimary: AdmiralTheme.AColor, elementPrimaryPressed: AdmiralTheme.AColor, elementSecondary: AdmiralTheme.AColor, elementStaticWhite: AdmiralTheme.AColor, elementSuccess: AdmiralTheme.AColor, elementSuccessDefault: AdmiralTheme.AColor, elementSuccessPressed: AdmiralTheme.AColor, specialExtra01: AdmiralTheme.AColor, specialExtra02: AdmiralTheme.AColor, specialExtra03: AdmiralTheme.AColor, specialExtra04: AdmiralTheme.AColor, specialExtra05: AdmiralTheme.AColor, specialExtra06: AdmiralTheme.AColor, specialExtra07: AdmiralTheme.AColor, specialExtra08: AdmiralTheme.AColor, specialExtra09: AdmiralTheme.AColor, specialExtra10: AdmiralTheme.AColor, specialExtra11: AdmiralTheme.AColor, specialExtra12: AdmiralTheme.AColor, specialExtra13: AdmiralTheme.AColor, specialExtra14: AdmiralTheme.AColor, specialExtra15: AdmiralTheme.AColor, specialExtra16: AdmiralTheme.AColor, specialExtra17: AdmiralTheme.AColor, specialExtra18: AdmiralTheme.AColor, specialExtra19: AdmiralTheme.AColor, specialExtra20: AdmiralTheme.AColor, specialExtra21: AdmiralTheme.AColor, specialExtra22: AdmiralTheme.AColor, specialExtra23: AdmiralTheme.AColor, specialExtra24: AdmiralTheme.AColor, specialExtra25: AdmiralTheme.AColor, specialExtra26: AdmiralTheme.AColor, specialExtra27: AdmiralTheme.AColor, textAccent: AdmiralTheme.AColor, textAccentAdditional: AdmiralTheme.AColor, textAccentPressed: AdmiralTheme.AColor, textAdditional: AdmiralTheme.AColor, textAttention: AdmiralTheme.AColor, textAttentionDefault: AdmiralTheme.AColor, textAttentionPressed: AdmiralTheme.AColor, textContrast: AdmiralTheme.AColor, textError: AdmiralTheme.AColor, textErrorDefault: AdmiralTheme.AColor, textErrorPressed: AdmiralTheme.AColor, textMask: AdmiralTheme.AColor, textPrimary: AdmiralTheme.AColor, textSecondary: AdmiralTheme.AColor, textStaticWhite: AdmiralTheme.AColor, textSuccess: AdmiralTheme.AColor, textSuccessDefault: AdmiralTheme.AColor, textSuccessPressed: AdmiralTheme.AColor)
+  @objc deinit
+  open func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+extension AdmiralTheme.ColorPalette {
+  public var all: [AdmiralTheme.AColor] {
+    get
+  }
+}
+extension AdmiralTheme.ColorPalette {
+  public static var dark: AdmiralTheme.ColorPalette {
+    get
+  }
+}
+extension AdmiralTheme.ColorPalette {
+  public static var light: AdmiralTheme.ColorPalette {
+    get
+  }
+}
+extension AdmiralTheme.ColorPalette {
+  public static var sMEDark: AdmiralTheme.ColorPalette {
+    get
+  }
+}
+extension AdmiralTheme.ColorPalette {
+  public static var sMELight: AdmiralTheme.ColorPalette {
+    get
+  }
+}
+public protocol Themeable : AnyObject {
+  associatedtype AssociatedTheme : AdmiralTheme.Theme
+  var defaultTheme: Self.AssociatedTheme { get }
+  func apply(theme: Self.AssociatedTheme)
+}
+extension AdmiralTheme.AppThemeable {
+  public var defaultTheme: AdmiralTheme.AppTheme {
+    get
+  }
+  @discardableResult
+  public func autoManage() -> Self
+}
+public protocol AppThemeable : AdmiralTheme.Themeable where Self.AssociatedTheme == AdmiralTheme.AppTheme {
+}
+public protocol AppThemeCompatible {
+  func apply(theme: AdmiralTheme.AppTheme)
+}
+public typealias AnyAppThemable = AdmiralTheme.AppThemeCompatible & AdmiralTheme.AppThemeable
+public protocol AppThemeStorage {
+  var themes: [AdmiralTheme.AppTheme] { get }
+  var selectedTheme: AdmiralTheme.AppTheme? { get }
+  func reset() throws
+  func save(theme: AdmiralTheme.AppTheme) throws
+  func removeTheme(forId id: AdmiralTheme.AppTheme.ThemeIdentifier) throws
+  func selectTheme(withId id: AdmiralTheme.AppTheme.ThemeIdentifier?) throws
+  func theme(forId id: AdmiralTheme.AppTheme.ThemeIdentifier) throws -> AdmiralTheme.AppTheme?
+}
+final public class AppThemeUserDefaultsStorage : AdmiralTheme.AppThemeStorage {
+  final public var themes: [AdmiralTheme.AppTheme] {
+    get
+  }
+  final public var selectedTheme: AdmiralTheme.AppTheme? {
+    get
+  }
+  final public var prefix: Swift.String
+  public init()
+  final public func reset() throws
+  final public func save(theme: AdmiralTheme.AppTheme) throws
+  final public func removeTheme(forId id: AdmiralTheme.AppTheme.ThemeIdentifier) throws
+  final public func selectTheme(withId id: AdmiralTheme.AppTheme.ThemeIdentifier?) throws
+  final public func theme(forId id: AdmiralTheme.AppTheme.ThemeIdentifier) throws -> AdmiralTheme.AppTheme?
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers final public class Appearance {
+  public static var isAccessabilitySupportEnabled: Swift.Bool
+  final public var theme: AdmiralTheme.AppTheme {
+    get
+    set
+  }
+  final public let uikitThemeManager: AdmiralTheme.UIKitThemeManager
+  final public let swiftuiThemeManager: AdmiralTheme.SwiftUIThemeManager
+  public static let shared: AdmiralTheme.Appearance
+  public static func prepare()
+  @objc deinit
+}
+public struct Version : Swift.Codable {
+  public let internal_version: Swift.String
+  public let external_version: Swift.String
+  public var versionName: Swift.String {
+    get
+  }
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+@_hasMissingDesignatedInitializers final public class LibraryInfo {
+  public static var version: AdmiralTheme.Version? {
+    get
+  }
+  @objc deinit
+}
+extension AdmiralTheme.ColorPaletteStyle : Swift.Equatable {}
+extension AdmiralTheme.ColorPaletteStyle : Swift.Hashable {}
+extension AdmiralTheme.ColorPaletteStyle : Swift.RawRepresentable {}

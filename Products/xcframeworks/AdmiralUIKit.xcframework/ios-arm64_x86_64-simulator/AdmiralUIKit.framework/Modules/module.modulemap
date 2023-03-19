@@ -1,0 +1,11 @@
+framework module AdmiralUIKit {
+  umbrella header "AdmiralUIKit.h"
+
+  export *
+  module * { export * }
+}
+
+module AdmiralUIKit.Swift {
+  header "AdmiralUIKit-Swift.h"
+  requires objc
+}

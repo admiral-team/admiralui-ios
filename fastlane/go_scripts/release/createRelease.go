@@ -13,14 +13,25 @@ func CreateRelease(ctx context.Context, owner, repo string, tag string, token st
 	tc := oauth2.NewClient(ctx, ts)
 	client := github.NewClient(tc)
 
-	targetCommit := "main"
+	targetCommit := "feature/VIS-741-send-assets"
+	tagName := "12.0.0"
 	autoGenerateNotes := true
+	name := "AdmiralUIKit"
+	url := "http://www.google.com"
+	releaseAsset := github.ReleaseAsset{
+		Label: &name,
+		Name:  &name,
+		URL:   &url,
+	}
+	var releaseAssets []*github.ReleaseAsset
+	releaseAssets[0] = &releaseAsset
 
 	release := github.RepositoryRelease{}
-	release.TagName = &tag
+	release.TagName = &tagName
 	release.TargetCommitish = &targetCommit
 	release.Name = &tag
 	release.GenerateReleaseNotes = &autoGenerateNotes
+	release.Assets = releaseAssets
 
 	_, _, error := client.Repositories.CreateRelease(ctx, owner, repo, &release)
 

@@ -1,0 +1,11 @@
+framework module AdmiralCore {
+  umbrella header "AdmiralCore.h"
+
+  export *
+  module * { export * }
+}
+
+module AdmiralCore.Swift {
+  header "AdmiralCore-Swift.h"
+  requires objc
+}

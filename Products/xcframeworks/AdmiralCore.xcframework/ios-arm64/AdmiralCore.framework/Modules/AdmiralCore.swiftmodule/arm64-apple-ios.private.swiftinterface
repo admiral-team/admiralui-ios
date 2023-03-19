@@ -1,0 +1,29 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name AdmiralCore
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+@_exported import AdmiralCore
+import Foundation
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+extension UIKit.UIFont {
+  public var monospacedDigitFont: UIKit.UIFont {
+    get
+  }
+}
+public struct ParameterBox<S, P> where S : AdmiralCore.DefaultRepresentable, S : Swift.RawRepresentable, S.RawValue : Swift.Hashable {
+  public init()
+  public mutating func set(parameter: P?, for state: S)
+  public func parameter(for state: S) -> P?
+  public func forEachState(_ closure: ((S, P) -> Swift.Void))
+}
+public struct DoubleParameterBox<S1, S2, P> where S1 : AdmiralCore.DefaultRepresentable, S1 : Swift.RawRepresentable, S2 : Swift.RawRepresentable, S1.RawValue : Swift.Hashable, S2.RawValue : Swift.Hashable {
+  public init()
+  public mutating func set(parameter: P?, for first: S1, state second: S2)
+  public func parameter(for first: S1, state second: S2) -> P?
+}
+public protocol DefaultRepresentable {
+  static var defaultValue: Self { get }
+}

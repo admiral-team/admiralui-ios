@@ -1,0 +1,1247 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name AdmiralUIResources
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+@_exported import AdmiralUIResources
+import Foundation
+import Swift
+import SwiftUI
+import UIKit.UIFont
+import UIKit
+import _Concurrency
+import _StringProcessing
+@available(iOS 14.0, *)
+public enum AssetSymbol {
+  public enum System {
+    public enum Solid {
+      public static let arrowCross: AdmiralUIResources.SymbolImage
+      public static let arrowDown: AdmiralUIResources.SymbolImage
+      public static let arrowLeft: AdmiralUIResources.SymbolImage
+      public static let arrowRight: AdmiralUIResources.SymbolImage
+      public static let arrowUp: AdmiralUIResources.SymbolImage
+      public static let arrowsHorizontal: AdmiralUIResources.SymbolImage
+      public static let arrowsVertical: AdmiralUIResources.SymbolImage
+      public static let attachFile: AdmiralUIResources.SymbolImage
+      public static let back: AdmiralUIResources.SymbolImage
+      public static let barCode: AdmiralUIResources.SymbolImage
+      public static let calculate: AdmiralUIResources.SymbolImage
+      public static let calendar: AdmiralUIResources.SymbolImage
+      public static let calendarOk: AdmiralUIResources.SymbolImage
+      public static let camera: AdmiralUIResources.SymbolImage
+      public static let cameraRemove: AdmiralUIResources.SymbolImage
+      public static let chevronDown: AdmiralUIResources.SymbolImage
+      public static let chevronLeft: AdmiralUIResources.SymbolImage
+      public static let chevronRight: AdmiralUIResources.SymbolImage
+      public static let chevronUp: AdmiralUIResources.SymbolImage
+      public static let closeFullscreen: AdmiralUIResources.SymbolImage
+      public static let darkMode: AdmiralUIResources.SymbolImage
+      public static let delete: AdmiralUIResources.SymbolImage
+      public static let download: AdmiralUIResources.SymbolImage
+      public static let edit: AdmiralUIResources.SymbolImage
+      public static let email: AdmiralUIResources.SymbolImage
+      public static let emailRead: AdmiralUIResources.SymbolImage
+      public static let exit: AdmiralUIResources.SymbolImage
+      public static let export: AdmiralUIResources.SymbolImage
+      public static let eyedropper: AdmiralUIResources.SymbolImage
+      public static let filter: AdmiralUIResources.SymbolImage
+      public static let home: AdmiralUIResources.SymbolImage
+      public static let `import`: AdmiralUIResources.SymbolImage
+      public static let keyboard: AdmiralUIResources.SymbolImage
+      public static let link: AdmiralUIResources.SymbolImage
+      public static let loader: AdmiralUIResources.SymbolImage
+      public static let moreHorizontal: AdmiralUIResources.SymbolImage
+      public static let moreVertical: AdmiralUIResources.SymbolImage
+      public static let notifications: AdmiralUIResources.SymbolImage
+      public static let okSend: AdmiralUIResources.SymbolImage
+      public static let openInFull: AdmiralUIResources.SymbolImage
+      public static let people: AdmiralUIResources.SymbolImage
+      public static let person: AdmiralUIResources.SymbolImage
+      public static let personAdd: AdmiralUIResources.SymbolImage
+      public static let personProperties: AdmiralUIResources.SymbolImage
+      public static let power: AdmiralUIResources.SymbolImage
+      public static let print: AdmiralUIResources.SymbolImage
+      public static let qRCode: AdmiralUIResources.SymbolImage
+      public static let redo: AdmiralUIResources.SymbolImage
+      public static let refuse: AdmiralUIResources.SymbolImage
+      public static let report: AdmiralUIResources.SymbolImage
+      public static let save: AdmiralUIResources.SymbolImage
+      public static let search: AdmiralUIResources.SymbolImage
+      public static let settings: AdmiralUIResources.SymbolImage
+      public static let smallArrowDown: AdmiralUIResources.SymbolImage
+      public static let smallArrowLeft: AdmiralUIResources.SymbolImage
+      public static let smallArrowRight: AdmiralUIResources.SymbolImage
+      public static let smallArrowUp: AdmiralUIResources.SymbolImage
+      public static let star: AdmiralUIResources.SymbolImage
+      public static let thirdPerson: AdmiralUIResources.SymbolImage
+      public static let time: AdmiralUIResources.SymbolImage
+      public static let toCustomer: AdmiralUIResources.SymbolImage
+      public static let tune: AdmiralUIResources.SymbolImage
+      public static let undo: AdmiralUIResources.SymbolImage
+      public static let update: AdmiralUIResources.SymbolImage
+      public static let upload: AdmiralUIResources.SymbolImage
+      public static let userDelete: AdmiralUIResources.SymbolImage
+      public static let userRole: AdmiralUIResources.SymbolImage
+      public static let zoomIn: AdmiralUIResources.SymbolImage
+      public static let zoomOut: AdmiralUIResources.SymbolImage
+    }
+    public enum Outline {
+      public static let arrowCross: AdmiralUIResources.SymbolImage
+      public static let arrowDown: AdmiralUIResources.SymbolImage
+      public static let arrowLeft: AdmiralUIResources.SymbolImage
+      public static let arrowRight: AdmiralUIResources.SymbolImage
+      public static let arrowUp: AdmiralUIResources.SymbolImage
+      public static let arrowsHorizontal: AdmiralUIResources.SymbolImage
+      public static let arrowsVertical: AdmiralUIResources.SymbolImage
+      public static let attachFile: AdmiralUIResources.SymbolImage
+      public static let back: AdmiralUIResources.SymbolImage
+      public static let barCode: AdmiralUIResources.SymbolImage
+      public static let calculate: AdmiralUIResources.SymbolImage
+      public static let calendar: AdmiralUIResources.SymbolImage
+      public static let calendarOk: AdmiralUIResources.SymbolImage
+      public static let camera: AdmiralUIResources.SymbolImage
+      public static let cameraRemove: AdmiralUIResources.SymbolImage
+      public static let chevronDown: AdmiralUIResources.SymbolImage
+      public static let chevronLeft: AdmiralUIResources.SymbolImage
+      public static let chevronRight: AdmiralUIResources.SymbolImage
+      public static let chevronUp: AdmiralUIResources.SymbolImage
+      public static let closeFullscreen: AdmiralUIResources.SymbolImage
+      public static let darkMode: AdmiralUIResources.SymbolImage
+      public static let delete: AdmiralUIResources.SymbolImage
+      public static let download: AdmiralUIResources.SymbolImage
+      public static let edit: AdmiralUIResources.SymbolImage
+      public static let email: AdmiralUIResources.SymbolImage
+      public static let emailRead: AdmiralUIResources.SymbolImage
+      public static let exit: AdmiralUIResources.SymbolImage
+      public static let export: AdmiralUIResources.SymbolImage
+      public static let eyedropper: AdmiralUIResources.SymbolImage
+      public static let filter: AdmiralUIResources.SymbolImage
+      public static let home: AdmiralUIResources.SymbolImage
+      public static let `import`: AdmiralUIResources.SymbolImage
+      public static let keyboard: AdmiralUIResources.SymbolImage
+      public static let link: AdmiralUIResources.SymbolImage
+      public static let loader: AdmiralUIResources.SymbolImage
+      public static let moreHorizontal: AdmiralUIResources.SymbolImage
+      public static let moreVertical: AdmiralUIResources.SymbolImage
+      public static let notifications: AdmiralUIResources.SymbolImage
+      public static let okSend: AdmiralUIResources.SymbolImage
+      public static let openInFull: AdmiralUIResources.SymbolImage
+      public static let people: AdmiralUIResources.SymbolImage
+      public static let person: AdmiralUIResources.SymbolImage
+      public static let personAdd: AdmiralUIResources.SymbolImage
+      public static let personProperties: AdmiralUIResources.SymbolImage
+      public static let power: AdmiralUIResources.SymbolImage
+      public static let print: AdmiralUIResources.SymbolImage
+      public static let qRCode: AdmiralUIResources.SymbolImage
+      public static let redo: AdmiralUIResources.SymbolImage
+      public static let refuse: AdmiralUIResources.SymbolImage
+      public static let report: AdmiralUIResources.SymbolImage
+      public static let save: AdmiralUIResources.SymbolImage
+      public static let search: AdmiralUIResources.SymbolImage
+      public static let settings: AdmiralUIResources.SymbolImage
+      public static let smallArrowDown: AdmiralUIResources.SymbolImage
+      public static let smallArrowLeft: AdmiralUIResources.SymbolImage
+      public static let smallArrowRight: AdmiralUIResources.SymbolImage
+      public static let smallArrowUp: AdmiralUIResources.SymbolImage
+      public static let star: AdmiralUIResources.SymbolImage
+      public static let thirdPerson: AdmiralUIResources.SymbolImage
+      public static let time: AdmiralUIResources.SymbolImage
+      public static let toCustomer: AdmiralUIResources.SymbolImage
+      public static let tune: AdmiralUIResources.SymbolImage
+      public static let undo: AdmiralUIResources.SymbolImage
+      public static let update: AdmiralUIResources.SymbolImage
+      public static let upload: AdmiralUIResources.SymbolImage
+      public static let userDelete: AdmiralUIResources.SymbolImage
+      public static let userRole: AdmiralUIResources.SymbolImage
+      public static let zoomIn: AdmiralUIResources.SymbolImage
+      public static let zoomOut: AdmiralUIResources.SymbolImage
+    }
+  }
+  public enum Service {
+    public enum Solid {
+      public static let archive: AdmiralUIResources.SymbolImage
+      public static let check: AdmiralUIResources.SymbolImage
+      public static let close: AdmiralUIResources.SymbolImage
+      public static let closeCircle: AdmiralUIResources.SymbolImage
+      public static let drag: AdmiralUIResources.SymbolImage
+      public static let error: AdmiralUIResources.SymbolImage
+      public static let errorTriangle: AdmiralUIResources.SymbolImage
+      public static let eye: AdmiralUIResources.SymbolImage
+      public static let help: AdmiralUIResources.SymbolImage
+      public static let info: AdmiralUIResources.SymbolImage
+      public static let menu: AdmiralUIResources.SymbolImage
+      public static let minusCircle: AdmiralUIResources.SymbolImage
+      public static let pause: AdmiralUIResources.SymbolImage
+      public static let play: AdmiralUIResources.SymbolImage
+      public static let plus: AdmiralUIResources.SymbolImage
+      public static let plusCircle: AdmiralUIResources.SymbolImage
+      public static let process: AdmiralUIResources.SymbolImage
+    }
+    public enum Outline {
+      public static let archive: AdmiralUIResources.SymbolImage
+      public static let check: AdmiralUIResources.SymbolImage
+      public static let checkClear: AdmiralUIResources.SymbolImage
+      public static let close: AdmiralUIResources.SymbolImage
+      public static let closeCircle: AdmiralUIResources.SymbolImage
+      public static let drag: AdmiralUIResources.SymbolImage
+      public static let error: AdmiralUIResources.SymbolImage
+      public static let errorTriangle: AdmiralUIResources.SymbolImage
+      public static let eye: AdmiralUIResources.SymbolImage
+      public static let eyeClose: AdmiralUIResources.SymbolImage
+      public static let help: AdmiralUIResources.SymbolImage
+      public static let info: AdmiralUIResources.SymbolImage
+      public static let menu: AdmiralUIResources.SymbolImage
+      public static let minus: AdmiralUIResources.SymbolImage
+      public static let minusCircle: AdmiralUIResources.SymbolImage
+      public static let pause: AdmiralUIResources.SymbolImage
+      public static let play: AdmiralUIResources.SymbolImage
+      public static let plus: AdmiralUIResources.SymbolImage
+      public static let plusCircle: AdmiralUIResources.SymbolImage
+      public static let process: AdmiralUIResources.SymbolImage
+    }
+  }
+  public enum Security {
+    public enum Solid {
+      public static let faceID: AdmiralUIResources.SymbolImage
+      public static let fingerprint: AdmiralUIResources.SymbolImage
+      public static let key: AdmiralUIResources.SymbolImage
+      public static let lock: AdmiralUIResources.SymbolImage
+      public static let password: AdmiralUIResources.SymbolImage
+      public static let unlock: AdmiralUIResources.SymbolImage
+    }
+    public enum Outline {
+      public static let faceID: AdmiralUIResources.SymbolImage
+      public static let fingerprint: AdmiralUIResources.SymbolImage
+      public static let key: AdmiralUIResources.SymbolImage
+      public static let lock: AdmiralUIResources.SymbolImage
+      public static let password: AdmiralUIResources.SymbolImage
+      public static let unlock: AdmiralUIResources.SymbolImage
+    }
+  }
+  public enum Location {
+    public enum Solid {
+      public static let gPS: AdmiralUIResources.SymbolImage
+      public static let location: AdmiralUIResources.SymbolImage
+    }
+    public enum Outline {
+      public static let gPS: AdmiralUIResources.SymbolImage
+      public static let location: AdmiralUIResources.SymbolImage
+    }
+  }
+  public enum Finance {
+    public enum Solid {
+      public static let card: AdmiralUIResources.SymbolImage
+      public static let credit: AdmiralUIResources.SymbolImage
+      public static let debitCard: AdmiralUIResources.SymbolImage
+      public static let eUR: AdmiralUIResources.SymbolImage
+      public static let finance: AdmiralUIResources.SymbolImage
+      public static let gBP: AdmiralUIResources.SymbolImage
+      public static let getCash: AdmiralUIResources.SymbolImage
+      public static let jPY: AdmiralUIResources.SymbolImage
+      public static let money: AdmiralUIResources.SymbolImage
+      public static let multicurency: AdmiralUIResources.SymbolImage
+      public static let payrollCard: AdmiralUIResources.SymbolImage
+      public static let person: AdmiralUIResources.SymbolImage
+      public static let rUB: AdmiralUIResources.SymbolImage
+      public static let uSD: AdmiralUIResources.SymbolImage
+    }
+    public enum Outline {
+      public static let card: AdmiralUIResources.SymbolImage
+      public static let credit: AdmiralUIResources.SymbolImage
+      public static let debitCard: AdmiralUIResources.SymbolImage
+      public static let eUR: AdmiralUIResources.SymbolImage
+      public static let finance: AdmiralUIResources.SymbolImage
+      public static let gBP: AdmiralUIResources.SymbolImage
+      public static let getCash: AdmiralUIResources.SymbolImage
+      public static let jPY: AdmiralUIResources.SymbolImage
+      public static let money: AdmiralUIResources.SymbolImage
+      public static let multicurency: AdmiralUIResources.SymbolImage
+      public static let payrollCard: AdmiralUIResources.SymbolImage
+      public static let person: AdmiralUIResources.SymbolImage
+      public static let rUB: AdmiralUIResources.SymbolImage
+      public static let uSD: AdmiralUIResources.SymbolImage
+    }
+  }
+  public enum Documents {
+    public enum Solid {
+      public static let accountDetail: AdmiralUIResources.SymbolImage
+      public static let addFromTemplate: AdmiralUIResources.SymbolImage
+      public static let catalog: AdmiralUIResources.SymbolImage
+      public static let copy: AdmiralUIResources.SymbolImage
+      public static let description: AdmiralUIResources.SymbolImage
+      public static let docAttention: AdmiralUIResources.SymbolImage
+      public static let docExport: AdmiralUIResources.SymbolImage
+      public static let docFinished: AdmiralUIResources.SymbolImage
+      public static let docOk: AdmiralUIResources.SymbolImage
+      public static let docOperations: AdmiralUIResources.SymbolImage
+      public static let docProcessing: AdmiralUIResources.SymbolImage
+      public static let docRegenerate: AdmiralUIResources.SymbolImage
+      public static let docSettings: AdmiralUIResources.SymbolImage
+      public static let docSign: AdmiralUIResources.SymbolImage
+      public static let docSignVerify: AdmiralUIResources.SymbolImage
+      public static let docView: AdmiralUIResources.SymbolImage
+      public static let docs: AdmiralUIResources.SymbolImage
+      public static let documentAdd: AdmiralUIResources.SymbolImage
+      public static let filePDF: AdmiralUIResources.SymbolImage
+      public static let filePPT: AdmiralUIResources.SymbolImage
+      public static let fileSNG: AdmiralUIResources.SymbolImage
+      public static let fileWord: AdmiralUIResources.SymbolImage
+      public static let fileXLS: AdmiralUIResources.SymbolImage
+      public static let fileXML: AdmiralUIResources.SymbolImage
+      public static let folder: AdmiralUIResources.SymbolImage
+      public static let jpg: AdmiralUIResources.SymbolImage
+      public static let sendSign: AdmiralUIResources.SymbolImage
+      public static let sign: AdmiralUIResources.SymbolImage
+      public static let tasks: AdmiralUIResources.SymbolImage
+      public static let unsign: AdmiralUIResources.SymbolImage
+      public static let web: AdmiralUIResources.SymbolImage
+    }
+    public enum Outline {
+      public static let accountDetail: AdmiralUIResources.SymbolImage
+      public static let addFromTemplate: AdmiralUIResources.SymbolImage
+      public static let catalog: AdmiralUIResources.SymbolImage
+      public static let copy: AdmiralUIResources.SymbolImage
+      public static let description: AdmiralUIResources.SymbolImage
+      public static let docAttention: AdmiralUIResources.SymbolImage
+      public static let docExport: AdmiralUIResources.SymbolImage
+      public static let docFinished: AdmiralUIResources.SymbolImage
+      public static let docOk: AdmiralUIResources.SymbolImage
+      public static let docOperations: AdmiralUIResources.SymbolImage
+      public static let docProcessing: AdmiralUIResources.SymbolImage
+      public static let docRegenerate: AdmiralUIResources.SymbolImage
+      public static let docSettings: AdmiralUIResources.SymbolImage
+      public static let docSign: AdmiralUIResources.SymbolImage
+      public static let docSignVerify: AdmiralUIResources.SymbolImage
+      public static let docView: AdmiralUIResources.SymbolImage
+      public static let docs: AdmiralUIResources.SymbolImage
+      public static let documentAdd: AdmiralUIResources.SymbolImage
+      public static let filePDF: AdmiralUIResources.SymbolImage
+      public static let filePPT: AdmiralUIResources.SymbolImage
+      public static let fileSNG: AdmiralUIResources.SymbolImage
+      public static let fileWord: AdmiralUIResources.SymbolImage
+      public static let fileXLS: AdmiralUIResources.SymbolImage
+      public static let fileXML: AdmiralUIResources.SymbolImage
+      public static let folder: AdmiralUIResources.SymbolImage
+      public static let jpg: AdmiralUIResources.SymbolImage
+      public static let sendSign: AdmiralUIResources.SymbolImage
+      public static let sign: AdmiralUIResources.SymbolImage
+      public static let tasks: AdmiralUIResources.SymbolImage
+      public static let unsign: AdmiralUIResources.SymbolImage
+      public static let web: AdmiralUIResources.SymbolImage
+    }
+  }
+  public enum Communication {
+    public enum Solid {
+      public static let headset: AdmiralUIResources.SymbolImage
+      public static let phone: AdmiralUIResources.SymbolImage
+      public static let sIMCard: AdmiralUIResources.SymbolImage
+      public static let signal: AdmiralUIResources.SymbolImage
+    }
+    public enum Outline {
+      public static let headset: AdmiralUIResources.SymbolImage
+      public static let phone: AdmiralUIResources.SymbolImage
+      public static let sIMCard: AdmiralUIResources.SymbolImage
+      public static let signal: AdmiralUIResources.SymbolImage
+    }
+  }
+  public enum Category {
+    public enum Solid {
+      public static let accept: AdmiralUIResources.SymbolImage
+      public static let acuringFuture: AdmiralUIResources.SymbolImage
+      public static let acuringModern: AdmiralUIResources.SymbolImage
+      public static let addCommen: AdmiralUIResources.SymbolImage
+      public static let alert: AdmiralUIResources.SymbolImage
+      public static let bank: AdmiralUIResources.SymbolImage
+      public static let bonus: AdmiralUIResources.SymbolImage
+      public static let bonusRuble: AdmiralUIResources.SymbolImage
+      public static let burn: AdmiralUIResources.SymbolImage
+      public static let car: AdmiralUIResources.SymbolImage
+      public static let chart: AdmiralUIResources.SymbolImage
+      public static let chat: AdmiralUIResources.SymbolImage
+      public static let chip: AdmiralUIResources.SymbolImage
+      public static let clipboard: AdmiralUIResources.SymbolImage
+      public static let color: AdmiralUIResources.SymbolImage
+      public static let comment: AdmiralUIResources.SymbolImage
+      public static let component: AdmiralUIResources.SymbolImage
+      public static let credit: AdmiralUIResources.SymbolImage
+      public static let delivery: AdmiralUIResources.SymbolImage
+      public static let deposit: AdmiralUIResources.SymbolImage
+      public static let desktop: AdmiralUIResources.SymbolImage
+      public static let diamond: AdmiralUIResources.SymbolImage
+      public static let globe: AdmiralUIResources.SymbolImage
+      public static let government: AdmiralUIResources.SymbolImage
+      public static let grid: AdmiralUIResources.SymbolImage
+      public static let heart: AdmiralUIResources.SymbolImage
+      public static let homeAutocredit: AdmiralUIResources.SymbolImage
+      public static let icons: AdmiralUIResources.SymbolImage
+      public static let idea: AdmiralUIResources.SymbolImage
+      public static let invalid: AdmiralUIResources.SymbolImage
+      public static let layers: AdmiralUIResources.SymbolImage
+      public static let layout: AdmiralUIResources.SymbolImage
+      public static let magnet: AdmiralUIResources.SymbolImage
+      public static let maintenance: AdmiralUIResources.SymbolImage
+      public static let medal: AdmiralUIResources.SymbolImage
+      public static let megaphone: AdmiralUIResources.SymbolImage
+      public static let mobile: AdmiralUIResources.SymbolImage
+      public static let multibonus: AdmiralUIResources.SymbolImage
+      public static let pension: AdmiralUIResources.SymbolImage
+      public static let pickup: AdmiralUIResources.SymbolImage
+      public static let pin: AdmiralUIResources.SymbolImage
+      public static let plane: AdmiralUIResources.SymbolImage
+      public static let post: AdmiralUIResources.SymbolImage
+      public static let postAutomat: AdmiralUIResources.SymbolImage
+      public static let pregnant: AdmiralUIResources.SymbolImage
+      public static let receipt: AdmiralUIResources.SymbolImage
+      public static let scheme: AdmiralUIResources.SymbolImage
+      public static let shopCart: AdmiralUIResources.SymbolImage
+      public static let shoppingBag: AdmiralUIResources.SymbolImage
+      public static let showTable: AdmiralUIResources.SymbolImage
+      public static let store: AdmiralUIResources.SymbolImage
+      public static let study: AdmiralUIResources.SymbolImage
+      public static let tablet: AdmiralUIResources.SymbolImage
+      public static let trophy: AdmiralUIResources.SymbolImage
+      public static let typography: AdmiralUIResources.SymbolImage
+      public static let vIP: AdmiralUIResources.SymbolImage
+      public static let vacation: AdmiralUIResources.SymbolImage
+      public static let wiki: AdmiralUIResources.SymbolImage
+      public static let work: AdmiralUIResources.SymbolImage
+    }
+    public enum Outline {
+      public static let accept: AdmiralUIResources.SymbolImage
+      public static let acuringFuture: AdmiralUIResources.SymbolImage
+      public static let acuringModern: AdmiralUIResources.SymbolImage
+      public static let addCommen: AdmiralUIResources.SymbolImage
+      public static let alert: AdmiralUIResources.SymbolImage
+      public static let bank: AdmiralUIResources.SymbolImage
+      public static let bonus: AdmiralUIResources.SymbolImage
+      public static let bonusRuble: AdmiralUIResources.SymbolImage
+      public static let burn: AdmiralUIResources.SymbolImage
+      public static let car: AdmiralUIResources.SymbolImage
+      public static let chart: AdmiralUIResources.SymbolImage
+      public static let chat: AdmiralUIResources.SymbolImage
+      public static let chip: AdmiralUIResources.SymbolImage
+      public static let clipboard: AdmiralUIResources.SymbolImage
+      public static let color: AdmiralUIResources.SymbolImage
+      public static let comment: AdmiralUIResources.SymbolImage
+      public static let component: AdmiralUIResources.SymbolImage
+      public static let credit: AdmiralUIResources.SymbolImage
+      public static let delivery: AdmiralUIResources.SymbolImage
+      public static let deposit: AdmiralUIResources.SymbolImage
+      public static let desktop: AdmiralUIResources.SymbolImage
+      public static let diamond: AdmiralUIResources.SymbolImage
+      public static let globe: AdmiralUIResources.SymbolImage
+      public static let government: AdmiralUIResources.SymbolImage
+      public static let grid: AdmiralUIResources.SymbolImage
+      public static let heart: AdmiralUIResources.SymbolImage
+      public static let homeAutocredit: AdmiralUIResources.SymbolImage
+      public static let icons: AdmiralUIResources.SymbolImage
+      public static let idea: AdmiralUIResources.SymbolImage
+      public static let invalid: AdmiralUIResources.SymbolImage
+      public static let layers: AdmiralUIResources.SymbolImage
+      public static let layout: AdmiralUIResources.SymbolImage
+      public static let magnet: AdmiralUIResources.SymbolImage
+      public static let maintenance: AdmiralUIResources.SymbolImage
+      public static let medal: AdmiralUIResources.SymbolImage
+      public static let megaphone: AdmiralUIResources.SymbolImage
+      public static let mobile: AdmiralUIResources.SymbolImage
+      public static let multibonus: AdmiralUIResources.SymbolImage
+      public static let pension: AdmiralUIResources.SymbolImage
+      public static let pickup: AdmiralUIResources.SymbolImage
+      public static let pin: AdmiralUIResources.SymbolImage
+      public static let plane: AdmiralUIResources.SymbolImage
+      public static let post: AdmiralUIResources.SymbolImage
+      public static let postAutomat: AdmiralUIResources.SymbolImage
+      public static let pregnant: AdmiralUIResources.SymbolImage
+      public static let receipt: AdmiralUIResources.SymbolImage
+      public static let scheme: AdmiralUIResources.SymbolImage
+      public static let shopCart: AdmiralUIResources.SymbolImage
+      public static let shoppingBag: AdmiralUIResources.SymbolImage
+      public static let showTable: AdmiralUIResources.SymbolImage
+      public static let store: AdmiralUIResources.SymbolImage
+      public static let study: AdmiralUIResources.SymbolImage
+      public static let tablet: AdmiralUIResources.SymbolImage
+      public static let trophy: AdmiralUIResources.SymbolImage
+      public static let typography: AdmiralUIResources.SymbolImage
+      public static let vIP: AdmiralUIResources.SymbolImage
+      public static let vacation: AdmiralUIResources.SymbolImage
+      public static let wiki: AdmiralUIResources.SymbolImage
+      public static let work: AdmiralUIResources.SymbolImage
+    }
+  }
+}
+@available(iOS 14.0, *)
+public struct SymbolImage {
+  public var name: Swift.String {
+    get
+  }
+  public var image: SwiftUI.Image {
+    get
+  }
+}
+@available(*, deprecated, renamed: "SystemImageAsset.Image", message: "This typealias will be removed in SwiftGen 7.0")
+public typealias SystemAssetImageTypeAlias = AdmiralUIResources.SystemImageAsset.Image
+public enum SystemAsset {
+  public enum Custom {
+    public enum Cell {
+      public static let point: AdmiralUIResources.SystemImageAsset
+    }
+    public enum Chat {
+      public static let read: AdmiralUIResources.SystemImageAsset
+      public static let sent: AdmiralUIResources.SystemImageAsset
+    }
+    public enum CirclePageControl {
+      public static let arrowRight: AdmiralUIResources.SystemImageAsset
+    }
+    public enum Control {
+      public static let checkBoxOff: AdmiralUIResources.SystemImageAsset
+      public static let checkBoxOn: AdmiralUIResources.SystemImageAsset
+      public static let radioButtonOff: AdmiralUIResources.SystemImageAsset
+      public static let radioButtonOn: AdmiralUIResources.SystemImageAsset
+    }
+    public enum Informers {
+      public static let question: AdmiralUIResources.SystemImageAsset
+    }
+    public enum Segment {
+      public static let arrowDown: AdmiralUIResources.SystemImageAsset
+      public static let arrowUp: AdmiralUIResources.SystemImageAsset
+    }
+  }
+  public static let allImages: [AdmiralUIResources.SystemImageAsset]
+}
+public struct SystemImageAsset {
+  public var name: Swift.String {
+    get
+  }
+  public typealias Image = UIKit.UIImage
+  @available(iOS 8.0, tvOS 9.0, watchOS 2.0, macOS 10.7, *)
+  public var image: AdmiralUIResources.SystemImageAsset.Image {
+    get
+  }
+  @available(iOS 8.0, tvOS 9.0, *)
+  public func image(compatibleWith traitCollection: UIKit.UITraitCollection) -> AdmiralUIResources.SystemImageAsset.Image
+}
+extension UIKit.UIImage {
+  @available(iOS 8.0, tvOS 9.0, watchOS 2.0, *)
+  @available(macOS, deprecated, message: "This initializer is unsafe on macOS, please use the SystemImageAsset.image property")
+  convenience public init?(asset: AdmiralUIResources.SystemImageAsset)
+}
+@available(*, deprecated, renamed: "ImageAsset.Image", message: "This typealias will be removed in SwiftGen 7.0")
+public typealias AssetImageTypeAlias = AdmiralUIResources.ImageAsset.Image
+public enum Asset {
+  public enum Category {
+    public enum Outline {
+      public static let acceptOutline: AdmiralUIResources.ImageAsset
+      public static let acuringFutureOutline: AdmiralUIResources.ImageAsset
+      public static let acuringModernOutline: AdmiralUIResources.ImageAsset
+      public static let addCommentOutline: AdmiralUIResources.ImageAsset
+      public static let alertOutline: AdmiralUIResources.ImageAsset
+      public static let bankOutline: AdmiralUIResources.ImageAsset
+      public static let bonusOutline: AdmiralUIResources.ImageAsset
+      public static let bonusRubleOutline: AdmiralUIResources.ImageAsset
+      public static let bookOutline: AdmiralUIResources.ImageAsset
+      public static let burnOutline: AdmiralUIResources.ImageAsset
+      public static let busOutline: AdmiralUIResources.ImageAsset
+      public static let carOutline: AdmiralUIResources.ImageAsset
+      public static let chairOutline: AdmiralUIResources.ImageAsset
+      public static let chartOutline: AdmiralUIResources.ImageAsset
+      public static let chatOutline: AdmiralUIResources.ImageAsset
+      public static let chessKingOutline: AdmiralUIResources.ImageAsset
+      public static let chipOutline: AdmiralUIResources.ImageAsset
+      public static let clipboardOutline: AdmiralUIResources.ImageAsset
+      public static let colorOutline: AdmiralUIResources.ImageAsset
+      public static let commentOutline: AdmiralUIResources.ImageAsset
+      public static let componentOutline: AdmiralUIResources.ImageAsset
+      public static let creditOutline: AdmiralUIResources.ImageAsset
+      public static let cubeOutline: AdmiralUIResources.ImageAsset
+      public static let deliveryOutline: AdmiralUIResources.ImageAsset
+      public static let depositOutline: AdmiralUIResources.ImageAsset
+      public static let desktopOutline: AdmiralUIResources.ImageAsset
+      public static let diamondOutline: AdmiralUIResources.ImageAsset
+      public static let elderlyOutline: AdmiralUIResources.ImageAsset
+      public static let envelopeOutline: AdmiralUIResources.ImageAsset
+      public static let flagOutline: AdmiralUIResources.ImageAsset
+      public static let gameOutline: AdmiralUIResources.ImageAsset
+      public static let globeOutline: AdmiralUIResources.ImageAsset
+      public static let governmentOutline: AdmiralUIResources.ImageAsset
+      public static let gridOutline: AdmiralUIResources.ImageAsset
+      public static let heartOutline: AdmiralUIResources.ImageAsset
+      public static let homeAutocreditOutline: AdmiralUIResources.ImageAsset
+      public static let hookOutline: AdmiralUIResources.ImageAsset
+      public static let iconsOutline: AdmiralUIResources.ImageAsset
+      public static let ideaOutline: AdmiralUIResources.ImageAsset
+      public static let invalidOutline: AdmiralUIResources.ImageAsset
+      public static let layersOutline: AdmiralUIResources.ImageAsset
+      public static let layoutOutline: AdmiralUIResources.ImageAsset
+      public static let levelUpOutline: AdmiralUIResources.ImageAsset
+      public static let lightningOutline: AdmiralUIResources.ImageAsset
+      public static let magnetOutline: AdmiralUIResources.ImageAsset
+      public static let maintenanceOutline: AdmiralUIResources.ImageAsset
+      public static let maleOutline: AdmiralUIResources.ImageAsset
+      public static let martiniOutline: AdmiralUIResources.ImageAsset
+      public static let medalOutline: AdmiralUIResources.ImageAsset
+      public static let megaphoneOutline: AdmiralUIResources.ImageAsset
+      public static let mobileOutline: AdmiralUIResources.ImageAsset
+      public static let multibonusOutline: AdmiralUIResources.ImageAsset
+      public static let pensionOutline: AdmiralUIResources.ImageAsset
+      public static let pickupOutline: AdmiralUIResources.ImageAsset
+      public static let pinOutline: AdmiralUIResources.ImageAsset
+      public static let planeOutline: AdmiralUIResources.ImageAsset
+      public static let postAutomatOutline: AdmiralUIResources.ImageAsset
+      public static let postOutline: AdmiralUIResources.ImageAsset
+      public static let pregnantOutline: AdmiralUIResources.ImageAsset
+      public static let receiptOutline: AdmiralUIResources.ImageAsset
+      public static let receiptUpdateOutline: AdmiralUIResources.ImageAsset
+      public static let schemeOutline: AdmiralUIResources.ImageAsset
+      public static let shopCartOutline: AdmiralUIResources.ImageAsset
+      public static let shoppingBagOutline: AdmiralUIResources.ImageAsset
+      public static let showTableOutline: AdmiralUIResources.ImageAsset
+      public static let storeOutline: AdmiralUIResources.ImageAsset
+      public static let studyOutline: AdmiralUIResources.ImageAsset
+      public static let tabletOutline: AdmiralUIResources.ImageAsset
+      public static let treesOutline: AdmiralUIResources.ImageAsset
+      public static let trophyOutline: AdmiralUIResources.ImageAsset
+      public static let typographyOutline: AdmiralUIResources.ImageAsset
+      public static let usbOutline: AdmiralUIResources.ImageAsset
+      public static let utensilsOutline: AdmiralUIResources.ImageAsset
+      public static let vipOutline: AdmiralUIResources.ImageAsset
+      public static let vacationOutline: AdmiralUIResources.ImageAsset
+      public static let voteOutline: AdmiralUIResources.ImageAsset
+      public static let wikiOutline: AdmiralUIResources.ImageAsset
+      public static let workOutline: AdmiralUIResources.ImageAsset
+    }
+    public enum Solid {
+      public static let acceptSolid: AdmiralUIResources.ImageAsset
+      public static let acuringFutureSolid: AdmiralUIResources.ImageAsset
+      public static let acuringModernSolid: AdmiralUIResources.ImageAsset
+      public static let addCommentSolid: AdmiralUIResources.ImageAsset
+      public static let alertSolid: AdmiralUIResources.ImageAsset
+      public static let bankSolid: AdmiralUIResources.ImageAsset
+      public static let bonusRubleSolid: AdmiralUIResources.ImageAsset
+      public static let bonusSolid: AdmiralUIResources.ImageAsset
+      public static let bookSolid: AdmiralUIResources.ImageAsset
+      public static let burnSolid: AdmiralUIResources.ImageAsset
+      public static let busSolid: AdmiralUIResources.ImageAsset
+      public static let carSolid: AdmiralUIResources.ImageAsset
+      public static let chairSolid: AdmiralUIResources.ImageAsset
+      public static let chartSolid: AdmiralUIResources.ImageAsset
+      public static let chatSolid: AdmiralUIResources.ImageAsset
+      public static let chessKingSolid: AdmiralUIResources.ImageAsset
+      public static let chipSolid: AdmiralUIResources.ImageAsset
+      public static let clipboardSolid: AdmiralUIResources.ImageAsset
+      public static let colorSolid: AdmiralUIResources.ImageAsset
+      public static let commentSolid: AdmiralUIResources.ImageAsset
+      public static let componentSolid: AdmiralUIResources.ImageAsset
+      public static let creditSolid: AdmiralUIResources.ImageAsset
+      public static let cubeSolid: AdmiralUIResources.ImageAsset
+      public static let deliverySolid: AdmiralUIResources.ImageAsset
+      public static let depositSolid: AdmiralUIResources.ImageAsset
+      public static let desktopSolid: AdmiralUIResources.ImageAsset
+      public static let diamondSolid: AdmiralUIResources.ImageAsset
+      public static let elderlySolid: AdmiralUIResources.ImageAsset
+      public static let envelopeSolid: AdmiralUIResources.ImageAsset
+      public static let flagSolid: AdmiralUIResources.ImageAsset
+      public static let gameSolid: AdmiralUIResources.ImageAsset
+      public static let globeSolid: AdmiralUIResources.ImageAsset
+      public static let governmentSolid: AdmiralUIResources.ImageAsset
+      public static let gridSolid: AdmiralUIResources.ImageAsset
+      public static let heartSolid: AdmiralUIResources.ImageAsset
+      public static let homeAutocreditSolid: AdmiralUIResources.ImageAsset
+      public static let hookSolid: AdmiralUIResources.ImageAsset
+      public static let iconsSolid: AdmiralUIResources.ImageAsset
+      public static let ideaSolid: AdmiralUIResources.ImageAsset
+      public static let invalidSolid: AdmiralUIResources.ImageAsset
+      public static let layersSolid: AdmiralUIResources.ImageAsset
+      public static let layoutSolid: AdmiralUIResources.ImageAsset
+      public static let levelUpSolid: AdmiralUIResources.ImageAsset
+      public static let lightningSolid: AdmiralUIResources.ImageAsset
+      public static let magnetSolid: AdmiralUIResources.ImageAsset
+      public static let maintenanceSolid: AdmiralUIResources.ImageAsset
+      public static let maleSolid: AdmiralUIResources.ImageAsset
+      public static let martiniSolid: AdmiralUIResources.ImageAsset
+      public static let medalSolid: AdmiralUIResources.ImageAsset
+      public static let megaphoneSolid: AdmiralUIResources.ImageAsset
+      public static let mobileSolid: AdmiralUIResources.ImageAsset
+      public static let multibonusSolid: AdmiralUIResources.ImageAsset
+      public static let pensionSolid: AdmiralUIResources.ImageAsset
+      public static let pickupSolid: AdmiralUIResources.ImageAsset
+      public static let pinSolid: AdmiralUIResources.ImageAsset
+      public static let planeSolid: AdmiralUIResources.ImageAsset
+      public static let postAutomatSolid: AdmiralUIResources.ImageAsset
+      public static let postSolid: AdmiralUIResources.ImageAsset
+      public static let pregnantSolid: AdmiralUIResources.ImageAsset
+      public static let receiptSolid: AdmiralUIResources.ImageAsset
+      public static let receiptUpdateSolid: AdmiralUIResources.ImageAsset
+      public static let schemeSolid: AdmiralUIResources.ImageAsset
+      public static let shopCartSolid: AdmiralUIResources.ImageAsset
+      public static let shoppingBagSolid: AdmiralUIResources.ImageAsset
+      public static let showTableSolid: AdmiralUIResources.ImageAsset
+      public static let storeSolid: AdmiralUIResources.ImageAsset
+      public static let studySolid: AdmiralUIResources.ImageAsset
+      public static let tabletSolid: AdmiralUIResources.ImageAsset
+      public static let treesSolid: AdmiralUIResources.ImageAsset
+      public static let trophySolid: AdmiralUIResources.ImageAsset
+      public static let typographySolid: AdmiralUIResources.ImageAsset
+      public static let usbSolid: AdmiralUIResources.ImageAsset
+      public static let utensilsSolid: AdmiralUIResources.ImageAsset
+      public static let vipSolid: AdmiralUIResources.ImageAsset
+      public static let vacationSolid: AdmiralUIResources.ImageAsset
+      public static let voteSolid: AdmiralUIResources.ImageAsset
+      public static let wikiSolid: AdmiralUIResources.ImageAsset
+      public static let workSolid: AdmiralUIResources.ImageAsset
+    }
+  }
+  public enum Communication {
+    public enum Outline {
+      public static let headsetOutline: AdmiralUIResources.ImageAsset
+      public static let phoneOutline: AdmiralUIResources.ImageAsset
+      public static let simCardOutline: AdmiralUIResources.ImageAsset
+      public static let signalOutline: AdmiralUIResources.ImageAsset
+      public static let telegrammOutline: AdmiralUIResources.ImageAsset
+    }
+    public enum Solid {
+      public static let headsetSolid: AdmiralUIResources.ImageAsset
+      public static let phoneSolid: AdmiralUIResources.ImageAsset
+      public static let simCardSolid: AdmiralUIResources.ImageAsset
+      public static let signalSolid: AdmiralUIResources.ImageAsset
+      public static let telegrammSolid: AdmiralUIResources.ImageAsset
+    }
+  }
+  public enum Documents {
+    public enum Outline {
+      public static let accountDetailOutline: AdmiralUIResources.ImageAsset
+      public static let addFromTemplateOutline: AdmiralUIResources.ImageAsset
+      public static let addTemplateOutline: AdmiralUIResources.ImageAsset
+      public static let archiveOutline: AdmiralUIResources.ImageAsset
+      public static let catalogOutline: AdmiralUIResources.ImageAsset
+      public static let componentTemplateOutline: AdmiralUIResources.ImageAsset
+      public static let copyOutline: AdmiralUIResources.ImageAsset
+      public static let deleteDocsOutline: AdmiralUIResources.ImageAsset
+      public static let deleteDocumentOutline: AdmiralUIResources.ImageAsset
+      public static let descriptionOutline: AdmiralUIResources.ImageAsset
+      public static let docAttentionOutline: AdmiralUIResources.ImageAsset
+      public static let docExportOutline: AdmiralUIResources.ImageAsset
+      public static let docFinishedOutline: AdmiralUIResources.ImageAsset
+      public static let docOkOutline: AdmiralUIResources.ImageAsset
+      public static let docOperationsOutline: AdmiralUIResources.ImageAsset
+      public static let docProcessingOutline: AdmiralUIResources.ImageAsset
+      public static let docRegenerateOutline: AdmiralUIResources.ImageAsset
+      public static let docSettingsOutline: AdmiralUIResources.ImageAsset
+      public static let docSignOutline: AdmiralUIResources.ImageAsset
+      public static let docSignVerifyOutline: AdmiralUIResources.ImageAsset
+      public static let docViewOutline: AdmiralUIResources.ImageAsset
+      public static let docsOutline: AdmiralUIResources.ImageAsset
+      public static let documentAddOutline: AdmiralUIResources.ImageAsset
+      public static let fileCurrencyOutline: AdmiralUIResources.ImageAsset
+      public static let filePDFOutline: AdmiralUIResources.ImageAsset
+      public static let filePPTOutline: AdmiralUIResources.ImageAsset
+      public static let fileSNGOutline: AdmiralUIResources.ImageAsset
+      public static let fileWordOutline: AdmiralUIResources.ImageAsset
+      public static let fileXLSOutline: AdmiralUIResources.ImageAsset
+      public static let fileXMLOutline: AdmiralUIResources.ImageAsset
+      public static let folderOutline: AdmiralUIResources.ImageAsset
+      public static let jpgOutline: AdmiralUIResources.ImageAsset
+      public static let rotateLeftOutline: AdmiralUIResources.ImageAsset
+      public static let rotateRightOutline: AdmiralUIResources.ImageAsset
+      public static let sendSignOutline: AdmiralUIResources.ImageAsset
+      public static let signOutline: AdmiralUIResources.ImageAsset
+      public static let tasksOutline: AdmiralUIResources.ImageAsset
+      public static let unsignOutline: AdmiralUIResources.ImageAsset
+      public static let verifySignOutline: AdmiralUIResources.ImageAsset
+      public static let webOutline: AdmiralUIResources.ImageAsset
+    }
+    public enum Solid {
+      public static let accountDetailSolid: AdmiralUIResources.ImageAsset
+      public static let addFromTemplateSolid: AdmiralUIResources.ImageAsset
+      public static let addTemplateSolid: AdmiralUIResources.ImageAsset
+      public static let archiveSolid: AdmiralUIResources.ImageAsset
+      public static let catalogSolid: AdmiralUIResources.ImageAsset
+      public static let componentTemplateSolid: AdmiralUIResources.ImageAsset
+      public static let copySolid: AdmiralUIResources.ImageAsset
+      public static let deleteDocsSolid: AdmiralUIResources.ImageAsset
+      public static let deleteDocumentSolid: AdmiralUIResources.ImageAsset
+      public static let descriptionSolid: AdmiralUIResources.ImageAsset
+      public static let docAttentionSolid: AdmiralUIResources.ImageAsset
+      public static let docExportSolid: AdmiralUIResources.ImageAsset
+      public static let docFinishedSolid: AdmiralUIResources.ImageAsset
+      public static let docOkSolid: AdmiralUIResources.ImageAsset
+      public static let docOperationsSolid: AdmiralUIResources.ImageAsset
+      public static let docProcessingSolid: AdmiralUIResources.ImageAsset
+      public static let docRegenerateSolid: AdmiralUIResources.ImageAsset
+      public static let docSettingsSolid: AdmiralUIResources.ImageAsset
+      public static let docSignSolid: AdmiralUIResources.ImageAsset
+      public static let docSignVerifySolid: AdmiralUIResources.ImageAsset
+      public static let docViewSolid: AdmiralUIResources.ImageAsset
+      public static let docsSolid: AdmiralUIResources.ImageAsset
+      public static let documentAddSolid: AdmiralUIResources.ImageAsset
+      public static let fileCurrencySolid: AdmiralUIResources.ImageAsset
+      public static let filePDFSolid: AdmiralUIResources.ImageAsset
+      public static let filePPTSolid: AdmiralUIResources.ImageAsset
+      public static let fileSNGSolid: AdmiralUIResources.ImageAsset
+      public static let fileWordSolid: AdmiralUIResources.ImageAsset
+      public static let fileXLSSolid: AdmiralUIResources.ImageAsset
+      public static let fileXMLSolid: AdmiralUIResources.ImageAsset
+      public static let folderSolid: AdmiralUIResources.ImageAsset
+      public static let jpgSolid: AdmiralUIResources.ImageAsset
+      public static let rotateLeftSolid: AdmiralUIResources.ImageAsset
+      public static let rotateRightSolid: AdmiralUIResources.ImageAsset
+      public static let sendSignSolid: AdmiralUIResources.ImageAsset
+      public static let signSolid: AdmiralUIResources.ImageAsset
+      public static let tasksSolid: AdmiralUIResources.ImageAsset
+      public static let unsignSolid: AdmiralUIResources.ImageAsset
+      public static let verifySignSolid: AdmiralUIResources.ImageAsset
+      public static let webSolid: AdmiralUIResources.ImageAsset
+    }
+  }
+  public enum Finance {
+    public enum Outline {
+      public static let brokerOutline: AdmiralUIResources.ImageAsset
+      public static let cvvOutline: AdmiralUIResources.ImageAsset
+      public static let cardOutline: AdmiralUIResources.ImageAsset
+      public static let cardTOutline: AdmiralUIResources.ImageAsset
+      public static let cardTPOutline: AdmiralUIResources.ImageAsset
+      public static let cashOutline: AdmiralUIResources.ImageAsset
+      public static let cashboxOutline: AdmiralUIResources.ImageAsset
+      public static let creditCardOutline: AdmiralUIResources.ImageAsset
+      public static let debitCardOutline: AdmiralUIResources.ImageAsset
+      public static let digitalMoneyOutline: AdmiralUIResources.ImageAsset
+      public static let eurOutline: AdmiralUIResources.ImageAsset
+      public static let financeOutline: AdmiralUIResources.ImageAsset
+      public static let gbpOutline: AdmiralUIResources.ImageAsset
+      public static let getCashOutline: AdmiralUIResources.ImageAsset
+      public static let goldOutline: AdmiralUIResources.ImageAsset
+      public static let iisOutline: AdmiralUIResources.ImageAsset
+      public static let jpyOutline: AdmiralUIResources.ImageAsset
+      public static let moneyOutline: AdmiralUIResources.ImageAsset
+      public static let multicurencyOutline: AdmiralUIResources.ImageAsset
+      public static let palladiumOutline: AdmiralUIResources.ImageAsset
+      public static let payCashOutline: AdmiralUIResources.ImageAsset
+      public static let payrollCardOutline: AdmiralUIResources.ImageAsset
+      public static let personOutline: AdmiralUIResources.ImageAsset
+      public static let platinumOutline: AdmiralUIResources.ImageAsset
+      public static let rubOutline: AdmiralUIResources.ImageAsset
+      public static let silverOutline: AdmiralUIResources.ImageAsset
+      public static let treasuryOutline: AdmiralUIResources.ImageAsset
+      public static let uahOutline: AdmiralUIResources.ImageAsset
+      public static let usdOutline: AdmiralUIResources.ImageAsset
+    }
+    public enum Solid {
+      public static let brokerSolid: AdmiralUIResources.ImageAsset
+      public static let cvvSolid: AdmiralUIResources.ImageAsset
+      public static let cardSolid: AdmiralUIResources.ImageAsset
+      public static let cardTPSolid: AdmiralUIResources.ImageAsset
+      public static let cardTSolid: AdmiralUIResources.ImageAsset
+      public static let cashSolid: AdmiralUIResources.ImageAsset
+      public static let cashboxSolid: AdmiralUIResources.ImageAsset
+      public static let creditCardSolid: AdmiralUIResources.ImageAsset
+      public static let debitCardSolid: AdmiralUIResources.ImageAsset
+      public static let digitalMoneySolid: AdmiralUIResources.ImageAsset
+      public static let eurSolid: AdmiralUIResources.ImageAsset
+      public static let financeSolid: AdmiralUIResources.ImageAsset
+      public static let gbpSolid: AdmiralUIResources.ImageAsset
+      public static let getCashSolid: AdmiralUIResources.ImageAsset
+      public static let goldSolid: AdmiralUIResources.ImageAsset
+      public static let iisSolid: AdmiralUIResources.ImageAsset
+      public static let jpySolid: AdmiralUIResources.ImageAsset
+      public static let moneySolid: AdmiralUIResources.ImageAsset
+      public static let multicurencySolid: AdmiralUIResources.ImageAsset
+      public static let palladiumSolid: AdmiralUIResources.ImageAsset
+      public static let payCashSolid: AdmiralUIResources.ImageAsset
+      public static let payrollCardSolid: AdmiralUIResources.ImageAsset
+      public static let personSolid: AdmiralUIResources.ImageAsset
+      public static let platinumSolid: AdmiralUIResources.ImageAsset
+      public static let rubSolid: AdmiralUIResources.ImageAsset
+      public static let silverSolid: AdmiralUIResources.ImageAsset
+      public static let treasurySolid: AdmiralUIResources.ImageAsset
+      public static let uahSolid: AdmiralUIResources.ImageAsset
+      public static let usdSolid: AdmiralUIResources.ImageAsset
+    }
+  }
+  public enum Location {
+    public enum Outline {
+      public static let gpsOutline: AdmiralUIResources.ImageAsset
+      public static let locationOutline: AdmiralUIResources.ImageAsset
+    }
+    public enum Solid {
+      public static let gpsSolid: AdmiralUIResources.ImageAsset
+      public static let locationSolid: AdmiralUIResources.ImageAsset
+    }
+  }
+  public enum Redact {
+    public enum Outline {
+      public static let alignCenterOutline: AdmiralUIResources.ImageAsset
+      public static let alignLeftOutline: AdmiralUIResources.ImageAsset
+      public static let alignMiddleOutline: AdmiralUIResources.ImageAsset
+      public static let alignRightOutline: AdmiralUIResources.ImageAsset
+      public static let alignTopOutline: AdmiralUIResources.ImageAsset
+      public static let bgColorOutline: AdmiralUIResources.ImageAsset
+      public static let borderBoldBottomOutline: AdmiralUIResources.ImageAsset
+      public static let borderBoldLeftOutline: AdmiralUIResources.ImageAsset
+      public static let borderBoldOutterOutline: AdmiralUIResources.ImageAsset
+      public static let borderBoldRightOutline: AdmiralUIResources.ImageAsset
+      public static let borderBoldTopOutline: AdmiralUIResources.ImageAsset
+      public static let borderBottomOutline: AdmiralUIResources.ImageAsset
+      public static let borderClearOutline: AdmiralUIResources.ImageAsset
+      public static let borderHorizontalOutline: AdmiralUIResources.ImageAsset
+      public static let borderInnerOutline: AdmiralUIResources.ImageAsset
+      public static let borderLeftOutline: AdmiralUIResources.ImageAsset
+      public static let borderOuterOutline: AdmiralUIResources.ImageAsset
+      public static let borderRightOutline: AdmiralUIResources.ImageAsset
+      public static let borderStyleOutline: AdmiralUIResources.ImageAsset
+      public static let borderTopOutline: AdmiralUIResources.ImageAsset
+      public static let borderVerticalOutline: AdmiralUIResources.ImageAsset
+      public static let cellsDisconnectOutline: AdmiralUIResources.ImageAsset
+      public static let cellsMergeOutline: AdmiralUIResources.ImageAsset
+      public static let changeFieldOutline: AdmiralUIResources.ImageAsset
+      public static let columnDeleteOutline: AdmiralUIResources.ImageAsset
+      public static let columnInsertAfterOutline: AdmiralUIResources.ImageAsset
+      public static let columnInsertBeforeOutline: AdmiralUIResources.ImageAsset
+      public static let columnsOutline: AdmiralUIResources.ImageAsset
+      public static let deleteStyleOutline: AdmiralUIResources.ImageAsset
+      public static let deleteTableOutline: AdmiralUIResources.ImageAsset
+      public static let elementFixedOutline: AdmiralUIResources.ImageAsset
+      public static let elementGrowHorizontallyOutline: AdmiralUIResources.ImageAsset
+      public static let elementGrowVerticallyOutline: AdmiralUIResources.ImageAsset
+      public static let eraserOutline: AdmiralUIResources.ImageAsset
+      public static let fontStyleOutline: AdmiralUIResources.ImageAsset
+      public static let formatAlignJustifyOutline: AdmiralUIResources.ImageAsset
+      public static let formatPaintOutline: AdmiralUIResources.ImageAsset
+      public static let hideLeftPanelOutline: AdmiralUIResources.ImageAsset
+      public static let hideRightPanelOutline: AdmiralUIResources.ImageAsset
+      public static let indentDecreaseOutline: AdmiralUIResources.ImageAsset
+      public static let indentIncreaseOutline: AdmiralUIResources.ImageAsset
+      public static let leftDoubleOutline: AdmiralUIResources.ImageAsset
+      public static let lineSpacingOutline: AdmiralUIResources.ImageAsset
+      public static let lineThroughOutline: AdmiralUIResources.ImageAsset
+      public static let listBulletedOutline: AdmiralUIResources.ImageAsset
+      public static let listNumberedOutline: AdmiralUIResources.ImageAsset
+      public static let listStyleOutline: AdmiralUIResources.ImageAsset
+      public static let resizeTableOutline: AdmiralUIResources.ImageAsset
+      public static let rightDoubleOutline: AdmiralUIResources.ImageAsset
+      public static let rowDeleteOutline: AdmiralUIResources.ImageAsset
+      public static let rowInsertAfterOutline: AdmiralUIResources.ImageAsset
+      public static let rowInsertBelowOutline: AdmiralUIResources.ImageAsset
+      public static let spellCheckOutline: AdmiralUIResources.ImageAsset
+      public static let tableOutline: AdmiralUIResources.ImageAsset
+      public static let textBoldOutline: AdmiralUIResources.ImageAsset
+      public static let textItalicOutline: AdmiralUIResources.ImageAsset
+      public static let textUnderlineOutline: AdmiralUIResources.ImageAsset
+      public static let txtColorOutline: AdmiralUIResources.ImageAsset
+    }
+    public enum Solid {
+      public static let eraserSolid: AdmiralUIResources.ImageAsset
+      public static let formatPaintSolid: AdmiralUIResources.ImageAsset
+    }
+  }
+  public enum Security {
+    public enum Outline {
+      public static let faceIDOutline: AdmiralUIResources.ImageAsset
+      public static let fingerprintOutline: AdmiralUIResources.ImageAsset
+      public static let keyOutline: AdmiralUIResources.ImageAsset
+      public static let lockOutline: AdmiralUIResources.ImageAsset
+      public static let passwordOutline: AdmiralUIResources.ImageAsset
+      public static let safetyCertificateOutline: AdmiralUIResources.ImageAsset
+      public static let safetyOutline: AdmiralUIResources.ImageAsset
+      public static let unlockOutline: AdmiralUIResources.ImageAsset
+    }
+    public enum Solid {
+      public static let faceIDSolid: AdmiralUIResources.ImageAsset
+      public static let fingerprintSolid: AdmiralUIResources.ImageAsset
+      public static let keySolid: AdmiralUIResources.ImageAsset
+      public static let lockSolid: AdmiralUIResources.ImageAsset
+      public static let passwordSolid: AdmiralUIResources.ImageAsset
+      public static let safetySolid: AdmiralUIResources.ImageAsset
+      public static let unlockSolid: AdmiralUIResources.ImageAsset
+    }
+  }
+  public enum Service {
+    public enum Outline {
+      public static let agreedOutline: AdmiralUIResources.ImageAsset
+      public static let archiveOutline: AdmiralUIResources.ImageAsset
+      public static let checkClearOutline: AdmiralUIResources.ImageAsset
+      public static let checkOutline: AdmiralUIResources.ImageAsset
+      public static let closeCircleOutline: AdmiralUIResources.ImageAsset
+      public static let closeOutline: AdmiralUIResources.ImageAsset
+      public static let cutOutline: AdmiralUIResources.ImageAsset
+      public static let dragOutline: AdmiralUIResources.ImageAsset
+      public static let errorOutline: AdmiralUIResources.ImageAsset
+      public static let errorTriangleOutline: AdmiralUIResources.ImageAsset
+      public static let eyeCloseOutline: AdmiralUIResources.ImageAsset
+      public static let eyeOutline: AdmiralUIResources.ImageAsset
+      public static let helpOutline: AdmiralUIResources.ImageAsset
+      public static let infoOutline: AdmiralUIResources.ImageAsset
+      public static let menuOutline: AdmiralUIResources.ImageAsset
+      public static let minusCircleOutline: AdmiralUIResources.ImageAsset
+      public static let minusOutline: AdmiralUIResources.ImageAsset
+      public static let pauseOutline: AdmiralUIResources.ImageAsset
+      public static let playOutline: AdmiralUIResources.ImageAsset
+      public static let plusCircleOutline: AdmiralUIResources.ImageAsset
+      public static let plusOutline: AdmiralUIResources.ImageAsset
+      public static let processOutline: AdmiralUIResources.ImageAsset
+      public static let sizeChangerHorizontalOutline: AdmiralUIResources.ImageAsset
+      public static let sizeChangerVerticalOutline: AdmiralUIResources.ImageAsset
+      public static let smallCloseOutline: AdmiralUIResources.ImageAsset
+      public static let thumbsDownOutline: AdmiralUIResources.ImageAsset
+      public static let thumbsUpOutline: AdmiralUIResources.ImageAsset
+    }
+    public enum Solid {
+      public static let agreedSolid: AdmiralUIResources.ImageAsset
+      public static let archiveSolid: AdmiralUIResources.ImageAsset
+      public static let checkSolid: AdmiralUIResources.ImageAsset
+      public static let closeCircleSolid: AdmiralUIResources.ImageAsset
+      public static let closeSolid: AdmiralUIResources.ImageAsset
+      public static let cutSolid: AdmiralUIResources.ImageAsset
+      public static let dragSolid: AdmiralUIResources.ImageAsset
+      public static let errorSolid: AdmiralUIResources.ImageAsset
+      public static let errorTriangleSolid: AdmiralUIResources.ImageAsset
+      public static let eyeSolid: AdmiralUIResources.ImageAsset
+      public static let helpSolid: AdmiralUIResources.ImageAsset
+      public static let infoSolid: AdmiralUIResources.ImageAsset
+      public static let menuSolid: AdmiralUIResources.ImageAsset
+      public static let minusSolid: AdmiralUIResources.ImageAsset
+      public static let openShiftSolid: AdmiralUIResources.ImageAsset
+      public static let pauseSolid: AdmiralUIResources.ImageAsset
+      public static let playSolid: AdmiralUIResources.ImageAsset
+      public static let plusCircleSolid: AdmiralUIResources.ImageAsset
+      public static let plusSolid: AdmiralUIResources.ImageAsset
+      public static let processSolid: AdmiralUIResources.ImageAsset
+      public static let smallCloseSolid: AdmiralUIResources.ImageAsset
+      public static let thumbsDownSolid: AdmiralUIResources.ImageAsset
+      public static let thumbsUpSolid: AdmiralUIResources.ImageAsset
+    }
+  }
+  public enum System {
+    public enum Outline {
+      public static let arrowCrossOutline: AdmiralUIResources.ImageAsset
+      public static let arrowDownOutline: AdmiralUIResources.ImageAsset
+      public static let arrowLeftOutline: AdmiralUIResources.ImageAsset
+      public static let arrowRightOutline: AdmiralUIResources.ImageAsset
+      public static let arrowUpOutline: AdmiralUIResources.ImageAsset
+      public static let arrowsHorizontalOutline: AdmiralUIResources.ImageAsset
+      public static let arrowsVerticalOutline: AdmiralUIResources.ImageAsset
+      public static let atOutline: AdmiralUIResources.ImageAsset
+      public static let attachFileOutline: AdmiralUIResources.ImageAsset
+      public static let backOutline: AdmiralUIResources.ImageAsset
+      public static let barCodeOutline: AdmiralUIResources.ImageAsset
+      public static let calculateOutline: AdmiralUIResources.ImageAsset
+      public static let calendarOkOutline: AdmiralUIResources.ImageAsset
+      public static let calendarOutline: AdmiralUIResources.ImageAsset
+      public static let calendarUpdateOutline: AdmiralUIResources.ImageAsset
+      public static let cameraOutline: AdmiralUIResources.ImageAsset
+      public static let cameraRemoveOutline: AdmiralUIResources.ImageAsset
+      public static let chevronDownOutline: AdmiralUIResources.ImageAsset
+      public static let chevronLeftOutline: AdmiralUIResources.ImageAsset
+      public static let chevronRightOutline: AdmiralUIResources.ImageAsset
+      public static let chevronUpOutline: AdmiralUIResources.ImageAsset
+      public static let closeFullscreenOutline: AdmiralUIResources.ImageAsset
+      public static let darkModeOutline: AdmiralUIResources.ImageAsset
+      public static let deleteOutline: AdmiralUIResources.ImageAsset
+      public static let doubleArrowLeftOutline: AdmiralUIResources.ImageAsset
+      public static let doubleArrowRightOutline: AdmiralUIResources.ImageAsset
+      public static let downloadOutline: AdmiralUIResources.ImageAsset
+      public static let editOutline: AdmiralUIResources.ImageAsset
+      public static let emailOutline: AdmiralUIResources.ImageAsset
+      public static let emailReadOutline: AdmiralUIResources.ImageAsset
+      public static let exitOutline: AdmiralUIResources.ImageAsset
+      public static let exportOutline: AdmiralUIResources.ImageAsset
+      public static let eyedropperOutline: AdmiralUIResources.ImageAsset
+      public static let filterOutline: AdmiralUIResources.ImageAsset
+      public static let homeOutline: AdmiralUIResources.ImageAsset
+      public static let importOutline: AdmiralUIResources.ImageAsset
+      public static let inboxOutline: AdmiralUIResources.ImageAsset
+      public static let keyboardOutline: AdmiralUIResources.ImageAsset
+      public static let linkOutline: AdmiralUIResources.ImageAsset
+      public static let loaderOutline: AdmiralUIResources.ImageAsset
+      public static let moreHorizontalOutline: AdmiralUIResources.ImageAsset
+      public static let moreOutline: AdmiralUIResources.ImageAsset
+      public static let moreVerticalOutline: AdmiralUIResources.ImageAsset
+      public static let notificationsOffOutline: AdmiralUIResources.ImageAsset
+      public static let notificationsOutline: AdmiralUIResources.ImageAsset
+      public static let okSendOutline: AdmiralUIResources.ImageAsset
+      public static let openInFullOutline: AdmiralUIResources.ImageAsset
+      public static let peopleOutline: AdmiralUIResources.ImageAsset
+      public static let personAddOutline: AdmiralUIResources.ImageAsset
+      public static let personLimitsOutline: AdmiralUIResources.ImageAsset
+      public static let personOutline: AdmiralUIResources.ImageAsset
+      public static let personPropertiesOutline: AdmiralUIResources.ImageAsset
+      public static let personRefreshOutline: AdmiralUIResources.ImageAsset
+      public static let powerOutline: AdmiralUIResources.ImageAsset
+      public static let printOutline: AdmiralUIResources.ImageAsset
+      public static let qrCodeOutline: AdmiralUIResources.ImageAsset
+      public static let redoOutline: AdmiralUIResources.ImageAsset
+      public static let refuseOutline: AdmiralUIResources.ImageAsset
+      public static let refuseViewOutline: AdmiralUIResources.ImageAsset
+      public static let reportOutline: AdmiralUIResources.ImageAsset
+      public static let saveOutline: AdmiralUIResources.ImageAsset
+      public static let searchOutline: AdmiralUIResources.ImageAsset
+      public static let settingsOutline: AdmiralUIResources.ImageAsset
+      public static let signInOutline: AdmiralUIResources.ImageAsset
+      public static let smallArrowDownOutline: AdmiralUIResources.ImageAsset
+      public static let smallArrowLeftOutline: AdmiralUIResources.ImageAsset
+      public static let smallArrowRightOutline: AdmiralUIResources.ImageAsset
+      public static let smallArrowUpOutline: AdmiralUIResources.ImageAsset
+      public static let sortDownOutline: AdmiralUIResources.ImageAsset
+      public static let sortOutline: AdmiralUIResources.ImageAsset
+      public static let sortUpOutline: AdmiralUIResources.ImageAsset
+      public static let starOutline: AdmiralUIResources.ImageAsset
+      public static let syncForbidOutline: AdmiralUIResources.ImageAsset
+      public static let syncPermitOutline: AdmiralUIResources.ImageAsset
+      public static let thirdPersonOutline: AdmiralUIResources.ImageAsset
+      public static let timeOutline: AdmiralUIResources.ImageAsset
+      public static let toCustomerOutline: AdmiralUIResources.ImageAsset
+      public static let tuneOutline: AdmiralUIResources.ImageAsset
+      public static let undoOutline: AdmiralUIResources.ImageAsset
+      public static let unlinkOutline: AdmiralUIResources.ImageAsset
+      public static let updateOutline: AdmiralUIResources.ImageAsset
+      public static let uploadOutline: AdmiralUIResources.ImageAsset
+      public static let userDeleteOutline: AdmiralUIResources.ImageAsset
+      public static let userRoleOutline: AdmiralUIResources.ImageAsset
+      public static let viewHistoryOutline: AdmiralUIResources.ImageAsset
+      public static let zoomInOutline: AdmiralUIResources.ImageAsset
+      public static let zoomOutOutline: AdmiralUIResources.ImageAsset
+    }
+    public enum Solid {
+      public static let arrowCrossSolid: AdmiralUIResources.ImageAsset
+      public static let arrowDownSolid: AdmiralUIResources.ImageAsset
+      public static let arrowLeftSolid: AdmiralUIResources.ImageAsset
+      public static let arrowRightSolid: AdmiralUIResources.ImageAsset
+      public static let arrowUpSolid: AdmiralUIResources.ImageAsset
+      public static let arrowsHorizontalSolid: AdmiralUIResources.ImageAsset
+      public static let arrowsVerticalSolid: AdmiralUIResources.ImageAsset
+      public static let atSolid: AdmiralUIResources.ImageAsset
+      public static let attachFileSolid: AdmiralUIResources.ImageAsset
+      public static let backSolid: AdmiralUIResources.ImageAsset
+      public static let barCodeSolid: AdmiralUIResources.ImageAsset
+      public static let calculateSolid: AdmiralUIResources.ImageAsset
+      public static let calendarOkSolid: AdmiralUIResources.ImageAsset
+      public static let calendarSolid: AdmiralUIResources.ImageAsset
+      public static let calendarUpdateSolid: AdmiralUIResources.ImageAsset
+      public static let cameraRemoveSolid: AdmiralUIResources.ImageAsset
+      public static let cameraSolid: AdmiralUIResources.ImageAsset
+      public static let chevronDownSolid: AdmiralUIResources.ImageAsset
+      public static let chevronLeftSolid: AdmiralUIResources.ImageAsset
+      public static let chevronRightSolid: AdmiralUIResources.ImageAsset
+      public static let chevronUpSolid: AdmiralUIResources.ImageAsset
+      public static let closeFullscreenSolid: AdmiralUIResources.ImageAsset
+      public static let darkModeSolid: AdmiralUIResources.ImageAsset
+      public static let deleteSolid: AdmiralUIResources.ImageAsset
+      public static let doubleArrowLeftSolid: AdmiralUIResources.ImageAsset
+      public static let doubleArrowRightSolid: AdmiralUIResources.ImageAsset
+      public static let downloadSolid: AdmiralUIResources.ImageAsset
+      public static let editSolid: AdmiralUIResources.ImageAsset
+      public static let emailReadSolid: AdmiralUIResources.ImageAsset
+      public static let emailSolid: AdmiralUIResources.ImageAsset
+      public static let exitSolid: AdmiralUIResources.ImageAsset
+      public static let exportSolid: AdmiralUIResources.ImageAsset
+      public static let eyedropperSolid: AdmiralUIResources.ImageAsset
+      public static let filterSolid: AdmiralUIResources.ImageAsset
+      public static let homeSolid: AdmiralUIResources.ImageAsset
+      public static let importSolid: AdmiralUIResources.ImageAsset
+      public static let inboxSolid: AdmiralUIResources.ImageAsset
+      public static let keyboardSolid: AdmiralUIResources.ImageAsset
+      public static let linkSolid: AdmiralUIResources.ImageAsset
+      public static let loaderSolid: AdmiralUIResources.ImageAsset
+      public static let moreHorizontalSolid: AdmiralUIResources.ImageAsset
+      public static let moreSolid: AdmiralUIResources.ImageAsset
+      public static let moreVerticalSolid: AdmiralUIResources.ImageAsset
+      public static let notificationsOffSolid: AdmiralUIResources.ImageAsset
+      public static let notificationsSolid: AdmiralUIResources.ImageAsset
+      public static let okSendSolid: AdmiralUIResources.ImageAsset
+      public static let openInFullSolid: AdmiralUIResources.ImageAsset
+      public static let peopleSolid: AdmiralUIResources.ImageAsset
+      public static let personAddSolid: AdmiralUIResources.ImageAsset
+      public static let personLimitSolid: AdmiralUIResources.ImageAsset
+      public static let personPropertiesSolid: AdmiralUIResources.ImageAsset
+      public static let personRefreshSolid: AdmiralUIResources.ImageAsset
+      public static let personSolid: AdmiralUIResources.ImageAsset
+      public static let powerSolid: AdmiralUIResources.ImageAsset
+      public static let printSolid: AdmiralUIResources.ImageAsset
+      public static let qrCodeSolid: AdmiralUIResources.ImageAsset
+      public static let redoSolid: AdmiralUIResources.ImageAsset
+      public static let refuseSolid: AdmiralUIResources.ImageAsset
+      public static let reportSolid: AdmiralUIResources.ImageAsset
+      public static let saveSolid: AdmiralUIResources.ImageAsset
+      public static let searchSolid: AdmiralUIResources.ImageAsset
+      public static let settingsSolid: AdmiralUIResources.ImageAsset
+      public static let signInSolid: AdmiralUIResources.ImageAsset
+      public static let smallArrowDownSolid: AdmiralUIResources.ImageAsset
+      public static let smallArrowLeftSolid: AdmiralUIResources.ImageAsset
+      public static let smallArrowRightSolid: AdmiralUIResources.ImageAsset
+      public static let smallArrowUpSolid: AdmiralUIResources.ImageAsset
+      public static let sortDownSolid: AdmiralUIResources.ImageAsset
+      public static let sortSolid: AdmiralUIResources.ImageAsset
+      public static let sortUpSolid: AdmiralUIResources.ImageAsset
+      public static let starSolid: AdmiralUIResources.ImageAsset
+      public static let thirdPersonSolid: AdmiralUIResources.ImageAsset
+      public static let timeSolid: AdmiralUIResources.ImageAsset
+      public static let toCustomerSolid: AdmiralUIResources.ImageAsset
+      public static let tuneSolid: AdmiralUIResources.ImageAsset
+      public static let undoSolid: AdmiralUIResources.ImageAsset
+      public static let updateSolid: AdmiralUIResources.ImageAsset
+      public static let uploadSolid: AdmiralUIResources.ImageAsset
+      public static let userDeleteSolid: AdmiralUIResources.ImageAsset
+      public static let userRoleSolid: AdmiralUIResources.ImageAsset
+      public static let zoomInSolid: AdmiralUIResources.ImageAsset
+      public static let zoomOutSolid: AdmiralUIResources.ImageAsset
+    }
+  }
+  public static let allImages: [AdmiralUIResources.ImageAsset]
+}
+public struct ImageAsset {
+  public var name: Swift.String {
+    get
+  }
+  public typealias Image = UIKit.UIImage
+  @available(iOS 8.0, tvOS 9.0, watchOS 2.0, macOS 10.7, *)
+  public var image: AdmiralUIResources.ImageAsset.Image {
+    get
+  }
+  @available(iOS 8.0, tvOS 9.0, *)
+  public func image(compatibleWith traitCollection: UIKit.UITraitCollection) -> AdmiralUIResources.ImageAsset.Image
+}
+extension UIKit.UIImage {
+  @available(iOS 8.0, tvOS 9.0, watchOS 2.0, *)
+  @available(macOS, deprecated, message: "This initializer is unsafe on macOS, please use the ImageAsset.image property")
+  convenience public init?(asset: AdmiralUIResources.ImageAsset)
+}
+public struct Version : Swift.Codable {
+  public let internal_version: Swift.String
+  public let external_version: Swift.String
+  public var versionName: Swift.String {
+    get
+  }
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+@_hasMissingDesignatedInitializers final public class LibraryInfo {
+  public static var version: AdmiralUIResources.Version? {
+    get
+  }
+  @objc deinit
+}
+@available(*, deprecated, renamed: "FontConvertible.Font", message: "This typealias will be removed in SwiftGen 7.0")
+public typealias Font = AdmiralUIResources.FontConvertible.Font
+public enum FontFamily {
+  public enum SFProDisplay {
+    public static let bold: AdmiralUIResources.FontConvertible
+    public static let medium: AdmiralUIResources.FontConvertible
+    public static let regular: AdmiralUIResources.FontConvertible
+    public static let semibold: AdmiralUIResources.FontConvertible
+    public static let all: [AdmiralUIResources.FontConvertible]
+  }
+  public enum SFProText {
+    public static let medium: AdmiralUIResources.FontConvertible
+    public static let all: [AdmiralUIResources.FontConvertible]
+  }
+  public static let allCustomFonts: [AdmiralUIResources.FontConvertible]
+  public static func registerAllCustomFonts()
+}
+public struct FontConvertible {
+  public let name: Swift.String
+  public let family: Swift.String
+  public let path: Swift.String
+  public typealias Font = UIKit.UIFont
+  public func font(size: CoreFoundation.CGFloat) -> AdmiralUIResources.FontConvertible.Font
+  public func register()
+}
+extension UIKit.UIFont {
+  convenience public init?(font: AdmiralUIResources.FontConvertible, size: CoreFoundation.CGFloat)
+}
