@@ -43,7 +43,8 @@ func main() {
 		buildInfo := "12.0.0"
 		// releaseBody := "Body"
 		// telegramChatId, _ := strconv.Atoi(os.Args[4])
-		release.CreateRelease(ctx, os.Getenv("OWNER"), os.Getenv("REPO"), buildInfo, "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")
+		assets := release.ConfigureAssetParameters("[{\"Name\":\"AdmiralSwiftUI\",\"Label\":\"AdmiralSwiftUI.zip\",\"MediaType\":\"application/zip\",\"Path\":\"../../Products/xcframeworks/AdmiralSwiftUI.xcframework.zip\"},{\"Name\":\"AdmiralUIKit\",\"Label\":\"AdmiralUIKit.zip\",\"MediaType\":\"application/zip\",\"Path\":\"../../Products/xcframeworks/AdmiralUIKit.xcframework.zip\"}]")
+		release.CreateRelease(ctx, os.Getenv("OWNER"), os.Getenv("REPO"), buildInfo, "", assets)
 		// telegram.SendTextToTelegramChat(telegramChatId, releaseBody, os.Args[5])
 	case "build_failed":
 		buildInfo := configureBuildInfo(os.Args[2])
