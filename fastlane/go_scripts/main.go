@@ -40,12 +40,12 @@ func main() {
 		client := auth.GithubClient(os.Args[3], ctx)
 		issues.GetIssues(ctx, os.Getenv("OWNER"), os.Getenv("REPO"), *client)
 	case "createRelease":
-		buildInfo := "12.0.0"
-		// releaseBody := "Body"
-		// telegramChatId, _ := strconv.Atoi(os.Args[4])
-		assets := release.ConfigureAssetParameters("[{\"Name\":\"AdmiralSwiftUI\",\"Label\":\"AdmiralSwiftUI.zip\",\"MediaType\":\"application/zip\",\"Path\":\"../../Products/xcframeworks/AdmiralSwiftUI.xcframework.zip\"},{\"Name\":\"AdmiralUIKit\",\"Label\":\"AdmiralUIKit.zip\",\"MediaType\":\"application/zip\",\"Path\":\"../../Products/xcframeworks/AdmiralUIKit.xcframework.zip\"}]")
-		release.CreateRelease(ctx, os.Getenv("OWNER"), os.Getenv("REPO"), buildInfo, "", assets)
-		// telegram.SendTextToTelegramChat(telegramChatId, releaseBody, os.Args[5])
+		buildInfo := configureBuildInfo(os.Args[2])
+		releaseBody := buildInfo.telegram_release_message()
+		telegramChatId, _ := strconv.Atoi(os.Args[4])
+		assets := release.ConfigureAssetParameters(os.Args[5])
+		release.CreateRelease(ctx, os.Getenv("OWNER"), os.Getenv("REPO"), buildInfo.External_version, os.Args[3], assets)
+		telegram.SendTextToTelegramChat(telegramChatId, releaseBody, os.Args[5])
 	case "build_failed":
 		buildInfo := configureBuildInfo(os.Args[2])
 		formatedBuildInfoFailed := buildInfo.build_failed_info(os.Args[5])
