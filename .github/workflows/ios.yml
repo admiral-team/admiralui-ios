@@ -71,8 +71,8 @@ jobs:
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
         with:
-          if: ${{ github.event_name == 'push' }}
           name: Artifacts
+          if: ${{ github.event_name == 'push' }}
           path: |
             Products/xcframeworks/AdmiralSwiftUI.xcframework
             Products/xcframeworks/AdmiralUIKit.xcframework
