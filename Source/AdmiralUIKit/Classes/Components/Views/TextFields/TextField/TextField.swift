@@ -68,6 +68,11 @@ open class TextField: TextFieldInput, AnyAppThemable, AccessibilitySupport {
         get { return leftView }
         set { leftView = newValue }
     }
+    
+    public var additionView: UIView? {
+        get { return decorationView.additionalView }
+        set { decorationView.additionalView = newValue }
+    }
 
     /// Left label width.
     public var leftLabelWidth: CGFloat? {
