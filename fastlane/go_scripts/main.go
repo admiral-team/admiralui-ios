@@ -8,12 +8,11 @@ import (
 	"main/issues"
 	"main/nexus"
 	"main/pullRequests"
-	"main/release"
 	"main/telegram"
 	"os"
 	"strconv"
 
-	"github.com/admiral-team/admiral-tools/figma"
+	"github.com/admiral-team/admiral-tools/client"
 	"github.com/joho/godotenv"
 )
 
@@ -40,12 +39,7 @@ func main() {
 		client := auth.GithubClient(os.Args[3], ctx)
 		issues.GetIssues(ctx, os.Getenv("OWNER"), os.Getenv("REPO"), *client)
 	case "createRelease":
-		buildInfo := configureBuildInfo(os.Args[2])
-		releaseBody := buildInfo.telegram_release_message()
-		telegramChatId, _ := strconv.Atoi(os.Args[4])
-		assets := release.ConfigureAssetParameters(os.Args[5])
-		release.CreateRelease(ctx, os.Getenv("OWNER"), os.Getenv("REPO"), buildInfo.External_version, os.Args[3], assets)
-		telegram.SendTextToTelegramChat(telegramChatId, releaseBody, os.Args[5])
+		client.ReleaseIos(os.Args[3], os.Args[5], os.Args[6])
 	case "build_failed":
 		buildInfo := configureBuildInfo(os.Args[2])
 		formatedBuildInfoFailed := buildInfo.build_failed_info(os.Args[5])
@@ -55,7 +49,7 @@ func main() {
 		token := os.Args[2]
 		id := os.Args[3]
 		path := os.Args[4]
-		figma.LoadDocumentation(token, id, path)
+		client.LoadDocumentation(token, id, path)
 	case "uploadNexusLib":
 		nexusItem := nexus.ConfigureNexusParameters(os.Args[2])
 		if err := nexusItem.Upload(); err != nil {

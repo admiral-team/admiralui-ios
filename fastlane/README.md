@@ -197,6 +197,14 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 
 
+### remove_products_frameworks
+
+```sh
+[bundle exec] fastlane remove_products_frameworks
+```
+
+
+
 ### build_git_packages
 
 ```sh

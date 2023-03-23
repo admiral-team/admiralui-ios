@@ -1,5 +1,6 @@
 fastlane_require 'dotenv'
 require_relative 'nexus_info'
+require_relative 'release_asset'
 require_relative 'build_info'
 require_relative 'version'
 require_relative 'utils'
@@ -52,7 +53,8 @@ lane :deploy_appcenter_prod do |options|
   build_info.external_version = current_lib_external_version
 
   comment_body = formatted_build_info_json_prod(build_info: build_info)
-  system("cd ./go_scripts && ./main createRelease #{comment_body} #{ENV['RELEASE_TOKEN']} #{ENV['TELEGRAM_PROD_CHAT_ID']} #{telegram_token}")
+  assets_string = release_assets_string()
+  system("cd ./go_scripts && ./main createRelease #{comment_body} #{ENV['RELEASE_TOKEN']} #{ENV['TELEGRAM_PROD_CHAT_ID']} #{telegram_token} #{assets_string}")
 end
 
 lane :deploy_appcenter_dev do |options|
@@ -441,6 +443,11 @@ lane :send_build_failed_info do |options|
   info_body = formatted_build_info_json(build_info: build_info)
   system("cd ./go_scripts && ./main build_failed #{info_body} #{telegram_chat_id} #{telegram_token} #{action_id}")
 end
+
+lane :remove_products_frameworks do |options|
+  dir_path = Dir.pwd + "/../Products/xcframeworks"
+  FileUtils.rm_rf("#{dir_path}/.", secure: true)
+end
   
 lane :build_git_packages do |options|
   branch = options[:branch]
@@ -502,4 +509,25 @@ def upload_nexus_framework(scheme:, artifact_id:, branch:)
 
   nexus_info_json_string = formatted_nexus_info_json(nexus_info: nexus_info)
   system("cd ./go_scripts && ./main uploadNexusLib #{nexus_info_json_string}")
+end
+
+def release_asset_string(name:)
+  release_asset_uikit = ReleaseAsset.new()
+  release_asset_uikit.name = "#{name}"
+  release_asset_uikit.label = "#{name}.zip"
+  release_asset_uikit.media_type = "application/zip"
+  release_asset_uikit.path = "../../Products/xcframeworks/#{name}.xcframework.zip"
+  release_asset_uikit_string = formatted_release_asset_json(release_asset: release_asset_uikit)
+  release_asset_uikit_string
+end
+
+def release_assets_string()
+  release_asset_uikit_string = release_asset_string(name: "AdmiralUIKit")
+  release_asset_swiftui_string = release_asset_string(name: "AdmiralSwiftUI")
+  release_asset_theme_string = release_asset_string(name: "AdmiralTheme")
+  release_asset_resources_string = release_asset_string(name: "AdmiralUIResources")
+
+  release_asset_array = [release_asset_uikit_string, release_asset_swiftui_string, release_asset_theme_string, release_asset_resources_string]
+  release_asset_json_string = release_asset_array.join(",")
+  "[#{release_asset_json_string}]"
 end
