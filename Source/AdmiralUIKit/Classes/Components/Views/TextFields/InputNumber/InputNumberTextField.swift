@@ -286,6 +286,7 @@ public class InputNumberTextField: UIControl, AnyAppThemable, AccessibilitySuppo
             } else {
                 textField.inputTextField.textAlignment = .center
                 layoutParameters.textInputSpacingLeading = .zero
+                layoutParameters.textInputSpacingTop = LayoutGrid.halfModule
             }
         }
         textField.decorationView.layoutParameters = layoutParameters

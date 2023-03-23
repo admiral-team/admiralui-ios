@@ -19,7 +19,7 @@ final class TextInputDecorationView: UIView, AnyAppThemable, AccessibilitySuppor
     
     struct LayoutParameters {
         var nameLabelHeight: CGFloat = LayoutGrid.doubleModule
-        var textInputSpacingTop: CGFloat = .zero
+        var textInputSpacingTop: CGFloat = LayoutGrid.module
         var textInputMinHeight: CGFloat = 5 * LayoutGrid.halfModule
         var textInputSpacingLeading: CGFloat = .zero
         var placeholderSpacingLeading: CGFloat = LayoutGrid.halfModule - 2
