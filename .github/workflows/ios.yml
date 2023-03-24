@@ -49,6 +49,9 @@ jobs:
       - name: Check If Failed
         if: ${{ failure() }}
         run:  bundle exec fastlane send_build_failed_info issue_name:${{ github.head_ref }} telegram_token:"$TELEGRAM_API_TOKEN" telegram_chat_id:"$TELEGRAM_DEV_CHAT_ID" build_url:"$PUll_NUMBER"
+      - name: Build XCFrameworks
+        if: ${{ github.event_name == 'push' }}
+        run: bundle exec fastlane build_git_packages
       - name: Deploy AppCenter Prod
         if: ${{ github.event_name == 'push' }}
         env:     
@@ -65,17 +68,6 @@ jobs:
       - name: Check If Failed
         if: ${{ failure() }}
         run:  bundle exec fastlane send_build_failed_info issue_name:${{ github.head_ref }} telegram_token:"$TELEGRAM_API_TOKEN" telegram_chat_id:"$TELEGRAM_DEV_CHAT_ID" build_url:"$PUll_NUMBER"
-      - name: Build XCFrameworks
+      - name: Remove Folder XCFrameworks
         if: ${{ github.event_name == 'push' }}
-        run: bundle exec fastlane build_git_packages
-      - name: Upload Artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: Artifacts
-          if: ${{ github.event_name == 'push' }}
-          path: |
-            Products/xcframeworks/AdmiralSwiftUI.xcframework
-            Products/xcframeworks/AdmiralUIKit.xcframework
-            Products/xcframeworks/AdmiralTheme.xcframework
-            Products/xcframeworks/AdmiralUIResources.xcframework
-
+        run: bundle exec fastlane remove_products_frameworks
