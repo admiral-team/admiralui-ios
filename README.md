@@ -5,7 +5,7 @@ The visual component library for `iOS`<br/></br>
 </p>
 
 ## Setup and connection
-Library connection details [wiki](https://github.com/admiral-team/admiralui-ios/wiki)
+Library connection details in [wiki](https://github.com/admiral-team/admiralui-ios/wiki)
 
 ## What is AdmiralUI?
 `AdmiralUI` - is a ready-made set of user interface elements. 
@@ -28,6 +28,13 @@ To learn more about the status of the `AdmiralUI` design system components and t
 
 ## Demo app
 A live example of using the `AdmiralUI` library is our demo application, which is `AdmiralUI.xcworkspace`. Using it you can evaluate all the components implemented in the library in different states, with the ability to switch between built-in color themes and create your own ones.
+=======
+- 🎨 **Themization** - support for different color palettes, the ability to create your own and instantly switch between them.
+- 🏗 **Support** - releases come out every two weeks, support `SwiftUI` and `UIKit`.
+- 📱 **Consistent style across platforms** - availible library for [Android](https://github.com/admiral-team/admiralui-android)
+
+## Demo app
+A live example of using the `AdmiralUI` library is our demo application, which is `AdmiralUI.xcworkspace`. With it, you can evaluate all the components implemented in the library in different states, with the ability to switch built-in color themes and create your own.
 
 ## General information
 * Primary development language `Swift 5+`
@@ -35,9 +42,9 @@ A live example of using the `AdmiralUI` library is our demo application, which i
 * Minimum supported versions: `UIKit: iOS 11.0`, `SwiftUI: iOS 14.0`
 
 ### Project structure
-The project is divided to 5 modules:
+The project is divided into 5 modules:
 * `AdmiralUIResources` - all resources (icons / fonts / colors)
-* `AdmiralCore` - extensions of other modules
+* `AdmiralCore` - an extensions for other modules
 * `AdmiralTheme` - app theme manager
 * `AdmrialUIKit`- component library of UIKit
 * `AdmiralSwiftUI` - component library of SwiftUI
