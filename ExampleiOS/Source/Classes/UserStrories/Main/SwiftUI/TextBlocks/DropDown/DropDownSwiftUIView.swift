@@ -23,20 +23,25 @@ struct DropDownSwiftUIView: View {
             scheme.backgroundColor.swiftUIColor
                 .edgesIgnoringSafeArea(.all)
             ScrollView(showsIndicators: false) {
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: [
+                    StandartTabItem(text: "Default", accessibilityId: "SegmentControlDefault"),
+                    StandartTabItem(text: "Disabled", accessibilityId: "SegmentControlDisabled")
+                ],
+                            selection: $isEnabledControlsState)
                 Spacer()
                     .frame(height: 16.0)
                 VStack(spacing: 0.0) {
                     TitleButtonDropDown(
                         title: "Title",
                         buttonTitle: "Button",
+                        buttonAccesibilityId: "TitleButtonDropDown",
                         buttonAction: {})
                         .disabled(isEnabledControlsState != 0)
                     ButtonDropDown(
                         buttonTitle: "Button",
                         dropDownHeaderType: .down,
-                        buttonAction: {}
-                    )
+                        buttonAccesibilityId: "ButtonDropDown",
+                        buttonAction: {})
                     .disabled(isEnabledControlsState != 0)
                 }
                 .padding(.bottom, LayoutGrid.doubleModule * 4)

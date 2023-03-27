@@ -42,6 +42,7 @@ struct AlertSwiftUIView: View {
                 }
             })
             .buttonStyle(GhostButtonStyle())
+            .accessibility(identifier: "Show Alert")
             Spacer()
         }
         .padding(.top)
@@ -53,16 +54,17 @@ struct AlertSwiftUIView: View {
                   message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
                   buttonTitle: "Хорошо",
                   buttonAction: {
-                    withAnimation(.easeInOut(duration: Durations.Default.single)) {
-                        self.show.toggle()
-                    }
-                },
+            withAnimation(.easeInOut(duration: Durations.Default.single)) {
+                self.show.toggle()
+            }
+        },
                   additionalButtonTitle: "Отмена",
                   additionalButtonAction: {
-                    withAnimation(.easeInOut(duration: Durations.Default.single)) {
-                        self.show.toggle()
-                    }
-                  })
+            withAnimation(.easeInOut(duration: Durations.Default.single)) {
+                self.show.toggle()
+            }
+        },
+                  accessibilityId: "AlertView")
             .padding()
             .opacity(show ? 1 : 0)
     }

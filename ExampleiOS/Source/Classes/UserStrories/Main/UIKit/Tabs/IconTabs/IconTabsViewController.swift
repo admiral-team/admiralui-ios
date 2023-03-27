@@ -40,7 +40,9 @@ final class IconTabsViewController: ScrollViewController {
         views.forEach() {
             stackView.addArrangedSubview($0)
         }
-        segmentControl.setTitles(["Default", "Disabled"])
+        segmentControl.setItems([
+        StandardSegmentedItem(title: "Default", accesibilityId: "SegmentControlDefault"),
+        StandardSegmentedItem(title: "Disabled", accesibilityId: "SegmentControlDisabled")])
         segmentControl.selectedSegmentIndex = 0
         segmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
     }
@@ -49,7 +51,7 @@ final class IconTabsViewController: ScrollViewController {
         let segmentControl1 = IconTabsSegmentControl(
             items: [
                 IconTab(title: "One", image: Asset.IconTabs.mobile.image, accesibilityId: "IconTabOne1"),
-                IconTab(title: "Two", image: Asset.IconTabs.card.image, accesibilityId: "IconTabOne1")
+                IconTab(title: "Two", image: Asset.IconTabs.card.image, accesibilityId: "IconTabOne2")
             ]
         )
         segmentControl1.selectedSegmentIndex = 0

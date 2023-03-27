@@ -20,13 +20,9 @@ struct ThemeSwitchSwiftUIView: View {
 
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<ThemeSwitchViewScheme>()
     @State private var isListHidden = true
-    @State private var selectedIndex: Int
+    @State private var selectedIndex: Int = 0
     @State private var items: [ThemeItem] = []
-
-    init() {
-        selectedIndex = coordinator.selectedIndex ?? 0
-    }
-
+    
     // MARK: - Layout
 
     var body: some View {
@@ -40,7 +36,10 @@ struct ThemeSwitchSwiftUIView: View {
                     switchButton
                 }
             }
-            .onAppear { items = coordinator.items }
+            .onAppear {
+                items = coordinator.items
+                selectedIndex = coordinator.selectedIndex ?? 0
+            }
         }
     }
 
@@ -51,6 +50,7 @@ struct ThemeSwitchSwiftUIView: View {
                 isListHidden.toggle()
             })
             .buttonStyle(ThemeSwitchButtonStyle(isListHidden: $isListHidden))
+            .accessibility(identifier: "Ellipse")
         }
         .padding(LayoutGrid.doubleModule)
     }
@@ -62,7 +62,7 @@ struct ThemeSwitchSwiftUIView: View {
         HStack {
             Spacer().frame(width: LayoutGrid.doubleModule)
             HStack {
-                Spacer().frame(width: LayoutGrid.doubleModule - 2)
+                Spacer().frame(width: LayoutGrid.doubleModule)
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 14) {
                         ForEach(0..<items.count, id: \.self) { index in
@@ -72,7 +72,8 @@ struct ThemeSwitchSwiftUIView: View {
                     .padding(.vertical, LayoutGrid.module)
                     .frame(minWidth: geometry.size.width - ((LayoutGrid.doubleModule * 4) - LayoutGrid.halfModule))
                 }
-                Spacer().frame(width: LayoutGrid.doubleModule - 2)
+                Spacer()
+                    .frame(width: LayoutGrid.doubleModule)
             }
             .background(schemeProvider.scheme.backgroundColor.swiftUIColor)
             .clipShape(RoundedRectangle(cornerRadius: LayoutGrid.tripleModule))
@@ -100,6 +101,9 @@ struct ThemeSwitchSwiftUIView: View {
         .padding(LayoutGrid.module)
         .background(backgroundColor?.swiftUIColor)
         .clipShape(RoundedRectangle(cornerRadius: LayoutGrid.tripleModule))
+        .accessibilityElement()
+        .accessibility(addTraits: .isButton)
+        .accessibility(identifier: "ThemeSwitchButton_" + items[index].identifier)
     }
 
 }

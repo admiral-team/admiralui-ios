@@ -10,68 +10,69 @@ import AdmiralTheme
 import UIKit
 
 final class SliderViewController: ScrollViewController {
-
-    var textFields: [UIView] = []
-
+    
+    var views: [UIView] = []
+    
     // MARK: - Initializers
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideSegmentView(false)
         configureUI()
     }
-
+    
     override func apply(theme: AppTheme) {
         super.apply(theme: theme)
-        textFields.forEach({ ($0 as? AppThemeCompatible)?.apply(theme: theme) })
+        views.forEach({ ($0 as? AppThemeCompatible)?.apply(theme: theme) })
     }
-
+    
     // MARK: - Private Methods
-
+    
     private func configureUI() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(didTap))
         tap.cancelsTouchesInView = false
         scrollView.addGestureRecognizer(tap)
-
+        
+        configureSegmentControl()
         configureTextFields()
-
-        textFields.forEach() {
+        
+        views.forEach() {
             $0.translatesAutoresizingMaskIntoConstraints = false
             stackView.addArrangedSubview($0)
         }
     }
-
+    
+    private func configureSegmentControl() {
+        segmentControl.setTitles(["Default", "Error", "Disabled"])
+        segmentControl.selectedSegmentIndex = 0
+        segmentControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
+    }
+    
     private func configureTextFields() {
         let textFieldSix = createInputRangeTextFieldView(
             name: "Optional label",
             text: "Text",
-            info: "Additional text",
-            changeStateAction: { textField, state in
-                textField.state = state
-            })
-
+            info: "Additional text")
+        
         let doubleFieldSix = createDoubleInputRangeTextFieldView(
             name: "Optional label",
             text: "Text",
-            info: "Additional text",
-            changeStateAction: { textField, state in
-                textField.state = state
-            })
-        textFields.append(textFieldSix)
-        textFields.append(doubleFieldSix)
+            info: "Additional text")
+        views.append(textFieldSix)
+        views.append(doubleFieldSix)
     }
-
+    
     @objc func didTap() {
         view.endEditing(true)
     }
-
+    
     private func createInputRangeTextFieldView(
         name: String? = nil,
         text: String? = nil,
         placeholder: String? = nil,
-        info: String? = nil,
-        changeStateAction: (( InputRangeTextField, TextInputState) -> Void)? = nil
+        info: String? = nil
     ) -> ControlCellView<InputRangeTextField> {
-
+        
         let inputRangeTextField = InputRangeTextField()
         inputRangeTextField.name = name
         inputRangeTextField.info = info
@@ -87,25 +88,20 @@ final class SliderViewController: ScrollViewController {
             sliderThubmImageId: "InputRangeTextFieldSliderThubmImage",
             sliderProgressViewId: "InputRangeTextFieldSliderProgressView"
         )
-
-        let statuses = ["Default", "Error", "Disabled"]
-        let cell = ControlCellView<InputRangeTextField>(textField: inputRangeTextField, statuses: statuses)
-
-        cell.changeStateAction = { state in
-            changeStateAction?(inputRangeTextField, state)
-        }
-
+        
+        let cell = ControlCellView<InputRangeTextField>(textField: inputRangeTextField, titleText: "Standard")
+        
         return cell
     }
-
+    
     private func createDoubleInputRangeTextFieldView(
         name: String? = nil,
         text: String? = nil,
         minTextPlaceholder: String? = nil,
         maxTextPlaceholder: String? = nil,
-        info: String? = nil,
-        changeStateAction: (( DoubleInputRangeTextField, TextInputState) -> Void)? = nil) -> ControlCellView<DoubleInputRangeTextField> {
-
+        info: String? = nil
+    ) -> ControlCellView<DoubleInputRangeTextField> {
+        
         let doubleInputRangeTextField = DoubleInputRangeTextField()
         doubleInputRangeTextField.name = name
         doubleInputRangeTextField.minTextPlaceholder = minTextPlaceholder
@@ -130,15 +126,21 @@ final class SliderViewController: ScrollViewController {
             doubleSliderUpperImageId: "DoubleInputRangeSliderUpperImage",
             doubleSliderProgressViewId: "DoubleInputRangeSliderProgressView"
         )
-
-        let statuses = ["Default", "Error", "Disabled"]
-        let cell = ControlCellView<DoubleInputRangeTextField>(textField: doubleInputRangeTextField, statuses: statuses)
-
-        cell.changeStateAction = { state in
-            changeStateAction?(doubleInputRangeTextField, state)
-        }
-
+        
+        let cell = ControlCellView<DoubleInputRangeTextField>(textField: doubleInputRangeTextField, titleText: "Double")
+        
         return cell
     }
-
+    
+    @objc private func segmentedValueChanged(_ control: StandardSegmentedControl) {
+        guard let state = TextInputState(rawValue: control.selectedSegmentIndex) else { return }
+        views.forEach {
+            if let textField = $0 as? ControlCellView<InputRangeTextField> {
+                textField.textField.state = state
+            } else if let textField = $0 as? ControlCellView<DoubleInputRangeTextField> {
+                textField.textField.state = state
+            }
+        }
+    }
+    
 }

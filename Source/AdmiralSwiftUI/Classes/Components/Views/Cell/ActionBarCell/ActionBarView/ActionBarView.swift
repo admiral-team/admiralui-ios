@@ -79,6 +79,9 @@ public struct ActionBarView: View {
                         .frame(width: LayoutGrid.doubleModule)
                     ForEach(actions, id: \.self) { action in
                         controlView(action: action, scheme: scheme)
+                            .accessibilityElement()
+                            .accessibilityAddTraits(.isButton)
+                            .accessibility(identifier: action.accesibilityId)
                     }
                     Spacer()
                         .frame(width: LayoutGrid.halfModule)
@@ -89,6 +92,9 @@ public struct ActionBarView: View {
             HStack(spacing: .zero) {
                 ForEach(actions, id: \.id) { action in
                     controlView(action: action, scheme: scheme)
+                        .accessibilityElement()
+                        .accessibilityAddTraits(.isButton)
+                        .accessibility(identifier: action.accesibilityId)
                 }
             }
         }

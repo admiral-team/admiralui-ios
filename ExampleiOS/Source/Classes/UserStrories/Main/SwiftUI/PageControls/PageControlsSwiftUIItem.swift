@@ -15,7 +15,7 @@ enum PageControlsSwiftUIItem: Int, CaseIterable {
         case .liner:
             return "Liner"
         case .circular:
-            return "Circular"
+            return "Circle"
         }
     }
 }

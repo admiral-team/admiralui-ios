@@ -11,6 +11,10 @@ import AdmiralSwiftUI
 
 @available(iOS 14.0.0, *)
 struct IconTabsSwiftUI: View {
+    
+    enum Constants {
+        static let tabFormatAccessibilityValue = "%@. Page %i of %i"
+    }
 
     @State private var isEnabledControlsState: Int = 0
     @State private var isTwoItemControlsState: Int = 0
@@ -26,11 +30,15 @@ struct IconTabsSwiftUI: View {
                 HStack {
                   Spacer()
                 }
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: [
+                    StandartTabItem(text: "Default", accessibilityId: "SegmentControlDefault"),
+                    StandartTabItem(text: "Disabled", accessibilityId: "SegmentControlDisabled")
+                ],
+                            selection: $isEnabledControlsState)
                 Spacer()
-                    .frame(height: 16.0)
+                    .frame(height: LayoutGrid.doubleModule)
                 VStack(alignment: .leading) {
-                    VStack(alignment: .leading, spacing: 16.0) {
+                    VStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
                         Text("Two controls")
                             .foregroundColor(scheme.textColor.swiftUIColor)
                             .font(scheme.textFont.swiftUIFont)
@@ -38,11 +46,13 @@ struct IconTabsSwiftUI: View {
                             models: [
                                 IconTabModel(
                                     image: Image(uiImage: Asset.IconTabs.mobile.image),
-                                    text: "One"
+                                    text: "One",
+                                    accessibilityId: "TwoControlsFirst"
                                 ),
                                 IconTabModel(
                                     image: Image(uiImage: Asset.IconTabs.card.image),
-                                    text: "Two"
+                                    text: "Two",
+                                    accessibilityId: "TwoControlsSecond"
                                 )
                             ],
                             selection: $isTwoItemControlsState
@@ -50,8 +60,8 @@ struct IconTabsSwiftUI: View {
                         .disabled(isEnabledControlsState != 0)
                     }
                     Spacer()
-                        .frame(height: 24.0)
-                    VStack(alignment: .leading, spacing: 16.0) {
+                        .frame(height: LayoutGrid.tripleModule)
+                    VStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
                         Text("Three controls")
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)
@@ -59,15 +69,18 @@ struct IconTabsSwiftUI: View {
                                 models: [
                                     IconTabModel(
                                         image: Image(uiImage: Asset.IconTabs.mobile.image),
-                                        text: "One"
+                                        text: "One",
+                                        accessibilityId: "ThreeControlsFirst"
                                     ),
                                     IconTabModel(
                                         image: Image(uiImage: Asset.IconTabs.card.image),
-                                        text: "Two"
+                                        text: "Two",
+                                        accessibilityId: "ThreeControlsSecond"
                                     ),
                                     IconTabModel(
                                         image: Image(uiImage: Asset.IconTabs.account.image),
-                                        text: "Three"
+                                        text: "Three",
+                                        accessibilityId: "ThreeControlsThird"
                                     )
                                 ],
                                 selection: $isThreeItemControlsState
@@ -75,8 +88,8 @@ struct IconTabsSwiftUI: View {
                             .disabled(isEnabledControlsState != 0)
                     }
                     Spacer()
-                        .frame(height: 24.0)
-                    VStack(alignment: .leading, spacing: 16.0) {
+                        .frame(height: LayoutGrid.tripleModule)
+                    VStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
                         Text("Embedded in ScrollView")
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)
@@ -85,23 +98,28 @@ struct IconTabsSwiftUI: View {
                                 models: [
                                     IconTabModel(
                                         image: Image(uiImage: Asset.IconTabs.mobile.image),
-                                        text: "One"
+                                        text: "One",
+                                        accessibilityId: "EmbeddedInScrollViewFirst"
                                     ),
                                     IconTabModel(
                                         image: Image(uiImage: Asset.IconTabs.card.image),
-                                        text: "Two"
+                                        text: "Two",
+                                        accessibilityId: "EmbeddedInScrollViewSecond"
                                     ),
                                     IconTabModel(
                                         image: Image(uiImage: Asset.IconTabs.account.image),
-                                        text: "Three"
+                                        text: "Three",
+                                        accessibilityId: "EmbeddedInScrollViewThird"
                                     ),
                                     IconTabModel(
                                         image: Image(uiImage: Asset.IconTabs.account.image),
-                                        text: "Four"
+                                        text: "Four",
+                                        accessibilityId: "EmbeddedInScrollViewFourth"
                                     ),
                                     IconTabModel(
                                         image: Image(uiImage: Asset.IconTabs.account.image),
-                                        text: "Five"
+                                        text: "Five",
+                                        accessibilityId: "EmbeddedInScrollViewFifth"
                                     )
                                 ],
                                 selection: $isFourItemControlsState

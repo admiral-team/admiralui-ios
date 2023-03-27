@@ -13,6 +13,7 @@ class UnderlineSliderItem: BaseUnderlineSegmentedItem {
     var isSelected: Bool
     var title: String?
     var scheme: UnderlineSliderScheme
+    var badgeStyle: BadgeStyle?
     var accesibilityId: String?
     
     init(
@@ -20,12 +21,14 @@ class UnderlineSliderItem: BaseUnderlineSegmentedItem {
         isSelected: Bool,
         title: String?,
         scheme: UnderlineSliderScheme,
+        badgeStyle: BadgeStyle? = nil,
         accesibilityId: String? = nil
     ) {
         self.isEnabled = isEnabled
         self.isSelected = isSelected
         self.title = title
         self.scheme = scheme
+        self.badgeStyle = badgeStyle
         self.accesibilityId = accesibilityId
     }
 }
@@ -48,6 +51,14 @@ class UnderlineSliderViewCell: UICollectionViewCell, AccessibilitySupport {
         didSet { titleLabel.text = title }
     }
     
+    var style: BadgeStyle? {
+        didSet {
+            guard let style = style else { return }
+            badge.style = style
+            updateScheme()
+        }
+    }
+    
     var scheme = UnderlineSliderScheme() {
         didSet { updateScheme() }
     }
@@ -58,9 +69,17 @@ class UnderlineSliderViewCell: UICollectionViewCell, AccessibilitySupport {
         didSet { updateSchemeFonts() }
     }
     
+    // MARK: - AnyAppTheamable
+
+    open func apply(theme: AppTheme) {
+        badge.apply(theme: theme)
+        scheme = UnderlineSliderScheme(theme: theme)
+    }
+    
     // MARK: - Private Properties
     
     private let titleLabel = UILabel()
+    private let badge = Badge()
     
     // MARK: - Initializer
     
@@ -76,9 +95,11 @@ class UnderlineSliderViewCell: UICollectionViewCell, AccessibilitySupport {
     
     override var intrinsicContentSize: CGSize {
         let titleLabelWidth = titleLabel.intrinsicContentSize.width
-        let width = titleLabelWidth + 2 * LayoutGrid.module
-        return CGSize(width: width,
-                      height: LayoutGrid.quadrupleModule)
+        guard let _ = style else {
+            return CGSize(width: titleLabelWidth + 2 * LayoutGrid.module, height: LayoutGrid.quadrupleModule)
+        }
+
+        return CGSize(width: titleLabelWidth + LayoutGrid.doubleModule * 3, height: LayoutGrid.quadrupleModule)
     }
     
     // MARK: - Internal Methods
@@ -90,6 +111,7 @@ class UnderlineSliderViewCell: UICollectionViewCell, AccessibilitySupport {
         isEnabled = outlineSliderModel.isEnabled
         setSelected(isSelected: outlineSliderModel.isSelected)
         scheme = outlineSliderModel.scheme
+        style = outlineSliderModel.badgeStyle
         accessibilityIdentifier = outlineSliderModel.accesibilityId
     }
     
@@ -110,7 +132,7 @@ class UnderlineSliderViewCell: UICollectionViewCell, AccessibilitySupport {
     }
     
     private func addSubviews() {
-        [titleLabel].forEach({
+        [titleLabel, badge].forEach({
             addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         })
@@ -120,6 +142,8 @@ class UnderlineSliderViewCell: UICollectionViewCell, AccessibilitySupport {
         NSLayoutConstraint.activate([
             titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            badge.topAnchor.constraint(equalTo: topAnchor, constant: LayoutGrid.module),
+            badge.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: LayoutGrid.module),
             
             heightAnchor.constraint(equalToConstant: LayoutGrid.quadrupleModule)
         ])
@@ -127,12 +151,19 @@ class UnderlineSliderViewCell: UICollectionViewCell, AccessibilitySupport {
     
     private func configureUI() {
         titleLabel.textAlignment = .center
+        badge.text = nil
         updateScheme()
+    }
+    
+    private func updateUI() {
+        badge.isHidden = style == nil
+        badge.isEnabled = state != .disabled
     }
     
     private func updateScheme() {
         updateSchemeFonts()
         updateSchemeColors()
+        updateUI()
     }
     
     private func updateSchemeFonts() {
@@ -146,6 +177,7 @@ class UnderlineSliderViewCell: UICollectionViewCell, AccessibilitySupport {
     
     private func updateSchemeColors() {
         titleLabel.textColor = scheme.itemScheme.titleColor.parameter(for: state)?.uiColor
+        badge.scheme = scheme.badgeScheme
     }
     
 }

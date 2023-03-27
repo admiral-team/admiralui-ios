@@ -47,7 +47,8 @@ struct ErrorSwiftUIView: View {
             text: Constants.text,
             buttonTitle: Constants.buttonTitle,
             isLoadingButton: $isLoading,
-            buttonAction: { isLoading.toggle() }
+            buttonAction: { isLoading.toggle() },
+            buttonAccessibilityId: "ErrorViewButton"
         )
         .padding()
     }

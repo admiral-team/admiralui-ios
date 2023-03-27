@@ -36,6 +36,9 @@ struct CalendarsSwiftUIView: View {
                                 trailingView: { ArrowListView() },
                                 isHighlighted: Binding(get: { self.selection == item.rawValue }, set: { _ in }))
                                 .frame(height: 68)
+                                .accessibilityElement()
+                                .accessibility(addTraits: .isButton)
+                                .accessibility(identifier: item.title)
                         }
                         .onTapGesture {
                             withAnimation {

@@ -49,6 +49,7 @@ struct OnBoardingSwiftUIView: View {
                             style: .default
                         )
                     )
+                    .accessibility(identifier: "NextStep")
                 Spacer()
                     .frame(height: LayoutGrid.module * 4)
             }

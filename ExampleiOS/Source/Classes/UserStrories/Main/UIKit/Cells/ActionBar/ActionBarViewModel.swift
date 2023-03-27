@@ -21,6 +21,7 @@ final class ActionBarViewModel {
         let swipeImage: UIImage
         let type: ActionBarViewStyle
         let actions: [ActionItemBarAction]
+        let accessibilityIdentifier: String?
     }
 
     // MARK: - Internal Properties
@@ -110,7 +111,8 @@ final class ActionBarViewModel {
                 swipeSubtitle: "Swipe",
                 swipeImage: AdmiralUIResources.Asset.System.Outline.arrowLeftOutline.image,
                 type: .default,
-                actions: defaultActions
+                actions: defaultActions,
+                accessibilityIdentifier: "defaultAction"
             ),
             ActionBarItem(
                 header: "Secondary",
@@ -120,7 +122,8 @@ final class ActionBarViewModel {
                 swipeSubtitle: "Swipe",
                 swipeImage: AdmiralUIResources.Asset.System.Outline.arrowLeftOutline.image,
                 type: .secondary,
-                actions: secondaryActions
+                actions: secondaryActions,
+                accessibilityIdentifier: "secondaryAction"
             )
         ]
     }

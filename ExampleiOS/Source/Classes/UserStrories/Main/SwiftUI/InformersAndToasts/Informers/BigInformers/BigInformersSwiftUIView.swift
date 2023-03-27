@@ -27,7 +27,9 @@ struct BigInformersSwiftUIView: View {
         NavigationContentView(navigationTitle: "Big Informers") {
             scheme.backgroundColor.swiftUIColor
             ScrollView(.vertical, showsIndicators: false) {
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: [StandartTabItem(text: "Default", accessibilityId: "SegmentControlDefault"),
+                                    StandartTabItem(text: "Disabled", accessibilityId: "SegmentControlDisabled")],
+                            selection: $isEnabledControlsState)
                     .padding()
                 Spacer()
                     .frame(height: 36.0)
@@ -43,6 +45,7 @@ struct BigInformersSwiftUIView: View {
                                 subtitle: Constants.subtitleText,
                                 link: Constants.linkText,
                                 informerStyle: .default,
+                                linkAccessibilityID: "DefaultLinkId",
                                 onDetail: {
                                     print("link tapped")
                                 })
@@ -62,7 +65,8 @@ struct BigInformersSwiftUIView: View {
                                 title: Constants.titleText,
                                 subtitle: Constants.subtitleText,
                                 link: Constants.linkText,
-                                informerStyle: .success)
+                                informerStyle: .success,
+                                linkAccessibilityID: "SuccessLinkId")
                                 .disabled(isEnabledControlsState != 0)
                             Spacer()
                         }
@@ -79,7 +83,8 @@ struct BigInformersSwiftUIView: View {
                                 title: Constants.titleText,
                                 subtitle: Constants.subtitleText,
                                 link: Constants.linkText,
-                                informerStyle: .attention)
+                                informerStyle: .attention,
+                                linkAccessibilityID: "AttentionLinkId")
                                 .disabled(isEnabledControlsState != 0)
                             Spacer()
                         }
@@ -96,7 +101,8 @@ struct BigInformersSwiftUIView: View {
                                 title: Constants.titleText,
                                 subtitle: Constants.subtitleText,
                                 link: Constants.linkText,
-                                informerStyle: .error)
+                                informerStyle: .error,
+                                linkAccessibilityID: "ErrorLinkId")
                                 .disabled(isEnabledControlsState != 0)
                             Spacer()
                         }

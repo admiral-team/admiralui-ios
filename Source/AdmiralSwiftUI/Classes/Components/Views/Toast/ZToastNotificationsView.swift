@@ -70,7 +70,7 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
         hideAnimationDuration: Double = 7.0,
         direction: ToastNotificationsDirection = .down,
         isAfterTouchUpdateTimer: Bool = true,
-        topOffset: CGFloat = UIApplication.shared.statusBarFrame.height,
+        topOffset: CGFloat,
         bottomOffset: CGFloat = 0.0,
         toastsDidDisappear: @escaping  ()->() = {},
         @ViewBuilder content: @escaping (ToastPresenter) -> (Content)) {

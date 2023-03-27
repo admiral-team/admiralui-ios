@@ -78,13 +78,19 @@ public struct OutlineSliderTab: View {
 
     // MARK: - Initializer
 
-    /// Initializes and returns a newly allocated view object with titles.
+    /// Initializer.
+    /// - Parameters:
+    ///   - items: Items tab.
+    ///   - selection: Selection index.
+    ///   - offset: Offset tab.
+    ///   - onTapAction: Tap closure.
+    ///   - schemeProvider: Scheme provider.
     public init(
         items: [OutlineSliderTabItem],
         selection: Binding<Int>,
         offset: Binding<CGFloat> = .constant(0.0),
-        onTapAction: (() -> Void)? = nil,
-        schemeProvider: SchemeProvider<OutlineSliderTabScheme> = AppThemeSchemeProvider<OutlineSliderTabScheme>()
+        schemeProvider: SchemeProvider<OutlineSliderTabScheme> = AppThemeSchemeProvider<OutlineSliderTabScheme>(),
+        onTapAction: (() -> Void)? = nil
     ) {
         self._selection = selection
         self._offset = offset
@@ -93,6 +99,13 @@ public struct OutlineSliderTab: View {
         self.schemeProvider = schemeProvider
     }
 
+    /// Initializer.
+    /// - Parameters:
+    ///   - items: Items tab.
+    ///   - selection: Selection index.
+    ///   - offset: Offset tab.
+    ///   - onTapAction: Tap closure.
+    ///   - schemeProvider: Scheme provider.
     public init(
         items: [String],
         selection: Binding<Int>,
@@ -104,8 +117,8 @@ public struct OutlineSliderTab: View {
             items: items.map({ OutlineSliderTabItem(title: $0, badgeStyle: nil) }),
             selection: selection,
             offset: offset,
-            onTapAction: onTapAction,
-            schemeProvider: schemeProvider
+            schemeProvider: schemeProvider,
+            onTapAction: onTapAction
         )
     }
 
@@ -148,7 +161,11 @@ public struct OutlineSliderTab: View {
         } else {
             strokeColor = isEnabled ? scheme.borderColor.parameter(for: .normal) : scheme.borderColor.parameter(for: .disabled)
         }
-        return roundView(scheme: scheme, isSelected: isSelected, strokeColor: strokeColor?.swiftUIColor, index: index)            .eraseToAnyView()
+        return roundView(scheme: scheme, isSelected: isSelected, strokeColor: strokeColor?.swiftUIColor, index: index)
+            .accessibilityElement()
+            .accessibilityAddTraits(.isButton)
+            .accessibilityIdentifier(items[index].accessibilityId)
+            .eraseToAnyView()
     }
 
     @ViewBuilder

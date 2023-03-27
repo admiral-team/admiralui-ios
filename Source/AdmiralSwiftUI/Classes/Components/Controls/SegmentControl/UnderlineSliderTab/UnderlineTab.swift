@@ -151,6 +151,9 @@ public struct UnderlineTab: View {
                 }
                 ForEach(0..<items.count, id: \.self) { index in
                     getSegmentView(for: index)
+                        .accessibilityElement()
+                        .accessibilityAddTraits(.isButton)
+                        .accessibility(identifier: items[index].accessibilityId)
                 }
                 if offset > 0 {
                     offsetView()

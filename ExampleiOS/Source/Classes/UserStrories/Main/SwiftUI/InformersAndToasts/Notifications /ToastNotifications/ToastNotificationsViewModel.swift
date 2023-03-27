@@ -17,6 +17,7 @@ struct ToastNotificationsViewModel {
     var type: ToastViewType
     var timerDuration: Int?
     var closeView: (() -> (AnyView?))?
+    var accessibilityIdentifier: String?
 }
 
 enum ToastNotificationsType {

@@ -58,6 +58,7 @@ struct CustomSwiftUIView: View {
         ZToastNotificationsView(
             direction: viewModel.toastDirection,
             isAfterTouchUpdateTimer: viewModel.toastDirection == .up,
+            topOffset: UIApplication.shared.statusBarFrame.height,
             bottomOffset: 64.0,
             toastsDidDisappear: {
                 toastManager.model = nil
@@ -103,7 +104,8 @@ struct CustomSwiftUIView: View {
                                 linkAction: {},
                                 imageType: model.imageType,
                                 imageColorType: model.imageType,
-                                type: model.type
+                                type: model.type,
+                                accessibilityIdentifier: model.accessibilityIdentifier
                             )
                         )
                     case .action:
@@ -113,7 +115,8 @@ struct CustomSwiftUIView: View {
                                 timerDuration: model.timerDuration,
                                 closeAction: {},
                                 closeView: model.closeView ?? { AnyView(EmptyView()) },
-                                type: model.type
+                                type: model.type,
+                                accessibilityIdentifier: model.accessibilityIdentifier
                             )
                         )
                     }
@@ -131,11 +134,14 @@ struct CustomSwiftUIView: View {
 
     private var scrollView: some View {
         ScrollView(showsIndicators: false) {
-            LazyVStack(alignment: .leading) {
+            VStack(alignment: .leading) {
                 ForEach(viewModel.filteredItems, id: \.self) { item in
                     NavigationLink(destination: view(for: item)) {
                         ItemSwiftUIRow(item: item)
                             .frame(height: 68)
+                            .accessibilityElement()
+                            .accessibilityAddTraits(.isButton)
+                            .accessibility(identifier: item.title)
                     }
                 }
             }

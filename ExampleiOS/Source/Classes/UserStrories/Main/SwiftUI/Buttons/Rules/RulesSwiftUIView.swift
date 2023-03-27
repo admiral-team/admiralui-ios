@@ -28,7 +28,9 @@ struct RulesSwiftUIView: View {
         NavigationContentView(navigationTitle: "Rules") {
             scheme.backgroundColor.swiftUIColor
             ScrollView(.vertical, showsIndicators: false) {
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: [StandartTabItem(text: "Default", accessibilityId: "SegmentControlDefault"),
+                                    StandartTabItem(text: "Disabled", accessibilityId: "SegmentControlDisabled")],
+                            selection: $isEnabledControlsState)
                 Spacer()
                     .frame(height: 44.0)
                 
@@ -40,6 +42,8 @@ struct RulesSwiftUIView: View {
                         title: "Я согласен с условиями договора и подтверждаю свое согласие на обработку персональных данных",
                         isSelected: $isDefaultCheckBoxSelected,
                         subtitleButtonTitle: "Открыть список документов",
+                        checkBoxAccessibilityIdentifier: "CheckBoxAccessibilityIdentifier",
+                        linkButtonAccessibilityIdentifier: "LinkButtonAccessibilityIdentifier",
                         subtitleButtonAction: {})
                         .disabled(isEnabledControlsState != 0)
                 }

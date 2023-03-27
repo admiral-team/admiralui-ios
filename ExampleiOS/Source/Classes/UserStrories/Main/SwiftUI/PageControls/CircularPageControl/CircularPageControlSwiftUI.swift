@@ -19,10 +19,22 @@ struct CircularPageCOntrolSwiftUI: View {
     @State private var totalPages: Int = 0
     @State var step: Int = 0
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
+    
+    private let sliferControllsTabItems = [OutlineSliderTabItem(title: "One", badgeStyle: nil, accessibilityId: "SliderControlsFirst"),
+                                           OutlineSliderTabItem(title: "Two", badgeStyle: nil, accessibilityId: "SliderControlsSecond"),
+                                           OutlineSliderTabItem(title: "Three", badgeStyle: nil, accessibilityId: "SliderControlsThird"),
+                                           OutlineSliderTabItem(title: "Four", badgeStyle: nil, accessibilityId: "SliderControlsFourth"),
+                                           OutlineSliderTabItem(title: "Five", badgeStyle: nil, accessibilityId: "SliderControlsFifth"),
+                                           OutlineSliderTabItem(title: "Seven", badgeStyle: nil, accessibilityId: "SliderControlsSeventh"),
+                                           OutlineSliderTabItem(title: "Eight", badgeStyle: nil, accessibilityId: "SliderControlsEighth"),
+                                           OutlineSliderTabItem(title: "Nine", badgeStyle: nil, accessibilityId: "SliderControlsNineth"),
+                                           OutlineSliderTabItem(title: "Ten", badgeStyle: nil, accessibilityId: "SliderControlsTenth"),
+                                           OutlineSliderTabItem(title: "Eleven", badgeStyle: nil, accessibilityId: "SliderControlsEleventh")
+                                           ]
 
     public var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Circular Page Control") {
+        NavigationContentView(navigationTitle: "Circle") {
             scheme.backgroundColor.swiftUIColor
             ScrollView(.vertical) {
                 HStack {
@@ -34,7 +46,7 @@ struct CircularPageCOntrolSwiftUI: View {
                     VStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
                         VStack(alignment: .leading) {
                             OutlineSliderTab(
-                                items: ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven"],
+                                items: sliferControllsTabItems,
                                 selection: $totalPages,
                                 offset: .constant(LayoutGrid.doubleModule),
                                 onTapAction: {
@@ -52,9 +64,19 @@ struct CircularPageCOntrolSwiftUI: View {
                                 CirclePageControlStyle(
                                     step: $step,
                                     totalPages: totalPages + 1,
-                                    style: .default
+                                    style: .default,
+                                    action: {
+                                        if step == sliferControllsTabItems.count - 1 {
+                                            totalPages = 0
+                                            step = 0
+                                        } else if step > totalPages + 1 {
+                                            totalPages += 1
+                                            step = 0
+                                        }
+                                    }
                                 )
                             )
+                            .accessibility(identifier: "NextCircularPageControll")
                         Spacer()
                     }
                 }

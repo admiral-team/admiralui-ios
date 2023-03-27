@@ -11,6 +11,10 @@ import AdmiralSwiftUI
 
 @available(iOS 14.0.0, *)
 struct LogoTabSwiftUIView: View {
+
+    enum Constants {
+        static let tabFormatAccessibilityValue = "%@. Page %i of %i"
+    }
     
     @State private var isEnabledControlsState: Int = 0
     @State private var isTwoItemControlsState: Int = 0
@@ -18,6 +22,24 @@ struct LogoTabSwiftUIView: View {
     @State private var isFourItemControlsState: Int = 0
     @State private var isFiveItemControlsState: Int = 0
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
+    
+    private var twoControlsItems = [LogoTabItem(image: Image(Asset.Tabs.visaLogo.name), accessibilityId: "TwoControlsFirst"),
+                                    LogoTabItem(image: Image(Asset.Tabs.masterCardLogo.name), accessibilityId: "TwoControlsSecond")]
+    
+    private var threeControlsItems = [LogoTabItem(image: Image(Asset.Tabs.visaLogo.name), accessibilityId: "ThreeControlsFirst"),
+                                      LogoTabItem(image: Image(Asset.Tabs.masterCardLogo.name), accessibilityId: "ThreeControlsSecond"),
+                                      LogoTabItem(image: Image(Asset.Tabs.mirLogo.name), accessibilityId: "ThreeControlsThird")]
+    
+    private var fourControlsItems = [LogoTabItem(image: Image(Asset.Tabs.visaLogo.name), accessibilityId: "FourControlsFirst"),
+                                      LogoTabItem(image: Image(Asset.Tabs.masterCardLogo.name), accessibilityId: "FourControlsSecond"),
+                                      LogoTabItem(image: Image(Asset.Tabs.mirLogo.name), accessibilityId: "FourControlsThird"),
+                                     LogoTabItem(image: Image(Asset.Card.applePay.name), accessibilityId: "FourControlsFourth")]
+    
+    private var fiveControlsItems = [LogoTabItem(image: Image(Asset.Tabs.visaLogo.name), accessibilityId: "FiveControlsFirst"),
+                                      LogoTabItem(image: Image(Asset.Tabs.masterCardLogo.name), accessibilityId: "FiveControlsSecond"),
+                                      LogoTabItem(image: Image(Asset.Tabs.mirLogo.name), accessibilityId: "FiveControlsThird"),
+                                     LogoTabItem(image: Image(Asset.Card.applePay.name), accessibilityId: "FiveControlsFourth"),
+                                     LogoTabItem(image: Image(Asset.Card.googlePay.name), accessibilityId: "FiveControlsFive")]
     
     public var body: some View {
         let scheme = schemeProvider.scheme
@@ -27,71 +49,66 @@ struct LogoTabSwiftUIView: View {
                 HStack {
                     Spacer()
                 }
-                StandardTab(items: ["Default", "Disabled"], selection: $isEnabledControlsState)
+                StandardTab(items: [StandartTabItem(text: "Default", accessibilityId: "SegmentControlDefault"),
+                                    StandartTabItem(text: "Disabled", accessibilityId: "SegmentControlDisabled")],
+                            selection: $isEnabledControlsState)
                 Spacer()
-                    .frame(height: 16.0)
+                    .frame(height: LayoutGrid.doubleModule)
                 VStack(alignment: .leading) {
-                    VStack(alignment: .leading, spacing: 16.0) {
+                    VStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
                         Text("Two controls")
                             .foregroundColor(scheme.textColor.swiftUIColor)
                             .font(scheme.textFont.swiftUIFont)
                         VStack(alignment: .leading) {
-                            LogoTab(images: [Image(Asset.Tabs.visaLogo.name), Image(Asset.Tabs.masterCardLogo.name)],
-                                    selection: $isTwoItemControlsState)
+                            LogoTab(
+                                items: twoControlsItems,
+                                selection: $isTwoItemControlsState
+                            )
                                 .disabled(isEnabledControlsState != 0)
                             Spacer()
                         }
                     }
                     Spacer()
-                        .frame(height: 24.0)
-                    VStack(alignment: .leading, spacing: 16.0) {
+                        .frame(height: LayoutGrid.tripleModule)
+                    VStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
                         Text("Three controls")
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)
                         VStack(alignment: .leading) {
-                            LogoTab(images: [
-                                Image(Asset.Tabs.visaLogo.name),
-                                Image(Asset.Tabs.masterCardLogo.name),
-                                Image(Asset.Tabs.mirLogo.name)
-                            ],
-                                    selection: $isThreeItemControlsState)
+                            LogoTab(
+                                items: threeControlsItems,
+                                selection: $isThreeItemControlsState
+                            )
                                 .disabled(isEnabledControlsState != 0)
                             Spacer()
                         }
                     }
                     Spacer()
-                        .frame(height: 24.0)
-                    VStack(alignment: .leading, spacing: 16.0) {
+                        .frame(height: LayoutGrid.tripleModule)
+                    VStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
                         Text("Four controls")
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)
                         VStack(alignment: .leading) {
-                            LogoTab(images: [
-                                Image(Asset.Tabs.visaLogo.name),
-                                Image(Asset.Tabs.masterCardLogo.name),
-                                Image(Asset.Tabs.mirLogo.name),
-                                Image(Asset.Card.applePay.name)
-                            ],
-                                    selection: $isFourItemControlsState)
+                            LogoTab(
+                                items: fourControlsItems,
+                                selection: $isFourItemControlsState
+                            )
                                 .disabled(isEnabledControlsState != 0)
                             Spacer()
                         }
                     }
                     Spacer()
-                        .frame(height: 24.0)
-                    VStack(alignment: .leading, spacing: 16.0) {
+                        .frame(height: LayoutGrid.tripleModule)
+                    VStack(alignment: .leading, spacing: LayoutGrid.doubleModule) {
                         Text("Five controls")
                             .font(scheme.textFont.swiftUIFont)
                             .foregroundColor(scheme.textColor.swiftUIColor)
                         VStack(alignment: .leading) {
-                            LogoTab(images: [
-                                Image(Asset.Tabs.visaLogo.name),
-                                Image(Asset.Tabs.masterCardLogo.name),
-                                Image(Asset.Tabs.mirLogo.name),
-                                Image(Asset.Card.applePay.name),
-                                Image(Asset.Card.googlePay.name)
-                            ],
-                                    selection: $isFiveItemControlsState)
+                            LogoTab(
+                                items: fiveControlsItems,
+                                selection: $isFiveItemControlsState
+                            )
                                 .disabled(isEnabledControlsState != 0)
                             Spacer()
                         }

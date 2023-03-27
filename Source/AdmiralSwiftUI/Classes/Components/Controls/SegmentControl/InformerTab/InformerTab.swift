@@ -9,12 +9,19 @@ import AdmiralTheme
 import SwiftUI
 
 public struct InformerSegmentedItem {
+    /// Title item.
     var title: String
+    
+    /// Subtitle item.
     var subtitle: String
+    
+    /// The informer segment item accessibility id
+    public let accessibilityId: String
 
-    public init(title: String, subtitle: String) {
+    public init(title: String, subtitle: String, accessibilityId: String = "") {
         self.title = title
         self.subtitle = subtitle
+        self.accessibilityId = accessibilityId
     }
 }
 /**
@@ -103,7 +110,13 @@ public struct InformerTab: View {
 
     // MARK: - Initializer
 
-    /// Initializes and returns a newly allocated view object.
+    /// Initializer
+    /// - Parameters:
+    ///   - items: Items tab.
+    ///   - customView: Custom view.
+    ///   - selection: Selection index.
+    ///   - offsetSegment: Offset segment.
+    ///   - schemeProvider: Scheme provider.
     public init(
         items: [InformerSegmentedItem],
         customView: AnyView = AnyView(EmptyView()),
@@ -189,6 +202,9 @@ public struct InformerTab: View {
             .contentShape(Rectangle())
             .onTapGesture { onItemTap(index: index) }
             .modifier(SizeAwareViewModifier(viewSize: $segmentSize))
+            .accessibilityElement()
+            .accessibilityAddTraits(.isButton)
+            .accessibility(identifier: items[index].accessibilityId)
             .eraseToAnyView()
     }
 

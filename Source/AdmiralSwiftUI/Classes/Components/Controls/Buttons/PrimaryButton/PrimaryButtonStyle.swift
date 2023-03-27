@@ -111,7 +111,7 @@ private extension PrimaryButtonStyle {
             let scheme = schemeProvider.scheme
             let content = isLoading ?
             activityIndicator().eraseToAnyView()
-            : lable(scheme: scheme).eraseToAnyView()
+            : label(scheme: scheme).eraseToAnyView()
 
             let backgroundNormal = scheme.buttonBackgroundColor.parameter(for: .normal)?.swiftUIColor
             let backgroundDisabled = scheme.buttonBackgroundColor.parameter(for: .disabled)?.swiftUIColor
@@ -161,15 +161,14 @@ private extension PrimaryButtonStyle {
             )
         }
 
-        func lable(scheme: PrimaryButtonScheme) -> some View {
-            configuration.label.accessibilityIdentifier(
+        func label(scheme: PrimaryButtonScheme) -> some View {
+            return configuration.label.accessibilityIdentifier(
                 PrimaryButtonAccessibilityIdentifiers
                     .lable
                     .accessibilityViewIdentifier(
                         accessibilityIdentifier: accessibilityIdentifier
                     )
             )
-            .foregroundColor(scheme.textColor.parameter(for: .normal)?.swiftUIColor)
         }
 
         func contentButton(

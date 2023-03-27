@@ -17,12 +17,16 @@ import Foundation
 
      /// Badge style. Default is none.
      public var badgeStyle: BadgeStyle?
+     
+     /// The badge item accessibility id
+     public let accessibilityId: String
 
      // MARK: - Initializer
 
-     public init(title: String, badgeStyle: BadgeStyle?) {
+     public init(title: String, badgeStyle: BadgeStyle?, accessibilityId: String = "") {
          self.title = title
          self.badgeStyle = badgeStyle
+         self.accessibilityId = accessibilityId
      }
 
  }

@@ -14,7 +14,7 @@ import AdmiralUIResources
 struct SpinnerSwiftUIView: View {
 
     // MARK: - Private properties
-
+    
     @State private var isEnabledControlsState: Int = 0
     @ObservedObject private var schemeProvider = AppThemeSchemeProvider<SwiftUIContentViewScheme>()
 
@@ -23,7 +23,10 @@ struct SpinnerSwiftUIView: View {
         NavigationContentView(navigationTitle: "Spinner") {
             scheme.backgroundColor.swiftUIColor
             VStack(alignment: .leading, spacing: LayoutGrid.tripleModule) {
-                StandardTab(items: ["Small", "Medium", "Big"], selection: $isEnabledControlsState)
+                StandardTab(items: [StandartTabItem(text: "Small", accessibilityId: "SpinnerSmall"),
+                                    StandartTabItem(text: "Medium", accessibilityId: "SpinnerMedium"),
+                                    StandartTabItem(text: "Big", accessibilityId: "SpinnerBig")],
+                            selection: $isEnabledControlsState)
                 Spacer()
                     .frame(height: LayoutGrid.halfModule)
                 HStack {

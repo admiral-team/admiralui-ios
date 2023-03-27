@@ -128,10 +128,12 @@ public struct ToastView: View {
     /// Close image.
     let closeView: () -> (AnyView?)
     
+    /// Accessibility id.
+    let accessibilityIdentifier: String?
+    
     // MARK: - Private Properties
 
     @ObservedObject private var schemeProvider: SchemeProvider<ToastViewScheme>
-    private var accessibilityIdentifier: String?
     
     // MARK: - Initializer
     
@@ -155,11 +157,11 @@ public struct ToastView: View {
         imageType: ToastImageType? = nil,
         imageColorType: ToastImageType? = nil,
         schemeProvider: SchemeProvider<ToastViewScheme> = AppThemeSchemeProvider<ToastViewScheme>(),
-        accessibilityIdentifier: String? = nil,
         closeAction: (() -> ())? = nil,
         imageAction: (() -> ())? = nil,
         @ViewBuilder closeView: @escaping () -> (T?) = { return nil },
-        type: ToastViewType = .default
+        type: ToastViewType = .default,
+        accessibilityIdentifier: String? = nil
     ) {
         self.accessibilityIdentifier = accessibilityIdentifier
         self.title = title
@@ -198,10 +200,10 @@ public struct ToastView: View {
         imageType: ToastImageType? = nil,
         imageColorType: ToastImageType? = nil,
         schemeProvider: SchemeProvider<ToastViewScheme> = AppThemeSchemeProvider<ToastViewScheme>(),
-        accessibilityIdentifier: String? = nil,
         closeAction: (() -> ())? = nil,
         imageAction: (() -> ())? = nil,
-        type: ToastViewType = .default
+        type: ToastViewType = .default,
+        accessibilityIdentifier: String? = nil
     ) {
         self.accessibilityIdentifier = accessibilityIdentifier
         self.title = title
@@ -238,10 +240,10 @@ public struct ToastView: View {
         linkAction: (() -> ())? = nil,
         timerDuration: Int?,
         schemeProvider: SchemeProvider<ToastViewScheme> = AppThemeSchemeProvider<ToastViewScheme>(),
-        accessibilityIdentifier: String? = nil,
         closeAction: (() -> ())? = nil,
         @ViewBuilder closeView: @escaping () -> (T?) = { return nil },
-        type: ToastViewType = .default
+        type: ToastViewType = .default,
+        accessibilityIdentifier: String? = nil
     ) {
         self.accessibilityIdentifier = accessibilityIdentifier
         self.title = title

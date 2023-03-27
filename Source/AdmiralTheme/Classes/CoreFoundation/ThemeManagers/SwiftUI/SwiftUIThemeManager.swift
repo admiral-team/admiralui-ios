@@ -8,21 +8,30 @@
 import SwiftUI
 import Combine
 
-public final class SwiftUIThemeManager: ObservableObject {
+public final class SwiftUIThemeManager {
 
     // MARK: - Published Properties
-
-    @Published public var theme = AppTheme.light
+    public var theme: AppTheme = AppTheme.default {
+        willSet {
+            if #available(iOS 13.0, *) {
+                objectWillChange.send()
+            }
+        }
+    }
 
     // MARK: - Initializer
-
     public init() {}
 
+    @available(iOS 13.0, *)
     public init(theme: AppTheme) {
         self.theme = theme
     }
 }
 
+@available(iOS 13.0, *)
+extension SwiftUIThemeManager: ObservableObject {}
+
+@available(iOS 13.0, *)
 public struct ObjectEnvironmentKey: EnvironmentKey {
     public static var defaultValue: SwiftUIThemeManager = Appearance.shared.swiftuiThemeManager
 }

@@ -37,10 +37,10 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 
 
-### run_all_tests
+### run_all_snapshot_tests
 
 ```sh
-[bundle exec] fastlane run_all_tests
+[bundle exec] fastlane run_all_snapshot_tests
 ```
 
 
@@ -61,10 +61,26 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 
 
+### run_all_ui_tests
+
+```sh
+[bundle exec] fastlane run_all_ui_tests
+```
+
+
+
 ### run_tests_app
 
 ```sh
 [bundle exec] fastlane run_tests_app
+```
+
+
+
+### upload_nexus_lib
+
+```sh
+[bundle exec] fastlane upload_nexus_lib
 ```
 
 
@@ -177,6 +193,14 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ```sh
 [bundle exec] fastlane send_build_failed_info
+```
+
+
+
+### remove_products_frameworks
+
+```sh
+[bundle exec] fastlane remove_products_frameworks
 ```
 
 

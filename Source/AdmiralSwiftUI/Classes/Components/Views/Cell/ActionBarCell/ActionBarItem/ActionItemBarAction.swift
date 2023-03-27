@@ -54,6 +54,9 @@ public struct ActionItemBarAction: Identifiable, Hashable {
 
     /// The callback of tap action in ActionItemBar.
     public let handler: () -> Void
+    
+    /// The accesibility id
+    public var accesibilityId: String
 
     // MARK: - Initializer
 
@@ -62,13 +65,15 @@ public struct ActionItemBarAction: Identifiable, Hashable {
         imageStyle: ActionBarItemImageStyle,
         style: ActionBarItemStyle = .default,
         text: String? = nil,
-        handler: @escaping () -> Void
+        handler: @escaping () -> Void,
+        accesibilityId: String = ""
     ) {
         self.image = image
         self.imageStyle = imageStyle
         self.style = style
         self.text = text
         self.handler = handler
+        self.accesibilityId = accesibilityId
     }
 
     public init(
@@ -77,7 +82,8 @@ public struct ActionItemBarAction: Identifiable, Hashable {
         backgroundColor: Color,
         style: ActionBarItemStyle = .default,
         text: String? = nil,
-        handler: @escaping () -> Void
+        handler: @escaping () -> Void,
+        accesibilityId: String = ""
     ) {
         self.image = image
         self.imageTintColor = imageTintColor
@@ -85,6 +91,7 @@ public struct ActionItemBarAction: Identifiable, Hashable {
         self.text = text
         self.handler = handler
         self.style = style
+        self.accesibilityId = accesibilityId
     }
 
     // MARK: - Public methods

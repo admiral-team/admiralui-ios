@@ -246,7 +246,6 @@ public class BaseUnderlineSegmentedControl: UIControl, BaseUnderlineSegmentedCon
         for index in 0..<items.count {
             configure(item: items[index], index: index)
         }
-        collectionView.reloadData()
     }
     
 }

@@ -17,6 +17,7 @@ struct MenuListViewModel: TableViewListItem {
     let tag: String?
     let isEnabled: Bool
     let didSelect: (() -> Void)?
+    let accessibillityId: String?
     
     var reuseIdentifier: String {
         String(describing: MenuListCell.self)
@@ -27,13 +28,15 @@ struct MenuListViewModel: TableViewListItem {
         subtitle: String? = nil,
         tag: String? = nil,
         isEnabled: Bool = true,
-        didSelect: (() -> Void)? = nil
+        didSelect: (() -> Void)? = nil,
+        accessibillityId: String? = nil
     ) {
         self.title = title
         self.subtitle = subtitle
         self.tag = tag
         self.isEnabled = isEnabled
         self.didSelect = didSelect
+        self.accessibillityId = accessibillityId
     }
 }
 
@@ -200,6 +203,7 @@ final class MenuListCell: UITableViewCell, AnyAppThemable, TableViewListItemConf
         title = item.title
         subtitle = item.subtitle
         arrowImageView.isHidden = !item.isEnabled
+        self.accessibilityIdentifier = item.accessibillityId
         updateLayoutConstraints()
     }
 

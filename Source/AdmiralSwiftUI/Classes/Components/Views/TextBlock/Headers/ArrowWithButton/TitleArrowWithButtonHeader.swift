@@ -57,6 +57,9 @@ public struct TitleArrowWithButtonHeader: View {
 
     // MARK: - Private Properties
 
+    /// The accesibility id
+    private var buttonAccesibilityId: String
+    
     @ObservedObject private var schemeProvider: SchemeProvider<TitleArrowWithButtonHeaderScheme>
 
     // MARK: - Initializer
@@ -69,6 +72,7 @@ public struct TitleArrowWithButtonHeader: View {
         renderingMode: Image.TemplateRenderingMode = .original,
         dropDownHeaderType: DropDownHeaderType? = nil,
         headerStyle: HeaderStyle = .title,
+        buttonAccesibilityId: String = "",
         schemeProvider: SchemeProvider<TitleArrowWithButtonHeaderScheme> = AppThemeSchemeProvider<TitleArrowWithButtonHeaderScheme>()
     ) {
         self._title = Binding(get: { return title }, set: { _ in })
@@ -77,6 +81,7 @@ public struct TitleArrowWithButtonHeader: View {
         self.renderingMode = renderingMode
         self.textBlockStyle = headerStyle.textBlockStyle
         self._dropDownHeaderType = Binding(get: { return dropDownHeaderType }, set: { _ in })
+        self.buttonAccesibilityId = buttonAccesibilityId
         self.schemeProvider = schemeProvider
     }
 
@@ -95,6 +100,7 @@ public struct TitleArrowWithButtonHeader: View {
             },
             trailingView: { ButtonListView(
                 text: buttonTitle,
+                accesibilityId: buttonAccesibilityId,
                 schemeProvider: .constant(scheme: schemeProvider.scheme.trailingViewScheme),
                 action: buttonAction) })
         .configCell(

@@ -44,12 +44,16 @@ public struct IconTabModel {
 
     /// The text of IconTabModel
     public let text: String
+    
+    /// The icon tab accessibility id
+    public let accessibilityId: String
 
     // MARK: - Initializer
 
-    public init(image: Image, text: String) {
+    public init(image: Image, text: String, accessibilityId: String = "") {
         self.image = image
         self.text = text
+        self.accessibilityId = accessibilityId
     }
 
 }
@@ -127,6 +131,9 @@ public struct IconTab: View {
                 .opacity(scheme.alphaColor.parameter(for: isEnabled ? controlState : .disabled) ?? 1.0)
                 .font(scheme.titleFont.parameter(for: controlState)?.swiftUIFont)
         }
+        .accessibilityElement()
+        .accessibilityAddTraits(.isButton)
+        .accessibility(identifier: models[index].accessibilityId)
         .padding(.horizontal, Constants.contentPadding)
     }
 

@@ -18,10 +18,7 @@
 		0E110DB727C6E74900BFF58F /* DropDownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E110DB627C6E74900BFF58F /* DropDownViewController.swift */; };
 		0E110DCF27C7926E00BFF58F /* LinksHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E110DCE27C7926E00BFF58F /* LinksHeaderViewController.swift */; };
 		0E17A246269DB65E00F0A80B /* CalendarHorizontalSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E17A245269DB65E00F0A80B /* CalendarHorizontalSwiftUIView.swift */; };
-		0E195E6E2567DB140096780B /* ImageBaseCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E195E6D2567DB140096780B /* ImageBaseCellViewController.swift */; };
-		0E195E722567DB970096780B /* ImageBaseCellDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E195E712567DB970096780B /* ImageBaseCellDetailViewController.swift */; };
-		0E195E8D256805050096780B /* ImageBaseCellLeadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E195E8C256805050096780B /* ImageBaseCellLeadingViewController.swift */; };
-		0E195E8F256805150096780B /* ImageBaseCellTralingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E195E8E256805150096780B /* ImageBaseCellTralingViewController.swift */; };
+		0E195E722567DB970096780B /* LeadingElementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E195E712567DB970096780B /* LeadingElementsViewController.swift */; };
 		0E195E92256C27FB0096780B /* TextBaseCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E195E91256C27FB0096780B /* TextBaseCellViewController.swift */; };
 		0E195E9F256CEDE10096780B /* PrimaryTitleCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E195E9E256CEDE10096780B /* PrimaryTitleCellViewController.swift */; };
 		0E195EA1256CEDED0096780B /* SecondaryTitleCelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E195EA0256CEDED0096780B /* SecondaryTitleCelViewController.swift */; };
@@ -41,10 +38,10 @@
 		0E3FB24A2559B1C00015019E /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3FB2492559B1C00015019E /* AlertController.swift */; };
 		0E3FB2B6255E60210015019E /* CellsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3FB2B5255E60210015019E /* CellsViewController.swift */; };
 		0E45612926860A1F003F588D /* ShimmersSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E45612826860A1F003F588D /* ShimmersSwiftUIView.swift */; };
-		0E4BC72B267CF02A000FC891 /* TralingComponentsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4BC72A267CF02A000FC891 /* TralingComponentsSwiftUIView.swift */; };
+		0E4BC72B267CF02A000FC891 /* TralingElementsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4BC72A267CF02A000FC891 /* TralingElementsSwiftUIView.swift */; };
 		0E4BC8382681D053000FC891 /* ImageBaseCellSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4BC8372681D053000FC891 /* ImageBaseCellSwiftUIView.swift */; };
 		0E4BC83A2681D062000FC891 /* ImageBaseCellSwiftUIItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4BC8392681D062000FC891 /* ImageBaseCellSwiftUIItem.swift */; };
-		0E4BC8552681DBC0000FC891 /* ImageLableComponentsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4BC8542681DBC0000FC891 /* ImageLableComponentsSwiftUIView.swift */; };
+		0E4BC8552681DBC0000FC891 /* LeadingElementsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4BC8542681DBC0000FC891 /* LeadingElementsSwiftUIView.swift */; };
 		0E4BC89F2681E959000FC891 /* ImageLeadingLableComponentsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4BC89E2681E959000FC891 /* ImageLeadingLableComponentsSwiftUIView.swift */; };
 		0E4BC8A12681E96C000FC891 /* ImageTrailingLableComponentsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4BC8A02681E96C000FC891 /* ImageTrailingLableComponentsSwiftUIView.swift */; };
 		0E4BC925268346FC000FC891 /* TitleBaseCellSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4BC924268346FC000FC891 /* TitleBaseCellSwiftUIView.swift */; };
@@ -52,7 +49,7 @@
 		0E4BC92A268347A8000FC891 /* PrimaryTitleBaseCellSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4BC929268347A8000FC891 /* PrimaryTitleBaseCellSwiftUI.swift */; };
 		0E4BC95526834FFD000FC891 /* SecondaryTitleBaseCellSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4BC95426834FFD000FC891 /* SecondaryTitleBaseCellSwiftUI.swift */; };
 		0E548731256412EF0089F37C /* BaseCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E548730256412EF0089F37C /* BaseCellViewController.swift */; };
-		0E548733256413040089F37C /* LeadingComponentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E548732256413040089F37C /* LeadingComponentsViewController.swift */; };
+		0E548733256413040089F37C /* CenterElementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E548732256413040089F37C /* CenterElementsViewController.swift */; };
 		0E576D3825370C4600E223DD /* PrimaryButtonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E576D3725370C4600E223DD /* PrimaryButtonsViewController.swift */; };
 		0E576D3A2537210A00E223DD /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E576D392537210A00E223DD /* ScrollViewController.swift */; };
 		0E576F3125387C4800E223DD /* TagsChipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E576F3025387C4800E223DD /* TagsChipsViewController.swift */; };
@@ -124,12 +121,12 @@
 		0EC136B92668086C00F4EB7E /* DoubleTextFieldSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC136B82668086C00F4EB7E /* DoubleTextFieldSwiftUIView.swift */; };
 		0EC13741266E1A5500F4EB7E /* CellsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC13740266E1A5500F4EB7E /* CellsSwiftUIView.swift */; };
 		0EC13744266E1A9100F4EB7E /* BaseCellSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC13743266E1A9100F4EB7E /* BaseCellSwiftUIView.swift */; };
-		0EC13746266E1AA400F4EB7E /* LeadingComponentsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC13745266E1AA400F4EB7E /* LeadingComponentsSwiftUIView.swift */; };
+		0EC13746266E1AA400F4EB7E /* CenterElementsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC13745266E1AA400F4EB7E /* CenterElementsSwiftUIView.swift */; };
 		0EC13748266E1AC000F4EB7E /* CellsSwiftUIItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC13747266E1AC000F4EB7E /* CellsSwiftUIItem.swift */; };
 		0EC1374A266E1B9500F4EB7E /* BaseCellSwiftUIItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC13749266E1B9500F4EB7E /* BaseCellSwiftUIItem.swift */; };
 		0EC91E6626BD3B6500636204 /* BadgesSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC91E6526BD3B6500636204 /* BadgesSwiftUIView.swift */; };
 		0EC91E6826BD425200636204 /* BadgesSwiftUIViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC91E6726BD425200636204 /* BadgesSwiftUIViewScheme.swift */; };
-		0EC9B0FC25655C3F009B1FC0 /* TralingComponentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC9B0FB25655C3F009B1FC0 /* TralingComponentsViewController.swift */; };
+		0EC9B0FC25655C3F009B1FC0 /* TralingElementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC9B0FB25655C3F009B1FC0 /* TralingElementsViewController.swift */; };
 		0EC9CD2026E23F8900019E09 /* ToastNotificationsSwiftUIViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC9CD1F26E23F8900019E09 /* ToastNotificationsSwiftUIViewScheme.swift */; };
 		0ECF1AF4265F952B0068F591 /* InputRangeTextFieldSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECF1AF3265F952B0068F591 /* InputRangeTextFieldSwiftUIView.swift */; };
 		0ECF1B4E266153010068F591 /* InfoSwiftUIViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECF1B4D266153010068F591 /* InfoSwiftUIViewScheme.swift */; };
@@ -166,7 +163,10 @@
 		3B574AAC27D29344006FEF9A /* AdmiralGunViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B574AAB27D29344006FEF9A /* AdmiralGunViewModel.swift */; };
 		3B59203F278D9A5700706DA6 /* AlertSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B59203E278D9A5700706DA6 /* AlertSwiftUIView.swift */; };
 		3B592041278DC75400706DA6 /* AlertCustomScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B592040278DC75400706DA6 /* AlertCustomScheme.swift */; };
+		3B5A3BF6299BFD540055B74C /* CheckCurrentFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5A3BF5299BFD540055B74C /* CheckCurrentFramework.swift */; };
+		3B5A3BF8299C02A90055B74C /* CheckCurrentFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5A3BF5299BFD540055B74C /* CheckCurrentFramework.swift */; };
 		3B8A8911287D80F9003174B7 /* SeparatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8A8910287D80F9003174B7 /* SeparatorViewController.swift */; };
+		3B9AD51B292E63FD00466CD6 /* ControlCellViewCustomScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9AD51A292E63FD00466CD6 /* ControlCellViewCustomScheme.swift */; };
 		3B9B1CF02885D9E8001D7049 /* ParagraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9B1CEF2885D9E8001D7049 /* ParagraphViewController.swift */; };
 		3B9DD043283C2927002F7706 /* UnderlineTabsUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9DD042283C2927002F7706 /* UnderlineTabsUIView.swift */; };
 		3B9DD046283C29F0002F7706 /* UnderlineCenterTabsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9DD045283C29F0002F7706 /* UnderlineCenterTabsSwiftUIView.swift */; };
@@ -304,12 +304,57 @@
 		C6E04A86256C256600C32381 /* SmallInformersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E04A85256C256600C32381 /* SmallInformersViewController.swift */; };
 		C6E04A8F256D609500C32381 /* BigInformerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E04A8E256D609500C32381 /* BigInformerView.swift */; };
 		C6E04AA8256E937600C32381 /* MessageInformerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E04AA7256E937600C32381 /* MessageInformerView.swift */; };
-		D6245A04289981A60027F3CA /* AdmiralUIKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6245A03289981A60027F3CA /* AdmiralUIKitTests.swift */; };
 		D6245A06289981A60027F3CA /* AdmiralUIKitTestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6245A05289981A60027F3CA /* AdmiralUIKitTestsLaunchTests.swift */; };
 		D6245A0E2899822F0027F3CA /* AdmiralUIIconsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6245A0D2899822F0027F3CA /* AdmiralUIIconsTest.swift */; };
 		D6245A10289982460027F3CA /* AdmiralUIThemesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6245A0F289982460027F3CA /* AdmiralUIThemesTest.swift */; };
 		D6245A12289AA5530027F3CA /* AdmiralUIKitButtonsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6245A11289AA5530027F3CA /* AdmiralUIKitButtonsTest.swift */; };
 		D6245A1628A13AC70027F3CA /* AdmiralUITextBlocksTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6245A1528A13AC70027F3CA /* AdmiralUITextBlocksTest.swift */; };
+		D62613022955B14800CE854F /* AdmiralUICellsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62613012955B14800CE854F /* AdmiralUICellsTest.swift */; };
+		D62ABB012900301B008D631B /* AdmiralUIKitAllertTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62ABB002900301B008D631B /* AdmiralUIKitAllertTest.swift */; };
+		D635591228F066E700614406 /* AddUIKitLinkTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D635591128F066E700614406 /* AddUIKitLinkTest.swift */; };
+		D635591428F067EA00614406 /* AddUIKitSpinnerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D635591328F067EA00614406 /* AddUIKitSpinnerTest.swift */; };
+		D635591628F44DA600614406 /* AddUIKitPageControlsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D635591528F44DA600614406 /* AddUIKitPageControlsTest.swift */; };
+		D635591828F45E7C00614406 /* AddUIKitShimmersTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D635591728F45E7C00614406 /* AddUIKitShimmersTest.swift */; };
+		D635591C28F59D7600614406 /* AddUIKitToolbarTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D635591B28F59D7600614406 /* AddUIKitToolbarTest.swift */; };
+		D635591E28F59F5000614406 /* AddUIKitBottomSheetTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D635591D28F59F5000614406 /* AddUIKitBottomSheetTest.swift */; };
+		D635592228F6FA3B00614406 /* AdmiralUIKitInfoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D635592128F6FA3B00614406 /* AdmiralUIKitInfoTest.swift */; };
+		D635592428F7016400614406 /* AdmiralUIKitContactsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D635592328F7016400614406 /* AdmiralUIKitContactsTest.swift */; };
+		D635592628F712E700614406 /* AdmiralUIKitFAQTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D635592528F712E700614406 /* AdmiralUIKitFAQTest.swift */; };
+		D64BA9EE2934FD2F00490451 /* AdmiralUIInformers&NotificationsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64BA9ED2934FD2F00490451 /* AdmiralUIInformers&NotificationsTest.swift */; };
+		D655714929753B6B00A07F60 /* AdmiralSwiftUIButtonsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D655714829753B6B00A07F60 /* AdmiralSwiftUIButtonsTest.swift */; };
+		D6573D2A298154AF00F546F9 /* AdmiralSwiftUICircularPageControlTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6573D29298154AF00F546F9 /* AdmiralSwiftUICircularPageControlTest.swift */; };
+		D65DC71F299A469400353D15 /* AdmiralSwiftUIShimmersTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DC71E299A469400353D15 /* AdmiralSwiftUIShimmersTest.swift */; };
+		D65DC721299A473D00353D15 /* AdmiralSwiftUIOnboardingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DC720299A473D00353D15 /* AdmiralSwiftUIOnboardingTest.swift */; };
+		D65DC723299A486500353D15 /* AdmiralSwiftUIZeroscreenTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DC722299A486500353D15 /* AdmiralSwiftUIZeroscreenTest.swift */; };
+		D65DC725299A4A0000353D15 /* AdmiralSwiftUIErrorViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DC724299A4A0000353D15 /* AdmiralSwiftUIErrorViewTest.swift */; };
+		D666871629880B8800BCED86 /* AdmiralSwiftUIFAQTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D666871529880B8800BCED86 /* AdmiralSwiftUIFAQTest.swift */; };
+		D6766CFF297EDF6E000761A4 /* AdmiralSwiftUITextBlocksTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6766CFE297EDF6E000761A4 /* AdmiralSwiftUITextBlocksTest.swift */; };
+		D692BF4C293DFE7A005DF293 /* AdmiralUITagsandChipsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D692BF4B293DFE7A005DF293 /* AdmiralUITagsandChipsTest.swift */; };
+		D692BF50294731E2005DF293 /* AdmiralUIPageControlsCircleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D692BF4F294731E2005DF293 /* AdmiralUIPageControlsCircleTest.swift */; };
+		D692BF52294733EE005DF293 /* AdmiralUIOnboardingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D692BF51294733EE005DF293 /* AdmiralUIOnboardingTest.swift */; };
+		D6A1C8D728FF091000E4DE0A /* AdmiralUIKitZeroscreenTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1C8D628FF091000E4DE0A /* AdmiralUIKitZeroscreenTest.swift */; };
+		D6A1C8D928FF0ADB00E4DE0A /* AdmiralUIKitErrorViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1C8D828FF0ADB00E4DE0A /* AdmiralUIKitErrorViewTest.swift */; };
+		D6B2931D2984238E00CE20AC /* AdmiralSwiftUIAlertTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B2931C2984238E00CE20AC /* AdmiralSwiftUIAlertTest.swift */; };
+		D6B2931F2987A59E00CE20AC /* AdmiralSwiftUICurrencyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B2931E2987A59E00CE20AC /* AdmiralSwiftUICurrencyTest.swift */; };
+		D6B293212987A7AD00CE20AC /* AdmiralSwiftUIInfoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B293202987A7AD00CE20AC /* AdmiralSwiftUIInfoTest.swift */; };
+		D6B665A1297EE84900F209D8 /* AdmiralSwiftUICellsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B665A0297EE84900F209D8 /* AdmiralSwiftUICellsTest.swift */; };
+		D6B665A3298000E200F209D8 /* AdmiralSwiftUITagsAndChipsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B665A2298000E200F209D8 /* AdmiralSwiftUITagsAndChipsTest.swift */; };
+		D6B665A52980026300F209D8 /* AdmiralSwiftUIRadiobuttonTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B665A42980026300F209D8 /* AdmiralSwiftUIRadiobuttonTest.swift */; };
+		D6B665A72980046200F209D8 /* AdmiralSwiftUICheckboxTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B665A62980046200F209D8 /* AdmiralSwiftUICheckboxTest.swift */; };
+		D6B665AB298006B200F209D8 /* AdmiralSwiftUISwitcherTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B665AA298006B200F209D8 /* AdmiralSwiftUISwitcherTest.swift */; };
+		D6B665AD2980083B00F209D8 /* AdmiralSwiftUILinksTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B665AC2980083B00F209D8 /* AdmiralSwiftUILinksTest.swift */; };
+		D6B665AF29800A9B00F209D8 /* AdmiralSwiftUISpinnerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B665AE29800A9B00F209D8 /* AdmiralSwiftUISpinnerTest.swift */; };
+		D6B665B32981390D00F209D8 /* AdmiralSwiftUIInformersAndNotificationsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B665B22981390D00F209D8 /* AdmiralSwiftUIInformersAndNotificationsTest.swift */; };
+		D6B665B52981499B00F209D8 /* AdmiralSwiftUILinerPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B665B42981499B00F209D8 /* AdmiralSwiftUILinerPageControl.swift */; };
+		D6B7250C2988097B00071009 /* AdmiralSwiftUIContactsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B7250B2988097B00071009 /* AdmiralSwiftUIContactsTest.swift */; };
+		D6C1E70028EB1FB800094890 /* AdmiralUIKitTabsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C1E6FF28EB1FB800094890 /* AdmiralUIKitTabsTest.swift */; };
+		D6D74667297AD58E00C46884 /* AdmiralSwiftUITabsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D74666297AD58E00C46884 /* AdmiralSwiftUITabsTest.swift */; };
+		D6E595132989558000519F59 /* AdmiralSwiftUIThemesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E595122989558000519F59 /* AdmiralSwiftUIThemesTest.swift */; };
+		D6E595152989591C00519F59 /* AdmiralSwiftUIToolbarTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E595142989591C00519F59 /* AdmiralSwiftUIToolbarTest.swift */; };
+		D6E8EBD428FEE375000172F2 /* AdmiralUIKitCurrencyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E8EBD328FEE375000172F2 /* AdmiralUIKitCurrencyTest.swift */; };
+		D6FF94F929227B0800101246 /* AdmiralUISwitcherTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FF94F829227B0800101246 /* AdmiralUISwitcherTest.swift */; };
+		D6FF94FB29238F5500101246 /* AdmiralUIRadiobuttonTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FF94FA29238F5500101246 /* AdmiralUIRadiobuttonTest.swift */; };
+		D6FFAE3C293619F80059EBC2 /* AdmiralUICheckboxTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FFAE3B293619F80059EBC2 /* AdmiralUICheckboxTest.swift */; };
 		E6117EF625F9754300214949 /* CardTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6117EF525F9754300214949 /* CardTextField.swift */; };
 		E63B50DE25DD2B1800993D21 /* ThemesRepostory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63B50DD25DD2B1800993D21 /* ThemesRepostory.swift */; };
 		E63B50E125DD3BCC00993D21 /* ColorToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63B50E025DD3BCC00993D21 /* ColorToken.swift */; };
@@ -412,8 +457,6 @@
 		E95553CD27A2C84000A14BCA /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95553CC27A2C84000A14BCA /* ChatViewModel.swift */; };
 		E95553CF27A2CBE300A14BCA /* TextOperationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95553CE27A2CBE300A14BCA /* TextOperationViewModel.swift */; };
 		E95DC44727A12DDA00532BDC /* Publishers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95DC44627A12DDA00532BDC /* Publishers+Extensions.swift */; };
-		E97CAD5D27206BF7001283A1 /* AdmiralSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97CAD5C27206BF7001283A1 /* AdmiralSwiftUITests.swift */; };
-		E97CAD5F27206BF7001283A1 /* AdmiralSwiftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97CAD5E27206BF7001283A1 /* AdmiralSwiftUITestsLaunchTests.swift */; };
 		E9A18D7F27393ED900668C03 /* SwiftUIChatItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A18D7E27393ED900668C03 /* SwiftUIChatItem.swift */; };
 		E9A18D87273946BD00668C03 /* SwiftUIChatInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A18D86273946BD00668C03 /* SwiftUIChatInputView.swift */; };
 		E9A18D8B2739523300668C03 /* SwiftUITextMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A18D8A2739523300668C03 /* SwiftUITextMessageView.swift */; };
@@ -519,10 +562,7 @@
 		0E110DCE27C7926E00BFF58F /* LinksHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksHeaderViewController.swift; sourceTree = "<group>"; };
 		0E16065B27A871AE0087DFE2 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		0E17A245269DB65E00F0A80B /* CalendarHorizontalSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHorizontalSwiftUIView.swift; sourceTree = "<group>"; };
-		0E195E6D2567DB140096780B /* ImageBaseCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBaseCellViewController.swift; sourceTree = "<group>"; };
-		0E195E712567DB970096780B /* ImageBaseCellDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBaseCellDetailViewController.swift; sourceTree = "<group>"; };
-		0E195E8C256805050096780B /* ImageBaseCellLeadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBaseCellLeadingViewController.swift; sourceTree = "<group>"; };
-		0E195E8E256805150096780B /* ImageBaseCellTralingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBaseCellTralingViewController.swift; sourceTree = "<group>"; };
+		0E195E712567DB970096780B /* LeadingElementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadingElementsViewController.swift; sourceTree = "<group>"; };
 		0E195E91256C27FB0096780B /* TextBaseCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBaseCellViewController.swift; sourceTree = "<group>"; };
 		0E195E9E256CEDE10096780B /* PrimaryTitleCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryTitleCellViewController.swift; sourceTree = "<group>"; };
 		0E195EA0256CEDED0096780B /* SecondaryTitleCelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryTitleCelViewController.swift; sourceTree = "<group>"; };
@@ -542,10 +582,10 @@
 		0E3FB2492559B1C00015019E /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		0E3FB2B5255E60210015019E /* CellsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellsViewController.swift; sourceTree = "<group>"; };
 		0E45612826860A1F003F588D /* ShimmersSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmersSwiftUIView.swift; sourceTree = "<group>"; };
-		0E4BC72A267CF02A000FC891 /* TralingComponentsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TralingComponentsSwiftUIView.swift; sourceTree = "<group>"; };
+		0E4BC72A267CF02A000FC891 /* TralingElementsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TralingElementsSwiftUIView.swift; sourceTree = "<group>"; };
 		0E4BC8372681D053000FC891 /* ImageBaseCellSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBaseCellSwiftUIView.swift; sourceTree = "<group>"; };
 		0E4BC8392681D062000FC891 /* ImageBaseCellSwiftUIItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBaseCellSwiftUIItem.swift; sourceTree = "<group>"; };
-		0E4BC8542681DBC0000FC891 /* ImageLableComponentsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLableComponentsSwiftUIView.swift; sourceTree = "<group>"; };
+		0E4BC8542681DBC0000FC891 /* LeadingElementsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadingElementsSwiftUIView.swift; sourceTree = "<group>"; };
 		0E4BC89E2681E959000FC891 /* ImageLeadingLableComponentsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLeadingLableComponentsSwiftUIView.swift; sourceTree = "<group>"; };
 		0E4BC8A02681E96C000FC891 /* ImageTrailingLableComponentsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTrailingLableComponentsSwiftUIView.swift; sourceTree = "<group>"; };
 		0E4BC924268346FC000FC891 /* TitleBaseCellSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBaseCellSwiftUIView.swift; sourceTree = "<group>"; };
@@ -553,7 +593,7 @@
 		0E4BC929268347A8000FC891 /* PrimaryTitleBaseCellSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryTitleBaseCellSwiftUI.swift; sourceTree = "<group>"; };
 		0E4BC95426834FFD000FC891 /* SecondaryTitleBaseCellSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryTitleBaseCellSwiftUI.swift; sourceTree = "<group>"; };
 		0E548730256412EF0089F37C /* BaseCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCellViewController.swift; sourceTree = "<group>"; };
-		0E548732256413040089F37C /* LeadingComponentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadingComponentsViewController.swift; sourceTree = "<group>"; };
+		0E548732256413040089F37C /* CenterElementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterElementsViewController.swift; sourceTree = "<group>"; };
 		0E576D3725370C4600E223DD /* PrimaryButtonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonsViewController.swift; sourceTree = "<group>"; };
 		0E576D392537210A00E223DD /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
 		0E576F3025387C4800E223DD /* TagsChipsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsChipsViewController.swift; sourceTree = "<group>"; };
@@ -622,12 +662,12 @@
 		0EC136B82668086C00F4EB7E /* DoubleTextFieldSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleTextFieldSwiftUIView.swift; sourceTree = "<group>"; };
 		0EC13740266E1A5500F4EB7E /* CellsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellsSwiftUIView.swift; sourceTree = "<group>"; };
 		0EC13743266E1A9100F4EB7E /* BaseCellSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCellSwiftUIView.swift; sourceTree = "<group>"; };
-		0EC13745266E1AA400F4EB7E /* LeadingComponentsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadingComponentsSwiftUIView.swift; sourceTree = "<group>"; };
+		0EC13745266E1AA400F4EB7E /* CenterElementsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterElementsSwiftUIView.swift; sourceTree = "<group>"; };
 		0EC13747266E1AC000F4EB7E /* CellsSwiftUIItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellsSwiftUIItem.swift; sourceTree = "<group>"; };
 		0EC13749266E1B9500F4EB7E /* BaseCellSwiftUIItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCellSwiftUIItem.swift; sourceTree = "<group>"; };
 		0EC91E6526BD3B6500636204 /* BadgesSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesSwiftUIView.swift; sourceTree = "<group>"; };
 		0EC91E6726BD425200636204 /* BadgesSwiftUIViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesSwiftUIViewScheme.swift; sourceTree = "<group>"; };
-		0EC9B0FB25655C3F009B1FC0 /* TralingComponentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TralingComponentsViewController.swift; sourceTree = "<group>"; };
+		0EC9B0FB25655C3F009B1FC0 /* TralingElementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TralingElementsViewController.swift; sourceTree = "<group>"; };
 		0EC9CD1F26E23F8900019E09 /* ToastNotificationsSwiftUIViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastNotificationsSwiftUIViewScheme.swift; sourceTree = "<group>"; };
 		0ECF1AF3265F952B0068F591 /* InputRangeTextFieldSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputRangeTextFieldSwiftUIView.swift; sourceTree = "<group>"; };
 		0ECF1B4D266153010068F591 /* InfoSwiftUIViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSwiftUIViewScheme.swift; sourceTree = "<group>"; };
@@ -664,7 +704,9 @@
 		3B574AAB27D29344006FEF9A /* AdmiralGunViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralGunViewModel.swift; sourceTree = "<group>"; };
 		3B59203E278D9A5700706DA6 /* AlertSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSwiftUIView.swift; sourceTree = "<group>"; };
 		3B592040278DC75400706DA6 /* AlertCustomScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCustomScheme.swift; sourceTree = "<group>"; };
+		3B5A3BF5299BFD540055B74C /* CheckCurrentFramework.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckCurrentFramework.swift; sourceTree = "<group>"; };
 		3B8A8910287D80F9003174B7 /* SeparatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorViewController.swift; sourceTree = "<group>"; };
+		3B9AD51A292E63FD00466CD6 /* ControlCellViewCustomScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlCellViewCustomScheme.swift; sourceTree = "<group>"; };
 		3B9B1CEF2885D9E8001D7049 /* ParagraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParagraphViewController.swift; sourceTree = "<group>"; };
 		3B9DD042283C2927002F7706 /* UnderlineTabsUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineTabsUIView.swift; sourceTree = "<group>"; };
 		3B9DD045283C29F0002F7706 /* UnderlineCenterTabsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineCenterTabsSwiftUIView.swift; sourceTree = "<group>"; };
@@ -803,12 +845,57 @@
 		C6E04A8E256D609500C32381 /* BigInformerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigInformerView.swift; sourceTree = "<group>"; };
 		C6E04AA7256E937600C32381 /* MessageInformerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInformerView.swift; sourceTree = "<group>"; };
 		D6245A01289981A60027F3CA /* AdmiralUIKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdmiralUIKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D6245A03289981A60027F3CA /* AdmiralUIKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIKitTests.swift; sourceTree = "<group>"; };
 		D6245A05289981A60027F3CA /* AdmiralUIKitTestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIKitTestsLaunchTests.swift; sourceTree = "<group>"; };
 		D6245A0D2899822F0027F3CA /* AdmiralUIIconsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIIconsTest.swift; sourceTree = "<group>"; };
 		D6245A0F289982460027F3CA /* AdmiralUIThemesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIThemesTest.swift; sourceTree = "<group>"; };
 		D6245A11289AA5530027F3CA /* AdmiralUIKitButtonsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIKitButtonsTest.swift; sourceTree = "<group>"; };
 		D6245A1528A13AC70027F3CA /* AdmiralUITextBlocksTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUITextBlocksTest.swift; sourceTree = "<group>"; };
+		D62613012955B14800CE854F /* AdmiralUICellsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdmiralUICellsTest.swift; sourceTree = "<group>"; };
+		D62ABB002900301B008D631B /* AdmiralUIKitAllertTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIKitAllertTest.swift; sourceTree = "<group>"; };
+		D635591128F066E700614406 /* AddUIKitLinkTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUIKitLinkTest.swift; sourceTree = "<group>"; };
+		D635591328F067EA00614406 /* AddUIKitSpinnerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUIKitSpinnerTest.swift; sourceTree = "<group>"; };
+		D635591528F44DA600614406 /* AddUIKitPageControlsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUIKitPageControlsTest.swift; sourceTree = "<group>"; };
+		D635591728F45E7C00614406 /* AddUIKitShimmersTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUIKitShimmersTest.swift; sourceTree = "<group>"; };
+		D635591B28F59D7600614406 /* AddUIKitToolbarTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUIKitToolbarTest.swift; sourceTree = "<group>"; };
+		D635591D28F59F5000614406 /* AddUIKitBottomSheetTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUIKitBottomSheetTest.swift; sourceTree = "<group>"; };
+		D635592128F6FA3B00614406 /* AdmiralUIKitInfoTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIKitInfoTest.swift; sourceTree = "<group>"; };
+		D635592328F7016400614406 /* AdmiralUIKitContactsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIKitContactsTest.swift; sourceTree = "<group>"; };
+		D635592528F712E700614406 /* AdmiralUIKitFAQTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIKitFAQTest.swift; sourceTree = "<group>"; };
+		D64BA9ED2934FD2F00490451 /* AdmiralUIInformers&NotificationsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AdmiralUIInformers&NotificationsTest.swift"; sourceTree = "<group>"; };
+		D655714829753B6B00A07F60 /* AdmiralSwiftUIButtonsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralSwiftUIButtonsTest.swift; sourceTree = "<group>"; };
+		D6573D29298154AF00F546F9 /* AdmiralSwiftUICircularPageControlTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralSwiftUICircularPageControlTest.swift; sourceTree = "<group>"; };
+		D65DC71E299A469400353D15 /* AdmiralSwiftUIShimmersTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralSwiftUIShimmersTest.swift; sourceTree = "<group>"; };
+		D65DC720299A473D00353D15 /* AdmiralSwiftUIOnboardingTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralSwiftUIOnboardingTest.swift; sourceTree = "<group>"; };
+		D65DC722299A486500353D15 /* AdmiralSwiftUIZeroscreenTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralSwiftUIZeroscreenTest.swift; sourceTree = "<group>"; };
+		D65DC724299A4A0000353D15 /* AdmiralSwiftUIErrorViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralSwiftUIErrorViewTest.swift; sourceTree = "<group>"; };
+		D666871529880B8800BCED86 /* AdmiralSwiftUIFAQTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralSwiftUIFAQTest.swift; sourceTree = "<group>"; };
+		D6766CFE297EDF6E000761A4 /* AdmiralSwiftUITextBlocksTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralSwiftUITextBlocksTest.swift; sourceTree = "<group>"; };
+		D692BF4B293DFE7A005DF293 /* AdmiralUITagsandChipsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdmiralUITagsandChipsTest.swift; sourceTree = "<group>"; };
+		D692BF4F294731E2005DF293 /* AdmiralUIPageControlsCircleTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIPageControlsCircleTest.swift; sourceTree = "<group>"; };
+		D692BF51294733EE005DF293 /* AdmiralUIOnboardingTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIOnboardingTest.swift; sourceTree = "<group>"; };
+		D6A1C8D628FF091000E4DE0A /* AdmiralUIKitZeroscreenTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIKitZeroscreenTest.swift; sourceTree = "<group>"; };
+		D6A1C8D828FF0ADB00E4DE0A /* AdmiralUIKitErrorViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIKitErrorViewTest.swift; sourceTree = "<group>"; };
+		D6B2931C2984238E00CE20AC /* AdmiralSwiftUIAlertTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralSwiftUIAlertTest.swift; sourceTree = "<group>"; };
+		D6B2931E2987A59E00CE20AC /* AdmiralSwiftUICurrencyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralSwiftUICurrencyTest.swift; sourceTree = "<group>"; };
+		D6B293202987A7AD00CE20AC /* AdmiralSwiftUIInfoTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralSwiftUIInfoTest.swift; sourceTree = "<group>"; };
+		D6B665A0297EE84900F209D8 /* AdmiralSwiftUICellsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralSwiftUICellsTest.swift; sourceTree = "<group>"; };
+		D6B665A2298000E200F209D8 /* AdmiralSwiftUITagsAndChipsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralSwiftUITagsAndChipsTest.swift; sourceTree = "<group>"; };
+		D6B665A42980026300F209D8 /* AdmiralSwiftUIRadiobuttonTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralSwiftUIRadiobuttonTest.swift; sourceTree = "<group>"; };
+		D6B665A62980046200F209D8 /* AdmiralSwiftUICheckboxTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralSwiftUICheckboxTest.swift; sourceTree = "<group>"; };
+		D6B665AA298006B200F209D8 /* AdmiralSwiftUISwitcherTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralSwiftUISwitcherTest.swift; sourceTree = "<group>"; };
+		D6B665AC2980083B00F209D8 /* AdmiralSwiftUILinksTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralSwiftUILinksTest.swift; sourceTree = "<group>"; };
+		D6B665AE29800A9B00F209D8 /* AdmiralSwiftUISpinnerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralSwiftUISpinnerTest.swift; sourceTree = "<group>"; };
+		D6B665B22981390D00F209D8 /* AdmiralSwiftUIInformersAndNotificationsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralSwiftUIInformersAndNotificationsTest.swift; sourceTree = "<group>"; };
+		D6B665B42981499B00F209D8 /* AdmiralSwiftUILinerPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralSwiftUILinerPageControl.swift; sourceTree = "<group>"; };
+		D6B7250B2988097B00071009 /* AdmiralSwiftUIContactsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralSwiftUIContactsTest.swift; sourceTree = "<group>"; };
+		D6C1E6FF28EB1FB800094890 /* AdmiralUIKitTabsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIKitTabsTest.swift; sourceTree = "<group>"; };
+		D6D74666297AD58E00C46884 /* AdmiralSwiftUITabsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralSwiftUITabsTest.swift; sourceTree = "<group>"; };
+		D6E595122989558000519F59 /* AdmiralSwiftUIThemesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralSwiftUIThemesTest.swift; sourceTree = "<group>"; };
+		D6E595142989591C00519F59 /* AdmiralSwiftUIToolbarTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralSwiftUIToolbarTest.swift; sourceTree = "<group>"; };
+		D6E8EBD328FEE375000172F2 /* AdmiralUIKitCurrencyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIKitCurrencyTest.swift; sourceTree = "<group>"; };
+		D6FF94F829227B0800101246 /* AdmiralUISwitcherTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUISwitcherTest.swift; sourceTree = "<group>"; };
+		D6FF94FA29238F5500101246 /* AdmiralUIRadiobuttonTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUIRadiobuttonTest.swift; sourceTree = "<group>"; };
+		D6FFAE3B293619F80059EBC2 /* AdmiralUICheckboxTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralUICheckboxTest.swift; sourceTree = "<group>"; };
 		E6117EF525F9754300214949 /* CardTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTextField.swift; sourceTree = "<group>"; };
 		E63B50DD25DD2B1800993D21 /* ThemesRepostory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesRepostory.swift; sourceTree = "<group>"; };
 		E63B50E025DD3BCC00993D21 /* ColorToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorToken.swift; sourceTree = "<group>"; };
@@ -914,8 +1001,6 @@
 		E95553CE27A2CBE300A14BCA /* TextOperationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOperationViewModel.swift; sourceTree = "<group>"; };
 		E95DC44627A12DDA00532BDC /* Publishers+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Publishers+Extensions.swift"; sourceTree = "<group>"; };
 		E97CAD5A27206BF7001283A1 /* AdmiralSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdmiralSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E97CAD5C27206BF7001283A1 /* AdmiralSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralSwiftUITests.swift; sourceTree = "<group>"; };
-		E97CAD5E27206BF7001283A1 /* AdmiralSwiftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmiralSwiftUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E9A18D7E27393ED900668C03 /* SwiftUIChatItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIChatItem.swift; sourceTree = "<group>"; };
 		E9A18D86273946BD00668C03 /* SwiftUIChatInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIChatInputView.swift; sourceTree = "<group>"; };
 		E9A18D8A2739523300668C03 /* SwiftUITextMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITextMessageView.swift; sourceTree = "<group>"; };
@@ -1056,21 +1141,11 @@
 			isa = PBXGroup;
 			children = (
 				0E548730256412EF0089F37C /* BaseCellViewController.swift */,
-				0E548732256413040089F37C /* LeadingComponentsViewController.swift */,
-				0EC9B0FB25655C3F009B1FC0 /* TralingComponentsViewController.swift */,
+				3B62D1C1293A09A30083D46B /* LeadingElements */,
+				3B62D1C0293A08650083D46B /* TralingElements */,
+				3B62D1BF293A08100083D46B /* CenterElements */,
 			);
 			path = BaseCell;
-			sourceTree = "<group>";
-		};
-		0E195E702567DB8A0096780B /* ImageBaseCell */ = {
-			isa = PBXGroup;
-			children = (
-				0E195E6D2567DB140096780B /* ImageBaseCellViewController.swift */,
-				0E195E712567DB970096780B /* ImageBaseCellDetailViewController.swift */,
-				0E195E8C256805050096780B /* ImageBaseCellLeadingViewController.swift */,
-				0E195E8E256805150096780B /* ImageBaseCellTralingViewController.swift */,
-			);
-			path = ImageBaseCell;
 			sourceTree = "<group>";
 		};
 		0E195E90256C27D60096780B /* TextBaseCell */ = {
@@ -1215,7 +1290,6 @@
 				0E8CC7FC257828F9008143A1 /* ActionBar */,
 				0E195E9B256CEDAF0096780B /* TitleBaseCell */,
 				0E195E90256C27D60096780B /* TextBaseCell */,
-				0E195E702567DB8A0096780B /* ImageBaseCell */,
 				0E195E6F2567DB760096780B /* BaseCell */,
 			);
 			path = Cells;
@@ -1230,12 +1304,12 @@
 			path = Shimmers;
 			sourceTree = "<group>";
 		};
-		0E4BC729267CF003000FC891 /* TralingComponents */ = {
+		0E4BC729267CF003000FC891 /* TralingElements */ = {
 			isa = PBXGroup;
 			children = (
-				0E4BC72A267CF02A000FC891 /* TralingComponentsSwiftUIView.swift */,
+				0E4BC72A267CF02A000FC891 /* TralingElementsSwiftUIView.swift */,
 			);
-			path = TralingComponents;
+			path = TralingElements;
 			sourceTree = "<group>";
 		};
 		0E4BC8362681D028000FC891 /* ImageBaseCell */ = {
@@ -1253,7 +1327,6 @@
 		0E4BC83B2681D532000FC891 /* LableComponents */ = {
 			isa = PBXGroup;
 			children = (
-				0E4BC8542681DBC0000FC891 /* ImageLableComponentsSwiftUIView.swift */,
 			);
 			path = LableComponents;
 			sourceTree = "<group>";
@@ -1833,10 +1906,10 @@
 		0EC1373F266E1A4200F4EB7E /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				0EADAA07268AFE55003FF903 /* TextBaseCell */,
 				0EC13742266E1A7400F4EB7E /* BaseCell */,
-				0E4BC923268346F1000FC891 /* TitleBaseCell */,
 				0E74C582268495EC00F79D10 /* ActionBar */,
+				0EADAA07268AFE55003FF903 /* TextBaseCell */,
+				0E4BC923268346F1000FC891 /* TitleBaseCell */,
 				0E4BC8362681D028000FC891 /* ImageBaseCell */,
 				0EC13740266E1A5500F4EB7E /* CellsSwiftUIView.swift */,
 				0EC13747266E1AC000F4EB7E /* CellsSwiftUIItem.swift */,
@@ -1847,20 +1920,21 @@
 		0EC13742266E1A7400F4EB7E /* BaseCell */ = {
 			isa = PBXGroup;
 			children = (
+				3BF2EC27298BF9CC004CB70A /* CenterElements */,
+				0EC13753266E1EC200F4EB7E /* LeadingElements */,
+				0E4BC729267CF003000FC891 /* TralingElements */,
 				0EC13743266E1A9100F4EB7E /* BaseCellSwiftUIView.swift */,
 				0EC13749266E1B9500F4EB7E /* BaseCellSwiftUIItem.swift */,
-				0EC13753266E1EC200F4EB7E /* LeadingComponents */,
-				0E4BC729267CF003000FC891 /* TralingComponents */,
 			);
 			path = BaseCell;
 			sourceTree = "<group>";
 		};
-		0EC13753266E1EC200F4EB7E /* LeadingComponents */ = {
+		0EC13753266E1EC200F4EB7E /* LeadingElements */ = {
 			isa = PBXGroup;
 			children = (
-				0EC13745266E1AA400F4EB7E /* LeadingComponentsSwiftUIView.swift */,
+				0E4BC8542681DBC0000FC891 /* LeadingElementsSwiftUIView.swift */,
 			);
-			path = LeadingComponents;
+			path = LeadingElements;
 			sourceTree = "<group>";
 		};
 		0EC91E6426BD3B5400636204 /* Badges */ = {
@@ -2076,6 +2150,30 @@
 			path = "Alert&Onboarding";
 			sourceTree = "<group>";
 		};
+		3B62D1BF293A08100083D46B /* CenterElements */ = {
+			isa = PBXGroup;
+			children = (
+				0E548732256413040089F37C /* CenterElementsViewController.swift */,
+			);
+			path = CenterElements;
+			sourceTree = "<group>";
+		};
+		3B62D1C0293A08650083D46B /* TralingElements */ = {
+			isa = PBXGroup;
+			children = (
+				0EC9B0FB25655C3F009B1FC0 /* TralingElementsViewController.swift */,
+			);
+			path = TralingElements;
+			sourceTree = "<group>";
+		};
+		3B62D1C1293A09A30083D46B /* LeadingElements */ = {
+			isa = PBXGroup;
+			children = (
+				0E195E712567DB970096780B /* LeadingElementsViewController.swift */,
+			);
+			path = LeadingElements;
+			sourceTree = "<group>";
+		};
 		3B8A890F287D808E003174B7 /* Separator */ = {
 			isa = PBXGroup;
 			children = (
@@ -2199,6 +2297,14 @@
 				3BEDB3CD2874660600E2AD34 /* OtherButtonsViewController.swift */,
 			);
 			path = OtherButtons;
+			sourceTree = "<group>";
+		};
+		3BF2EC27298BF9CC004CB70A /* CenterElements */ = {
+			isa = PBXGroup;
+			children = (
+				0EC13745266E1AA400F4EB7E /* CenterElementsSwiftUIView.swift */,
+			);
+			path = CenterElements;
 			sourceTree = "<group>";
 		};
 		C620B7F3256560E100CB1B29 /* Calendar */ = {
@@ -2880,12 +2986,33 @@
 		D6245A02289981A60027F3CA /* AdmiralUIKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				D6245A03289981A60027F3CA /* AdmiralUIKitTests.swift */,
 				D6245A05289981A60027F3CA /* AdmiralUIKitTestsLaunchTests.swift */,
 				D6245A0D2899822F0027F3CA /* AdmiralUIIconsTest.swift */,
+				D6C1E6FF28EB1FB800094890 /* AdmiralUIKitTabsTest.swift */,
 				D6245A0F289982460027F3CA /* AdmiralUIThemesTest.swift */,
+				D635591728F45E7C00614406 /* AddUIKitShimmersTest.swift */,
 				D6245A11289AA5530027F3CA /* AdmiralUIKitButtonsTest.swift */,
 				D6245A1528A13AC70027F3CA /* AdmiralUITextBlocksTest.swift */,
+				D635591B28F59D7600614406 /* AddUIKitToolbarTest.swift */,
+				D64BA9ED2934FD2F00490451 /* AdmiralUIInformers&NotificationsTest.swift */,
+				D6A1C8D828FF0ADB00E4DE0A /* AdmiralUIKitErrorViewTest.swift */,
+				D6FFAE3B293619F80059EBC2 /* AdmiralUICheckboxTest.swift */,
+				D692BF4B293DFE7A005DF293 /* AdmiralUITagsandChipsTest.swift */,
+				D62ABB002900301B008D631B /* AdmiralUIKitAllertTest.swift */,
+				D635591D28F59F5000614406 /* AddUIKitBottomSheetTest.swift */,
+				D635592128F6FA3B00614406 /* AdmiralUIKitInfoTest.swift */,
+				D635591328F067EA00614406 /* AddUIKitSpinnerTest.swift */,
+				D692BF4F294731E2005DF293 /* AdmiralUIPageControlsCircleTest.swift */,
+				D635592528F712E700614406 /* AdmiralUIKitFAQTest.swift */,
+				D6A1C8D628FF091000E4DE0A /* AdmiralUIKitZeroscreenTest.swift */,
+				D635591128F066E700614406 /* AddUIKitLinkTest.swift */,
+				D6FF94FA29238F5500101246 /* AdmiralUIRadiobuttonTest.swift */,
+				D6FF94F829227B0800101246 /* AdmiralUISwitcherTest.swift */,
+				D635591528F44DA600614406 /* AddUIKitPageControlsTest.swift */,
+				D6E8EBD328FEE375000172F2 /* AdmiralUIKitCurrencyTest.swift */,
+				D692BF51294733EE005DF293 /* AdmiralUIOnboardingTest.swift */,
+				D635592328F7016400614406 /* AdmiralUIKitContactsTest.swift */,
+				D62613012955B14800CE854F /* AdmiralUICellsTest.swift */,
 			);
 			path = AdmiralUIKitTests;
 			sourceTree = "<group>";
@@ -2893,6 +3020,7 @@
 		D6245A0C289981B90027F3CA /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				3B5A3BF5299BFD540055B74C /* CheckCurrentFramework.swift */,
 				E97CAD5B27206BF7001283A1 /* AdmiralSwiftUITests */,
 				D6245A02289981A60027F3CA /* AdmiralUIKitTests */,
 			);
@@ -3068,6 +3196,7 @@
 				C6260AA4255B01EC007175C2 /* Feedback */,
 				C6260AA5255B01FF007175C2 /* Pincode */,
 				C6260ACD255C4527007175C2 /* ControlCellView.swift */,
+				3B9AD51A292E63FD00466CD6 /* ControlCellViewCustomScheme.swift */,
 				E6ABDBA9253F3B4900B90570 /* TextFieldsViewController.swift */,
 			);
 			path = TextFields;
@@ -3441,8 +3570,30 @@
 		E97CAD5B27206BF7001283A1 /* AdmiralSwiftUITests */ = {
 			isa = PBXGroup;
 			children = (
-				E97CAD5C27206BF7001283A1 /* AdmiralSwiftUITests.swift */,
-				E97CAD5E27206BF7001283A1 /* AdmiralSwiftUITestsLaunchTests.swift */,
+				D6B665A2298000E200F209D8 /* AdmiralSwiftUITagsAndChipsTest.swift */,
+				D6B665A42980026300F209D8 /* AdmiralSwiftUIRadiobuttonTest.swift */,
+				D6B665A62980046200F209D8 /* AdmiralSwiftUICheckboxTest.swift */,
+				D6B665AA298006B200F209D8 /* AdmiralSwiftUISwitcherTest.swift */,
+				D6B665AC2980083B00F209D8 /* AdmiralSwiftUILinksTest.swift */,
+				D6B665AE29800A9B00F209D8 /* AdmiralSwiftUISpinnerTest.swift */,
+				D6B665A0297EE84900F209D8 /* AdmiralSwiftUICellsTest.swift */,
+				D6766CFE297EDF6E000761A4 /* AdmiralSwiftUITextBlocksTest.swift */,
+				D655714829753B6B00A07F60 /* AdmiralSwiftUIButtonsTest.swift */,
+				D6B2931C2984238E00CE20AC /* AdmiralSwiftUIAlertTest.swift */,
+				D6B7250B2988097B00071009 /* AdmiralSwiftUIContactsTest.swift */,
+				D666871529880B8800BCED86 /* AdmiralSwiftUIFAQTest.swift */,
+				D6B2931E2987A59E00CE20AC /* AdmiralSwiftUICurrencyTest.swift */,
+				D6B293202987A7AD00CE20AC /* AdmiralSwiftUIInfoTest.swift */,
+				D6E595122989558000519F59 /* AdmiralSwiftUIThemesTest.swift */,
+				D6E595142989591C00519F59 /* AdmiralSwiftUIToolbarTest.swift */,
+				D6B665B22981390D00F209D8 /* AdmiralSwiftUIInformersAndNotificationsTest.swift */,
+				D6B665B42981499B00F209D8 /* AdmiralSwiftUILinerPageControl.swift */,
+				D65DC71E299A469400353D15 /* AdmiralSwiftUIShimmersTest.swift */,
+				D65DC720299A473D00353D15 /* AdmiralSwiftUIOnboardingTest.swift */,
+				D65DC722299A486500353D15 /* AdmiralSwiftUIZeroscreenTest.swift */,
+				D65DC724299A4A0000353D15 /* AdmiralSwiftUIErrorViewTest.swift */,
+				D6573D29298154AF00F546F9 /* AdmiralSwiftUICircularPageControlTest.swift */,
+				D6D74666297AD58E00C46884 /* AdmiralSwiftUITabsTest.swift */,
 			);
 			path = AdmiralSwiftUITests;
 			sourceTree = "<group>";
@@ -3922,12 +4073,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D62ABB012900301B008D631B /* AdmiralUIKitAllertTest.swift in Sources */,
+				D6E8EBD428FEE375000172F2 /* AdmiralUIKitCurrencyTest.swift in Sources */,
 				D6245A1628A13AC70027F3CA /* AdmiralUITextBlocksTest.swift in Sources */,
+				D6FF94FB29238F5500101246 /* AdmiralUIRadiobuttonTest.swift in Sources */,
 				D6245A06289981A60027F3CA /* AdmiralUIKitTestsLaunchTests.swift in Sources */,
+				D635591C28F59D7600614406 /* AddUIKitToolbarTest.swift in Sources */,
+				D64BA9EE2934FD2F00490451 /* AdmiralUIInformers&NotificationsTest.swift in Sources */,
+				D635592428F7016400614406 /* AdmiralUIKitContactsTest.swift in Sources */,
 				D6245A0E2899822F0027F3CA /* AdmiralUIIconsTest.swift in Sources */,
+				D692BF4C293DFE7A005DF293 /* AdmiralUITagsandChipsTest.swift in Sources */,
+				D692BF50294731E2005DF293 /* AdmiralUIPageControlsCircleTest.swift in Sources */,
+				D692BF52294733EE005DF293 /* AdmiralUIOnboardingTest.swift in Sources */,
+				D6FFAE3C293619F80059EBC2 /* AdmiralUICheckboxTest.swift in Sources */,
+				D635591828F45E7C00614406 /* AddUIKitShimmersTest.swift in Sources */,
+				D635591228F066E700614406 /* AddUIKitLinkTest.swift in Sources */,
+				D635591628F44DA600614406 /* AddUIKitPageControlsTest.swift in Sources */,
 				D6245A10289982460027F3CA /* AdmiralUIThemesTest.swift in Sources */,
-				D6245A04289981A60027F3CA /* AdmiralUIKitTests.swift in Sources */,
+				D635591428F067EA00614406 /* AddUIKitSpinnerTest.swift in Sources */,
+				D6A1C8D728FF091000E4DE0A /* AdmiralUIKitZeroscreenTest.swift in Sources */,
+				D6C1E70028EB1FB800094890 /* AdmiralUIKitTabsTest.swift in Sources */,
+				D6A1C8D928FF0ADB00E4DE0A /* AdmiralUIKitErrorViewTest.swift in Sources */,
+				D635591E28F59F5000614406 /* AddUIKitBottomSheetTest.swift in Sources */,
+				D635592628F712E700614406 /* AdmiralUIKitFAQTest.swift in Sources */,
+				D6FF94F929227B0800101246 /* AdmiralUISwitcherTest.swift in Sources */,
+				3B5A3BF8299C02A90055B74C /* CheckCurrentFramework.swift in Sources */,
 				D6245A12289AA5530027F3CA /* AdmiralUIKitButtonsTest.swift in Sources */,
+				D62613022955B14800CE854F /* AdmiralUICellsTest.swift in Sources */,
+				D635592228F6FA3B00614406 /* AdmiralUIKitInfoTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3995,7 +4168,7 @@
 				E9A75608274E6AB9005024B3 /* InputChatViewController.swift in Sources */,
 				E945188027D36ADD0048B133 /* GunParametersUnknown.swift in Sources */,
 				0E3DB3C8265D253A00CA2F2A /* OTPTextFieldSwiftUIView.swift in Sources */,
-				0E548733256413040089F37C /* LeadingComponentsViewController.swift in Sources */,
+				0E548733256413040089F37C /* CenterElementsViewController.swift in Sources */,
 				0E59D36E2632C264007B5CC1 /* UnderlineSliderTabSwiftUIView.swift in Sources */,
 				E69505B025ECFAD3006483F2 /* ColorEditViewController.swift in Sources */,
 				0EB1AC642657EE12007D7795 /* ItemSwiftUIRowScheme.swift in Sources */,
@@ -4017,7 +4190,7 @@
 				C6A561172671289600133D40 /* PinCodeTextFieldSwiftUIView.swift in Sources */,
 				C693089625949D760070B13B /* BottomSheetTableViewCell.swift in Sources */,
 				0EA9F825262F666F00808B38 /* StandardTabSwiftUIView.swift in Sources */,
-				0E195E722567DB970096780B /* ImageBaseCellDetailViewController.swift in Sources */,
+				0E195E722567DB970096780B /* LeadingElementsViewController.swift in Sources */,
 				0E3FB24A2559B1C00015019E /* AlertController.swift in Sources */,
 				E94518BA27D4A7270048B133 /* SwitcherPlain.swift in Sources */,
 				0ED8427228F81B8300BCFCCB /* InputNumbersSwiftUIItem.swift in Sources */,
@@ -4071,7 +4244,7 @@
 				E9332FC5277D95FE00F9AF26 /* CircularPageControlSwiftUI.swift in Sources */,
 				C6AD2A7B25E6D00400BC9E89 /* TextBaseCellView.swift in Sources */,
 				E9B82B8D27B521D100FC7BB9 /* SizeAwareModifier.swift in Sources */,
-				0E4BC8552681DBC0000FC891 /* ImageLableComponentsSwiftUIView.swift in Sources */,
+				0E4BC8552681DBC0000FC891 /* LeadingElementsSwiftUIView.swift in Sources */,
 				E6968DDF269C5FA60006F2B3 /* UIViewController+ThemeView.swift in Sources */,
 				3B592041278DC75400706DA6 /* AlertCustomScheme.swift in Sources */,
 				E945187C27D36AC20048B133 /* GunItems.swift in Sources */,
@@ -4090,6 +4263,7 @@
 				0EF8F7152535D95A002F9CF4 /* IconCell.swift in Sources */,
 				E9B82B8C27B521D100FC7BB9 /* SizePreferenceKey.swift in Sources */,
 				C674990625D3FB8E00232C5F /* LogoTabsViewController.swift in Sources */,
+				3B9AD51B292E63FD00466CD6 /* ControlCellViewCustomScheme.swift in Sources */,
 				C6DCBFF22631A92C00754365 /* BottomSheetBottomViewCustomScheme.swift in Sources */,
 				C6BA67DD2632DE70001A7EB6 /* SwitcherCellViewCustomScheme.swift in Sources */,
 				E9DAC2E727FB3A9700842ACB /* NormalBadgesViewModel.swift in Sources */,
@@ -4141,7 +4315,7 @@
 				0E3DB3FA265D3F3500CA2F2A /* BankTextFieldSwiftUIView.swift in Sources */,
 				C65A988B25C8BA4200C089B6 /* CheckBoxesCellView.swift in Sources */,
 				C6458330257133D300596402 /* SmallInformerView.swift in Sources */,
-				0EC13746266E1AA400F4EB7E /* LeadingComponentsSwiftUIView.swift in Sources */,
+				0EC13746266E1AA400F4EB7E /* CenterElementsSwiftUIView.swift in Sources */,
 				0E03D90826C42A0E00AD5D82 /* ToastNotificationsViewModel.swift in Sources */,
 				C670865425B9B5CF003F361C /* PageControlsViewController.swift in Sources */,
 				E9BE41D827C8D87600894224 /* MapButtonCellView.swift in Sources */,
@@ -4173,7 +4347,6 @@
 				0E76FB40253ED9AF001B1F3D /* RadioButtonViewController.swift in Sources */,
 				E9B90DA62906A5A000EBC9BC /* InputNumberViewController.swift in Sources */,
 				E9332FA2277C65F700F9AF26 /* UploadingFileCell.swift in Sources */,
-				0E195E6E2567DB140096780B /* ImageBaseCellViewController.swift in Sources */,
 				E9332F8A277A0AF400F9AF26 /* UploadingFileViewController.swift in Sources */,
 				0EDD49B6273D9FD0002386FB /* HorizontalViewController.swift in Sources */,
 				C6A1B8B525DA9552009E4D4F /* IconTabsViewController.swift in Sources */,
@@ -4220,7 +4393,6 @@
 				C6260AC6255C3230007175C2 /* NumberViewController.swift in Sources */,
 				E9C79CBB27BD1C120002EC49 /* AlertOnboardingViewController.swift in Sources */,
 				E640F65B25E11C230036E24E /* UIView+DefalutHighlight.swift in Sources */,
-				0E195E8F256805150096780B /* ImageBaseCellTralingViewController.swift in Sources */,
 				C6DCBFCB263169C700754365 /* BadgeCellViewCustomScheme.swift in Sources */,
 				C673512A25CC46690045C123 /* ThemesViewController.swift in Sources */,
 				E95DC44727A12DDA00532BDC /* Publishers+Extensions.swift in Sources */,
@@ -4274,7 +4446,7 @@
 				0ECF1B4E266153010068F591 /* InfoSwiftUIViewScheme.swift in Sources */,
 				0EEAF9E3261F8D2B00E46143 /* SwiftUIController.swift in Sources */,
 				E9BE41B027C7DFF400894224 /* IconsFlagsCurrencyViewModel.swift in Sources */,
-				0EC9B0FC25655C3F009B1FC0 /* TralingComponentsViewController.swift in Sources */,
+				0EC9B0FC25655C3F009B1FC0 /* TralingElementsViewController.swift in Sources */,
 				E945189827D36CFF0048B133 /* NetworkServiceProtocol.swift in Sources */,
 				3BB8D1DA285A0ACA004A656D /* GhostButtonSwiftUIView.swift in Sources */,
 				E9BE41AE27C7DFF400894224 /* CurrencyHeaderItem.swift in Sources */,
@@ -4330,7 +4502,6 @@
 				0E22C676262D01DF00D09FC5 /* SwitcherSwiftUIView.swift in Sources */,
 				E9A18D87273946BD00668C03 /* SwiftUIChatInputView.swift in Sources */,
 				0E73862D2775E07F003892C7 /* StaticNotificationView.swift in Sources */,
-				0E195E8D256805050096780B /* ImageBaseCellLeadingViewController.swift in Sources */,
 				E6903D8325DFAA9500245403 /* KeyboardBinder.swift in Sources */,
 				C655D4652608EAB0004973A3 /* ThemeSwitchButton.swift in Sources */,
 				C686569225596E3D00B885B8 /* MenuListCell.swift in Sources */,
@@ -4368,7 +4539,7 @@
 				C6DD6BAE260B97E0009799CB /* ThemeSwitchViewCoordinator.swift in Sources */,
 				E945189027D36CAA0048B133 /* AdmiralGunEndPoint.swift in Sources */,
 				0E4BC8A12681E96C000FC891 /* ImageTrailingLableComponentsSwiftUIView.swift in Sources */,
-				0E4BC72B267CF02A000FC891 /* TralingComponentsSwiftUIView.swift in Sources */,
+				0E4BC72B267CF02A000FC891 /* TralingElementsSwiftUIView.swift in Sources */,
 				3BB8D1CB28592D53004A656D /* GhostButtonViewController.swift in Sources */,
 				E9BE41D427C8D83C00894224 /* MapButtonsViewModel.swift in Sources */,
 				3B56DADA280D772900161355 /* PageViewController.swift in Sources */,
@@ -4384,8 +4555,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E97CAD5F27206BF7001283A1 /* AdmiralSwiftUITestsLaunchTests.swift in Sources */,
-				E97CAD5D27206BF7001283A1 /* AdmiralSwiftUITests.swift in Sources */,
+				D6B665AD2980083B00F209D8 /* AdmiralSwiftUILinksTest.swift in Sources */,
+				D6B665AB298006B200F209D8 /* AdmiralSwiftUISwitcherTest.swift in Sources */,
+				D65DC723299A486500353D15 /* AdmiralSwiftUIZeroscreenTest.swift in Sources */,
+				D6766CFF297EDF6E000761A4 /* AdmiralSwiftUITextBlocksTest.swift in Sources */,
+				D666871629880B8800BCED86 /* AdmiralSwiftUIFAQTest.swift in Sources */,
+				D655714929753B6B00A07F60 /* AdmiralSwiftUIButtonsTest.swift in Sources */,
+				D6B2931D2984238E00CE20AC /* AdmiralSwiftUIAlertTest.swift in Sources */,
+				D6573D2A298154AF00F546F9 /* AdmiralSwiftUICircularPageControlTest.swift in Sources */,
+				D65DC721299A473D00353D15 /* AdmiralSwiftUIOnboardingTest.swift in Sources */,
+				D6B2931F2987A59E00CE20AC /* AdmiralSwiftUICurrencyTest.swift in Sources */,
+				D6B665B52981499B00F209D8 /* AdmiralSwiftUILinerPageControl.swift in Sources */,
+				D6E595152989591C00519F59 /* AdmiralSwiftUIToolbarTest.swift in Sources */,
+				D6E595132989558000519F59 /* AdmiralSwiftUIThemesTest.swift in Sources */,
+				D6B665B32981390D00F209D8 /* AdmiralSwiftUIInformersAndNotificationsTest.swift in Sources */,
+				D65DC725299A4A0000353D15 /* AdmiralSwiftUIErrorViewTest.swift in Sources */,
+				D6D74667297AD58E00C46884 /* AdmiralSwiftUITabsTest.swift in Sources */,
+				D6B665A72980046200F209D8 /* AdmiralSwiftUICheckboxTest.swift in Sources */,
+				3B5A3BF6299BFD540055B74C /* CheckCurrentFramework.swift in Sources */,
+				D6B665A52980026300F209D8 /* AdmiralSwiftUIRadiobuttonTest.swift in Sources */,
+				D6B665AF29800A9B00F209D8 /* AdmiralSwiftUISpinnerTest.swift in Sources */,
+				D6B665A3298000E200F209D8 /* AdmiralSwiftUITagsAndChipsTest.swift in Sources */,
+				D65DC71F299A469400353D15 /* AdmiralSwiftUIShimmersTest.swift in Sources */,
+				D6B7250C2988097B00071009 /* AdmiralSwiftUIContactsTest.swift in Sources */,
+				D6B293212987A7AD00CE20AC /* AdmiralSwiftUIInfoTest.swift in Sources */,
+				D6B665A1297EE84900F209D8 /* AdmiralSwiftUICellsTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

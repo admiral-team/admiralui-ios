@@ -397,8 +397,7 @@ public class DoubleInputRangeTextField: UIView, AnyAppThemable, AccessibilitySup
         maxValueLabel.textColor = leftTextField.inputTextField.textColor
         fromLabel.textColor = leftTextField.decorationView.informerLabel.textColor
         destinationLabel.textColor = leftTextField.decorationView.informerLabel.textColor
-        trailingLabel.textColor = scheme.textFieldScheme.textColor.uiColor
-
+        trailingLabel.textColor = leftTextField.decorationView.leadingTextLabel.textColor
         switch state {
         case .normal, .error:
             slider.isEnabled = true
