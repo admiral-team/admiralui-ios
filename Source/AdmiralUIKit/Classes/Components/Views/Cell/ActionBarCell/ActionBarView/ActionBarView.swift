@@ -66,13 +66,9 @@ class ActionBarView: UIView, ActionBarViewStyleProtocol, AnyAppThemable {
     
     func apply(theme: AppTheme) {
         scheme = ActionBarViewScheme(theme: theme)
-        views.forEach {
-            if let view = $0 as? ActionItemBarDefaultView {
-                view.apply(theme: theme)
-            } else if let view = $0 as? ActionItemBarViewSecondary {
-                view.apply(theme: theme)
-            }
-        }
+        views.forEach({
+            ($0 as? (any AnyAppThemable))?.apply(theme: theme)
+        })
     }
     
     // MARK: - Private Properties
