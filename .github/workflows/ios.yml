@@ -5,6 +5,9 @@ on:
   pull_request:
     types: ['opened', 'synchronize', 'reopened']
     branches: ['main', 'develop', 'feature/**', 'rc/**']
+  pull_request_main:
+    types: ['opened', 'synchronize']
+    branches: ['main']
   workflow_dispatch:
 
 jobs:
@@ -34,7 +37,7 @@ jobs:
         if: ${{ failure() }}
         run:  bundle exec fastlane send_build_failed_info issue_name:${{ github.head_ref }} telegram_token:"$TELEGRAM_API_TOKEN" telegram_chat_id:"$TELEGRAM_DEV_CHAT_ID" build_url:"$PUll_NUMBER"
       - name: Start SwiftUI & UIKit UI tests
-        if: ${{ github.event_name == 'pull_request' && github.ref == 'refs/heads/main' }}
+        if: ${{ github.event_name == 'pull_request_main' }}
         run: bundle exec fastlane run_all_ui_tests
       - name: Check If Failed
         if: ${{ failure() }}
