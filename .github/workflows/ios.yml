@@ -33,15 +33,15 @@ jobs:
       - name: Check If Failed
         if: ${{ failure() }}
         run:  bundle exec fastlane send_build_failed_info issue_name:${{ github.head_ref }} telegram_token:"$TELEGRAM_API_TOKEN" telegram_chat_id:"$TELEGRAM_DEV_CHAT_ID" build_url:"$PUll_NUMBER"
-       - name: Start SwiftUI & UIKit UI tests
-         if: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.ref == 'main' }}
-         run: bundle exec fastlane run_all_ui_tests
+      - name: Start SwiftUI & UIKit UI tests
+        if: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.ref == 'main' }}
+        run: bundle exec fastlane run_all_ui_tests
       - name: Check If Failed
         if: ${{ failure() }}
         run:  bundle exec fastlane send_build_failed_info issue_name:${{ github.head_ref }} telegram_token:"$TELEGRAM_API_TOKEN" telegram_chat_id:"$TELEGRAM_DEV_CHAT_ID" build_url:"$PUll_NUMBER"
       - name: Deploy AppCenter Dev
         if: ${{ github.event_name == 'pull_request' }}
-        env:     
+        env:
           CI_PASSWORD:  ${{ secrets.CI_PASSWORD }}
         run: |
           bundle exec fastlane unlock_secrets_keychain password:"$CI_PASSWORD"
@@ -54,7 +54,7 @@ jobs:
         run: bundle exec fastlane build_git_packages
       - name: Deploy AppCenter Prod
         if: ${{ github.event_name == 'push' }}
-        env:     
+        env:
           CI_PASSWORD:  ${{ secrets.CI_PASSWORD }}
         run: |
           bundle exec fastlane unlock_secrets_keychain password:"$CI_PASSWORD"
