@@ -128,10 +128,10 @@ class AdmiralSwiftUIButtonsTest: XCTestCase {
     func changeThemes(app: XCUIApplication) {
         app.buttons["Ellipse"].tap()
         
-        app.buttons["ThemeSwitchButton_Dark"].tap()
-        app.buttons["ThemeSwitchButton_SME Light"].tap()
-        app.buttons["ThemeSwitchButton_SME Dark"].tap()
-        app.buttons["ThemeSwitchButton_Light"].tap()
+        app.buttons["ThemeSwitchButton_Dark"].forceTapElement()
+        app.buttons["ThemeSwitchButton_SME Light"].forceTapElement()
+        app.buttons["ThemeSwitchButton_SME Dark"].forceTapElement()
+        app.buttons["ThemeSwitchButton_Light"].forceTapElement()
         
         app.buttons["Ellipse"].tap()
     }
