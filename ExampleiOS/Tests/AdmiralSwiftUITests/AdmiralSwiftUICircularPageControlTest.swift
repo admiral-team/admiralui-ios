@@ -21,7 +21,7 @@ class AdmiralSwiftUICircularPageControlTest: XCTestCase {
         checkFramework(width: app, framework: .switUI)
         
         app.buttons["Page Controls"].tap()
-        app.buttons["Circular"].tap()
+        app.buttons["Circle"].tap()
         
         app.buttons["SliderControlsSecond"].tap()
         app.buttons["SliderControlsFirst"].tap()

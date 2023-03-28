@@ -150,6 +150,8 @@
 		0EFCDB5E26B88409006207B1 /* IconsFlagsCurrencySwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFCDB5D26B88409006207B1 /* IconsFlagsCurrencySwiftUIView.swift */; };
 		3B0268B627A85F7700B03E6F /* SwiftUITextMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0268B527A85F7700B03E6F /* SwiftUITextMessageViewModel.swift */; };
 		3B0268B827AAA8D900B03E6F /* SwiftUITextOperationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0268B727AAA8D900B03E6F /* SwiftUITextOperationViewModel.swift */; };
+		3B09272529D2E2680055B50F /* ForceTapElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B09272429D2E2680055B50F /* ForceTapElement.swift */; };
+		3B09272629D2E2680055B50F /* ForceTapElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B09272429D2E2680055B50F /* ForceTapElement.swift */; };
 		3B269E892844E50900922D12 /* UnderlineTabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B269E882844E50900922D12 /* UnderlineTabsViewController.swift */; };
 		3B269E8D2844E9AC00922D12 /* UnderlineCenterTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B269E8C2844E9AC00922D12 /* UnderlineCenterTabs.swift */; };
 		3B4F6BB02886D7130094C0FE /* ParagraphCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4F6BAF2886D7130094C0FE /* ParagraphCellView.swift */; };
@@ -691,6 +693,7 @@
 		0EFCDB5D26B88409006207B1 /* IconsFlagsCurrencySwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsFlagsCurrencySwiftUIView.swift; sourceTree = "<group>"; };
 		3B0268B527A85F7700B03E6F /* SwiftUITextMessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITextMessageViewModel.swift; sourceTree = "<group>"; };
 		3B0268B727AAA8D900B03E6F /* SwiftUITextOperationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITextOperationViewModel.swift; sourceTree = "<group>"; };
+		3B09272429D2E2680055B50F /* ForceTapElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForceTapElement.swift; sourceTree = "<group>"; };
 		3B269E882844E50900922D12 /* UnderlineTabsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineTabsViewController.swift; sourceTree = "<group>"; };
 		3B269E8C2844E9AC00922D12 /* UnderlineCenterTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineCenterTabs.swift; sourceTree = "<group>"; };
 		3B4F6BAF2886D7130094C0FE /* ParagraphCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParagraphCellView.swift; sourceTree = "<group>"; };
@@ -3021,6 +3024,7 @@
 			isa = PBXGroup;
 			children = (
 				3B5A3BF5299BFD540055B74C /* CheckCurrentFramework.swift */,
+				3B09272429D2E2680055B50F /* ForceTapElement.swift */,
 				E97CAD5B27206BF7001283A1 /* AdmiralSwiftUITests */,
 				D6245A02289981A60027F3CA /* AdmiralUIKitTests */,
 			);
@@ -4088,6 +4092,7 @@
 				D6FFAE3C293619F80059EBC2 /* AdmiralUICheckboxTest.swift in Sources */,
 				D635591828F45E7C00614406 /* AddUIKitShimmersTest.swift in Sources */,
 				D635591228F066E700614406 /* AddUIKitLinkTest.swift in Sources */,
+				3B09272629D2E2680055B50F /* ForceTapElement.swift in Sources */,
 				D635591628F44DA600614406 /* AddUIKitPageControlsTest.swift in Sources */,
 				D6245A10289982460027F3CA /* AdmiralUIThemesTest.swift in Sources */,
 				D635591428F067EA00614406 /* AddUIKitSpinnerTest.swift in Sources */,
@@ -4559,6 +4564,7 @@
 				D6B665AB298006B200F209D8 /* AdmiralSwiftUISwitcherTest.swift in Sources */,
 				D65DC723299A486500353D15 /* AdmiralSwiftUIZeroscreenTest.swift in Sources */,
 				D6766CFF297EDF6E000761A4 /* AdmiralSwiftUITextBlocksTest.swift in Sources */,
+				3B09272529D2E2680055B50F /* ForceTapElement.swift in Sources */,
 				D666871629880B8800BCED86 /* AdmiralSwiftUIFAQTest.swift in Sources */,
 				D655714929753B6B00A07F60 /* AdmiralSwiftUIButtonsTest.swift in Sources */,
 				D6B2931D2984238E00CE20AC /* AdmiralSwiftUIAlertTest.swift in Sources */,
