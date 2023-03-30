@@ -39,6 +39,10 @@ github.com/admiral-team/admiral-tools v0.0.0-20220617123606-53939dfd473b h1:T0zA
 github.com/admiral-team/admiral-tools v0.0.0-20220617123606-53939dfd473b/go.mod h1:BV3cI28dkTdODbZF44i2eIml78z9KyItPgu1Xc6FhsA=
 github.com/admiral-team/admiral-tools v0.0.0-20230323130820-1ff4dd8ac8f1 h1:B+GikiAgjcwXb4/3fTJ93f6N7n8sRa2vBOYOdzEGdzw=
 github.com/admiral-team/admiral-tools v0.0.0-20230323130820-1ff4dd8ac8f1/go.mod h1:IPsiBOauKr4dwrSJTQiSgtAPzNU+sdyBjSPSkFdnPm0=
+github.com/admiral-team/admiral-tools v0.0.0-20230330094602-167a37219e15 h1:EIpolfeEeaWfrwcwLo/RzcPpaP56h94m/lDtvYdTXIk=
+github.com/admiral-team/admiral-tools v0.0.0-20230330094602-167a37219e15/go.mod h1:IPsiBOauKr4dwrSJTQiSgtAPzNU+sdyBjSPSkFdnPm0=
+github.com/admiral-team/admiral-tools v0.0.0-20230330111656-eefe50a52861 h1:HKC4VroCXvDQCBW2uos4Pg2j/g31AkuwCzd35/SzvKM=
+github.com/admiral-team/admiral-tools v0.0.0-20230330111656-eefe50a52861/go.mod h1:IPsiBOauKr4dwrSJTQiSgtAPzNU+sdyBjSPSkFdnPm0=
 github.com/census-instrumentation/opencensus-proto v0.2.1/go.mod h1:f6KPmirojxKA12rnyqOA5BBL4O983OfeGPqjHWSTneU=
 github.com/chzyer/logex v1.1.10/go.mod h1:+Ywpsq7O8HXn0nuIou7OrIPyXbp3wmkHB+jjWRnGsAI=
 github.com/chzyer/readline v0.0.0-20180603132655-2972be24d48e/go.mod h1:nSuG5e5PlCu98SY8svDHJxuZscDgtXS6KTTbou5AhLI=

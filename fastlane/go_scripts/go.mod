@@ -10,7 +10,7 @@ require (
 
 require (
 	github.com/Jeffail/gabs v1.4.0 // indirect
-	github.com/admiral-team/admiral-tools v0.0.0-20230323130820-1ff4dd8ac8f1 // indirect
+	github.com/admiral-team/admiral-tools v0.0.0-20230330111656-eefe50a52861 // indirect
 	github.com/go-playground/colors v1.3.0 // indirect
 	github.com/google/go-github/v45 v45.2.0 // indirect
 	github.com/iancoleman/strcase v0.2.0 // indirect
