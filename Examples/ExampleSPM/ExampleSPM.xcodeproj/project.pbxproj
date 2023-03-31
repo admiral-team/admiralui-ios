@@ -365,8 +365,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/admiral-team/admiralui-ios.git";
 			requirement = {
-				kind = exactVersion;
-				version = 11.0.1;
+				branch = main;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
