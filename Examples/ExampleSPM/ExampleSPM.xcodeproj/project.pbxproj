@@ -3,76 +3,66 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7126C06D29D714B400FA76EC /* ExampleSPMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7126C06C29D714B400FA76EC /* ExampleSPMApp.swift */; };
-		7126C06F29D714B400FA76EC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7126C06E29D714B400FA76EC /* ContentView.swift */; };
-		7126C07129D714B500FA76EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7126C07029D714B500FA76EC /* Assets.xcassets */; };
-		7126C07429D714B500FA76EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7126C07329D714B500FA76EC /* Preview Assets.xcassets */; };
-		7126C07C29D714F700FA76EC /* AdmiralCore in Frameworks */ = {isa = PBXBuildFile; productRef = 7126C07B29D714F700FA76EC /* AdmiralCore */; };
-		7126C07E29D714F700FA76EC /* AdmiralSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 7126C07D29D714F700FA76EC /* AdmiralSwiftUI */; };
-		7126C08029D714F700FA76EC /* AdmiralTheme in Frameworks */ = {isa = PBXBuildFile; productRef = 7126C07F29D714F700FA76EC /* AdmiralTheme */; };
-		7126C08229D714F700FA76EC /* AdmiralUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7126C08129D714F700FA76EC /* AdmiralUIKit */; };
-		7126C08429D714F700FA76EC /* AdmiralUIResources in Frameworks */ = {isa = PBXBuildFile; productRef = 7126C08329D714F700FA76EC /* AdmiralUIResources */; };
+		7126C09729D7265A00FA76EC /* ExampleSPMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7126C09629D7265A00FA76EC /* ExampleSPMApp.swift */; };
+		7126C09929D7265A00FA76EC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7126C09829D7265A00FA76EC /* ContentView.swift */; };
+		7126C09B29D7265A00FA76EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7126C09A29D7265A00FA76EC /* Assets.xcassets */; };
+		7126C09E29D7265A00FA76EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7126C09D29D7265A00FA76EC /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7126C06929D714B400FA76EC /* ExampleSPM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleSPM.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7126C06C29D714B400FA76EC /* ExampleSPMApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleSPMApp.swift; sourceTree = "<group>"; };
-		7126C06E29D714B400FA76EC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		7126C07029D714B500FA76EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7126C07329D714B500FA76EC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7126C09329D7265A00FA76EC /* ExampleSPM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleSPM.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7126C09629D7265A00FA76EC /* ExampleSPMApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleSPMApp.swift; sourceTree = "<group>"; };
+		7126C09829D7265A00FA76EC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7126C09A29D7265A00FA76EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7126C09D29D7265A00FA76EC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		7126C06629D714B400FA76EC /* Frameworks */ = {
+		7126C09029D7265A00FA76EC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7126C08229D714F700FA76EC /* AdmiralUIKit in Frameworks */,
-				7126C07C29D714F700FA76EC /* AdmiralCore in Frameworks */,
-				7126C08029D714F700FA76EC /* AdmiralTheme in Frameworks */,
-				7126C07E29D714F700FA76EC /* AdmiralSwiftUI in Frameworks */,
-				7126C08429D714F700FA76EC /* AdmiralUIResources in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7126C06029D714B400FA76EC = {
+		7126C08A29D7265A00FA76EC = {
 			isa = PBXGroup;
 			children = (
-				7126C06B29D714B400FA76EC /* ExampleSPM */,
-				7126C06A29D714B400FA76EC /* Products */,
+				7126C09529D7265A00FA76EC /* ExampleSPM */,
+				7126C09429D7265A00FA76EC /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		7126C06A29D714B400FA76EC /* Products */ = {
+		7126C09429D7265A00FA76EC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7126C06929D714B400FA76EC /* ExampleSPM.app */,
+				7126C09329D7265A00FA76EC /* ExampleSPM.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7126C06B29D714B400FA76EC /* ExampleSPM */ = {
+		7126C09529D7265A00FA76EC /* ExampleSPM */ = {
 			isa = PBXGroup;
 			children = (
-				7126C06C29D714B400FA76EC /* ExampleSPMApp.swift */,
-				7126C06E29D714B400FA76EC /* ContentView.swift */,
-				7126C07029D714B500FA76EC /* Assets.xcassets */,
-				7126C07229D714B500FA76EC /* Preview Content */,
+				7126C09629D7265A00FA76EC /* ExampleSPMApp.swift */,
+				7126C09829D7265A00FA76EC /* ContentView.swift */,
+				7126C09A29D7265A00FA76EC /* Assets.xcassets */,
+				7126C09C29D7265A00FA76EC /* Preview Content */,
 			);
 			path = ExampleSPM;
 			sourceTree = "<group>";
 		};
-		7126C07229D714B500FA76EC /* Preview Content */ = {
+		7126C09C29D7265A00FA76EC /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				7126C07329D714B500FA76EC /* Preview Assets.xcassets */,
+				7126C09D29D7265A00FA76EC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -80,92 +70,82 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7126C06829D714B400FA76EC /* ExampleSPM */ = {
+		7126C09229D7265A00FA76EC /* ExampleSPM */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7126C07729D714B500FA76EC /* Build configuration list for PBXNativeTarget "ExampleSPM" */;
+			buildConfigurationList = 7126C0A129D7265A00FA76EC /* Build configuration list for PBXNativeTarget "ExampleSPM" */;
 			buildPhases = (
-				7126C06529D714B400FA76EC /* Sources */,
-				7126C06629D714B400FA76EC /* Frameworks */,
-				7126C06729D714B400FA76EC /* Resources */,
+				7126C08F29D7265A00FA76EC /* Sources */,
+				7126C09029D7265A00FA76EC /* Frameworks */,
+				7126C09129D7265A00FA76EC /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = ExampleSPM;
-			packageProductDependencies = (
-				7126C07B29D714F700FA76EC /* AdmiralCore */,
-				7126C07D29D714F700FA76EC /* AdmiralSwiftUI */,
-				7126C07F29D714F700FA76EC /* AdmiralTheme */,
-				7126C08129D714F700FA76EC /* AdmiralUIKit */,
-				7126C08329D714F700FA76EC /* AdmiralUIResources */,
-			);
 			productName = ExampleSPM;
-			productReference = 7126C06929D714B400FA76EC /* ExampleSPM.app */;
+			productReference = 7126C09329D7265A00FA76EC /* ExampleSPM.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		7126C06129D714B400FA76EC /* Project object */ = {
+		7126C08B29D7265A00FA76EC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
-					7126C06829D714B400FA76EC = {
+					7126C09229D7265A00FA76EC = {
 						CreatedOnToolsVersion = 14.2;
 					};
 				};
 			};
-			buildConfigurationList = 7126C06429D714B400FA76EC /* Build configuration list for PBXProject "ExampleSPM" */;
-			compatibilityVersion = "Xcode 12.0";
+			buildConfigurationList = 7126C08E29D7265A00FA76EC /* Build configuration list for PBXProject "ExampleSPM" */;
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 7126C06029D714B400FA76EC;
-			packageReferences = (
-				7126C07A29D714F700FA76EC /* XCRemoteSwiftPackageReference "admiralui-ios" */,
-			);
-			productRefGroup = 7126C06A29D714B400FA76EC /* Products */;
+			mainGroup = 7126C08A29D7265A00FA76EC;
+			productRefGroup = 7126C09429D7265A00FA76EC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7126C06829D714B400FA76EC /* ExampleSPM */,
+				7126C09229D7265A00FA76EC /* ExampleSPM */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		7126C06729D714B400FA76EC /* Resources */ = {
+		7126C09129D7265A00FA76EC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7126C07429D714B500FA76EC /* Preview Assets.xcassets in Resources */,
-				7126C07129D714B500FA76EC /* Assets.xcassets in Resources */,
+				7126C09E29D7265A00FA76EC /* Preview Assets.xcassets in Resources */,
+				7126C09B29D7265A00FA76EC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		7126C06529D714B400FA76EC /* Sources */ = {
+		7126C08F29D7265A00FA76EC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7126C06F29D714B400FA76EC /* ContentView.swift in Sources */,
-				7126C06D29D714B400FA76EC /* ExampleSPMApp.swift in Sources */,
+				7126C09929D7265A00FA76EC /* ContentView.swift in Sources */,
+				7126C09729D7265A00FA76EC /* ExampleSPMApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		7126C07529D714B500FA76EC /* Debug */ = {
+		7126C09F29D7265A00FA76EC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -225,7 +205,7 @@
 			};
 			name = Debug;
 		};
-		7126C07629D714B500FA76EC /* Release */ = {
+		7126C0A029D7265A00FA76EC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -279,7 +259,7 @@
 			};
 			name = Release;
 		};
-		7126C07829D714B500FA76EC /* Debug */ = {
+		7126C0A229D7265A00FA76EC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -308,7 +288,7 @@
 			};
 			name = Debug;
 		};
-		7126C07929D714B500FA76EC /* Release */ = {
+		7126C0A329D7265A00FA76EC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -340,64 +320,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7126C06429D714B400FA76EC /* Build configuration list for PBXProject "ExampleSPM" */ = {
+		7126C08E29D7265A00FA76EC /* Build configuration list for PBXProject "ExampleSPM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7126C07529D714B500FA76EC /* Debug */,
-				7126C07629D714B500FA76EC /* Release */,
+				7126C09F29D7265A00FA76EC /* Debug */,
+				7126C0A029D7265A00FA76EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7126C07729D714B500FA76EC /* Build configuration list for PBXNativeTarget "ExampleSPM" */ = {
+		7126C0A129D7265A00FA76EC /* Build configuration list for PBXNativeTarget "ExampleSPM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7126C07829D714B500FA76EC /* Debug */,
-				7126C07929D714B500FA76EC /* Release */,
+				7126C0A229D7265A00FA76EC /* Debug */,
+				7126C0A329D7265A00FA76EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		7126C07A29D714F700FA76EC /* XCRemoteSwiftPackageReference "admiralui-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/admiral-team/admiralui-ios.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		7126C07B29D714F700FA76EC /* AdmiralCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7126C07A29D714F700FA76EC /* XCRemoteSwiftPackageReference "admiralui-ios" */;
-			productName = AdmiralCore;
-		};
-		7126C07D29D714F700FA76EC /* AdmiralSwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7126C07A29D714F700FA76EC /* XCRemoteSwiftPackageReference "admiralui-ios" */;
-			productName = AdmiralSwiftUI;
-		};
-		7126C07F29D714F700FA76EC /* AdmiralTheme */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7126C07A29D714F700FA76EC /* XCRemoteSwiftPackageReference "admiralui-ios" */;
-			productName = AdmiralTheme;
-		};
-		7126C08129D714F700FA76EC /* AdmiralUIKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7126C07A29D714F700FA76EC /* XCRemoteSwiftPackageReference "admiralui-ios" */;
-			productName = AdmiralUIKit;
-		};
-		7126C08329D714F700FA76EC /* AdmiralUIResources */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7126C07A29D714F700FA76EC /* XCRemoteSwiftPackageReference "admiralui-ios" */;
-			productName = AdmiralUIResources;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = 7126C06129D714B400FA76EC /* Project object */;
+	rootObject = 7126C08B29D7265A00FA76EC /* Project object */;
 }
