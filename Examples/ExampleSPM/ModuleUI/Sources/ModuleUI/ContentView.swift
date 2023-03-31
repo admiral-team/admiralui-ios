@@ -10,11 +10,15 @@ import AdmiralUIKit
 import AdmiralSwiftUI
 import AdmiralUIResources
 
-struct ContentView: View {
+public struct ContentView: View {
     
     @State var text: String? = "Text"
+    
+    public init() {
+        //
+    }
         
-    var body: some View {
+    public var body: some View {
         VStack() {
             Spacer()
             SwiftUI.Button("SwiftUI", action: {})

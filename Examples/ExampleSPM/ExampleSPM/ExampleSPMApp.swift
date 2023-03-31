@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ModuleUI
 
 @main
 struct ExampleSPMApp: App {

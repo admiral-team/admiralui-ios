@@ -336,12 +336,14 @@ lane :validate_spm_example do |options|
   branch_name = options[:branch_name]
 
   Dir.chdir("../Examples/ExampleSPM") do
-    system("rm ./ExampleSPM.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved")
-
     unless branch_name.nil?
       file = Dir.pwd + "/ExampleSPM.xcodeproj/project.pbxproj"
       replace(file: file, regex: /branch = main;/, with: "branch = #{branch_name};")
     end
+
+    system("rm ./ExampleSPM.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved")
+    system("cd ./ModuleUI; swift package update")
+    system("cd ./ModuleUI; swift package resolve")
 
     build_app(
       clean: true,
