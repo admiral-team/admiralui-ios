@@ -19,7 +19,7 @@ public typealias Font = FontConvertible.Font
 // swiftlint:disable identifier_name line_length type_body_length
 public enum FontFamily {
   public enum SFProDisplay {
-    public static let bold = FontConvertible(nameSOMEERROR: "SFProDisplay-Bold", family: "SF Pro Display", path: "SFProDisplay-Bold.otf")
+    public static let bold = FontConvertible(name: "SFProDisplay-Bold", family: "SF Pro Display", path: "SFProDisplay-Bold.otf")
     public static let medium = FontConvertible(name: "SFProDisplay-Medium", family: "SF Pro Display", path: "SFProDisplay-Medium.otf")
     public static let regular = FontConvertible(name: "SFProDisplay-Regular", family: "SF Pro Display", path: "SFProDisplay-Regular.otf")
     public static let semibold = FontConvertible(name: "SFProDisplay-Semibold", family: "SF Pro Display", path: "SFProDisplay-Semibold.otf")
