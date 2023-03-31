@@ -11,6 +11,11 @@
 		7126C09929D7265A00FA76EC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7126C09829D7265A00FA76EC /* ContentView.swift */; };
 		7126C09B29D7265A00FA76EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7126C09A29D7265A00FA76EC /* Assets.xcassets */; };
 		7126C09E29D7265A00FA76EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7126C09D29D7265A00FA76EC /* Preview Assets.xcassets */; };
+		7126C0A629D7279200FA76EC /* AdmiralCore in Frameworks */ = {isa = PBXBuildFile; productRef = 7126C0A529D7279200FA76EC /* AdmiralCore */; };
+		7126C0A829D7279200FA76EC /* AdmiralSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 7126C0A729D7279200FA76EC /* AdmiralSwiftUI */; };
+		7126C0AA29D7279200FA76EC /* AdmiralTheme in Frameworks */ = {isa = PBXBuildFile; productRef = 7126C0A929D7279200FA76EC /* AdmiralTheme */; };
+		7126C0AC29D7279200FA76EC /* AdmiralUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7126C0AB29D7279200FA76EC /* AdmiralUIKit */; };
+		7126C0AE29D7279200FA76EC /* AdmiralUIResources in Frameworks */ = {isa = PBXBuildFile; productRef = 7126C0AD29D7279200FA76EC /* AdmiralUIResources */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7126C0AC29D7279200FA76EC /* AdmiralUIKit in Frameworks */,
+				7126C0A629D7279200FA76EC /* AdmiralCore in Frameworks */,
+				7126C0AA29D7279200FA76EC /* AdmiralTheme in Frameworks */,
+				7126C0A829D7279200FA76EC /* AdmiralSwiftUI in Frameworks */,
+				7126C0AE29D7279200FA76EC /* AdmiralUIResources in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +93,13 @@
 			dependencies = (
 			);
 			name = ExampleSPM;
+			packageProductDependencies = (
+				7126C0A529D7279200FA76EC /* AdmiralCore */,
+				7126C0A729D7279200FA76EC /* AdmiralSwiftUI */,
+				7126C0A929D7279200FA76EC /* AdmiralTheme */,
+				7126C0AB29D7279200FA76EC /* AdmiralUIKit */,
+				7126C0AD29D7279200FA76EC /* AdmiralUIResources */,
+			);
 			productName = ExampleSPM;
 			productReference = 7126C09329D7265A00FA76EC /* ExampleSPM.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +128,9 @@
 				Base,
 			);
 			mainGroup = 7126C08A29D7265A00FA76EC;
+			packageReferences = (
+				7126C0A429D7279200FA76EC /* XCRemoteSwiftPackageReference "admiralui-ios" */,
+			);
 			productRefGroup = 7126C09429D7265A00FA76EC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -339,6 +359,45 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7126C0A429D7279200FA76EC /* XCRemoteSwiftPackageReference "admiralui-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/admiral-team/admiralui-ios.git";
+			requirement = {
+				kind = exactVersion;
+				version = 11.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7126C0A529D7279200FA76EC /* AdmiralCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7126C0A429D7279200FA76EC /* XCRemoteSwiftPackageReference "admiralui-ios" */;
+			productName = AdmiralCore;
+		};
+		7126C0A729D7279200FA76EC /* AdmiralSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7126C0A429D7279200FA76EC /* XCRemoteSwiftPackageReference "admiralui-ios" */;
+			productName = AdmiralSwiftUI;
+		};
+		7126C0A929D7279200FA76EC /* AdmiralTheme */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7126C0A429D7279200FA76EC /* XCRemoteSwiftPackageReference "admiralui-ios" */;
+			productName = AdmiralTheme;
+		};
+		7126C0AB29D7279200FA76EC /* AdmiralUIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7126C0A429D7279200FA76EC /* XCRemoteSwiftPackageReference "admiralui-ios" */;
+			productName = AdmiralUIKit;
+		};
+		7126C0AD29D7279200FA76EC /* AdmiralUIResources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7126C0A429D7279200FA76EC /* XCRemoteSwiftPackageReference "admiralui-ios" */;
+			productName = AdmiralUIResources;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7126C08B29D7265A00FA76EC /* Project object */;
 }

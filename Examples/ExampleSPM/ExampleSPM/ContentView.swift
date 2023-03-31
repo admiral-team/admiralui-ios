@@ -2,20 +2,44 @@
 //  ContentView.swift
 //  ExampleSPM
 //
-//  Created by ton252 on 31.03.2023.
+//  Created by ANpolyakov on 29.06.2021.
 //
 
 import SwiftUI
+import AdmiralUIKit
+import AdmiralSwiftUI
+import AdmiralUIResources
 
 struct ContentView: View {
+    
+    @State var text: String? = "Text"
+        
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
+        VStack() {
+            Spacer()
+            SwiftUI.Button("", action: {})
+                .buttonStyle(PrimaryButtonStyle())
+            TextView($text, placeholder: "Place", name: "Name")
+            StandardTextField(
+                $text,
+                placeholder: "Placeholder",
+                name: "Name")
+            WrapedPrimaryButton(text: .constant("UIKit"))
+                .fixedSize(horizontal: false, vertical: true)
+            Spacer()
+        }.padding(.horizontal)
+    }
+}
+
+struct WrapedPrimaryButton: UIViewRepresentable {
+    @Binding var text: String?
+
+    func makeUIView(context: Context) -> UIButton {
+        return AdmiralUIKit.PrimaryButton();
+    }
+
+    func updateUIView(_ uiView: UIButton, context: Context) {
+        uiView.setTitle(text, for: .normal);
     }
 }
 
