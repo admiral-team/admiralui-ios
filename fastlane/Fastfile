@@ -335,19 +335,23 @@ end
 lane :validate_spm_example do |options|
   branch_name = options[:branch_name]
 
-  unless branch_name.nil?
-    file = Dir.pwd + "/../Examples/ExampleSPM/ExampleSPM.xcodeproj/project.pbxproj"
-    replace(file: file, regex: /branch = main;/, with: "branch = #{branch_name};")
-  end
+  Dir.chdir("../Examples/ExampleSPM") do
+    system("rm ./ExampleSPM.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved")
 
-  build_app(
-    clean: true,
-    scheme: "ExampleSPM",
-    configuration: "Release",
-    skip_codesigning: true,
-    skip_archive: true,
-    project: Dir.pwd + "/../Examples/ExampleSPM/ExampleSPM.xcodeproj",
-  )
+    unless branch_name.nil?
+      file = Dir.pwd + "/ExampleSPM.xcodeproj/project.pbxproj"
+      replace(file: file, regex: /branch = main;/, with: "branch = #{branch_name};")
+    end
+
+    build_app(
+      clean: true,
+      scheme: "ExampleSPM",
+      configuration: "Release",
+      skip_codesigning: true,
+      skip_archive: true,
+      project: Dir.pwd + "/ExampleSPM.xcodeproj",
+    )
+  end
 end
 
 lane :validate_cocoapods_example do |options|branch_name = options[:branch_name]
