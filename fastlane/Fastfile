@@ -333,31 +333,12 @@ lane :validate_depenecy_managers do |options|
 end
 
 lane :validate_spm_example do |options|
-  # branch_name = options[:branch_name]
+  branch_name = options[:branch_name]
 
-  # unless branch_name.nil?
-  #   file = Dir.pwd + "/../Examples/ExampleSPM/ExampleSPM.xcodeproj/project.pbxproj"
-  #   replace(file: file, regex: /branch = main;/, with: "branch = #{branch_name};")
-  # end
-
-  Dir.chdir("../Examples/ExampleSPM") do
-    # system("rm ./ExampleSPM.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved")
-    # system("rm -rf ~/Library/Caches/org.swift.swiftpm/repositories/admiralui-ios*")
-    # system("rm -rf $(xcodebuild -showBuildSettings | grep -m 1 BUILD_DIR | grep -oE \"\/.*\" | sed 's|/Build/Products||')")
-    # system("swift package clean")
-    # system("swift package reset")
-    # system("swift package purge-cache")
-    # system("swift package update")
-    # system("swift package resolve")
-    # system("xcodebuild -resolvePackageDependencies")
+  unless branch_name.nil?
+    file = Dir.pwd + "/../Examples/ExampleSPM/ExampleSPM.xcodeproj/project.pbxproj"
+    replace(file: file, regex: /branch = main;/, with: "branch = #{branch_name};")
   end
-  # system("cd ../Examples/ExampleSPM")
-  # system("ls")
-
-  # system("cd ../Examples/ExampleSPM")
-  # system("rm ./ExampleSPM.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved")
-  # system("rm -rf $(xcodebuild -showBuildSettings | grep -m 1 BUILD_DIR | grep -oE \"\/.*\" | sed 's|/Build/Products||')")
-  # system("xcodebuild -resolvePackageDependencies")
 
   build_app(
     clean: true,
@@ -367,16 +348,6 @@ lane :validate_spm_example do |options|
     skip_archive: true,
     project: Dir.pwd + "/../Examples/ExampleSPM/ExampleSPM.xcodeproj",
   )
-  xcodebuild clean build \
-  -project ExampleSPM.xcodeproj \
-  -scheme ExampleSPM \
-  -configuration Release \
-  -destination generic/platform=iOS \
-  -archivePath ExampleSPM.xcarchive \
-  -resolvePackageDependencies \
-  -disablePackageRepositoryCache \
-  SKIP_INSTALL=NO \
-  BUILD_LIBRARY_FOR_DISTRIBUTION=YES
 end
 
 lane :validate_cocoapods_example do |options|branch_name = options[:branch_name]
