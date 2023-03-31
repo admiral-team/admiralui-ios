@@ -3,78 +3,76 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B939D1228D8CC0C00E5CCC7 /* AdmiralCore in Frameworks */ = {isa = PBXBuildFile; productRef = 3B939D1128D8CC0C00E5CCC7 /* AdmiralCore */; };
-		3B939D1428D8CC0C00E5CCC7 /* AdmiralSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 3B939D1328D8CC0C00E5CCC7 /* AdmiralSwiftUI */; };
-		3B939D1628D8CC0C00E5CCC7 /* AdmiralTheme in Frameworks */ = {isa = PBXBuildFile; productRef = 3B939D1528D8CC0C00E5CCC7 /* AdmiralTheme */; };
-		3B939D1828D8CC0C00E5CCC7 /* AdmiralUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3B939D1728D8CC0C00E5CCC7 /* AdmiralUIKit */; };
-		3B939D1A28D8CC0C00E5CCC7 /* AdmiralUIResources in Frameworks */ = {isa = PBXBuildFile; productRef = 3B939D1928D8CC0C00E5CCC7 /* AdmiralUIResources */; };
-		E63BB8D8268B7D9600385DBF /* ExampleSPMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63BB8D7268B7D9600385DBF /* ExampleSPMApp.swift */; };
-		E63BB8DA268B7D9600385DBF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63BB8D9268B7D9600385DBF /* ContentView.swift */; };
-		E63BB8DC268B7D9700385DBF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E63BB8DB268B7D9700385DBF /* Assets.xcassets */; };
-		E63BB8DF268B7D9700385DBF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E63BB8DE268B7D9700385DBF /* Preview Assets.xcassets */; };
+		7126C06D29D714B400FA76EC /* ExampleSPMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7126C06C29D714B400FA76EC /* ExampleSPMApp.swift */; };
+		7126C06F29D714B400FA76EC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7126C06E29D714B400FA76EC /* ContentView.swift */; };
+		7126C07129D714B500FA76EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7126C07029D714B500FA76EC /* Assets.xcassets */; };
+		7126C07429D714B500FA76EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7126C07329D714B500FA76EC /* Preview Assets.xcassets */; };
+		7126C07C29D714F700FA76EC /* AdmiralCore in Frameworks */ = {isa = PBXBuildFile; productRef = 7126C07B29D714F700FA76EC /* AdmiralCore */; };
+		7126C07E29D714F700FA76EC /* AdmiralSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 7126C07D29D714F700FA76EC /* AdmiralSwiftUI */; };
+		7126C08029D714F700FA76EC /* AdmiralTheme in Frameworks */ = {isa = PBXBuildFile; productRef = 7126C07F29D714F700FA76EC /* AdmiralTheme */; };
+		7126C08229D714F700FA76EC /* AdmiralUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7126C08129D714F700FA76EC /* AdmiralUIKit */; };
+		7126C08429D714F700FA76EC /* AdmiralUIResources in Frameworks */ = {isa = PBXBuildFile; productRef = 7126C08329D714F700FA76EC /* AdmiralUIResources */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E63BB8D4268B7D9600385DBF /* ExampleSPM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleSPM.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E63BB8D7268B7D9600385DBF /* ExampleSPMApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleSPMApp.swift; sourceTree = "<group>"; };
-		E63BB8D9268B7D9600385DBF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		E63BB8DB268B7D9700385DBF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E63BB8DE268B7D9700385DBF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		E63BB8E0268B7D9700385DBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7126C06929D714B400FA76EC /* ExampleSPM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleSPM.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7126C06C29D714B400FA76EC /* ExampleSPMApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleSPMApp.swift; sourceTree = "<group>"; };
+		7126C06E29D714B400FA76EC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7126C07029D714B500FA76EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7126C07329D714B500FA76EC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		E63BB8D1268B7D9600385DBF /* Frameworks */ = {
+		7126C06629D714B400FA76EC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B939D1828D8CC0C00E5CCC7 /* AdmiralUIKit in Frameworks */,
-				3B939D1228D8CC0C00E5CCC7 /* AdmiralCore in Frameworks */,
-				3B939D1628D8CC0C00E5CCC7 /* AdmiralTheme in Frameworks */,
-				3B939D1428D8CC0C00E5CCC7 /* AdmiralSwiftUI in Frameworks */,
-				3B939D1A28D8CC0C00E5CCC7 /* AdmiralUIResources in Frameworks */,
+				7126C08229D714F700FA76EC /* AdmiralUIKit in Frameworks */,
+				7126C07C29D714F700FA76EC /* AdmiralCore in Frameworks */,
+				7126C08029D714F700FA76EC /* AdmiralTheme in Frameworks */,
+				7126C07E29D714F700FA76EC /* AdmiralSwiftUI in Frameworks */,
+				7126C08429D714F700FA76EC /* AdmiralUIResources in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E63BB8CB268B7D9600385DBF = {
+		7126C06029D714B400FA76EC = {
 			isa = PBXGroup;
 			children = (
-				E63BB8D6268B7D9600385DBF /* ExampleSPM */,
-				E63BB8D5268B7D9600385DBF /* Products */,
+				7126C06B29D714B400FA76EC /* ExampleSPM */,
+				7126C06A29D714B400FA76EC /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		E63BB8D5268B7D9600385DBF /* Products */ = {
+		7126C06A29D714B400FA76EC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E63BB8D4268B7D9600385DBF /* ExampleSPM.app */,
+				7126C06929D714B400FA76EC /* ExampleSPM.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E63BB8D6268B7D9600385DBF /* ExampleSPM */ = {
+		7126C06B29D714B400FA76EC /* ExampleSPM */ = {
 			isa = PBXGroup;
 			children = (
-				E63BB8D7268B7D9600385DBF /* ExampleSPMApp.swift */,
-				E63BB8D9268B7D9600385DBF /* ContentView.swift */,
-				E63BB8DB268B7D9700385DBF /* Assets.xcassets */,
-				E63BB8E0268B7D9700385DBF /* Info.plist */,
-				E63BB8DD268B7D9700385DBF /* Preview Content */,
+				7126C06C29D714B400FA76EC /* ExampleSPMApp.swift */,
+				7126C06E29D714B400FA76EC /* ContentView.swift */,
+				7126C07029D714B500FA76EC /* Assets.xcassets */,
+				7126C07229D714B500FA76EC /* Preview Content */,
 			);
 			path = ExampleSPM;
 			sourceTree = "<group>";
 		};
-		E63BB8DD268B7D9700385DBF /* Preview Content */ = {
+		7126C07229D714B500FA76EC /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				E63BB8DE268B7D9700385DBF /* Preview Assets.xcassets */,
+				7126C07329D714B500FA76EC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -82,13 +80,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E63BB8D3268B7D9600385DBF /* ExampleSPM */ = {
+		7126C06829D714B400FA76EC /* ExampleSPM */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E63BB8E3268B7D9700385DBF /* Build configuration list for PBXNativeTarget "ExampleSPM" */;
+			buildConfigurationList = 7126C07729D714B500FA76EC /* Build configuration list for PBXNativeTarget "ExampleSPM" */;
 			buildPhases = (
-				E63BB8D0268B7D9600385DBF /* Sources */,
-				E63BB8D1268B7D9600385DBF /* Frameworks */,
-				E63BB8D2268B7D9600385DBF /* Resources */,
+				7126C06529D714B400FA76EC /* Sources */,
+				7126C06629D714B400FA76EC /* Frameworks */,
+				7126C06729D714B400FA76EC /* Resources */,
 			);
 			buildRules = (
 			);
@@ -96,84 +94,84 @@
 			);
 			name = ExampleSPM;
 			packageProductDependencies = (
-				3B939D1128D8CC0C00E5CCC7 /* AdmiralCore */,
-				3B939D1328D8CC0C00E5CCC7 /* AdmiralSwiftUI */,
-				3B939D1528D8CC0C00E5CCC7 /* AdmiralTheme */,
-				3B939D1728D8CC0C00E5CCC7 /* AdmiralUIKit */,
-				3B939D1928D8CC0C00E5CCC7 /* AdmiralUIResources */,
+				7126C07B29D714F700FA76EC /* AdmiralCore */,
+				7126C07D29D714F700FA76EC /* AdmiralSwiftUI */,
+				7126C07F29D714F700FA76EC /* AdmiralTheme */,
+				7126C08129D714F700FA76EC /* AdmiralUIKit */,
+				7126C08329D714F700FA76EC /* AdmiralUIResources */,
 			);
 			productName = ExampleSPM;
-			productReference = E63BB8D4268B7D9600385DBF /* ExampleSPM.app */;
+			productReference = 7126C06929D714B400FA76EC /* ExampleSPM.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		E63BB8CC268B7D9600385DBF /* Project object */ = {
+		7126C06129D714B400FA76EC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
 				TargetAttributes = {
-					E63BB8D3268B7D9600385DBF = {
-						CreatedOnToolsVersion = 12.4;
+					7126C06829D714B400FA76EC = {
+						CreatedOnToolsVersion = 14.2;
 					};
 				};
 			};
-			buildConfigurationList = E63BB8CF268B7D9600385DBF /* Build configuration list for PBXProject "ExampleSPM" */;
-			compatibilityVersion = "Xcode 9.3";
+			buildConfigurationList = 7126C06429D714B400FA76EC /* Build configuration list for PBXProject "ExampleSPM" */;
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = E63BB8CB268B7D9600385DBF;
+			mainGroup = 7126C06029D714B400FA76EC;
 			packageReferences = (
-				3B939D1028D8CC0C00E5CCC7 /* XCRemoteSwiftPackageReference "admiralui-ios" */,
+				7126C07A29D714F700FA76EC /* XCRemoteSwiftPackageReference "admiralui-ios" */,
 			);
-			productRefGroup = E63BB8D5268B7D9600385DBF /* Products */;
+			productRefGroup = 7126C06A29D714B400FA76EC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E63BB8D3268B7D9600385DBF /* ExampleSPM */,
+				7126C06829D714B400FA76EC /* ExampleSPM */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		E63BB8D2268B7D9600385DBF /* Resources */ = {
+		7126C06729D714B400FA76EC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E63BB8DF268B7D9700385DBF /* Preview Assets.xcassets in Resources */,
-				E63BB8DC268B7D9700385DBF /* Assets.xcassets in Resources */,
+				7126C07429D714B500FA76EC /* Preview Assets.xcassets in Resources */,
+				7126C07129D714B500FA76EC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		E63BB8D0268B7D9600385DBF /* Sources */ = {
+		7126C06529D714B400FA76EC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E63BB8DA268B7D9600385DBF /* ContentView.swift in Sources */,
-				E63BB8D8268B7D9600385DBF /* ExampleSPMApp.swift in Sources */,
+				7126C06F29D714B400FA76EC /* ContentView.swift in Sources */,
+				7126C06D29D714B400FA76EC /* ExampleSPMApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		E63BB8E1268B7D9700385DBF /* Debug */ = {
+		7126C07529D714B500FA76EC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -217,7 +215,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -227,14 +225,13 @@
 			};
 			name = Debug;
 		};
-		E63BB8E2268B7D9700385DBF /* Release */ = {
+		7126C07629D714B500FA76EC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -272,7 +269,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -282,49 +279,59 @@
 			};
 			name = Release;
 		};
-		E63BB8E4268B7D9700385DBF /* Debug */ = {
+		7126C07829D714B500FA76EC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ExampleSPM/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = ExampleSPM/Info.plist;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.admiralswiftui.ExampleSPM;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.spm.ExampleSPM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		E63BB8E5268B7D9700385DBF /* Release */ = {
+		7126C07929D714B500FA76EC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ExampleSPM/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = ExampleSPM/Info.plist;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.admiralswiftui.ExampleSPM;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.spm.ExampleSPM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -333,20 +340,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E63BB8CF268B7D9600385DBF /* Build configuration list for PBXProject "ExampleSPM" */ = {
+		7126C06429D714B400FA76EC /* Build configuration list for PBXProject "ExampleSPM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E63BB8E1268B7D9700385DBF /* Debug */,
-				E63BB8E2268B7D9700385DBF /* Release */,
+				7126C07529D714B500FA76EC /* Debug */,
+				7126C07629D714B500FA76EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E63BB8E3268B7D9700385DBF /* Build configuration list for PBXNativeTarget "ExampleSPM" */ = {
+		7126C07729D714B500FA76EC /* Build configuration list for PBXNativeTarget "ExampleSPM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E63BB8E4268B7D9700385DBF /* Debug */,
-				E63BB8E5268B7D9700385DBF /* Release */,
+				7126C07829D714B500FA76EC /* Debug */,
+				7126C07929D714B500FA76EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -354,43 +361,43 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		3B939D1028D8CC0C00E5CCC7 /* XCRemoteSwiftPackageReference "admiralui-ios" */ = {
+		7126C07A29D714F700FA76EC /* XCRemoteSwiftPackageReference "admiralui-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/admiral-team/admiralui-ios.git";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = exactVersion;
+				version = 11.0.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		3B939D1128D8CC0C00E5CCC7 /* AdmiralCore */ = {
+		7126C07B29D714F700FA76EC /* AdmiralCore */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 3B939D1028D8CC0C00E5CCC7 /* XCRemoteSwiftPackageReference "admiralui-ios" */;
+			package = 7126C07A29D714F700FA76EC /* XCRemoteSwiftPackageReference "admiralui-ios" */;
 			productName = AdmiralCore;
 		};
-		3B939D1328D8CC0C00E5CCC7 /* AdmiralSwiftUI */ = {
+		7126C07D29D714F700FA76EC /* AdmiralSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 3B939D1028D8CC0C00E5CCC7 /* XCRemoteSwiftPackageReference "admiralui-ios" */;
+			package = 7126C07A29D714F700FA76EC /* XCRemoteSwiftPackageReference "admiralui-ios" */;
 			productName = AdmiralSwiftUI;
 		};
-		3B939D1528D8CC0C00E5CCC7 /* AdmiralTheme */ = {
+		7126C07F29D714F700FA76EC /* AdmiralTheme */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 3B939D1028D8CC0C00E5CCC7 /* XCRemoteSwiftPackageReference "admiralui-ios" */;
+			package = 7126C07A29D714F700FA76EC /* XCRemoteSwiftPackageReference "admiralui-ios" */;
 			productName = AdmiralTheme;
 		};
-		3B939D1728D8CC0C00E5CCC7 /* AdmiralUIKit */ = {
+		7126C08129D714F700FA76EC /* AdmiralUIKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 3B939D1028D8CC0C00E5CCC7 /* XCRemoteSwiftPackageReference "admiralui-ios" */;
+			package = 7126C07A29D714F700FA76EC /* XCRemoteSwiftPackageReference "admiralui-ios" */;
 			productName = AdmiralUIKit;
 		};
-		3B939D1928D8CC0C00E5CCC7 /* AdmiralUIResources */ = {
+		7126C08329D714F700FA76EC /* AdmiralUIResources */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 3B939D1028D8CC0C00E5CCC7 /* XCRemoteSwiftPackageReference "admiralui-ios" */;
+			package = 7126C07A29D714F700FA76EC /* XCRemoteSwiftPackageReference "admiralui-ios" */;
 			productName = AdmiralUIResources;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = E63BB8CC268B7D9600385DBF /* Project object */;
+	rootObject = 7126C06129D714B400FA76EC /* Project object */;
 }

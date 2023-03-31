@@ -12,12 +12,12 @@ import AdmiralUIResources
 
 struct ContentView: View {
     
-    @State var text: String? = "Text"
+    @State var text: String = "Text"
         
     var body: some View {
         VStack() {
             Spacer()
-            SwiftUI.Button("", action: {})
+            SwiftUI.Button("SwiftUI", action: {})
                 .buttonStyle(PrimaryButtonStyle())
             TextView($text, placeholder: "Place", name: "Name")
             StandardTextField(
