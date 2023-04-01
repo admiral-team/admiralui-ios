@@ -3,6 +3,7 @@ require_relative 'nexus_info'
 require_relative 'release_asset'
 require_relative 'build_info'
 require_relative 'version'
+require_relative 'checksum'
 require_relative 'utils'
 require_relative 'templates_generator'
 
@@ -417,6 +418,16 @@ def build_package(scheme:, artifact_id:, branch:)
   zip(path: framework_path, output_path: ziped_framework_path)
 end
 
+def get_checksum(scheme:)
+  root_path = "Products/xcframeworks"
+  framework_path = root_path + "/#{scheme}.xcframework"
+  ziped_framework_path = framework_path + ".zip"
+  IO.popen(["swift", "package", "compute-checksum", Dir.pwd + "/../#{ziped_framework_path}"]) do |io|
+    checksum = io.read.strip
+    return checksum
+  end
+end
+
 # Github
 
 lane :unlock_secrets_keychain do |options|
@@ -469,6 +480,40 @@ lane :build_git_packages do |options|
     artifact_id: "admiral-resources",
     branch: branch
   )
+
+  build_package(
+    scheme: "AdmiralCore", 
+    artifact_id: "admiral-core",
+    branch: branch
+  )
+
+  checksum_swiftui = get_checksum(
+    scheme: "AdmiralSwiftUI"
+  )
+
+  checksum_uikit = get_checksum(
+    scheme: "AdmiralUIKit"
+  )
+
+  checksum_theme = get_checksum(
+    scheme: "AdmiralTheme"
+  )
+
+  checksum_resources = get_checksum(
+    scheme: "AdmiralUIResources"
+  )
+
+  checksum_core = get_checksum(
+    scheme: "AdmiralCore"
+  )
+
+  set_checksum(
+    admiral_swiftui_checksum: checksum_swiftui, 
+    admiral_theme_checksum: checksum_theme, 
+    admiral_resources_checksum: checksum_resources, 
+    admiral_uikit_checksum: checksum_uikit, 
+    admiral_core_checksum: checksum_core
+  )
 end
 
 
@@ -520,8 +565,9 @@ def release_assets_string()
   release_asset_swiftui_string = release_asset_string(name: "AdmiralSwiftUI")
   release_asset_theme_string = release_asset_string(name: "AdmiralTheme")
   release_asset_resources_string = release_asset_string(name: "AdmiralUIResources")
+  release_asset_core_string = release_asset_string(name: "AdmiralCore")
 
-  release_asset_array = [release_asset_uikit_string, release_asset_swiftui_string, release_asset_theme_string, release_asset_resources_string]
+  release_asset_array = [release_asset_uikit_string, release_asset_swiftui_string, release_asset_theme_string, release_asset_resources_string, release_asset_core_string]
   release_asset_json_string = release_asset_array.join(",")
   "[#{release_asset_json_string}]"
 end
