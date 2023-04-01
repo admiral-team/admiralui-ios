@@ -520,8 +520,9 @@ def release_assets_string()
   release_asset_swiftui_string = release_asset_string(name: "AdmiralSwiftUI")
   release_asset_theme_string = release_asset_string(name: "AdmiralTheme")
   release_asset_resources_string = release_asset_string(name: "AdmiralUIResources")
+  release_asset_core_string = release_asset_string(name: "AdmiralCore")
 
-  release_asset_array = [release_asset_uikit_string, release_asset_swiftui_string, release_asset_theme_string, release_asset_resources_string]
+  release_asset_array = [release_asset_uikit_string, release_asset_swiftui_string, release_asset_theme_string, release_asset_resources_string, release_asset_core_string]
   release_asset_json_string = release_asset_array.join(",")
   "[#{release_asset_json_string}]"
 end
