@@ -418,16 +418,6 @@ def build_package(scheme:, artifact_id:, branch:)
   zip(path: framework_path, output_path: ziped_framework_path)
 end
 
-def get_checksum(scheme:)
-  root_path = "Products/xcframeworks"
-  framework_path = root_path + "/#{scheme}.xcframework"
-  ziped_framework_path = framework_path + ".zip"
-  IO.popen(["swift", "package", "compute-checksum", Dir.pwd + "/../#{ziped_framework_path}"]) do |io|
-    checksum = io.read.strip
-    return checksum
-  end
-end
-
 # Github
 
 lane :unlock_secrets_keychain do |options|

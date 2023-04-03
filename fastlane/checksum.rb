@@ -38,3 +38,13 @@ def set_checksum(admiral_swiftui_checksum:, admiral_theme_checksum:, admiral_res
 
   File.open(file_name, "w") {|f| f.write(JSON.pretty_generate(params)) }
 end
+
+def get_checksum(scheme:)
+  root_path = "Products/xcframeworks"
+  framework_path = root_path + "/#{scheme}.xcframework"
+  ziped_framework_path = framework_path + ".zip"
+  IO.popen(["swift", "package", "compute-checksum", Dir.pwd + "/../#{ziped_framework_path}"]) do |io|
+    checksum = io.read.strip
+    return checksum
+  end
+end
