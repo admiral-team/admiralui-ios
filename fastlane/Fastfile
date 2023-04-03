@@ -358,7 +358,7 @@ lane :validate_cocoapods_example do |options|branch_name = options[:branch_name]
     replace(file: file, regex: /'main'/, with: "'#{branch_name}'")
   end
 
-  system("cd ../Examples/ExampleCocoaPods; pod install;")
+  system("cd ../Examples/ExampleCocoaPods; pod update;")
 
   build_app(
     clean: true,

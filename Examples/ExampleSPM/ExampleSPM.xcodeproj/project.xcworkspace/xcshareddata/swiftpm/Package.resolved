@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "admiralui-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/admiral-team/admiralui-ios.git",
+      "state" : {
+        "branch" : "feature/TECH-fix-SPM-test-version",
+        "revision" : "990751303db18ddd68318cc653bfef5a76b83096"
+      }
+    }
+  ],
+  "version" : 2
+}
