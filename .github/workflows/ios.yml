@@ -41,7 +41,7 @@ jobs:
         run:  bundle exec fastlane send_build_failed_info issue_name:${{ github.head_ref }} telegram_token:"$TELEGRAM_API_TOKEN" telegram_chat_id:"$TELEGRAM_DEV_CHAT_ID" build_url:"$PUll_NUMBER"
       - name: Deploy AppCenter Dev
         if: ${{ github.event_name == 'pull_request' }}
-        env:     
+        env:
           CI_PASSWORD:  ${{ secrets.CI_PASSWORD }}
         run: |
           bundle exec fastlane unlock_secrets_keychain password:"$CI_PASSWORD"
@@ -54,7 +54,7 @@ jobs:
         run: bundle exec fastlane build_git_packages
       - name: Deploy AppCenter Prod
         if: ${{ github.event_name == 'push' }}
-        env:     
+        env:
           CI_PASSWORD:  ${{ secrets.CI_PASSWORD }}
         run: |
           bundle exec fastlane unlock_secrets_keychain password:"$CI_PASSWORD"

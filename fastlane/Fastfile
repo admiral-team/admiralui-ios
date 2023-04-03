@@ -47,14 +47,8 @@ lane :deploy_appcenter_prod do |options|
     notify_testers: true
   )
 
-  build_info_hash = lane_context[SharedValues::APPCENTER_BUILD_INFORMATION]
-  build_info = BuildInfo.from_hash(build_info_hash)
-  build_info.build_url = appcenter_build_dev_url(build_id: build_info.build_id)
-  build_info.external_version = current_lib_external_version
-
-  comment_body = formatted_build_info_json_prod(build_info: build_info)
   assets_string = release_assets_string()
-  system("cd ./go_scripts && ./main createRelease #{comment_body} #{ENV['RELEASE_TOKEN']} #{ENV['TELEGRAM_PROD_CHAT_ID']} #{telegram_token} #{assets_string}")
+  system("cd ./go_scripts && ./main createRelease #{current_lib_external_version} #{ENV['RELEASE_TOKEN']} #{ENV['TELEGRAM_PROD_CHAT_ID']} #{assets_string}")
 end
 
 lane :deploy_appcenter_dev do |options|

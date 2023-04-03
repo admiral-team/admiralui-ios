@@ -39,7 +39,11 @@ func main() {
 		client := auth.GithubClient(os.Args[3], ctx)
 		issues.GetIssues(ctx, os.Getenv("OWNER"), os.Getenv("REPO"), *client)
 	case "createRelease":
-		client.ReleaseIos(os.Args[3], os.Args[5], os.Args[6])
+		version := os.Args[2]
+		tokenGithub := os.Args[3]
+		tgToken := os.Args[4]
+		assets := os.Args[5]
+		client.ReleaseIos(tokenGithub, tgToken, version, assets)
 	case "build_failed":
 		buildInfo := configureBuildInfo(os.Args[2])
 		formatedBuildInfoFailed := buildInfo.build_failed_info(os.Args[5])
