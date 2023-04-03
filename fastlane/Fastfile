@@ -359,21 +359,23 @@ end
 lane :validate_cocoapods_example do |options|branch_name = options[:branch_name]
   branch_name = options[:branch_name]
 
-  unless branch_name.nil?
-    file = Dir.pwd + "/../Examples/ExampleCocoaPods/Podfile"
-    replace(file: file, regex: /'main'/, with: "'#{branch_name}'")
+  Dir.chdir("../Examples/ExampleCocoaPods") do
+    unless branch_name.nil?
+      file = Dir.pwd + "/Podfile"
+      replace(file: file, regex: /'main'/, with: "'#{branch_name}'")
+    end
+
+    system("cd ../Examples/ExampleCocoaPods; pod update;")
+
+    build_app(
+      clean: true,
+      scheme: "ExampleCocoaPods",
+      configuration: "Release",
+      skip_codesigning: true,
+      skip_archive: true,
+      workspace: Dir.pwd + "/ExampleCocoaPods.xcworkspace"
+    )
   end
-
-  system("cd ../Examples/ExampleCocoaPods; pod install;")
-
-  build_app(
-    clean: true,
-    scheme: "ExampleCocoaPods",
-    configuration: "Release",
-    skip_codesigning: true,
-    skip_archive: true,
-    workspace: Dir.pwd + "/../Examples/ExampleCocoaPods/ExampleCocoaPods.xcworkspace"
-  )
 end
 
 lane :set_version do |options|
