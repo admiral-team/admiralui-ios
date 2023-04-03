@@ -17,7 +17,7 @@ struct ContentView: View {
     var body: some View {
         VStack() {
             Spacer()
-            SwiftUI.Button("", action: {})
+            SwiftUI.Button("SwiftUI", action: {})
                 .buttonStyle(PrimaryButtonStyle())
             TextView($text, placeholder: "Place", name: "Name")
             StandardTextField(
