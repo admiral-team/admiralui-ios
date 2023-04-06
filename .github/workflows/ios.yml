@@ -77,35 +77,49 @@ jobs:
        if: ${{ failure() }}
        run: bundle exec fastlane send_build_failed_info issue_name:${{ github.head_ref }} telegram_token:"$TELEGRAM_API_TOKEN" telegram_chat_id:"$TELEGRAM_DEV_CHAT_ID" build_url:"$PUll_NUMBER"
 
-#      - name: Deploy AppCenter Dev
-#        if: ${{ github.event_name == 'pull_request' }}
-#        env:
-#          CI_PASSWORD:  ${{ secrets.CI_PASSWORD }}
-#        run: |
-#          bundle exec fastlane unlock_secrets_keychain password:"$CI_PASSWORD"
-#          bundle exec fastlane deploy_appcenter_dev issue_name:${{ github.head_ref }} pull_request_number:${{ github.event.number }} telegram_token:"$TELEGRAM_API_TOKEN" telegram_chat_id:"$TELEGRAM_DEV_CHAT_ID"
-#      - name: Check If Failed
-#        if: ${{ failure() }}
-#        run:  bundle exec fastlane send_build_failed_info issue_name:${{ github.head_ref }} telegram_token:"$TELEGRAM_API_TOKEN" telegram_chat_id:"$TELEGRAM_DEV_CHAT_ID" build_url:"$PUll_NUMBER"
-#      - name: Build XCFrameworks
-#        if: ${{ github.event_name == 'push' }}
-#        run: bundle exec fastlane build_git_packages
-#      - name: Deploy AppCenter Prod
-#        if: ${{ github.event_name == 'push' }}
-#        env:
-#          CI_PASSWORD:  ${{ secrets.CI_PASSWORD }}
-#        run: |
-#          bundle exec fastlane unlock_secrets_keychain password:"$CI_PASSWORD"
-#          bundle exec fastlane deploy_appcenter_prod telegram_token:"$TELEGRAM_API_TOKEN"
-#      - name: Check If Failed
-#        if: ${{ failure() }}
-#        run:  bundle exec fastlane send_build_failed_info issue_name:${{ github.head_ref }} telegram_token:"$TELEGRAM_API_TOKEN" telegram_chat_id:"$TELEGRAM_DEV_CHAT_ID" build_url:"$PUll_NUMBER"
-#      - name: Validate Depenecy Managers
-#        if: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.ref == 'main' }}
-#        run: bundle exec fastlane validate_depenecy_managers
-#      - name: Check If Failed
-#        if: ${{ failure() }}
-#        run:  bundle exec fastlane send_build_failed_info issue_name:${{ github.head_ref }} telegram_token:"$TELEGRAM_API_TOKEN" telegram_chat_id:"$TELEGRAM_DEV_CHAT_ID" build_url:"$PUll_NUMBER"
-#      - name: Remove Folder XCFrameworks
-#        if: ${{ github.event_name == 'push' }}
-#        run: bundle exec fastlane remove_products_frameworks
+  вeploy-appCenter-dev:
+    name: Deploy AppCenter Dev
+    needs: admiral-ui-tests
+    runs-on: [self-hosted, main]
+    env:
+      API_GITHUB_TOKEN: ${{ secrets.API_GITHUB_TOKEN }}
+      APPCENTER_API_TOKEN: ${{ secrets.APPCENTER_API_TOKEN }}
+      FIGMA_ACCESS_TOKEN: ${{ secrets.FIGMA_ACCESS_TOKEN }}
+      TELEGRAM_API_TOKEN: ${{ secrets.TELEGRAM_API_TOKEN }}
+      TELEGRAM_DEV_CHAT_ID: ${{ secrets.TELEGRAM_DEV_CHAT_ID }}
+      PUll_NUMBER: ${{ github.event.number }}
+      RELEASE_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+      TELEGRAM_PROD_CHAT_ID: ${{ secrets.TELEGRAM_PROD_CHAT_ID }}
+    steps:
+      - name: Deploy AppCenter Dev
+        if: ${{ github.event_name == 'pull_request' }}
+        env:
+          CI_PASSWORD:  ${{ secrets.CI_PASSWORD }}
+        run: |
+          bundle exec fastlane unlock_secrets_keychain password:"$CI_PASSWORD"
+          bundle exec fastlane deploy_appcenter_dev issue_name:${{ github.head_ref }} pull_request_number:${{ github.event.number }} telegram_token:"$TELEGRAM_API_TOKEN" telegram_chat_id:"$TELEGRAM_DEV_CHAT_ID"
+      - name: Check If Failed
+        if: ${{ failure() }}
+        run:  bundle exec fastlane send_build_failed_info issue_name:${{ github.head_ref }} telegram_token:"$TELEGRAM_API_TOKEN" telegram_chat_id:"$TELEGRAM_DEV_CHAT_ID" build_url:"$PUll_NUMBER"
+      - name: Build XCFrameworks
+        if: ${{ github.event_name == 'push' }}
+        run: bundle exec fastlane build_git_packages
+      - name: Deploy AppCenter Prod
+        if: ${{ github.event_name == 'push' }}
+        env:
+          CI_PASSWORD:  ${{ secrets.CI_PASSWORD }}
+        run: |
+          bundle exec fastlane unlock_secrets_keychain password:"$CI_PASSWORD"
+          bundle exec fastlane deploy_appcenter_prod telegram_token:"$TELEGRAM_API_TOKEN"
+      - name: Check If Failed
+        if: ${{ failure() }}
+        run:  bundle exec fastlane send_build_failed_info issue_name:${{ github.head_ref }} telegram_token:"$TELEGRAM_API_TOKEN" telegram_chat_id:"$TELEGRAM_DEV_CHAT_ID" build_url:"$PUll_NUMBER"
+      - name: Validate Depenecy Managers
+        if: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.ref == 'main' }}
+        run: bundle exec fastlane validate_depenecy_managers
+      - name: Check If Failed
+        if: ${{ failure() }}
+        run:  bundle exec fastlane send_build_failed_info issue_name:${{ github.head_ref }} telegram_token:"$TELEGRAM_API_TOKEN" telegram_chat_id:"$TELEGRAM_DEV_CHAT_ID" build_url:"$PUll_NUMBER"
+      - name: Remove Folder XCFrameworks
+        if: ${{ github.event_name == 'push' }}
+        run: bundle exec fastlane remove_products_frameworks
