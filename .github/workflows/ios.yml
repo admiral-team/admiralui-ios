@@ -77,7 +77,7 @@ jobs:
        if: ${{ failure() }}
        run: bundle exec fastlane send_build_failed_info issue_name:${{ github.head_ref }} telegram_token:"$TELEGRAM_API_TOKEN" telegram_chat_id:"$TELEGRAM_DEV_CHAT_ID" build_url:"$PUll_NUMBER"
 
-  вeploy-appCenter-dev:
+  deploy-appCenter-dev:
     name: Deploy AppCenter Dev
     needs: admiral-ui-tests
     runs-on: [self-hosted, main]
