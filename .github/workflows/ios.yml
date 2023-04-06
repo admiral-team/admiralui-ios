@@ -58,7 +58,7 @@ jobs:
 
   admiral-ui-tests:
     name: UI tests
-    needs: snapshot-tests
+    needs: setup
     runs-on: [self-hosted, main]
     env:
       API_GITHUB_TOKEN: ${{ secrets.API_GITHUB_TOKEN }}
@@ -79,7 +79,7 @@ jobs:
 
   deploy-appCenter-dev:
     name: Deploy AppCenter Dev
-    needs: admiral-ui-tests
+    needs: setup
     runs-on: [self-hosted, main]
     env:
       API_GITHUB_TOKEN: ${{ secrets.API_GITHUB_TOKEN }}
