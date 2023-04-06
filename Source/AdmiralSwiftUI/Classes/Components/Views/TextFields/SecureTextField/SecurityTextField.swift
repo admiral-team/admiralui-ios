@@ -307,7 +307,7 @@ public struct SecurityTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
             break
         }
         
-        return TextInputDecorationBox<AnyView>(
+        return TextInputDecorationBox<AnyView, AnyView>(
             textFieldView: {
                 textFieldView(
                     tintColor: curcorColor,

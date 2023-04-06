@@ -10,12 +10,14 @@ import AdmiralTheme
 import AdmiralUIResources
 
 @available(iOS 14.0, *)
-public struct TextInputDecorationBox<T>: View where T: View {
+public struct TextInputDecorationBox<T, P>: View where T: View, P: View {
     
     @Binding var textFieldView: () -> T
     
     @Binding var name: String
     @Binding var placeholder: String
+    
+    @Binding var additionalView: P?
     
     @Binding var info: String
     @Binding var infoNumberOfLines: Int?
@@ -57,6 +59,14 @@ public struct TextInputDecorationBox<T>: View where T: View {
                     .padding(.top, 5)
                     .foregroundColor(isFocused ? tintColor : underlineColor)
                     .modifier(SizeAwareViewModifier(viewSize: self.$segmentSize))
+                
+                if let additionalView = self._additionalView.wrappedValue, !(additionalView is EmptyView) {
+                    HStack {
+                        additionalView
+                        Spacer()
+                    }
+                    .padding(.top, LayoutGrid.module)
+                }
                 if !info.isEmpty {
                     Text(info)
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -75,6 +85,7 @@ public struct TextInputDecorationBox<T>: View where T: View {
         @ViewBuilder textFieldView: @escaping () -> T,
         name: String,
         placeholder: String,
+        additionalView: P? = nil,
         info: Binding<String>,
         infoNumberOfLines: Int?,
         placeholderColor: Color?,
@@ -104,6 +115,10 @@ public struct TextInputDecorationBox<T>: View where T: View {
         )
         self._placeholder = Binding(
             get: { placeholder },
+            set: { _, _ in  }
+        )
+        self._additionalView = Binding(
+            get: { additionalView },
             set: { _, _ in  }
         )
         self._info = info

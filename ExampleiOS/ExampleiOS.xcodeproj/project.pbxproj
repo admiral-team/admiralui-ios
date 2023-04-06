@@ -154,6 +154,8 @@
 		3B09272629D2E2680055B50F /* ForceTapElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B09272429D2E2680055B50F /* ForceTapElement.swift */; };
 		3B269E892844E50900922D12 /* UnderlineTabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B269E882844E50900922D12 /* UnderlineTabsViewController.swift */; };
 		3B269E8D2844E9AC00922D12 /* UnderlineCenterTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B269E8C2844E9AC00922D12 /* UnderlineCenterTabs.swift */; };
+		3B2EED0829C90717004A6AA0 /* AdditionalTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2EED0729C90717004A6AA0 /* AdditionalTextFieldView.swift */; };
+		3B2EED0A29C9081B004A6AA0 /* AdditionalTextFieldViewCustomScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2EED0929C9081B004A6AA0 /* AdditionalTextFieldViewCustomScheme.swift */; };
 		3B4F6BB02886D7130094C0FE /* ParagraphCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4F6BAF2886D7130094C0FE /* ParagraphCellView.swift */; };
 		3B500E2827297F2500A860F0 /* UIApplication+EndEditing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B500E2727297F2500A860F0 /* UIApplication+EndEditing.swift */; };
 		3B54046528466D0C00CD6C80 /* LinerSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B54046428466D0C00CD6C80 /* LinerSwiftUIView.swift */; };
@@ -696,6 +698,8 @@
 		3B09272429D2E2680055B50F /* ForceTapElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForceTapElement.swift; sourceTree = "<group>"; };
 		3B269E882844E50900922D12 /* UnderlineTabsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineTabsViewController.swift; sourceTree = "<group>"; };
 		3B269E8C2844E9AC00922D12 /* UnderlineCenterTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineCenterTabs.swift; sourceTree = "<group>"; };
+		3B2EED0729C90717004A6AA0 /* AdditionalTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalTextFieldView.swift; sourceTree = "<group>"; };
+		3B2EED0929C9081B004A6AA0 /* AdditionalTextFieldViewCustomScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalTextFieldViewCustomScheme.swift; sourceTree = "<group>"; };
 		3B4F6BAF2886D7130094C0FE /* ParagraphCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParagraphCellView.swift; sourceTree = "<group>"; };
 		3B500E2727297F2500A860F0 /* UIApplication+EndEditing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+EndEditing.swift"; sourceTree = "<group>"; };
 		3B54046428466D0C00CD6C80 /* LinerSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinerSwiftUIView.swift; sourceTree = "<group>"; };
@@ -2106,6 +2110,15 @@
 			path = UnderlineCenterTabs;
 			sourceTree = "<group>";
 		};
+		3B2EED0629C906AE004A6AA0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3B2EED0729C90717004A6AA0 /* AdditionalTextFieldView.swift */,
+				3B2EED0929C9081B004A6AA0 /* AdditionalTextFieldViewCustomScheme.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		3B4F6BAE2886D4200094C0FE /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -2403,6 +2416,7 @@
 		C6260AB3255B0854007175C2 /* StandardVSIcon */ = {
 			isa = PBXGroup;
 			children = (
+				3B2EED0629C906AE004A6AA0 /* View */,
 				C6260AB4255B086F007175C2 /* StandardVSIconMenuViewController.swift */,
 			);
 			path = StandardVSIcon;
@@ -4348,6 +4362,7 @@
 				C6E04AA8256E937600C32381 /* MessageInformerView.swift in Sources */,
 				E9BE41A727C7DFF400894224 /* DefaultCurrencyViewModel.swift in Sources */,
 				3B8A8911287D80F9003174B7 /* SeparatorViewController.swift in Sources */,
+				3B2EED0A29C9081B004A6AA0 /* AdditionalTextFieldViewCustomScheme.swift in Sources */,
 				0ED08A1A266FBA8E00389A1A /* CalendarSwiftUIView.swift in Sources */,
 				0E76FB40253ED9AF001B1F3D /* RadioButtonViewController.swift in Sources */,
 				E9B90DA62906A5A000EBC9BC /* InputNumberViewController.swift in Sources */,
@@ -4532,6 +4547,7 @@
 				C6A7F2E82654005700105F2D /* BigInformersSwiftUIView.swift in Sources */,
 				E94518B227D4A37C0048B133 /* StandartTextFieldPlain.swift in Sources */,
 				E6903D7F25DEFF4500245403 /* ThemeViewController.swift in Sources */,
+				3B2EED0829C90717004A6AA0 /* AdditionalTextFieldView.swift in Sources */,
 				C686568A255937DB00B885B8 /* ChatViewController.swift in Sources */,
 				E9C79CBF27BD1E730002EC49 /* ErrorViewController.swift in Sources */,
 				C6DCBFCE26316DBC00754365 /* ButtonsViewCustomScheme.swift in Sources */,

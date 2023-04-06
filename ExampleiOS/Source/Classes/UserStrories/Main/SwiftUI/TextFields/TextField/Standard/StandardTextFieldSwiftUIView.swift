@@ -135,6 +135,48 @@ struct StandardTextFieldSwiftUIView: View {
                                     isResponderTextView = false
                                 })
                         }
+                        VStack(alignment: .leading, spacing: 0.0) {
+                            Spacer()
+                                .frame(height: LayoutGrid.quadrupleModule)
+                            Text("+ Tags & Informer")
+                                .font(scheme.textFont.swiftUIFont)
+                                .foregroundColor(scheme.textColor.swiftUIColor)
+                            Spacer()
+                                .frame(height: LayoutGrid.doubleModule)
+                            StandardTextField<EmptyView, ScrollView>(
+                                value: $formatText,
+                                accessibilityIdentifier: "testTextField",
+                                formatter: BlocFormatter(format: { text in
+                                    text?.replacingOccurrences(of: "=)", with: "🙂")
+                                }),
+                                contentType: .default,
+                                canPerformActionPaste: false,
+                                placeholder: "Placeholder",
+                                name: "Optional label",
+                                state: $state,
+                                info: .constant("Additional text"),
+                                infoNumberOfLines: nil,
+                                isResponder: $isResponderTextField,
+                                onSubmit: {
+                                    isResponderSecureTextField = true
+                                },
+                                additionalView: {
+                                    ScrollView(.horizontal, showsIndicators: false) {
+                                        HStack(spacing: LayoutGrid.halfModule * 3) {
+                                            ForEach(0..<6) {_ in
+                                                TagControl(
+                                                title: "Text",
+                                                tagStyle: .default,
+                                                leadingView: { Text("💙") },
+                                                tapTagControl: {})
+                                            }
+                                        }
+                                    }
+                                })
+                                .id("additionalViewTextField")
+                            Spacer()
+                                .frame(height: LayoutGrid.doubleModule)
+                        }
                         .id(Constants.textViewId)
                         Spacer()
                     }
