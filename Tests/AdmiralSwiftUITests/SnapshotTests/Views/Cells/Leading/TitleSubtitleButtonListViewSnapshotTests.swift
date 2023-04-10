@@ -8,6 +8,7 @@
 import XCTest
 import SwiftUI
 import SnapshotTesting
+import AdmiralCore
 import AdmiralTheme
 import AdmiralUIResources
 @testable import AdmiralSwiftUI
