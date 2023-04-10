@@ -5,6 +5,7 @@
 //  Created on 11.01.2022.
 //
 
+import AdmiralCore
 import AdmiralTheme
 import AdmiralUIResources
 

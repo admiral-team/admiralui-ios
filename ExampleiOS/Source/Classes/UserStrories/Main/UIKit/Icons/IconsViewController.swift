@@ -6,6 +6,7 @@
 //
 
 import AdmiralUIKit
+import AdmiralCore
 import AdmiralTheme
 import AdmiralUIResources
 import UIKit

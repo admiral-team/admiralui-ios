@@ -6,6 +6,7 @@
 //  
 //
 
+import AdmiralCore
 import AdmiralTheme
 /**
  InputNumberTextFieldScheme - the visual scheme of InputNumber.

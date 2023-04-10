@@ -6,6 +6,7 @@
 //
 
 import AdmiralSwiftUI
+import AdmiralCore
 import AdmiralTheme
 import AdmiralUIResources
 

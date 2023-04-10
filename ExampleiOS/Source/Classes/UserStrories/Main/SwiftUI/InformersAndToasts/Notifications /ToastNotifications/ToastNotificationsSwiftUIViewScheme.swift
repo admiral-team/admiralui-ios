@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AdmiralSwiftUI
+import AdmiralCore
 import AdmiralTheme
 import AdmiralUIResources
 import Combine

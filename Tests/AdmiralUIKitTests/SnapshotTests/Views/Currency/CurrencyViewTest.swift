@@ -1,5 +1,6 @@
 import XCTest
 import SnapshotTesting
+import AdmiralCore
 import AdmiralTheme
 import AdmiralUIResources
 @testable import AdmiralUIKit
