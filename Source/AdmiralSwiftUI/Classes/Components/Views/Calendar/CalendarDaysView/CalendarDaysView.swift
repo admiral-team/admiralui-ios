@@ -47,22 +47,33 @@ public struct CalendarDaysView: View {
     // MARK: - Body
 
     public var body: some View {
-        let grid = [
-            GridItem(.flexible()),
-            GridItem(.flexible()),
-            GridItem(.flexible()),
-            GridItem(.flexible()),
-            GridItem(.flexible()),
-            GridItem(.flexible()),
-            GridItem(.flexible())]
+        let numberOfDaysInWeek = 7
         let generator = CalendarGenerator()
         var days = [CalendarDay]()
         if let monthMetadata = generator.monthMetadata(for: date) {
             days = generator.generateDaysInMonth(metadata: monthMetadata)
         }
-        return LazyVGrid(columns: grid, spacing: LayoutGrid.halfModule * 5) {
-            ForEach(0..<days.count, id: \.self) { index in
-                dayView(day: days[index])
+        let chunkedDays = days.chunked(into: numberOfDaysInWeek)
+        return VStack(spacing: LayoutGrid.halfModule * 5) {
+            ForEach(0..<chunkedDays.count, id: \.self) { index in
+                HStack {
+                    ForEach(Array(chunkedDays[index].enumerated()), id: \.offset) { indexDay, day in
+                        dayView(day: day)
+                        if indexDay != 6 {
+                            Spacer()
+                        }
+                    }
+                    if chunkedDays[index].count < numberOfDaysInWeek {
+                        ForEach(chunkedDays[index].count..<numberOfDaysInWeek, id: \.self) { index in
+                            Rectangle()
+                                .frame(width: LayoutGrid.halfModule * 9, height: LayoutGrid.halfModule * 9)
+                                .hidden()
+                            if index != 6 {
+                                Spacer()
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -77,9 +88,6 @@ public struct CalendarDaysView: View {
             if Set(pointDates).contains(day.date), day.isDisplayedInMonth {
                 Circle()
                     .foregroundColor(scheme.dayPointColor.swiftUIColor)
-                    .frame(width: LayoutGrid.halfModule, height: LayoutGrid.halfModule)
-            } else {
-                Spacer()
                     .frame(width: LayoutGrid.halfModule, height: LayoutGrid.halfModule)
             }
         }
@@ -99,10 +107,6 @@ public struct CalendarDaysView: View {
     }
 
     private func checkSelect(date: Date) -> Bool {
-
-        let startDate = startDate?.removeTimeStamp()
-        let endDate = endDate?.removeTimeStamp()
-
         if let startDate = startDate, startDate <= date {
             if startDate == date {
                 return true
@@ -168,7 +172,6 @@ public struct CalendarDaysView: View {
             )
         }
     }
-
 
     private func inactiveTextView(day: CalendarDay) -> some View {
         let scheme = schemeProvider.scheme
