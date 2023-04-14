@@ -89,8 +89,7 @@ public protocol TextFieldInput: View {
 ```
  */
 @available(iOS 14.0, *)
-public struct StandardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, Identifiable where T: View {
-
+public struct StandardTextField<T, P>: TextFieldInput, AccessabilitySupportUIKit, Identifiable where T: View, P: View {
     // MARK: - Public Properties
 
     /// Unique id.
@@ -136,6 +135,9 @@ public struct StandardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
 
     /// Traling view.
     private let trailingView: () -> T
+    
+    /// Additional view.
+    private let additionalView: () -> P
 
     /// Adds an action to perform when the user submits a value to this view.
     private let onSubmit: (() -> Void)?
@@ -203,7 +205,8 @@ public struct StandardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
         schemeProvider: SchemeProvider<StandardTextFieldScheme> = AppThemeSchemeProvider<StandardTextFieldScheme>(),
         onSubmit: (() -> Void)? = nil,
         onCursorPosition: ((Int, Int, String) -> (Int))? = nil,
-        @ViewBuilder trailingView: @escaping () -> T
+        @ViewBuilder trailingView: @escaping () -> T,
+        @ViewBuilder additionalView: @escaping () -> P
     ) {
         self.accessibilityIdentifier = accessibilityIdentifier
         self._content = Binding(get: {
@@ -226,6 +229,7 @@ public struct StandardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
         self.onSubmit = onSubmit
         self.infoNumberOfLines = infoNumberOfLines
         self.trailingView = trailingView
+        self.additionalView = additionalView
         self.returnKeyType = returnKeyType
         self.autocapitalizationType = autocapitalizationType
         self.autocorrectionType = autocorrectionType
@@ -273,7 +277,9 @@ public struct StandardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
         schemeProvider: SchemeProvider<StandardTextFieldScheme> = AppThemeSchemeProvider<StandardTextFieldScheme>(),
         onSubmit: (() -> Void)? = nil,
         onCursorPosition: ((Int, Int, String) -> (Int))? = nil,
-        @ViewBuilder trailingView: @escaping () -> T) {
+        @ViewBuilder trailingView: @escaping () -> T,
+        @ViewBuilder additionalView: @escaping () -> P
+    ) {
         self.init(
             value: content,
             accessibilityIdentifier: accessibilityIdentifier,
@@ -293,7 +299,8 @@ public struct StandardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
             schemeProvider: schemeProvider,
             onSubmit: onSubmit,
             onCursorPosition: onCursorPosition,
-            trailingView: trailingView)
+            trailingView: trailingView,
+            additionalView: additionalView)
     }
 
     // MARK: - Body
@@ -308,6 +315,7 @@ public struct StandardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
         var tintColor = scheme.tintColor
         var infoColor = scheme.placeholderColor.parameter(for: .normal)?.swiftUIColor  ?? .clear
         let curcorColor = scheme.tintColor
+
 
         switch state {
         case .error:
@@ -326,7 +334,7 @@ public struct StandardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
             break
         }
 
-        return TextInputDecorationBox<AnyView>(
+        return TextInputDecorationBox<AnyView, P>(
             textFieldView: {
                 textFieldView(
                     placeholderColor: placeholderColor,
@@ -339,6 +347,7 @@ public struct StandardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
             },
             name: name,
             placeholder: placeholder,
+            additionalView: additionalView(),
             info: $info,
             infoNumberOfLines: infoNumberOfLines,
             placeholderColor: placeholderColor?.swiftUIColor,
@@ -454,7 +463,7 @@ public struct StandardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
 }
 
 @available(iOS 14.0, *)
-extension StandardTextField where T == EmptyView {
+extension StandardTextField where T == EmptyView, P == EmptyView{
     
     // MARK: - Initializer
     
@@ -516,6 +525,7 @@ extension StandardTextField where T == EmptyView {
         self.onSubmit = onSubmit
         self.infoNumberOfLines = infoNumberOfLines
         self.trailingView = { EmptyView() }
+        self.additionalView = { EmptyView() }
         self.returnKeyType = returnKeyType
         self.autocapitalizationType = autocapitalizationType
         self.autocorrectionType = autocorrectionType
@@ -584,3 +594,84 @@ extension StandardTextField where T == EmptyView {
     }
 
 }
+
+@available(iOS 14.0, *)
+extension StandardTextField where T == EmptyView, P: View{
+    
+    // MARK: - Initializer
+    
+    /// Initializes and returns a newly allocated view object
+    /// - Parameters:
+    ///   - value: The value that the text field displays.
+    ///   - accessibilityIdentifier: The id used by accessibility method.
+    ///   - formatter: Text field formatter.
+    ///   - contentType: The semantic meaning for a text input area.
+    ///   - returnKeyType: The visible title of the Return key.
+    ///   - autocapitalizationType: The autocapitalization style for the text object.
+    ///   - autocorrectionType: The autocorrection style for the text object.
+    ///   - canPerformActionPaste: Flag is disable pasting.
+    ///   - placeholder: The string that displays when there is no other text in the text field.
+    ///   - name: The text field’s name.
+    ///   - icon: The text field’s traling image view.
+    ///   - state: The textfield state.
+    ///   - info: The string that displays some additional info. If nil, no line limit applies.
+    ///   - infoNumberOfLines: he maximum number of lines to use for info. If nil, no line limit applies.
+    ///   - onCursorPosition: An action to perform change cursor position. On enter 3 parameters - startCursor, currentCursor, text. Return cursor position.
+    public init<V>(
+        value: Binding<V?>,
+        accessibilityIdentifier: String? = nil,
+        formatter: Formatter? = nil,
+        contentType: UIKeyboardType = .default,
+        returnKeyType: UIReturnKeyType = .default,
+        autocapitalizationType: UITextAutocapitalizationType = .none,
+        autocorrectionType: UITextAutocorrectionType = .yes,
+        textContentType: UITextContentType? = nil,
+        canPerformActionPaste: Bool = true,
+        placeholder: String = "",
+        name: String = "",
+        state: Binding<TextInputState> = .constant(.normal),
+        info: Binding<String> = .constant(""),
+        infoNumberOfLines: Int? = nil,
+        isResponder: Binding<Bool>? = nil,
+        schemeProvider: SchemeProvider<StandardTextFieldScheme> = AppThemeSchemeProvider<StandardTextFieldScheme>(),
+        onSubmit: (() -> Void)? = nil,
+        onCursorPosition: ((Int, Int, String) -> (Int))? = nil,
+        @ViewBuilder additionalView: @escaping () -> P
+    ) {
+        self.accessibilityIdentifier = accessibilityIdentifier
+        self._content = Binding(get: {
+            if let value = value.wrappedValue {
+                return String(describing: value)
+            } else {
+                return ""
+            }
+        }, set: { val in
+            if let val = val as? V {
+                value.wrappedValue = val
+            }
+        })
+
+        self.contentType = contentType
+        self.placeholder = placeholder
+        self.name = name
+        self._state = state
+        self._info = info
+        self.onSubmit = onSubmit
+        self.infoNumberOfLines = infoNumberOfLines
+        self.trailingView = { EmptyView() }
+        self.additionalView = additionalView
+        self.returnKeyType = returnKeyType
+        self.autocapitalizationType = autocapitalizationType
+        self.autocorrectionType = autocorrectionType
+        self.textContentType = textContentType
+        self.canPerformActionPaste = canPerformActionPaste
+        self.isResponder = isResponder
+        self.formatter = formatter
+        self.schemeProvider = schemeProvider
+        self.onCursorPosition = onCursorPosition
+        self._isFocused = .init(initialValue: isResponder?.wrappedValue ?? false)
+        self._isFilled = .init(initialValue: !($content.wrappedValue ?? "").isEmpty)
+    }
+
+}
+

@@ -1,0 +1,232 @@
+// swiftlint:disable all
+// Generated using SwiftGen — https://github.com/SwiftGen/SwiftGen
+
+{% if catalogs %}
+{% macro hasValuesBlock assets filter %}
+  {%- for asset in assets -%}
+    {%- if asset.type == filter -%}
+      1
+    {%- elif asset.items -%}
+      {% call hasValuesBlock asset.items filter %}
+    {%- endif -%}
+  {%- endfor -%}
+{% endmacro %}
+{% set enumName %}{{param.enumName|default:"Asset"}}{% endset %}
+{% set arResourceGroupType %}{{param.arResourceGroupTypeName|default:"ARResourceGroupAsset"}}{% endset %}
+{% set dataType %}{{param.dataTypeName|default:"DataAsset"}}{% endset %}
+{% set imageType %}{{param.imageTypeName|default:"ImageAsset"}}{% endset %}
+{% set symbolType %}{{param.symbolTypeName|default:"SymbolAsset"}}{% endset %}
+{% set forceNamespaces %}{{param.forceProvidesNamespaces|default:"false"}}{% endset %}
+{% set accessModifier %}{% if param.publicAccess %}public{% else %}internal{% endif %}{% endset %}
+{% set hasARResourceGroup %}{% for catalog in catalogs %}{% call hasValuesBlock catalog.assets "arresourcegroup" %}{% endfor %}{% endset %}
+{% set hasData %}{% for catalog in catalogs %}{% call hasValuesBlock catalog.assets "data" %}{% endfor %}{% endset %}
+{% set hasImage %}{% for catalog in catalogs %}{% call hasValuesBlock catalog.assets "image" %}{% endfor %}{% endset %}
+{% set hasSymbol %}{% for catalog in catalogs %}{% call hasValuesBlock catalog.assets "symbol" %}{% endfor %}{% endset %}
+#if os(macOS)
+  import AppKit
+#elseif os(iOS)
+{% if hasARResourceGroup %}
+  import ARKit
+{% endif %}
+  import UIKit
+#elseif os(tvOS) || os(watchOS)
+  import UIKit
+#endif
+#if canImport(SwiftUI)
+  import SwiftUI
+#endif
+
+// Deprecated typealiases
+{% if hasImage %}
+@available(*, deprecated, renamed: "{{imageType}}.Image", message: "This typealias will be removed in SwiftGen 7.0")
+{{accessModifier}} typealias {{param.imageAliasName|default:"AssetImageTypeAlias"}} = {{imageType}}.Image
+{% endif %}
+
+// swiftlint:disable superfluous_disable_command file_length implicit_return
+
+{{accessModifier}} struct {{dataType}} {
+  {{accessModifier}} fileprivate(set) var name: String
+
+  @available(iOS 9.0, tvOS 9.0, watchOS 6.0, macOS 10.11, *)
+  {{accessModifier}} var data: NSDataAsset {
+    guard let data = NSDataAsset(asset: self) else {
+      fatalError("Unable to load data asset named \(name).")
+    }
+    return data
+  }
+}
+
+@available(iOS 9.0, tvOS 9.0, watchOS 6.0, macOS 10.11, *)
+{{accessModifier}} extension NSDataAsset {
+  convenience init?(asset: {{dataType}}) {
+    let bundle = {{param.bundle|default:"BundleToken.bundle"}}
+    #if os(iOS) || os(tvOS) || os(watchOS)
+    self.init(name: asset.name, bundle: bundle)
+    #elseif os(macOS)
+    self.init(name: NSDataAsset.Name(asset.name), bundle: bundle)
+    #endif
+  }
+}
+{% endif %}
+{% if hasImage %}
+
+{{accessModifier}} struct {{imageType}} {
+  {{accessModifier}} fileprivate(set) var name: String
+
+  #if os(macOS)
+  {{accessModifier}} typealias Image = NSImage
+  #elseif os(iOS) || os(tvOS) || os(watchOS)
+  {{accessModifier}} typealias Image = UIImage
+  #endif
+
+  @available(iOS 8.0, tvOS 9.0, watchOS 2.0, macOS 10.7, *)
+  {{accessModifier}} var image: Image {
+    let bundle = {{param.bundle|default:"BundleToken.bundle"}}
+    #if os(iOS) || os(tvOS)
+    let image = Image(named: name, in: bundle, compatibleWith: nil)
+    #elseif os(macOS)
+    let name = NSImage.Name(self.name)
+    let image = (bundle == .main) ? NSImage(named: name) : bundle.image(forResource: name)
+    #elseif os(watchOS)
+    let image = Image(named: name)
+    #endif
+    guard let result = image else {
+      fatalError("Unable to load image asset named \(name).")
+    }
+    return result
+  }
+
+  #if os(iOS) || os(tvOS)
+  @available(iOS 8.0, tvOS 9.0, *)
+  {{accessModifier}} func image(compatibleWith traitCollection: UITraitCollection) -> Image {
+    let bundle = {{param.bundle|default:"BundleToken.bundle"}}
+    guard let result = Image(named: name, in: bundle, compatibleWith: traitCollection) else {
+      fatalError("Unable to load image asset named \(name).")
+    }
+    return result
+  }
+  #endif
+
+  #if canImport(SwiftUI)
+  @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+  {{accessModifier}} var swiftUIImage: SwiftUI.Image {
+    SwiftUI.Image(asset: self)
+  }
+  #endif
+}
+
+{{accessModifier}} extension {{imageType}}.Image {
+  @available(iOS 8.0, tvOS 9.0, watchOS 2.0, *)
+  @available(macOS, deprecated,
+    message: "This initializer is unsafe on macOS, please use the {{imageType}}.image property")
+  convenience init?(asset: {{imageType}}) {
+    #if os(iOS) || os(tvOS)
+    let bundle = {{param.bundle|default:"BundleToken.bundle"}}
+    self.init(named: asset.name, in: bundle, compatibleWith: nil)
+    #elseif os(macOS)
+    self.init(named: NSImage.Name(asset.name))
+    #elseif os(watchOS)
+    self.init(named: asset.name)
+    #endif
+  }
+}
+
+#if canImport(SwiftUI)
+@available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+{{accessModifier}} extension SwiftUI.Image {
+  init(asset: {{imageType}}) {
+    let bundle = {{param.bundle|default:"BundleToken.bundle"}}
+    self.init(asset.name, bundle: bundle)
+  }
+
+  init(asset: {{imageType}}, label: Text) {
+    let bundle = {{param.bundle|default:"BundleToken.bundle"}}
+    self.init(asset.name, bundle: bundle, label: label)
+  }
+
+  init(decorative asset: {{imageType}}) {
+    let bundle = {{param.bundle|default:"BundleToken.bundle"}}
+    self.init(decorative: asset.name, bundle: bundle)
+  }
+}
+#endif
+{% endif %}
+{% if hasSymbol %}
+
+{{accessModifier}} struct {{symbolType}} {
+  {{accessModifier}} fileprivate(set) var name: String
+
+  #if os(iOS) || os(tvOS) || os(watchOS)
+  @available(iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+  {{accessModifier}} typealias Configuration = UIImage.SymbolConfiguration
+  {{accessModifier}} typealias Image = UIImage
+
+  @available(iOS 12.0, tvOS 12.0, watchOS 5.0, *)
+  {{accessModifier}} var image: Image {
+    let bundle = {{param.bundle|default:"BundleToken.bundle"}}
+    #if os(iOS) || os(tvOS)
+    let image = Image(named: name, in: bundle, compatibleWith: nil)
+    #elseif os(watchOS)
+    let image = Image(named: name)
+    #endif
+    guard let result = image else {
+      fatalError("Unable to load symbol asset named \(name).")
+    }
+    return result
+  }
+
+  @available(iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+  {{accessModifier}} func image(with configuration: Configuration) -> Image {
+    let bundle = {{param.bundle|default:"BundleToken.bundle"}}
+    guard let result = Image(named: name, in: bundle, with: configuration) else {
+      fatalError("Unable to load symbol asset named \(name).")
+    }
+    return result
+  }
+  #endif
+
+  #if canImport(SwiftUI)
+  @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+  {{accessModifier}} var swiftUIImage: SwiftUI.Image {
+    SwiftUI.Image(asset: self)
+  }
+  #endif
+}
+
+#if canImport(SwiftUI)
+@available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+{{accessModifier}} extension SwiftUI.Image {
+  init(asset: {{symbolType}}) {
+    let bundle = {{param.bundle|default:"BundleToken.bundle"}}
+    self.init(asset.name, bundle: bundle)
+  }
+
+  init(asset: {{symbolType}}, label: Text) {
+    let bundle = {{param.bundle|default:"BundleToken.bundle"}}
+    self.init(asset.name, bundle: bundle, label: label)
+  }
+
+  init(decorative asset: {{symbolType}}) {
+    let bundle = {{param.bundle|default:"BundleToken.bundle"}}
+    self.init(decorative: asset.name, bundle: bundle)
+  }
+}
+#endif
+{% endif %}
+{% if not param.bundle %}
+
+// swiftlint:disable convenience_type
+private final class BundleToken {
+  static let bundle: Bundle = {
+    #if SWIFT_PACKAGE
+    return Bundle.module
+    #else
+    return Bundle(for: BundleToken.self)
+    #endif
+  }()
+}
+// swiftlint:enable convenience_type
+{% endif %}
+{% else %}
+// No assets found
+{% endif %}

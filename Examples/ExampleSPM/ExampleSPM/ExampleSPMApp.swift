@@ -2,7 +2,7 @@
 //  ExampleSPMApp.swift
 //  ExampleSPM
 //
-//  Created by ANpolyakov on 29.06.2021.
+//  Created by ton252 on 31.03.2023.
 //
 
 import SwiftUI

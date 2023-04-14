@@ -74,6 +74,9 @@ final class StandardVSIconMenuViewController: ScrollViewController {
 
         let textFieldThree = createTextView()
         textFields.append(textFieldThree)
+        
+        let textFieldAdditionalView = createTextFieldAdditionalView()
+        textFields.append(textFieldAdditionalView)
     }
 
     private func createTextFieldView() -> TextFieldTextView {
@@ -122,6 +125,52 @@ final class StandardVSIconMenuViewController: ScrollViewController {
             titleText: "Text View")
 
         return cell
+    }
+    
+    private func createTextFieldAdditionalView() -> TextFieldTextView {
+        let textField = TextField()
+        let additionalView = createAdditionalView()
+        textField.name = "Optional label"
+        textField.text = "Text"
+        textField.placeholder = "Placeholder"
+        textField.info = "Additional text"
+        textField.additionView = additionalView
+        textField.inputTextAccessibilityId = "TextFieldInput"
+        textField.accessibilityIdentifier = "TextField"
+
+        let cell = TextFieldTextView(
+            textField: textField,
+            titleText: "+ Tags & Informer")
+
+        return cell
+    }
+    
+    private func createAdditionalView() -> UIView {
+        var views: [TagControl<UIView, UIView>] = []
+        for _ in 0..<5 {
+            let emojiLabel = UILabel()
+            emojiLabel.text = "💙"
+            let view = TagControl()
+            view.style = .default
+            view.setTitle("Text")
+            view.leadingView = emojiLabel
+            
+            views.append(view)
+        }
+        
+        let tegCell = AdditionalTextFieldView(tagViews: views)
+
+        return tegCell
+    }
+    
+    private func createTagWithImageAndEmojiView(_ title: String, emoji: String, style: TagStyle) -> TagControl<UIView, UIView> {
+        let emojiLabel = UILabel()
+        emojiLabel.text = emoji
+        let view = TagControl()
+        view.style = style
+        view.setTitle(title)
+        view.leadingView = emojiLabel
+        return view
     }
 
     @objc private func didTap() {

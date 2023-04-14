@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1250"
+   LastUpgradeVersion = "1420"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E63BB8D3268B7D9600385DBF"
-               BuildableName = "ExampleSPM.app"
-               BlueprintName = "ExampleSPM"
-               ReferencedContainer = "container:ExampleSPM.xcodeproj">
+               BlueprintIdentifier = "Admiral"
+               BuildableName = "Admiral"
+               BlueprintName = "Admiral"
+               ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -40,16 +40,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E63BB8D3268B7D9600385DBF"
-            BuildableName = "ExampleSPM.app"
-            BlueprintName = "ExampleSPM"
-            ReferencedContainer = "container:ExampleSPM.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -57,16 +47,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E63BB8D3268B7D9600385DBF"
-            BuildableName = "ExampleSPM.app"
-            BlueprintName = "ExampleSPM"
-            ReferencedContainer = "container:ExampleSPM.xcodeproj">
+            BlueprintIdentifier = "Admiral"
+            BuildableName = "Admiral"
+            BlueprintName = "Admiral"
+            ReferencedContainer = "container:">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
