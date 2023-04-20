@@ -81,10 +81,10 @@ public class DoubleInputRangeTextField: UIView, AnyAppThemable, AccessibilitySup
     }
 
     public var trailingText: String? {
-        get { return trailingLabel.text }
+        get { return rightTextField.leadingText }
         set {
-            trailingLabel.text = newValue
-            updateLayoutConstraints()
+            rightTextField.leadingText = newValue
+            rightTextField.decorationView.isTrailingTextField = true
         }
     }
 
@@ -169,7 +169,6 @@ public class DoubleInputRangeTextField: UIView, AnyAppThemable, AccessibilitySup
     let maxValueLabel = UILabel()
     let informerLabel = UILabel()
     let fromLabel = UILabel()
-    let trailingLabel = UILabel()
     let destinationLabel = UILabel()
 
     // MARK: - Private Properties
@@ -269,42 +268,36 @@ public class DoubleInputRangeTextField: UIView, AnyAppThemable, AccessibilitySup
         leadingDestinationView.addSubview(destinationLabel)
         leftTextField.leadingView = leadingFromView
         rightTextField.leadingView = leadingDestinationView
-        [leftTextField, minValueLabel, maxValueLabel, informerLabel, slider, rightTextField, trailingLabel].addToSuperview(self)
+        [leftTextField, minValueLabel, maxValueLabel, informerLabel, slider, rightTextField].addToSuperview(self)
     }
 
     private func configureLayout() {
-        trailingLabelConstraint = trailingLabel.leadingAnchor.constraint(equalTo: rightTextField.trailingAnchor, constant: LayoutGrid.doubleModule)
-        rightTextFieldTrailingConstraints = rightTextField.trailingAnchor.constraint(equalTo: trailingAnchor)
-
-
         NSLayoutConstraint.activate([
             leftTextField.leadingAnchor.constraint(equalTo: leadingAnchor),
-            leftTextField.trailingAnchor.constraint(equalTo: trailingAnchor),
+            leftTextField.trailingAnchor.constraint(equalTo: centerXAnchor),
             leftTextField.topAnchor.constraint(equalTo: topAnchor),
 
-            slider.leadingAnchor.constraint(equalTo: leftTextField.leadingAnchor),
-            leftTextField.trailingAnchor.constraint(equalTo: slider.trailingAnchor),
+            slider.leadingAnchor.constraint(equalTo: leadingAnchor),
+            slider.trailingAnchor.constraint(equalTo: trailingAnchor),
             slider.topAnchor.constraint(equalTo: leftTextField.bottomAnchor),
 
-            minValueLabel.leadingAnchor.constraint(equalTo: leftTextField.leadingAnchor),
+            minValueLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             minValueLabel.topAnchor.constraint(equalTo: slider.bottomAnchor),
             minValueLabel.widthAnchor.constraint(equalTo: maxValueLabel.widthAnchor, multiplier: 1.0),
 
             maxValueLabel.leadingAnchor.constraint(equalTo: minValueLabel.trailingAnchor),
-            leftTextField.trailingAnchor.constraint(equalTo: maxValueLabel.trailingAnchor),
+            trailingAnchor.constraint(equalTo: maxValueLabel.trailingAnchor),
             maxValueLabel.topAnchor.constraint(equalTo: slider.bottomAnchor),
 
-            informerLabel.leadingAnchor.constraint(equalTo: leftTextField.leadingAnchor),
+            informerLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             leftTextField.trailingAnchor.constraint(equalTo: informerLabel.trailingAnchor),
             informerLabel.topAnchor.constraint(equalTo: minValueLabel.bottomAnchor),
             informerLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
 
-            rightTextField.bottomAnchor.constraint(equalTo: trailingLabel.bottomAnchor, constant: LayoutGrid.module),
+            rightTextField.bottomAnchor.constraint(equalTo: bottomAnchor),
             rightTextField.topAnchor.constraint(equalTo: topAnchor),
-            
-            trailingLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            trailingLabelConstraint,
-            rightTextFieldTrailingConstraints,
+            rightTextField.trailingAnchor.constraint(equalTo: trailingAnchor),
+            rightTextField.leadingAnchor.constraint(greaterThanOrEqualTo: centerXAnchor)
         ])
     }
 
@@ -312,16 +305,6 @@ public class DoubleInputRangeTextField: UIView, AnyAppThemable, AccessibilitySup
         super.layoutSubviews()
         leftTextField.leftLabelWidth = fromLabel.frame.width
         rightTextField.leftLabelWidth = fromLabel.frame.width
-    }
-
-    private func updateLayoutConstraints() {
-        guard trailingText != nil else {
-            trailingLabelConstraint.constant = .zero
-            rightTextFieldTrailingConstraints.isActive = true
-            return
-        }
-        rightTextFieldTrailingConstraints.isActive = false
-        trailingLabelConstraint.constant = LayoutGrid.module
     }
 
     private func configureUI() {
@@ -397,7 +380,6 @@ public class DoubleInputRangeTextField: UIView, AnyAppThemable, AccessibilitySup
         maxValueLabel.textColor = leftTextField.inputTextField.textColor
         fromLabel.textColor = leftTextField.decorationView.informerLabel.textColor
         destinationLabel.textColor = leftTextField.decorationView.informerLabel.textColor
-        trailingLabel.textColor = leftTextField.decorationView.leadingTextLabel.textColor
         switch state {
         case .normal, .error:
             slider.isEnabled = true
@@ -422,10 +404,6 @@ public class DoubleInputRangeTextField: UIView, AnyAppThemable, AccessibilitySup
         maxValueLabel.setDynamicFont(
             font: scheme.valueFont.uiFont,
             textStyle: scheme.valueFont.textStyle,
-            adjustsFontForContentSize: adjustsFontForContentSizeCategory)
-        trailingLabel.setDynamicFont(
-            font: scheme.textFieldScheme.textFieldFont.uiFont,
-            textStyle: scheme.textFieldScheme.textFieldFont.textStyle,
             adjustsFontForContentSize: adjustsFontForContentSizeCategory)
         informerLabel.setDynamicFont(
             font: scheme.textFieldScheme.informerFont.uiFont,

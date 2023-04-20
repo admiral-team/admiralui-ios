@@ -88,6 +88,10 @@ final class TextInputDecorationView: UIView, AnyAppThemable, AccessibilitySuppor
         didSet { updateLayoutConstraints() }
     }
     
+    var isTrailingTextField: Bool = false {
+        didSet { updateLayoutConstraints() }
+    }
+    
     var nameLabelMinFont: UIFont? {
         didSet { layoutIfNeeded() }
     }
@@ -106,7 +110,7 @@ final class TextInputDecorationView: UIView, AnyAppThemable, AccessibilitySuppor
 
     var leadingLabelSpacing: CGFloat = LayoutGrid.module {
         didSet {
-            textLabelLeadingConstraint.constant = leadingLabelSpacing + LayoutGrid.module
+            textLabelLeadingConstraint?.constant = leadingLabelSpacing + LayoutGrid.halfModule
         }
     }
 
@@ -137,10 +141,12 @@ final class TextInputDecorationView: UIView, AnyAppThemable, AccessibilitySuppor
     
     private var placeholderHeightConstraint: NSLayoutConstraint?
     private var placeholderSpacingLeadingConstraint: NSLayoutConstraint?
+    private var placeholderSpacingTrailingConstraint: NSLayoutConstraint?
     private var placeholderSpacingTopConstraint: NSLayoutConstraint?
 
     private var textLabelTopConstraint: NSLayoutConstraint?
-    private var textLabelLeadingConstraint = NSLayoutConstraint()
+    private var textLabelLeadingConstraint: NSLayoutConstraint?
+    private var textLabelTrailingConstraint: NSLayoutConstraint?
 
     private var separatorSpacingTopConstraint: NSLayoutConstraint?
     private var separtorBoxHeightConstraint: NSLayoutConstraint?
@@ -279,13 +285,23 @@ final class TextInputDecorationView: UIView, AnyAppThemable, AccessibilitySuppor
         textInputLeadingConstraing?.constant = layoutParameters.textInputSpacingLeading
         placeholderSpacingTopConstraint?.constant = layoutParameters.placeholderSpacingTop
         
+        if isTrailingTextField {
+            textLabelTrailingConstraint?.isActive = true
+            textLabelLeadingConstraint = leadingTextLabel.leadingAnchor.constraint(equalTo: textInput.trailingAnchor, constant: LayoutGrid.halfModule)
+        } else {
+            textLabelTrailingConstraint?.isActive = false
+        }
+        
         if enablePlaceholderOffset {
             if let leftLabelWidth = leftLabelWidth {
+                textLabelLeadingConstraint?.isActive = false
                 placeholderSpacingLeadingConstraint?.constant = layoutParameters.placeholderSpacingLeading + leftLabelWidth
             } else {
+                textLabelLeadingConstraint?.isActive = false
                 placeholderSpacingLeadingConstraint?.constant = layoutParameters.placeholderSpacingLeading
             }
         } else {
+            textLabelLeadingConstraint?.isActive = true
             placeholderSpacingLeadingConstraint?.constant = 0
         }
 
@@ -333,8 +349,9 @@ final class TextInputDecorationView: UIView, AnyAppThemable, AccessibilitySuppor
     private func configureTextBoxLayoutGuide() {
         let top = textBoxLayoutGuide.topAnchor.constraint(equalTo: topAnchor)
         let leading = textBoxLayoutGuide.leadingAnchor.constraint(equalTo: leadingAnchor)
+        let trailing = textBoxLayoutGuide.trailingAnchor.constraint(equalTo: trailingAnchor)
         
-        NSLayoutConstraint.activate([top, leading])
+        NSLayoutConstraint.activate([top, leading, trailing])
     }
     
     private func configureTextInputLayout() {
@@ -389,21 +406,26 @@ final class TextInputDecorationView: UIView, AnyAppThemable, AccessibilitySuppor
     private func configurePlaceholderLayout() {
         let top = placeholderLabel.topAnchor.constraint(equalTo: textInput.topAnchor)
         let leading = placeholderLabel.leadingAnchor.constraint(equalTo: textInput.leadingAnchor)
-        let trailing = textInput.trailingAnchor.constraint(equalTo: placeholderLabel.trailingAnchor)
+        let trailing = leadingTextLabel.leadingAnchor.constraint(equalTo: placeholderLabel.trailingAnchor, constant: LayoutGrid.halfModule)
         let height = placeholderLabel.heightAnchor.constraint(equalToConstant: 0)
 
         placeholderSpacingLeadingConstraint = leading
         placeholderHeightConstraint = height
         placeholderSpacingTopConstraint = top
+        placeholderSpacingTrailingConstraint = trailing
 
         NSLayoutConstraint.activate([top, leading, trailing, height])
     }
 
     private func configureLeadingTextLabelLayout() {
         let top = leadingTextLabel.topAnchor.constraint(equalTo: textInput.topAnchor)
-        textLabelLeadingConstraint = leadingTextLabel.leadingAnchor.constraint(equalTo: textInput.leadingAnchor)
-        textLabelLeadingConstraint.constant = layoutParameters.leadingTextSpacing
-        NSLayoutConstraint.activate([top, textLabelLeadingConstraint])
+        let leading = leadingTextLabel.leadingAnchor.constraint(equalTo: textInput.leadingAnchor)
+        let trailing = leadingTextLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
+        
+        textLabelLeadingConstraint = leading
+        textLabelTrailingConstraint = trailing
+
+        NSLayoutConstraint.activate([top, leading, trailing])
     }
     
     private func configureAdditionalViewLayoutGuide() {
