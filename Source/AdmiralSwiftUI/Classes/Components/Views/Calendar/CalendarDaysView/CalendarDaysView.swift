@@ -10,6 +10,12 @@ import SwiftUI
 
 @available(iOS 14.0.0, *)
 public struct CalendarDaysView: View {
+    
+    // MARK: - Constants
+    
+    private struct Constants {
+        static let numberOfDaysInWeek = 7
+    }
 
     // MARK: - Private Properties
 
@@ -21,6 +27,8 @@ public struct CalendarDaysView: View {
     private var date: Date
     private var notActiveAfterDate: Date?
     private var pointDates: [Date]
+    private let generator = CalendarGenerator()
+    private var chunkedDays = [[CalendarDay]]()
 
     @ObservedObject var schemeProvider: SchemeProvider<CalendarViewCellColorScheme>
 
@@ -42,29 +50,27 @@ public struct CalendarDaysView: View {
         self.pointDates = pointDates.map( { $0.removeTimeStamp() })
         self.notActiveAfterDate = notActiveAfterDate
         self.schemeProvider = schemeProvider
+        
+        if let monthMetadata = generator.monthMetadata(for: date) {
+            let days = generator.generateDaysInMonth(metadata: monthMetadata)
+            chunkedDays = days.chunked(into: Constants.numberOfDaysInWeek)
+        }
     }
 
     // MARK: - Body
 
     public var body: some View {
-        let numberOfDaysInWeek = 7
-        let generator = CalendarGenerator()
-        var days = [CalendarDay]()
-        if let monthMetadata = generator.monthMetadata(for: date) {
-            days = generator.generateDaysInMonth(metadata: monthMetadata)
-        }
-        let chunkedDays = days.chunked(into: numberOfDaysInWeek)
         return VStack(spacing: LayoutGrid.halfModule * 5) {
             ForEach(0..<chunkedDays.count, id: \.self) { index in
                 HStack {
                     ForEach(Array(chunkedDays[index].enumerated()), id: \.offset) { indexDay, day in
                         dayView(day: day)
-                        if indexDay != 6 {
+                        if indexDay != Constants.numberOfDaysInWeek - 1 {
                             Spacer()
                         }
                     }
-                    if chunkedDays[index].count < numberOfDaysInWeek {
-                        ForEach(chunkedDays[index].count..<numberOfDaysInWeek, id: \.self) { index in
+                    if chunkedDays[index].count < Constants.numberOfDaysInWeek {
+                        ForEach(chunkedDays[index].count..<Constants.numberOfDaysInWeek, id: \.self) { index in
                             Rectangle()
                                 .frame(width: LayoutGrid.halfModule * 9, height: LayoutGrid.halfModule * 9)
                                 .hidden()
