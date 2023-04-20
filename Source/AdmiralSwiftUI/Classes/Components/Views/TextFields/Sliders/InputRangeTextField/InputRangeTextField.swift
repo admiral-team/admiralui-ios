@@ -420,7 +420,6 @@ public struct InputRangeTextField<T>: TextFieldInput, AccessabilitySupportUIKit,
                                 onSubmit: onSubmit,
                                 accessibilityIdentifier: accessibilityIdentifier
                             )
-                                .fixedSize()
                                 .frame(height: 24.0)
                                 .onChange(of: content) { value in
                                     guard !finishAfterChangeSlider else { return }
