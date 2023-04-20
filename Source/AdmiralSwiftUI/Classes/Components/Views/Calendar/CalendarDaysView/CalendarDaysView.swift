@@ -10,6 +10,12 @@ import SwiftUI
 
 @available(iOS 14.0.0, *)
 public struct CalendarDaysView: View {
+    
+    // MARK: - Constants
+    
+    private struct Constants {
+        static let numberOfDaysInWeek = 7
+    }
 
     // MARK: - Private Properties
 
@@ -21,6 +27,8 @@ public struct CalendarDaysView: View {
     private var date: Date
     private var notActiveAfterDate: Date?
     private var pointDates: [Date]
+    private let generator = CalendarGenerator()
+    private var chunkedDays = [[CalendarDay]]()
 
     @ObservedObject var schemeProvider: SchemeProvider<CalendarViewCellColorScheme>
 
@@ -42,27 +50,36 @@ public struct CalendarDaysView: View {
         self.pointDates = pointDates.map( { $0.removeTimeStamp() })
         self.notActiveAfterDate = notActiveAfterDate
         self.schemeProvider = schemeProvider
+        
+        if let monthMetadata = generator.monthMetadata(for: date) {
+            let days = generator.generateDaysInMonth(metadata: monthMetadata)
+            chunkedDays = days.chunked(into: Constants.numberOfDaysInWeek)
+        }
     }
 
     // MARK: - Body
 
     public var body: some View {
-        let grid = [
-            GridItem(.flexible()),
-            GridItem(.flexible()),
-            GridItem(.flexible()),
-            GridItem(.flexible()),
-            GridItem(.flexible()),
-            GridItem(.flexible()),
-            GridItem(.flexible())]
-        let generator = CalendarGenerator()
-        var days = [CalendarDay]()
-        if let monthMetadata = generator.monthMetadata(for: date) {
-            days = generator.generateDaysInMonth(metadata: monthMetadata)
-        }
-        return LazyVGrid(columns: grid, spacing: LayoutGrid.halfModule * 5) {
-            ForEach(0..<days.count, id: \.self) { index in
-                dayView(day: days[index])
+        return VStack(spacing: LayoutGrid.halfModule * 5) {
+            ForEach(0..<chunkedDays.count, id: \.self) { index in
+                HStack {
+                    ForEach(Array(chunkedDays[index].enumerated()), id: \.offset) { indexDay, day in
+                        dayView(day: day)
+                        if indexDay != Constants.numberOfDaysInWeek - 1 {
+                            Spacer()
+                        }
+                    }
+                    if chunkedDays[index].count < Constants.numberOfDaysInWeek {
+                        ForEach(chunkedDays[index].count..<Constants.numberOfDaysInWeek, id: \.self) { index in
+                            Rectangle()
+                                .frame(width: LayoutGrid.halfModule * 9, height: LayoutGrid.halfModule * 9)
+                                .hidden()
+                            if index != 6 {
+                                Spacer()
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -77,9 +94,6 @@ public struct CalendarDaysView: View {
             if Set(pointDates).contains(day.date), day.isDisplayedInMonth {
                 Circle()
                     .foregroundColor(scheme.dayPointColor.swiftUIColor)
-                    .frame(width: LayoutGrid.halfModule, height: LayoutGrid.halfModule)
-            } else {
-                Spacer()
                     .frame(width: LayoutGrid.halfModule, height: LayoutGrid.halfModule)
             }
         }
@@ -99,10 +113,6 @@ public struct CalendarDaysView: View {
     }
 
     private func checkSelect(date: Date) -> Bool {
-
-        let startDate = startDate?.removeTimeStamp()
-        let endDate = endDate?.removeTimeStamp()
-
         if let startDate = startDate, startDate <= date {
             if startDate == date {
                 return true
@@ -168,7 +178,6 @@ public struct CalendarDaysView: View {
             )
         }
     }
-
 
     private func inactiveTextView(day: CalendarDay) -> some View {
         let scheme = schemeProvider.scheme

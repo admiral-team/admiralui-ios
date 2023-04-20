@@ -108,40 +108,36 @@ struct CalendarVerticalView: View {
             scheme.backgroundColor.swiftUIColor
             ScrollViewReader { scrollView in
                 ScrollView(showsIndicators: false) {
-                    LazyVStack(spacing: 0.0) {
-                        contentListCell(scheme: scheme, scrollView: scrollView)
-                    }
+                        contentListCell()
                 }
+                .padding(.horizontal, LayoutGrid.doubleModule)
                 .opacity(isScrollCalendar ? 1.0 : 0.0)
                 .onAppear {
                     let generator = CalendarGenerator()
-                    let monthsData = getDates(
+                    getDates(
                         generator: generator,
                         startDate: self.startDate,
                         endDate: self.endDate,
-                        monthDate: monthYearDate)
-
-                    self.dates = monthsData.0
-                    self.currentMonthDate = monthsData.1
-                    // WORKAROUND: Work for solve problem with scroll.
-                    DispatchQueue.main.async {
-                        scrollView.scrollTo(monthsData.1)
-                        isScrollCalendar = true
+                        monthDate: monthYearDate) { dates in
+                            self.dates = dates.0
+                            self.currentMonthDate = dates.1
+                            DispatchQueue.main.async {
+                                scrollView.scrollTo(dates.1)
+                                self.isScrollCalendar = true
+                            }
+                        }
                     }
                 }
-                .padding(.horizontal, LayoutGrid.doubleModule)
             }
-        }
     }
 
-    func contentListCell(scheme: CalendarVerticalViewScheme, scrollView: ScrollViewProxy) -> some View {
-        ForEach(dates, id: \.self) { date in
-            monthView(date: date)
-                .id(date)
+    func contentListCell() -> some View {
+        LazyVStack(spacing: LayoutGrid.module) {
+            ForEach(dates, id: \.self) { date in
+                monthView(date: date)
+                    .id(date)
+            }
         }
-        .listRowInsets(EdgeInsets(top: 0.0, leading: 0.0, bottom: 0.0, trailing: 0.0))
-        .background(scheme.backgroundColor.swiftUIColor)
-        .listRowBackground(scheme.backgroundColor.swiftUIColor)
     }
 
     // MARK: - Private Methods
@@ -150,44 +146,19 @@ struct CalendarVerticalView: View {
         generator: CalendarGenerator,
         startDate: Date,
         endDate: Date,
-        monthDate: Date?) -> ([Date],Date?) {
+        monthDate: Date?,
+        completion: @escaping (_ dates: ([Date], Date?)) -> Void) {
+
+            DispatchQueue.global(qos: .background).async {
             let dates = generator.calculateDates(
                 startDate: startDate,
                 endDate: endDate,
                 monthDate: monthDate)
-            return dates
-        }
-
-    private func weeks(days: [CalendarDay]) -> [CalendarWeek] {
-        var weekDays: [CalendarWeek] = []
-        var startIndex = 0
-        var endIndex = 6
-        let max = (Double(days.count) / 7).rounded(.up)
-
-        for _ in 0..<Int(max) {
-            let offset = startIndex...min(endIndex, days.count - 1)
-            var days = Array(days[offset])
-            if days.count < 7 {
-                if let lastDate = days.last?.date {
-                    for index in days.count..<7 {
-                        if let nextDay = Calendar.current.date(byAdding: .day, value: index, to: lastDate) {
-                            days.append(
-                                CalendarDay(
-                                    date: nextDay,
-                                    number: "",
-                                    isSelected: false,
-                                    isCurrentDay: false,
-                                    isDisplayedInMonth: false)
-                            )
-                        }
-                    }
-                }
+            
+            DispatchQueue.main.async {
+                completion(dates)
             }
-            weekDays.append(CalendarWeek(days: days))
-            startIndex += 7
-            endIndex += 7
         }
-        return weekDays
     }
 
     private func monthView(date: Date) -> some View {
@@ -204,6 +175,8 @@ struct CalendarVerticalView: View {
                 locale,
                 schemeProvider: SchemeProvider.constant(scheme: scheme.calendarWeekViewScheme)
             )
+            Spacer()
+                .frame(height: LayoutGrid.halfModule * 5)
             CalendarDaysView(
                 date: date,
                 isMutlipleSelectionAllowed: isMutlipleSelectionAllowed,
@@ -229,8 +202,8 @@ struct CalendarView_Previews: PreviewProvider {
 
     static var previews: some View {
         CalendarVerticalView(
-            startDate: Calendar.current.date(byAdding: .weekOfYear, value: -10, to: Date())!,
-            endDate: Calendar.current.date(byAdding: .weekOfYear, value: 10, to: Date())!,
+            startDate: Calendar.current.date(byAdding: .weekOfYear, value: -1, to: Date())!,
+            endDate: Calendar.current.date(byAdding: .weekOfYear, value: 1, to: Date())!,
             notActiveAfterDate: Date(),
             pointDates: [])
         .padding()
