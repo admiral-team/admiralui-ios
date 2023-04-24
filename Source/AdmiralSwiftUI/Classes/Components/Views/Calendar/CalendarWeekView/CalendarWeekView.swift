@@ -34,19 +34,16 @@ public struct CalendarWeekView: View {
         let scheme = schemeProvider.scheme
         return HStack {
             ForEach(0..<weakDays.count, id: \.self) { index in
-                Group {
-                    Text(weakDays[index])
-                        .frame(width: LayoutGrid.halfModule * 9, height: LayoutGrid.halfModule * 9)
-                    if index != 6 {
-                        Spacer()
-                    }
+                Text(weakDays[index])
+                    .frame(width: LayoutGrid.halfModule * 9, height: LayoutGrid.halfModule * 9)
+                if index != 6 {
+                    Spacer()
                 }
             }
         }
         .font(scheme.titleLabelFont.swiftUIFont)
         .foregroundColor(scheme.titleLabelColor.swiftUIColor)
     }
-
 }
 
 @available(iOS 14.0, *)
