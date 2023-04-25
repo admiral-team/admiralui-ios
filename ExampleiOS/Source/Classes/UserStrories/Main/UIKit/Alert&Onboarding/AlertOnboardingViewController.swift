@@ -56,7 +56,6 @@ private extension AlertOnboardingViewController {
         case .zeroScreen:
             vc = ZeroScreenViewController()
         }
-        vc.title = title
         navigationController?.pushViewController(vc, animated: true)
     }
 
