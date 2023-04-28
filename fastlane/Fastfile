@@ -548,7 +548,7 @@ end
 
 def release_asset_string(name:)
   release_asset_uikit = ReleaseAsset.new()
-  release_asset_uikit.name = "#{name}"
+  release_asset_uikit.name = "#{name}.zip"
   release_asset_uikit.label = "#{name}.zip"
   release_asset_uikit.media_type = "application/zip"
   release_asset_uikit.path = "../../Products/xcframeworks/#{name}.xcframework.zip"
