@@ -506,7 +506,7 @@ extension CalendarHorizontalView: UICollectionViewDataSource {
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         let offset = scrollView.contentOffset.x - scrollView.frame.width
-        if offset > scrollView.frame.width / Constants.viewDivider {
+        if offset >= scrollView.frame.width / Constants.viewDivider {
             scrollRight()
         } else if offset < -scrollView.frame.width / Constants.viewDivider {
             scrollLeft()
