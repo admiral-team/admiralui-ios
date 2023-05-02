@@ -67,6 +67,28 @@ public class ListCell<L, C, T>: UIView, AnyAppThemable, ListViewCell where C: Ce
     
     /// Leading view.
     public let leadingView: L?
+    
+    /// Offset for leading view.
+    public var leaingOffset: CGFloat = 0 {
+        willSet {
+            leadingViewLeadingConstraint?.constant = newValue
+        }
+    }
+    
+    /// Offset for center view.
+    public var centerOffset: CGFloat = 0 {
+        willSet {
+            centerViewLeadingConstraint?.constant = newValue
+            centerViewTrailingConstraint?.constant = newValue
+        }
+    }
+    
+    /// Offset for trailing view.
+    public var trailingOffset: CGFloat = 0 {
+        willSet {
+            trailingViewTrailingConstraint?.constant = newValue
+        }
+    }
 
     /// Color scheme.
     public var scheme = ListCellScheme() {
@@ -125,6 +147,15 @@ public class ListCell<L, C, T>: UIView, AnyAppThemable, ListViewCell where C: Ce
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Private Properties
+    
+    private var leadingViewLeadingConstraint: NSLayoutConstraint?
+    
+    private var centerViewLeadingConstraint: NSLayoutConstraint?
+    private var centerViewTrailingConstraint: NSLayoutConstraint?
+    
+    private var trailingViewTrailingConstraint: NSLayoutConstraint?
+    
     // MARK: - Public Method
     
     open func apply(theme: AppTheme) {
@@ -168,8 +199,10 @@ public class ListCell<L, C, T>: UIView, AnyAppThemable, ListViewCell where C: Ce
         ])
         
         if let imageView = leadingView {
+            let leading = imageView.leadingAnchor.constraint(equalTo: leadingAnchor)
+            leadingViewLeadingConstraint = leading
             NSLayoutConstraint.activate([
-                imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+                leading,
                 imageView.topAnchor.constraint(equalTo: topAnchor),
                 bottomAnchor.constraint(equalTo: imageView.bottomAnchor),
                 imageView.widthAnchor.constraint(equalToConstant: LayoutGrid.halfModule * 15)
@@ -177,8 +210,10 @@ public class ListCell<L, C, T>: UIView, AnyAppThemable, ListViewCell where C: Ce
         }
         
         if let tralingView = tralingView {
+            let trailing = trailingAnchor.constraint(equalTo: tralingView.trailingAnchor)
+            trailingViewTrailingConstraint = trailing
             NSLayoutConstraint.activate([
-                trailingAnchor.constraint(equalTo: tralingView.trailingAnchor),
+                trailing,
                 tralingView.topAnchor.constraint(equalTo: topAnchor),
                 bottomAnchor.constraint(equalTo: tralingView.bottomAnchor)
             ])
@@ -202,22 +237,30 @@ public class ListCell<L, C, T>: UIView, AnyAppThemable, ListViewCell where C: Ce
             ])
             
             if let imageView = leadingView {
+                let leading = centerView.leadingAnchor.constraint(equalTo: imageView.trailingAnchor)
+                centerViewLeadingConstraint = leading
                 NSLayoutConstraint.activate([
-                    centerView.leadingAnchor.constraint(equalTo: imageView.trailingAnchor)
+                    leading
                 ])
             } else {
+                let leading = centerView.leadingAnchor.constraint(equalTo: leadingAnchor)
+                centerViewLeadingConstraint = leading
                 NSLayoutConstraint.activate([
-                    centerView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
+                    leading
                 ])
             }
             
             if let tralingView = tralingView {
+                let trailing = tralingView.leadingAnchor.constraint(equalTo: centerView.trailingAnchor)
+                centerViewTrailingConstraint = trailing
                 NSLayoutConstraint.activate([
-                    centerView.trailingAnchor.constraint(equalTo: tralingView.leadingAnchor)
+                    trailing
                 ])
             } else {
+                let trailing = trailingAnchor.constraint(equalTo: centerView.trailingAnchor)
+                centerViewTrailingConstraint = trailing
                 NSLayoutConstraint.activate([
-                    centerView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+                    trailing
                 ])
             }
         }
