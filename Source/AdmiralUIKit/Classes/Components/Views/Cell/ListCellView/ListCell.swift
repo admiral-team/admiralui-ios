@@ -70,24 +70,17 @@ public class ListCell<L, C, T>: UIView, AnyAppThemable, ListViewCell where C: Ce
     
     /// Offset for leading view.
     public var leaingOffset: CGFloat = 0 {
-        willSet {
-            leadingViewLeadingConstraint?.constant = newValue
-        }
+        didSet { updateLayoutConstraints() }
     }
     
     /// Offset for center view.
     public var centerOffset: CGFloat = 0 {
-        willSet {
-            centerViewLeadingConstraint?.constant = newValue
-            centerViewTrailingConstraint?.constant = newValue
-        }
+        didSet { updateLayoutConstraints() }
     }
     
     /// Offset for trailing view.
     public var trailingOffset: CGFloat = 0 {
-        willSet {
-            trailingViewTrailingConstraint?.constant = newValue
-        }
+        didSet { updateLayoutConstraints() }
     }
 
     /// Color scheme.
@@ -264,6 +257,15 @@ public class ListCell<L, C, T>: UIView, AnyAppThemable, ListViewCell where C: Ce
                 ])
             }
         }
+    }
+    
+    private func updateLayoutConstraints() {
+        leadingViewLeadingConstraint?.constant = leaingOffset
+        centerViewLeadingConstraint?.constant = leaingOffset
+        centerViewTrailingConstraint?.constant = leaingOffset
+        trailingViewTrailingConstraint?.constant = trailingOffset
+        
+        layoutIfNeeded()
     }
     
     private func configureUI() {
