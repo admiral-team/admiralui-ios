@@ -24,7 +24,6 @@ module Fastlane
         scales = ScaleFormatter.new.any_scales_to_scales(image_scales)
 
         client = FigmaClient.new(access_token: access_token)
-        print "Here1111"
 
         components_list = client.get_full_image_components(
           file_key: file_key,

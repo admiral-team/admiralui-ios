@@ -66,8 +66,6 @@ class FigmaClient
           svg_simplify_stroke: svg_simplify_stroke,
           use_absolute_bounds: use_absolute_bounds
         )&.images || {}
-        puts batch_node_ids
-        puts svg_include_id
         images_all.merge!(images)
       end
       image_links_hash[scale] = images_all
