@@ -147,19 +147,15 @@ struct CalendarVerticalView: View {
         startDate: Date,
         endDate: Date,
         monthDate: Date?,
-        completion: @escaping (_ dates: ([Date], Date?)) -> Void) {
-
-            DispatchQueue.global(qos: .background).async {
+        completion: (_ dates: ([Date], Date?)) -> Void) {
+            
             let dates = generator.calculateDates(
                 startDate: startDate,
                 endDate: endDate,
                 monthDate: monthDate)
             
-            DispatchQueue.main.async {
-                completion(dates)
-            }
+            completion(dates)
         }
-    }
 
     private func monthView(date: Date) -> some View {
         let scheme = schemeProvider.scheme
