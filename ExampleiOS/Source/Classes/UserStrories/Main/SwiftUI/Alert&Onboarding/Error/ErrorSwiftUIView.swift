@@ -29,7 +29,7 @@ struct ErrorSwiftUIView: View {
     var body: some View {
         let scheme = schemeProvider.scheme
         NavigationContentView(
-            navigationTitle: "Error View",
+            navigationTitle: "",
             isShowThemeSwitchSwiftUIView: true
         ) {
             scheme.backgroundColor.swiftUIColor

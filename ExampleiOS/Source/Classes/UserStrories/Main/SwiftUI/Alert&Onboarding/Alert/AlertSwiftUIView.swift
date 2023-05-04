@@ -18,7 +18,7 @@ struct AlertSwiftUIView: View {
 
     var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Alert", isShowThemeSwitchSwiftUIView: !show) {
+        NavigationContentView(navigationTitle: "", isShowThemeSwitchSwiftUIView: !show) {
             scheme.backgroundColor.swiftUIColor
             ZStack {
                 infoView
@@ -30,8 +30,8 @@ struct AlertSwiftUIView: View {
     
     private var infoView: some View {
         let scheme = schemeProvider.scheme
-        return VStack {
-            Text("Всплывающие окна поверх контента, часто содержат короткое информирующее сообщение, иллюстрацию и кнопки основгого или альтернативного действия. Для вызова Alert, нажмите кнопку")
+        return VStack(spacing:LayoutGrid.module) {
+            Text("Всплывающие окна поверх контента, часто содержат короткое информирующее сообщение, иллюстрацию и кнопки основгого или альтернативного действия.\n\nДля вызова Alert, нажмите кнопку")
                 .multilineTextAlignment(.leading)
                 .font(scheme.descriptionLabelFont.swiftUIFont)
                 .foregroundColor(scheme.descriptionLabelTextColor.swiftUIColor)
