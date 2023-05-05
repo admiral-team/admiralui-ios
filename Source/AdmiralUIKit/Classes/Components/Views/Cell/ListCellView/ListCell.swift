@@ -203,7 +203,7 @@ public class ListCell<L, C, T>: UIView, AnyAppThemable, ListViewCell where C: Ce
         }
         
         if let tralingView = tralingView {
-            let trailing = trailingAnchor.constraint(equalTo: tralingView.trailingAnchor)
+            let trailing = trailingAnchor.constraint(equalTo: tralingView.trailingAnchor, constant: trailingOffset)
             trailingViewTrailingConstraint = trailing
             NSLayoutConstraint.activate([
                 trailing,
@@ -280,7 +280,6 @@ public class ListCell<L, C, T>: UIView, AnyAppThemable, ListViewCell where C: Ce
     
     private func updateLayout() {
         setNeedsLayout()
-        layoutIfNeeded()
     }
     
     private func configureUI() {

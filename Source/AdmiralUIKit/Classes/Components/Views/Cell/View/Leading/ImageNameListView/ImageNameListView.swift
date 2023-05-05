@@ -97,7 +97,7 @@ public class ImageNameListView: BaseListView, LeadingListViewComponent, AnyAppTh
             titleLabel.bottomAnchor.constraint(equalTo: backgroundNameView.bottomAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: backgroundNameView.trailingAnchor),
             
-            backgroundNameView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: LayoutGrid.doubleModule),
+            backgroundNameView.leadingAnchor.constraint(equalTo: leadingAnchor),
             backgroundNameView.centerYAnchor.constraint(equalTo: centerYAnchor),
             backgroundNameView.widthAnchor.constraint(equalToConstant: Constants.nameBackgroundViewHeight),
             backgroundNameView.heightAnchor.constraint(equalToConstant: Constants.nameBackgroundViewHeight)

@@ -97,7 +97,7 @@ public class ImageBackgroundListView: BaseListView, LeadingListViewComponent, An
             imageView.bottomAnchor.constraint(lessThanOrEqualTo: backgroundImageView.bottomAnchor),
             imageView.trailingAnchor.constraint(lessThanOrEqualTo: backgroundImageView.trailingAnchor),
             
-            backgroundImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: LayoutGrid.doubleModule),
+            backgroundImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             backgroundImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             backgroundImageView.widthAnchor.constraint(equalToConstant: Constants.imageBackgroundViewHeight),
             backgroundImageView.heightAnchor.constraint(equalToConstant: Constants.imageBackgroundViewHeight)

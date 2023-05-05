@@ -84,7 +84,10 @@ final class TralingElementsViewController: ScrollViewController {
     private func configureArrowCell() -> ListCell<ListCellEmpty, TitleListView, ArrowListView> {
         let titleListView = TitleListView()
         titleListView.title = "Title"
-        return ListCell(centerView: titleListView, tralingView: ArrowListView())
+        let cell: ListCell<ListCellEmpty, TitleListView, ArrowListView> = ListCell(centerView: titleListView, tralingView: ArrowListView())
+        cell.centerOffset = LayoutGrid.doubleModule
+        cell.trailingOffset = LayoutGrid.doubleModule
+        return cell
     }
     
     private func configureRadioButtonCell() -> ListCell<ListCellEmpty, TitleListView, RadioButtonListView> {
@@ -94,6 +97,8 @@ final class TralingElementsViewController: ScrollViewController {
         let titleListView = TitleListView()
         titleListView.title = "Title"
         let cell: ListCell<ListCellEmpty, TitleListView, RadioButtonListView> = ListCell(centerView: titleListView, tralingView: radioButtonView)
+        cell.centerOffset = LayoutGrid.doubleModule
+        cell.trailingOffset = LayoutGrid.doubleModule
         cell.accessibilityIdentifier = "RadioButtonCell"
         return cell
     }
@@ -107,6 +112,8 @@ final class TralingElementsViewController: ScrollViewController {
         let titleListView = TitleListView()
         titleListView.title = "Title"
         let cell: ListCell<ListCellEmpty, TitleListView, CheckBoxListView> = ListCell(centerView: titleListView, tralingView: checkBoxCell)
+        cell.centerOffset = LayoutGrid.doubleModule
+        cell.trailingOffset = LayoutGrid.doubleModule
         cell.accessibilityIdentifier = "CheckBoxCell"
         return cell
     }
@@ -122,6 +129,8 @@ final class TralingElementsViewController: ScrollViewController {
         let titleListView = TitleListView()
         titleListView.title = "Title"
         let cell: ListCell<ListCellEmpty, TitleListView, SwitchListView> = ListCell(centerView: titleListView, tralingView: switchListView)
+        cell.centerOffset = LayoutGrid.doubleModule
+        cell.trailingOffset = LayoutGrid.doubleModule
         cell.accessibilityIdentifier = "SwitchListViewCell"
         return cell
     }
@@ -132,6 +141,8 @@ final class TralingElementsViewController: ScrollViewController {
         let titleListView = TitleListView()
         titleListView.title = "Title"
         let cell: ListCell<ListCellEmpty, TitleListView, CardListView> = ListCell(centerView: titleListView, tralingView: сardListView)
+        cell.centerOffset = LayoutGrid.doubleModule
+        cell.trailingOffset = LayoutGrid.doubleModule
         cell.accessibilityIdentifier = "CardListViewCell"
         return cell
     }
@@ -142,6 +153,8 @@ final class TralingElementsViewController: ScrollViewController {
         let titleListView = TitleListView()
         titleListView.title = "Title"
         let cell: ListCell<ListCellEmpty, TitleListView, IconListView> = ListCell(centerView: titleListView, tralingView: iconListView)
+        cell.centerOffset = LayoutGrid.doubleModule
+        cell.trailingOffset = LayoutGrid.doubleModule
         cell.accessibilityIdentifier = "IconListViewCell"
         return cell
     }
@@ -153,6 +166,8 @@ final class TralingElementsViewController: ScrollViewController {
         let titleListView = TitleListView()
         titleListView.title = "Title"
         let cell: ListCell<ListCellEmpty, TitleListView, DatePercentListView> = ListCell(centerView: titleListView, tralingView: datePercentListView)
+        cell.centerOffset = LayoutGrid.doubleModule
+        cell.trailingOffset = LayoutGrid.doubleModule
         cell.accessibilityIdentifier = "DatePercentListViewCell"
         return cell
     }
@@ -164,6 +179,8 @@ final class TralingElementsViewController: ScrollViewController {
         let titleListView = TitleListView()
         titleListView.title = "Title"
         let cell: ListCell<ListCellEmpty, TitleListView, ImageWithSubtitleListView> = ListCell(centerView: titleListView, tralingView: imageWithSubtitleListView)
+        cell.centerOffset = LayoutGrid.doubleModule
+        cell.trailingOffset = LayoutGrid.doubleModule
         cell.accessibilityIdentifier = "ImageWithSubtitleListViewCell"
         return cell
     }
@@ -175,6 +192,8 @@ final class TralingElementsViewController: ScrollViewController {
         let titleListView = TitleListView()
         titleListView.title = "Title"
         let cell: ListCell<ListCellEmpty, TitleListView, SubtitleWithImageListView> = ListCell(centerView: titleListView, tralingView: imageWithSubtitleListView)
+        cell.centerOffset = LayoutGrid.doubleModule
+        cell.trailingOffset = LayoutGrid.doubleModule
         cell.accessibilityIdentifier = "SubtitleWithImageListViewCell"
         return cell
     }
@@ -185,6 +204,8 @@ final class TralingElementsViewController: ScrollViewController {
         let titleListView = TitleListView()
         titleListView.title = "Title"
         let cell: ListCell<ListCellEmpty, TitleListView, CurcleIconListView> = ListCell(centerView: titleListView, tralingView: curcleIconListView)
+        cell.centerOffset = LayoutGrid.doubleModule
+        cell.trailingOffset = LayoutGrid.doubleModule
         cell.accessibilityIdentifier = "CurcleIconListViewCell"
         return cell
     }

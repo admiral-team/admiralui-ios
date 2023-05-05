@@ -118,12 +118,12 @@ public class SubtitleTitleListView: BaseListView, CenterListViewComponent, AnyAp
         
         NSLayoutConstraint.activate([
             subtitleCenterYConstraint,
-            subtitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: LayoutGrid.doubleModule),
+            subtitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             trailingAnchor.constraint(equalTo: subtitleLabel.trailingAnchor, constant: LayoutGrid.doubleModule),
             titleLabel.topAnchor.constraint(greaterThanOrEqualTo: topAnchor),
             
             titleLabel.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: LayoutGrid.halfModule),
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: LayoutGrid.doubleModule),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: LayoutGrid.doubleModule),
             bottomAnchor.constraint(greaterThanOrEqualTo: titleLabel.bottomAnchor),
             titleCenterY

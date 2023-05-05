@@ -78,7 +78,7 @@ public class LeadingCardListView: BaseListView, LeadingListViewComponent, AnyApp
     
     private func configureLayout() {
         let top = imageView.topAnchor.constraint(equalTo: topAnchor)
-        let leading = imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: LayoutGrid.doubleModule)
+        let leading = imageView.leadingAnchor.constraint(equalTo: leadingAnchor)
         let trailing = trailingAnchor.constraint(equalTo: imageView.trailingAnchor)
         let bottom = bottomAnchor.constraint(equalTo: imageView.bottomAnchor)
 

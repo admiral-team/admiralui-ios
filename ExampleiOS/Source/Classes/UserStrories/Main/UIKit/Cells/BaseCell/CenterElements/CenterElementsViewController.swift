@@ -83,6 +83,8 @@ final class CenterElementsViewController: ScrollViewController {
         let titleListView = TitleListView()
         titleListView.title = title
         let cell: ListCell<ListCellEmpty, TitleListView, ArrowListView> = ListCell(centerView: titleListView, tralingView: ArrowListView())
+        cell.centerOffset = LayoutGrid.doubleModule
+        cell.trailingOffset = LayoutGrid.doubleModule
         cell.accessibilityIdentifier = "TitleCell"
         return cell
     }
@@ -92,6 +94,8 @@ final class CenterElementsViewController: ScrollViewController {
         titleSubtitleListView.title = title
         titleSubtitleListView.subtitle = subtitle
         let cell: ListCell<ListCellEmpty, TitleSubtitleListView, ArrowListView> = ListCell(centerView: titleSubtitleListView, tralingView: ArrowListView())
+        cell.centerOffset = LayoutGrid.doubleModule
+        cell.trailingOffset = LayoutGrid.doubleModule
         cell.accessibilityIdentifier = "TitleSubtitleCell"
         return cell
     }
@@ -101,6 +105,8 @@ final class CenterElementsViewController: ScrollViewController {
         subtitleTitleListView.title = title
         subtitleTitleListView.subtitle = subtitle
         let cell: ListCell<ListCellEmpty, SubtitleTitleListView, ArrowListView> = ListCell(centerView: subtitleTitleListView, tralingView: ArrowListView())
+        cell.centerOffset = LayoutGrid.doubleModule
+        cell.trailingOffset = LayoutGrid.doubleModule
         cell.accessibilityIdentifier = "SubtitleTitleCell"
         return cell
     }
@@ -115,6 +121,8 @@ final class CenterElementsViewController: ScrollViewController {
         leadingView.tagText = "Percent"
         leadingView.messageText = "Text Message"
         let cell: ListCell<ListCellEmpty, TitleMoreDetailTextMessageListView, ArrowListView> = ListCell(centerView: leadingView, tralingView: ArrowListView())
+        cell.centerOffset = LayoutGrid.doubleModule
+        cell.trailingOffset = LayoutGrid.doubleModule
         cell.accessibilityIdentifier = "TitleMoreDetaileTextMessageListView"
         return cell
     }
@@ -132,6 +140,8 @@ final class CenterElementsViewController: ScrollViewController {
             print("Select")
         }
         let cell: ListCell<ListCellEmpty, TitleSubtitleButtonListView, ArrowListView> = ListCell(centerView: leadingView, tralingView: ArrowListView())
+        cell.centerOffset = LayoutGrid.doubleModule
+        cell.trailingOffset = LayoutGrid.doubleModule
         cell.accessibilityIdentifier = "TitleSubtitleButtonsListCell"
         return cell
     }

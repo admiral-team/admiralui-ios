@@ -54,10 +54,10 @@ final class CellsViewController: ScrollViewController {
         let titleListView = TitleListView()
         titleListView.title = title
         
-        let listCell = ListCell<ListCellEmpty, TitleListView, ArrowListView>(centerView: titleListView,
-                                                                             tralingView: ArrowListView())
-        
-        return listCell
+        let cell: ListCell<ListCellEmpty, TitleListView, ArrowListView> = ListCell(centerView: titleListView, tralingView: ArrowListView())
+        cell.centerOffset = LayoutGrid.doubleModule
+        cell.trailingOffset = LayoutGrid.doubleModule
+        return cell
     }
     
     @objc private func tapCell(_ tap: UITapGestureRecognizer) {

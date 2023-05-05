@@ -112,7 +112,7 @@ public class RadioButtonListView: BaseListView, TralingListViewComponent, AnyApp
     private func configureLayout() {
         NSLayoutConstraint.activate([
             radioButton.centerYAnchor.constraint(equalTo: centerYAnchor),
-            trailingAnchor.constraint(equalTo: radioButton.trailingAnchor, constant: LayoutGrid.module)
+            trailingAnchor.constraint(equalTo: radioButton.trailingAnchor)
         ])
     }
 

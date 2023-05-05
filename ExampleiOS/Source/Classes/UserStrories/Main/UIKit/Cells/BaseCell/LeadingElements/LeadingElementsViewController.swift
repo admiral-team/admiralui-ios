@@ -81,53 +81,65 @@ final class LeadingElementsViewController: ScrollViewController {
     
     private func configureCardCell() -> ListCell<LeadingCardListView, TitleListView, ArrowListView> {
         let titleListView = TitleListView()
-        titleListView.title = "Card Place"
+        titleListView.title = "Card Place1"
         let cardListView = LeadingCardListView()
         cardListView.cardImage = Asset.Card.visa.image
         let cell = ListCell(leadingView: cardListView, centerView: titleListView, tralingView: ArrowListView())
+        cell.leaingOffset = LayoutGrid.doubleModule
+        cell.trailingOffset = LayoutGrid.doubleModule
         cell.accessibilityIdentifier = "CardCell"
         return cell
     }
 
     private func configureLargeImageCell() -> ListCell<ImageListView, TitleListView, ArrowListView> {
         let titleListView = TitleListView()
-        titleListView.title = "Label Place"
+        titleListView.title = "Label Place2"
         let iconListView = ImageListView()
         iconListView.image = Asset.Card.rnb.image
         let cell = ListCell(leadingView: iconListView, centerView: titleListView, tralingView: ArrowListView())
+        cell.leaingOffset = LayoutGrid.doubleModule
+        cell.trailingOffset = LayoutGrid.doubleModule
         cell.accessibilityIdentifier = "LargeImageCell"
         return cell
     }
 
-    private func configureImageCell() -> ListCell<ImageListView, TitleListView, ArrowListView> {
+    private func configureImageNameListViewCell() -> ListCell<ImageNameListView, TitleListView, ArrowListView> {
         let titleListView = TitleListView()
-        titleListView.title = "Icon Place"
-        let iconListView = ImageListView()
-        iconListView.image = Asset.Main.gem.image
-        let cell = ListCell(leadingView: iconListView, centerView: titleListView, tralingView: ArrowListView())
-        cell.accessibilityIdentifier = "ImageCell"
+        titleListView.title = "Icon Name3"
+        let imageNameListView = ImageNameListView()
+        imageNameListView.text = "IN"
+        let cell = ListCell(leadingView: imageNameListView, centerView: titleListView, tralingView: ArrowListView())
+        cell.leaingOffset = LayoutGrid.doubleModule
+        cell.trailingOffset = LayoutGrid.doubleModule
+        cell.accessibilityIdentifier = "ImageNameListViewCell"
         return cell
     }
     
     private func configureImageBackgroundListViewCell() -> ListCell<ImageBackgroundListView, TitleListView, ArrowListView> {
         let titleListView = TitleListView()
-        titleListView.title = "Icon Place vs Background"
+        titleListView.title = "Icon Place vs Background4"
         let iconListView = ImageBackgroundListView()
         iconListView.image = Asset.Main.gem.image
         let cell = ListCell(leadingView: iconListView, centerView: titleListView, tralingView: ArrowListView())
+        cell.leaingOffset = LayoutGrid.doubleModule
+        cell.trailingOffset = LayoutGrid.doubleModule
         cell.accessibilityIdentifier = "ImageBackgroundListViewCell"
         return cell
     }
     
-    private func configureImageNameListViewCell() -> ListCell<ImageNameListView, TitleListView, ArrowListView> {
+    private func configureImageCell() -> ListCell<ImageListView, TitleListView, ArrowListView> {
         let titleListView = TitleListView()
-        titleListView.title = "Icon Name"
-        let imageNameListView = ImageNameListView()
-        imageNameListView.text = "IN"
-        let cell = ListCell(leadingView: imageNameListView, centerView: titleListView, tralingView: ArrowListView())
-        cell.accessibilityIdentifier = "ImageNameListViewCell"
+        titleListView.title = "Icon Place5"
+        let iconListView = ImageListView()
+        iconListView.image = Asset.Main.gem.image
+        let cell = ListCell(leadingView: iconListView, centerView: titleListView, tralingView: ArrowListView())
+        cell.leaingOffset = LayoutGrid.doubleModule
+        cell.trailingOffset = LayoutGrid.doubleModule
+        cell.accessibilityIdentifier = "ImageCell"
         return cell
     }
+    
+
     
     
 }

@@ -78,7 +78,7 @@ public class ImageListView: BaseListView, LeadingListViewComponent, AnyAppThemab
     
     private func configureLayout() {
         NSLayoutConstraint.activate([
-            imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: LayoutGrid.doubleModule),
+            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             imageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             imageView.widthAnchor.constraint(lessThanOrEqualToConstant: LayoutGrid.halfModule * 11),
             imageView.heightAnchor.constraint(lessThanOrEqualToConstant: LayoutGrid.halfModule * 11)
