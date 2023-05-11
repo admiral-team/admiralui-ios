@@ -81,60 +81,50 @@ final class LeadingElementsViewController: ScrollViewController {
     
     private func configureCardCell() -> ListCell<LeadingCardListView, TitleListView, ArrowListView> {
         let titleListView = TitleListView()
-        titleListView.title = "Card Place1"
+        titleListView.title = "Card Place"
         let cardListView = LeadingCardListView()
         cardListView.cardImage = Asset.Card.visa.image
         let cell = ListCell(leadingView: cardListView, centerView: titleListView, tralingView: ArrowListView())
-        cell.leaingOffset = LayoutGrid.doubleModule
-        cell.trailingOffset = LayoutGrid.doubleModule
         cell.accessibilityIdentifier = "CardCell"
         return cell
     }
 
     private func configureLargeImageCell() -> ListCell<ImageListView, TitleListView, ArrowListView> {
         let titleListView = TitleListView()
-        titleListView.title = "Label Place2"
+        titleListView.title = "Label Place"
         let iconListView = ImageListView()
         iconListView.image = Asset.Card.rnb.image
         let cell = ListCell(leadingView: iconListView, centerView: titleListView, tralingView: ArrowListView())
-        cell.leaingOffset = LayoutGrid.doubleModule
-        cell.trailingOffset = LayoutGrid.doubleModule
         cell.accessibilityIdentifier = "LargeImageCell"
         return cell
     }
 
     private func configureImageNameListViewCell() -> ListCell<ImageNameListView, TitleListView, ArrowListView> {
         let titleListView = TitleListView()
-        titleListView.title = "Icon Name3"
+        titleListView.title = "Icon Name"
         let imageNameListView = ImageNameListView()
         imageNameListView.text = "IN"
         let cell = ListCell(leadingView: imageNameListView, centerView: titleListView, tralingView: ArrowListView())
-        cell.leaingOffset = LayoutGrid.doubleModule
-        cell.trailingOffset = LayoutGrid.doubleModule
         cell.accessibilityIdentifier = "ImageNameListViewCell"
         return cell
     }
     
     private func configureImageBackgroundListViewCell() -> ListCell<ImageBackgroundListView, TitleListView, ArrowListView> {
         let titleListView = TitleListView()
-        titleListView.title = "Icon Place vs Background4"
+        titleListView.title = "Icon Place vs Background"
         let iconListView = ImageBackgroundListView()
         iconListView.image = Asset.Main.gem.image
         let cell = ListCell(leadingView: iconListView, centerView: titleListView, tralingView: ArrowListView())
-        cell.leaingOffset = LayoutGrid.doubleModule
-        cell.trailingOffset = LayoutGrid.doubleModule
         cell.accessibilityIdentifier = "ImageBackgroundListViewCell"
         return cell
     }
     
     private func configureImageCell() -> ListCell<ImageListView, TitleListView, ArrowListView> {
         let titleListView = TitleListView()
-        titleListView.title = "Icon Place5"
+        titleListView.title = "Icon Place"
         let iconListView = ImageListView()
         iconListView.image = Asset.Main.gem.image
         let cell = ListCell(leadingView: iconListView, centerView: titleListView, tralingView: ArrowListView())
-        cell.leaingOffset = LayoutGrid.doubleModule
-        cell.trailingOffset = LayoutGrid.doubleModule
         cell.accessibilityIdentifier = "ImageCell"
         return cell
     }

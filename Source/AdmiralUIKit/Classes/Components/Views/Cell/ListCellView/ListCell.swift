@@ -69,17 +69,17 @@ public class ListCell<L, C, T>: UIView, AnyAppThemable, ListViewCell where C: Ce
     public let leadingView: L?
     
     /// Offset for leading view.
-    public var leaingOffset: CGFloat = 0 {
+    public var leaingOffset: CGFloat = LayoutGrid.doubleModule {
         didSet { updateLeadingConstraints() }
     }
     
     /// Offset for center view.
-    public var centerOffset: CGFloat = 0 {
+    public var centerOffset: CGFloat = LayoutGrid.doubleModule {
         didSet { updateCenterConstraints() }
     }
     
     /// Offset for trailing view.
-    public var trailingOffset: CGFloat = 0 {
+    public var trailingOffset: CGFloat = LayoutGrid.doubleModule {
         didSet { updateTrailingConstraints() }
     }
 
@@ -192,7 +192,7 @@ public class ListCell<L, C, T>: UIView, AnyAppThemable, ListViewCell where C: Ce
         ])
         
         if let imageView = leadingView {
-            let leading = imageView.leadingAnchor.constraint(equalTo: leadingAnchor)
+            let leading = imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: leaingOffset)
             leadingViewLeadingConstraint = leading
             NSLayoutConstraint.activate([
                 leading,
@@ -230,13 +230,13 @@ public class ListCell<L, C, T>: UIView, AnyAppThemable, ListViewCell where C: Ce
             ])
             
             if let imageView = leadingView {
-                let leading = centerView.leadingAnchor.constraint(equalTo: imageView.trailingAnchor)
+                let leading = centerView.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: centerOffset)
                 centerViewLeadingConstraint = leading
                 NSLayoutConstraint.activate([
                     leading
                 ])
             } else {
-                let leading = centerView.leadingAnchor.constraint(equalTo: leadingAnchor)
+                let leading = centerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: centerOffset)
                 centerViewLeadingConstraint = leading
                 NSLayoutConstraint.activate([
                     leading
@@ -244,13 +244,13 @@ public class ListCell<L, C, T>: UIView, AnyAppThemable, ListViewCell where C: Ce
             }
             
             if let tralingView = tralingView {
-                let trailing = tralingView.leadingAnchor.constraint(equalTo: centerView.trailingAnchor)
+                let trailing = tralingView.leadingAnchor.constraint(equalTo: centerView.trailingAnchor, constant: centerOffset)
                 centerViewTrailingConstraint = trailing
                 NSLayoutConstraint.activate([
                     trailing
                 ])
             } else {
-                let trailing = trailingAnchor.constraint(equalTo: centerView.trailingAnchor)
+                let trailing = trailingAnchor.constraint(equalTo: centerView.trailingAnchor, constant: centerOffset)
                 centerViewTrailingConstraint = trailing
                 NSLayoutConstraint.activate([
                     trailing

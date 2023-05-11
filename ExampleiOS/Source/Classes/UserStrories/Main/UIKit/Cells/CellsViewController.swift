@@ -55,8 +55,6 @@ final class CellsViewController: ScrollViewController {
         titleListView.title = title
         
         let cell: ListCell<ListCellEmpty, TitleListView, ArrowListView> = ListCell(centerView: titleListView, tralingView: ArrowListView())
-        cell.centerOffset = LayoutGrid.doubleModule
-        cell.trailingOffset = LayoutGrid.doubleModule
         return cell
     }
     
