@@ -36,7 +36,7 @@ struct OnBoardingSwiftUIView: View {
     
     var body: some View {
         let scheme = schemeProvider.scheme
-        NavigationContentView(navigationTitle: "Onboarding") {
+        NavigationContentView(navigationTitle: "") {
             VStack(spacing: 0) {
                 PageViewController(currentPageIndex: $currentPageIndex, viewControllers: onBoardingModels)
                     .frame(height: 450)

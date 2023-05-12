@@ -29,7 +29,7 @@ struct ZeroScreenSwiftUIView: View {
     var body: some View {
         let scheme = schemeProvider.scheme
         NavigationContentView(
-            navigationTitle: "ZeroScreen",
+            navigationTitle: "",
             isShowThemeSwitchSwiftUIView: true
         ) {
             scheme.backgroundColor.swiftUIColor
