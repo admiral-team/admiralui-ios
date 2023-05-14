@@ -74,6 +74,7 @@ final class FlagsCurrencyViewController: UIViewController, AnyAppThemable {
 
     private func configureHeader() {
         let header = CurrencyHeaderView()
+        header.currencyText = viewModel.headerItem.currencyText
         header.sellText = viewModel.headerItem.sellText
         header.buyText = viewModel.headerItem.buyText
         header.isTextSpacingEnabled = viewModel.headerItem.isTextSpacingEnabled
@@ -111,6 +112,7 @@ final class FlagsCurrencyViewController: UIViewController, AnyAppThemable {
         addSubviews()
         addThemeSwitchView(themeSwitchView)
         configureConstraints()
+        configureHeader()
         configureCurrency()
         configureUI()
         apply(theme: Appearance.shared.theme)

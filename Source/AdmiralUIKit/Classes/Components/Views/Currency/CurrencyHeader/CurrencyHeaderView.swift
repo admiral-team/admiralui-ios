@@ -52,14 +52,14 @@ public final class CurrencyHeaderView: UIView, AnyAppThemable {
     /// The text of buy label.
     public var buyText: String? = nil {
         didSet {
-            buyTextLabel.text = currencyText
+            buyTextLabel.text = buyText
         }
     }
 
     /// The text of sell label.
     public var sellText: String? = nil {
         didSet {
-            sellTextLabel.text = currencyText
+            sellTextLabel.text = sellText
         }
     }
 

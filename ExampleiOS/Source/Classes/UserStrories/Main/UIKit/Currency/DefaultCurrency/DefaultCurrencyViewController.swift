@@ -88,8 +88,9 @@ final class DefaultCurrencyViewController: UIViewController, AnyAppThemable {
 
     private func configureHeader() {
         let header = CurrencyHeaderView()
-        header.sellText = viewModel.headerItem.sellText
-        header.buyText = viewModel.headerItem.buyText
+        header.currencyText = viewModel.headerItem.currencyText
+        header.sellText = viewModel.headerItem.buyText
+        header.buyText = viewModel.headerItem.sellText
         header.isTextSpacingEnabled = viewModel.headerItem.isTextSpacingEnabled
         stackView.addArrangedSubview(header)
     }
