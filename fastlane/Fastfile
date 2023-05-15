@@ -6,6 +6,7 @@ require_relative 'version'
 require_relative 'checksum'
 require_relative 'utils'
 require_relative 'templates_generator'
+require_relative 'admiraltools'
 
 before_all do
   Dotenv.overload('.env', '.env.secret')
