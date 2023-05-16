@@ -54,4 +54,5 @@ open class CustomSwitch: UISwitch, AnyAppThemable {
         tintColor = isEnabled ? scheme.textColor.uiColor : scheme.disabledTextColor.uiColor
         onTintColor = isEnabled ? scheme.tintColor.uiColor : scheme.disabledTintColor.uiColor
     }
+    
 }
