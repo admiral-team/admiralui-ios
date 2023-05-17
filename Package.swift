@@ -24,6 +24,9 @@ let package = Package(
         .library(
                 name: "AdmiralCore",
                 targets: ["AdmiralCore"]),
+        .library(
+                name: "AdmiralAssets",
+                targets: ["AdmiralAssets"]),
     ],
     targets: [
         .target(
@@ -54,6 +57,11 @@ let package = Package(
                 name: "AdmiralCore",
                 dependencies: [],
                 path: "Source/AdmiralCore",
+                exclude: ["Supporting Files"]),
+        .target(
+                name: "AdmiralAssets",
+                dependencies: [],
+                path: "Source/AdmiralAssets",
                 exclude: ["Supporting Files"]),
     ]
 )

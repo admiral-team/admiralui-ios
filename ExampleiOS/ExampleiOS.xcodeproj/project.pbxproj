@@ -501,6 +501,8 @@
 		E9BE41DA27C8D8A800894224 /* MapButtonsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE41D927C8D8A800894224 /* MapButtonsListViewController.swift */; };
 		E9BE41DE27C8DB4D00894224 /* MapButtonsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE41DD27C8DB4D00894224 /* MapButtonsListViewModel.swift */; };
 		E9BE41E027C8FC1400894224 /* MapButtonCellScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE41DF27C8FC1400894224 /* MapButtonCellScheme.swift */; };
+		E9C435CE2A13A07B0015E3C9 /* AdmiralAssets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9C435CD2A13A07B0015E3C9 /* AdmiralAssets.framework */; };
+		E9C435CF2A13A07B0015E3C9 /* AdmiralAssets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E9C435CD2A13A07B0015E3C9 /* AdmiralAssets.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E9C79CBB27BD1C120002EC49 /* AlertOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C79CBA27BD1C120002EC49 /* AlertOnboardingViewController.swift */; };
 		E9C79CBD27BD1C360002EC49 /* AlertOnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C79CBC27BD1C360002EC49 /* AlertOnboardingViewModel.swift */; };
 		E9C79CBF27BD1E730002EC49 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C79CBE27BD1E730002EC49 /* ErrorViewController.swift */; };
@@ -546,6 +548,7 @@
 				0EB755F92600CBC5009BFC21 /* AdmiralTheme.framework in Embed Frameworks */,
 				0EB757E02600D6B0009BFC21 /* AdmiralUIKit.framework in Embed Frameworks */,
 				E9B684F728C1073000904D16 /* AdmiralCore.framework in Embed Frameworks */,
+				E9C435CF2A13A07B0015E3C9 /* AdmiralAssets.framework in Embed Frameworks */,
 				0EB755FC2600CBC9009BFC21 /* AdmiralUIResources.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -1047,6 +1050,7 @@
 		E9BE41D927C8D8A800894224 /* MapButtonsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapButtonsListViewController.swift; sourceTree = "<group>"; };
 		E9BE41DD27C8DB4D00894224 /* MapButtonsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapButtonsListViewModel.swift; sourceTree = "<group>"; };
 		E9BE41DF27C8FC1400894224 /* MapButtonCellScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapButtonCellScheme.swift; sourceTree = "<group>"; };
+		E9C435CD2A13A07B0015E3C9 /* AdmiralAssets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AdmiralAssets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9C79CBA27BD1C120002EC49 /* AlertOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertOnboardingViewController.swift; sourceTree = "<group>"; };
 		E9C79CBC27BD1C360002EC49 /* AlertOnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertOnboardingViewModel.swift; sourceTree = "<group>"; };
 		E9C79CBE27BD1E730002EC49 /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
@@ -1080,6 +1084,7 @@
 				0EB755F82600CBC5009BFC21 /* AdmiralTheme.framework in Frameworks */,
 				0EB757DF2600D6B0009BFC21 /* AdmiralUIKit.framework in Frameworks */,
 				E9B684F628C1073000904D16 /* AdmiralCore.framework in Frameworks */,
+				E9C435CE2A13A07B0015E3C9 /* AdmiralAssets.framework in Frameworks */,
 				0EB755FB2600CBC9009BFC21 /* AdmiralUIResources.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3293,6 +3298,7 @@
 		E6D91C762532076000DCE489 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E9C435CD2A13A07B0015E3C9 /* AdmiralAssets.framework */,
 				E9B684F528C1073000904D16 /* AdmiralCore.framework */,
 				0EB757DE2600D6B0009BFC21 /* AdmiralUIKit.framework */,
 				0EB755FA2600CBC9009BFC21 /* AdmiralUIResources.framework */,
