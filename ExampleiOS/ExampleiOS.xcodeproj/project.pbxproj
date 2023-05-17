@@ -113,6 +113,7 @@
 		0EB755FC2600CBC9009BFC21 /* AdmiralUIResources.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB755FA2600CBC9009BFC21 /* AdmiralUIResources.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0EB757DF2600D6B0009BFC21 /* AdmiralUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB757DE2600D6B0009BFC21 /* AdmiralUIKit.framework */; };
 		0EB757E02600D6B0009BFC21 /* AdmiralUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB757DE2600D6B0009BFC21 /* AdmiralUIKit.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0EBC2FC12A15529A009C5D70 /* AdmiralSymbols.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EBC2FC02A15529A009C5D70 /* AdmiralSymbols.framework */; };
 		0EBC46AA269F0044003CF5FA /* CalendarsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBC46A9269F0044003CF5FA /* CalendarsSwiftUIView.swift */; };
 		0EBC46AC269F0061003CF5FA /* CalendarsSwiftUIItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBC46AB269F0061003CF5FA /* CalendarsSwiftUIItem.swift */; };
 		0EBE006C258A674B00EEDCBC /* ShimmersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBE006B258A674B00EEDCBC /* ShimmersViewController.swift */; };
@@ -658,6 +659,7 @@
 		0EB755F72600CBC5009BFC21 /* AdmiralTheme.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AdmiralTheme.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EB755FA2600CBC9009BFC21 /* AdmiralUIResources.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AdmiralUIResources.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EB757DE2600D6B0009BFC21 /* AdmiralUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AdmiralUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EBC2FC02A15529A009C5D70 /* AdmiralSymbols.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AdmiralSymbols.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EBC46A9269F0044003CF5FA /* CalendarsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarsSwiftUIView.swift; sourceTree = "<group>"; };
 		0EBC46AB269F0061003CF5FA /* CalendarsSwiftUIItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarsSwiftUIItem.swift; sourceTree = "<group>"; };
 		0EBE006B258A674B00EEDCBC /* ShimmersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmersViewController.swift; sourceTree = "<group>"; };
@@ -1076,6 +1078,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EBC2FC12A15529A009C5D70 /* AdmiralSymbols.framework in Frameworks */,
 				0EB755F52600CBC1009BFC21 /* AdmiralSwiftUI.framework in Frameworks */,
 				0EB755F82600CBC5009BFC21 /* AdmiralTheme.framework in Frameworks */,
 				0EB757DF2600D6B0009BFC21 /* AdmiralUIKit.framework in Frameworks */,
@@ -3293,6 +3296,7 @@
 		E6D91C762532076000DCE489 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0EBC2FC02A15529A009C5D70 /* AdmiralSymbols.framework */,
 				E9B684F528C1073000904D16 /* AdmiralCore.framework */,
 				0EB757DE2600D6B0009BFC21 /* AdmiralUIKit.framework */,
 				0EB755FA2600CBC9009BFC21 /* AdmiralUIResources.framework */,
