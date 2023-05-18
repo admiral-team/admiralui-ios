@@ -154,7 +154,7 @@ private extension CirclePageControlStyle {
                         .frame(width: Constants.circleSize, height: Constants.circleSize)
                 }
                 if let imageTintColor = scheme.imageTintColor.parameter(for: configuration.isPressed, style: style) {
-                    AssetSymbol.System.Outline.arrowRight.image
+                    SymbolsNew.System.Outline.arrowRight.swiftUIImage
                         .foregroundColor(imageTintColor.swiftUIColor)
                 }
             }

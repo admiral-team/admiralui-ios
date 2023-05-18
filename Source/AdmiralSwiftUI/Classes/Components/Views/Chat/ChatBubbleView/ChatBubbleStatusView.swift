@@ -79,7 +79,7 @@ public struct ChatBubbleStatusView: View {
         var image: Image?
         switch status {
         case .loading:
-            image = AssetSymbol.System.Outline.time.image
+            image = SymbolsNew.System.Outline.time.swiftUIImage
         case .sent:
             image = Image(uiImage: SystemAsset.Custom.Chat.sent.image)
         case .receive:

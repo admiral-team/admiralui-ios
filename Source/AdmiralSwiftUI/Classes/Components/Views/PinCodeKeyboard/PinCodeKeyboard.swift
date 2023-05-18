@@ -60,6 +60,8 @@ public struct PinCodeKeyboard: View {
         static let keyboardWidth: CGFloat = 270.0
         static let keyboardHeight: CGFloat = 288.0
     }
+    
+    public static let defaultRightButtonImage: Image = SymbolsNew.Security.Outline.faceID.swiftUIImage
 
     // MARK: - Private Properties
 
@@ -82,7 +84,7 @@ public struct PinCodeKeyboard: View {
     ///   - didTapRightButton: Handle right button tap
     public init(
         leftButtonTitle: String = "",
-        rightButtonImage: Image = AssetSymbol.Security.Outline.faceID.image,
+        rightButtonImage: Image = PinCodeKeyboard.defaultRightButtonImage,
         schemeProvider: SchemeProvider<PinCodeKeyboardScheme> = AppThemeSchemeProvider<PinCodeKeyboardScheme>(),
         didTapNumber: @escaping (Int) -> (),
         didTapLeftButton: @escaping () -> (),
@@ -172,7 +174,7 @@ struct PinCodeKeyboard_Previews: PreviewProvider {
         Group {
             PinCodeKeyboard(
                 leftButtonTitle: "Не могу войти",
-                rightButtonImage: AssetSymbol.Security.Outline.faceID.image,
+                rightButtonImage: SymbolsNew.Security.Outline.faceID.swiftUIImage,
                 didTapNumber: { index in
                     
                 },

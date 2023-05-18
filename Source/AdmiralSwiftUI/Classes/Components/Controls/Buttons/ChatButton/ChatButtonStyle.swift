@@ -92,7 +92,7 @@ struct ChatButtonStyle_Previews: PreviewProvider {
 
     static var previews: some View {
         Button(action: {}, label: {
-            AssetSymbol.System.Outline.arrowRight.image
+            SymbolsNew.System.Outline.arrowRight.swiftUIImage
         })
         .buttonStyle(ChatButtonStyle())
     }

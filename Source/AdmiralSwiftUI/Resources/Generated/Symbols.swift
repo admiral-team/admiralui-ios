@@ -43,6 +43,8 @@ internal enum SymbolsNew {
       internal static let closeCircle = SymbolAsset(name: "Service/Outline/closeCircle")
       internal static let eye = SymbolAsset(name: "Service/Outline/eye")
       internal static let eyeClose = SymbolAsset(name: "Service/Outline/eyeClose")
+      internal static let minus = SymbolAsset(name: "Service/Outline/minus")
+      internal static let plus = SymbolAsset(name: "Service/Outline/plus")
     }
     internal enum Solid {
       internal static let check = SymbolAsset(name: "Service/Solid/check")
@@ -77,6 +79,8 @@ internal enum SymbolsNew {
     Service.Outline.closeCircle,
     Service.Outline.eye,
     Service.Outline.eyeClose,
+    Service.Outline.minus,
+    Service.Outline.plus,
     Service.Solid.check,
     Service.Solid.error,
     Service.Solid.errorTriangle,
