@@ -112,9 +112,23 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AdmiralAssets"
-               BuildableName = "AdmiralAssets"
-               BlueprintName = "AdmiralAssets"
+               BlueprintIdentifier = "AdmiralUI_AdmiralImages"
+               BuildableName = "AdmiralUI_AdmiralImages"
+               BlueprintName = "AdmiralUI_AdmiralImages"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AdmiralImages"
+               BuildableName = "AdmiralImages"
+               BlueprintName = "AdmiralImages"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>

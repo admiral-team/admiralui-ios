@@ -9,7 +9,7 @@
 Pod::Spec.new do |spec|
 
   spec.platform = :ios
-  spec.name         = "AdmiralAssets"
+  spec.name         = "AdmiralImages"
   spec.version      = "11.4.0"
   spec.summary      = "Team UI Components."
 
@@ -48,7 +48,7 @@ Pod::Spec.new do |spec|
   spec.ios.deployment_target = "11.0"
   spec.swift_version = "5.3"
 
-  spec.source_files          = "Source/AdmiralAssets/**/*.{h,m,swift}"
-  spec.resources = "Source/AdmiralAssets/Resources/**/*.{storyboard,xib,xcassets,ttf,otf}"
+  spec.source_files          = "Source/AdmiralImages/**/*.{h,m,swift}"
+  spec.resources = "Source/AdmiralImages/Resources/**/*.{storyboard,xib,xcassets,ttf,otf}"
 
 end

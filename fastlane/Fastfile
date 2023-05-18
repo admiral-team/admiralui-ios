@@ -191,8 +191,8 @@ lane :upload_nexus_lib do |options|
   )
 
   upload_nexus_framework(
-    scheme: "AdmiralAssets", 
-    artifact_id: "admiral-assets",
+    scheme: "AdmiralImages", 
+    artifact_id: "admiral-images",
     branch: branch
   )
 end
@@ -317,7 +317,7 @@ lane :increment_app_version do |options|
     version: version_number
   )
   increment_podspec_version(
-    path: File.join(Dir.pwd, '../AdmiralAssets.podspec'), 
+    path: File.join(Dir.pwd, '../AdmiralImages.podspec'), 
     version: version_number
   )
 end
@@ -495,8 +495,8 @@ lane :build_git_packages do |options|
   )
 
   build_package(
-    scheme: "AdmiralAssets", 
-    artifact_id: "admiral-assets",
+    scheme: "AdmiralImages", 
+    artifact_id: "admiral-images",
     branch: branch
   )
 
@@ -521,7 +521,7 @@ lane :build_git_packages do |options|
   )
 
   checksum_assets = get_checksum(
-    scheme: "AdmiralAssets"
+    scheme: "AdmiralImages"
   )
 
   set_checksum(
@@ -584,7 +584,7 @@ def release_assets_string()
   release_asset_theme_string = release_asset_string(name: "AdmiralTheme")
   release_asset_resources_string = release_asset_string(name: "AdmiralUIResources")
   release_asset_core_string = release_asset_string(name: "AdmiralCore")
-  release_asset_core_assets = release_asset_string(name: "AdmiralAssets")
+  release_asset_core_assets = release_asset_string(name: "AdmiralImages")
 
   release_asset_array = [release_asset_uikit_string, release_asset_swiftui_string, release_asset_theme_string, release_asset_resources_string, release_asset_core_string, release_asset_core_assets]
   release_asset_json_string = release_asset_array.join(",")
