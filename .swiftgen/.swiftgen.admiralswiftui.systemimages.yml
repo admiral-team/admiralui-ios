@@ -1,0 +1,11 @@
+xcassets:
+    inputs: ../Source/AdmiralSwiftUI/Resources/SystemImages.xcassets
+    outputs:
+        templateName: swift5
+        output: ../Source/AdmiralSwiftUI/Resources/Generated/SystemImages.swift
+        params:
+            allValues: true
+            enumName: SystemImagesNew
+            imageTypeName: SystemImagesNewAssetImage
+            imageAliasName: SystemImagesNewAssetImageType
+
