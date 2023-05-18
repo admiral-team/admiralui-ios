@@ -49,5 +49,6 @@ Pod::Spec.new do |spec|
   spec.swift_version = "5.3"
 
   spec.source_files          = "Source/AdmiralAssets/**/*.{h,m,swift}"
+  spec.resources = "Source/AdmiralAssets/Resources/**/*.{storyboard,xib,xcassets,ttf,otf}"
 
 end
