@@ -81,11 +81,11 @@ public struct ChatBubbleStatusView: View {
         case .loading:
             image = SymbolsNew.System.Outline.time.swiftUIImage
         case .sent:
-            image = Image(uiImage: SystemAsset.Custom.Chat.sent.image)
+            image = Image(uiImage: SystemImagesNew.Custom.Chat.sent.image)
         case .receive:
-            image = Image(uiImage: SystemAsset.Custom.Chat.sent.image)
+            image = Image(uiImage: SystemImagesNew.Custom.Chat.sent.image)
         case .read:
-            image = Image(uiImage: SystemAsset.Custom.Chat.read.image)
+            image = Image(uiImage: SystemImagesNew.Custom.Chat.read.image)
         default:
             image = nil
         }
