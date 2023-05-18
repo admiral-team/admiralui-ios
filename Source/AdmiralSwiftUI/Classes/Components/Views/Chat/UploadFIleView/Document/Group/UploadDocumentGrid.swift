@@ -137,7 +137,7 @@ public struct UploadDocumentGrid: View {
     private func statusError(scheme: UploadDocumentGridScheme) -> some View {
         VStack(spacing: 0) {
             if isStatusError() {
-                Image(uiImage: Asset.Service.Solid.errorSolid.image)
+                Image(uiImage: ImagesNew.Service.Solid.errorSolid.image)
                     .resizable()
                     .frame(width: LayoutGrid.halfModule * 7, height: LayoutGrid.halfModule * 7)
                     .foregroundColor(scheme.errorImageColor.swiftUIColor)

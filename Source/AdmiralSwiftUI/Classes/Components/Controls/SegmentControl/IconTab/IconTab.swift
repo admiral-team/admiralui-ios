@@ -22,11 +22,11 @@ import AdmiralUIResources
  IconTab(
      models: [
          IconTabModel(
-             image: Image(uiImage: Asset.IconTabs.mobile.image),
+             image: Image(uiImage: IconTabs.mobile.image),
              text: "One"
          ),
          IconTabModel(
-             image: Image(uiImage: Asset.IconTabs.card.image),
+             image: Image(uiImage: IconTabs.card.image),
              text: "Two"
          )
      ],

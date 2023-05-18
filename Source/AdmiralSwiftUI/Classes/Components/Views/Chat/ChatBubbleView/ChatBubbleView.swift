@@ -180,7 +180,7 @@ public struct ChatBubbleView: View {
                             RoundedCorner(radius: LayoutGrid.halfModule * 3, corners: [.topRight, .topLeft, .bottomLeft])
                         )
                     if status == .error {
-                        Image(uiImage: Asset.Service.Solid.errorSolid.image)
+                        Image(uiImage: ImagesNew.Service.Solid.errorSolid.image)
                             .resizable()
                             .frame(width: LayoutGrid.halfModule * 7, height: LayoutGrid.halfModule * 7)
                             .foregroundColor(scheme.errorImageColor.swiftUIColor)
@@ -222,7 +222,7 @@ public struct ChatBubbleView: View {
     }
 
     private var errorImage: some View {
-        Image(uiImage: Asset.Service.Solid.errorSolid.image)
+        Image(uiImage: ImagesNew.Service.Solid.errorSolid.image)
             .resizable()
             .frame(width: LayoutGrid.halfModule * 7, height: LayoutGrid.halfModule * 7)
             .foregroundColor(schemeProvider.scheme.errorImageColor.swiftUIColor)
