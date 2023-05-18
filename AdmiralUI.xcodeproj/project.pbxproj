@@ -546,6 +546,7 @@
 		0EF044D127B529FE0095DD14 /* UnderlineTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF044D027B529FE0095DD14 /* UnderlineTabItem.swift */; };
 		0EF044D327B52A0F0095DD14 /* OutlineSliderTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF044D227B52A0F0095DD14 /* OutlineSliderTabItem.swift */; };
 		0EF548252679149700E49DEB /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF548242679149700E49DEB /* SearchBar.swift */; };
+		0EF57BB62A165808000BA852 /* version.json in Resources */ = {isa = PBXBuildFile; fileRef = E9A709F627610270003233DF /* version.json */; };
 		0EFCDB4526B83D5B006207B1 /* CurrencyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFCDB4426B83D5B006207B1 /* CurrencyHeaderView.swift */; };
 		0EFCDB4726B83D69006207B1 /* CurrencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFCDB4626B83D69006207B1 /* CurrencyView.swift */; };
 		0EFCDB4926B84971006207B1 /* CurrencyHeaderViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFCDB4826B84971006207B1 /* CurrencyHeaderViewScheme.swift */; };
@@ -1051,6 +1052,7 @@
 		0E2D9CCD261F5C7C00323048 /* CustomSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSwitch.swift; sourceTree = "<group>"; };
 		0E2DF125254865960087F661 /* StandardSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardSegmentedControl.swift; sourceTree = "<group>"; };
 		0E2DF12E25486EC30087F661 /* LogoSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoSegmentedControl.swift; sourceTree = "<group>"; };
+		0E30F4F82A16565600B29078 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E33995428D34A8C00B24722 /* GhostButtonWithImageStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostButtonWithImageStyle.swift; sourceTree = "<group>"; };
 		0E33995A28D5D9A600B24722 /* CoundDownViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoundDownViewScheme.swift; sourceTree = "<group>"; };
 		0E33995C28D5E70900B24722 /* LinkViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkViewScheme.swift; sourceTree = "<group>"; };
@@ -2400,6 +2402,14 @@
 				E632B01D256D836F00B29DE1 /* LogoSegmentedScheme.swift */,
 			);
 			path = LogoSegmentedControl;
+			sourceTree = "<group>";
+		};
+		0E30F4F72A16563C00B29078 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0E30F4F82A16565600B29078 /* Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		0E33995628D3573D00B24722 /* Recovered References */ = {
@@ -3831,6 +3841,7 @@
 			children = (
 				0EBC2FBC2A1519D7009C5D70 /* Classes */,
 				0EBC2FB82A15188C009C5D70 /* Resources */,
+				0E30F4F72A16563C00B29078 /* Supporting Files */,
 				0EBC2FB62A1512F6009C5D70 /* AdmiralSymbols.h */,
 			);
 			path = AdmiralSymbols;
@@ -7410,6 +7421,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EF57BB62A165808000BA852 /* version.json in Resources */,
 				0EBC2FBB2A1519C6009C5D70 /* Symbols.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -8715,7 +8727,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Source/AdmiralSymbols/Supporting Files/Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -8745,7 +8758,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Source/AdmiralSymbols/Supporting Files/Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
