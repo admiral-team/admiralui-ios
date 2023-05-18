@@ -29,7 +29,7 @@ public struct FeedbackInputControl: View {
     
     private enum Constants {
         static let animationDuration: Double = 0.1
-        static let starImage = ImagesNew.System.Solid.starSolid.image
+        static let starImage = ImageAssets.System.Solid.starSolid.image
     }
     
     // MARK: - Private Properties

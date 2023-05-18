@@ -64,7 +64,7 @@ public struct ArrowListView: View, TralingListViewComponent {
             }
             HStack {
                 Spacer()
-                Image(uiImage: ImagesNew.System.Outline.chevronRightOutline.image)
+                Image(uiImage: ImageAssets.System.Outline.chevronRightOutline.image)
                     .frame(width: LayoutGrid.module, height: LayoutGrid.doubleModule)
                     .foregroundColor(isEnabled ? scheme.imageTintColor.parameter(for: .normal)?.swiftUIColor : scheme.imageTintColor.parameter(for: .disabled)?.swiftUIColor)
             }

@@ -46,11 +46,11 @@ public struct MapButtonStyle: ButtonStyle {
         self.schemeProvider = schemeProvider
         switch type {
         case .plus:
-            image = SymbolsNew.Service.Outline.plus.swiftUIImage
+            image = SymbolAssets.Service.Outline.plus.swiftUIImage
         case .minus:
-            image = SymbolsNew.Service.Outline.minus.swiftUIImage
+            image = SymbolAssets.Service.Outline.minus.swiftUIImage
         case .location:
-            image = SymbolsNew.Location.Solid.gps.swiftUIImage
+            image = SymbolAssets.Location.Solid.gps.swiftUIImage
         case .custom(let image):
             self.image = image
         }

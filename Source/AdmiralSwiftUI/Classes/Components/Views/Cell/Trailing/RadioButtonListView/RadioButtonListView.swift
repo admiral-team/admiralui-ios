@@ -29,8 +29,8 @@ import AdmiralUIResources
 public struct RadioButtonListView: View, TralingListViewComponent {
     
     enum Constants {
-        static let selectedImage = SystemImagesNew.Custom.Control.radioButtonOn.image
-        static let defaultImage = SystemImagesNew.Custom.Control.radioButtonOff.image
+        static let selectedImage = SystemImageAssets.Custom.Control.radioButtonOn.image
+        static let defaultImage = SystemImageAssets.Custom.Control.radioButtonOff.image
     }
     
     // MARK: - Public Properties

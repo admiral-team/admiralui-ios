@@ -5,7 +5,7 @@ xcassets:
         output: ../../Source/AdmiralSwiftUI/Resources/Generated/Images.swift
         params:
             allValues: true
-            enumName: ImagesNew
-            imageTypeName: ImagesNewAssetImage
-            imageAliasName: ImagesNewAssetImageType
+            enumName: ImageAssets
+            imageTypeName: IAImage
+            imageAliasName: IAImageType
 

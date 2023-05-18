@@ -61,7 +61,7 @@ public struct PinCodeKeyboard: View {
         static let keyboardHeight: CGFloat = 288.0
     }
     
-    public static let defaultRightButtonImage: Image = SymbolsNew.Security.Outline.faceID.swiftUIImage
+    public static let defaultRightButtonImage: Image = SymbolAssets.Security.Outline.faceID.swiftUIImage
 
     // MARK: - Private Properties
 
@@ -174,7 +174,7 @@ struct PinCodeKeyboard_Previews: PreviewProvider {
         Group {
             PinCodeKeyboard(
                 leftButtonTitle: "Не могу войти",
-                rightButtonImage: SymbolsNew.Security.Outline.faceID.swiftUIImage,
+                rightButtonImage: SymbolAssets.Security.Outline.faceID.swiftUIImage,
                 didTapNumber: { index in
                     
                 },

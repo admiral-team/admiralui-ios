@@ -239,12 +239,12 @@ struct UploadDocumentView: View {
                     closeAction: model.closeAction
                 )
             case .description:
-                Image(uiImage: ImagesNew.Documents.Outline.descriptionOutline.image)
+                Image(uiImage: ImageAssets.Documents.Outline.descriptionOutline.image)
                     .foregroundColor(scheme.iconColor.parameter(style: direction)?.swiftUIColor)
                     .frame(width: LayoutGrid.tripleModule, height: LayoutGrid.tripleModule)
                     .eraseToAnyView()
             case .download:
-                Image(uiImage: ImagesNew.System.Outline.arrowDownOutline.image)
+                Image(uiImage: ImageAssets.System.Outline.arrowDownOutline.image)
                     .foregroundColor(scheme.iconColor.parameter(style: direction)?.swiftUIColor)
                     .frame(width: LayoutGrid.doubleModule, height: LayoutGrid.doubleModule)
                     .eraseToAnyView()

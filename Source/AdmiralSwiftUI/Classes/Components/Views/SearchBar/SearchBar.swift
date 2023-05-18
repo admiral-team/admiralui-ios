@@ -49,10 +49,10 @@ public struct SearchBar: View, AccessabilitySupportUIKit {
     // MARK: - Constants
 
     enum Constants {
-        static let closeImage = ImagesNew.Service.Solid.closeSolid.image
+        static let closeImage = ImageAssets.Service.Solid.closeSolid.image
     }
     
-    public static let defaultSearchImage = SymbolsNew.System.Outline.search.swiftUIImage
+    public static let defaultSearchImage = SymbolAssets.System.Outline.search.swiftUIImage
 
     // MARK: - Private Properties
 

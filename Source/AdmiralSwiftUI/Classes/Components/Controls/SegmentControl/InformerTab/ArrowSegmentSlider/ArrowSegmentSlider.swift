@@ -26,7 +26,7 @@ public struct ArrowSegmentSlider: View {
 
     enum Constants {
         static let imageSize = CGSize(width: 32.0, height: 12.0)
-        static let arrowImage = SystemImagesNew.Custom.Segment.arrowUp.image
+        static let arrowImage = SystemImageAssets.Custom.Segment.arrowUp.image
         static let animationDuration: Double = 0.3
     }
 

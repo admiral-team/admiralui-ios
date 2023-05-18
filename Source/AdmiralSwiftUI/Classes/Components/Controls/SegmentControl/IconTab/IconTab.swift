@@ -147,7 +147,7 @@ private struct IconTabPreviewExample: View {
     var body: some View {
         IconTab(
             models: Array(repeating: IconTabModel(
-                image: SymbolsNew.System.Outline.arrowRight.swiftUIImage,
+                image: SymbolAssets.System.Outline.arrowRight.swiftUIImage,
                 text: "some text"
             ), count: 3),
             selection: $selection

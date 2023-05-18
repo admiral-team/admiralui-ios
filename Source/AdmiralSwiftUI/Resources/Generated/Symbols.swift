@@ -19,7 +19,7 @@
 // MARK: - Asset Catalogs
 
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
-internal enum SymbolsNew {
+internal enum SymbolAssets {
   internal enum Category {
     internal enum Outline {
       internal static let acuringFuture = SymbolAsset(name: "Category/Outline/acuringFuture")

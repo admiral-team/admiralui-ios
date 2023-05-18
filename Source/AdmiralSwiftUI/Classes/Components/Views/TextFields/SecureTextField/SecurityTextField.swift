@@ -135,8 +135,8 @@ public struct SecurityTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
     
     @ObservedObject private var schemeProvider: SchemeProvider<StandardTextFieldScheme>
     
-    private let eyeOff = SymbolsNew.Service.Outline.eyeClose.swiftUIImage
-    private let eyeOn = SymbolsNew.Service.Outline.eye.swiftUIImage
+    private let eyeOff = SymbolAssets.Service.Outline.eyeClose.swiftUIImage
+    private let eyeOn = SymbolAssets.Service.Outline.eye.swiftUIImage
     private var accessibilityIdentifier: String?
     
     // MARK: - Initializer
