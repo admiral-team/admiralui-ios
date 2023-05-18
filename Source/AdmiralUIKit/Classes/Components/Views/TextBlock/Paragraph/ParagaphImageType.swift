@@ -24,7 +24,7 @@ public enum ParagaphImageType {
     var image: UIImage {
         switch self {
         case .point:
-            return Asset.System.Solid.point.image
+            return Asset.Custom.Cell.point.image
         case .check:
             return Asset.Service.Outline.checkClearOutline.image
         case .custom(let image):

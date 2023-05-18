@@ -1,7 +1,6 @@
 import XCTest
 import SnapshotTesting
 import AdmiralTheme
-import AdmiralUIResources
 @testable import AdmiralUIKit
 
 class PrimaryLinkControlSnapshotTests: XCTestCase {
@@ -31,7 +30,7 @@ class PrimaryLinkControlSnapshotTests: XCTestCase {
         let linkView = PrimaryLinkControl()
         linkView.frame = CGRect(origin: .zero, size: CGSize(width: 80.0, height: 64.0))
 
-        linkView.leadingImage = AdmiralUIResources.Asset.System.Outline.arrowLeftOutline.image
+        linkView.leadingImage = Asset.System.Outline.arrowLeftOutline.image
         linkView.setTitle("Title")
         return linkView
     }

@@ -19,9 +19,36 @@ internal typealias AssetImageTypeAlias = ImageAsset.Image
 
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 internal enum Asset {
+  internal enum Category {
+    internal enum Outline {
+      internal static let acceptOutline = ImageAsset(name: "Category/Outline/acceptOutline")
+    }
+  }
+  internal enum Custom {
+    internal enum Cell {
+      internal static let point = ImageAsset(name: "Custom/Cell/point")
+    }
+    internal enum Chat {
+      internal static let read = ImageAsset(name: "Custom/Chat/read")
+      internal static let sent = ImageAsset(name: "Custom/Chat/sent")
+    }
+    internal enum Control {
+      internal static let checkBoxOff = ImageAsset(name: "Custom/Control/checkBoxOff")
+      internal static let checkBoxOn = ImageAsset(name: "Custom/Control/checkBoxOn")
+      internal static let radioButtonOff = ImageAsset(name: "Custom/Control/radioButtonOff")
+      internal static let radioButtonOn = ImageAsset(name: "Custom/Control/radioButtonOn")
+    }
+    internal enum Segment {
+      internal static let arrowDown = ImageAsset(name: "Custom/Segment/arrowDown")
+      internal static let arrowUp = ImageAsset(name: "Custom/Segment/arrowUp")
+    }
+  }
   internal enum Documents {
     internal enum Outline {
       internal static let descriptionOutline = ImageAsset(name: "Documents/Outline/descriptionOutline")
+    }
+    internal enum Solid {
+      internal static let accountDetailSolid = ImageAsset(name: "Documents/Solid/accountDetailSolid")
     }
   }
   internal enum Location {
@@ -64,22 +91,15 @@ internal enum Asset {
       internal static let arrowRightOutline = ImageAsset(name: "System/Outline/arrowRightOutline")
       internal static let arrowUpOutline = ImageAsset(name: "System/Outline/arrowUpOutline")
       internal static let attachFileOutline = ImageAsset(name: "System/Outline/attachFileOutline")
-      internal static let checkBoxOff = ImageAsset(name: "System/Outline/checkBoxOff")
       internal static let chevronDownOutline = ImageAsset(name: "System/Outline/chevronDownOutline")
       internal static let chevronLeftOutline = ImageAsset(name: "System/Outline/chevronLeftOutline")
       internal static let chevronRightOutline = ImageAsset(name: "System/Outline/chevronRightOutline")
       internal static let chevronUpOutline = ImageAsset(name: "System/Outline/chevronUpOutline")
       internal static let deleteOutline = ImageAsset(name: "System/Outline/deleteOutline")
-      internal static let radioButtonOff = ImageAsset(name: "System/Outline/radioButtonOff")
-      internal static let read = ImageAsset(name: "System/Outline/read")
       internal static let searchOutline = ImageAsset(name: "System/Outline/searchOutline")
-      internal static let sent = ImageAsset(name: "System/Outline/sent")
       internal static let timeOutline = ImageAsset(name: "System/Outline/timeOutline")
     }
     internal enum Solid {
-      internal static let checkBoxOn = ImageAsset(name: "System/Solid/checkBoxOn")
-      internal static let point = ImageAsset(name: "System/Solid/point")
-      internal static let radioButtonOn = ImageAsset(name: "System/Solid/radioButtonOn")
       internal static let starSolid = ImageAsset(name: "System/Solid/starSolid")
     }
   }

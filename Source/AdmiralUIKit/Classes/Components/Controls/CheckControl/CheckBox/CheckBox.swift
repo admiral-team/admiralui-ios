@@ -33,8 +33,8 @@ public class CheckBox: CheckControl {
     
     override func commonInit() {
         super.commonInit()
-        selectedImage = Asset.System.Solid.checkBoxOn.image
-        defaultImage = Asset.System.Outline.checkBoxOff.image
+        selectedImage = Asset.Custom.Control.checkBoxOn.image
+        defaultImage = Asset.Custom.Control.checkBoxOff.image
         updateState()
     }
     

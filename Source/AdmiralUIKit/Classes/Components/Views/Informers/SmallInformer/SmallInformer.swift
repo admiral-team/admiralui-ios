@@ -88,8 +88,8 @@ open class SmallInformer: UIView, AnyAppThemable, AccessibilitySupport {
     // MARK: - Private Properties
     
     private enum Constants {
-        static let topArrowImage = Asset.System.Outline.arrowUpOutline.image
-        static let bottomArrowImage = Asset.System.Outline.arrowDownOutline.image
+        static let topArrowImage = Asset.Custom.Segment.arrowUp.image
+        static let bottomArrowImage = Asset.Custom.Segment.arrowDown.image
         static let heightImageView: CGFloat = LayoutGrid.module
         static let widthImageView: CGFloat = LayoutGrid.doubleModule
     }

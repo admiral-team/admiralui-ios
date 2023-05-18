@@ -8,7 +8,6 @@
 import XCTest
 import SnapshotTesting
 import AdmiralTheme
-import AdmiralUIResources
 @testable import AdmiralUIKit
 
 class TextBlockDropDownTest: XCTestCase {

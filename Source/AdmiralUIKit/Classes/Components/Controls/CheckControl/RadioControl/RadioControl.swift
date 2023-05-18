@@ -33,8 +33,8 @@ public class RadioControl: CheckControl {
     
     override func commonInit() {
         super.commonInit()
-        selectedImage = Asset.System.Solid.radioButtonOn.image
-        defaultImage = Asset.System.Outline.radioButtonOff.image
+        selectedImage = Asset.Custom.Control.radioButtonOn.image
+        defaultImage = Asset.Custom.Control.radioButtonOff.image
         updateState()
     }
     

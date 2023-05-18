@@ -90,11 +90,11 @@ public class ChatBubbleStatusView: UIView, AnyAppThemable {
         case .error:
             return Asset.Service.Outline.errorOutline.image
         case .sent:
-            return Asset.System.Outline.sent.image
+            return Asset.Custom.Chat.sent.image
         case .receive:
-            return Asset.System.Outline.sent.image
+            return Asset.Custom.Chat.sent.image
         case .read:
-            return Asset.System.Outline.read.image
+            return Asset.Custom.Chat.read.image
         case nil:
             return nil
         default:
