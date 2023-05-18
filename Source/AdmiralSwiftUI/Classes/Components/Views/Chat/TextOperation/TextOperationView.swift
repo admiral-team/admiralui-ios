@@ -170,7 +170,7 @@ public struct TextOperationView: View {
     private func statusError(scheme: TextOperationViewScheme) -> some View {
         return VStack {
             if chatStatus == .error && direction == .right {
-                Image(uiImage: ImagesNew.Service.Solid.errorSolid.image)
+                Image(uiImage: ImageAssets.Service.Solid.errorSolid.image)
                     .resizable()
                     .frame(width: LayoutGrid.halfModule * 7, height: LayoutGrid.halfModule * 7)
                     .foregroundColor(scheme.errorImageColor.swiftUIColor)

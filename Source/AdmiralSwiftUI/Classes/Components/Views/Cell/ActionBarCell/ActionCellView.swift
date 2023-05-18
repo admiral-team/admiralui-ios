@@ -168,16 +168,16 @@ struct ActionCellView_Previews: PreviewProvider {
             ArrowListView()
         }), actions: [
             ActionItemBarAction(
-                image: Image(uiImage: ImagesNew.Category.Outline.acceptOutline.image),
+                image: Image(uiImage: ImageAssets.Category.Outline.acceptOutline.image),
                 imageStyle: .accent,
                 handler: {}),
             ActionItemBarAction(
-                image: Image(uiImage: ImagesNew.Category.Outline.acceptOutline.image),
+                image: Image(uiImage: ImageAssets.Category.Outline.acceptOutline.image),
                 imageStyle: .accent,
                 handler: {}
             ),
             ActionItemBarAction(
-                image: Image(uiImage: ImagesNew.Category.Outline.acceptOutline.image),
+                image: Image(uiImage: ImageAssets.Category.Outline.acceptOutline.image),
                 imageStyle: .accent,
                 handler: {}
             )

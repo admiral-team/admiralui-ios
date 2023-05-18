@@ -28,9 +28,9 @@ public enum DropDownHeaderType {
     public var image: Image {
         switch self {
         case .up:
-            return Image(uiImage: ImagesNew.System.Outline.chevronUpOutline.image)
+            return Image(uiImage: ImageAssets.System.Outline.chevronUpOutline.image)
         case .down:
-            return Image(uiImage: ImagesNew.System.Outline.chevronDownOutline.image)
+            return Image(uiImage: ImageAssets.System.Outline.chevronDownOutline.image)
         case .custom(let image):
             return image
         }

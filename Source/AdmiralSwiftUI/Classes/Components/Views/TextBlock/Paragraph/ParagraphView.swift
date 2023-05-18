@@ -172,7 +172,7 @@ struct ImageTitleParagraph_Previews: PreviewProvider {
 
             ParagraphView(
                 title: "Title",
-                trailingImage: SymbolsNew.Service.Outline.closeCircle.swiftUIImage,
+                trailingImage: SymbolAssets.Service.Outline.closeCircle.swiftUIImage,
                 textAligment: .center,
                 paragraphStyle: .secondary)
         }

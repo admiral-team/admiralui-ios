@@ -53,7 +53,7 @@ public struct RadioControl: View {
     // MARK: - Computed Properites
 
     private var image: Image {
-        return isSelected ? Image(uiImage: SystemImagesNew.Custom.Control.radioButtonOn.image) : Image(uiImage: SystemImagesNew.Custom.Control.radioButtonOff.image)
+        return isSelected ? Image(uiImage: SystemImageAssets.Custom.Control.radioButtonOn.image) : Image(uiImage: SystemImageAssets.Custom.Control.radioButtonOff.image)
     }
     
     // MARK: - Initializer

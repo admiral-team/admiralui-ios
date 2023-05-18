@@ -13,58 +13,58 @@
 #endif
 
 // Deprecated typealiases
-@available(*, deprecated, renamed: "ImagesNewAssetImage.Image", message: "This typealias will be removed in SwiftGen 7.0")
-internal typealias ImagesNewAssetImageType = ImagesNewAssetImage.Image
+@available(*, deprecated, renamed: "IAImage.Image", message: "This typealias will be removed in SwiftGen 7.0")
+internal typealias IAImageType = IAImage.Image
 
 // swiftlint:disable superfluous_disable_command file_length implicit_return
 
 // MARK: - Asset Catalogs
 
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
-internal enum ImagesNew {
+internal enum ImageAssets {
   internal enum Category {
     internal enum Outline {
-      internal static let acceptOutline = ImagesNewAssetImage(name: "Category/Outline/acceptOutline")
-      internal static let addCommentOutline = ImagesNewAssetImage(name: "Category/Outline/addCommentOutline")
-      internal static let bankOutline = ImagesNewAssetImage(name: "Category/Outline/bankOutline")
+      internal static let acceptOutline = IAImage(name: "Category/Outline/acceptOutline")
+      internal static let addCommentOutline = IAImage(name: "Category/Outline/addCommentOutline")
+      internal static let bankOutline = IAImage(name: "Category/Outline/bankOutline")
     }
   }
   internal enum Documents {
     internal enum Outline {
-      internal static let descriptionOutline = ImagesNewAssetImage(name: "Documents/Outline/descriptionOutline")
+      internal static let descriptionOutline = IAImage(name: "Documents/Outline/descriptionOutline")
     }
     internal enum Solid {
-      internal static let accountDetailSolid = ImagesNewAssetImage(name: "Documents/Solid/accountDetailSolid")
+      internal static let accountDetailSolid = IAImage(name: "Documents/Solid/accountDetailSolid")
     }
   }
   internal enum Service {
     internal enum Outline {
-      internal static let closeOutline = ImagesNewAssetImage(name: "Service/Outline/closeOutline")
-      internal static let minusOutline = ImagesNewAssetImage(name: "Service/Outline/minusOutline")
-      internal static let plusOutline = ImagesNewAssetImage(name: "Service/Outline/plusOutline")
+      internal static let closeOutline = IAImage(name: "Service/Outline/closeOutline")
+      internal static let minusOutline = IAImage(name: "Service/Outline/minusOutline")
+      internal static let plusOutline = IAImage(name: "Service/Outline/plusOutline")
     }
     internal enum Solid {
-      internal static let closeSolid = ImagesNewAssetImage(name: "Service/Solid/closeSolid")
-      internal static let errorSolid = ImagesNewAssetImage(name: "Service/Solid/errorSolid")
+      internal static let closeSolid = IAImage(name: "Service/Solid/closeSolid")
+      internal static let errorSolid = IAImage(name: "Service/Solid/errorSolid")
     }
   }
   internal enum System {
     internal enum Outline {
-      internal static let arrowDownOutline = ImagesNewAssetImage(name: "System/Outline/arrowDownOutline")
-      internal static let arrowLeftOutline = ImagesNewAssetImage(name: "System/Outline/arrowLeftOutline")
-      internal static let arrowRightOutline = ImagesNewAssetImage(name: "System/Outline/arrowRightOutline")
-      internal static let chevronDownOutline = ImagesNewAssetImage(name: "System/Outline/chevronDownOutline")
-      internal static let chevronRightOutline = ImagesNewAssetImage(name: "System/Outline/chevronRightOutline")
-      internal static let chevronUpOutline = ImagesNewAssetImage(name: "System/Outline/chevronUpOutline")
+      internal static let arrowDownOutline = IAImage(name: "System/Outline/arrowDownOutline")
+      internal static let arrowLeftOutline = IAImage(name: "System/Outline/arrowLeftOutline")
+      internal static let arrowRightOutline = IAImage(name: "System/Outline/arrowRightOutline")
+      internal static let chevronDownOutline = IAImage(name: "System/Outline/chevronDownOutline")
+      internal static let chevronRightOutline = IAImage(name: "System/Outline/chevronRightOutline")
+      internal static let chevronUpOutline = IAImage(name: "System/Outline/chevronUpOutline")
     }
     internal enum Solid {
-      internal static let starSolid = ImagesNewAssetImage(name: "System/Solid/starSolid")
+      internal static let starSolid = IAImage(name: "System/Solid/starSolid")
     }
   }
 
   // swiftlint:disable trailing_comma
   @available(*, deprecated, message: "All values properties are now deprecated")
-  internal static let allImages: [ImagesNewAssetImage] = [
+  internal static let allImages: [IAImage] = [
     Category.Outline.acceptOutline,
     Category.Outline.addCommentOutline,
     Category.Outline.bankOutline,
@@ -89,7 +89,7 @@ internal enum ImagesNew {
 
 // MARK: - Implementation Details
 
-internal struct ImagesNewAssetImage {
+internal struct IAImage {
   internal fileprivate(set) var name: String
 
   #if os(macOS)
@@ -134,11 +134,11 @@ internal struct ImagesNewAssetImage {
   #endif
 }
 
-internal extension ImagesNewAssetImage.Image {
+internal extension IAImage.Image {
   @available(iOS 8.0, tvOS 9.0, watchOS 2.0, *)
   @available(macOS, deprecated,
-    message: "This initializer is unsafe on macOS, please use the ImagesNewAssetImage.image property")
-  convenience init?(asset: ImagesNewAssetImage) {
+    message: "This initializer is unsafe on macOS, please use the IAImage.image property")
+  convenience init?(asset: IAImage) {
     #if os(iOS) || os(tvOS)
     let bundle = BundleToken.bundle
     self.init(named: asset.name, in: bundle, compatibleWith: nil)
@@ -153,17 +153,17 @@ internal extension ImagesNewAssetImage.Image {
 #if canImport(SwiftUI)
 @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
 internal extension SwiftUI.Image {
-  init(asset: ImagesNewAssetImage) {
+  init(asset: IAImage) {
     let bundle = BundleToken.bundle
     self.init(asset.name, bundle: bundle)
   }
 
-  init(asset: ImagesNewAssetImage, label: Text) {
+  init(asset: IAImage, label: Text) {
     let bundle = BundleToken.bundle
     self.init(asset.name, bundle: bundle, label: label)
   }
 
-  init(decorative asset: ImagesNewAssetImage) {
+  init(decorative asset: IAImage) {
     let bundle = BundleToken.bundle
     self.init(decorative: asset.name, bundle: bundle)
   }

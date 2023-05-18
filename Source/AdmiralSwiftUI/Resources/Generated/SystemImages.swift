@@ -13,41 +13,41 @@
 #endif
 
 // Deprecated typealiases
-@available(*, deprecated, renamed: "SystemImagesNewAssetImage.Image", message: "This typealias will be removed in SwiftGen 7.0")
-internal typealias SystemImagesNewAssetImageType = SystemImagesNewAssetImage.Image
+@available(*, deprecated, renamed: "SIAImage.Image", message: "This typealias will be removed in SwiftGen 7.0")
+internal typealias SIAImageType = SIAImage.Image
 
 // swiftlint:disable superfluous_disable_command file_length implicit_return
 
 // MARK: - Asset Catalogs
 
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
-internal enum SystemImagesNew {
+internal enum SystemImageAssets {
   internal enum Custom {
     internal enum Cell {
-      internal static let point = SystemImagesNewAssetImage(name: "Custom/Cell/point")
+      internal static let point = SIAImage(name: "Custom/Cell/point")
     }
     internal enum Chat {
-      internal static let read = SystemImagesNewAssetImage(name: "Custom/Chat/Read")
-      internal static let sent = SystemImagesNewAssetImage(name: "Custom/Chat/Sent")
+      internal static let read = SIAImage(name: "Custom/Chat/Read")
+      internal static let sent = SIAImage(name: "Custom/Chat/Sent")
     }
     internal enum Control {
-      internal static let checkBoxOff = SystemImagesNewAssetImage(name: "Custom/Control/checkBoxOff")
-      internal static let checkBoxOn = SystemImagesNewAssetImage(name: "Custom/Control/checkBoxOn")
-      internal static let radioButtonOff = SystemImagesNewAssetImage(name: "Custom/Control/radioButtonOff")
-      internal static let radioButtonOn = SystemImagesNewAssetImage(name: "Custom/Control/radioButtonOn")
+      internal static let checkBoxOff = SIAImage(name: "Custom/Control/checkBoxOff")
+      internal static let checkBoxOn = SIAImage(name: "Custom/Control/checkBoxOn")
+      internal static let radioButtonOff = SIAImage(name: "Custom/Control/radioButtonOff")
+      internal static let radioButtonOn = SIAImage(name: "Custom/Control/radioButtonOn")
     }
     internal enum Informers {
-      internal static let question = SystemImagesNewAssetImage(name: "Custom/Informers/question")
+      internal static let question = SIAImage(name: "Custom/Informers/question")
     }
     internal enum Segment {
-      internal static let arrowDown = SystemImagesNewAssetImage(name: "Custom/Segment/arrowDown")
-      internal static let arrowUp = SystemImagesNewAssetImage(name: "Custom/Segment/arrowUp")
+      internal static let arrowDown = SIAImage(name: "Custom/Segment/arrowDown")
+      internal static let arrowUp = SIAImage(name: "Custom/Segment/arrowUp")
     }
   }
 
   // swiftlint:disable trailing_comma
   @available(*, deprecated, message: "All values properties are now deprecated")
-  internal static let allImages: [SystemImagesNewAssetImage] = [
+  internal static let allImages: [SIAImage] = [
     Custom.Cell.point,
     Custom.Chat.read,
     Custom.Chat.sent,
@@ -65,7 +65,7 @@ internal enum SystemImagesNew {
 
 // MARK: - Implementation Details
 
-internal struct SystemImagesNewAssetImage {
+internal struct SIAImage {
   internal fileprivate(set) var name: String
 
   #if os(macOS)
@@ -110,11 +110,11 @@ internal struct SystemImagesNewAssetImage {
   #endif
 }
 
-internal extension SystemImagesNewAssetImage.Image {
+internal extension SIAImage.Image {
   @available(iOS 8.0, tvOS 9.0, watchOS 2.0, *)
   @available(macOS, deprecated,
-    message: "This initializer is unsafe on macOS, please use the SystemImagesNewAssetImage.image property")
-  convenience init?(asset: SystemImagesNewAssetImage) {
+    message: "This initializer is unsafe on macOS, please use the SIAImage.image property")
+  convenience init?(asset: SIAImage) {
     #if os(iOS) || os(tvOS)
     let bundle = BundleToken.bundle
     self.init(named: asset.name, in: bundle, compatibleWith: nil)
@@ -129,17 +129,17 @@ internal extension SystemImagesNewAssetImage.Image {
 #if canImport(SwiftUI)
 @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
 internal extension SwiftUI.Image {
-  init(asset: SystemImagesNewAssetImage) {
+  init(asset: SIAImage) {
     let bundle = BundleToken.bundle
     self.init(asset.name, bundle: bundle)
   }
 
-  init(asset: SystemImagesNewAssetImage, label: Text) {
+  init(asset: SIAImage, label: Text) {
     let bundle = BundleToken.bundle
     self.init(asset.name, bundle: bundle, label: label)
   }
 
-  init(decorative asset: SystemImagesNewAssetImage) {
+  init(decorative asset: SIAImage) {
     let bundle = BundleToken.bundle
     self.init(decorative: asset.name, bundle: bundle)
   }

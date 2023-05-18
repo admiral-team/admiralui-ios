@@ -63,8 +63,8 @@ public struct SmallInformer: View {
             bottom: LayoutGrid.module,
             trailing: LayoutGrid.halfModule * 3
         )
-        static let topArrowImage = SystemImagesNew.Custom.Segment.arrowUp.image
-        static let bottomArrowImage = SystemImagesNew.Custom.Segment.arrowDown.image
+        static let topArrowImage = SystemImageAssets.Custom.Segment.arrowUp.image
+        static let bottomArrowImage = SystemImageAssets.Custom.Segment.arrowDown.image
         static let imageSize = CGSize(width: LayoutGrid.doubleModule, height: LayoutGrid.module)
         static let informerMaxWidth: CGFloat = LayoutGrid.quadrupleModule * 9
     }
