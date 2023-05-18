@@ -7,7 +7,6 @@
 
 import UIKit
 import AdmiralTheme
-import AdmiralUIResources
 
 /**
  FeedbackInputControl - A control for presenting star rating with touch and swipe actions.

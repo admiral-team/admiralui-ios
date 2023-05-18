@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import AdmiralUIResources
 
 /**
  CheckBox is element a graphical user interface element allowing the user to control a parameter with two states - enabled and disabled.
@@ -34,8 +33,8 @@ public class CheckBox: CheckControl {
     
     override func commonInit() {
         super.commonInit()
-        selectedImage = SystemAsset.Custom.Control.checkBoxOn.image
-        defaultImage = SystemAsset.Custom.Control.checkBoxOff.image
+        selectedImage = Asset.System.Solid.checkBoxOn.image
+        defaultImage = Asset.System.Outline.checkBoxOff.image
         updateState()
     }
     

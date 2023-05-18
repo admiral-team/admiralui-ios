@@ -7,7 +7,6 @@
 
 import UIKit
 import AdmiralTheme
-import AdmiralUIResources
 
 /// The style of ChatBubbleStatusView.
 public enum ChatBubbleStatusStyle: Int {
@@ -91,11 +90,11 @@ public class ChatBubbleStatusView: UIView, AnyAppThemable {
         case .error:
             return Asset.Service.Outline.errorOutline.image
         case .sent:
-            return SystemAsset.Custom.Chat.sent.image
+            return Asset.System.Outline.sent.image
         case .receive:
-            return SystemAsset.Custom.Chat.sent.image
+            return Asset.System.Outline.sent.image
         case .read:
-            return SystemAsset.Custom.Chat.read.image
+            return Asset.System.Outline.read.image
         case nil:
             return nil
         default:

@@ -5,7 +5,6 @@
 //  Created on 21.02.2022.
 //
 
-import AdmiralUIResources
 import UIKit
 
 /**
@@ -24,9 +23,9 @@ public enum DropDownHeaderType {
     var image: UIImage {
         switch self {
         case .up:
-            return AdmiralUIResources.Asset.System.Outline.chevronUpOutline.image
+            return Asset.System.Outline.chevronUpOutline.image
         case .down:
-            return AdmiralUIResources.Asset.System.Outline.chevronDownOutline.image
+            return Asset.System.Outline.chevronDownOutline.image
         case .custom(let image):
             return image
         }

@@ -7,7 +7,6 @@
 
 import UIKit
 import AdmiralTheme
-import AdmiralUIResources
 
 /**
  ParagaphImageType - Public enum for paragraph text block style AdmiralUIKit library
@@ -25,9 +24,9 @@ public enum ParagaphImageType {
     var image: UIImage {
         switch self {
         case .point:
-            return AdmiralUIResources.SystemAsset.Custom.Cell.point.image
+            return Asset.System.Solid.point.image
         case .check:
-            return AdmiralUIResources.Asset.Service.Outline.checkClearOutline.image
+            return Asset.Service.Outline.checkClearOutline.image
         case .custom(let image):
             return image
         }
