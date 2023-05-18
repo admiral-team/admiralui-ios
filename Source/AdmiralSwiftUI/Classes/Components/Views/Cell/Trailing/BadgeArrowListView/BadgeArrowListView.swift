@@ -102,7 +102,7 @@ public struct BadgeArrowListView: View, TralingListViewComponent {
                 schemeProvider: .constant(scheme: scheme.badgeViewScheme)
             )
             .fixedSize()
-            Image(uiImage: Asset.System.Outline.chevronRightOutline.image)
+            Image(uiImage: ImagesNew.System.Outline.chevronRightOutline.image)
                 .frame(width: LayoutGrid.module, height: LayoutGrid.doubleModule)
                 .foregroundColor(scheme.arrowListViewScheme.imageTintColor.parameter(for: isEnabled ? .normal : .disabled)?.swiftUIColor)
         }

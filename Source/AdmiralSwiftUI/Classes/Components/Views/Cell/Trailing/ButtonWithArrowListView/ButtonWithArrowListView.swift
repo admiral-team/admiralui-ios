@@ -56,7 +56,7 @@ public struct ButtonWithArrowListView: View, CenterListViewComponent, TralingLis
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     public init(
         text: String,
-        image: Image = Image(uiImage: Asset.System.Outline.chevronDownOutline.image),
+        image: Image = Image(uiImage: ImagesNew.System.Outline.chevronDownOutline.image),
         accesibilityId: String = "",
         schemeProvider: SchemeProvider<ButtonWithArrowListViewScheme> = AppThemeSchemeProvider<ButtonWithArrowListViewScheme>(),
         action: @escaping () -> ()

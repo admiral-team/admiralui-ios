@@ -93,7 +93,7 @@ struct ActionBarControlView_Previews: PreviewProvider {
     
     static var previews: some View {
         ActionBarControlView(
-            image: Image(uiImage: Asset.Category.Outline.addCommentOutline.image),
+            image: Image(uiImage: ImagesNew.Category.Outline.addCommentOutline.image),
             imageStyle: .accent,
             tapActionBar: {}
         )

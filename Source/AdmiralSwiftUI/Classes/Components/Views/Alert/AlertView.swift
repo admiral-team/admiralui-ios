@@ -59,7 +59,7 @@ public enum AlertColorStyle: Int {
  # Code
  ```
  AlertView(
-     image: Image(uiImage: Asset.Documents.Solid.accountDetailSolid.image),
+     image: Image(uiImage: Documents.Solid.accountDetailSolid.image),
      title: "Заголовок в одну или две строки",
      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
      buttonTitle: "Действие",
@@ -256,7 +256,7 @@ struct AlertView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             AlertView(
-                image: Image(uiImage: Asset.Documents.Solid.accountDetailSolid.image),
+                image: Image(uiImage: ImagesNew.Documents.Solid.accountDetailSolid.image),
                 title: "Заголовок в одну или две строки",
                 message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
                 buttonTitle: "Действие",
