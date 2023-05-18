@@ -87,7 +87,7 @@ public enum ToastImageType: String {
 public struct ToastView: View {
     
     enum Constants {
-        static let closeImage = AssetSymbol.Service.Outline.close.image
+        static let closeImage = SymbolsNew.Service.Outline.close.swiftUIImage
         static let maxHeight: CGFloat = LayoutGrid.halfModule * 33
     }
     
@@ -170,13 +170,13 @@ public struct ToastView: View {
         } else {
             switch imageType {
             case .attention:
-                self.image = AssetSymbol.Service.Solid.errorTriangle.image
+                self.image = SymbolsNew.Service.Solid.errorTriangle.swiftUIImage
             case .error:
-                self.image = AssetSymbol.Service.Solid.error.image
+                self.image = SymbolsNew.Service.Solid.error.swiftUIImage
             case .info:
-                self.image = AssetSymbol.Service.Solid.info.image
+                self.image = SymbolsNew.Service.Solid.info.swiftUIImage
             case .success:
-                self.image = AssetSymbol.Service.Solid.check.image
+                self.image = SymbolsNew.Service.Solid.check.swiftUIImage
             case .none:
                 self.image = nil
             }
@@ -212,13 +212,13 @@ public struct ToastView: View {
         } else {
             switch imageType {
             case .attention:
-                self.image = AssetSymbol.Service.Solid.errorTriangle.image
+                self.image = SymbolsNew.Service.Solid.errorTriangle.swiftUIImage
             case .error:
-                self.image = AssetSymbol.Service.Solid.error.image
+                self.image = SymbolsNew.Service.Solid.error.swiftUIImage
             case .info:
-                self.image = AssetSymbol.Service.Solid.info.image
+                self.image = SymbolsNew.Service.Solid.info.swiftUIImage
             case .success:
-                self.image = AssetSymbol.Service.Solid.check.image
+                self.image = SymbolsNew.Service.Solid.check.swiftUIImage
             case .none:
                 self.image = nil
             }

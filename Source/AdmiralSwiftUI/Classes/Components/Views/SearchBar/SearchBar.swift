@@ -51,6 +51,8 @@ public struct SearchBar: View, AccessabilitySupportUIKit {
     enum Constants {
         static let closeImage = Asset.Service.Solid.closeSolid.image
     }
+    
+    public static let defaultSearchImage = SymbolsNew.System.Outline.search.swiftUIImage
 
     // MARK: - Private Properties
 
@@ -102,7 +104,7 @@ public struct SearchBar: View, AccessabilitySupportUIKit {
         autocorrectionType: UITextAutocorrectionType = .no,
         isResponder: Binding<Bool>? = nil,
         placeholder: String = "",
-        searchImage: SwiftUI.Image? = AssetSymbol.System.Outline.search.image,
+        searchImage: SwiftUI.Image? = defaultSearchImage,
         schemeProvider: SchemeProvider<SearchBarColorScheme> = AppThemeSchemeProvider<SearchBarColorScheme>()
     ) {
         self._content = content

@@ -225,7 +225,7 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
                 HStack(alignment: .bottom, spacing: .zero) {
                     if isShowFileButton {
                         Button(action: { tapFileButton() }, label: {
-                            AssetSymbol.System.Outline.attachFile.image
+                            SymbolsNew.System.Outline.attachFile.swiftUIImage
                         })
                         .foregroundColor(scheme.imageTintColor.swiftUIColor)
                         .frame(width: LayoutGrid.doubleModule, height: LayoutGrid.doubleModule)
@@ -262,7 +262,7 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
                                 clear()
                             }
                         }, label: {
-                            AssetSymbol.System.Outline.arrowRight.image
+                            SymbolsNew.System.Outline.arrowRight.swiftUIImage
                         })
                         .buttonStyle(ChatButtonStyle())
                         .disabled(isSendButtonDisabled ?? isSendButtonEnabled)

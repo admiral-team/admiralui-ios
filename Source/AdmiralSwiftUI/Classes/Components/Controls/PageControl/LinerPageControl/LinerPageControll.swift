@@ -30,7 +30,7 @@ import AdmiralUIResources
  } label: {
  HStack {
  Text("Next")
- AdmiralUIResources.AssetSymbol.System.Outline.arrowRight.image
+ System.Outline.arrowRight.image
  }
  }
  .buttonStyle(PrimaryButtonStyle(isLoading: .constant(false), sizeType: .small))

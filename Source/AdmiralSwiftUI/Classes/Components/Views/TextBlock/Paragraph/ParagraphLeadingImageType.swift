@@ -30,7 +30,7 @@ public enum ParagraphLeadingImageType {
         case .point:
             return Image(uiImage: AdmiralUIResources.SystemAsset.Custom.Cell.point.image)
         case .check:
-            return AdmiralUIResources.AssetSymbol.Service.Outline.checkClear.image
+            return SymbolsNew.Service.Outline.checkClear.swiftUIImage
         case .custom(let image):
             return image
         }

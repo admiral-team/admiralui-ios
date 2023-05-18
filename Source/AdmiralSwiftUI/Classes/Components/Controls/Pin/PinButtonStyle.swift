@@ -143,7 +143,7 @@ struct PinButton_Previews: PreviewProvider {
     static var previews: some View {
         Button(action: {}, label: {})
             .buttonStyle(PinButtonStyle(
-                image: AssetSymbol.Category.Outline.acuringModern.image,
+                image: SymbolsNew.Category.Outline.acuringModern.swiftUIImage,
                 isSelected: .constant(false)
             )
         )
