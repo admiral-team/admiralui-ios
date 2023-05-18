@@ -42,7 +42,7 @@ final class InputNumberDefaultViewController: ScrollViewController {
         textFields.append(textFieldSix)
     }
 
-    private func createInputNumberTextFieldView()-> ControlCellView<InputNumber> {
+    private func createInputNumberTextFieldView() -> ControlCellView<InputNumber> {
         let inputTextField = InputNumber()
         inputTextField.text = "Optional label"
         inputTextField.value = 1

@@ -643,12 +643,12 @@
 		3BF2EC262987FBCA004CB70A /* InputNumberAccessibilityIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF2EC252987FBCA004CB70A /* InputNumberAccessibilityIdentifiers.swift */; };
 		3BFE8374278C482D0094A451 /* AlertViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE8373278C482D0094A451 /* AlertViewScheme.swift */; };
 		3BFE8376278C486F0094A451 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE8375278C486F0094A451 /* AlertView.swift */; };
+		710BF2452A1649A1003CB60D /* Symbols.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71B4A3CD2A1612E2007AFBDC /* Symbols.xcassets */; };
+		710BF2462A1649A1003CB60D /* SystemImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71B4A3D12A162331007AFBDC /* SystemImages.xcassets */; };
+		710BF2472A1649A1003CB60D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71B4A3CF2A162318007AFBDC /* Images.xcassets */; };
 		71ADDE972A162BC800EC696B /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71ADDE962A162BC800EC696B /* Symbols.swift */; };
 		71ADDE9A2A162E1E00EC696B /* SystemImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71ADDE982A162E1E00EC696B /* SystemImages.swift */; };
 		71ADDE9B2A162E1E00EC696B /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71ADDE992A162E1E00EC696B /* Images.swift */; };
-		71B4A3CE2A1612E2007AFBDC /* Symbols.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71B4A3CD2A1612E2007AFBDC /* Symbols.xcassets */; };
-		71B4A3D02A162318007AFBDC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71B4A3CF2A162318007AFBDC /* Images.xcassets */; };
-		71B4A3D22A162331007AFBDC /* SystemImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71B4A3D12A162331007AFBDC /* SystemImages.xcassets */; };
 		868DDBC12746EF9600956AD3 /* BadgeArrowListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868DDBBF2746EF8D00956AD3 /* BadgeArrowListView.swift */; };
 		C66A0CEB26026708005B0AF7 /* TimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66A0C78260265C3005B0AF7 /* TimePicker.swift */; };
 		C66A0CF82602670C005B0AF7 /* TimePickerCustomTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66A0C86260265CE005B0AF7 /* TimePickerCustomTheme.swift */; };
@@ -7309,6 +7309,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9A709FB27610270003233DF /* version.json in Resources */,
+				710BF2472A1649A1003CB60D /* Images.xcassets in Resources */,
+				710BF2462A1649A1003CB60D /* SystemImages.xcassets in Resources */,
+				710BF2452A1649A1003CB60D /* Symbols.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7328,12 +7331,9 @@
 				0EA2A8F325FF7F4A002A207F /* Images.xcassets in Resources */,
 				0E4584B426009F13002E296E /* SFProDisplay-Regular.otf in Resources */,
 				3B9E96172746EB2B00409F83 /* SystemImages.xcassets in Resources */,
-				71B4A3D22A162331007AFBDC /* SystemImages.xcassets in Resources */,
-				71B4A3D02A162318007AFBDC /* Images.xcassets in Resources */,
 				0E4584B126009F13002E296E /* SFProDisplay-Medium.otf in Resources */,
 				E6F8CF6F269450FE005E53F8 /* Symbols.xcassets in Resources */,
 				0E4584B326009F13002E296E /* SFProText-Medium.otf in Resources */,
-				71B4A3CE2A1612E2007AFBDC /* Symbols.xcassets in Resources */,
 				E9A709F827610270003233DF /* version.json in Resources */,
 				0E4584B526009F13002E296E /* SFProDisplay-Bold.otf in Resources */,
 			);
