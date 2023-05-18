@@ -29,6 +29,28 @@ internal enum ImageAssets {
       internal static let bankOutline = IAImage(name: "Category/Outline/bankOutline")
     }
   }
+  internal enum Custom {
+    internal enum Cell {
+      internal static let point = IAImage(name: "Custom/Cell/point")
+    }
+    internal enum Chat {
+      internal static let read = IAImage(name: "Custom/Chat/Read")
+      internal static let sent = IAImage(name: "Custom/Chat/Sent")
+    }
+    internal enum Control {
+      internal static let checkBoxOff = IAImage(name: "Custom/Control/checkBoxOff")
+      internal static let checkBoxOn = IAImage(name: "Custom/Control/checkBoxOn")
+      internal static let radioButtonOff = IAImage(name: "Custom/Control/radioButtonOff")
+      internal static let radioButtonOn = IAImage(name: "Custom/Control/radioButtonOn")
+    }
+    internal enum Informers {
+      internal static let question = IAImage(name: "Custom/Informers/question")
+    }
+    internal enum Segment {
+      internal static let arrowDown = IAImage(name: "Custom/Segment/arrowDown")
+      internal static let arrowUp = IAImage(name: "Custom/Segment/arrowUp")
+    }
+  }
   internal enum Documents {
     internal enum Outline {
       internal static let descriptionOutline = IAImage(name: "Documents/Outline/descriptionOutline")
@@ -68,6 +90,16 @@ internal enum ImageAssets {
     Category.Outline.acceptOutline,
     Category.Outline.addCommentOutline,
     Category.Outline.bankOutline,
+    Custom.Cell.point,
+    Custom.Chat.read,
+    Custom.Chat.sent,
+    Custom.Control.checkBoxOff,
+    Custom.Control.checkBoxOn,
+    Custom.Control.radioButtonOff,
+    Custom.Control.radioButtonOn,
+    Custom.Informers.question,
+    Custom.Segment.arrowDown,
+    Custom.Segment.arrowUp,
     Documents.Outline.descriptionOutline,
     Documents.Solid.accountDetailSolid,
     Service.Outline.closeOutline,
