@@ -22,11 +22,14 @@ let package = Package(
             name: "AdmiralUIResources",
             targets: ["AdmiralUIResources"]),
         .library(
-                name: "AdmiralCore",
-                targets: ["AdmiralCore"]),
+            name: "AdmiralCore",
+            targets: ["AdmiralCore"]),
         .library(
-                name: "AdmiralImages",
-                targets: ["AdmiralImages"]),
+            name: "AdmiralImages",
+            targets: ["AdmiralImages"]),
+        .library(
+            name: "AdmiralSymbols",
+            targets: ["AdmiralSymbols"]),
     ],
     targets: [
         .target(
@@ -66,5 +69,12 @@ let package = Package(
                 resources: [
                     .process("Resources/Assets"),
                 ]),
+        .target(
+            name: "AdmiralSymbols",
+            dependencies: [],
+            path: "Source/AdmiralSymbols",
+            resources: [
+                .process("Resources/Assets")
+            ])
     ]
 )

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AdmiralTheme
+import AdmiralSymbols
 import AdmiralUIResources
 import AdmiralSwiftUI
 
@@ -67,7 +68,7 @@ struct ImageLeadingLableComponentsSwiftUIView: View {
                             subtitle: "Subtitle",
                             tagText: "Percent",
                             messageText: "Text message",
-                            infoImage: AdmiralUIResources.AssetSymbol.Service.Outline.info.image) 
+                            infoImage: AdmiralSymbols.AssetSymbol.Service.Outline.info.swiftUIImage) 
                         },
                         trailingView: { ArrowListView() },
                         isSelected:
