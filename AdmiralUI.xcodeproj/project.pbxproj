@@ -503,6 +503,9 @@
 		0EB853782673A708008FC0FD /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB853772673A708008FC0FD /* TextView.swift */; };
 		0EB8867F27A43BB400D7E29F /* CalendarViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB8867E27A43BB400D7E29F /* CalendarViewScheme.swift */; };
 		0EB8868127A4615E00D7E29F /* CalendarHorizontalViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB8868027A4615E00D7E29F /* CalendarHorizontalViewScheme.swift */; };
+		0EBC2FB72A1512F6009C5D70 /* AdmiralSymbols.h in Headers */ = {isa = PBXBuildFile; fileRef = 0EBC2FB62A1512F6009C5D70 /* AdmiralSymbols.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0EBC2FBB2A1519C6009C5D70 /* Symbols.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EBC2FBA2A1519C6009C5D70 /* Symbols.xcassets */; };
+		0EBC2FBF2A1519F2009C5D70 /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBC2FBE2A1519F2009C5D70 /* Symbols.swift */; };
 		0EBE55FB26C69FFD00C4A277 /* MapButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBE55FA26C69FFD00C4A277 /* MapButtonStyle.swift */; };
 		0EBE55FD26C6A0FC00C4A277 /* MapButtonScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBE55FC26C6A0FC00C4A277 /* MapButtonScheme.swift */; };
 		0EBE560126C6CC9C00C4A277 /* PinButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBE560026C6CC9C00C4A277 /* PinButtonStyle.swift */; };
@@ -543,6 +546,7 @@
 		0EF044D127B529FE0095DD14 /* UnderlineTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF044D027B529FE0095DD14 /* UnderlineTabItem.swift */; };
 		0EF044D327B52A0F0095DD14 /* OutlineSliderTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF044D227B52A0F0095DD14 /* OutlineSliderTabItem.swift */; };
 		0EF548252679149700E49DEB /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF548242679149700E49DEB /* SearchBar.swift */; };
+		0EF57BB62A165808000BA852 /* version.json in Resources */ = {isa = PBXBuildFile; fileRef = E9A709F627610270003233DF /* version.json */; };
 		0EFCDB4526B83D5B006207B1 /* CurrencyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFCDB4426B83D5B006207B1 /* CurrencyHeaderView.swift */; };
 		0EFCDB4726B83D69006207B1 /* CurrencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFCDB4626B83D69006207B1 /* CurrencyView.swift */; };
 		0EFCDB4926B84971006207B1 /* CurrencyHeaderViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFCDB4826B84971006207B1 /* CurrencyHeaderViewScheme.swift */; };
@@ -1048,6 +1052,7 @@
 		0E2D9CCD261F5C7C00323048 /* CustomSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSwitch.swift; sourceTree = "<group>"; };
 		0E2DF125254865960087F661 /* StandardSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardSegmentedControl.swift; sourceTree = "<group>"; };
 		0E2DF12E25486EC30087F661 /* LogoSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoSegmentedControl.swift; sourceTree = "<group>"; };
+		0E30F4F82A16565600B29078 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E33995428D34A8C00B24722 /* GhostButtonWithImageStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostButtonWithImageStyle.swift; sourceTree = "<group>"; };
 		0E33995A28D5D9A600B24722 /* CoundDownViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoundDownViewScheme.swift; sourceTree = "<group>"; };
 		0E33995C28D5E70900B24722 /* LinkViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkViewScheme.swift; sourceTree = "<group>"; };
@@ -1292,6 +1297,10 @@
 		0EB853772673A708008FC0FD /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		0EB8867E27A43BB400D7E29F /* CalendarViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewScheme.swift; sourceTree = "<group>"; };
 		0EB8868027A4615E00D7E29F /* CalendarHorizontalViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHorizontalViewScheme.swift; sourceTree = "<group>"; };
+		0EBC2F9E2A1511B7009C5D70 /* AdmiralSymbols.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdmiralSymbols.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EBC2FB62A1512F6009C5D70 /* AdmiralSymbols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdmiralSymbols.h; sourceTree = "<group>"; };
+		0EBC2FBA2A1519C6009C5D70 /* Symbols.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Symbols.xcassets; sourceTree = "<group>"; };
+		0EBC2FBE2A1519F2009C5D70 /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
 		0EBE0058258A55C200EEDCBC /* ShimmeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmeringView.swift; sourceTree = "<group>"; };
 		0EBE005E258A55D100EEDCBC /* ShimmeringMaskLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmeringMaskLayer.swift; sourceTree = "<group>"; };
 		0EBE0062258A55DF00EEDCBC /* ShimmeringLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmeringLayer.swift; sourceTree = "<group>"; };
@@ -1917,6 +1926,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0EBC2F9B2A1511B7009C5D70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E94A444328CF7B09006625F5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -2386,6 +2402,14 @@
 				E632B01D256D836F00B29DE1 /* LogoSegmentedScheme.swift */,
 			);
 			path = LogoSegmentedControl;
+			sourceTree = "<group>";
+		};
+		0E30F4F72A16563C00B29078 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0E30F4F82A16565600B29078 /* Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		0E33995628D3573D00B24722 /* Recovered References */ = {
@@ -3810,6 +3834,49 @@
 				0EB853772673A708008FC0FD /* TextView.swift */,
 			);
 			path = TextView;
+			sourceTree = "<group>";
+		};
+		0EBC2FB52A1512F6009C5D70 /* AdmiralSymbols */ = {
+			isa = PBXGroup;
+			children = (
+				0EBC2FBC2A1519D7009C5D70 /* Classes */,
+				0EBC2FB82A15188C009C5D70 /* Resources */,
+				0E30F4F72A16563C00B29078 /* Supporting Files */,
+				0EBC2FB62A1512F6009C5D70 /* AdmiralSymbols.h */,
+			);
+			path = AdmiralSymbols;
+			sourceTree = "<group>";
+		};
+		0EBC2FB82A15188C009C5D70 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0EBC2FB92A15189B009C5D70 /* Assets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0EBC2FB92A15189B009C5D70 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				0EBC2FBA2A1519C6009C5D70 /* Symbols.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		0EBC2FBC2A1519D7009C5D70 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				0EBC2FBD2A1519DD009C5D70 /* Assets */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		0EBC2FBD2A1519DD009C5D70 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				0EBC2FBE2A1519F2009C5D70 /* Symbols.swift */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		0EBE0057258A556400EEDCBC /* Shimmer */ = {
@@ -5813,6 +5880,7 @@
 				0EB756AD2600D578009BFC21 /* AdmiralUIKit.framework */,
 				0EB756B52600D578009BFC21 /* AdmiralUIKitTests.xctest */,
 				E94A444628CF7B09006625F5 /* AdmiralCore.framework */,
+				0EBC2F9E2A1511B7009C5D70 /* AdmiralSymbols.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -5820,6 +5888,7 @@
 		E6D91BF82532011B00DCE489 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				0EBC2FB52A1512F6009C5D70 /* AdmiralSymbols */,
 				E94A444728CF7B09006625F5 /* AdmiralCore */,
 				0E0E882425FBA26F00127626 /* AdmiralUIKit */,
 				0E3961B525FFCF7D006E2005 /* AdmiralSwiftUI */,
@@ -7047,6 +7116,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0EBC2F992A1511B7009C5D70 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EBC2FB72A1512F6009C5D70 /* AdmiralSymbols.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E94A444128CF7B09006625F5 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -7179,6 +7256,24 @@
 			productReference = 0EB756B52600D578009BFC21 /* AdmiralUIKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		0EBC2F9D2A1511B7009C5D70 /* AdmiralSymbols */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0EBC2FB32A1511B7009C5D70 /* Build configuration list for PBXNativeTarget "AdmiralSymbols" */;
+			buildPhases = (
+				0EBC2F992A1511B7009C5D70 /* Headers */,
+				0EBC2F9A2A1511B7009C5D70 /* Sources */,
+				0EBC2F9B2A1511B7009C5D70 /* Frameworks */,
+				0EBC2F9C2A1511B7009C5D70 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AdmiralSymbols;
+			productName = AdmiralSymbols;
+			productReference = 0EBC2F9E2A1511B7009C5D70 /* AdmiralSymbols.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		E94A444528CF7B09006625F5 /* AdmiralCore */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E94A444A28CF7B09006625F5 /* Build configuration list for PBXNativeTarget "AdmiralCore" */;
@@ -7203,7 +7298,7 @@
 		E6D91BED2532011B00DCE489 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1230;
+				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
 					0E0E881125FBA24C00127626 = {
@@ -7223,6 +7318,9 @@
 					};
 					0EB756B42600D578009BFC21 = {
 						CreatedOnToolsVersion = 12.3;
+					};
+					0EBC2F9D2A1511B7009C5D70 = {
+						CreatedOnToolsVersion = 13.4.1;
 					};
 					E94A444528CF7B09006625F5 = {
 						CreatedOnToolsVersion = 13.4;
@@ -7250,6 +7348,7 @@
 				0EB756AC2600D578009BFC21 /* AdmiralUIKit */,
 				0E3961B325FFCF7D006E2005 /* AdmiralSwiftUI */,
 				E94A444528CF7B09006625F5 /* AdmiralCore */,
+				0EBC2F9D2A1511B7009C5D70 /* AdmiralSymbols */,
 				0E3961BB25FFCF7D006E2005 /* AdmiralSwiftUITests */,
 				0EB756B42600D578009BFC21 /* AdmiralUIKitTests */,
 			);
@@ -7315,6 +7414,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BCDD85828BE1BEA00D2D679 /* TestAssets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0EBC2F9C2A1511B7009C5D70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EF57BB62A165808000BA852 /* version.json in Resources */,
+				0EBC2FBB2A1519C6009C5D70 /* Symbols.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8185,6 +8293,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0EBC2F9A2A1511B7009C5D70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EBC2FBF2A1519F2009C5D70 /* Symbols.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E94A444228CF7B09006625F5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -8601,6 +8717,69 @@
 			};
 			name = Release;
 		};
+		0EBC2FAF2A1511B7009C5D70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Source/AdmiralSymbols/Supporting Files/Info.plist";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = admiralSymbols;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0EBC2FB02A1511B7009C5D70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 0;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Source/AdmiralSymbols/Supporting Files/Info.plist";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = admiralSymbols;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		E6D91C082532011B00DCE489 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -8849,6 +9028,15 @@
 			buildConfigurations = (
 				0EB756C22600D578009BFC21 /* Debug */,
 				0EB756C32600D578009BFC21 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0EBC2FB32A1511B7009C5D70 /* Build configuration list for PBXNativeTarget "AdmiralSymbols" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0EBC2FAF2A1511B7009C5D70 /* Debug */,
+				0EBC2FB02A1511B7009C5D70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

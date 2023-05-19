@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AdmiralTheme
+import AdmiralSymbols
 import AdmiralSwiftUI
 import AdmiralUIResources
 
@@ -45,7 +46,7 @@ struct LinerSwiftUIView: View {
             } label: {
                 HStack {
                     Text("Next")
-                    AdmiralUIResources.AssetSymbol.System.Outline.arrowRight.image
+                    AdmiralSymbols.AssetSymbol.System.Outline.arrowRight.swiftUIImage
                 }
             }
             .buttonStyle(PrimaryButtonStyle(isLoading: .constant(false), sizeType: .small))
