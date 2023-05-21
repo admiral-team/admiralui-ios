@@ -11,5 +11,6 @@ target 'ExampleCocoaPods' do
   pod 'AdmiralCore', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'main'
   pod 'AdmiralSwiftUI', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'main'
   pod 'AdmiralUIKit', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'main'
+  pod 'AdmiralSymbols', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'develop'
 
 end

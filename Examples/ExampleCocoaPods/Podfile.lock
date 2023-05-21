@@ -4,6 +4,7 @@ PODS:
     - AdmiralCore
     - AdmiralTheme
     - AdmiralUIResources
+  - AdmiralSymbols (11.4.0)
   - AdmiralTheme (11.0.1):
     - AdmiralUIResources
   - AdmiralUIKit (11.0.1):
@@ -15,6 +16,7 @@ PODS:
 DEPENDENCIES:
   - AdmiralCore (from `https://github.com/admiral-team/admiralui-ios.git`, branch `main`)
   - AdmiralSwiftUI (from `https://github.com/admiral-team/admiralui-ios.git`, branch `main`)
+  - AdmiralSymbols (from `https://github.com/admiral-team/admiralui-ios.git`, branch `develop`)
   - AdmiralTheme (from `https://github.com/admiral-team/admiralui-ios.git`, branch `main`)
   - AdmiralUIKit (from `https://github.com/admiral-team/admiralui-ios.git`, branch `main`)
   - AdmiralUIResources (from `https://github.com/admiral-team/admiralui-ios.git`, branch `main`)
@@ -25,6 +27,9 @@ EXTERNAL SOURCES:
     :git: https://github.com/admiral-team/admiralui-ios.git
   AdmiralSwiftUI:
     :branch: main
+    :git: https://github.com/admiral-team/admiralui-ios.git
+  AdmiralSymbols:
+    :branch: develop
     :git: https://github.com/admiral-team/admiralui-ios.git
   AdmiralTheme:
     :branch: main
@@ -43,6 +48,9 @@ CHECKOUT OPTIONS:
   AdmiralSwiftUI:
     :commit: 826dc0cab2d2d6cb245ff18f256e4f29b68da126
     :git: https://github.com/admiral-team/admiralui-ios.git
+  AdmiralSymbols:
+    :commit: 314f5079d7f3d3efea173e02503cebba7c8c8210
+    :git: https://github.com/admiral-team/admiralui-ios.git
   AdmiralTheme:
     :commit: 826dc0cab2d2d6cb245ff18f256e4f29b68da126
     :git: https://github.com/admiral-team/admiralui-ios.git
@@ -56,10 +64,11 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AdmiralCore: 90ca9d3d67869b0d68877b6f14f85cc83b2ad395
   AdmiralSwiftUI: aabdf6d9dac21fb0d6b3bbd5430f9dfabcd209c6
+  AdmiralSymbols: 531f3d9cd97090d8d0a086d4e875eb8d45563156
   AdmiralTheme: 88070db38eba46c4f4a43ee911ffc3292668c61c
   AdmiralUIKit: 49801bc6bf5b21d485cfa6a7ab6db11f59ead44c
   AdmiralUIResources: 0262002ff9e2e08606fbbd0341701444be90fa2b
 
-PODFILE CHECKSUM: 2e6c7f64981c88178531c4232c70917650c4f48a
+PODFILE CHECKSUM: da30fca6ee1021440bc75063769d091a69a667e3
 
 COCOAPODS: 1.9.3
