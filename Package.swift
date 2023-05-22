@@ -22,6 +22,9 @@ let package = Package(
             name: "AdmiralUIResources",
             targets: ["AdmiralUIResources"]),
         .library(
+            name: "AdmiralImages",
+            targets: ["AdmiralImages"]),
+        .library(
             name: "AdmiralSymbols",
             targets: ["AdmiralSymbols"]),
     ],
@@ -51,11 +54,19 @@ let package = Package(
                 .process("Resources/Fonts")
             ]),
         .target(
+                name: "AdmiralImages",
+                dependencies: [],
+                path: "Source/AdmiralImages",
+                exclude: ["Supporting Files"],
+                resources: [
+                    .process("Resources/Assets"),
+                ]),
+        .target(
             name: "AdmiralSymbols",
             dependencies: [],
             path: "Source/AdmiralSymbols",
             resources: [
                 .process("Resources/Assets")
-            ]),
+            ])
     ]
 )

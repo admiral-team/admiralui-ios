@@ -185,6 +185,12 @@ lane :upload_nexus_lib do |options|
   )
 
   upload_nexus_framework(
+    scheme: "AdmiralImages", 
+    artifact_id: "admiral-images",
+    branch: branch
+  )
+
+  upload_nexus_framework(
     scheme: "AdmiralSymbols", 
     artifact_id: "admiral-symbols",
     branch: branch
@@ -308,6 +314,10 @@ lane :increment_app_version do |options|
   )
   increment_podspec_version(
     path: File.join(Dir.pwd, '../AdmiralUIResources.podspec'), 
+    version: version_number
+  )
+  increment_podspec_version(
+    path: File.join(Dir.pwd, '../AdmiralImages.podspec'), 
     version: version_number
   )
   increment_podspec_version(
@@ -483,6 +493,12 @@ lane :build_git_packages do |options|
   )
 
   build_package(
+    scheme: "AdmiralImages", 
+    artifact_id: "admiral-images",
+    branch: branch
+  )
+
+  build_package(
     scheme: "AdmiralSymbols", 
     artifact_id: "admiral-symbols",
     branch: branch
@@ -504,6 +520,10 @@ lane :build_git_packages do |options|
     scheme: "AdmiralUIResources"
   )
 
+  checksum_images = get_checksum(
+    scheme: "AdmiralImages"
+  )
+
   checksum_symbols = get_checksum(
     scheme: "AdmiralSymbols"
   )
@@ -513,7 +533,8 @@ lane :build_git_packages do |options|
     admiral_theme_checksum: checksum_theme, 
     admiral_resources_checksum: checksum_resources, 
     admiral_uikit_checksum: checksum_uikit, 
-    admiral_symbols_checksum: checksum_symbols
+    admiral_symbols_checksum: checksum_symbols,
+    admiral_images_checksum: checksum_images
   )
 end
 
@@ -567,8 +588,9 @@ def release_assets_string()
   release_asset_theme_string = release_asset_string(name: "AdmiralTheme")
   release_asset_resources_string = release_asset_string(name: "AdmiralUIResources")
   release_asset_symbols_string = release_asset_string(name: "AdmiralSymbols")
+  release_asset_images_string = release_asset_string(name: "AdmiralImages")
 
-  release_asset_array = [release_asset_uikit_string, release_asset_swiftui_string, release_asset_theme_string, release_asset_resources_string, release_asset_symbols_string]
+  release_asset_array = [release_asset_uikit_string, release_asset_swiftui_string, release_asset_theme_string, release_asset_resources_string, release_asset_symbols_string, release_asset_images_string]
   release_asset_json_string = release_asset_array.join(",")
   "[#{release_asset_json_string}]"
 end

@@ -1,8 +1,8 @@
 xcassets:
-    inputs: Source/AdmiralUIResources/Resources/Assets/SystemImages.xcassets
+    inputs: Source/AdmiralImages/Resources/Assets/SystemImages.xcassets
     outputs:
-        templateName: swift5
-        output: Source/AdmiralUIResources/Classes/CoreFoundation/Assets/SystemAssets.swift
+        templatePath: Templates/Images.stencil
+        output: Source/AdmiralImages/Classes/CoreFoundation/Assets/SystemAssets.swift
         params:
             publicAccess: 1
             allValues: 1
