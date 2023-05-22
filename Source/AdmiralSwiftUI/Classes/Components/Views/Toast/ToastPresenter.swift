@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 /**
  ToastPresenter - an object that controls a ToastView life cycle.
  You can create a ToastPresenter with the zero frame rectangle by specifying the following parameters in init:

@@ -112,9 +112,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AdmiralUI_AdmiralImages"
-               BuildableName = "AdmiralUI_AdmiralImages"
-               BlueprintName = "AdmiralUI_AdmiralImages"
+               BlueprintIdentifier = "AdmiralUI_AdmiralSymbols"
+               BuildableName = "AdmiralUI_AdmiralSymbols"
+               BlueprintName = "AdmiralUI_AdmiralSymbols"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -126,9 +126,23 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AdmiralUI_AdmiralSymbols"
-               BuildableName = "AdmiralUI_AdmiralSymbols"
-               BlueprintName = "AdmiralUI_AdmiralSymbols"
+               BlueprintIdentifier = "AdmiralSymbols"
+               BuildableName = "AdmiralSymbols"
+               BlueprintName = "AdmiralSymbols"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AdmiralUI_AdmiralImages"
+               BuildableName = "AdmiralUI_AdmiralImages"
+               BlueprintName = "AdmiralUI_AdmiralImages"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -154,9 +168,23 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AdmiralSymbols"
-               BuildableName = "AdmiralSymbols"
-               BlueprintName = "AdmiralSymbols"
+               BlueprintIdentifier = "AdmiralUI_AdmiralUIKit"
+               BuildableName = "AdmiralUI_AdmiralUIKit"
+               BlueprintName = "AdmiralUI_AdmiralUIKit"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AdmiralUI_AdmiralSwiftUI"
+               BuildableName = "AdmiralUI_AdmiralSwiftUI"
+               BlueprintName = "AdmiralUI_AdmiralSwiftUI"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>

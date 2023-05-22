@@ -480,8 +480,6 @@
 		E9A75608274E6AB9005024B3 /* InputChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A75607274E6AB9005024B3 /* InputChatViewController.swift */; };
 		E9A8E5F82805CC23002786F0 /* SpinnerSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A8E5F72805CC23002786F0 /* SpinnerSwiftUIView.swift */; };
 		E9B4554727708D8800EA17FC /* TextMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4554627708D8800EA17FC /* TextMessageViewController.swift */; };
-		E9B684F628C1073000904D16 /* AdmiralCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9B684F528C1073000904D16 /* AdmiralCore.framework */; };
-		E9B684F728C1073000904D16 /* AdmiralCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E9B684F528C1073000904D16 /* AdmiralCore.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E9B82B8627B521BF00FC7BB9 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B82B8527B521BF00FC7BB9 /* View+Extensions.swift */; };
 		E9B82B8C27B521D100FC7BB9 /* SizePreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B82B8927B521D100FC7BB9 /* SizePreferenceKey.swift */; };
 		E9B82B8D27B521D100FC7BB9 /* SizeAwareModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B82B8B27B521D100FC7BB9 /* SizeAwareModifier.swift */; };
@@ -551,7 +549,6 @@
 				0EB757E02600D6B0009BFC21 /* AdmiralUIKit.framework in Embed Frameworks */,
 				E9212C7A2A18027C00646505 /* AdmiralSymbols.framework in Embed Frameworks */,
 				E9212C982A18056A00646505 /* AdmiralImages.framework in Embed Frameworks */,
-				E9B684F728C1073000904D16 /* AdmiralCore.framework in Embed Frameworks */,
 				0EB755FC2600CBC9009BFC21 /* AdmiralUIResources.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -1089,7 +1086,6 @@
 				0EB757DF2600D6B0009BFC21 /* AdmiralUIKit.framework in Frameworks */,
 				E9212C792A18027C00646505 /* AdmiralSymbols.framework in Frameworks */,
 				E9212C972A18056A00646505 /* AdmiralImages.framework in Frameworks */,
-				E9B684F628C1073000904D16 /* AdmiralCore.framework in Frameworks */,
 				0EB755FB2600CBC9009BFC21 /* AdmiralUIResources.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
