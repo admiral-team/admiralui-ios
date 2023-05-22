@@ -1,8 +1,8 @@
 //
 //  UIFont+Extensions.swift
-//  AdmiralCore
+//  AdmiralUIKit
 //
-//  Created by on 14.11.2022.
+//  Created by on 22.05.2023.
 //  
 //
 
