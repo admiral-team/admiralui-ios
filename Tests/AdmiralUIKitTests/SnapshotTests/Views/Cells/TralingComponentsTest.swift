@@ -111,7 +111,7 @@ class TralingComponentsTest: XCTestCase {
     
     private func configureCardListViewCell() -> ListCell<ListCellEmpty, TitleListView, CardListView> {
         let сardListView = CardListView()
-        сardListView.cardImage = Asset.Category.Outline.bankOutline.image
+        сardListView.cardImage = AdmiralUIResources.Asset.Category.Outline.bankOutline.image
         let titleListView = TitleListView()
         titleListView.title = "Title"
         let listCell = ListCell<ListCellEmpty, TitleListView, CardListView>(centerView: titleListView, tralingView: сardListView)
@@ -146,7 +146,7 @@ class TralingComponentsTest: XCTestCase {
     private func configureImageWithSubtitleListViewCell() -> ListCell<ListCellEmpty, TitleListView, ImageWithSubtitleListView> {
         let imageWithSubtitleListView = ImageWithSubtitleListView()
         imageWithSubtitleListView.subtitle = "Subtitle"
-        imageWithSubtitleListView.image = Asset.System.Outline.arrowCrossOutline.image
+        imageWithSubtitleListView.image = AdmiralUIResources.Asset.System.Outline.arrowCrossOutline.image
         let titleListView = TitleListView()
         titleListView.title = "Title"
         let listCell = ListCell<ListCellEmpty, TitleListView, ImageWithSubtitleListView>(centerView: titleListView, tralingView: imageWithSubtitleListView)
@@ -157,7 +157,7 @@ class TralingComponentsTest: XCTestCase {
     
     private func configureCurcleIconListViewCell() -> ListCell<ListCellEmpty, TitleListView, CurcleIconListView> {
         let curcleIconListView = CurcleIconListView()
-        curcleIconListView.image = Asset.System.Outline.arrowCrossOutline.image
+        curcleIconListView.image = AdmiralUIResources.Asset.System.Outline.arrowCrossOutline.image
         let titleListView = TitleListView()
         titleListView.title = "Title"
         let listCell = ListCell<ListCellEmpty, TitleListView, CurcleIconListView>(centerView: titleListView, tralingView: curcleIconListView)

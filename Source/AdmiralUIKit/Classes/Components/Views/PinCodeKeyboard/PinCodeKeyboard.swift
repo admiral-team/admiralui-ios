@@ -7,7 +7,6 @@
 
 import UIKit
 import AdmiralTheme
-import AdmiralUIResources
 
 /// Delegate protocol to handle PinKeyboardActions
 public protocol PinCodeKeyboardDelegate: AnyObject {
