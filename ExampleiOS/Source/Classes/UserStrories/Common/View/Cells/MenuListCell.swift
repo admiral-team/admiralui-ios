@@ -169,7 +169,7 @@ final class MenuListCell: UITableViewCell, AnyAppThemable, TableViewListItemConf
     }
     
     private func updateLayoutConstraints() {
-        textVerticalSpacingConstraint?.constant = (title != nil && subtitle != nil) ?  LayoutGrid.halfModule : 0
+        textVerticalSpacingConstraint?.constant = (title != nil && subtitle != nil) ? LayoutGrid.halfModule : 0
         imageHorizontalSpacingConstraint?.constant = (arrowImageView.image != nil) ? LayoutGrid.module : 0
     }
     

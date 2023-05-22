@@ -7,7 +7,6 @@
 
 import UIKit
 import AdmiralTheme
-import AdmiralUIResources
 
 public protocol CirclePageControlDelegate: AnyObject {
     func didTapCenterButton()
@@ -177,7 +176,7 @@ public class CirclePageControl: UIView, AnyAppThemable {
     
     private func setupButtons() {
         centerButton.translatesAutoresizingMaskIntoConstraints = false
-        centerButton.setImage(SystemAsset.Custom.CirclePageControl.arrowRight.image, for: [])
+        centerButton.setImage(Asset.System.Outline.arrowRightOutline.image, for: [])
         centerButton.addTarget(self, action: #selector(tapCenterButton), for: .touchUpInside)
     }
     

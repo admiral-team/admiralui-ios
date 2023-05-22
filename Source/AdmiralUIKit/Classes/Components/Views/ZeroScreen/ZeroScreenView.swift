@@ -7,7 +7,6 @@
 
 import UIKit
 import AdmiralTheme
-import AdmiralUIResources
 
 /// The protocol that describes communication with ZeroScreenView.
 public protocol ZeroScreenViewDelegate: AnyObject {

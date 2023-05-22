@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 import UIKit
 
 /// A custom protocol that describes some methods of communication with ChatInputView.
@@ -267,7 +266,7 @@ open class ChatInputView: TextViewInput, AnyAppThemable, AccessibilitySupport {
     }
 
     private func configureChatButton() {
-        chatButton.setImage(SystemAsset.Custom.CirclePageControl.arrowRight.image, for: .normal)
+        chatButton.setImage(Asset.System.Outline.arrowRightOutline.image, for: .normal)
         chatButton.addTarget(self, action: #selector(didTapSendButton), for: .touchUpInside)
         chatInputActionButton.tintColor = scheme.imageTintColor.uiColor
     }

@@ -41,7 +41,7 @@ final class InputNumberViewController: ScrollViewController {
         textFields.append(textFieldSix)
     }
 
-    private func createInputNumberTextFieldView()-> ControlCellView<InputNumberTextField> {
+    private func createInputNumberTextFieldView() -> ControlCellView<InputNumberTextField> {
         let inputTextField = InputNumberTextField()
         inputTextField.maximumValue = 0
         inputTextField.maximumValue = 9000000

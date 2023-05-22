@@ -152,7 +152,7 @@ private extension ColorPalette {
             let style = mirror.displayStyle,
             style == .struct || style == .class
         else {
-            throw NSError()
+            throw NSError(domain: "unknown", code: 0)
         }
         
         for (property, value) in mirror.children {

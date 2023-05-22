@@ -7,7 +7,6 @@
 
 import UIKit
 import AdmiralTheme
-import AdmiralUIResources
 
 /// The style of informer.
 public enum InformerStyle: Int {
@@ -111,7 +110,7 @@ open class BigInformer: UIView, AnyAppThemable, AccessibilitySupport {
     // MARK: - Private Properties
     
     private enum Constants {
-        static let arrowImage = SystemAsset.Custom.Segment.arrowUp.image
+        static let arrowImage = Asset.Custom.Segment.arrowUp.image
         static let heightImageView: CGFloat = LayoutGrid.module
         static let widthImageView: CGFloat = LayoutGrid.doubleModule
     }

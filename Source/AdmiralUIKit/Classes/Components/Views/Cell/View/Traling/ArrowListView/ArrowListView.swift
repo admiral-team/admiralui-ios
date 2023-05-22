@@ -7,7 +7,6 @@
 
 import UIKit
 import AdmiralTheme
-import AdmiralUIResources
 
 /// A view object with arrow image view.
 public class ArrowListView: BaseListView, TralingListViewComponent, AnyAppThemable {

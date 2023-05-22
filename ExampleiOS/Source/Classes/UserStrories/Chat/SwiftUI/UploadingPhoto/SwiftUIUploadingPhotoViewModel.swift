@@ -44,7 +44,7 @@ final class SwiftUIUploadingPhotoViewModel: ObservableObject {
         }
         
         mutating func toggleState(index: Int) {
-            models[index].isLoading = models[index].isLoading ? false: true
+            models[index].isLoading = models[index].isLoading ? false : true
         }
     }
     

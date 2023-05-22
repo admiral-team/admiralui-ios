@@ -107,7 +107,11 @@ class BaseTabBarController: UITabBarController, AppThemeable {
     private func commonInit() {
         autoManage()
         let isSwiftUIOn = UserDefaults.standard.bool(forKey: UserDefaults.Keys.isSwiftUIOn)
-        isSwiftUIOn ? setSwiftUITabs() : setUIKitTabs()
+        if isSwiftUIOn {
+            setSwiftUITabs()
+        } else {
+            setUIKitTabs()
+        }
     }
     
     private func prepareInfoController() -> UINavigationController {
