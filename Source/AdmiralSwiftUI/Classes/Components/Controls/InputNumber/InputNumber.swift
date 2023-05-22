@@ -223,7 +223,7 @@ public struct InputNumber: View {
                     .buttonStyle(
                         InputNumberButtonStyle(
                             isPressing: $isMinusPressing,
-                            image: Image(uiImage: Asset.Service.Outline.minusOutline.image),
+                            image: Image(uiImage: ImageAssets.Service.Outline.minusOutline.image),
                             style: style,
                             type: .left,
                             onTap: { tapMinus() },
@@ -243,7 +243,7 @@ public struct InputNumber: View {
                     .buttonStyle(
                         InputNumberButtonStyle(
                             isPressing: $isPlusPressing,
-                            image: Image(uiImage: Asset.Service.Outline.plusOutline.image),
+                            image: Image(uiImage: ImageAssets.Service.Outline.plusOutline.image),
                             style: style,
                             type: .right,
                             onTap: { tapPlus() },
