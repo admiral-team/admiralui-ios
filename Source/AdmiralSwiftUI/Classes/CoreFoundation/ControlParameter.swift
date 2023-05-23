@@ -5,7 +5,7 @@
 //  Created on 30.06.2021.
 //
 
-import AdmiralCore
+import AdmiralTheme
 
 // MARK: - Control State
 /**

@@ -498,6 +498,9 @@
 		0EB853782673A708008FC0FD /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB853772673A708008FC0FD /* TextView.swift */; };
 		0EB8867F27A43BB400D7E29F /* CalendarViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB8867E27A43BB400D7E29F /* CalendarViewScheme.swift */; };
 		0EB8868127A4615E00D7E29F /* CalendarHorizontalViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB8868027A4615E00D7E29F /* CalendarHorizontalViewScheme.swift */; };
+		0EBC2FB72A1512F6009C5D70 /* AdmiralSymbols.h in Headers */ = {isa = PBXBuildFile; fileRef = 0EBC2FB62A1512F6009C5D70 /* AdmiralSymbols.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0EBC2FBB2A1519C6009C5D70 /* Symbols.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EBC2FBA2A1519C6009C5D70 /* Symbols.xcassets */; };
+		0EBC2FBF2A1519F2009C5D70 /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBC2FBE2A1519F2009C5D70 /* Symbols.swift */; };
 		0EBE55FB26C69FFD00C4A277 /* MapButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBE55FA26C69FFD00C4A277 /* MapButtonStyle.swift */; };
 		0EBE55FD26C6A0FC00C4A277 /* MapButtonScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBE55FC26C6A0FC00C4A277 /* MapButtonScheme.swift */; };
 		0EBE560126C6CC9C00C4A277 /* PinButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBE560026C6CC9C00C4A277 /* PinButtonStyle.swift */; };
@@ -538,6 +541,7 @@
 		0EF044D127B529FE0095DD14 /* UnderlineTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF044D027B529FE0095DD14 /* UnderlineTabItem.swift */; };
 		0EF044D327B52A0F0095DD14 /* OutlineSliderTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF044D227B52A0F0095DD14 /* OutlineSliderTabItem.swift */; };
 		0EF548252679149700E49DEB /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF548242679149700E49DEB /* SearchBar.swift */; };
+		0EF57BB62A165808000BA852 /* version.json in Resources */ = {isa = PBXBuildFile; fileRef = E9A709F627610270003233DF /* version.json */; };
 		0EFCDB4526B83D5B006207B1 /* CurrencyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFCDB4426B83D5B006207B1 /* CurrencyHeaderView.swift */; };
 		0EFCDB4726B83D69006207B1 /* CurrencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFCDB4626B83D69006207B1 /* CurrencyView.swift */; };
 		0EFCDB4926B84971006207B1 /* CurrencyHeaderViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFCDB4826B84971006207B1 /* CurrencyHeaderViewScheme.swift */; };
@@ -582,6 +586,8 @@
 		3B5B5C9E2A14C93300F3A5F2 /* SFProText-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3B5B5C992A14C93200F3A5F2 /* SFProText-Medium.otf */; };
 		3B5B5C9F2A14C93300F3A5F2 /* SFProDisplay-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3B5B5C9A2A14C93200F3A5F2 /* SFProDisplay-Semibold.otf */; };
 		3B5B5CA32A14DFCA00F3A5F2 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5B5CA22A14DFCA00F3A5F2 /* Fonts.swift */; };
+		3B5B5CA92A15152700F3A5F2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B5B5CA82A15152700F3A5F2 /* Images.xcassets */; };
+		3B5B5CAC2A1526D800F3A5F2 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5B5CAB2A1526D800F3A5F2 /* Assets.swift */; };
 		3B606A6C2746533000C76ACB /* ImageListViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B606A6B2746533000C76ACB /* ImageListViewSnapshotTests.swift */; };
 		3B606A6E2746541000C76ACB /* ImageNameListViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B606A6D2746541000C76ACB /* ImageNameListViewSnapshotTests.swift */; };
 		3B606A72274655D100C76ACB /* ImageBackgroundListViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B606A71274655D100C76ACB /* ImageBackgroundListViewSnapshotTests.swift */; };
@@ -644,6 +650,10 @@
 		3BF2EC262987FBCA004CB70A /* InputNumberAccessibilityIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF2EC252987FBCA004CB70A /* InputNumberAccessibilityIdentifiers.swift */; };
 		3BFE8374278C482D0094A451 /* AlertViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE8373278C482D0094A451 /* AlertViewScheme.swift */; };
 		3BFE8376278C486F0094A451 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFE8375278C486F0094A451 /* AlertView.swift */; };
+		710BF2452A1649A1003CB60D /* Symbols.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71B4A3CD2A1612E2007AFBDC /* Symbols.xcassets */; };
+		710BF2472A1649A1003CB60D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71B4A3CF2A162318007AFBDC /* Images.xcassets */; };
+		71ADDE972A162BC800EC696B /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71ADDE962A162BC800EC696B /* Symbols.swift */; };
+		71ADDE9B2A162E1E00EC696B /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71ADDE992A162E1E00EC696B /* Images.swift */; };
 		868DDBC12746EF9600956AD3 /* BadgeArrowListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868DDBBF2746EF8D00956AD3 /* BadgeArrowListView.swift */; };
 		C66A0CEB26026708005B0AF7 /* TimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66A0C78260265C3005B0AF7 /* TimePicker.swift */; };
 		C66A0CF82602670C005B0AF7 /* TimePickerCustomTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66A0C86260265CE005B0AF7 /* TimePickerCustomTheme.swift */; };
@@ -716,6 +726,14 @@
 		E916F9FC27688E5900628C96 /* TextOperationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E916F9FB27688E5900628C96 /* TextOperationView.swift */; };
 		E916F9FE27688E6500628C96 /* TextOperationViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E916F9FD27688E6500628C96 /* TextOperationViewScheme.swift */; };
 		E91F79FE2726A9390068B92A /* SnapshotTesting.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6EEF8FA26F4DECE00FAA8E3 /* SnapshotTesting.xcframework */; };
+		E9212C992A18076A00646505 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9212C7F2A18033000646505 /* Assets.swift */; };
+		E9212C9A2A18076B00646505 /* SystemAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9212C802A18033000646505 /* SystemAssets.swift */; };
+		E9212C9B2A18077000646505 /* AdmiralImages.h in Headers */ = {isa = PBXBuildFile; fileRef = E9212C852A18033000646505 /* AdmiralImages.h */; };
+		E9212C9C2A18078400646505 /* SystemImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9212C832A18033000646505 /* SystemImages.xcassets */; };
+		E9212C9D2A18078D00646505 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9212C842A18033000646505 /* Images.xcassets */; };
+		E9212CA82A1B6CF100646505 /* ParameterBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9212CA72A1B6CF100646505 /* ParameterBox.swift */; };
+		E9212CAB2A1B6DD500646505 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9212CAA2A1B6DD500646505 /* UIFont+Extensions.swift */; };
+		E9212CAE2A1B6DEC00646505 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9212CAD2A1B6DEC00646505 /* UIFont+Extensions.swift */; };
 		E92B1FFF273E885B0086A1AC /* CirclePageControlScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92B1FFD273E885B0086A1AC /* CirclePageControlScheme.swift */; };
 		E92B2000273E885B0086A1AC /* CirclePageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92B1FFE273E885B0086A1AC /* CirclePageControl.swift */; };
 		E9332FA9277CAEFC00F9AF26 /* UploadDocumentViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9332FA7277CAEFC00F9AF26 /* UploadDocumentViewScheme.swift */; };
@@ -725,11 +743,6 @@
 		E9332FB3277CAF1400F9AF26 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9332FAF277CAF1400F9AF26 /* ProgressView.swift */; };
 		E9332FB4277CAF1400F9AF26 /* ProgressViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9332FB0277CAF1400F9AF26 /* ProgressViewScheme.swift */; };
 		E934035C27AC0A610007B86D /* UploadImageGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E934035B27AC0A610007B86D /* UploadImageGridView.swift */; };
-		E93EB7FD29229DFB00CB28FF /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93EB7FC29229DFB00CB28FF /* UIFont+Extensions.swift */; };
-		E94A444928CF7B09006625F5 /* AdmiralCore.h in Headers */ = {isa = PBXBuildFile; fileRef = E94A444828CF7B09006625F5 /* AdmiralCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E94A444F28CF7B72006625F5 /* ParameterBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A444E28CF7B72006625F5 /* ParameterBox.swift */; };
-		E94A445328CF7BF5006625F5 /* AdmiralCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E94A444628CF7B09006625F5 /* AdmiralCore.framework */; };
-		E94A445828CF7BFC006625F5 /* AdmiralCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E94A444628CF7B09006625F5 /* AdmiralCore.framework */; };
 		E94A448028D1D71A006625F5 /* GhostButtonWithImageStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A447F28D1D71A006625F5 /* GhostButtonWithImageStyle.swift */; };
 		E94A448928D1E79A006625F5 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A448328D1E79A006625F5 /* ClockView.swift */; };
 		E94A448A28D1E79A006625F5 /* ClockViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A448428D1E79A006625F5 /* ClockViewScheme.swift */; };
@@ -912,20 +925,6 @@
 			remoteGlobalIDString = 0EA2A8C825FF717F002A207F;
 			remoteInfo = AdmiralUIResources;
 		};
-		E94A445528CF7BF5006625F5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E6D91BED2532011B00DCE489 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E94A444528CF7B09006625F5;
-			remoteInfo = AdmiralCore;
-		};
-		E94A445A28CF7BFC006625F5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E6D91BED2532011B00DCE489 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E94A444528CF7B09006625F5;
-			remoteInfo = AdmiralCore;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -1049,6 +1048,7 @@
 		0E2D9CCD261F5C7C00323048 /* CustomSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSwitch.swift; sourceTree = "<group>"; };
 		0E2DF125254865960087F661 /* StandardSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardSegmentedControl.swift; sourceTree = "<group>"; };
 		0E2DF12E25486EC30087F661 /* LogoSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoSegmentedControl.swift; sourceTree = "<group>"; };
+		0E30F4F82A16565600B29078 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E33995428D34A8C00B24722 /* GhostButtonWithImageStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostButtonWithImageStyle.swift; sourceTree = "<group>"; };
 		0E33995A28D5D9A600B24722 /* CoundDownViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoundDownViewScheme.swift; sourceTree = "<group>"; };
 		0E33995C28D5E70900B24722 /* LinkViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkViewScheme.swift; sourceTree = "<group>"; };
@@ -1293,6 +1293,10 @@
 		0EB853772673A708008FC0FD /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		0EB8867E27A43BB400D7E29F /* CalendarViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewScheme.swift; sourceTree = "<group>"; };
 		0EB8868027A4615E00D7E29F /* CalendarHorizontalViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHorizontalViewScheme.swift; sourceTree = "<group>"; };
+		0EBC2F9E2A1511B7009C5D70 /* AdmiralSymbols.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdmiralSymbols.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EBC2FB62A1512F6009C5D70 /* AdmiralSymbols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdmiralSymbols.h; sourceTree = "<group>"; };
+		0EBC2FBA2A1519C6009C5D70 /* Symbols.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Symbols.xcassets; sourceTree = "<group>"; };
+		0EBC2FBE2A1519F2009C5D70 /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
 		0EBE0058258A55C200EEDCBC /* ShimmeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmeringView.swift; sourceTree = "<group>"; };
 		0EBE005E258A55D100EEDCBC /* ShimmeringMaskLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmeringMaskLayer.swift; sourceTree = "<group>"; };
 		0EBE0062258A55DF00EEDCBC /* ShimmeringLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmeringLayer.swift; sourceTree = "<group>"; };
@@ -1401,6 +1405,8 @@
 		3B5B5C992A14C93200F3A5F2 /* SFProText-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Medium.otf"; sourceTree = "<group>"; };
 		3B5B5C9A2A14C93200F3A5F2 /* SFProDisplay-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Semibold.otf"; sourceTree = "<group>"; };
 		3B5B5CA22A14DFCA00F3A5F2 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		3B5B5CA82A15152700F3A5F2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3B5B5CAB2A1526D800F3A5F2 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		3B606A6B2746533000C76ACB /* ImageListViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListViewSnapshotTests.swift; sourceTree = "<group>"; };
 		3B606A6D2746541000C76ACB /* ImageNameListViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNameListViewSnapshotTests.swift; sourceTree = "<group>"; };
 		3B606A71274655D100C76ACB /* ImageBackgroundListViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBackgroundListViewSnapshotTests.swift; sourceTree = "<group>"; };
@@ -1460,6 +1466,10 @@
 		3BF2EC252987FBCA004CB70A /* InputNumberAccessibilityIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNumberAccessibilityIdentifiers.swift; sourceTree = "<group>"; };
 		3BFE8373278C482D0094A451 /* AlertViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewScheme.swift; sourceTree = "<group>"; };
 		3BFE8375278C486F0094A451 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		71ADDE962A162BC800EC696B /* Symbols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
+		71ADDE992A162E1E00EC696B /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		71B4A3CD2A1612E2007AFBDC /* Symbols.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Symbols.xcassets; sourceTree = "<group>"; };
+		71B4A3CF2A162318007AFBDC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		868DDBBF2746EF8D00956AD3 /* BadgeArrowListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeArrowListView.swift; sourceTree = "<group>"; };
 		C6129D5525E980FB00A423F2 /* TitleLargeSubtitleListViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLargeSubtitleListViewScheme.swift; sourceTree = "<group>"; };
 		C6129D6125EA759F00A423F2 /* TitleLargeSubtitleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLargeSubtitleListView.swift; sourceTree = "<group>"; };
@@ -1731,6 +1741,18 @@
 		E916F9F527677B2700628C96 /* TextOperationViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOperationViewScheme.swift; sourceTree = "<group>"; };
 		E916F9FB27688E5900628C96 /* TextOperationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOperationView.swift; sourceTree = "<group>"; };
 		E916F9FD27688E6500628C96 /* TextOperationViewScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOperationViewScheme.swift; sourceTree = "<group>"; };
+		E9212C7F2A18033000646505 /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		E9212C802A18033000646505 /* SystemAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemAssets.swift; sourceTree = "<group>"; };
+		E9212C832A18033000646505 /* SystemImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SystemImages.xcassets; sourceTree = "<group>"; };
+		E9212C842A18033000646505 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		E9212C852A18033000646505 /* AdmiralImages.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdmiralImages.h; sourceTree = "<group>"; };
+		E9212C872A18033000646505 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9212C8D2A18037600646505 /* AdmiralImages.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdmiralImages.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9212C952A18051200646505 /* AdmiralImages.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = AdmiralImages.podspec; sourceTree = "<group>"; };
+		E9212C9E2A1808C700646505 /* .swiftgenSymbols.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftgenSymbols.yml; sourceTree = "<group>"; };
+		E9212CA72A1B6CF100646505 /* ParameterBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterBox.swift; sourceTree = "<group>"; };
+		E9212CAA2A1B6DD500646505 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
+		E9212CAD2A1B6DEC00646505 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		E92B1FFD273E885B0086A1AC /* CirclePageControlScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CirclePageControlScheme.swift; sourceTree = "<group>"; };
 		E92B1FFE273E885B0086A1AC /* CirclePageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CirclePageControl.swift; sourceTree = "<group>"; };
 		E9332FA7277CAEFC00F9AF26 /* UploadDocumentViewScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadDocumentViewScheme.swift; sourceTree = "<group>"; };
@@ -1740,12 +1762,6 @@
 		E9332FAF277CAF1400F9AF26 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		E9332FB0277CAF1400F9AF26 /* ProgressViewScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressViewScheme.swift; sourceTree = "<group>"; };
 		E934035B27AC0A610007B86D /* UploadImageGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageGridView.swift; sourceTree = "<group>"; };
-		E93EB7FC29229DFB00CB28FF /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
-		E94A444628CF7B09006625F5 /* AdmiralCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdmiralCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E94A444828CF7B09006625F5 /* AdmiralCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdmiralCore.h; sourceTree = "<group>"; };
-		E94A444E28CF7B72006625F5 /* ParameterBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterBox.swift; sourceTree = "<group>"; };
-		E94A445128CF7B94006625F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E94A445D28CF7C55006625F5 /* AdmiralCore.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AdmiralCore.podspec; sourceTree = "<group>"; };
 		E94A447F28D1D71A006625F5 /* GhostButtonWithImageStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostButtonWithImageStyle.swift; sourceTree = "<group>"; };
 		E94A448328D1E79A006625F5 /* ClockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		E94A448428D1E79A006625F5 /* ClockViewScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockViewScheme.swift; sourceTree = "<group>"; };
@@ -1885,7 +1901,6 @@
 			files = (
 				0EB7560F2600D050009BFC21 /* AdmiralTheme.framework in Frameworks */,
 				0EB756192600D054009BFC21 /* AdmiralUIResources.framework in Frameworks */,
-				E94A445328CF7BF5006625F5 /* AdmiralCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1911,7 +1926,6 @@
 			files = (
 				0EB756CC2600D58A009BFC21 /* AdmiralTheme.framework in Frameworks */,
 				0EB756D12600D58E009BFC21 /* AdmiralUIResources.framework in Frameworks */,
-				E94A445828CF7BFC006625F5 /* AdmiralCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1924,7 +1938,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E94A444328CF7B09006625F5 /* Frameworks */ = {
+		0EBC2F9B2A1511B7009C5D70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9212C8A2A18037600646505 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1979,6 +2000,7 @@
 		0E0E882425FBA26F00127626 /* AdmiralUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				3B5B5CA42A1511B600F3A5F2 /* Resources */,
 				0EB756AF2600D578009BFC21 /* AdmiralUIKit.h */,
 				E6D91C73253206C200DCE489 /* Classes */,
 				E6D91C5D253204DA00DCE489 /* Supporting Files */,
@@ -2282,6 +2304,7 @@
 		0E22C696262E10F700D09FC5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E9212CAC2A1B6DEC00646505 /* UIKit */,
 				0ED08A392670274300389A1A /* Foundation */,
 				0E38F311266F78BA002AD565 /* DateFormatter */,
 				0E22C698262E110E00D09FC5 /* UI */,
@@ -2395,6 +2418,14 @@
 			path = LogoSegmentedControl;
 			sourceTree = "<group>";
 		};
+		0E30F4F72A16563C00B29078 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0E30F4F82A16565600B29078 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		0E33995628D3573D00B24722 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -2435,6 +2466,7 @@
 			children = (
 				0E3961B625FFCF7D006E2005 /* AdmiralSwiftUI.h */,
 				0EA2A92625FF83F7002A207F /* Classes */,
+				71B4A3CA2A161286007AFBDC /* Resources */,
 				0E3961DA25FFCFBD006E2005 /* Supporting Files */,
 			);
 			path = AdmiralSwiftUI;
@@ -3819,6 +3851,49 @@
 			path = TextView;
 			sourceTree = "<group>";
 		};
+		0EBC2FB52A1512F6009C5D70 /* AdmiralSymbols */ = {
+			isa = PBXGroup;
+			children = (
+				0EBC2FBC2A1519D7009C5D70 /* Classes */,
+				0EBC2FB82A15188C009C5D70 /* Resources */,
+				0E30F4F72A16563C00B29078 /* Supporting Files */,
+				0EBC2FB62A1512F6009C5D70 /* AdmiralSymbols.h */,
+			);
+			path = AdmiralSymbols;
+			sourceTree = "<group>";
+		};
+		0EBC2FB82A15188C009C5D70 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0EBC2FB92A15189B009C5D70 /* Assets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0EBC2FB92A15189B009C5D70 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				0EBC2FBA2A1519C6009C5D70 /* Symbols.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		0EBC2FBC2A1519D7009C5D70 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				0EBC2FBD2A1519DD009C5D70 /* Assets */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		0EBC2FBD2A1519DD009C5D70 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				0EBC2FBE2A1519F2009C5D70 /* Symbols.swift */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		0EBE0057258A556400EEDCBC /* Shimmer */ = {
 			isa = PBXGroup;
 			children = (
@@ -4387,6 +4462,30 @@
 			path = SFFont;
 			sourceTree = "<group>";
 		};
+		3B5B5CA42A1511B600F3A5F2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3B5B5CA52A1511CA00F3A5F2 /* Assets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3B5B5CA52A1511CA00F3A5F2 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				3B5B5CA82A15152700F3A5F2 /* Images.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		3B5B5CAA2A151AE500F3A5F2 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				3B5B5CAB2A1526D800F3A5F2 /* Assets.swift */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		3B606A732746575700C76ACB /* Image */ = {
 			isa = PBXGroup;
 			children = (
@@ -4653,6 +4752,25 @@
 				3BCCFAD72982749D002373D6 /* AlertViewAccessibilityIdentifiers.swift */,
 			);
 			path = Alert;
+			sourceTree = "<group>";
+		};
+		71ADDE952A16273100EC696B /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				71ADDE992A162E1E00EC696B /* Images.swift */,
+				71ADDE962A162BC800EC696B /* Symbols.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		71B4A3CA2A161286007AFBDC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				71ADDE952A16273100EC696B /* Generated */,
+				71B4A3CF2A162318007AFBDC /* Images.xcassets */,
+				71B4A3CD2A1612E2007AFBDC /* Symbols.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		868DDBB82746986100956AD3 /* BadgeArrowListView */ = {
@@ -5277,12 +5395,13 @@
 		E6529C6625321815009D8DE9 /* Deployment */ = {
 			isa = PBXGroup;
 			children = (
-				E94A445D28CF7C55006625F5 /* AdmiralCore.podspec */,
 				E605B6E7268BA2FE004F65B7 /* AdmiralSwiftUI.podspec */,
 				E605B6E6268BA2FE004F65B7 /* AdmiralTheme.podspec */,
 				E605B6E9268BA2FE004F65B7 /* AdmiralUIKit.podspec */,
 				E605B6E8268BA2FE004F65B7 /* AdmiralUIResources.podspec */,
+				E9212C952A18051200646505 /* AdmiralImages.podspec */,
 				E60588FF255C78CA004436E5 /* .swiftgenExample.yml */,
+				E9212C9E2A1808C700646505 /* .swiftgenSymbols.yml */,
 				3B1DA52D28C8D04F0061BDA3 /* .swiftgenSystem.yml */,
 				E6ABDBB5253F498100B90570 /* .swiftgen.yml */,
 				E6ABDBB6253F498100B90570 /* .swiftlint.yml */,
@@ -5831,7 +5950,8 @@
 				0E3961BC25FFCF7D006E2005 /* AdmiralSwiftUITests.xctest */,
 				0EB756AD2600D578009BFC21 /* AdmiralUIKit.framework */,
 				0EB756B52600D578009BFC21 /* AdmiralUIKitTests.xctest */,
-				E94A444628CF7B09006625F5 /* AdmiralCore.framework */,
+				0EBC2F9E2A1511B7009C5D70 /* AdmiralSymbols.framework */,
+				E9212C8D2A18037600646505 /* AdmiralImages.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -5839,7 +5959,8 @@
 		E6D91BF82532011B00DCE489 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				E94A444728CF7B09006625F5 /* AdmiralCore */,
+				E9212C7B2A18033000646505 /* AdmiralImages */,
+				0EBC2FB52A1512F6009C5D70 /* AdmiralSymbols */,
 				0E0E882425FBA26F00127626 /* AdmiralUIKit */,
 				0E3961B525FFCF7D006E2005 /* AdmiralSwiftUI */,
 				0E0E882625FBA29800127626 /* AdmiralTheme */,
@@ -5975,6 +6096,7 @@
 		E6FB3101253DC2FA00314E00 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				E9212CA92A1B6DD500646505 /* UIFont */,
 				E95DC42B27A01FD400532BDC /* CoreAnimation */,
 				0E738640277651FC003892C7 /* UIEdgeInsets */,
 				E6FB3105253DC2FA00314E00 /* UIView */,
@@ -6018,6 +6140,7 @@
 		E6FB310B253DC2FA00314E00 /* CoreFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				3B5B5CAA2A151AE500F3A5F2 /* Assets */,
 				E6FB310C253DC2FA00314E00 /* Layout */,
 				E6FB310E253DC2FA00314E00 /* Durations */,
 			);
@@ -6205,6 +6328,7 @@
 				E90E513928CF72CE004D0386 /* AppTheme.swift */,
 				E90E513A28CF72CE004D0386 /* Theme.swift */,
 				E90E513B28CF72CE004D0386 /* Themeable.swift */,
+				E9212CA72A1B6CF100646505 /* ParameterBox.swift */,
 			);
 			path = AppTheme;
 			sourceTree = "<group>";
@@ -6244,6 +6368,83 @@
 				E916F9FD27688E6500628C96 /* TextOperationViewScheme.swift */,
 			);
 			path = TextOperation;
+			sourceTree = "<group>";
+		};
+		E9212C7B2A18033000646505 /* AdmiralImages */ = {
+			isa = PBXGroup;
+			children = (
+				E9212C7C2A18033000646505 /* Classes */,
+				E9212C812A18033000646505 /* Resources */,
+				E9212C852A18033000646505 /* AdmiralImages.h */,
+				E9212C862A18033000646505 /* Supporting Files */,
+			);
+			path = AdmiralImages;
+			sourceTree = "<group>";
+		};
+		E9212C7C2A18033000646505 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				E9212C7D2A18033000646505 /* CoreFoundation */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		E9212C7D2A18033000646505 /* CoreFoundation */ = {
+			isa = PBXGroup;
+			children = (
+				E9212C7E2A18033000646505 /* Assets */,
+			);
+			path = CoreFoundation;
+			sourceTree = "<group>";
+		};
+		E9212C7E2A18033000646505 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				E9212C7F2A18033000646505 /* Assets.swift */,
+				E9212C802A18033000646505 /* SystemAssets.swift */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		E9212C812A18033000646505 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E9212C822A18033000646505 /* Assets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E9212C822A18033000646505 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				E9212C832A18033000646505 /* SystemImages.xcassets */,
+				E9212C842A18033000646505 /* Images.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		E9212C862A18033000646505 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E9212C872A18033000646505 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E9212CA92A1B6DD500646505 /* UIFont */ = {
+			isa = PBXGroup;
+			children = (
+				E9212CAA2A1B6DD500646505 /* UIFont+Extensions.swift */,
+			);
+			path = UIFont;
+			sourceTree = "<group>";
+		};
+		E9212CAC2A1B6DEC00646505 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				E9212CAD2A1B6DEC00646505 /* UIFont+Extensions.swift */,
+			);
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 		E92B1FFB273E885B0086A1AC /* PageControl */ = {
@@ -6307,57 +6508,6 @@
 				E934035B27AC0A610007B86D /* UploadImageGridView.swift */,
 			);
 			path = UploadImageGridView;
-			sourceTree = "<group>";
-		};
-		E93EB7F929229DA900CB28FF /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				E93EB7FA29229DBD00CB28FF /* UIKit */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		E93EB7FA29229DBD00CB28FF /* UIKit */ = {
-			isa = PBXGroup;
-			children = (
-				E93EB7FB29229DCB00CB28FF /* UIFont+Extensions */,
-			);
-			path = UIKit;
-			sourceTree = "<group>";
-		};
-		E93EB7FB29229DCB00CB28FF /* UIFont+Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				E93EB7FC29229DFB00CB28FF /* UIFont+Extensions.swift */,
-			);
-			path = "UIFont+Extensions";
-			sourceTree = "<group>";
-		};
-		E94A444728CF7B09006625F5 /* AdmiralCore */ = {
-			isa = PBXGroup;
-			children = (
-				E94A444828CF7B09006625F5 /* AdmiralCore.h */,
-				E94A445028CF7B80006625F5 /* Supporting Files */,
-				E94A444D28CF7B63006625F5 /* Classes */,
-			);
-			path = AdmiralCore;
-			sourceTree = "<group>";
-		};
-		E94A444D28CF7B63006625F5 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				E93EB7F929229DA900CB28FF /* Extensions */,
-				E94A444E28CF7B72006625F5 /* ParameterBox.swift */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		E94A445028CF7B80006625F5 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				E94A445128CF7B94006625F5 /* Info.plist */,
-			);
-			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		E94A448128D1E79A006625F5 /* CountDownView */ = {
@@ -7068,11 +7218,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E94A444128CF7B09006625F5 /* Headers */ = {
+		0EBC2F992A1511B7009C5D70 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E94A444928CF7B09006625F5 /* AdmiralCore.h in Headers */,
+				0EBC2FB72A1512F6009C5D70 /* AdmiralSymbols.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9212C882A18037600646505 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9212C9B2A18077000646505 /* AdmiralImages.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7113,7 +7271,6 @@
 			dependencies = (
 				0EB756122600D050009BFC21 /* PBXTargetDependency */,
 				0EB7561C2600D054009BFC21 /* PBXTargetDependency */,
-				E94A445628CF7BF5006625F5 /* PBXTargetDependency */,
 			);
 			name = AdmiralSwiftUI;
 			productName = AdmiralSwiftUI;
@@ -7173,7 +7330,6 @@
 			dependencies = (
 				0EB756CF2600D58A009BFC21 /* PBXTargetDependency */,
 				0EB756D42600D58E009BFC21 /* PBXTargetDependency */,
-				E94A445B28CF7BFC006625F5 /* PBXTargetDependency */,
 			);
 			name = AdmiralUIKit;
 			productName = AdmiralUIKit;
@@ -7200,22 +7356,40 @@
 			productReference = 0EB756B52600D578009BFC21 /* AdmiralUIKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		E94A444528CF7B09006625F5 /* AdmiralCore */ = {
+		0EBC2F9D2A1511B7009C5D70 /* AdmiralSymbols */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E94A444A28CF7B09006625F5 /* Build configuration list for PBXNativeTarget "AdmiralCore" */;
+			buildConfigurationList = 0EBC2FB32A1511B7009C5D70 /* Build configuration list for PBXNativeTarget "AdmiralSymbols" */;
 			buildPhases = (
-				E94A444128CF7B09006625F5 /* Headers */,
-				E94A444228CF7B09006625F5 /* Sources */,
-				E94A444328CF7B09006625F5 /* Frameworks */,
-				E94A444428CF7B09006625F5 /* Resources */,
+				0EBC2F992A1511B7009C5D70 /* Headers */,
+				0EBC2F9A2A1511B7009C5D70 /* Sources */,
+				0EBC2F9B2A1511B7009C5D70 /* Frameworks */,
+				0EBC2F9C2A1511B7009C5D70 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = AdmiralCore;
-			productName = AdmiralCore;
-			productReference = E94A444628CF7B09006625F5 /* AdmiralCore.framework */;
+			name = AdmiralSymbols;
+			productName = AdmiralSymbols;
+			productReference = 0EBC2F9E2A1511B7009C5D70 /* AdmiralSymbols.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		E9212C8C2A18037600646505 /* AdmiralImages */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E9212C912A18037600646505 /* Build configuration list for PBXNativeTarget "AdmiralImages" */;
+			buildPhases = (
+				E9212C882A18037600646505 /* Headers */,
+				E9212C892A18037600646505 /* Sources */,
+				E9212C8A2A18037600646505 /* Frameworks */,
+				E9212C8B2A18037600646505 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AdmiralImages;
+			productName = AdmiralImages;
+			productReference = E9212C8D2A18037600646505 /* AdmiralImages.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -7224,7 +7398,7 @@
 		E6D91BED2532011B00DCE489 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1230;
+				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
 					0E0E881125FBA24C00127626 = {
@@ -7245,9 +7419,11 @@
 					0EB756B42600D578009BFC21 = {
 						CreatedOnToolsVersion = 12.3;
 					};
-					E94A444528CF7B09006625F5 = {
-						CreatedOnToolsVersion = 13.4;
-						LastSwiftMigration = 1340;
+					0EBC2F9D2A1511B7009C5D70 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					E9212C8C2A18037600646505 = {
+						CreatedOnToolsVersion = 14.2;
 					};
 				};
 			};
@@ -7270,7 +7446,8 @@
 				0E0E881125FBA24C00127626 /* AdmiralTheme */,
 				0EB756AC2600D578009BFC21 /* AdmiralUIKit */,
 				0E3961B325FFCF7D006E2005 /* AdmiralSwiftUI */,
-				E94A444528CF7B09006625F5 /* AdmiralCore */,
+				0EBC2F9D2A1511B7009C5D70 /* AdmiralSymbols */,
+				E9212C8C2A18037600646505 /* AdmiralImages */,
 				0E3961BB25FFCF7D006E2005 /* AdmiralSwiftUITests */,
 				0EB756B42600D578009BFC21 /* AdmiralUIKitTests */,
 			);
@@ -7296,6 +7473,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9A709FB27610270003233DF /* version.json in Resources */,
+				710BF2472A1649A1003CB60D /* Images.xcassets in Resources */,
+				710BF2452A1649A1003CB60D /* Symbols.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7328,6 +7507,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9A709FA27610270003233DF /* version.json in Resources */,
+				3B5B5CA92A15152700F3A5F2 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7339,10 +7519,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E94A444428CF7B09006625F5 /* Resources */ = {
+		0EBC2F9C2A1511B7009C5D70 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EF57BB62A165808000BA852 /* version.json in Resources */,
+				0EBC2FBB2A1519C6009C5D70 /* Symbols.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9212C8B2A18037600646505 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9212C9C2A18078400646505 /* SystemImages.xcassets in Resources */,
+				E9212C9D2A18078D00646505 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7369,6 +7560,7 @@
 				0EA7BDCE28C7856A00BDE772 /* AppThemeScheme.swift in Sources */,
 				E90E513728CF72C3004D0386 /* ThemeObserver.swift in Sources */,
 				E90E512E28CF6FD6004D0386 /* SwiftUISchemeProvider.swift in Sources */,
+				E9212CA82A1B6CF100646505 /* ParameterBox.swift in Sources */,
 				0EA7BDD028C7879D00BDE772 /* ManualSchemeProvider.swift in Sources */,
 				E976243428E1C89300786BBC /* ColorPalette.swift in Sources */,
 				E90E513E28CF72CE004D0386 /* Themeable.swift in Sources */,
@@ -7470,6 +7662,7 @@
 				0E59D39926337A2C007B5CC1 /* ScrollOffsetPreferenceKey.swift in Sources */,
 				E94A448928D1E79A006625F5 /* ClockView.swift in Sources */,
 				0EF0308726E7C27400F888B7 /* TitleMoreDetailTextMessageListViewScheme.swift in Sources */,
+				71ADDE9B2A162E1E00EC696B /* Images.swift in Sources */,
 				0E2A62BC26E7C6A8009CE2C0 /* LogoTab.swift in Sources */,
 				0E2A62D226E7C948009CE2C0 /* StandardTextFieldScheme.swift in Sources */,
 				0EC1374C266E1D4300F4EB7E /* ListCellEmpty.swift in Sources */,
@@ -7521,6 +7714,7 @@
 				0E3DB3B7265D1A0500CA2F2A /* OTPTextField.swift in Sources */,
 				0EA9F4D126261504009F4B5A /* CheckControlScheme.swift in Sources */,
 				3BEDB3BC28744B5100E2AD34 /* PlatformButtonScheme.swift in Sources */,
+				E9212CAE2A1B6DEC00646505 /* UIFont+Extensions.swift in Sources */,
 				0E22C6A9262E11EF00D09FC5 /* SizePreferenceKey.swift in Sources */,
 				0E8B0F3C26DEAD5200EEA0D3 /* ChatBubbleViewScheme.swift in Sources */,
 				E9B4D813272FE1DB00B4DA98 /* UploadDocumentView.swift in Sources */,
@@ -7542,6 +7736,7 @@
 				E9AA276727637B81007389CA /* ChatButtonStyle.swift in Sources */,
 				C6D5BD64266528FB00437808 /* ToolBar.swift in Sources */,
 				0E4BC73C267CF3A3000FC891 /* CheckBoxListViewScheme.swift in Sources */,
+				71ADDE972A162BC800EC696B /* Symbols.swift in Sources */,
 				3BEDB3D028746EB900E2AD34 /* PlatformButtonAccessibilityIdentifiers.swift in Sources */,
 				0E4BC86D2681DFDE000FC891 /* ImageCardListViewScheme.swift in Sources */,
 				0E8B0F3626DE519C00EEA0D3 /* CodeInputControlScheme.swift in Sources */,
@@ -8119,6 +8314,7 @@
 				0EB757AE2600D625009BFC21 /* ToolbarVerticalView.swift in Sources */,
 				E610494D26014D3F00FF20ED /* TextField.swift in Sources */,
 				0EB7572A2600D625009BFC21 /* BottomSheetPresentable+UIViewController.swift in Sources */,
+				3B5B5CAC2A1526D800F3A5F2 /* Assets.swift in Sources */,
 				E975291727BA802D00DB86AB /* ActionItemBarDefaultControl.swift in Sources */,
 				0EB757412600D625009BFC21 /* StandardSegmentedScheme.swift in Sources */,
 				0EB757A42600D625009BFC21 /* SearchBar.swift in Sources */,
@@ -8151,6 +8347,7 @@
 				0EB757A12600D625009BFC21 /* CardView.swift in Sources */,
 				E9332FB3277CAF1400F9AF26 /* ProgressView.swift in Sources */,
 				0EB757B02600D625009BFC21 /* InfoAgreementView.swift in Sources */,
+				E9212CAB2A1B6DD500646505 /* UIFont+Extensions.swift in Sources */,
 				0EB757182600D624009BFC21 /* BottomSheetPresentationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -8207,12 +8404,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E94A444228CF7B09006625F5 /* Sources */ = {
+		0EBC2F9A2A1511B7009C5D70 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E93EB7FD29229DFB00CB28FF /* UIFont+Extensions.swift in Sources */,
-				E94A444F28CF7B72006625F5 /* ParameterBox.swift in Sources */,
+				0EBC2FBF2A1519F2009C5D70 /* Symbols.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9212C892A18037600646505 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9212C992A18076A00646505 /* Assets.swift in Sources */,
+				E9212C9A2A18076B00646505 /* SystemAssets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8253,16 +8458,6 @@
 			isa = PBXTargetDependency;
 			target = 0EA2A8C825FF717F002A207F /* AdmiralUIResources */;
 			targetProxy = 0EB756D32600D58E009BFC21 /* PBXContainerItemProxy */;
-		};
-		E94A445628CF7BF5006625F5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E94A444528CF7B09006625F5 /* AdmiralCore */;
-			targetProxy = E94A445528CF7BF5006625F5 /* PBXContainerItemProxy */;
-		};
-		E94A445B28CF7BFC006625F5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E94A444528CF7B09006625F5 /* AdmiralCore */;
-			targetProxy = E94A445A28CF7BFC006625F5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -8623,6 +8818,71 @@
 			};
 			name = Release;
 		};
+		0EBC2FAF2A1511B7009C5D70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 0;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Source/AdmiralSymbols/Supporting Files/Info.plist";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = admiralSymbols;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0EBC2FB02A1511B7009C5D70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 0;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Source/AdmiralSymbols/Supporting Files/Info.plist";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = admiralSymbols;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		E6D91C082532011B00DCE489 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -8749,11 +9009,10 @@
 			};
 			name = Release;
 		};
-		E94A444B28CF7B09006625F5 /* Debug */ = {
+		E9212C922A18037600646505 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -8762,7 +9021,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "Source/AdmiralCore/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "Source/AdmiralImages/Supporting Files/Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -8772,23 +9031,20 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = admiralCore;
+				PRODUCT_BUNDLE_IDENTIFIER = admiralImages;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		E94A444C28CF7B09006625F5 /* Release */ = {
+		E9212C932A18037600646505 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -8797,7 +9053,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "Source/AdmiralCore/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "Source/AdmiralImages/Supporting Files/Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -8807,10 +9063,9 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = admiralCore;
+				PRODUCT_BUNDLE_IDENTIFIER = admiralImages;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -8875,6 +9130,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		0EBC2FB32A1511B7009C5D70 /* Build configuration list for PBXNativeTarget "AdmiralSymbols" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0EBC2FAF2A1511B7009C5D70 /* Debug */,
+				0EBC2FB02A1511B7009C5D70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E6D91BF02532011B00DCE489 /* Build configuration list for PBXProject "AdmiralUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -8884,11 +9148,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E94A444A28CF7B09006625F5 /* Build configuration list for PBXNativeTarget "AdmiralCore" */ = {
+		E9212C912A18037600646505 /* Build configuration list for PBXNativeTarget "AdmiralImages" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E94A444B28CF7B09006625F5 /* Debug */,
-				E94A444C28CF7B09006625F5 /* Release */,
+				E9212C922A18037600646505 /* Debug */,
+				E9212C932A18037600646505 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

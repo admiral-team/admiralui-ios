@@ -44,10 +44,10 @@ class ToolbarSnapshotTest: XCTestCase {
     
     private func createView(count: Int) -> UIView {
         let toolbar = Toolbar()
-        let item1 = ToolbarItem(title: "Оплатить", image: Asset.Category.Solid.bankSolid.image)
-        let item2 = ToolbarItem(title: "Пополнить", image: Asset.Category.Solid.carSolid.image)
-        let item3 = ToolbarItem(title: "Подробнее", image: Asset.Category.Solid.chatSolid.image)
-        let item4 = ToolbarItem(title: "Настройки", image: Asset.Category.Solid.globeSolid.image)
+        let item1 = ToolbarItem(title: "Оплатить", image: AdmiralUIResources.Asset.Category.Solid.bankSolid.image)
+        let item2 = ToolbarItem(title: "Пополнить", image: AdmiralUIResources.Asset.Category.Solid.carSolid.image)
+        let item3 = ToolbarItem(title: "Подробнее", image: AdmiralUIResources.Asset.Category.Solid.chatSolid.image)
+        let item4 = ToolbarItem(title: "Настройки", image: AdmiralUIResources.Asset.Category.Solid.globeSolid.image)
         let items = [item1, item2, item3, item4]
         var finalItems = [ToolbarItem]()
         for index in 0..<count {

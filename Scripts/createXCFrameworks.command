@@ -42,11 +42,6 @@ xcodebuild -create-xcframework \
  -framework "${ARCHIVE_ADMIRAL_IPHONE_PATH}${PRODUCTS_PATH}AdmiralUIResources.framework" \
  -output "$DIR/XCFrameworks/AdmiralUIResources.xcframework"
 
-  xcodebuild -create-xcframework \
- -framework "${ARCHIVE_ADMIRAL_SIMULATOR_PATH}${PRODUCTS_PATH}AdmiralCore.framework" \
- -framework "${ARCHIVE_ADMIRAL_IPHONE_PATH}${PRODUCTS_PATH}AdmiralCore.framework" \
- -output "$DIR/XCFrameworks/AdmiralCore.xcframework"
-
 # Admiral SwiftUI
  xcodebuild archive \
  -scheme AdmiralSwiftUI \

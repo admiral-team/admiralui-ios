@@ -7,7 +7,6 @@
 
 import UIKit
 import AdmiralTheme
-import AdmiralUIResources
 
 /// An object that displays an editable text area with incrementing or decrementing a value.
 public class InputNumber: UIControl, AnyAppThemable, AccessibilitySupport {

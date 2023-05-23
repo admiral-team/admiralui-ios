@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -402,6 +402,10 @@
 		E9178F62280424C800C49230 /* ThemeSwitchButtonScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9178F60280424C800C49230 /* ThemeSwitchButtonScheme.swift */; };
 		E9178F65280424D600C49230 /* ThemeSwitchSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9178F63280424D600C49230 /* ThemeSwitchSwiftUIView.swift */; };
 		E9178F66280424D600C49230 /* ThemeSwitchViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9178F64280424D600C49230 /* ThemeSwitchViewScheme.swift */; };
+		E9212C792A18027C00646505 /* AdmiralSymbols.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EBC2FC02A15529A009C5D70 /* AdmiralSymbols.framework */; };
+		E9212C7A2A18027C00646505 /* AdmiralSymbols.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EBC2FC02A15529A009C5D70 /* AdmiralSymbols.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E9212C972A18056A00646505 /* AdmiralImages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9212C962A18056A00646505 /* AdmiralImages.framework */; };
+		E9212C982A18056A00646505 /* AdmiralImages.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E9212C962A18056A00646505 /* AdmiralImages.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E92DC2E727FC543F00CB789E /* BagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92DC2E627FC543F00CB789E /* BagesViewModel.swift */; };
 		E92DC2E927FC549A00CB789E /* BadgesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92DC2E827FC549A00CB789E /* BadgesViewController.swift */; };
 		E92DC2EC27FC555E00CB789E /* BadgesNormalViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92DC2EB27FC555E00CB789E /* BadgesNormalViewContoller.swift */; };
@@ -476,8 +480,6 @@
 		E9A75608274E6AB9005024B3 /* InputChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A75607274E6AB9005024B3 /* InputChatViewController.swift */; };
 		E9A8E5F82805CC23002786F0 /* SpinnerSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A8E5F72805CC23002786F0 /* SpinnerSwiftUIView.swift */; };
 		E9B4554727708D8800EA17FC /* TextMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4554627708D8800EA17FC /* TextMessageViewController.swift */; };
-		E9B684F628C1073000904D16 /* AdmiralCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9B684F528C1073000904D16 /* AdmiralCore.framework */; };
-		E9B684F728C1073000904D16 /* AdmiralCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E9B684F528C1073000904D16 /* AdmiralCore.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E9B82B8627B521BF00FC7BB9 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B82B8527B521BF00FC7BB9 /* View+Extensions.swift */; };
 		E9B82B8C27B521D100FC7BB9 /* SizePreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B82B8927B521D100FC7BB9 /* SizePreferenceKey.swift */; };
 		E9B82B8D27B521D100FC7BB9 /* SizeAwareModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B82B8B27B521D100FC7BB9 /* SizeAwareModifier.swift */; };
@@ -545,7 +547,8 @@
 				0EB755F62600CBC1009BFC21 /* AdmiralSwiftUI.framework in Embed Frameworks */,
 				0EB755F92600CBC5009BFC21 /* AdmiralTheme.framework in Embed Frameworks */,
 				0EB757E02600D6B0009BFC21 /* AdmiralUIKit.framework in Embed Frameworks */,
-				E9B684F728C1073000904D16 /* AdmiralCore.framework in Embed Frameworks */,
+				E9212C7A2A18027C00646505 /* AdmiralSymbols.framework in Embed Frameworks */,
+				E9212C982A18056A00646505 /* AdmiralImages.framework in Embed Frameworks */,
 				0EB755FC2600CBC9009BFC21 /* AdmiralUIResources.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -658,6 +661,7 @@
 		0EB755F72600CBC5009BFC21 /* AdmiralTheme.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AdmiralTheme.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EB755FA2600CBC9009BFC21 /* AdmiralUIResources.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AdmiralUIResources.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EB757DE2600D6B0009BFC21 /* AdmiralUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AdmiralUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EBC2FC02A15529A009C5D70 /* AdmiralSymbols.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AdmiralSymbols.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EBC46A9269F0044003CF5FA /* CalendarsSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarsSwiftUIView.swift; sourceTree = "<group>"; };
 		0EBC46AB269F0061003CF5FA /* CalendarsSwiftUIItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarsSwiftUIItem.swift; sourceTree = "<group>"; };
 		0EBE006B258A674B00EEDCBC /* ShimmersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmersViewController.swift; sourceTree = "<group>"; };
@@ -948,6 +952,7 @@
 		E9178F60280424C800C49230 /* ThemeSwitchButtonScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeSwitchButtonScheme.swift; sourceTree = "<group>"; };
 		E9178F63280424D600C49230 /* ThemeSwitchSwiftUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeSwitchSwiftUIView.swift; sourceTree = "<group>"; };
 		E9178F64280424D600C49230 /* ThemeSwitchViewScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeSwitchViewScheme.swift; sourceTree = "<group>"; };
+		E9212C962A18056A00646505 /* AdmiralImages.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AdmiralImages.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E92DC2E627FC543F00CB789E /* BagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagesViewModel.swift; sourceTree = "<group>"; };
 		E92DC2E827FC549A00CB789E /* BadgesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesViewController.swift; sourceTree = "<group>"; };
 		E92DC2EB27FC555E00CB789E /* BadgesNormalViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesNormalViewContoller.swift; sourceTree = "<group>"; };
@@ -1079,7 +1084,8 @@
 				0EB755F52600CBC1009BFC21 /* AdmiralSwiftUI.framework in Frameworks */,
 				0EB755F82600CBC5009BFC21 /* AdmiralTheme.framework in Frameworks */,
 				0EB757DF2600D6B0009BFC21 /* AdmiralUIKit.framework in Frameworks */,
-				E9B684F628C1073000904D16 /* AdmiralCore.framework in Frameworks */,
+				E9212C792A18027C00646505 /* AdmiralSymbols.framework in Frameworks */,
+				E9212C972A18056A00646505 /* AdmiralImages.framework in Frameworks */,
 				0EB755FB2600CBC9009BFC21 /* AdmiralUIResources.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3293,6 +3299,8 @@
 		E6D91C762532076000DCE489 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E9212C962A18056A00646505 /* AdmiralImages.framework */,
+				0EBC2FC02A15529A009C5D70 /* AdmiralSymbols.framework */,
 				E9B684F528C1073000904D16 /* AdmiralCore.framework */,
 				0EB757DE2600D6B0009BFC21 /* AdmiralUIKit.framework */,
 				0EB755FA2600CBC9009BFC21 /* AdmiralUIResources.framework */,
@@ -4050,6 +4058,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		C68656A42559813A00B885B8 /* SwiftGen */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -4064,10 +4073,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftgen >/dev/null; then\n    cd ..\n    swiftgen config run --config .swiftgen.yml\n    swiftgen config run --config .swiftgenExample.yml\nelse\n    echo \"SwiftGen does not exist, download from https://github.com/AliSoftware/SwiftGen\"\n    exit 1\nfi\n";
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftgen >/dev/null; then\n    cd ..\n    swiftgen config run --config .swiftgen.yml\n    swiftgen config run --config .swiftgenExample.yml\n    swiftgen config run --config .swiftgen/.admiralswiftui/.swiftgen.images.yml\n    swiftgen config run --config .swiftgen/.admiralswiftui/.swiftgen.symbols.yml\nelse\n    echo \"SwiftGen does not exist, download from https://github.com/AliSoftware/SwiftGen\"\n    exit 1\nfi\n";
 		};
 		E6D91C8925320D3C00DCE489 /* Swift Lint */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -4082,7 +4092,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftlint >/dev/null; then\n  config_path=$SRCROOT/../.swiftlint.yml\n  swiftlint autocorrect --path Source/ --config $config_path\n  swiftlint --path Source/ --config $config_path\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftlint >/dev/null; then\n  config_path=$SRCROOT/../.swiftlint.yml\n  swiftlint Source/ --config $config_path\n  # swiftlint Source/ --config $config_path --fix\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

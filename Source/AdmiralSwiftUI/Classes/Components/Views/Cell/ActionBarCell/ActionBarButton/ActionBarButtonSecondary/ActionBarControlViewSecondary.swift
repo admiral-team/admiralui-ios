@@ -95,7 +95,7 @@ struct ActionBarControlViewTwo_Previews: PreviewProvider {
 
     static var previews: some View {
         ActionBarControlViewSecondary(
-            image: Image(uiImage: Asset.Category.Outline.addCommentOutline.image),
+            image: Image(uiImage: ImageAssets.Category.Outline.addCommentOutline.image),
             imageStyle: .accent,
             backgroundColor: nil,
             imageTintColor: nil,
