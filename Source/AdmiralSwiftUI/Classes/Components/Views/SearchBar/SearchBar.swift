@@ -48,7 +48,7 @@ public struct SearchBar: View, AccessabilitySupportUIKit {
     // MARK: - Constants
 
     enum Constants {
-        static let closeImage = ImageAssets.Service.Solid.closeSolid.image
+        static let closeImage = SymbolAssets.Service.Solid.close.swiftUIImage
     }
     
     public static let defaultSearchImage = SymbolAssets.System.Outline.search.swiftUIImage
@@ -157,7 +157,7 @@ public struct SearchBar: View, AccessabilitySupportUIKit {
                 Button(action: {
                     clear()
                 }, label: {
-                    Image(uiImage: Constants.closeImage)
+                    Constants.closeImage
                         .frame(width: LayoutGrid.halfModule * 7, height: LayoutGrid.halfModule * 7)
                         .foregroundColor(style.imageTintColor.swiftUIColor)
                 })

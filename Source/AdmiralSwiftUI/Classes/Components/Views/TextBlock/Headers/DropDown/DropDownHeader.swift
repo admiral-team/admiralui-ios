@@ -54,7 +54,7 @@ public struct DropDownHeader: View {
     public init(
         title: String?,
         dropDownHeaderType: DropDownHeaderType = .down,
-        renderingMode: Image.TemplateRenderingMode = .original,
+        renderingMode: Image.TemplateRenderingMode = .template,
         headerStyle: HeaderStyle = .title,
         schemeProvider: SchemeProvider<DropDownHeaderScheme> = AppThemeSchemeProvider<DropDownHeaderScheme>()
     ) {

@@ -134,17 +134,17 @@ struct ActionBarView_Previews: PreviewProvider {
         ActionBarView(
             actions: [
                 ActionItemBarAction(
-                    image: Image(uiImage: ImageAssets.Category.Outline.acceptOutline.image),
+                    image: SymbolAssets.Category.Outline.accept.swiftUIImage,
                     imageStyle: .accent,
                     handler: {}
                 ),
                 ActionItemBarAction(
-                    image: Image(uiImage: ImageAssets.Category.Outline.acceptOutline.image),
+                    image: SymbolAssets.Category.Outline.accept.swiftUIImage,
                     imageStyle: .accent,
                     handler: {}
                 ),
                 ActionItemBarAction(
-                    image: Image(uiImage: ImageAssets.Category.Outline.acceptOutline.image),
+                    image: SymbolAssets.Category.Outline.accept.swiftUIImage,
                     imageStyle: .accent,
                     handler: {}
                 )

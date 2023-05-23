@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 
 /**
  SubtitleImageArrowListView - A view object with subtitle label and image view.
@@ -81,7 +80,7 @@ public struct SubtitleImageArrowListView: View, TralingListViewComponent {
             if let image = self.image {
                 imageView(image: image, scheme: scheme)
             }
-            Image(uiImage: ImageAssets.System.Outline.chevronRightOutline.image)
+            SymbolAssets.System.Outline.chevronRight.swiftUIImage
                 .frame(width: LayoutGrid.module, height: LayoutGrid.doubleModule)
                 .foregroundColor(scheme.arrowTintColor.parameter(for: isEnabled ? .normal : .disabled)?.swiftUIColor)
         }

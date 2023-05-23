@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 import SwiftUI
 /**
  ArrowSegmentSlider - the view that presents the arrow image in informerTab..
