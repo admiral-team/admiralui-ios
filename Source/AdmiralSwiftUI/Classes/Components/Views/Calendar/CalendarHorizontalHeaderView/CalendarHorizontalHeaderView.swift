@@ -62,7 +62,7 @@ public struct CalendarHorizontalHeaderView: View {
     public var body: some View {
         let scheme = schemeProvider.scheme
         let buttonImage = isOpen ?
-        Image(uiImage: ImageAssets.System.Outline.chevronDownOutline.image) :
+        SymbolAssets.System.Outline.chevronDown.swiftUIImage :
         SymbolAssets.System.Outline.smallArrowUp.swiftUIImage
         let buttonColor = scheme.buttonColor.parameter(for: isEnabled ? .normal : .disabled)
         return ZStack {

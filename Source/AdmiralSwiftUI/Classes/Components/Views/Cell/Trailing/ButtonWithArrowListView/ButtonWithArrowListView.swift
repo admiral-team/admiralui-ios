@@ -39,7 +39,7 @@ public struct ButtonWithArrowListView: View, CenterListViewComponent, TralingLis
     @State public var isHighlighted: Bool = false
     @State public var isHighlightedEnabled: Bool = true
     
-    public static let defaultImage = Image(uiImage: ImageAssets.System.Outline.chevronDownOutline.image)
+    public static let defaultImage = SymbolAssets.System.Outline.chevronDown.swiftUIImage
     
     // MARK: Internal Properties
     
