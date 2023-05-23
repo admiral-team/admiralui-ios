@@ -176,7 +176,7 @@ struct PrimaryLinkControl_Previews: PreviewProvider {
         VStack {
             Button(action: {}, label: {})
                 .buttonStyle(PrimaryLinkControlStyle(
-                    image: Image(uiImage: ImageAssets.System.Outline.arrowRightOutline.image),
+                    image: SymbolAssets.System.Outline.arrowRight.swiftUIImage,
                     text: "Link",
                     direction: .left,
                     style: .medium
@@ -184,7 +184,7 @@ struct PrimaryLinkControl_Previews: PreviewProvider {
 
             Button(action: {}, label: {})
                 .buttonStyle(PrimaryLinkControlStyle(
-                    image: Image(uiImage: ImageAssets.System.Outline.arrowLeftOutline.image),
+                    image: SymbolAssets.System.Outline.arrowLeft.swiftUIImage,
                     text: "Link",
                     direction: .right,
                     style: .medium
@@ -192,7 +192,7 @@ struct PrimaryLinkControl_Previews: PreviewProvider {
 
             Button(action: {}, label: {})
                 .buttonStyle(PrimaryLinkControlStyle(
-                    image: Image(uiImage: ImageAssets.System.Outline.arrowLeftOutline.image),
+                    image: SymbolAssets.System.Outline.arrowDown.swiftUIImage,
                     text: "Link",
                     direction: .right,
                     style: .default

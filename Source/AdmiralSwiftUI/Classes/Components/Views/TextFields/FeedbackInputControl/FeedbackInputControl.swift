@@ -29,7 +29,6 @@ public struct FeedbackInputControl: View {
     
     private enum Constants {
         static let animationDuration: Double = 0.1
-        static let starImage = ImageAssets.System.Solid.starSolid.image
     }
     
     // MARK: - Private Properties
@@ -70,7 +69,7 @@ public struct FeedbackInputControl: View {
         return ZStack {
             HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 16.0, content: {
                 ForEach(1..<itemsCount + 1, id: \.self) { index in
-                    Image(uiImage: Constants.starImage)
+                    SymbolAssets.System.Solid.star.swiftUIImage
                         .frame(width: 24.0, height: 24.0)
                         .animation(Animation.linear(duration: Constants.animationDuration))
                         .foregroundColor(

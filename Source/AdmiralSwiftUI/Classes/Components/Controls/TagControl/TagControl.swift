@@ -197,11 +197,11 @@ struct TagControl_Previews: PreviewProvider {
         TagControl(title: "Title",
                    tagStyle: .attention,
                    leadingView: { Button(action: {}, label: {
-                    Image(uiImage: ImageAssets.Category.Outline.bankOutline.image)
+                        SymbolAssets.Category.Outline.bank.swiftUIImage
                    }) },
                    trailingView: {
                     Button(action: {}, label: {
-                        Image(uiImage: ImageAssets.Category.Outline.bankOutline.image)
+                        SymbolAssets.Category.Outline.bank.swiftUIImage
                     }) }) {
 
         }
