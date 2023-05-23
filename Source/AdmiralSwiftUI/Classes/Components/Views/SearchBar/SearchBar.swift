@@ -5,7 +5,6 @@
 //  Created on 15.06.2021.
 //
 import AdmiralTheme
-import AdmiralUIResources
 import SwiftUI
 /**
  SearchBar - A specialized view for receiving search-related information from the user.
