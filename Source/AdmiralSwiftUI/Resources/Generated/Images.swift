@@ -85,7 +85,6 @@ internal enum ImageAssets {
   }
 
   // swiftlint:disable trailing_comma
-  @available(*, deprecated, message: "All values properties are now deprecated")
   internal static let allImages: [IAImage] = [
     Category.Outline.acceptOutline,
     Category.Outline.addCommentOutline,

@@ -6,7 +6,7 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
+
 /**
  DoubleTextFieldScheme - the visual scheme of DoubleTextField.
  You can create a by specifying the following parameters in init:
