@@ -52,7 +52,7 @@ public struct CheckBox: View {
     // MARK: - Computed Properties
 
     private var image: Image {
-        return isSelected ? Image(uiImage: SystemAsset.Custom.Control.checkBoxOn.image) : Image(uiImage: SystemAsset.Custom.Control.checkBoxOff.image)
+        return isSelected ? Image(uiImage: ImageAssets.Custom.Control.checkBoxOn.image) : Image(uiImage: ImageAssets.Custom.Control.checkBoxOff.image)
     }
     
     // MARK: - Initializer

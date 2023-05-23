@@ -22,8 +22,8 @@ let package = Package(
             name: "AdmiralUIResources",
             targets: ["AdmiralUIResources"]),
         .library(
-                name: "AdmiralCore",
-                targets: ["AdmiralCore"]),
+            name: "AdmiralImages",
+            targets: ["AdmiralImages"]),
         .library(
             name: "AdmiralSymbols",
             targets: ["AdmiralSymbols"]),
@@ -31,12 +31,12 @@ let package = Package(
     targets: [
         .target(
             name: "AdmiralUIKit",
-            dependencies: ["AdmiralTheme", "AdmiralUIResources", "AdmiralCore"],
+            dependencies: ["AdmiralTheme", "AdmiralUIResources"],
             path: "Source/AdmiralUIKit",
             exclude: ["Supporting Files"]),
         .target(
             name: "AdmiralSwiftUI",
-            dependencies: ["AdmiralTheme", "AdmiralUIResources", "AdmiralCore"],
+            dependencies: ["AdmiralTheme", "AdmiralUIResources"],
             path: "Source/AdmiralSwiftUI",
             exclude: ["Supporting Files"]),
         .target(
@@ -54,16 +54,19 @@ let package = Package(
                 .process("Resources/Fonts")
             ]),
         .target(
-                name: "AdmiralCore",
+                name: "AdmiralImages",
                 dependencies: [],
-                path: "Source/AdmiralCore",
-                exclude: ["Supporting Files"]),
+                path: "Source/AdmiralImages",
+                exclude: ["Supporting Files"],
+                resources: [
+                    .process("Resources/Assets"),
+                ]),
         .target(
             name: "AdmiralSymbols",
             dependencies: [],
             path: "Source/AdmiralSymbols",
             resources: [
                 .process("Resources/Assets")
-            ]),
+            ])
     ]
 )

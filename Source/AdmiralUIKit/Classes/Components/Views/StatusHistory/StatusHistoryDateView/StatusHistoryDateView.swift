@@ -7,7 +7,6 @@
 
 import UIKit
 import AdmiralTheme
-import AdmiralUIResources
 
 protocol StatusHistoryDateViewDelegate: AnyObject {
     func didTapClose()

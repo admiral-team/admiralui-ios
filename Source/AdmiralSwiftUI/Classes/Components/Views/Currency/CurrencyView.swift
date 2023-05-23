@@ -149,10 +149,10 @@ public struct CurrencyView: View {
                     .frame(width: LayoutGrid.tripleModule)
             case .arrowUp:
                 textView(text: text, scheme: scheme)
-                imageView(image: AssetSymbol.System.Outline.arrowUp.image, scheme: scheme)
+                imageView(image: SymbolAssets.System.Outline.arrowUp.swiftUIImage, scheme: scheme)
             case .arrowDown:
                 textView(text: text, scheme: scheme)
-                imageView(image: AssetSymbol.System.Outline.arrowDown.image, scheme: scheme)
+                imageView(image: SymbolAssets.System.Outline.arrowDown.swiftUIImage, scheme: scheme)
             }
         })
         .frame(width: 90.0)

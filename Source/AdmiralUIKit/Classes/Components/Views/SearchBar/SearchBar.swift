@@ -7,7 +7,6 @@
 
 import UIKit
 import AdmiralTheme
-import AdmiralUIResources
 
 /// A collection of optional methods that you implement to make a search bar control functional.
 @objc public protocol SearchBarDelegate: AnyObject {
