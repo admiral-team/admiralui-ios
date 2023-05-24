@@ -28,7 +28,6 @@ To learn more about the status of the `AdmiralUI` design system components and t
 
 ## Demo app
 A live example of using the `AdmiralUI` library is our demo application, which is `AdmiralUI.xcworkspace`. Using it you can evaluate all the components implemented in the library in different states, with the ability to switch between built-in color themes and create your own ones.
-=======
 - 🎨 **Themization** - support for different color palettes, the ability to create your own and instantly switch between them.
 - 🏗 **Support** - releases come out every two weeks, support `SwiftUI` and `UIKit`.
 - 📱 **Consistent style across platforms** - availible library for [Android](https://github.com/admiral-team/admiralui-android)
