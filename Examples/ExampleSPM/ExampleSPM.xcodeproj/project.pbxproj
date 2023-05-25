@@ -371,7 +371,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/admiral-team/admiralui-ios.git";
 			requirement = {
-				branch = "feature/822-recources-remove";
+				branch = main;
 				kind = branch;
 			};
 		};
