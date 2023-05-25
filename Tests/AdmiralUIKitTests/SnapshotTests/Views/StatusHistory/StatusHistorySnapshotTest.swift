@@ -1,6 +1,7 @@
 import XCTest
 import SnapshotTesting
 import AdmiralTheme
+import AdmiralImages
 @testable import AdmiralUIKit
 
 class StatusHistorySnapshotTest: XCTestCase {
@@ -67,9 +68,9 @@ class StatusHistorySnapshotTest: XCTestCase {
     
     private func createStatusHistoryBaseImagesView() -> UIView {
         let view = StatusHistoryBaseImagesView()
-        view.images = [AdmiralUIResources.Asset.Finance.Solid.cardSolid.image,
-                       AdmiralUIResources.Asset.Finance.Solid.creditCardSolid.image,
-                       AdmiralUIResources.Asset.Finance.Solid.gbpSolid.image]
+        view.images = [AdmiralImages.Asset.Finance.Solid.cardSolid.image,
+                       AdmiralImages.Asset.Finance.Solid.creditCardSolid.image,
+                       AdmiralImages.Asset.Finance.Solid.gbpSolid.image]
         view.frame.size = CGSize(width: 100.0, height: 100.0)
         view.apply(theme: theme)
         
@@ -79,7 +80,7 @@ class StatusHistorySnapshotTest: XCTestCase {
     private func createStatusHistoryStatusView(status: StatusHistory) -> UIView {
         let view = StatusHistoryStatusView()
         view.statusText = "Status"
-        view.statusImage = AdmiralUIResources.Asset.Category.Solid.bankSolid.image
+        view.statusImage = AdmiralImages.Asset.Category.Solid.bankSolid.image
         view.status = status
         view.frame.size = CGSize(width: 300.0, height: 300.0)
         view.apply(theme: theme)

@@ -1,6 +1,7 @@
 import XCTest
 import SnapshotTesting
 import AdmiralTheme
+import AdmiralImages
 @testable import AdmiralUIKit
 
 final class CurrencyViewTest: XCTestCase {
@@ -30,7 +31,7 @@ final class CurrencyViewTest: XCTestCase {
         let view = createCurrencyView(
             buyText: "купить",
             sellText: "продать",
-            image: AdmiralUIResources.Asset.Category.Solid.bankSolid.image,
+            image: AdmiralImages.Asset.Category.Solid.bankSolid.image,
             theme: theme
         )
         checkView(view: view, named: "Flags.Light", testName: "CurrencyView")
@@ -51,7 +52,7 @@ final class CurrencyViewTest: XCTestCase {
         let view = createCurrencyView(
             buyText: "купить",
             sellText: "продать",
-            image: AdmiralUIResources.Asset.Category.Solid.bankSolid.image,
+            image: AdmiralImages.Asset.Category.Solid.bankSolid.image,
             sellCellType: .arrowDown,
             buyCellType: .arrowUp,
             theme: theme
@@ -74,7 +75,7 @@ final class CurrencyViewTest: XCTestCase {
         let view = createCurrencyView(
             buyText: "купить",
             sellText: "продать",
-            image: AdmiralUIResources.Asset.Category.Solid.bankSolid.image,
+            image: AdmiralImages.Asset.Category.Solid.bankSolid.image,
             theme: AppTheme.dark
         )
         checkView(view: view, named: "Flags.Dark", testName: "CurrencyView")
@@ -95,7 +96,7 @@ final class CurrencyViewTest: XCTestCase {
         let view = createCurrencyView(
             buyText: "купить",
             sellText: "продать",
-            image: AdmiralUIResources.Asset.Category.Solid.bankSolid.image,
+            image: AdmiralImages.Asset.Category.Solid.bankSolid.image,
             sellCellType: .arrowDown,
             buyCellType: .arrowUp,
             theme: AppTheme.sMELight
@@ -118,7 +119,7 @@ final class CurrencyViewTest: XCTestCase {
         let view = createCurrencyView(
             buyText: "купить",
             sellText: "продать",
-            image: AdmiralUIResources.Asset.Category.Solid.bankSolid.image,
+            image: AdmiralImages.Asset.Category.Solid.bankSolid.image,
             theme: AppTheme.sMELight
         )
         checkView(view: view, named: "Flags.SME.Light", testName: "CurrencyView")
@@ -139,7 +140,7 @@ final class CurrencyViewTest: XCTestCase {
         let view = createCurrencyView(
             buyText: "купить",
             sellText: "продать",
-            image: AdmiralUIResources.Asset.Category.Solid.bankSolid.image,
+            image: AdmiralImages.Asset.Category.Solid.bankSolid.image,
             sellCellType: .arrowDown,
             buyCellType: .arrowUp,
             theme: AppTheme.sMELight
@@ -162,7 +163,7 @@ final class CurrencyViewTest: XCTestCase {
         let view = createCurrencyView(
             buyText: "купить",
             sellText: "продать",
-            image: AdmiralUIResources.Asset.Category.Solid.bankSolid.image,
+            image: AdmiralImages.Asset.Category.Solid.bankSolid.image,
             theme: AppTheme.sMEDark
         )
         checkView(view: view, named: "Flags.SME.Dark", testName: "CurrencyView")
@@ -183,7 +184,7 @@ final class CurrencyViewTest: XCTestCase {
         let view = createCurrencyView(
             buyText: "купить",
             sellText: "продать",
-            image: AdmiralUIResources.Asset.Category.Solid.bankSolid.image,
+            image: AdmiralImages.Asset.Category.Solid.bankSolid.image,
             sellCellType: .arrowDown,
             buyCellType: .arrowUp,
             theme: AppTheme.sMEDark

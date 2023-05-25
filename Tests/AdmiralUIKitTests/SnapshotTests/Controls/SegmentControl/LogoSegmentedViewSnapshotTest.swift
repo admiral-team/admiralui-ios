@@ -1,6 +1,7 @@
 import XCTest
 import SnapshotTesting
 import AdmiralTheme
+import AdmiralImages
 @testable import AdmiralUIKit
 
 class LogoSegmentedViewSnapshotTest: XCTestCase {
@@ -28,9 +29,9 @@ class LogoSegmentedViewSnapshotTest: XCTestCase {
     
     private func createControl() -> UIControl {
         let segmentControl = LogoTab(
-        images: [AdmiralUIResources.Asset.Category.Solid.bankSolid.image,
-                 AdmiralUIResources.Asset.Category.Solid.carSolid.image,
-                 AdmiralUIResources.Asset.Category.Solid.chartSolid.image])
+        images: [AdmiralImages.Asset.Category.Solid.bankSolid.image,
+                 AdmiralImages.Asset.Category.Solid.carSolid.image,
+                 AdmiralImages.Asset.Category.Solid.chartSolid.image])
         segmentControl.frame = CGRect(
             origin: .zero,
             size: CGSize(width: 320.0, height: 64.0))
