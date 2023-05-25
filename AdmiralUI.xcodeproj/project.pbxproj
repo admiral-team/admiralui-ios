@@ -15,6 +15,9 @@
 		0E008AE92748460C003D7882 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E008AE82748460C003D7882 /* Calendar.swift */; };
 		0E008AEC27484676003D7882 /* Date+RemoveTimeStamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E008AEB27484676003D7882 /* Date+RemoveTimeStamp.swift */; };
 		0E03D90426C4183400AD5D82 /* BlocFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E03D90326C4183400AD5D82 /* BlocFormatter.swift */; };
+		0E08AED42A1F8FEC007363D8 /* AdmiralImages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9212C8D2A18037600646505 /* AdmiralImages.framework */; };
+		0E08AED52A1F8FF3007363D8 /* AdmiralImages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9212C8D2A18037600646505 /* AdmiralImages.framework */; };
+		0E08AED62A1F8FFA007363D8 /* AdmiralSymbols.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EBC2F9E2A1511B7009C5D70 /* AdmiralSymbols.framework */; };
 		0E0D25AA261C9B1B003D6481 /* OutlineSliderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0D25A9261C9B1B003D6481 /* OutlineSliderCollectionViewCell.swift */; };
 		0E0D25D6261CD6D1003D6481 /* UnderlineSliderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0D25D5261CD6D1003D6481 /* UnderlineSliderViewCell.swift */; };
 		0E0E881625FBA24C00127626 /* AdmiralTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E0E881425FBA24C00127626 /* AdmiralTheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1852,6 +1855,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E08AED62A1F8FFA007363D8 /* AdmiralSymbols.framework in Frameworks */,
+				0E08AED52A1F8FF3007363D8 /* AdmiralImages.framework in Frameworks */,
 				0E3961BD25FFCF7D006E2005 /* AdmiralSwiftUI.framework in Frameworks */,
 				E6EEF8FC26F4DED900FAA8E3 /* SnapshotTesting.xcframework in Frameworks */,
 			);
@@ -1869,6 +1874,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E08AED42A1F8FEC007363D8 /* AdmiralImages.framework in Frameworks */,
 				E91F79FE2726A9390068B92A /* SnapshotTesting.xcframework in Frameworks */,
 				0EB756B62600D578009BFC21 /* AdmiralUIKit.framework in Frameworks */,
 			);
