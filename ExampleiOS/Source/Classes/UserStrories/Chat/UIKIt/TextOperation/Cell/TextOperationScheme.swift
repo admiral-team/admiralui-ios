@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 
 struct TextOperationScheme {
     var titleFont: AFont

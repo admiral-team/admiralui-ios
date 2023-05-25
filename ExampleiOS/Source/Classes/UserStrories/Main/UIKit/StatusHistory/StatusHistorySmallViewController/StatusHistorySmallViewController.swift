@@ -6,8 +6,8 @@
 //
 
 import AdmiralUIKit
+import AdmiralImages
 import AdmiralTheme
-import AdmiralUIResources
 import UIKit
 
 enum StatusHistory: String, CaseIterable {
@@ -72,7 +72,7 @@ final class StatusHistorySmallViewController: UIViewController, AnyAppThemable {
         statusView.subtitle = "Входящие переводы"
         
         statusView.statusText = "В обработке"
-        statusView.statusImage = AdmiralUIResources.Asset.System.Solid.timeSolid.image
+        statusView.statusImage = AdmiralImages.Asset.System.Solid.timeSolid.image
         statusView.status = .hold
         
         addSubviews()
@@ -97,23 +97,23 @@ final class StatusHistorySmallViewController: UIViewController, AnyAppThemable {
         case .hold:
             statusView.status = .hold
             statusView.statusText = "В обработке"
-            statusView.statusImage = AdmiralUIResources.Asset.System.Solid.timeSolid.image
+            statusView.statusImage = AdmiralImages.Asset.System.Solid.timeSolid.image
         case .attention:
             statusView.status = .review
             statusView.statusText = "Требуется подтверждение"
-            statusView.statusImage = AdmiralUIResources.Asset.Service.Solid.infoSolid.image
+            statusView.statusImage = AdmiralImages.Asset.Service.Solid.infoSolid.image
         case .error:
             statusView.status = .error
             statusView.statusText = "Превышен лимит"
-            statusView.statusImage = AdmiralUIResources.Asset.Service.Solid.errorSolid.image
+            statusView.statusImage = AdmiralImages.Asset.Service.Solid.errorSolid.image
         case .success:
             statusView.status = .done
             statusView.statusText = "Готов к выдаче"
-            statusView.statusImage = AdmiralUIResources.Asset.Service.Solid.checkSolid.image
+            statusView.statusImage = AdmiralImages.Asset.Service.Solid.checkSolid.image
         case .sale:
             statusView.status = .done
             statusView.statusText = "Скидка 50% до 20 июля"
-            statusView.statusImage = AdmiralUIResources.Asset.System.Solid.timeSolid.image
+            statusView.statusImage = AdmiralImages.Asset.System.Solid.timeSolid.image
         }
     }
     

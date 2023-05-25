@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  ProgressViewScheme - the visual scheme of  ProgressView.
  You can create a by specifying the following parameters in init:

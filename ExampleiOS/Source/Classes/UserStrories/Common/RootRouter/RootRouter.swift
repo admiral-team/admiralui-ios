@@ -6,7 +6,6 @@
 //
 
 import AdmiralUIKit
-import AdmiralUIResources
 import UIKit
 
 final class RootRouter: BaseRouter {

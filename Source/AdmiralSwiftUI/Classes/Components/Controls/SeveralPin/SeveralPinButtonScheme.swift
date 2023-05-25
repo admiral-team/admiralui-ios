@@ -5,7 +5,6 @@
 //  Created on 15.08.2021.
 //
 import AdmiralTheme
-import AdmiralUIResources
 /**
  SeveralPinButtonScheme - the visual scheme Style.
  You can create a by specifying the following parameters in init:

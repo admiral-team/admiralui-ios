@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  CalendarWeekViewScheme - the visual scheme of CalendarWeekView.
  You can create a by specifying the following parameters in init:

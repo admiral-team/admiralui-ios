@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 import CoreGraphics
 /**
  ActionBarControlSchemeTwo - the visual scheme of ListCell.

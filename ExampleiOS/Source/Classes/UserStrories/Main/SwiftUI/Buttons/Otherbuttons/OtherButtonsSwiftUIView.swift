@@ -8,7 +8,6 @@
 import SwiftUI
 import AdmiralTheme
 import AdmiralSwiftUI
-import AdmiralUIResources
 
 @available(iOS 14.0.0, *)
 struct OtherButtonsSwiftUIView: View {

@@ -5,7 +5,6 @@
 //  Created on 27.10.2021.
 //
 import AdmiralTheme
-import AdmiralUIResources
 import SwiftUI
 /**
  UploadImageViewCornerStyle - Public enum for UploadImageView

@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 /**
  TitleArrowWithButtonHeader - A header with header title, arrow and button.
 

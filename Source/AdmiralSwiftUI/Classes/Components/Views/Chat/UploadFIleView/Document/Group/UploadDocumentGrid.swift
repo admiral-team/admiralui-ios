@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 import SwiftUI
 /**
  UploadDocumentGrid - the component that presents a view container for UploadDocumentView.

@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 /**
  ZeroScreenView - the component is used to attract the user's attention as a message. A view with title, subtitle and image.
  You can create a ZeroScreenView with the zero frame rectangle by specifying the following parameters in init:

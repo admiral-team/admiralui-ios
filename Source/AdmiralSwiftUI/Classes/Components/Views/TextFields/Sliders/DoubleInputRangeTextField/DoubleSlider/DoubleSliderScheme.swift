@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  DoubleSliderScheme - the visual scheme of Slider.
  You can create a by specifying the following parameters in init:

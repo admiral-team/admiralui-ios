@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 
 /**
  ChatButtonCustomScheme - the visual scheme.

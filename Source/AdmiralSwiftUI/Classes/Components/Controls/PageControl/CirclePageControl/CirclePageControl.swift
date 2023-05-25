@@ -6,7 +6,6 @@
 //
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 /**
  The style for creating the CirclePageControl Button.
  To configure the current button style for a view hierarchy, use the buttonStyle(_:) modifier.

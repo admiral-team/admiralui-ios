@@ -6,8 +6,8 @@
 //
 
 import AdmiralUIKit
+import AdmiralImages
 import AdmiralTheme
-import AdmiralUIResources
 import UIKit
 
 // Default description for your class
@@ -79,8 +79,8 @@ final class SecureTextField: UIView, AnyAppThemable {
     
     private func configureUI() {
         secureButton.addTarget(self, action: #selector(didTap), for: .touchUpInside)
-        secureButton.setImage(AdmiralUIResources.Asset.Service.Outline.eyeCloseOutline.image, for: .normal)
-        secureButton.setImage(AdmiralUIResources.Asset.Service.Outline.eyeOutline.image, for: .selected)
+        secureButton.setImage(AdmiralImages.Asset.Service.Outline.eyeCloseOutline.image, for: .normal)
+        secureButton.setImage(AdmiralImages.Asset.Service.Outline.eyeOutline.image, for: .selected)
         textField.trailingViewStyle = .small
         textField.trailingView = secureButton
     }

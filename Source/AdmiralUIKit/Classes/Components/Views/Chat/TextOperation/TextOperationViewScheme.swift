@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 
 /**
  TextOperationViewScheme - the visual scheme.

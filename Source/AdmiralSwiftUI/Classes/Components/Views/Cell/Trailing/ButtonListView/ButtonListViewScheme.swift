@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  ButtonListViewScheme - the visual scheme of ButtonListView.
  You can create a by specifying the following parameters in init:

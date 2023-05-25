@@ -7,7 +7,6 @@
 
 import UIKit
 import AdmiralTheme
-import AdmiralUIResources
 
 /// Link view header delegate.
 public protocol LinkViewHeaderDelegate: AnyObject {

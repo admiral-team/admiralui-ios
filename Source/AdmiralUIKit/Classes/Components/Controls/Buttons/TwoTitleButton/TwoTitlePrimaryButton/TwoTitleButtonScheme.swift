@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 
 /**
  TwoTitleButtonScheme - the visual scheme.

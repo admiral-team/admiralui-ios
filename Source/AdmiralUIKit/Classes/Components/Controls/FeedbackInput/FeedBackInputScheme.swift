@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 
 /**
  FeedBackInputScheme - the visual scheme.

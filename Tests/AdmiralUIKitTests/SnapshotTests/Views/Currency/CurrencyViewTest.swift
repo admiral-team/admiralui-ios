@@ -1,7 +1,6 @@
 import XCTest
 import SnapshotTesting
 import AdmiralTheme
-import AdmiralUIResources
 @testable import AdmiralUIKit
 
 final class CurrencyViewTest: XCTestCase {

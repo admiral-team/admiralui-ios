@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 
 /**
  TitleWithArrowListViewScheme - the visual scheme.

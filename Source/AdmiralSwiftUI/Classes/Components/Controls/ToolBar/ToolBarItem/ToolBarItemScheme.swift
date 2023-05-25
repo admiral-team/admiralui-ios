@@ -5,7 +5,6 @@
 //  Created on 22.08.2022.
 //
 import AdmiralTheme
-import AdmiralUIResources
 /**
  ToolBarItemScheme - the visual scheme of MapButtonStyle.
  You can create a by specifying the following parameters in init:

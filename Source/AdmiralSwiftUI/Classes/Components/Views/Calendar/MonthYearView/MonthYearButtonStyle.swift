@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 /**
  The style for creating the MonthYearButton. MonthYearButton - the components that present a button with image in CalendarView..
  You can create a SeveralPinButtonStyle by specifying the following parameters in the initializer

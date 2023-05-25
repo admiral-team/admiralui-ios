@@ -5,7 +5,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  TitleArrowWithButtonHeaderScheme - the visual scheme of TitleArrowWithButtonHeader.
  You can create a by specifying the following parameters in init:

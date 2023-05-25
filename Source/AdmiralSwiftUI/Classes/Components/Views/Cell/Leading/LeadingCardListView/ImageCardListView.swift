@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 
 /**
  LeadingCardListView - A view object with card image view.

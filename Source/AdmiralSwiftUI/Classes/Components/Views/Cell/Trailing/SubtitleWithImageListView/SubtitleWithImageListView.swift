@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 
 /**
  SubtitleWithImageListView - A view object with subtitle label and image view.

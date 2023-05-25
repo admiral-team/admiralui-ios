@@ -6,7 +6,6 @@
 //
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 /**
  DropDownHeader - A header with header title, arrow and button.
 

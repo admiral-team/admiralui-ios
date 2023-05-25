@@ -7,7 +7,7 @@
 
 import AdmiralUIKit
 import AdmiralTheme
-import AdmiralUIResources
+import AdmiralImages
 import UIKit
 
 // Default description for your class
@@ -74,7 +74,7 @@ final class CardTextField: UIView, AnyAppThemable {
     
     private func configureUI() {
         button.addTarget(self, action: #selector(didTap), for: .touchUpInside)
-        button.setImage(AdmiralUIResources.Asset.Security.Outline.passwordOutline.image, for: .normal)
+        button.setImage(AdmiralImages.Asset.Security.Outline.passwordOutline.image, for: .normal)
         textField.trailingView = button
     }
     

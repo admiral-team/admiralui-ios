@@ -8,7 +8,6 @@
 import SwiftUI
 import Combine
 import AdmiralTheme
-import AdmiralUIResources
 /**
  InformerTabScheme - the visual scheme of PlatformButtonStyle.
  You can create a by specifying the following parameters in init:

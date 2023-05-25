@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 
 /**
  CalendarFooterViewColorScheme - the visual scheme.

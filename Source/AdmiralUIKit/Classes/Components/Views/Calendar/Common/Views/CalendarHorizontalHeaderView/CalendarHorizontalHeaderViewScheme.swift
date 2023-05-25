@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 
 /**
  CalendarHorizontalHeaderViewScheme - the visual scheme.

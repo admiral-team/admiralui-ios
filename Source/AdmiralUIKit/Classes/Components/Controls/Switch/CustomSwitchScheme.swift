@@ -6,7 +6,6 @@
 //  
 //
 import AdmiralTheme
-import AdmiralUIResources
 import AdmiralTheme
 /**
  CustomSwitchScheme - the visual scheme.

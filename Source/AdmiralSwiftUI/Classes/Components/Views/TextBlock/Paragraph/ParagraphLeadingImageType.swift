@@ -5,7 +5,6 @@
 //  Created on 27.09.2021.
 //
 
-import AdmiralUIResources
 import SwiftUI
 /**
  ParagraphLeadingImageType - Public enum for paragraph text block style AdmiralSwiftUI library

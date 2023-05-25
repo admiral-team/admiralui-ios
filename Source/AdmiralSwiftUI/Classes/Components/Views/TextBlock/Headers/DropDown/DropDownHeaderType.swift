@@ -5,7 +5,6 @@
 //  Created on 23.09.2021.
 //
 
-import AdmiralUIResources
 import SwiftUI
 /**
  DropDownHeaderType - Public enum for DropDownHeader AdmiralSwiftUI library

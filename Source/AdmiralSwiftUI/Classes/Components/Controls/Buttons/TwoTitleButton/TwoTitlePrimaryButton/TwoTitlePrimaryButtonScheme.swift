@@ -5,7 +5,6 @@
 //  Created on 06.07.2021.
 //
 import AdmiralTheme
-import AdmiralUIResources
 /**
  TwoTitlePrimaryButtonScheme - the visual scheme of TwoTitlePrimaryButtonStyle.
  You can create a by specifying the following parameters in init:

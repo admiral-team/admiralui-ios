@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  SwitchListViewScheme - the visual scheme of SwitchListView.
  You can create a by specifying the following parameters in init:

@@ -109,8 +109,6 @@
 		0EB755F62600CBC1009BFC21 /* AdmiralSwiftUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB755F42600CBC1009BFC21 /* AdmiralSwiftUI.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0EB755F82600CBC5009BFC21 /* AdmiralTheme.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB755F72600CBC5009BFC21 /* AdmiralTheme.framework */; };
 		0EB755F92600CBC5009BFC21 /* AdmiralTheme.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB755F72600CBC5009BFC21 /* AdmiralTheme.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		0EB755FB2600CBC9009BFC21 /* AdmiralUIResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB755FA2600CBC9009BFC21 /* AdmiralUIResources.framework */; };
-		0EB755FC2600CBC9009BFC21 /* AdmiralUIResources.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB755FA2600CBC9009BFC21 /* AdmiralUIResources.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0EB757DF2600D6B0009BFC21 /* AdmiralUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB757DE2600D6B0009BFC21 /* AdmiralUIKit.framework */; };
 		0EB757E02600D6B0009BFC21 /* AdmiralUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB757DE2600D6B0009BFC21 /* AdmiralUIKit.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0EBC46AA269F0044003CF5FA /* CalendarsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBC46A9269F0044003CF5FA /* CalendarsSwiftUIView.swift */; };
@@ -549,7 +547,6 @@
 				0EB757E02600D6B0009BFC21 /* AdmiralUIKit.framework in Embed Frameworks */,
 				E9212C7A2A18027C00646505 /* AdmiralSymbols.framework in Embed Frameworks */,
 				E9212C982A18056A00646505 /* AdmiralImages.framework in Embed Frameworks */,
-				0EB755FC2600CBC9009BFC21 /* AdmiralUIResources.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1086,7 +1083,6 @@
 				0EB757DF2600D6B0009BFC21 /* AdmiralUIKit.framework in Frameworks */,
 				E9212C792A18027C00646505 /* AdmiralSymbols.framework in Frameworks */,
 				E9212C972A18056A00646505 /* AdmiralImages.framework in Frameworks */,
-				0EB755FB2600CBC9009BFC21 /* AdmiralUIResources.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4092,7 +4088,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftlint >/dev/null; then\n  config_path=$SRCROOT/../.swiftlint.yml\n  swiftlint Source/ --config $config_path\n  # swiftlint Source/ --config $config_path --fix\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "
+";
 		};
 /* End PBXShellScriptBuildPhase section */
 

@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 /**
  A TwoTitlePrimaryButtonStyle with two text headers (left and right). PrimaryButton - the main button for the most important actions
 

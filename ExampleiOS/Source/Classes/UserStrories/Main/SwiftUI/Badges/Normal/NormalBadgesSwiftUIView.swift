@@ -6,9 +6,9 @@
 //
 
 import SwiftUI
+import AdmiralSymbols
 import AdmiralTheme
 import AdmiralSwiftUI
-import AdmiralUIResources
 
 @available(iOS 14.0.0, *)
 struct NormalBadgesSwiftUIView: View {
@@ -47,7 +47,7 @@ struct NormalBadgesSwiftUIView: View {
                 value: Int(viewModel.items[index].rawValue),
                 offset: CGPoint(x: 6, y: .zero)
             ) {
-                AssetSymbol.Category.Solid.diamond.image
+                AssetSymbol.Category.Solid.diamond.swiftUIImage
                     .foregroundColor(scheme.imageTintColor.swiftUIColor)
                     .frame(width: LayoutGrid.halfModule * 11, height: LayoutGrid.halfModule * 11)
                     .background(
