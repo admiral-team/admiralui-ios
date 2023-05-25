@@ -30,28 +30,24 @@ let package = Package(
             name: "AdmiralUIKit",
             dependencies: ["AdmiralTheme"],
             path: "Source/AdmiralUIKit",
-            exclude: ["Supporting Files"]),
+            exclude: ["Supporting Files"],
+            resources: [
+                .process("Resources/Assets")
+            ]),
         .target(
             name: "AdmiralSwiftUI",
             dependencies: ["AdmiralTheme"],
             path: "Source/AdmiralSwiftUI",
-            exclude: ["Supporting Files"]),
+            exclude: ["Supporting Files"],
+            resources: [
+                .process("Resources/Assets")
+            ]),
         .target(
             name: "AdmiralTheme",
             dependencies: [],
             path: "Source/AdmiralTheme",
             exclude: ["Supporting Files"],
             resources: [
-                .process("Resources/Assets"),
-                .process("Resources/Fonts")
-            ]),
-        .target(
-            name: "AdmiralUIResources",
-            dependencies: [],
-            path: "Source/AdmiralUIResources",
-            exclude: ["Supporting Files"],
-            resources: [
-                .process("Resources/Assets"),
                 .process("Resources/Fonts")
             ]),
         .target(
