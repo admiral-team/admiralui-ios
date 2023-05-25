@@ -5,7 +5,7 @@
 
 import XCTest
 
-class AdmiralUIInformers_NotificationsTest: XCTestCase {
+class AdmiralUIInformersNotificationsTest: XCTestCase {
 
     override func setUpWithError() throws {
         continueAfterFailure = false

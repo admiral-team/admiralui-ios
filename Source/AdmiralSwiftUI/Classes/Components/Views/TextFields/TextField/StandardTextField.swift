@@ -152,7 +152,7 @@ public struct StandardTextField<T, P>: TextFieldInput, AccessabilitySupportUIKit
     private var formatter: Formatter?
     
     /// Constants that identify the semantic meaning for a text-entry area.
-    private var textContentType: UITextContentType? = nil
+    private var textContentType: UITextContentType?
     
     // Flag is disable pasting. If flasg is true pasting is enabled.
     private let canPerformActionPaste: Bool
@@ -405,7 +405,11 @@ public struct StandardTextField<T, P>: TextFieldInput, AccessabilitySupportUIKit
                             self.isFocused = false
                             self.isTextFieldResponder = false
                         }
-                        .accessibilityIdentifier(TextFieldsAccessibilityIdentifiers.placeholder.accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier))
+                        .accessibilityIdentifier(
+                            TextFieldsAccessibilityIdentifiers.placeholder.accessibilityViewIdentifier(
+                                accessibilityIdentifier: accessibilityIdentifier
+                            )
+                        )
                 } else {
                     UIKitTextField(
                         text: $content,
@@ -428,7 +432,7 @@ public struct StandardTextField<T, P>: TextFieldInput, AccessabilitySupportUIKit
                         .accessibilityElement(children: .contain)
                         .frame(height: LayoutGrid.tripleModule)
                         .onChange(of: content) { value in
-                            if(content == "") {
+                            if content == "" {
                                 withAnimation(.spring()) {
                                     isFilled = false
                                 }
@@ -454,7 +458,11 @@ public struct StandardTextField<T, P>: TextFieldInput, AccessabilitySupportUIKit
             if !(trailingView() is EmptyView) {
                 trailingView()
                     .foregroundColor(trailingViewTintColor)
-                    .accessibilityIdentifier(TextFieldsAccessibilityIdentifiers.trailingView.accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier))
+                    .accessibilityIdentifier(
+                        TextFieldsAccessibilityIdentifiers.trailingView.accessibilityViewIdentifier(
+                            accessibilityIdentifier: accessibilityIdentifier
+                        )
+                    )
             }
         }
         .eraseToAnyView()

@@ -20,7 +20,7 @@ extension Date {
         return startDate
     }
     
-    func dateToString(dateFormat: String = "yyyy MM dd",_ locale: Locale? = nil) -> String {
+    func dateToString(dateFormat: String = "yyyy MM dd", _ locale: Locale? = nil) -> String {
         let format = DateFormatter()
         if let locale = locale {
             format.locale = locale

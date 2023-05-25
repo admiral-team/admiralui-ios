@@ -62,7 +62,7 @@ public class BannerStackPresenter: BannerPresenterProtocol {
     }
     
     private func timerAction() {
-        if viewControllers.count > 0 {
+        if !viewControllers.isEmpty {
             hideLastBanner()
             removeLastViewController()
             startTimer()
@@ -102,7 +102,7 @@ extension BannerStackPresenter: BannerWindowViewControllerDelegate {
     func endUserInteraction(viewController: BannerWindowViewController) {
         removeLastViewController()
         
-        if viewControllers.count > 0 {
+        if !viewControllers.isEmpty {
             startTimer()
         }
     }

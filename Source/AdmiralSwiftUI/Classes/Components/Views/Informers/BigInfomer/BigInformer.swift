@@ -106,25 +106,29 @@ public struct BigInformer: View {
         let titleFont = Font(scheme.titleLabelFont.uiFont)
         let titleColor = Color(
             scheme.titleLabelTextColors.parameter(
-            isEnabled: isEnabled,
-                style: informerStyle)?.uiColor ?? .clear)
+                isEnabled: isEnabled,
+                style: informerStyle
+            )?.uiColor ?? .clear)
 
         let subtitleFont = Font(scheme.subtitleLabelFont.uiFont)
         let subtitleColor = Color(
             scheme.subtitleLabelTextColors.parameter(
-            isEnabled: isEnabled,
-                style: informerStyle)?.uiColor ?? .clear)
+                isEnabled: isEnabled,
+                style: informerStyle
+            )?.uiColor ?? .clear)
 
         let linkFont = Font(scheme.linkLabelFont.uiFont)
         let linkColor = Color(
             scheme.linkLabelTextColors.parameter(
-            isEnabled: isEnabled,
-                style: informerStyle)?.uiColor ?? .clear)
+                isEnabled: isEnabled,
+                style: informerStyle
+            )?.uiColor ?? .clear)
 
         let wrapViewColor = Color(
             scheme.wrapViewBackgroundColors.parameter(
-            isEnabled: isEnabled,
-                style: informerStyle)?.uiColor ?? .clear)
+                isEnabled: isEnabled,
+                style: informerStyle
+            )?.uiColor ?? .clear)
 
         VStack {
             Spacer().frame(height: LayoutGrid.halfModule * 5)

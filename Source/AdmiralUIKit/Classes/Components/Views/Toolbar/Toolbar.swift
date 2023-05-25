@@ -247,7 +247,7 @@ open class Toolbar: UIView, AnyAppThemable {
 
     private func updateStackView() {
         stackView.subviews.forEach { $0.removeFromSuperview() }
-        guard stackViewItems.count > 0 else { return }
+        guard !stackViewItems.isEmpty else { return }
         
         for index in 0...stackViewItems.count - 1 {
             guard let item = stackViewItems[safe: index] else { return }

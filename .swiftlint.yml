@@ -1,4 +1,3 @@
-
 disabled_rules:
   - sorted_imports #Imports should be sorted.
   - trailing_whitespace # Lines should not have trailing whitespace.
@@ -31,9 +30,11 @@ opt_in_rules:
   - implicit_return
   - multiline_parameters
 
+
 excluded:
   - Carthage
   - Pods
+  - ExampleiOS
 
 comma: error
 
@@ -69,6 +70,9 @@ cyclomatic_complexity:
   error: 40
 
 type_name:
+  min_length:
+    warning: 0
+    error: 0
   max_length:
     warning: 60
     error: 100

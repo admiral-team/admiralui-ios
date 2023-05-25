@@ -58,7 +58,7 @@ public struct CountdownView: View {
                 )
             }
         }.onReceive(countdownTimer) { time in
-            if (self.counter < self.countTo) {
+            if self.counter < self.countTo {
                 self.counter += 1
             } else {
                 cancelTimer()

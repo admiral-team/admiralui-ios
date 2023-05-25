@@ -16,7 +16,7 @@ struct CalendarDayItem {
     let isCurrentDay: Bool
     var isActive: Bool = true
     var hasPoint: Bool = false
-    var accesibilityId: String? = nil
+    var accesibilityId: String?
 }
 
 /// The style of calendar cell.

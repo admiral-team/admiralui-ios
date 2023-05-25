@@ -28,4 +28,4 @@ extension ControlState: DefaultRepresentable {
     public static var defaultValue: ControlState { return ControlState.normal }
 }
 
-public typealias ControlParameter<P> = ParameterBox<ControlState,P>
+public typealias ControlParameter<P> = ParameterBox<ControlState, P>

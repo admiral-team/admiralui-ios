@@ -155,7 +155,8 @@ public class UnderlineSegmentedControl: BaseUnderlineSegmentedControl, AnyAppThe
     }
     
     override public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier, for: indexPath) as? UnderlineSliderViewCell else { fatalError("No reusable cell") }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier, for: indexPath)
+        guard let cell = cell as? UnderlineSliderViewCell else { fatalError("No reusable cell") }
         
         cell.configure(item: items[indexPath.row])
         return cell

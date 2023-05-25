@@ -64,15 +64,18 @@ class CalendarGenerator: CalendarGeneratorDelegate {
     
     func calculateMonthsData(startDate: Date, endDate: Date) -> [Month] {
         var months = [Month]()
-        guard let totalMonths = calendar.dateComponents([.month],
-                                                  from: startDate,
-                                                  to: endDate).month else { return months }
+        guard let totalMonths = calendar.dateComponents(
+            [.month],
+            from: startDate,
+            to: endDate).month
+        else { return months }
+        
         for monthIndex in 0...totalMonths {
             if
                 let currentMonthDate = calendar.date(byAdding: .month, value: monthIndex, to: startDate),
                 let monthMetaData = monthMetadata(for: currentMonthDate) {
                 let days = generateDaysInMonth(metadata: monthMetaData)
-                let title = currentMonthDate.dateToString(dateFormat: "LLLL yyyy", locale).capitalized
+                let title = currentMonthDate.dateToString(dateFormat: "LLLL yyyy", locale: locale).capitalized
                 if calendar.isDate(currentMonthDate, equalTo: Date(), toGranularity: .month) {
                     currentMonthIndex = monthIndex
                 }

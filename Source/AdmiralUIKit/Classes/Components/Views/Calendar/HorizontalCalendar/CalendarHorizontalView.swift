@@ -521,7 +521,8 @@ extension CalendarHorizontalView: CalendarHorizontalViewCellDelegate {
     
     func prepareSelectedDates(date: Date, indexPath: IndexPath?) {
         guard let indexPath = indexPath else { return }
-        isMutlipleSelectionAllowed ? prepareMultipleSelectionDates(date: date, indexPath: indexPath) : prepareSingleSelectionDate(date: date, indexPath: indexPath)
+        isMutlipleSelectionAllowed ? prepareMultipleSelectionDates(date: date, indexPath: indexPath) :
+        prepareSingleSelectionDate(date: date, indexPath: indexPath)
         collectionView.reloadData()
     }
     

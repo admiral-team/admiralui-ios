@@ -56,7 +56,7 @@ public struct ToolBarItem: Hashable, Identifiable {
     public let image: Image
 
     /// The value that controls bulding a BadgeView. Can be either empty or value (Int)
-    public var badgeStyle: ToolBarBadgeStyle? = nil
+    public var badgeStyle: ToolBarBadgeStyle?
 
     /// The parameter is responsible for the display style: `default`, error, success, attention
     public var type: ToolbarItemType = .default

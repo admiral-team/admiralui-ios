@@ -39,13 +39,13 @@ public struct ActionItemBarAction: Identifiable, Hashable {
     public let image: Image
 
     /// The image style of ActionItemBar.
-    public var imageStyle: ActionBarItemImageStyle? = nil
+    public var imageStyle: ActionBarItemImageStyle?
 
     // The tint color off ActionItemBar.
-    public var imageTintColor: Color? = nil
+    public var imageTintColor: Color?
 
     // The backgroundColor of ActionItemBar.
-    public var backgroundColor: Color? = nil
+    public var backgroundColor: Color?
 
     /// The style of ActionItemBar.
     public let style: ActionBarItemStyle

@@ -124,8 +124,8 @@ public struct ProgressView: View {
             Circle()
                 .trim(from: 0, to: 1.0)
                 .stroke(
-                    gradient(scheme: scheme)
-                    , style: StrokeStyle(
+                    gradient(scheme: scheme),
+                    style: StrokeStyle(
                         lineWidth: circleLineWidth,
                         lineCap: .round,
                         lineJoin: .round
@@ -152,7 +152,7 @@ public struct ProgressView: View {
 
     private func gradient(scheme: ProgressViewScheme) -> AngularGradient {
         guard let circleColor = scheme.circleColor.parameter(style: style) else {
-            return AngularGradient(gradient: .init(colors: [Color.white]),center: .center)
+            return AngularGradient(gradient: .init(colors: [Color.white]), center: .center)
         }
 
         return AngularGradient(

@@ -553,7 +553,7 @@ public struct DoubleInputRangeTextField: AccessabilitySupportUIKit, Identifiable
                         .onChange(of: contentTo) { value in
                             guard !finishAfterChangeSlider else { return }
 
-                            if(contentTo == "") {
+                            if contentTo == "" {
                                 withAnimation(.easeInOut) {
                                     isFilledTo = false
                                 }
@@ -638,7 +638,7 @@ public struct DoubleInputRangeTextField: AccessabilitySupportUIKit, Identifiable
                         .onChange(of: contentFrom) { value in
                             guard !finishAfterChangeSlider else { return }
 
-                            if(contentFrom == "") {
+                            if contentFrom == "" {
                                 withAnimation(.easeInOut) {
                                     isFilledFrom = false
                                 }

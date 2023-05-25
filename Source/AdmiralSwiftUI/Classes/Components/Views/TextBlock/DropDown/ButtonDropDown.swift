@@ -93,7 +93,7 @@ struct ButtonDropDown_Previews: PreviewProvider {
     static var previews: some View {
         ButtonDropDown(
             buttonTitle: "Button",
-                    dropDownHeaderType: .up,
+            dropDownHeaderType: .up,
             buttonAction: {})
     }
 }

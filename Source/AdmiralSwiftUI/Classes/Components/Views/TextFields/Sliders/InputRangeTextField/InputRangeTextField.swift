@@ -423,7 +423,7 @@ public struct InputRangeTextField<T>: TextFieldInput, AccessabilitySupportUIKit,
                                 .onChange(of: content) { value in
                                     guard !finishAfterChangeSlider else { return }
 
-                                    if(content == "") {
+                                    if content == "" {
                                         withAnimation(.easeInOut) {
                                             isFilled = false
                                         }

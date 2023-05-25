@@ -37,13 +37,13 @@ public class ActionItemBarAction {
     public let image: UIImage
 
     /// The style of ActionItemBar.
-    public var imageStyle: ActionBarItemImageStyle? = nil
+    public var imageStyle: ActionBarItemImageStyle?
 
     // The tint color off ActionItemBar.
-    public var imageTintColor: UIColor? = nil
+    public var imageTintColor: UIColor?
 
     // The backgroundColor of ActionItemBar.
-    public var backgroundColor: UIColor? = nil
+    public var backgroundColor: UIColor?
 
     /// The style of ActionBarItem
     public let style: ActionBarItemStyle

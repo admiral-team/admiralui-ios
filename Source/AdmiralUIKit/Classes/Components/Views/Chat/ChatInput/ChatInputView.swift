@@ -30,7 +30,12 @@ open class ChatInputView: TextViewInput, AnyAppThemable, AccessibilitySupport {
 
     private enum Constants {
         static let chatButtomSize: CGFloat = LayoutGrid.quadrupleModule + LayoutGrid.module
-        static let textContainerInset = UIEdgeInsets(top: LayoutGrid.module + 2, left: LayoutGrid.quadrupleModule + 10, bottom: LayoutGrid.module + 2, right: LayoutGrid.module + 2)
+        static let textContainerInset = UIEdgeInsets(
+            top: LayoutGrid.module + 2,
+            left: LayoutGrid.quadrupleModule + 10,
+            bottom: LayoutGrid.module + 2,
+            right: LayoutGrid.module + 2
+        )
         static let textViewTrailingAnchor: CGFloat = LayoutGrid.module * 6
         static let maxHeightInput: CGFloat = 306.0
     }
@@ -98,7 +103,7 @@ open class ChatInputView: TextViewInput, AnyAppThemable, AccessibilitySupport {
         }
     }
 
-    weak open var chatInputDelegate: ChatInputViewDelegate? = nil
+    weak open var chatInputDelegate: ChatInputViewDelegate?
 
     // MARK: - Internal Properties
 

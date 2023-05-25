@@ -318,7 +318,7 @@ public struct CalendarHorizontalView: View {
         var preEndDate = Date()
 
         if let monthYearDate = monthYearDate {
-            if startDate < monthYearDate,  monthYearDate < endDate {
+            if startDate < monthYearDate, monthYearDate < endDate {
                 if let calendarStartDate = Calendar.current.date(byAdding: .year, value: -100, to: monthYearDate),
                    startDate < calendarStartDate {
                     preStartDate = Calendar.current.startOfYear(calendarStartDate)
@@ -347,7 +347,7 @@ public struct CalendarHorizontalView: View {
                     preEndDate = endDate
                 }
             }
-        } else if startDate < Date(),  Date() < endDate {
+        } else if startDate < Date(), Date() < endDate {
             if let calendarStartDate = Calendar.current.date(byAdding: .year, value: -100, to: Date()),
                startDate < calendarStartDate {
                 preStartDate = Calendar.current.startOfYear(calendarStartDate)

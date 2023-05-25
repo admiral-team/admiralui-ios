@@ -281,7 +281,11 @@ public struct ToastView: View {
                             .padding(.leading, LayoutGrid.doubleModule)
                     }
                 })
-                .accessibilityIdentifier(ToastViewAccessibilityIdentifiers.imageView.accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier))
+                .accessibilityIdentifier(
+                    ToastViewAccessibilityIdentifiers.imageView.accessibilityViewIdentifier(
+                        accessibilityIdentifier: accessibilityIdentifier
+                    )
+                )
             } else if let timerDuration = timerDuration {
                 CountdownView(countTo: timerDuration, schemeProvider: .constant(scheme: scheme.countDownViewScheme))
                     .frame(
@@ -300,7 +304,11 @@ public struct ToastView: View {
                     Button(linkText, action: linkAction)
                         .buttonStyle(GhostButtonStyle(schemeProvider: .constant(scheme: scheme.buttonScheme)))
                         .frame(height: LayoutGrid.tripleModule)
-                        .accessibilityIdentifier(ToastViewAccessibilityIdentifiers.linkText.accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier))
+                        .accessibilityIdentifier(
+                            ToastViewAccessibilityIdentifiers.linkText.accessibilityViewIdentifier(
+                                accessibilityIdentifier: accessibilityIdentifier
+                            )
+                        )
                 }
             }
             .padding(.top, LayoutGrid.doubleModule)
@@ -322,7 +330,11 @@ public struct ToastView: View {
                 })
                 .padding(.top, (LayoutGrid.halfModule / 2) * 7)
                 .padding(.trailing, LayoutGrid.doubleModule)
-                .accessibilityIdentifier(ToastViewAccessibilityIdentifiers.closeButton.accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier))
+                .accessibilityIdentifier(
+                    ToastViewAccessibilityIdentifiers.closeButton.accessibilityViewIdentifier(
+                        accessibilityIdentifier: accessibilityIdentifier
+                    )
+                )
             }
         }
         .background(scheme.backgroundColor.parameter(isEnabled: isEnabled, type: type)?.swiftUIColor)

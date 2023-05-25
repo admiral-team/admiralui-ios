@@ -62,7 +62,7 @@ open class ZeroScreenView: UIView, AnyAppThemable {
     }
     
     /// The delegate of ZeroScreenView.
-    weak public var delegate: ZeroScreenViewDelegate? = nil
+    weak public var delegate: ZeroScreenViewDelegate?
     
     // MARK: - Private properties
     

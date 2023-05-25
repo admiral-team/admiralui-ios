@@ -93,22 +93,22 @@ public struct InputNumber: View {
     @State private var updatedWidth: CGFloat = 0.0
 
     /// Adds an action to perform when the user submits a value to this view.
-    private var onSubmit: (() -> Void)? = nil
+    private var onSubmit: (() -> Void)?
 
     /// The value indicating whether this object is the first responder.
-    private var isResponder: Binding<Bool>? = nil
+    private var isResponder: Binding<Bool>?
 
     /// Text field formatter.
-    private var formatter: Formatter? = nil
+    private var formatter: Formatter?
 
     /// Constants that identify the semantic meaning for a text-entry area.
-    private var textContentType: UITextContentType? = nil
+    private var textContentType: UITextContentType?
 
     // Flag is disable pasting. If flasg is true pasting is enabled.
     private var canPerformActionPaste: Bool = true
 
     /// Adds an action to perform change cursor position. On enter 3 parameters - startCursor, currentCursor, text. Return cursor position.
-    private var onCursorPosition: ((Int, Int, String) -> (Int))? = nil
+    private var onCursorPosition: ((Int, Int, String) -> (Int))?
 
     /// The semantic meaning for a text input area.
     private var contentType: UIKeyboardType = .default
@@ -122,7 +122,7 @@ public struct InputNumber: View {
     /// The autocorrection style for the text object.
     private var autocorrectionType: UITextAutocorrectionType = .default
 
-    private var accessibilityIdentifier: String? = nil
+    private var accessibilityIdentifier: String?
     private var placeholder: String?
     private var textfieldWidth: CGFloat?
 
@@ -230,13 +230,20 @@ public struct InputNumber: View {
                             schemeProvider: .constant(scheme: scheme.buttonScheme)
                         )
                     )
-                    .accessibility(identifier: InputNumberAccessibilityIdentifiers.minus.accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier))
+                    .accessibility(
+                        identifier: InputNumberAccessibilityIdentifiers.minus.accessibilityViewIdentifier(
+                            accessibilityIdentifier: accessibilityIdentifier
+                        )
+                    )
                 Spacer()
                     .frame(width: spacerOffset)
 
                 mainContent()
-                    .accessibility(identifier: InputNumberAccessibilityIdentifiers.count.accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier))
-
+                    .accessibility(
+                        identifier: InputNumberAccessibilityIdentifiers.count.accessibilityViewIdentifier(
+                            accessibilityIdentifier: accessibilityIdentifier
+                        )
+                    )
                 Spacer()
                     .frame(width: spacerOffset)
                 plusButton()
@@ -250,7 +257,11 @@ public struct InputNumber: View {
                             schemeProvider: .constant(scheme: scheme.buttonScheme)
                         )
                     )
-                    .accessibility(identifier: InputNumberAccessibilityIdentifiers.plus.accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier))
+                    .accessibility(
+                        identifier: InputNumberAccessibilityIdentifiers.plus.accessibilityViewIdentifier(
+                            accessibilityIdentifier: accessibilityIdentifier
+                        )
+                    )
             }
             .frame(height: Constants.height)
             .onAppear(perform: {

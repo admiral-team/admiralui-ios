@@ -96,10 +96,11 @@ public struct CalendarGenerator: CalendarGeneratorDelegate {
         startDate: Date?,
         endDate: Date?) -> [CalendarPickerYear]? {
             let toDate = (Calendar.current.date(byAdding: .month, value: 1, to: endInitDate) ?? Date()).removeTimeStamp()
-            guard let totalYears = calendar.dateComponents([.year],
-                                                            from: startInitDate,
-                                                            to: Calendar.current.endOfYear(toDate)).year else {
-                return nil }
+            guard let totalYears = calendar.dateComponents(
+                [.year],
+                from: startInitDate,
+                to: Calendar.current.endOfYear(toDate)).year
+            else { return nil }
             
             return calculatePickerData(totalYears: totalYears, toDate: startInitDate, startDate: startDate, endDate: endDate, isInitState: true)
         }
@@ -124,10 +125,12 @@ public struct CalendarGenerator: CalendarGeneratorDelegate {
             let offset = calendarDate == Date.distantPast ? 0 : -1
             let toDate = (Calendar.current.date(byAdding: .year, value: offset, to: pickerStartDate) ?? Date()).removeTimeStamp()
             guard localStartDate.removeTimeStamp() <= preDate.removeTimeStamp(),
-                    let totalMonths = calendar.dateComponents([.year],
-                                                      from: fromDate,
-                                                      to: toDate).year, totalMonths > 0 else {
-                return nil }
+                    let totalMonths = calendar.dateComponents(
+                        [.year],
+                        from: fromDate,
+                        to: toDate).year,
+                  totalMonths > 0
+            else { return nil }
             
             return calculatePickerData(totalYears: totalMonths, toDate: preDate, startDate: startDate, endDate: nil)
     }
@@ -147,10 +150,14 @@ public struct CalendarGenerator: CalendarGeneratorDelegate {
                 return nil
             }
             let fromDate = (Calendar.current.date(byAdding: .year, value: 1, to: pickerEndDate) ?? Date()).removeTimeStamp()
-            guard localEndDate >= toDate, let totalMonths = calendar.dateComponents([.year],
-                                                      from: fromDate,
-                                                      to: toDate).year, totalMonths > 0 else {
-                return nil }
+            guard
+                localEndDate >= toDate,
+                let totalMonths = calendar.dateComponents(
+                    [.year],
+                    from: fromDate,
+                    to: toDate).year,
+                totalMonths > 0
+            else { return nil }
             
             return calculatePickerData(totalYears: totalMonths + 1, toDate: fromDate, startDate: nil, endDate: endDate)
     }
@@ -172,9 +179,10 @@ public struct CalendarGenerator: CalendarGeneratorDelegate {
                    Calendar.current.startOfYear(currentMonthDate).removeTimeStamp() <= startDate.removeTimeStamp() {
                     let lastYearDate = Calendar.current.monthDate(by: 12, dayIndex: 16, date: currentMonthDate)
                     let toDate = Calendar.current.nextMonth(lastYearDate)
-                    let totalMonths = calendar.dateComponents([.month],
-                                                                 from: startDate,
-                                                                 to: toDate).month
+                    let totalMonths = calendar.dateComponents(
+                        [.month],
+                        from: startDate,
+                        to: toDate).month
                     if let totalMonths = totalMonths, totalMonths >= 0 {
                         let localCalendarPickerMonths = getMounthsFromStart(
                             totalMonths: totalMonths,
@@ -213,13 +221,15 @@ public struct CalendarGenerator: CalendarGeneratorDelegate {
         return calendarPickerYears
     }
     
-    public func calculateDates(startDate: Date, endDate: Date, monthDate: Date? = nil) -> ([Date],Date?) {
+    public func calculateDates(startDate: Date, endDate: Date, monthDate: Date? = nil) -> ([Date], Date?) {
         var dates = [Date]()
         let currentDate = (monthDate ?? Date()).firstDateOfMonth().removeTimeStamp()
         
-        guard let totalMonths = calendar.dateComponents([.month],
-                                                  from: startDate,
-                                                  to: endDate).month else {
+        guard let totalMonths = calendar.dateComponents(
+            [.month],
+            from: startDate,
+            to: endDate).month
+        else {
             return (dates, nil)
         }
         

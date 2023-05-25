@@ -283,7 +283,11 @@ public struct OTPTextField: TextFieldInput, AccessabilitySupportUIKit, Identifia
                         .font(scheme.informerFont.swiftUIFont)
                         .padding(.top, LayoutGrid.module)
                         .padding(.bottom, LayoutGrid.module)
-                        .accessibilityIdentifier(TextFieldsAccessibilityIdentifiers.info.accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier))
+                        .accessibilityIdentifier(
+                            TextFieldsAccessibilityIdentifiers.info.accessibilityViewIdentifier(
+                                accessibilityIdentifier: accessibilityIdentifier
+                            )
+                        )
                 }
             }
         }
@@ -333,7 +337,11 @@ public struct OTPTextField: TextFieldInput, AccessabilitySupportUIKit, Identifia
                             self.isFocused = false
                             self.isTextFieldResponder = false
                         }
-                        .accessibilityIdentifier(TextFieldsAccessibilityIdentifiers.placeholder.accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier))
+                        .accessibilityIdentifier(
+                            TextFieldsAccessibilityIdentifiers.placeholder.accessibilityViewIdentifier(
+                                accessibilityIdentifier: accessibilityIdentifier
+                            )
+                        )
                 } else {
                     UIKitTextField(
                         text: $content,
@@ -367,7 +375,7 @@ public struct OTPTextField: TextFieldInput, AccessabilitySupportUIKit, Identifia
                     }
                     .onChange(of: content) { value in
 
-                        if(content == "") {
+                        if content == "" {
                             isFilled = false
                         } else {
                             isFilled = true

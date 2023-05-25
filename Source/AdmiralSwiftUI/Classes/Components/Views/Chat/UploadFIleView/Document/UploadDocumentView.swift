@@ -142,7 +142,7 @@ struct UploadDocumentView: View {
 
     // MARK: - Private properties
 
-    private var cornersOfGroup: UIRectCorner? = nil
+    private var cornersOfGroup: UIRectCorner?
     private var direction: ChatDirection
 
     @ObservedObject private var schemeProvider: SchemeProvider<UploadDocumentViewScheme>

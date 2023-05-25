@@ -215,7 +215,8 @@ open class TextView: TextViewInput, AnyAppThemable, AccessibilitySupport {
         switch state {
         case .normal:
             inputTextView.textColor = scheme.textColor.uiColor
-            decorationView.nameLabel.textColor = (isEditing || (isSelected && decorationView.isOpened)) ? scheme.tintColor.uiColor : scheme.underlineColor.uiColor
+            decorationView.nameLabel.textColor = (isEditing || (isSelected && decorationView.isOpened)) ?
+            scheme.tintColor.uiColor : scheme.underlineColor.uiColor
             decorationView.separatorView.lineColor = (isEditing || isSelected) ? scheme.tintColor.uiColor : scheme.underlineColor.uiColor
             decorationView.informerLabel.textColor = scheme.underlineColor.uiColor
             decorationView.separatorView.lineMode = .solid

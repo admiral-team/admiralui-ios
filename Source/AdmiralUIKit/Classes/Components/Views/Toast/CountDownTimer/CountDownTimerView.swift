@@ -126,7 +126,7 @@ class CountDownTimerView: UIView, AnyAppThemable {
     }
     
     func startTimer() {
-        timer = Timer.scheduledTimer(withTimeInterval: Constants.animationDuration, repeats: true) { [weak self] (timer) in
+        timer = Timer.scheduledTimer(withTimeInterval: Constants.animationDuration, repeats: true) { [weak self] timer in
             guard let `self` = self else { return }
             
             self.countFrom += Constants.animationDuration

@@ -93,9 +93,11 @@ class MonthYearPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataS
         let dateFormatter = DateFormatter()
         dateFormatter.locale = locale
         
-        guard let totalYears = calendar.dateComponents([.year],
-                                                  from: startDate,
-                                                  to: calendar.endOfYear(endDate)).year else { return }
+        guard let totalYears = calendar.dateComponents(
+            [.year],
+            from: startDate,
+            to: calendar.endOfYear(endDate)).year
+        else { return }
         
         for yearIndex in 0...totalYears {
             if

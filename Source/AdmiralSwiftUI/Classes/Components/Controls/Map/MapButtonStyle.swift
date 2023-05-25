@@ -100,7 +100,9 @@ private extension MapButtonStyle {
 
         var body: some View {
             let scheme = schemeProvider.scheme
-            let backgroundColor = configuration.isPressed ? scheme.backgroundColor.parameter(for: .highlighted)?.swiftUIColor : scheme.backgroundColor.parameter(for: .normal)?.swiftUIColor
+            let backgroundColor = configuration.isPressed ?
+            scheme.backgroundColor.parameter(for: .highlighted)?.swiftUIColor
+            : scheme.backgroundColor.parameter(for: .normal)?.swiftUIColor
             image
                 .frame(width: LayoutGrid.halfModule * 10, height: LayoutGrid.halfModule * 10)
                 .foregroundColor(scheme.imageTintColor.swiftUIColor)

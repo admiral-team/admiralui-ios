@@ -113,11 +113,15 @@ public final class CurrencyHeaderView: UIView, AnyAppThemable {
 
     private func addSubviews() {
         [overView].addToSuperview(self)
-        [currencyTextLabel,sellTextLabel, buyTextLabel].addToSuperview(overView)
+        [currencyTextLabel, sellTextLabel, buyTextLabel].addToSuperview(overView)
     }
 
     private func setupConstraints() {
-        trailingConstraint =  overView.trailingAnchor.constraint(equalTo: sellTextLabel.trailingAnchor, constant: isTextSpacingEnabled ? LayoutGrid.tripleModule : .zero)
+        trailingConstraint =
+        overView.trailingAnchor.constraint(
+            equalTo: sellTextLabel.trailingAnchor,
+            constant: isTextSpacingEnabled ? LayoutGrid.tripleModule : .zero
+        )
 
         NSLayoutConstraint.activate([
             overView.leadingAnchor.constraint(equalTo: leadingAnchor),

@@ -123,7 +123,7 @@ public struct DoubleSliderView: View {
             .frame(width: Constants.circleWidth, height: Constants.circleHeight)
             .background(Circle().stroke(thumbBorderColor, lineWidth: Constants.circleLine))
             .offset(x: val * (width - Constants.circleWidth - Constants.circleLine) + Constants.circleXOffset)
-            .gesture(DragGesture().onChanged({ (value) in
+            .gesture(DragGesture().onChanged({ value in
                 isFromLastTouch = true
                 gestureChange()
                 
@@ -149,7 +149,7 @@ public struct DoubleSliderView: View {
             .frame(width: Constants.circleWidth, height: Constants.circleHeight)
             .background(Circle().stroke(thumbBorderColor, lineWidth: Constants.circleLine))
             .offset(x: val * (width - Constants.circleWidth - Constants.circleLine) + Constants.circleXOffset)
-            .gesture(DragGesture().onChanged({ (value) in
+            .gesture(DragGesture().onChanged({ value in
                 isFromLastTouch = true
                 gestureChange()
                 
@@ -175,7 +175,7 @@ public struct DoubleSliderView: View {
             .frame(width: Constants.circleWidth, height: Constants.circleHeight)
             .background(Circle().stroke(thumbBorderColor, lineWidth: Constants.circleLine))
             .offset(x: val * (width - Constants.circleWidth - Constants.circleLine) + Constants.circleXOffset)
-            .gesture(DragGesture().onChanged({ (value) in
+            .gesture(DragGesture().onChanged( { value in
                 isFromLastTouch = false
                 gestureChange()
                 

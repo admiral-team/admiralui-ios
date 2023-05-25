@@ -387,7 +387,7 @@ public struct TextView<T>: TextFieldInput, AccessabilitySupportUIKit, Identifiab
             }
             .onChange(of: content) { value in
 
-                if(content == "") {
+                if content == "" {
                     withAnimation(.spring()) {
                         isFilled = false
                     }
@@ -423,7 +423,11 @@ public struct TextView<T>: TextFieldInput, AccessabilitySupportUIKit, Identifiab
                 trailingView()
                     .foregroundColor(trailingViewTintColor)
                     .offset(y: LayoutGrid.module)
-                    .accessibilityIdentifier(TextFieldsAccessibilityIdentifiers.trailingView.accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier))
+                    .accessibilityIdentifier(
+                        TextFieldsAccessibilityIdentifiers.trailingView.accessibilityViewIdentifier(
+                            accessibilityIdentifier: accessibilityIdentifier
+                        )
+                    )
                     .modifier(SizeAwareViewModifier(viewSize: $trailingViewSize))
             }
         }

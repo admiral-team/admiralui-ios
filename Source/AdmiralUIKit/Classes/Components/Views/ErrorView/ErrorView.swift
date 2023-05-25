@@ -80,7 +80,7 @@ public final class ErrorView: UIView, AnyAppThemable {
     }
 
     /// The delegate of ErrorView.
-    weak public var delegate: ErrorViewDelegate? = nil
+    weak public var delegate: ErrorViewDelegate?
 
     // MARK: - Private properties
 
@@ -155,8 +155,9 @@ public final class ErrorView: UIView, AnyAppThemable {
 
     private func updateStackSpacing() {
         textLabel.text = text
-        guard let text = text,
-              text.count > 0
+        guard
+            let text = text,
+            !text.isEmpty
         else {
             textBlockStackView.spacing = .zero
             return

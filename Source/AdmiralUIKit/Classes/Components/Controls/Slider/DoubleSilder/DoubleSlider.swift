@@ -233,7 +233,7 @@ public final class DoubleSlider: UIControl, AnyAppThemable {
         progressView.upperProgress = upperProgress
 
         if lowerThumbImageView.isHighlighted {
-            lowerThumbImageView.calculateFrameForSlider(rect,thumbSize, progress: lowerProgress)
+            lowerThumbImageView.calculateFrameForSlider(rect, thumbSize, progress: lowerProgress)
             DispatchQueue.main.async {
                 self.lowerThumbImageView.layer.zPosition = 1
                 self.upperThumbImageView.layer.zPosition = 0

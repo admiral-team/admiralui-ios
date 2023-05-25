@@ -105,7 +105,7 @@ public final class UploadImageGridView: UIView, AnyAppThemable {
         [.leftSide, .rightSide],
         [.top, .bottomLeft, .bottomRight],
         [.topLeft, .topRight, .bottomLeft, .bottomRight],
-        [.top , .none, .none, .bottomLeft, .bottomRight],
+        [.top, .none, .none, .bottomLeft, .bottomRight],
         [.topLeft, .topRight, .none, .none, .bottomLeft, .bottomRight]
     ]
 
@@ -128,7 +128,7 @@ public final class UploadImageGridView: UIView, AnyAppThemable {
     }
 
     private var isChatBubbleHidden : Bool {
-        guard models.count > 0 else {
+        guard !models.isEmpty else {
             return true
         }
         return (models.first(where: { $0.state == .loading }) != nil)
@@ -192,7 +192,8 @@ public final class UploadImageGridView: UIView, AnyAppThemable {
                 overView.addSubview(uploadImageView)
             }
         }
-        heightConstraint.constant = models.count == 0 ? .zero : (CGFloat(grid.count) * Constants.height) + (LayoutGrid.module * CGFloat(grid.count))
+        heightConstraint.constant = models.isEmpty ? .zero
+        : (CGFloat(grid.count) * Constants.height) + (LayoutGrid.module * CGFloat(grid.count))
     }
 
     private func setupConstraints() {

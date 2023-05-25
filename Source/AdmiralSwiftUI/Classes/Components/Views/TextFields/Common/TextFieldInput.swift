@@ -75,7 +75,11 @@ public struct TextInputDecorationBox<T, P>: View where T: View, P: View {
                         .lineLimit(infoNumberOfLines)
                         .padding(.top, LayoutGrid.module)
                         .padding(.bottom, LayoutGrid.module)
-                        .accessibilityIdentifier(TextFieldsAccessibilityIdentifiers.info.accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier))
+                        .accessibilityIdentifier(
+                            TextFieldsAccessibilityIdentifiers.info.accessibilityViewIdentifier(
+                                accessibilityIdentifier: accessibilityIdentifier
+                            )
+                        )
                 }
             }
         }
@@ -195,7 +199,11 @@ public struct TextInputDecorationBox<T, P>: View where T: View, P: View {
                         .foregroundColor(placeholderColor)
                         .font(textFieldFont?.swiftUIFont)
                         .opacity(!isFilled && isFocused ? 1 : 0)
-                        .accessibilityIdentifier(TextFieldsAccessibilityIdentifiers.placeholder.accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier))
+                        .accessibilityIdentifier(
+                            TextFieldsAccessibilityIdentifiers.placeholder.accessibilityViewIdentifier(
+                                accessibilityIdentifier: accessibilityIdentifier
+                            )
+                        )
                     Spacer()
                 }
                 
@@ -205,7 +213,11 @@ public struct TextInputDecorationBox<T, P>: View where T: View, P: View {
                     .modifier(AnimatingFontSize(
                         fontSize: (isFilled || isFocused) ? (nameFont?.size ?? 0.0) : (textFieldFont?.size ?? 0.0),
                         fontName: (isFilled || isFocused) ? (nameFont?.name ?? "") : (textFieldFont?.name ?? "")))
-                    .accessibilityIdentifier(TextFieldsAccessibilityIdentifiers.name.accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier))
+                    .accessibilityIdentifier(
+                        TextFieldsAccessibilityIdentifiers.name.accessibilityViewIdentifier(
+                            accessibilityIdentifier: accessibilityIdentifier
+                        )
+                    )
             }
         }
 

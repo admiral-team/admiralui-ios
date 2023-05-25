@@ -398,7 +398,7 @@ public struct SecurityTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
                             }
                         })
                         .onChange(of: content) { value in
-                            if(content == "") {
+                            if content == "" {
                                 withAnimation(.spring()) {
                                     isFilled = false
                                 }
@@ -427,13 +427,21 @@ public struct SecurityTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
                 trailingView()
                     .foregroundColor(trailingViewTintColor)
                     .disabled(state == .disabled)
-                    .accessibilityIdentifier(TextFieldsAccessibilityIdentifiers.trailingView.accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier))
+                    .accessibilityIdentifier(
+                        TextFieldsAccessibilityIdentifiers.trailingView.accessibilityViewIdentifier(
+                            accessibilityIdentifier: accessibilityIdentifier
+                        )
+                    )
             } else {
                 Button(action: changeSecure, label: {
                     (isSecure ? eyeOn : eyeOff)
                         .frame(width: LayoutGrid.tripleModule, height: LayoutGrid.tripleModule)
                         .foregroundColor(trailingViewTintColor)
-                        .accessibilityIdentifier(TextFieldsAccessibilityIdentifiers.trailingView.accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier))
+                        .accessibilityIdentifier(
+                            TextFieldsAccessibilityIdentifiers.trailingView.accessibilityViewIdentifier(
+                                accessibilityIdentifier: accessibilityIdentifier
+                            )
+                        )
                 })
                 .disabled(state == .disabled)
             }

@@ -127,7 +127,7 @@ public class PinCodeKeyboard: UIView, AnyAppThemable {
     }
 
     @objc private func tapSegment(_ control: UIControl) {
-        if (control is PinCodeTextView) {
+        if control is PinCodeTextView {
             delegate?.pincodeViewDidTapLeftAccessoryItem(self)
         }
 

@@ -16,13 +16,13 @@ public class BankCardTextField: TextFieldInput, AnyAppThemable, AccessibilitySup
     
     /// The textfield state.
     public var state: TextInputState {
-        get { return privateTextFieldState }
+        get { privateTextFieldState }
         set { setState(newValue, animated: false) }
     }
     
     /// The string that displays when there is no other text in the text field.
     public var placeholder: String? {
-        get { return inputTextField.placeholder }
+        get { inputTextField.placeholder }
         set {
             inputTextField.placeholder = newValue
             updatePlaceholder()
@@ -31,19 +31,19 @@ public class BankCardTextField: TextFieldInput, AnyAppThemable, AccessibilitySup
     
     /// The string that displays some additional info.
     public var info: String? {
-        get { return decorationView.info }
+        get { decorationView.info }
         set { decorationView.info = newValue }
     }
     
     /// The maximum number of lines to use for info.
     public var infoNumberOfLines: Int {
-        get { return  decorationView.informerLabel.numberOfLines }
+        get { decorationView.informerLabel.numberOfLines }
         set { decorationView.informerLabel.numberOfLines = newValue }
     }
     
     /// The text field’s trailing view.
     public var trailingView: UIView? {
-        get { return decorationView.trailingView }
+        get { decorationView.trailingView }
         set { decorationView.trailingView = newValue }
     }
 
@@ -75,13 +75,13 @@ public class BankCardTextField: TextFieldInput, AnyAppThemable, AccessibilitySup
     /// Asks UIKit to make this object the first responder in its window.
     @discardableResult
     open override func becomeFirstResponder() -> Bool {
-        return inputTextField.becomeFirstResponder()
+        inputTextField.becomeFirstResponder()
     }
 
     /// Notifies this object that it has been asked to relinquish its status as first responder in its window.
     @discardableResult
     open override func resignFirstResponder() -> Bool {
-        return inputTextField.resignFirstResponder()
+        inputTextField.resignFirstResponder()
     }
     
     /// Sets the  text, allowing you to animate the change visually.

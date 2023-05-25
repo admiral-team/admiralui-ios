@@ -66,7 +66,10 @@ public struct ArrowListView: View, TralingListViewComponent {
                 Spacer()
                 SymbolAssets.System.Outline.chevronRight.swiftUIImage
                     .frame(width: LayoutGrid.module, height: LayoutGrid.doubleModule)
-                    .foregroundColor(isEnabled ? scheme.imageTintColor.parameter(for: .normal)?.swiftUIColor : scheme.imageTintColor.parameter(for: .disabled)?.swiftUIColor)
+                    .foregroundColor(
+                        isEnabled ? scheme.imageTintColor.parameter(for: .normal)?.swiftUIColor :
+                            scheme.imageTintColor.parameter(for: .disabled)?.swiftUIColor
+                    )
             }
             Spacer(minLength: .zero)
         }

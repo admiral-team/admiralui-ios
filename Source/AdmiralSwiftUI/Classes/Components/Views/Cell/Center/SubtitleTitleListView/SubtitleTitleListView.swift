@@ -89,14 +89,20 @@ public struct SubtitleTitleListView: View, CenterListViewComponent {
                     Text(subtitle)
                         .multilineTextAlignment(.leading)
                         .font(scheme.subtitleFont.parameter(for: .normal, style: titleSubtitleListViewStyle)?.swiftUIFont)
-                        .foregroundColor(isEnabled ? scheme.subtitleColor.parameter(for: .normal)?.swiftUIColor : scheme.subtitleColor.parameter(for: .disabled)?.swiftUIColor)
+                        .foregroundColor(
+                            isEnabled ? scheme.subtitleColor.parameter(for: .normal)?.swiftUIColor
+                            : scheme.subtitleColor.parameter(for: .disabled)?.swiftUIColor
+                        )
                 }
                 if let title = title {
                     Text(title)
                         .multilineTextAlignment(.leading)
                         .lineLimit(lineLimit)
                         .font(scheme.titleFont.parameter(for: .normal, style: titleSubtitleListViewStyle)?.swiftUIFont)
-                        .foregroundColor(isEnabled ? scheme.titleColor.parameter(for: .normal)?.swiftUIColor : scheme.titleColor.parameter(for: .disabled)?.swiftUIColor)
+                        .foregroundColor(
+                            isEnabled ? scheme.titleColor.parameter(for: .normal)?.swiftUIColor
+                            : scheme.titleColor.parameter(for: .disabled)?.swiftUIColor
+                        )
                 }
             }
             Spacer(minLength: 0.0)
@@ -110,12 +116,24 @@ struct SubtitleTitleListView_Previews: PreviewProvider {
 
     static var previews: some View {
         SubtitleTitleListView(
-            title: "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat",
+            title: """
+            Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus,
+            omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum
+            necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.
+            Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias
+            consequatur aut perferendis doloribus asperiores repellat
+            """,
             subtitle: "subtitle",
             lineLimit: 2
         )
         SubtitleTitleListView(
-            title: "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat",
+            title: """
+            Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus,
+            omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum
+            necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.
+            Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur
+            aut perferendis doloribus asperiores repellat
+            """,
             subtitle: "subtitle"
         )
     }

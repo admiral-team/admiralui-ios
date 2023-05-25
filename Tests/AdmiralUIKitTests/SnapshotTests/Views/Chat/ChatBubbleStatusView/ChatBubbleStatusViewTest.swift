@@ -18,12 +18,23 @@ class ChatBubbleStatusViewTest: XCTestCase {
     }()
 
     func testDefaultChatBubbleStatus() {
-        let view = createChatBubbleStatusView(direction: .left, time: "21:21", status: nil, backgroundColor: theme.colors.backgroundAdditionalOne.uiColor)
+        let view = createChatBubbleStatusView(
+            direction: .left,
+            time: "21:21",
+            status: nil,
+            backgroundColor: theme.colors.backgroundAdditionalOne.uiColor
+        )
         checkView(view: view, named: "Left", testName: "ChatBubbleStatusView")
     }
 
     func testDefaultChatBubbleStatusRight() {
-        let view = createChatBubbleStatusView(direction: .right, time: "21:21", status: nil, backgroundColor: theme.colors.backgroundAccent.uiColor, size: CGSize(width: 33, height: 16))
+        let view = createChatBubbleStatusView(
+            direction: .right,
+            time: "21:21",
+            status: nil,
+            backgroundColor: theme.colors.backgroundAccent.uiColor,
+            size: CGSize(width: 33, height: 16)
+        )
         checkView(view: view, named: "Right", testName: "ChatBubbleStatusView")
     }
 

@@ -34,55 +34,55 @@ open class BigInformer: UIView, AnyAppThemable, AccessibilitySupport {
     
     /// The font of title
     open var titleFont: UIFont? {
-        get { return titleLabel.font }
+        get { titleLabel.font }
         set { titleLabel.font = newValue }
     }
     
     /// The font of description label.
     open var descriptionFont: UIFont? {
-        get { return descriptionLabel.font }
+        get { descriptionLabel.font }
         set { descriptionLabel.font = newValue }
     }
     
     /// The font of link label.
     var linkLabelFont: UIFont? {
-        get { return linkLabel.font }
+        get { linkLabel.font }
         set { linkLabel.font = newValue }
     }
     
     /// The title text that the informer is displaying.
     open var titleText: String? {
-        get { return titleLabel.text }
+        get { titleLabel.text }
         set { titleLabel.text = newValue }
     }
     
     /// The description text that the informer is displaying.
     open var descriptionText: String? {
-        get { return descriptionLabel.text }
+        get { descriptionLabel.text }
         set { descriptionLabel.text = newValue }
     }
     
     /// The link text that the informer is displaying.
     open var linkText: String? {
-        get { return linkLabel.text }
+        get { linkLabel.text }
         set { linkLabel.text = newValue }
     }
     
     /// The number of lines of title label.
     open var titleLabelNumerOfLines: Int {
-        get { return titleLabel.numberOfLines }
+        get { titleLabel.numberOfLines }
         set { titleLabel.numberOfLines = newValue }
     }
     
     /// The number of lines of description label.
     open var descriptionLabelNumerOfLines: Int {
-        get { return descriptionLabel.numberOfLines }
+        get { descriptionLabel.numberOfLines }
         set { descriptionLabel.numberOfLines = newValue }
     }
     
     /// The number of lines of link label.
     open var linkLabelNumerOfLines: Int {
-        get { return linkLabel.numberOfLines }
+        get { linkLabel.numberOfLines }
         set { linkLabel.numberOfLines = newValue }
     }
     

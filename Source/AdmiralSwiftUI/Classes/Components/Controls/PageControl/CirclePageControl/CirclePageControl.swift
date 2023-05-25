@@ -164,7 +164,7 @@ private extension CirclePageControlStyle {
 }
 
 @available(iOS 14.0, *)
-private struct exampleCircleControl: View {
+private struct ExampleCircleControl: View {
     @State var step: Int = 0
     var body: some View {
         Button(action: {}, label: {})
@@ -176,7 +176,7 @@ private struct exampleCircleControl: View {
 struct CirclePageControl_Previews: PreviewProvider {
 
     static var previews: some View {
-        exampleCircleControl()
+        ExampleCircleControl()
     }
 
 }

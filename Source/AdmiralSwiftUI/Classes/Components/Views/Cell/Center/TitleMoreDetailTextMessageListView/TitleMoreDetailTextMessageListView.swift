@@ -133,14 +133,20 @@ public struct TitleMoreDetailTextMessageListView: View, CenterListViewComponent 
                 Text(title)
                     .multilineTextAlignment(.leading)
                     .font(scheme.titleFont.swiftUIFont)
-                    .foregroundColor(isEnabled ? scheme.titleLabelTextColor.parameter(for: .normal)?.swiftUIColor : scheme.titleLabelTextColor.parameter(for: .disabled)?.swiftUIColor)
+                    .foregroundColor(
+                        isEnabled ? scheme.titleLabelTextColor.parameter(for: .normal)?.swiftUIColor
+                        : scheme.titleLabelTextColor.parameter(for: .disabled)?.swiftUIColor
+                    )
             }
             if let more = more {
                 Text(more)
                     .multilineTextAlignment(.leading)
                     .offset(y: 1.0)
                     .font(scheme.moreFont.swiftUIFont)
-                    .foregroundColor(isEnabled ? scheme.moreLabelTextColor.parameter(for: .normal)?.swiftUIColor : scheme.moreLabelTextColor.parameter(for: .disabled)?.swiftUIColor)
+                    .foregroundColor(
+                        isEnabled ? scheme.moreLabelTextColor.parameter(for: .normal)?.swiftUIColor
+                        : scheme.moreLabelTextColor.parameter(for: .disabled)?.swiftUIColor
+                    )
             }
         })
     }
@@ -151,20 +157,30 @@ public struct TitleMoreDetailTextMessageListView: View, CenterListViewComponent 
                 Text(detaile)
                     .multilineTextAlignment(.leading)
                     .font(scheme.detaileTitleFont.swiftUIFont)
-                    .foregroundColor(isEnabled ? scheme.detaileTitleLabelTextColor.parameter(for: .normal)?.swiftUIColor : scheme.detaileTitleLabelTextColor.parameter(for: .disabled)?.swiftUIColor)
+                    .foregroundColor(
+                        isEnabled ?
+                        scheme.detaileTitleLabelTextColor.parameter(for: .normal)?.swiftUIColor
+                        : scheme.detaileTitleLabelTextColor.parameter(for: .disabled)?.swiftUIColor
+                    )
             }
             if let detaileMore = detaileMore {
                 Text(detaileMore)
                     .multilineTextAlignment(.leading)
                     .font(scheme.detaileMoreFont.swiftUIFont)
-                    .foregroundColor(isEnabled ? scheme.detaileMoreLabelTextColor.parameter(for: .normal)?.swiftUIColor : scheme.detaileMoreLabelTextColor.parameter(for: .disabled)?.swiftUIColor)
+                    .foregroundColor(
+                        isEnabled ? scheme.detaileMoreLabelTextColor.parameter(for: .normal)?.swiftUIColor
+                        : scheme.detaileMoreLabelTextColor.parameter(for: .disabled)?.swiftUIColor
+                    )
             }
             if let infoImage = infoImage {
                 infoImage
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: LayoutGrid.halfModule * 3, height: LayoutGrid.halfModule * 3)
-                    .foregroundColor(isEnabled ? scheme.infoImageViewTintColor.parameter(for: .normal)?.swiftUIColor : scheme.infoImageViewTintColor.parameter(for: .disabled)?.swiftUIColor)
+                    .foregroundColor(isEnabled ?
+                                     scheme.infoImageViewTintColor.parameter(for: .normal)?.swiftUIColor
+                                     : scheme.infoImageViewTintColor.parameter(for: .disabled)?.swiftUIColor
+                    )
             }
         })
     }
@@ -175,15 +191,24 @@ public struct TitleMoreDetailTextMessageListView: View, CenterListViewComponent 
                 Text(subtitle)
                     .multilineTextAlignment(.leading)
                     .font(scheme.subtitleFont.swiftUIFont)
-                    .foregroundColor(isEnabled ? scheme.subtitleLabelTextColor.parameter(for: .normal)?.swiftUIColor : scheme.subtitleLabelTextColor.parameter(for: .disabled)?.swiftUIColor)
+                    .foregroundColor(
+                        isEnabled ? scheme.subtitleLabelTextColor.parameter(for: .normal)?.swiftUIColor
+                        : scheme.subtitleLabelTextColor.parameter(for: .disabled)?.swiftUIColor
+                    )
             }
             if let tagText = tagText {
                 Text(tagText)
                     .font(scheme.tagViewFont.swiftUIFont)
-                    .foregroundColor(isEnabled ? scheme.infoImageViewTintColor.parameter(for: .normal)?.swiftUIColor : scheme.infoImageViewTintColor.parameter(for: .disabled)?.swiftUIColor)
+                    .foregroundColor(
+                        isEnabled ? scheme.infoImageViewTintColor.parameter(for: .normal)?.swiftUIColor
+                        : scheme.infoImageViewTintColor.parameter(for: .disabled)?.swiftUIColor
+                    )
                     .padding(LayoutGrid.halfModule)
                     .background(
-                        isEnabled ? scheme.messageViewBackgroundColor.parameter(for: .normal)?.swiftUIColor : scheme.messageViewBackgroundColor.parameter(for: .disabled)?.swiftUIColor)
+                        isEnabled ?
+                        scheme.messageViewBackgroundColor.parameter(for: .normal)?.swiftUIColor
+                        : scheme.messageViewBackgroundColor.parameter(for: .disabled)?.swiftUIColor
+                    )
                     .cornerRadius(LayoutGrid.halfModule)
             }
         })
@@ -192,12 +217,18 @@ public struct TitleMoreDetailTextMessageListView: View, CenterListViewComponent 
     private func textMessageView(scheme: TitleMoreDetailTextMessageListViewScheme) -> some View {
         return Text(messageText ?? "")
             .font(scheme.messageTitleFont.swiftUIFont)
-            .foregroundColor(isEnabled ? scheme.messageTitleLabelTitleColor.parameter(for: .normal)?.swiftUIColor : scheme.messageTitleLabelTitleColor.parameter(for: .disabled)?.swiftUIColor)
+            .foregroundColor(
+                isEnabled ? scheme.messageTitleLabelTitleColor.parameter(for: .normal)?.swiftUIColor
+                : scheme.messageTitleLabelTitleColor.parameter(for: .disabled)?.swiftUIColor
+            )
             .padding(.leading, LayoutGrid.doubleModule)
             .padding(.trailing, LayoutGrid.doubleModule)
             .padding(.top, Constants.verticalPadding)
             .padding(.bottom, Constants.verticalPadding)
-            .background(isEnabled ? scheme.messageViewBackgroundColor.parameter(for: .normal)?.swiftUIColor : scheme.messageViewBackgroundColor.parameter(for: .disabled)?.swiftUIColor)
+            .background(
+                isEnabled ? scheme.messageViewBackgroundColor.parameter(for: .normal)?.swiftUIColor
+                : scheme.messageViewBackgroundColor.parameter(for: .disabled)?.swiftUIColor
+            )
             .clipShape(
                 RoundedCorner(radius: LayoutGrid.module, corners: [.bottomLeft])
             )

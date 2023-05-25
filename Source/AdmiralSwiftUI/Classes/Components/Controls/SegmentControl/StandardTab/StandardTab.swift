@@ -124,7 +124,10 @@ public struct StandardTab: View {
                 .frame(height: LayoutGrid.quadrupleModule)
                 .overlay(
                     RoundedRectangle(cornerRadius: LayoutGrid.module)
-                        .stroke((isEnabled ? scheme.borderColor.parameter(for: .normal)?.swiftUIColor : scheme.borderColor.parameter(for: .disabled)?.swiftUIColor) ?? .clear, lineWidth: Constants.segmentLineWidth)
+                        .stroke((
+                            isEnabled ? scheme.borderColor.parameter(for: .normal)?.swiftUIColor
+                            : scheme.borderColor.parameter(for: .disabled)?.swiftUIColor) ?? .clear, lineWidth: Constants.segmentLineWidth
+                        )
                 )
                 .padding(Constants.pickerPadding)
                 .background(Color.clear)

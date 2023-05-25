@@ -82,7 +82,7 @@ struct UIKitTextField: UIViewRepresentable {
     // MARK: - Internal Properties
 
     var text: Binding<String?>
-    var isResponder: Binding<Bool>? = nil
+    var isResponder: Binding<Bool>?
     var isFirstResponder: Bool?
 
     var placeholder: String?
@@ -93,7 +93,7 @@ struct UIKitTextField: UIViewRepresentable {
     var returnKeyType: UIReturnKeyType = .default
     var autocapitalizationType: UITextAutocapitalizationType = .none
     var autocorrectionType: UITextAutocorrectionType = .no
-    var textContentType: UITextContentType? = nil
+    var textContentType: UITextContentType?
     var canPerformActionPaste: Bool = true
 
     var font: UIFont?
@@ -104,7 +104,7 @@ struct UIKitTextField: UIViewRepresentable {
 
     var onSubmit: (() -> Void)?
     var onCursorPosition: ((Int, Int, String) -> (Int))?
-    var updateWidth: Binding<CGFloat>? = nil
+    var updateWidth: Binding<CGFloat>?
     var accessibilityIdentifier: String?
 
     // MARK: - Initializer
@@ -130,8 +130,8 @@ struct UIKitTextField: UIViewRepresentable {
         onSubmit: (() -> Void)? = nil,
         onCursorPosition: ((Int, Int, String) -> (Int))? = nil,
         updateWidth: Binding<CGFloat>? = nil,
-        accessibilityIdentifier: String? = nil)
-    {
+        accessibilityIdentifier: String? = nil
+    ) {
         self.text = text
         self.isResponder = isResponder
         self.isFirstResponder = isFirstResponder

@@ -97,7 +97,7 @@ public struct LinerPageControll: View {
                 }
             }
         }
-        .frame(width: calculateWidth() , height: LayoutGrid.halfModule * 5)
+        .frame(width: calculateWidth(), height: LayoutGrid.halfModule * 5)
         .disabled(true)
     }
     

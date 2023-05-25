@@ -60,21 +60,21 @@ struct TimeFormatter {
         }
         
         if text.count == 1 {
-            return ("",text)
+            return ("", text)
         } else if text.count == 2 {
             if
                 let intText = Int(String(text)),
                 let intDigit = Int(newDigit),
                 intText > 60,
                 intDigit > 6 {
-                return ("","0\(newDigit)")
+                return ("", "0\(newDigit)")
             } else {
                 return ("", text)
             }
         } else if text.count == 3 {
             guard
                 let textFirst = currentText.first,
-                let textLast = currentText.last else { return ("","") }
+                let textLast = currentText.last else { return ("", "") }
             
             var minText = String(textLast) + newDigit
             if
@@ -89,7 +89,7 @@ struct TimeFormatter {
         } else if text.count == 4 {
             guard
                 let hours = String(text.prefix(2)).timeToHours(format: Constants.doubleHourFormat, isAMPM: usesAMPM()),
-                let textLast = currentText.last else { return ("","") }
+                let textLast = currentText.last else { return ("", "") }
             
             var min = String(textLast) + newDigit
             
@@ -103,7 +103,7 @@ struct TimeFormatter {
                 
             return (hours, min)
         }
-        return ("","")
+        return ("", "")
     }
     
     private func prepareHours(currentText: String, newDigit: String) -> String {

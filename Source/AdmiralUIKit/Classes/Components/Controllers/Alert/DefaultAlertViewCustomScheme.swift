@@ -84,14 +84,14 @@ public struct DefaultAlertViewCustomScheme: AppThemeScheme {
 public struct DefaultAlertViewCustomSchemeParameters<P, S: RawRepresentable & Hashable> where S.RawValue == Int {
 
     var parameters: [String: P?] = [:]
-    typealias style = S
+    typealias Style = S
 
-    mutating func set(parameter: P?, style: style) {
+    mutating func set(parameter: P?, style: Style) {
         let key = paramKey(style: style)
         parameters[key] = parameter
     }
 
-    func parameter(style: style) -> P? {
+    func parameter(style: Style) -> P? {
         let key = paramKey(style: style)
         let defaultKey = paramKey(style: style)
 
@@ -99,9 +99,8 @@ public struct DefaultAlertViewCustomSchemeParameters<P, S: RawRepresentable & Ha
         return parameter
     }
 
-    private func paramKey(style: style) -> String {
+    private func paramKey(style: Style) -> String {
         return "\(style.rawValue)"
     }
 
 }
-

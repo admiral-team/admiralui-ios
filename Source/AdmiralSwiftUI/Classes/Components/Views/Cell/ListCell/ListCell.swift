@@ -69,7 +69,7 @@ public enum CornerRadius: CGFloat {
  */
 /// A view that displays leading, trailing and image views.
 @available(iOS 14.0.0, *)
-public struct ListCell<L, C, T>: ListViewCell where L: View , C: View, T: View {
+public struct ListCell<L, C, T>: ListViewCell where L: View, C: View, T: View {
 
     /// A Boolean value indicating whether the view is in the highlighted state.
     @Binding public var isHighlighted: Bool?

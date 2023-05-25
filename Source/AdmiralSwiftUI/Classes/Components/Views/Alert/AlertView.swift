@@ -227,7 +227,11 @@ public struct AlertView: View {
                         .buttonStyle(PrimaryButtonStyle(
                             isLoading: $isLoading,
                             schemeProvider: .constant(scheme: scheme.buttonScheme)))
-                        .accessibility(identifier: AlertViewAccessibilityIdentifiers.mainButton.accessibilityViewIdentifier(accessibilityIdentifier: accessibilityId))
+                        .accessibility(
+                            identifier: AlertViewAccessibilityIdentifiers.mainButton.accessibilityViewIdentifier(
+                                accessibilityIdentifier: accessibilityId
+                            )
+                        )
                 }
                 if let additionalButtonTitle = additionalButtonTitle,
                    let additionalButtonAction = additionalButtonAction {
@@ -237,7 +241,11 @@ public struct AlertView: View {
                         Spacer()
                         Button(additionalButtonTitle, action: additionalButtonAction)
                             .buttonStyle(GhostButtonStyle())
-                            .accessibility(identifier: AlertViewAccessibilityIdentifiers.additionalButton.accessibilityViewIdentifier(accessibilityIdentifier: accessibilityId))
+                            .accessibility(
+                                identifier: AlertViewAccessibilityIdentifiers.additionalButton.accessibilityViewIdentifier(
+                                    accessibilityIdentifier: accessibilityId
+                                )
+                            )
                         Spacer()
                     }
                 }
@@ -267,4 +275,3 @@ struct AlertView_Previews: PreviewProvider {
         }
     }
 }
-

@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: - Parameter Box
 
-public struct ParameterBox<S,P> where S: RawRepresentable, S.RawValue: Hashable, S: DefaultRepresentable {
+public struct ParameterBox<S, P> where S: RawRepresentable, S.RawValue: Hashable, S: DefaultRepresentable {
 
     private var parameters: [S.RawValue: P] = [:]
 
@@ -36,7 +36,7 @@ public struct ParameterBox<S,P> where S: RawRepresentable, S.RawValue: Hashable,
 
 }
 
-public struct DoubleParameterBox<S1,S2,P>
+public struct DoubleParameterBox<S1, S2, P>
 where S1: RawRepresentable, S1.RawValue: Hashable, S1: DefaultRepresentable, S2: RawRepresentable, S2.RawValue: Hashable {
 
     private var parameters: [String: P?] = [:]

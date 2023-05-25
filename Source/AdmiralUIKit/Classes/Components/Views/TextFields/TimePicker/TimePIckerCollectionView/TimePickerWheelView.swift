@@ -164,7 +164,7 @@ extension TimePickerWheelView: UICollectionViewDelegate {
     
     var centerVisibleIndexPath: IndexPath? {
         let indexPaths = collectionView.indexPathsForVisibleItems.sorted() { $0.row < $1.row }
-        guard indexPaths.count > 0 else { return nil }
+        guard !indexPaths.isEmpty else { return nil }
         return indexPaths[indexPaths.count / 2]
     }
     

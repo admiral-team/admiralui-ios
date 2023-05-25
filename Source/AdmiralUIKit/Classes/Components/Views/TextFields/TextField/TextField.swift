@@ -245,7 +245,8 @@ open class TextField: TextFieldInput, AnyAppThemable, AccessibilitySupport {
         switch state {
         case .normal:
             inputTextField.textColor = scheme.textColor.uiColor
-            decorationView.nameLabel.textColor = (isEditing || (isSelected && decorationView.isOpened)) ? scheme.tintColor.uiColor : scheme.underlineColor.uiColor
+            decorationView.nameLabel.textColor = (isEditing || (isSelected && decorationView.isOpened)) ?
+            scheme.tintColor.uiColor : scheme.underlineColor.uiColor
             decorationView.separatorView.lineColor = (isEditing || isSelected) ? scheme.tintColor.uiColor : scheme.underlineColor.uiColor
             decorationView.informerLabel.textColor = scheme.underlineColor.uiColor
             decorationView.leadingTextLabel.textColor = scheme.textColor.uiColor

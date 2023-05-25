@@ -121,7 +121,10 @@ public struct TitleSubtitleButtonListView: View, CenterListViewComponent {
         return Text(title ?? "")
             .multilineTextAlignment(.leading)
             .font(scheme.titleFont.swiftUIFont)
-            .foregroundColor(isEnabled ? scheme.titleLabelTextColor.parameter(for: .normal)?.swiftUIColor : scheme.titleLabelTextColor.parameter(for: .disabled)?.swiftUIColor)
+            .foregroundColor(
+                isEnabled ? scheme.titleLabelTextColor.parameter(for: .normal)?.swiftUIColor
+                : scheme.titleLabelTextColor.parameter(for: .disabled)?.swiftUIColor
+            )
     }
     
     private func tagSubtitleView(scheme: TitleSubtitleButtonListViewScheme) -> some View {
@@ -130,7 +133,10 @@ public struct TitleSubtitleButtonListView: View, CenterListViewComponent {
                 Text(tagSubtitle)
                     .multilineTextAlignment(.leading)
                     .font(scheme.subtitleTagFont.swiftUIFont)
-                    .foregroundColor(isEnabled ? scheme.subtitleLabelTextColor.parameter(for: .normal)?.swiftUIColor : scheme.subtitleLabelTextColor.parameter(for: .disabled)?.swiftUIColor)
+                    .foregroundColor(
+                        isEnabled ? scheme.subtitleLabelTextColor.parameter(for: .normal)?.swiftUIColor
+                        : scheme.subtitleLabelTextColor.parameter(for: .disabled)?.swiftUIColor
+                    )
             }
             if let tagText = tagText {
                 Text(tagText)
@@ -139,7 +145,9 @@ public struct TitleSubtitleButtonListView: View, CenterListViewComponent {
                     .clipShape(
                         RoundedCorner(radius: 4.0, corners: [.allCorners])
                     )
-                    .foregroundColor(isEnabled ? scheme.subtitleTagLabelTextColor.parameter(for: .normal)?.swiftUIColor : scheme.subtitleTagLabelTextColor.parameter(for: .disabled)?.swiftUIColor)
+                    .foregroundColor(
+                        isEnabled ? scheme.subtitleTagLabelTextColor.parameter(for: .normal)?.swiftUIColor :
+                            scheme.subtitleTagLabelTextColor.parameter(for: .disabled)?.swiftUIColor)
                     .font(scheme.tagViewFont.swiftUIFont)
             }
             Spacer()
@@ -151,7 +159,10 @@ public struct TitleSubtitleButtonListView: View, CenterListViewComponent {
             .multilineTextAlignment(.leading)
             .lineLimit(subtitleLineLimit)
             .font(scheme.subtitleFont.swiftUIFont)
-            .foregroundColor(isEnabled ? scheme.subtitleLabelTextColor.parameter(for: .normal)?.swiftUIColor : scheme.subtitleLabelTextColor.parameter(for: .disabled)?.swiftUIColor)
+            .foregroundColor(
+                isEnabled ? scheme.subtitleLabelTextColor.parameter(for: .normal)?.swiftUIColor
+                : scheme.subtitleLabelTextColor.parameter(for: .disabled)?.swiftUIColor
+            )
     }
     
     private func buttonView(scheme: TitleSubtitleButtonListViewScheme) -> some View {
@@ -159,7 +170,10 @@ public struct TitleSubtitleButtonListView: View, CenterListViewComponent {
             Text(buttonTitle ?? "")
                 .multilineTextAlignment(.leading)
                 .font(scheme.ghostButtonFont.swiftUIFont)
-                .foregroundColor(isEnabled ? scheme.buttonTitleColor.parameter(for: .normal)?.swiftUIColor : scheme.buttonTitleColor.parameter(for: .disabled)?.swiftUIColor)
+                .foregroundColor(
+                    isEnabled ? scheme.buttonTitleColor.parameter(for: .normal)?.swiftUIColor
+                    : scheme.buttonTitleColor.parameter(for: .disabled)?.swiftUIColor
+                )
         })
     }
     
@@ -173,7 +187,10 @@ struct TitleSubtitleButtonListView_Previews: PreviewProvider {
             title: "title",
             tagSubtitle: "tagSubtitle",
             tagText: "tagText",
-            subtitle: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo",
+            subtitle: """
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+            totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo
+            """,
             subtitleLineLimit: 3,
             buttonTitle: "button",
             buttonAction: nil

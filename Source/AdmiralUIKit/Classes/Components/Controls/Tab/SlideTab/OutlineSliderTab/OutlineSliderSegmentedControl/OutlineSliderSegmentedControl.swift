@@ -151,7 +151,9 @@ public class OutlineSliderTabSegmentedControl: BaseOutlineSliderSegmentedControl
     }
     
     override public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier, for: indexPath) as? OutlineSliderCollectionViewCell else { fatalError("No reusable cell") }
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: Constants.cellIdentifier, for: indexPath
+        ) as? OutlineSliderCollectionViewCell else { fatalError("No reusable cell") }
         
         cell.configure(model: items[indexPath.row])
         return cell

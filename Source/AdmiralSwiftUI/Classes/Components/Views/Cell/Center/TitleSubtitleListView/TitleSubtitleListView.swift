@@ -106,13 +106,19 @@ public struct TitleSubtitleListView: View, CenterListViewComponent {
                 if let title = title {
                     Text(title)
                         .font(scheme.titleFont.parameter(for: .normal, style: titleSubtitleListViewStyle)?.swiftUIFont)
-                        .foregroundColor(isEnabled ? scheme.titleColor.parameter(for: .normal)?.swiftUIColor : scheme.titleColor.parameter(for: .disabled)?.swiftUIColor)
+                        .foregroundColor(
+                            isEnabled ? scheme.titleColor.parameter(for: .normal)?.swiftUIColor
+                            : scheme.titleColor.parameter(for: .disabled)?.swiftUIColor
+                        )
                 }
                 if let subtitle = subtitle {
                     Text(subtitle)
                         .font(scheme.subtitleFont.parameter(for: .normal, style: titleSubtitleListViewStyle)?.swiftUIFont)
                         .lineLimit(lineLimit)
-                        .foregroundColor(isEnabled ? scheme.subtitleColor.parameter(for: .normal)?.swiftUIColor : scheme.subtitleColor.parameter(for: .disabled)?.swiftUIColor)
+                        .foregroundColor(
+                            isEnabled ? scheme.subtitleColor.parameter(for: .normal)?.swiftUIColor
+                            : scheme.subtitleColor.parameter(for: .disabled)?.swiftUIColor
+                        )
                 }
                 
             }
@@ -127,8 +133,24 @@ public struct TitleSubtitleListView: View, CenterListViewComponent {
 struct TitleSubtitleListView_Previews: PreviewProvider {
 
     static var previews: some View {
-        TitleSubtitleListView(title: "title", subtitle: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio", lineLimit: 1)
-        TitleSubtitleListView(title: "title", subtitle: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio")
+        TitleSubtitleListView(
+            title: "title",
+            subtitle: """
+            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti
+            atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt
+            in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio
+            """,
+            lineLimit: 1
+        )
+        TitleSubtitleListView(
+            title: "title",
+            subtitle: """
+            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+            deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident,
+            similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
+            Et harum quidem rerum facilis est et expedita distinctio
+            """
+        )
     }
 
 }

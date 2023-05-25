@@ -84,7 +84,8 @@ public struct UnderlineTab: View {
 
     private var activeSegmentView: AnyView {
         let scheme = schemeProvider.scheme
-        let backgroundColor = isEnabled ? scheme.thumbColor.parameter(for: .normal)?.swiftUIColor : scheme.thumbColor.parameter(for: .disabled)?.swiftUIColor ?? .clear
+        let backgroundColor = isEnabled ? scheme.thumbColor.parameter(for: .normal)?.swiftUIColor
+        : scheme.thumbColor.parameter(for: .disabled)?.swiftUIColor ?? .clear
 
         return RoundedRectangle(cornerRadius: LayoutGrid.halfModule / 4)
             .foregroundColor(backgroundColor)

@@ -65,7 +65,7 @@ public struct OutlineSliderTab: View {
     // MARK: - Public Properties
 
     /// Tap action.
-    public var onTapAction: (() -> Void)? = nil
+    public var onTapAction: (() -> Void)?
 
     // MARK: - Private Properties
 

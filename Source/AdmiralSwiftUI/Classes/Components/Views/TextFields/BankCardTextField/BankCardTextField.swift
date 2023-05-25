@@ -308,7 +308,11 @@ public struct BankCardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
                         .font(scheme.informerFont.swiftUIFont)
                         .padding(.top, LayoutGrid.module)
                         .padding(.bottom, LayoutGrid.module)
-                        .accessibilityIdentifier(TextFieldsAccessibilityIdentifiers.info.accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier))
+                        .accessibilityIdentifier(
+                            TextFieldsAccessibilityIdentifiers.info.accessibilityViewIdentifier(
+                                accessibilityIdentifier: accessibilityIdentifier
+                            )
+                        )
                 }
             }
         }
@@ -355,7 +359,11 @@ public struct BankCardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
                             self.isFocused = false
                             self.isTextFieldResponder = false
                         }
-                        .accessibilityIdentifier(TextFieldsAccessibilityIdentifiers.placeholder.accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier))
+                        .accessibilityIdentifier(
+                            TextFieldsAccessibilityIdentifiers.placeholder.accessibilityViewIdentifier(
+                                accessibilityIdentifier: accessibilityIdentifier
+                            )
+                        )
                 } else {
                     UIKitTextField(
                         text: $content,
@@ -391,7 +399,11 @@ public struct BankCardTextField<T>: TextFieldInput, AccessabilitySupportUIKit, I
             if !(trailingView() is EmptyView) {
                 trailingView()
                     .foregroundColor(trailingViewTintColor)
-                    .accessibilityIdentifier(TextFieldsAccessibilityIdentifiers.trailingView.accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier))
+                    .accessibilityIdentifier(
+                        TextFieldsAccessibilityIdentifiers.trailingView.accessibilityViewIdentifier(
+                            accessibilityIdentifier: accessibilityIdentifier
+                        )
+                    )
             }
         }
         .frame(height: 24.0)

@@ -83,7 +83,9 @@ public struct LogoTab: View {
         return
             RoundedRectangle(cornerRadius: Constants.segmentCornerRadius)
             .stroke((isEnabled ?
-                        scheme.thumbColor.parameter(for: .normal)?.swiftUIColor : scheme.thumbColor.parameter(for: .disabled)?.swiftUIColor) ?? .clear, lineWidth: Constants.activeSegmentLineWidth)
+                        scheme.thumbColor.parameter(for: .normal)?.swiftUIColor
+                     : scheme.thumbColor.parameter(for: .disabled)?.swiftUIColor) ?? .clear, lineWidth: Constants.activeSegmentLineWidth
+            )
             .foregroundColor(Color.clear)
             .frame(width: segmentSize.width, height: Constants.height)
             .offset(x: self.computeActiveSegmentHorizontalOffset(), y: 0)

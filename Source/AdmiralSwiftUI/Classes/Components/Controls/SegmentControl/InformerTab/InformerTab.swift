@@ -91,7 +91,10 @@ public struct InformerTab: View {
         return
             RoundedRectangle(cornerRadius: Constants.segmentCornerRadius)
             .stroke((isEnabled ?
-                        scheme.thumbColor.parameter(for: .normal)?.swiftUIColor : scheme.thumbColor.parameter(for: .disabled)?.swiftUIColor) ?? .clear, lineWidth: 2)
+                     scheme.thumbColor.parameter(for: .normal)?.swiftUIColor :
+                        scheme.thumbColor.parameter(for: .disabled)?.swiftUIColor) ?? .clear,
+                    lineWidth: 2
+            )
             .foregroundColor(Color.clear)
             .frame(width: segmentSize.width, height: Constants.segmentHeight)
             .offset(x: self.computeActiveSegmentHorizontalOffset(), y: 0)
@@ -101,8 +104,7 @@ public struct InformerTab: View {
     }
 
     private var arrowSegmentSlider: AnyView {
-        return
-            ArrowSegmentSlider()
+        return ArrowSegmentSlider()
             .offset(x: computeActiveSegmentHorizontalOffset() + segmentSize.width / 2 - ArrowSegmentSlider.Constants.imageSize.width / 2, y: 0)
             .eraseToAnyView()
     }

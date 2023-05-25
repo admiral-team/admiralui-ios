@@ -100,7 +100,7 @@ public struct SliderView: View {
             .frame(width: Constants.circleWidth, height: Constants.circleHeight)
             .background(Circle().stroke(thumbBorderColor, lineWidth: Constants.circleLine))
             .offset(x: val * (width - Constants.circleWidth - Constants.circleLine) + Constants.circleXOffset)
-            .gesture(DragGesture().onChanged({ (value) in
+            .gesture(DragGesture().onChanged({ value in
                 gestureChange()
                 
                 let max = width - Constants.circleWidth - Constants.circleLine
