@@ -1948,6 +1948,7 @@
 			isa = PBXGroup;
 			children = (
 				0E0E881425FBA24C00127626 /* AdmiralTheme.h */,
+				0E319FC82A1F709000243CC8 /* Resources */,
 				0E0E885325FBB27D00127626 /* Classes */,
 				0E0E884825FBAC0700127626 /* Supporting Files */,
 			);
@@ -2360,6 +2361,26 @@
 				0E30F4F82A16565600B29078 /* Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0E319FC82A1F709000243CC8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0E319FC92A1F70B100243CC8 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0E319FC92A1F70B100243CC8 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				3B5B5C972A14C93200F3A5F2 /* SFProDisplay-Bold.otf */,
+				3B5B5C962A14C93100F3A5F2 /* SFProDisplay-Medium.otf */,
+				3B5B5C982A14C93200F3A5F2 /* SFProDisplay-Regular.otf */,
+				3B5B5C9A2A14C93200F3A5F2 /* SFProDisplay-Semibold.otf */,
+				3B5B5C992A14C93200F3A5F2 /* SFProText-Medium.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		0E33995628D3573D00B24722 /* Recovered References */ = {
@@ -4340,18 +4361,6 @@
 				3B574AA627C7DCB8006FEF9A /* ZeroScreenScheme.swift */,
 			);
 			path = ZeroScreen;
-			sourceTree = "<group>";
-		};
-		3B5B5C812A14C79100F3A5F2 /* SFFont */ = {
-			isa = PBXGroup;
-			children = (
-				3B5B5C972A14C93200F3A5F2 /* SFProDisplay-Bold.otf */,
-				3B5B5C962A14C93100F3A5F2 /* SFProDisplay-Medium.otf */,
-				3B5B5C982A14C93200F3A5F2 /* SFProDisplay-Regular.otf */,
-				3B5B5C9A2A14C93200F3A5F2 /* SFProDisplay-Semibold.otf */,
-				3B5B5C992A14C93200F3A5F2 /* SFProText-Medium.otf */,
-			);
-			path = SFFont;
 			sourceTree = "<group>";
 		};
 		3B5B5CA42A1511B600F3A5F2 /* Resources */ = {
@@ -6511,7 +6520,6 @@
 		E976242428E19EED00786BBC /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				3B5B5C812A14C79100F3A5F2 /* SFFont */,
 				E6277866261878C900783C67 /* FontPalette.swift */,
 				E976242728E19FA300786BBC /* AFont.swift */,
 				3B5B5CA22A14DFCA00F3A5F2 /* Fonts.swift */,
