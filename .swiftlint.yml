@@ -34,7 +34,6 @@ opt_in_rules:
 excluded:
   - Carthage
   - Pods
-  - ExampleiOS
 
 comma: error
 
