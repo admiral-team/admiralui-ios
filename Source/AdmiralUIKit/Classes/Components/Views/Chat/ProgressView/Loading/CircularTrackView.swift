@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 import UIKit
 /**
  CircularTrackView - the component that used for showing view with center loading indicator.

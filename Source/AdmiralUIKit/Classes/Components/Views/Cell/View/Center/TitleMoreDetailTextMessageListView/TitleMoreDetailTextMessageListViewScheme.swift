@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 
 /**
  TitleMoreDetailTextMessageListViewScheme - the visual scheme.

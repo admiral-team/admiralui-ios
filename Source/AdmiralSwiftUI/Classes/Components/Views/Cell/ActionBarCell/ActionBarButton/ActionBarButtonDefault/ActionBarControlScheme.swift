@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  ActionBarControlScheme - the visual scheme of ListCell.
  You can create a by specifying the following parameters in init:

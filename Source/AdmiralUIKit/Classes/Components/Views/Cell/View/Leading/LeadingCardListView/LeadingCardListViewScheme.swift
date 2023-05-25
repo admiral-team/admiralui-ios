@@ -7,7 +7,6 @@
 
 import UIKit
 import AdmiralTheme
-import AdmiralUIResources
 /**
  ImageCardListViewScheme - the visual scheme.
  You can create a by specifying the following parameters in init:

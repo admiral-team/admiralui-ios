@@ -5,7 +5,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  DropDownHeaderScheme - the visual scheme of DropDownHeader.
  You can create a by specifying the following parameters in init:

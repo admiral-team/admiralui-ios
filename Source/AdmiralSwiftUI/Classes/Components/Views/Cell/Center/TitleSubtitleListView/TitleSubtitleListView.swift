@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 
 /**
  TitleSubtitleListViewStyle - Public enum for TitleSubtitleListView.

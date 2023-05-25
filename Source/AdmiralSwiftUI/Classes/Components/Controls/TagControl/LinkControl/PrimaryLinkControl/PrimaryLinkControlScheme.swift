@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 /**
  PrimaryLinkControlScheme - the visual scheme Style.
  You can create a by specifying the following parameters in init:

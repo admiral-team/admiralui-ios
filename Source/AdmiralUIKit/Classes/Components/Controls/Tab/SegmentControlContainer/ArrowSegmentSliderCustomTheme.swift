@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 
 /**
  ArrowSegmentSliderCustomTheme - the visual scheme.

@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  ChatBubbleStatusViewScheme - the visual scheme of ChatBubbleView.
   You can create a by specifying the following parameters in init:

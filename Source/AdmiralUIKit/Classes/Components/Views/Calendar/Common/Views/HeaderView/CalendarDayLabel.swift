@@ -7,7 +7,6 @@
 
 import UIKit
 import AdmiralTheme
-import AdmiralUIResources
 
 class CalendarDayLabel: UILabel, AnyAppThemable, AccessibilitySupport {
     

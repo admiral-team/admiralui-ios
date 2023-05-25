@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 /**
  CalendarHorizontalViewScheme - the visual scheme of CalendarHorizontalView.
  You can create a by specifying the following parameters in init:

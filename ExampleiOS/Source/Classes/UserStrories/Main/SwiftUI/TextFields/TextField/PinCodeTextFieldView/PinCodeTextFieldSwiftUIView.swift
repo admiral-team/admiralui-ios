@@ -8,7 +8,6 @@
 import SwiftUI
 import AdmiralSymbols
 import AdmiralTheme
-import AdmiralUIResources
 import AdmiralSwiftUI
 
 @available(iOS 14.0.0, *)

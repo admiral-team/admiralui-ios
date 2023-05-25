@@ -9,7 +9,7 @@ import XCTest
 import SwiftUI
 import SnapshotTesting
 import AdmiralTheme
-import AdmiralUIResources
+import AdmiralImages
 @testable import AdmiralSwiftUI
 
 private struct ButtonWithArrowListViewWrapper<T: View>: View {
@@ -68,7 +68,7 @@ final class ButtonWithArrowListViewSnapshotTests: XCTestCase {
     func createButtonWithArrowListView() -> some View {
         let view = ButtonWithArrowListView(
             text: "ButtonWithArrowListView",
-            image: Image(uiImage: Asset.Finance.Solid.debitCardSolid.image),
+            image: Image(uiImage: AdmiralImages.Asset.Finance.Solid.debitCardSolid.image),
             action: {})
         return view
     }
@@ -76,7 +76,7 @@ final class ButtonWithArrowListViewSnapshotTests: XCTestCase {
     func createButtonWithArrowListView(schemeProvider: SchemeProvider<ButtonWithArrowListViewScheme>) -> some View {
         let view = ButtonWithArrowListView(
             text: "ButtonWithArrowListView",
-            image: Image(uiImage: Asset.Finance.Solid.debitCardSolid.image),
+            image: Image(uiImage: AdmiralImages.Asset.Finance.Solid.debitCardSolid.image),
             schemeProvider: schemeProvider,
             action: {})
         return view

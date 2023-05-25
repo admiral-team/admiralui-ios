@@ -9,7 +9,7 @@ import XCTest
 import SwiftUI
 import SnapshotTesting
 import AdmiralTheme
-import AdmiralUIResources
+import AdmiralImages
 @testable import AdmiralSwiftUI
 
 private struct ParagraphViewWrapper<T: View>: View {
@@ -49,7 +49,7 @@ final class ParagraphViewSnapshotTests: XCTestCase {
     }
     
     func createParagraphView() -> some View {
-        let view = ParagraphView(title: "ParagraphView", trailingImage: Image(uiImage: Asset.Documents.Solid.accountDetailSolid.image))
+        let view = ParagraphView(title: "ParagraphView", trailingImage: Image(uiImage: AdmiralImages.Asset.Documents.Solid.accountDetailSolid.image))
         return view
     }
     

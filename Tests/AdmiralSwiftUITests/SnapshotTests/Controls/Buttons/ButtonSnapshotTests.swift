@@ -2,7 +2,6 @@ import XCTest
 import SwiftUI
 import SnapshotTesting
 import AdmiralTheme
-import AdmiralUIResources
 @testable import AdmiralSwiftUI
 
 private struct ButtonWrapper<T: View>: View {

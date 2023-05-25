@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import AdmiralUIResources
 import AdmiralTheme
 
 final class TextInputDecorationView: UIView, AnyAppThemable, AccessibilitySupport {

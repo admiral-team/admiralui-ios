@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 /**
  CurrencyCellType - Public enum for type CurrencyCell
 

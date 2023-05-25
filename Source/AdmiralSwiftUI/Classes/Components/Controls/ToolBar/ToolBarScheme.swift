@@ -5,7 +5,6 @@
 //  Created on 31.05.2021.
 //
 import AdmiralTheme
-import AdmiralUIResources
 /**
  ToolBarScheme - the visual scheme of ToolBar.
  You can create a by specifying the following parameters in init:

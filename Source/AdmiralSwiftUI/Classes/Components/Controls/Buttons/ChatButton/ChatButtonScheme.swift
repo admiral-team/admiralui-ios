@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 /**
  ChatButtonScheme - the visual scheme of ChatButton.
  You can create a by specifying the following parameters in init:

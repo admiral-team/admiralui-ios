@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  CalendarViewCellColorScheme - the visual scheme of CalendarViewCellColorView.
  You can create a by specifying the following parameters in init:

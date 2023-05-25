@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  InputRangeTextFieldScheme - the visual scheme of InputRangeTextField.
  You can create a by specifying the following parameters in init:

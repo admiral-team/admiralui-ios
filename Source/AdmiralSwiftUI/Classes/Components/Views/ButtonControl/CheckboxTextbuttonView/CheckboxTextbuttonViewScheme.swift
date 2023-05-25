@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  CheckboxTextbuttonViewScheme - the visual scheme of CheckboxTextbuttonView.
   You can create a by specifying the following parameters in init:

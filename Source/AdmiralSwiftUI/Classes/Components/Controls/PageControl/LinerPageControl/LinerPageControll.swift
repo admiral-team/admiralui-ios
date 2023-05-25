@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 /**
  Liner - A horizontal page control logically corresponds to the Circle option, while there is an additional option to switch pages using a swipe of the whole page. Additionally, when using this option, it is necessary to provide for the use of the “Next” button.
  

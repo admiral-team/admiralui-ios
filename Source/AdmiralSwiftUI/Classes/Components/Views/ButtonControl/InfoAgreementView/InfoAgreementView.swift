@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 import SwiftUI
 /**
  InfoAgreementView - The component is used to inform users with the option to select in the checkBox. And also three interaction buttons.

@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  RadioButtonListViewScheme - the visual scheme of RadioButtonListView.
  You can create a by specifying the following parameters in init:

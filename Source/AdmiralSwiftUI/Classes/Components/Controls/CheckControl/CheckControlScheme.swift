@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  CheckControlScheme - the visual scheme of CheckControl.
  You can create a by specifying the following parameters in init:

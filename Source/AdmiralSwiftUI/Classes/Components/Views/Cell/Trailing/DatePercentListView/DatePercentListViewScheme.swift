@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  DatePercentListViewScheme - the visual scheme of DatePercentListView.
  You can create a by specifying the following parameters in init:

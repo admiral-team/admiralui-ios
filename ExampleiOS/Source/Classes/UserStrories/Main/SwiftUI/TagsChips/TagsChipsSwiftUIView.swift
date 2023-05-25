@@ -7,8 +7,8 @@
 
 import SwiftUI
 import AdmiralTheme
+import AdmiralImages
 import AdmiralSwiftUI
-import AdmiralUIResources
 
 @available(iOS 14.0.0, *)
 struct TagsChipsSwiftUIView: View {
@@ -81,11 +81,11 @@ struct TagsChipsSwiftUIView: View {
                 configureLeadingTraiingTagControl(title: "Chip",
                                                   tagStyle: .default,
                                                   leftImage: Image(uiImage: Asset.TagsChips.carSolid.image),
-                                                  rightButtonImage: Image(uiImage: AdmiralUIResources.Asset.Service.Solid.closeSolid.image),
+                                                  rightButtonImage: Image(uiImage: AdmiralImages.Asset.Service.Solid.closeSolid.image),
                                                   rightButtonAccessibilityID: "DefaultRightButtonFirst")
                 configureTrailingTagControl(title: "Chip",
                                             tagStyle: .default,
-                                            rightButtonImage: Image(uiImage: AdmiralUIResources.Asset.Service.Solid.closeSolid.image),
+                                            rightButtonImage: Image(uiImage: AdmiralImages.Asset.Service.Solid.closeSolid.image),
                                             rightButtonAccessibilityID: "DefaultRightButtonSecond")
                 configureLeadingTagControl(title: "Icons",
                                            tagStyle: .default,

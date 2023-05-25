@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  ActionCellViewScheme - the visual scheme of ActionCellView.
  You can create a by specifying the following parameters in init:

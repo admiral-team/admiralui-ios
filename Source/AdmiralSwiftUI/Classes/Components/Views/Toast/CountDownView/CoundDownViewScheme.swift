@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  CoundDownViewScheme - the visual scheme.
  You can create a by specifying the following parameters in init:
