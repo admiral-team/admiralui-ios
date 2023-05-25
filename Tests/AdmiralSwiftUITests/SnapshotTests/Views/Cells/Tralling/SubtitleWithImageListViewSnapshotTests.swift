@@ -9,6 +9,7 @@ import XCTest
 import SwiftUI
 import SnapshotTesting
 import AdmiralTheme
+import AdmiralImages
 @testable import AdmiralSwiftUI
 
 private struct SubtitleWithImageListViewWrapper<T: View>: View {

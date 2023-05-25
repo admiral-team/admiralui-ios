@@ -9,6 +9,7 @@ import XCTest
 import SwiftUI
 import SnapshotTesting
 import AdmiralTheme
+import AdmiralImages
 @testable import AdmiralSwiftUI
 
 final class ImageBackgroundListViewSnapshotTests: XCTestCase {

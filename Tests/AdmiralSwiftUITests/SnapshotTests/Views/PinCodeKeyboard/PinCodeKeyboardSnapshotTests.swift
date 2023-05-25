@@ -9,6 +9,7 @@ import XCTest
 import SwiftUI
 import SnapshotTesting
 import AdmiralTheme
+import AdmiralImages
 @testable import AdmiralSwiftUI
 
 private struct PinCodeKeyboardWrapper<T: View>: View {
@@ -67,7 +68,7 @@ final class PinCodeKeyboardSnapshotTests: XCTestCase {
     func createPinCodeKeyboard() -> some View {
         let view = PinCodeKeyboard(
             leftButtonTitle: "Title",
-            rightButtonImage: Image(uiImage: Asset.Category.Solid.burnSolid.image),
+            rightButtonImage: Image(uiImage: AdmiralImages.Asset.Category.Solid.burnSolid.image),
             didTapNumber: {_ in },
             didTapLeftButton: {},
             didTapRightButton: {})
@@ -77,7 +78,7 @@ final class PinCodeKeyboardSnapshotTests: XCTestCase {
     func createPinCodeKeyboard(schemeProvider: SchemeProvider<PinCodeKeyboardScheme>) -> some View {
         let view = PinCodeKeyboard(
             leftButtonTitle: "Title",
-            rightButtonImage: Image(uiImage: Asset.Category.Solid.burnSolid.image),
+            rightButtonImage: Image(uiImage: AdmiralImages.Asset.Category.Solid.burnSolid.image),
             schemeProvider: schemeProvider,
             didTapNumber: {_ in },
             didTapLeftButton: {},

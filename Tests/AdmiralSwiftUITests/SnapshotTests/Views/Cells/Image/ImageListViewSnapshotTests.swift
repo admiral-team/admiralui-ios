@@ -9,6 +9,7 @@ import XCTest
 import SwiftUI
 import SnapshotTesting
 import AdmiralTheme
+import AdmiralImages
 @testable import AdmiralSwiftUI
 
 final class ImageListViewSnapshotTests: XCTestCase {
@@ -51,13 +52,13 @@ final class ImageListViewSnapshotTests: XCTestCase {
     }
     
     func createImageListView() -> some View {
-        let view = ImageListView (image: Image(uiImage: Asset.Finance.Solid.cardSolid.image))
+        let view = ImageListView (image: Image(uiImage: AdmiralImages.Asset.Finance.Solid.cardSolid.image))
         return view
     }
 
     func createImageListView(schemeProvider: SchemeProvider<ImageListViewScheme>) -> some View {
         let view = ImageListView(
-            image: Image(uiImage: Asset.Finance.Solid.cardSolid.image),
+            image: Image(uiImage: AdmiralImages.Asset.Finance.Solid.cardSolid.image),
             renderingMode: .template,
             schemeProvider: schemeProvider
         )

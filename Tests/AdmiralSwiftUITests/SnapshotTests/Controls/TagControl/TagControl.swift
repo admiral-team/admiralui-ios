@@ -9,6 +9,7 @@ import XCTest
 import SwiftUI
 import SnapshotTesting
 import AdmiralTheme
+import AdmiralImages
 @testable import AdmiralSwiftUI
 
 final class TagControlSnapshotTests: XCTestCase {
@@ -25,11 +26,11 @@ final class TagControlSnapshotTests: XCTestCase {
         let tagControl = TagControl(title: "Title",
                                     tagStyle: .attention,
                                     leadingView: { Button(action: {}, label: {
-            Image(uiImage: Asset.Category.Outline.bankOutline.image)
+            Image(uiImage: AdmiralImages.Asset.Category.Outline.bankOutline.image)
         }) },
                                     trailingView: {
             Button(action: {}, label: {
-                Image(uiImage: Asset.Category.Outline.bankOutline.image)
+                Image(uiImage: AdmiralImages.Asset.Category.Outline.bankOutline.image)
             }) }) {
 
             }
@@ -41,11 +42,11 @@ final class TagControlSnapshotTests: XCTestCase {
         let tagControl = TagControl(title: "Title",
                                     tagStyle: .success,
                                     leadingView: { Button(action: {}, label: {
-            Image(uiImage: Asset.Category.Outline.bankOutline.image)
+            Image(uiImage: AdmiralImages.Asset.Category.Outline.bankOutline.image)
         }) },
                                     trailingView: {
             Button(action: {}, label: {
-                Image(uiImage: Asset.Category.Outline.bankOutline.image)
+                Image(uiImage: AdmiralImages.Asset.Category.Outline.bankOutline.image)
             }) }) {
 
             }
@@ -57,11 +58,11 @@ final class TagControlSnapshotTests: XCTestCase {
         let tagControl = TagControl(title: "Title",
                                     tagStyle: .additional,
                                     leadingView: { Button(action: {}, label: {
-            Image(uiImage: Asset.Category.Outline.bankOutline.image)
+            Image(uiImage: AdmiralImages.Asset.Category.Outline.bankOutline.image)
         }) },
                                     trailingView: {
             Button(action: {}, label: {
-                Image(uiImage: Asset.Category.Outline.bankOutline.image)
+                Image(uiImage: AdmiralImages.Asset.Category.Outline.bankOutline.image)
             }) }) {
 
             }
@@ -74,11 +75,11 @@ final class TagControlSnapshotTests: XCTestCase {
         let tagControl = TagControl(title: "Title",
                                     tagStyle: .default,
                                     leadingView: { Button(action: {}, label: {
-            Image(uiImage: Asset.Category.Outline.bankOutline.image)
+            Image(uiImage: AdmiralImages.Asset.Category.Outline.bankOutline.image)
         }) },
                                     trailingView: {
             Button(action: {}, label: {
-                Image(uiImage: Asset.Category.Outline.bankOutline.image)
+                Image(uiImage: AdmiralImages.Asset.Category.Outline.bankOutline.image)
             }) }) {
 
             }
@@ -92,11 +93,11 @@ final class TagControlSnapshotTests: XCTestCase {
         let tagControl = TagControl(title: "Title",
                                     tagStyle: .attention,
                                     leadingView: { Button(action: {}, label: {
-            Image(uiImage: Asset.Category.Outline.bankOutline.image)
+            Image(uiImage: AdmiralImages.Asset.Category.Outline.bankOutline.image)
         }) },
                                     trailingView: {
             Button(action: {}, label: {
-                Image(uiImage: Asset.Category.Outline.bankOutline.image)
+                Image(uiImage: AdmiralImages.Asset.Category.Outline.bankOutline.image)
             }) }) {
 
             }
@@ -108,11 +109,11 @@ final class TagControlSnapshotTests: XCTestCase {
         let tagControl = TagControl(title: "Title",
                                     tagStyle: .success,
                                     leadingView: { Button(action: {}, label: {
-            Image(uiImage: Asset.Category.Outline.bankOutline.image)
+            Image(uiImage: AdmiralImages.Asset.Category.Outline.bankOutline.image)
         }) },
                                     trailingView: {
             Button(action: {}, label: {
-                Image(uiImage: Asset.Category.Outline.bankOutline.image)
+                Image(uiImage: AdmiralImages.Asset.Category.Outline.bankOutline.image)
             }) }) {
 
             }
@@ -124,11 +125,11 @@ final class TagControlSnapshotTests: XCTestCase {
         let tagControl = TagControl(title: "Title",
                                     tagStyle: .additional,
                                     leadingView: { Button(action: {}, label: {
-            Image(uiImage: Asset.Category.Outline.bankOutline.image)
+            Image(uiImage: AdmiralImages.Asset.Category.Outline.bankOutline.image)
         }) },
                                     trailingView: {
             Button(action: {}, label: {
-                Image(uiImage: Asset.Category.Outline.bankOutline.image)
+                Image(uiImage: AdmiralImages.Asset.Category.Outline.bankOutline.image)
             }) }) {
 
             }
@@ -141,11 +142,11 @@ final class TagControlSnapshotTests: XCTestCase {
         let tagControl = TagControl(title: "Title",
                                     tagStyle: .default,
                                     leadingView: { Button(action: {}, label: {
-            Image(uiImage: Asset.Category.Outline.bankOutline.image)
+            Image(uiImage: AdmiralImages.Asset.Category.Outline.bankOutline.image)
         }) },
                                     trailingView: {
             Button(action: {}, label: {
-                Image(uiImage: Asset.Category.Outline.bankOutline.image)
+                Image(uiImage: AdmiralImages.Asset.Category.Outline.bankOutline.image)
             }) }) {
 
             }
@@ -164,11 +165,11 @@ final class TagControlSnapshotTests: XCTestCase {
             schemeProvider: newSchemeProvider,
             leadingView: {
                 Button(action: {}, label: {
-                    Image(uiImage: Asset.Category.Outline.bankOutline.image)
+                    Image(uiImage: AdmiralImages.Asset.Category.Outline.bankOutline.image)
                 }) },
             trailingView: {
                 Button(action: {}, label: {
-                    Image(uiImage: Asset.Category.Outline.bankOutline.image)
+                    Image(uiImage: AdmiralImages.Asset.Category.Outline.bankOutline.image)
                 }) }) {
 
                 }
@@ -183,11 +184,11 @@ final class TagControlSnapshotTests: XCTestCase {
             schemeProvider: newSchemeProvider,
             leadingView: {
                 Button(action: {}, label: {
-                    Image(uiImage: Asset.Category.Outline.bankOutline.image)
+                    Image(uiImage: AdmiralImages.Asset.Category.Outline.bankOutline.image)
                 }) },
             trailingView: {
                 Button(action: {}, label: {
-                    Image(uiImage: Asset.Category.Outline.bankOutline.image)
+                    Image(uiImage: AdmiralImages.Asset.Category.Outline.bankOutline.image)
                 }) }) {
 
                 }
