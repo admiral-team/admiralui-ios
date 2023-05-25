@@ -337,7 +337,7 @@ end
 # Dependency manager validation
 
 lane :validate_depenecy_managers do |options|
-  branch_name = git_branch() if options[:use_current_branch] == true
+  branch_name = options[:branch_name] || git_branch()
   validate_spm_example(branch_name: branch_name)
   validate_cocoapods_example(branch_name: branch_name)
 end
