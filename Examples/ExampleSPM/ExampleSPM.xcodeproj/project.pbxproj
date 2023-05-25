@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0ECD2AC22A1A045C007F99C3 /* AdmiralSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0ECD2AC12A1A045C007F99C3 /* AdmiralSwiftUI */; };
-		0ECD2AC42A1A045C007F99C3 /* AdmiralSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = 0ECD2AC32A1A045C007F99C3 /* AdmiralSymbols */; };
-		0ECD2AC62A1A045C007F99C3 /* AdmiralTheme in Frameworks */ = {isa = PBXBuildFile; productRef = 0ECD2AC52A1A045C007F99C3 /* AdmiralTheme */; };
-		0ECD2AC82A1A045C007F99C3 /* AdmiralUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0ECD2AC72A1A045C007F99C3 /* AdmiralUIKit */; };
-		0ECD2ACA2A1A045C007F99C3 /* AdmiralUIResources in Frameworks */ = {isa = PBXBuildFile; productRef = 0ECD2AC92A1A045C007F99C3 /* AdmiralUIResources */; };
+		0EF56CB02A1F7ABE00B22E34 /* AdmiralImages in Frameworks */ = {isa = PBXBuildFile; productRef = 0EF56CAF2A1F7ABE00B22E34 /* AdmiralImages */; };
+		0EF56CB22A1F7ABE00B22E34 /* AdmiralSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0EF56CB12A1F7ABE00B22E34 /* AdmiralSwiftUI */; };
+		0EF56CB42A1F7ABE00B22E34 /* AdmiralSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = 0EF56CB32A1F7ABE00B22E34 /* AdmiralSymbols */; };
+		0EF56CB62A1F7ABE00B22E34 /* AdmiralTheme in Frameworks */ = {isa = PBXBuildFile; productRef = 0EF56CB52A1F7ABE00B22E34 /* AdmiralTheme */; };
+		0EF56CB82A1F7ABE00B22E34 /* AdmiralUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0EF56CB72A1F7ABE00B22E34 /* AdmiralUIKit */; };
 		7126C09729D7265A00FA76EC /* ExampleSPMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7126C09629D7265A00FA76EC /* ExampleSPMApp.swift */; };
 		7126C09929D7265A00FA76EC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7126C09829D7265A00FA76EC /* ContentView.swift */; };
 		7126C09B29D7265A00FA76EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7126C09A29D7265A00FA76EC /* Assets.xcassets */; };
@@ -31,11 +31,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0ECD2AC82A1A045C007F99C3 /* AdmiralUIKit in Frameworks */,
-				0ECD2AC22A1A045C007F99C3 /* AdmiralSwiftUI in Frameworks */,
-				0ECD2AC62A1A045C007F99C3 /* AdmiralTheme in Frameworks */,
-				0ECD2AC42A1A045C007F99C3 /* AdmiralSymbols in Frameworks */,
-				0ECD2ACA2A1A045C007F99C3 /* AdmiralUIResources in Frameworks */,
+				0EF56CB82A1F7ABE00B22E34 /* AdmiralUIKit in Frameworks */,
+				0EF56CB42A1F7ABE00B22E34 /* AdmiralSymbols in Frameworks */,
+				0EF56CB62A1F7ABE00B22E34 /* AdmiralTheme in Frameworks */,
+				0EF56CB02A1F7ABE00B22E34 /* AdmiralImages in Frameworks */,
+				0EF56CB22A1F7ABE00B22E34 /* AdmiralSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,11 +94,11 @@
 			);
 			name = ExampleSPM;
 			packageProductDependencies = (
-				0ECD2AC12A1A045C007F99C3 /* AdmiralSwiftUI */,
-				0ECD2AC32A1A045C007F99C3 /* AdmiralSymbols */,
-				0ECD2AC52A1A045C007F99C3 /* AdmiralTheme */,
-				0ECD2AC72A1A045C007F99C3 /* AdmiralUIKit */,
-				0ECD2AC92A1A045C007F99C3 /* AdmiralUIResources */,
+				0EF56CAF2A1F7ABE00B22E34 /* AdmiralImages */,
+				0EF56CB12A1F7ABE00B22E34 /* AdmiralSwiftUI */,
+				0EF56CB32A1F7ABE00B22E34 /* AdmiralSymbols */,
+				0EF56CB52A1F7ABE00B22E34 /* AdmiralTheme */,
+				0EF56CB72A1F7ABE00B22E34 /* AdmiralUIKit */,
 			);
 			productName = ExampleSPM;
 			productReference = 7126C09329D7265A00FA76EC /* ExampleSPM.app */;
@@ -129,7 +129,7 @@
 			);
 			mainGroup = 7126C08A29D7265A00FA76EC;
 			packageReferences = (
-				0ECD2AC02A1A045C007F99C3 /* XCRemoteSwiftPackageReference "admiralui-ios" */,
+				0EF56CAE2A1F7ABE00B22E34 /* XCRemoteSwiftPackageReference "admiralui-ios" */,
 			);
 			productRefGroup = 7126C09429D7265A00FA76EC /* Products */;
 			projectDirPath = "";
@@ -367,41 +367,41 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0ECD2AC02A1A045C007F99C3 /* XCRemoteSwiftPackageReference "admiralui-ios" */ = {
+		0EF56CAE2A1F7ABE00B22E34 /* XCRemoteSwiftPackageReference "admiralui-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/admiral-team/admiralui-ios.git";
 			requirement = {
-				branch = main;
+				branch = "feature/822-recources-remove";
 				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0ECD2AC12A1A045C007F99C3 /* AdmiralSwiftUI */ = {
+		0EF56CAF2A1F7ABE00B22E34 /* AdmiralImages */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0ECD2AC02A1A045C007F99C3 /* XCRemoteSwiftPackageReference "admiralui-ios" */;
+			package = 0EF56CAE2A1F7ABE00B22E34 /* XCRemoteSwiftPackageReference "admiralui-ios" */;
+			productName = AdmiralImages;
+		};
+		0EF56CB12A1F7ABE00B22E34 /* AdmiralSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0EF56CAE2A1F7ABE00B22E34 /* XCRemoteSwiftPackageReference "admiralui-ios" */;
 			productName = AdmiralSwiftUI;
 		};
-		0ECD2AC32A1A045C007F99C3 /* AdmiralSymbols */ = {
+		0EF56CB32A1F7ABE00B22E34 /* AdmiralSymbols */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0ECD2AC02A1A045C007F99C3 /* XCRemoteSwiftPackageReference "admiralui-ios" */;
+			package = 0EF56CAE2A1F7ABE00B22E34 /* XCRemoteSwiftPackageReference "admiralui-ios" */;
 			productName = AdmiralSymbols;
 		};
-		0ECD2AC52A1A045C007F99C3 /* AdmiralTheme */ = {
+		0EF56CB52A1F7ABE00B22E34 /* AdmiralTheme */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0ECD2AC02A1A045C007F99C3 /* XCRemoteSwiftPackageReference "admiralui-ios" */;
+			package = 0EF56CAE2A1F7ABE00B22E34 /* XCRemoteSwiftPackageReference "admiralui-ios" */;
 			productName = AdmiralTheme;
 		};
-		0ECD2AC72A1A045C007F99C3 /* AdmiralUIKit */ = {
+		0EF56CB72A1F7ABE00B22E34 /* AdmiralUIKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0ECD2AC02A1A045C007F99C3 /* XCRemoteSwiftPackageReference "admiralui-ios" */;
+			package = 0EF56CAE2A1F7ABE00B22E34 /* XCRemoteSwiftPackageReference "admiralui-ios" */;
 			productName = AdmiralUIKit;
-		};
-		0ECD2AC92A1A045C007F99C3 /* AdmiralUIResources */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0ECD2AC02A1A045C007F99C3 /* XCRemoteSwiftPackageReference "admiralui-ios" */;
-			productName = AdmiralUIResources;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
