@@ -84,7 +84,7 @@ jobs:
       TELEGRAM_PROD_CHAT_ID: ${{ secrets.TELEGRAM_PROD_CHAT_ID }}
     steps:
       - name: Validate Depenecy Managers
-        if: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.ref == 'main' }}
+        if: ${{ github.event_name == 'push' }}
         run: bundle exec fastlane validate_depenecy_managers branch_name:${{ github.head_ref }}
       - name: Deploy AppCenter Dev
         if: ${{ github.event_name == 'pull_request' }}
