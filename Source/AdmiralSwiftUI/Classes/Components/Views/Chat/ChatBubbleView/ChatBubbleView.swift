@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 import SwiftUI
 /**
  ChatStatus - Public enum for status ChatBubbleView
@@ -180,15 +179,7 @@ public struct ChatBubbleView: View {
                             RoundedCorner(radius: LayoutGrid.halfModule * 3, corners: [.topRight, .topLeft, .bottomLeft])
                         )
                     if status == .error {
-                        Image(uiImage: Asset.Service.Solid.errorSolid.image)
-                            .resizable()
-                            .frame(width: LayoutGrid.halfModule * 7, height: LayoutGrid.halfModule * 7)
-                            .foregroundColor(scheme.errorImageColor.swiftUIColor)
-                            .padding(.top, LayoutGrid.module)
-                            .padding(.leading, LayoutGrid.module)
-                            .onTapGesture {
-                                errorAction()
-                            }
+                        errorImage
                     }
                 }
                 .frame(maxWidth: maxWidth ?? segmentSizeWidth, alignment: .trailing)
@@ -222,8 +213,9 @@ public struct ChatBubbleView: View {
     }
 
     private var errorImage: some View {
-        Image(uiImage: Asset.Service.Solid.errorSolid.image)
+        SymbolAssets.Service.Solid.error.swiftUIImage
             .resizable()
+            .padding(LayoutGrid.halfModule)
             .frame(width: LayoutGrid.halfModule * 7, height: LayoutGrid.halfModule * 7)
             .foregroundColor(schemeProvider.scheme.errorImageColor.swiftUIColor)
             .padding(.top, LayoutGrid.module)

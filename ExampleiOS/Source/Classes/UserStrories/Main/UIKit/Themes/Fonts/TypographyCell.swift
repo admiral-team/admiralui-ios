@@ -7,7 +7,6 @@
 
 import AdmiralUIKit
 import AdmiralTheme
-import AdmiralUIResources
 import UIKit
 
 struct FontViewModel: TableViewListItem {

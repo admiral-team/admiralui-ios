@@ -7,7 +7,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 import UIKit
 /**
  InputNumberTextField - A object that displays an editable text area with incrementing or decrementing a value.

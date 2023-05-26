@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 
 /**
  ArrowListView - A view object with subtitle and title.
@@ -64,7 +63,7 @@ public struct ArrowListView: View, TralingListViewComponent {
             }
             HStack {
                 Spacer()
-                Image(uiImage: Asset.System.Outline.chevronRightOutline.image)
+                SymbolAssets.System.Outline.chevronRight.swiftUIImage
                     .frame(width: LayoutGrid.module, height: LayoutGrid.doubleModule)
                     .foregroundColor(isEnabled ? scheme.imageTintColor.parameter(for: .normal)?.swiftUIColor : scheme.imageTintColor.parameter(for: .disabled)?.swiftUIColor)
             }

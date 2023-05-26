@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  TitleWithImageListViewScheme - the visual scheme of TitleSubtitleButtonListView.
  You can create a by specifying the following parameters in init:

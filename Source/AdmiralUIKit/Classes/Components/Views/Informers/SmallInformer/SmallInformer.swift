@@ -7,7 +7,6 @@
 
 import UIKit
 import AdmiralTheme
-import AdmiralUIResources
 
 /// The direction of arrow pivot of informer.
 public enum SmallInformerArrowDirection {
@@ -89,8 +88,8 @@ open class SmallInformer: UIView, AnyAppThemable, AccessibilitySupport {
     // MARK: - Private Properties
     
     private enum Constants {
-        static let topArrowImage = SystemAsset.Custom.Segment.arrowUp.image
-        static let bottomArrowImage = SystemAsset.Custom.Segment.arrowDown.image
+        static let topArrowImage = Asset.Custom.Segment.arrowUp.image
+        static let bottomArrowImage = Asset.Custom.Segment.arrowDown.image
         static let heightImageView: CGFloat = LayoutGrid.module
         static let widthImageView: CGFloat = LayoutGrid.doubleModule
     }

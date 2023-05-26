@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 /**
  InputNumberScheme - the visual scheme of InputNumber.
  You can create a by specifying the following parameters in init:

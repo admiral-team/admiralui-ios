@@ -7,7 +7,7 @@
 
 import AdmiralUIKit
 import AdmiralTheme
-import AdmiralUIResources
+import AdmiralImages
 import UIKit
 
 protocol ColorEditViewControllerDelegate: AnyObject {
@@ -66,7 +66,7 @@ final class ColorEditViewController: UIViewController {
         textField.delegate = self
         
         let imageView = UIImageView()
-        imageView.image = AdmiralUIResources.Asset.System.Solid.editSolid.image
+        imageView.image = AdmiralImages.Asset.System.Solid.editSolid.image
         textField.trailingView = imageView
         textField.returnKeyType = .done
         

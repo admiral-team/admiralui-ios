@@ -5,7 +5,6 @@
 //  Created on 18.05.2021.
 //
 import AdmiralTheme
-import AdmiralUIResources
 /**
  BigInformerScheme - the visual scheme of BigInformer.
  You can create a by specifying the following parameters in init:

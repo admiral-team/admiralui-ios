@@ -6,7 +6,6 @@
 //
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 /**
  The style for creating the CirclePageControl Button.
  To configure the current button style for a view hierarchy, use the buttonStyle(_:) modifier.
@@ -154,7 +153,7 @@ private extension CirclePageControlStyle {
                         .frame(width: Constants.circleSize, height: Constants.circleSize)
                 }
                 if let imageTintColor = scheme.imageTintColor.parameter(for: configuration.isPressed, style: style) {
-                    AssetSymbol.System.Outline.arrowRight.image
+                    SymbolAssets.System.Outline.arrowRight.swiftUIImage
                         .foregroundColor(imageTintColor.swiftUIColor)
                 }
             }

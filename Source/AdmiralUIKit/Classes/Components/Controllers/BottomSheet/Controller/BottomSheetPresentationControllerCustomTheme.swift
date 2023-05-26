@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 
 /**
  BottomSheetPresentationControllerCustomTheme - the visual scheme.

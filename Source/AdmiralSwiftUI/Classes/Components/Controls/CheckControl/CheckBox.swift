@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 import SwiftUI
 /**
  CheckBox - A type of button that lets the user choose between two opposite states, actions, or values. A selected checkbox is considered on when it contains a checkmark and off when it's empty.
@@ -52,7 +51,7 @@ public struct CheckBox: View {
     // MARK: - Computed Properties
 
     private var image: Image {
-        return isSelected ? Image(uiImage: SystemAsset.Custom.Control.checkBoxOn.image) : Image(uiImage: SystemAsset.Custom.Control.checkBoxOff.image)
+        return isSelected ? Image(uiImage: ImageAssets.Custom.Control.checkBoxOn.image) : Image(uiImage: ImageAssets.Custom.Control.checkBoxOff.image)
     }
     
     // MARK: - Initializer

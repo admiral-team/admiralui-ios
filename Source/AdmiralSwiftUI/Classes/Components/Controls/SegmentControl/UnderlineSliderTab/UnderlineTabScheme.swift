@@ -5,7 +5,6 @@
 //  Created on 23.04.2021.
 //
 import AdmiralTheme
-import AdmiralUIResources
 /**
  UnderlineTabScheme - the visual scheme of UnderlineTab.
  You can create a by specifying the following parameters in init:

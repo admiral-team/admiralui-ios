@@ -1,7 +1,7 @@
 import XCTest
 import SnapshotTesting
 import AdmiralTheme
-import AdmiralUIResources
+import AdmiralImages
 @testable import AdmiralUIKit
 
 class ToolbarSnapshotTest: XCTestCase {
@@ -44,10 +44,10 @@ class ToolbarSnapshotTest: XCTestCase {
     
     private func createView(count: Int) -> UIView {
         let toolbar = Toolbar()
-        let item1 = ToolbarItem(title: "Оплатить", image: Asset.Category.Solid.bankSolid.image)
-        let item2 = ToolbarItem(title: "Пополнить", image: Asset.Category.Solid.carSolid.image)
-        let item3 = ToolbarItem(title: "Подробнее", image: Asset.Category.Solid.chatSolid.image)
-        let item4 = ToolbarItem(title: "Настройки", image: Asset.Category.Solid.globeSolid.image)
+        let item1 = ToolbarItem(title: "Оплатить", image: AdmiralImages.Asset.Category.Solid.bankSolid.image)
+        let item2 = ToolbarItem(title: "Пополнить", image: AdmiralImages.Asset.Category.Solid.carSolid.image)
+        let item3 = ToolbarItem(title: "Подробнее", image: AdmiralImages.Asset.Category.Solid.chatSolid.image)
+        let item4 = ToolbarItem(title: "Настройки", image: AdmiralImages.Asset.Category.Solid.globeSolid.image)
         let items = [item1, item2, item3, item4]
         var finalItems = [ToolbarItem]()
         for index in 0..<count {

@@ -5,7 +5,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  TitleButtonDropDownScheme - the visual scheme of TitleButtonDropDown.
  You can create a by specifying the following parameters in init:

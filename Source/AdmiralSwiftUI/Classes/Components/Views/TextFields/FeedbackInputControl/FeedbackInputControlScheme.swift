@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  FeedbackInputControlScheme - the visual scheme of FeedbackInputControl.
  You can create a by specifying the following parameters in init:

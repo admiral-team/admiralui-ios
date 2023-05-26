@@ -19,41 +19,51 @@ let package = Package(
             name: "AdmiralTheme",
             targets: ["AdmiralTheme"]),
         .library(
-            name: "AdmiralUIResources",
-            targets: ["AdmiralUIResources"]),
+            name: "AdmiralImages",
+            targets: ["AdmiralImages"]),
         .library(
-                name: "AdmiralCore",
-                targets: ["AdmiralCore"]),
+            name: "AdmiralSymbols",
+            targets: ["AdmiralSymbols"]),
     ],
     targets: [
         .target(
             name: "AdmiralUIKit",
-            dependencies: ["AdmiralTheme", "AdmiralUIResources", "AdmiralCore"],
+            dependencies: ["AdmiralTheme"],
             path: "Source/AdmiralUIKit",
-            exclude: ["Supporting Files"]),
-        .target(
-            name: "AdmiralSwiftUI",
-            dependencies: ["AdmiralTheme", "AdmiralUIResources", "AdmiralCore"],
-            path: "Source/AdmiralSwiftUI",
-            exclude: ["Supporting Files"]),
-        .target(
-            name: "AdmiralTheme",
-            dependencies: ["AdmiralUIResources"],
-            path: "Source/AdmiralTheme",
-            exclude: ["Supporting Files"]),
-        .target(
-            name: "AdmiralUIResources",
-            dependencies: [],
-            path: "Source/AdmiralUIResources",
             exclude: ["Supporting Files"],
             resources: [
-                .process("Resources/Assets"),
+                .process("Resources/Assets")
+            ]),
+        .target(
+            name: "AdmiralSwiftUI",
+            dependencies: ["AdmiralTheme"],
+            path: "Source/AdmiralSwiftUI",
+            exclude: ["Supporting Files"],
+            resources: [
+                .process("Resources/Assets")
+            ]),
+        .target(
+            name: "AdmiralTheme",
+            dependencies: [],
+            path: "Source/AdmiralTheme",
+            exclude: ["Supporting Files"],
+            resources: [
                 .process("Resources/Fonts")
             ]),
         .target(
-                name: "AdmiralCore",
+                name: "AdmiralImages",
                 dependencies: [],
-                path: "Source/AdmiralCore",
-                exclude: ["Supporting Files"]),
+                path: "Source/AdmiralImages",
+                exclude: ["Supporting Files"],
+                resources: [
+                    .process("Resources/Assets"),
+                ]),
+        .target(
+            name: "AdmiralSymbols",
+            dependencies: [],
+            path: "Source/AdmiralSymbols",
+            resources: [
+                .process("Resources/Assets")
+            ])
     ]
 )

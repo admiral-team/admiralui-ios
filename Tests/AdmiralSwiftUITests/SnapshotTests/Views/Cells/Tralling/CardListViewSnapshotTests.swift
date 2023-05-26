@@ -9,7 +9,7 @@ import XCTest
 import SwiftUI
 import SnapshotTesting
 import AdmiralTheme
-import AdmiralUIResources
+import AdmiralImages
 @testable import AdmiralSwiftUI
 
 private struct CardListViewWrapper<T: View>: View {
@@ -65,13 +65,13 @@ final class CardListViewSnapshotTests: XCTestCase {
     }
     
     func createCardListView() -> some View {
-        let view = CardListView(image: Image(uiImage: Asset.Documents.Solid.accountDetailSolid.image))
+        let view = CardListView(image: Image(uiImage: AdmiralImages.Asset.Documents.Solid.accountDetailSolid.image))
         return view
     }
 
     func createCardListView(schemeProvider: SchemeProvider<CardListViewScheme>) -> some View {
         let view = CardListView(
-            image: Image(uiImage: Asset.Documents.Solid.accountDetailSolid.image),
+            image: Image(uiImage: AdmiralImages.Asset.Documents.Solid.accountDetailSolid.image),
             renderingMode: .template,
             schemeProvider: schemeProvider
         )

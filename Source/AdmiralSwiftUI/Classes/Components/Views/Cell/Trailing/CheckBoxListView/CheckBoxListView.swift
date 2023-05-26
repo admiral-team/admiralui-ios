@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 /**
  CheckBoxListView - A view object with check box view.
  
@@ -28,8 +27,8 @@ import AdmiralUIResources
 public struct CheckBoxListView: View, TralingListViewComponent {
     
     enum Constants {
-        static let selectedImage = SystemAsset.Custom.Control.radioButtonOn.image
-        static let defaultImage = SystemAsset.Custom.Control.radioButtonOff.image
+        static let selectedImage = ImageAssets.Custom.Control.radioButtonOn.image
+        static let defaultImage = ImageAssets.Custom.Control.radioButtonOff.image
     }
     
     // MARK: - Public Properties

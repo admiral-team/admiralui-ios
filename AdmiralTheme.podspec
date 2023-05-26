@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
 
   spec.platform = :ios
   spec.name         = "AdmiralTheme"
-  spec.version      = "11.4.0"
+  spec.version      = "12.0.0"
   spec.summary      = "Team UI Components."
 
   spec.description  = <<-DESC
@@ -46,6 +46,5 @@ Pod::Spec.new do |spec|
   spec.swift_version = "5.3"
 
   spec.source_files          = "Source/AdmiralTheme/**/*.{h,m,swift}"
-  spec.dependency "AdmiralUIResources"
 
 end

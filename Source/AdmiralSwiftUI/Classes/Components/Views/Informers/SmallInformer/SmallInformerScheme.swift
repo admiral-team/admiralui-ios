@@ -5,7 +5,6 @@
 //  Created on 24.05.2021.
 //
 import AdmiralTheme
-import AdmiralUIResources
 /**
  SmallInformerScheme - the visual scheme of SmallInformer.
  You can create a by specifying the following parameters in init:

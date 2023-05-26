@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 
 /**
  HeaderButtonWithArrowScheme - the visual scheme.

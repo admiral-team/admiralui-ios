@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 import SwiftUI
 /**
  UploadingImageGrid - the component that used to add imageViews to group
@@ -142,8 +141,9 @@ public struct UploadingImageGrid: View {
     private func statusError(scheme: UploadingImageGridScheme) -> some View {
         return VStack {
             if isStatusError() {
-                Image(uiImage: Asset.Service.Solid.errorSolid.image)
+                SymbolAssets.Service.Solid.error.swiftUIImage
                     .resizable()
+                    .padding(LayoutGrid.halfModule)
                     .frame(width: LayoutGrid.halfModule * 7, height: LayoutGrid.halfModule * 7)
                     .foregroundColor(scheme.errorImageColor.swiftUIColor)
                     .padding(.top, LayoutGrid.module)

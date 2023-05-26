@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 /**
  CirclePageControlScheme - the visual scheme of CirclePageControl.
  You can create a by specifying the following parameters in init:

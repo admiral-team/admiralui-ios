@@ -5,7 +5,6 @@
 //  Created on 09.11.2020.
 //
 
-import AdmiralUIResources
 import UIKit
 
 /// A collection of methods that gives you access to the appearance  for application.

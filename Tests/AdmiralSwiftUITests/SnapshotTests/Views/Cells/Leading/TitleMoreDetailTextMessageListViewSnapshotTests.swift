@@ -9,7 +9,7 @@ import XCTest
 import SwiftUI
 import SnapshotTesting
 import AdmiralTheme
-import AdmiralUIResources
+import AdmiralSymbols
 @testable import AdmiralSwiftUI
 
 private struct TitleMoreDetailTextMessageListViewWrapper<T: View>: View {
@@ -76,7 +76,7 @@ final class TitleMoreDetailTextMessageListViewSnapshotTests: XCTestCase {
             subtitle: "Subtitle",
             tagText: "Percent",
             messageText: "Text message",
-            infoImage: AdmiralUIResources.AssetSymbol.Service.Outline.info.image)
+            infoImage: AdmiralSymbols.AssetSymbol.Service.Outline.info.swiftUIImage)
         return view
     }
 
@@ -89,7 +89,7 @@ final class TitleMoreDetailTextMessageListViewSnapshotTests: XCTestCase {
             subtitle: "Subtitle",
             tagText: "Percent",
             messageText: "Text message",
-            infoImage: AdmiralUIResources.AssetSymbol.Service.Outline.info.image,
+            infoImage: AdmiralSymbols.AssetSymbol.Service.Outline.info.swiftUIImage,
             schemeProvider: schemeProvider
         )
         return view

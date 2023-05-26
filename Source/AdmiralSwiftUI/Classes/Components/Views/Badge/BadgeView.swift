@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 /**
  BadgeStyle - Public enum for style BadgeView
 
@@ -263,7 +262,7 @@ struct BadgeView_Previews: PreviewProvider {
             badgeStyle: .default,
             value: 1,
             content: {
-                AssetSymbol.Category.Outline.acuringFuture.image
+                SymbolAssets.Category.Outline.acuringFuture.swiftUIImage
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 50.0, height: 50.0, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)

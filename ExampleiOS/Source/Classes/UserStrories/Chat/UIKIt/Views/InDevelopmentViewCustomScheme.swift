@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 
 struct InDevelopmentViewCustomScheme {
     var titleLabelFont: AFont

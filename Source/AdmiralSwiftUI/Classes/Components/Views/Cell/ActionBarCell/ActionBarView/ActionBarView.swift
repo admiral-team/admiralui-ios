@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 /**
  ActionBarView - A view for ActionCellView with array of ActionItemBarAction
 
@@ -134,17 +133,17 @@ struct ActionBarView_Previews: PreviewProvider {
         ActionBarView(
             actions: [
                 ActionItemBarAction(
-                    image: Image(uiImage: Asset.Category.Outline.acceptOutline.image),
+                    image: SymbolAssets.Category.Outline.accept.swiftUIImage,
                     imageStyle: .accent,
                     handler: {}
                 ),
                 ActionItemBarAction(
-                    image: Image(uiImage: Asset.Category.Outline.acceptOutline.image),
+                    image: SymbolAssets.Category.Outline.accept.swiftUIImage,
                     imageStyle: .accent,
                     handler: {}
                 ),
                 ActionItemBarAction(
-                    image: Image(uiImage: Asset.Category.Outline.acceptOutline.image),
+                    image: SymbolAssets.Category.Outline.accept.swiftUIImage,
                     imageStyle: .accent,
                     handler: {}
                 )

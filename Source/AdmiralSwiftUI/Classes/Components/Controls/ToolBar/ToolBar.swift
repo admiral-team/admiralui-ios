@@ -5,7 +5,6 @@
 //  Created on 31.05.2021.
 //
 import AdmiralTheme
-import AdmiralUIResources
 import SwiftUI
 /// The style of ToolBar items.
 public enum ToolBarType {

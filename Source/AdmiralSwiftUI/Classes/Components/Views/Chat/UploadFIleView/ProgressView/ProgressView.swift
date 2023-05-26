@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 import SwiftUI
 
 @available(iOS 14.0.0, *)
@@ -139,7 +138,7 @@ public struct ProgressView: View {
                     Animation.linear(duration: Constants.animationDuration)
                         .repeatForever(autoreverses: false)
                 )
-            Image(uiImage: Asset.Service.Outline.closeOutline.image)
+            SymbolAssets.Service.Outline.close.swiftUIImage
                 .foregroundColor(scheme.iconColor.parameter(style: style)?.swiftUIColor)
                 .frame(
                     width: Constants.closeImageWidth,

@@ -7,7 +7,6 @@
 
 import UIKit
 import AdmiralTheme
-import AdmiralUIResources
 
 /// An object that displays an editable text area for enter sms code.
 public class BankCardTextField: TextFieldInput, AnyAppThemable, AccessibilitySupport {

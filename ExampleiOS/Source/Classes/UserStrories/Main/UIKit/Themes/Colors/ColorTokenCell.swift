@@ -6,8 +6,8 @@
 //
 
 import AdmiralUIKit
+import AdmiralImages
 import AdmiralTheme
-import AdmiralUIResources
 import UIKit
 
 struct ColorTokenListItem: TableViewListItem {
@@ -104,7 +104,7 @@ final class ColorTokenCell: UITableViewCell, AnyAppThemable, AccessibilitySuppor
         hexLabel.textAlignment = .left
         hexLabel.numberOfLines = 1
         
-        arrowImageView.image = AdmiralUIResources.Asset.System.Outline.chevronRightOutline.image
+        arrowImageView.image = AdmiralImages.Asset.System.Outline.chevronRightOutline.image
     }
     
     private func setupConstraints() {

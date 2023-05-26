@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 import UIKit
 
 public class BottomSheetHeaderSubtitleTitleView: UIView, AnyAppThemable, AccessibilitySupport {

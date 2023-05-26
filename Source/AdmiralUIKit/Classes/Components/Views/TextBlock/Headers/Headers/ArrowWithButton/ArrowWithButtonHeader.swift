@@ -7,7 +7,6 @@
 
 import UIKit
 import AdmiralTheme
-import AdmiralUIResources
 
 /// ArrowWithButtonHeader delegate.
 public protocol ArrowWithButtonHeaderDelegate: AnyObject {

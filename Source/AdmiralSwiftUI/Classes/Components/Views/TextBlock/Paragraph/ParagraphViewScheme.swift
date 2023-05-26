@@ -5,7 +5,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  ParagraphViewScheme - the visual scheme of ParagraphView.
  You can create a by specifying the following parameters in init:

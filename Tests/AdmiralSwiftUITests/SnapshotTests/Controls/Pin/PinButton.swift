@@ -9,7 +9,7 @@ import XCTest
 import SwiftUI
 import SnapshotTesting
 import AdmiralTheme
-import AdmiralUIResources
+import AdmiralSymbols
 @testable import AdmiralSwiftUI
 
 private struct ButtonWrapper<T: View>: View {
@@ -39,14 +39,14 @@ final class PinButtonSnapshotTests: XCTestCase {
     func testSeveralPinButton() {
         Appearance.shared.theme = .default
         let pinButton =  Button(action: {}, label: {})
-            .buttonStyle(PinButtonStyle(image: AssetSymbol.Category.Outline.acuringModern.image, isSelected: .constant(false)))
+            .buttonStyle(PinButtonStyle(image: AssetSymbol.Category.Outline.acuringModern.swiftUIImage, isSelected: .constant(false)))
         checkPinButton(view: pinButton, named: "default", testName: "PinButton")
     }
 
     func testSeveralPinButtonDisabled() {
         Appearance.shared.theme = .default
         let pinButton = Button(action: {}, label: {})
-            .buttonStyle(PinButtonStyle(image: AssetSymbol.Category.Outline.acuringModern.image, isSelected: .constant(true)))
+            .buttonStyle(PinButtonStyle(image: AssetSymbol.Category.Outline.acuringModern.swiftUIImage, isSelected: .constant(true)))
         checkPinButton(view: pinButton, named: "default", testName: "PinButtonDisabled", disabled: true)
     }
     
@@ -55,14 +55,14 @@ final class PinButtonSnapshotTests: XCTestCase {
     func testSeveralPinButtonDarkTheme() {
         Appearance.shared.theme = .dark
         let pinButton =  Button(action: {}, label: {})
-            .buttonStyle(PinButtonStyle(image: AssetSymbol.Category.Outline.acuringModern.image, isSelected: .constant(false)))
+            .buttonStyle(PinButtonStyle(image: AssetSymbol.Category.Outline.acuringModern.swiftUIImage, isSelected: .constant(false)))
         checkPinButton(view: pinButton, named: "defaultDarkTheme", testName: "PinButton")
     }
 
     func testSeveralPinButtonDisabledDarkTheme() {
         Appearance.shared.theme = .dark
         let pinButton = Button(action: {}, label: {})
-            .buttonStyle(PinButtonStyle(image: AssetSymbol.Category.Outline.acuringModern.image, isSelected: .constant(true)))
+            .buttonStyle(PinButtonStyle(image: AssetSymbol.Category.Outline.acuringModern.swiftUIImage, isSelected: .constant(true)))
         checkPinButton(view: pinButton, named: "defaultDarkTheme", testName: "PinButtonDisabled", disabled: true)
     }
 
@@ -78,7 +78,7 @@ final class PinButtonSnapshotTests: XCTestCase {
             label: {}
         ).buttonStyle(
             PinButtonStyle(
-                image: AssetSymbol.Category.Outline.acuringModern.image,
+                image: AssetSymbol.Category.Outline.acuringModern.swiftUIImage,
                 isSelected: .constant(true),
                 schemeProvider: newSchemeProvider
             )
@@ -91,7 +91,7 @@ final class PinButtonSnapshotTests: XCTestCase {
             label: {}
         ).buttonStyle(
             PinButtonStyle(
-                image: AssetSymbol.Category.Outline.acuringModern.image,
+                image: AssetSymbol.Category.Outline.acuringModern.swiftUIImage,
                 isSelected: .constant(true),
                 schemeProvider: newSchemeProvider
             )

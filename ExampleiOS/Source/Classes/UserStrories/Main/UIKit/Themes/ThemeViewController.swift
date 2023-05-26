@@ -7,7 +7,7 @@
 
 import AdmiralUIKit
 import AdmiralTheme
-import AdmiralUIResources
+import AdmiralImages
 import UIKit
 
 protocol ThemeViewControllerDelegete: AnyObject {
@@ -43,7 +43,7 @@ final class ThemeViewController: BaseTableViewController {
     
     private lazy var deleteButton: UIBarButtonItem = {
         UIBarButtonItem(
-            image: AdmiralUIResources.Asset.System.Outline.deleteOutline.image,
+            image: AdmiralImages.Asset.System.Outline.deleteOutline.image,
             style: .plain,
             target: self,
             action: #selector(didTapRightBarButton))

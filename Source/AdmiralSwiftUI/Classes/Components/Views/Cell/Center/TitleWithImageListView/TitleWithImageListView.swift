@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 
 /**
  TitleWithImageListStyle - Public enum for ImageCardListView

@@ -6,7 +6,7 @@
 //
 
 import AdmiralUIKit
-import AdmiralUIResources
+import AdmiralImages
 import UIKit
 
 class BackButtonWithoutTitleNavigationControllerDelegate: NSObject, UINavigationControllerDelegate {
@@ -45,7 +45,7 @@ final class ModallyPresentedNavigationControllerDelegate: BackButtonWithoutTitle
     
     fileprivate func setCloseButtonToViewController(_ viewController: UIViewController) {
         let closeButton = UIBarButtonItem(
-            image: AdmiralUIResources.Asset.Service.Outline.closeCircleOutline.image,
+            image: AdmiralImages.Asset.Service.Outline.closeCircleOutline.image,
             style: .plain,
             target: self,
             action: #selector(close))

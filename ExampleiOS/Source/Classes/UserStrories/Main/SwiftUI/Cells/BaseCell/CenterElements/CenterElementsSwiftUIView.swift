@@ -7,7 +7,7 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
+import AdmiralSymbols
 import AdmiralSwiftUI
 
 @available(iOS 14.0.0, *)
@@ -72,7 +72,7 @@ struct CenterElementsSwiftUIView: View {
                             subtitle: "Subtitle",
                             tagText: "Percent",
                             messageText: "Text message",
-                            infoImage: AdmiralUIResources.AssetSymbol.Service.Outline.info.image)
+                            infoImage: AdmiralSymbols.AssetSymbol.Service.Outline.info.swiftUIImage)
                         },
                         trailingView: { ArrowListView() },
                         isSelected:

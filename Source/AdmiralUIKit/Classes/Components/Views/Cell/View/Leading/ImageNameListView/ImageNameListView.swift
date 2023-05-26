@@ -7,7 +7,6 @@
 
 import UIKit
 import AdmiralTheme
-import AdmiralUIResources
 
 /// A view object with background view and image view.
 public class ImageNameListView: BaseListView, LeadingListViewComponent, AnyAppThemable {

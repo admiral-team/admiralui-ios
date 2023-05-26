@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 /**
  InputNumber - A object that displays an editable text area with incrementing or decrementing a value.
 
@@ -223,7 +222,7 @@ public struct InputNumber: View {
                     .buttonStyle(
                         InputNumberButtonStyle(
                             isPressing: $isMinusPressing,
-                            image: Image(uiImage: Asset.Service.Outline.minusOutline.image),
+                            image: SymbolAssets.Service.Outline.minus.swiftUIImage,
                             style: style,
                             type: .left,
                             onTap: { tapMinus() },
@@ -243,7 +242,7 @@ public struct InputNumber: View {
                     .buttonStyle(
                         InputNumberButtonStyle(
                             isPressing: $isPlusPressing,
-                            image: Image(uiImage: Asset.Service.Outline.plusOutline.image),
+                            image: SymbolAssets.Service.Outline.plus.swiftUIImage,
                             style: style,
                             type: .right,
                             onTap: { tapPlus() },

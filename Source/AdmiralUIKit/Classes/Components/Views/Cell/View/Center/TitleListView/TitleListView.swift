@@ -7,7 +7,6 @@
 
 import UIKit
 import AdmiralTheme
-import AdmiralUIResources
 
 /// A view object with title.
 open class TitleListView: BaseListView, CenterListViewComponent, AnyAppThemable, AccessibilitySupport {

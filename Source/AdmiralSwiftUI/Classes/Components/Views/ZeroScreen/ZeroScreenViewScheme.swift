@@ -5,7 +5,6 @@
 //  Created on 05.08.2021.
 //
 import AdmiralTheme
-import AdmiralUIResources
 /**
  ZeroScreenViewScheme - the visual scheme of ZeroScreenView.
  You can create a by specifying the following parameters in init:

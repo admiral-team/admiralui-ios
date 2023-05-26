@@ -5,7 +5,6 @@
 //  Created on 13.11.2020.
 //
 
-import AdmiralUIResources
 import Foundation
 
 /// Application theme. Used to store application appeareance.

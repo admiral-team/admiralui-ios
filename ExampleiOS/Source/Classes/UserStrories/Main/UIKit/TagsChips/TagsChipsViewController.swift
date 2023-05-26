@@ -7,7 +7,7 @@
 
 import AdmiralUIKit
 import AdmiralTheme
-import AdmiralUIResources
+import AdmiralImages
 import UIKit
 
 final class TagsChipsViewController: ScrollViewController {
@@ -66,12 +66,12 @@ final class TagsChipsViewController: ScrollViewController {
         let view1 = createTagWithImageAndButtonView(
             "Chip",
             image: Asset.TagsChips.carSolid.image,
-            buttonImage: AdmiralUIResources.Asset.Service.Solid.closeSolid.image,
+            buttonImage: AdmiralImages.Asset.Service.Solid.closeSolid.image,
             style: .default)
         
         let view2 = createTagWithButtonView(
             "Chip",
-            buttonImage: AdmiralUIResources.Asset.Service.Solid.closeSolid.image,
+            buttonImage: AdmiralImages.Asset.Service.Solid.closeSolid.image,
             style: .default)
         
         let view3 = createTagWithImageView(

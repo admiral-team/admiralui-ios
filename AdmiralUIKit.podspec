@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
 
   spec.platform = :ios
   spec.name         = "AdmiralUIKit"
-  spec.version      = "11.4.0"
+  spec.version      = "12.0.0"
   spec.summary      = "Team UI Components."
 
   spec.description  = <<-DESC
@@ -50,7 +50,5 @@ Pod::Spec.new do |spec|
   
   spec.source_files          = "Source/AdmiralUIKit/**/*.{h,m,swift}"
   spec.dependency "AdmiralTheme"
-  spec.dependency "AdmiralUIResources"
-  spec.dependency "AdmiralCore"
   
 end

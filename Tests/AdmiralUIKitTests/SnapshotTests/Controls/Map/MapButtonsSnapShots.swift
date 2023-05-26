@@ -2,7 +2,6 @@ import XCTest
 import SnapshotTesting
 import UIKit
 import AdmiralTheme
-import AdmiralUIResources
 @testable import AdmiralUIKit
 
 class MapButtonSnapShots: XCTestCase {

@@ -8,7 +8,8 @@
 import SwiftUI
 import AdmiralUIKit
 import AdmiralSwiftUI
-import AdmiralUIResources
+import AdmiralSymbols
+import AdmiralImages
 
 struct ContentView: View {
     
@@ -19,6 +20,7 @@ struct ContentView: View {
             Spacer()
             SwiftUI.Button("SwiftUI", action: {})
                 .buttonStyle(PrimaryButtonStyle())
+            AdmiralSymbols.AssetSymbol.Category.Solid.acuringFuture.swiftUIImage
             TextView($text, placeholder: "Place", name: "Name")
             StandardTextField(
                 $text,
