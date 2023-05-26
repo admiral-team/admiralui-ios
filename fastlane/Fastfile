@@ -338,7 +338,7 @@ lane :validate_spm_example do |options|
   Dir.chdir("../Examples/ExampleSPM") do
     unless branch_name.nil?
       file = Dir.pwd + "/ExampleSPM.xcodeproj/project.pbxproj"
-      replace(file: file, regex: /branch = develop;/, with: "branch = #{branch_name};")
+      replace(file: file, regex: /branch = main;/, with: "branch = #{branch_name};")
     end
 
     system("rm -rf $(xcodebuild -showBuildSettings | grep -m 1 BUILD_DIR | grep -oE \"\/.*\" | sed 's|/Build/Products||')")
