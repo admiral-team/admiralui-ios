@@ -83,6 +83,9 @@ jobs:
       RELEASE_TOKEN: ${{ secrets.RELEASE_TOKEN }}
       TELEGRAM_PROD_CHAT_ID: ${{ secrets.TELEGRAM_PROD_CHAT_ID }}
     steps:
+      - name: Validate Depenecy Managers
+        if: ${{ github.event_name == 'pull_request' }}
+        run: bundle exec fastlane validate_depenecy_managers branch_name:${{ github.head_ref }}
       - name: Deploy AppCenter Dev
         if: ${{ github.event_name == 'pull_request' }}
         env:
@@ -106,9 +109,6 @@ jobs:
       - name: Check If Failed
         if: ${{ failure() }}
         run:  bundle exec fastlane send_build_failed_info issue_name:${{ github.head_ref }} telegram_token:"$TELEGRAM_API_TOKEN" telegram_chat_id:"$TELEGRAM_DEV_CHAT_ID" build_url:"$PUll_NUMBER"
-      - name: Validate Depenecy Managers
-        if: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.ref == 'main' }}
-        run: bundle exec fastlane validate_depenecy_managers
       - name: Check If Failed
         if: ${{ failure() }}
         run:  bundle exec fastlane send_build_failed_info issue_name:${{ github.head_ref }} telegram_token:"$TELEGRAM_API_TOKEN" telegram_chat_id:"$TELEGRAM_DEV_CHAT_ID" build_url:"$PUll_NUMBER"
