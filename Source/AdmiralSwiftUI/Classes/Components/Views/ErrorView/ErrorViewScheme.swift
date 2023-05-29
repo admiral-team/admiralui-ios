@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  ErrorViewScheme - the visual scheme of ErrorView.
  You can create a by specifying the following parameters in init:

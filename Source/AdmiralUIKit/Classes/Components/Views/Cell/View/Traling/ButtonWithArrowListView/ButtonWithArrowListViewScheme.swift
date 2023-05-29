@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 
 /**
  ButtonWithArrowListViewScheme - the visual scheme.

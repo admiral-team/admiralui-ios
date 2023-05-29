@@ -7,7 +7,6 @@
 
 import UIKit
 import AdmiralTheme
-import AdmiralUIResources
 
 /**
  TitleSubtitleHeader - A header with header title and subtitle.

@@ -7,7 +7,7 @@
 
 import UIKit
 import AdmiralTheme
-import AdmiralUIResources
+
 
 /// The frame size of SeveralPinButton.
 public enum SeveralPinButtonSize {

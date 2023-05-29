@@ -46,6 +46,5 @@ Pod::Spec.new do |spec|
   spec.swift_version = "5.3"
 
   spec.source_files          = "Source/AdmiralTheme/**/*.{h,m,swift}"
-  spec.dependency "AdmiralUIResources"
 
 end

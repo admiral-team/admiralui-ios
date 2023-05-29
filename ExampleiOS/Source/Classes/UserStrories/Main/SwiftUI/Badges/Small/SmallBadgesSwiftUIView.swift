@@ -7,8 +7,8 @@
 
 import SwiftUI
 import AdmiralTheme
+import AdmiralSymbols
 import AdmiralSwiftUI
-import AdmiralUIResources
 
 @available(iOS 14.0.0, *)
 struct SmallBadgesSwiftUIView: View {
@@ -47,7 +47,7 @@ struct SmallBadgesSwiftUIView: View {
                 value: nil,
                 offset: CGPoint(x: -LayoutGrid.halfModule, y: .zero)
             ) {
-                AssetSymbol.Category.Solid.diamond.image
+                AssetSymbol.Category.Solid.diamond.swiftUIImage
                     .foregroundColor(scheme.imageTintColor.swiftUIColor)
                     .frame(width: LayoutGrid.halfModule * 11, height: LayoutGrid.halfModule * 11)
                     .background(

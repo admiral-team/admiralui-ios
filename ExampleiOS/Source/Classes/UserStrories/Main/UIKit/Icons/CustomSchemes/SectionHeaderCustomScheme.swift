@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 
 struct SectionHeaderCustomScheme {
     var titleLabelLabelFont: AFont

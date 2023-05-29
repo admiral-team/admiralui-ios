@@ -7,7 +7,7 @@
 
 import AdmiralUIKit
 import AdmiralTheme
-import AdmiralUIResources
+import AdmiralImages
 import UIKit
 
 final class PinCodeViewController: UIViewController, CodeInputControlDelegate, AnyAppThemable {
@@ -112,7 +112,7 @@ extension PinCodeViewController: PinCodeKeyboardDelegate {
         if !pincodeControl.text.isEmpty {
             view.rightButtonImage = Asset.PinCode.deleteButton.image
         } else {
-            view.rightButtonImage = AdmiralUIResources.Asset.Security.Outline.faceIDOutline.image
+            view.rightButtonImage = AdmiralImages.Asset.Security.Outline.faceIDOutline.image
         }
     }
     
@@ -124,7 +124,7 @@ extension PinCodeViewController: PinCodeKeyboardDelegate {
         if !pincodeControl.text.isEmpty {
             pincodeControl.deleteBackward()
             if pincodeControl.text.isEmpty {
-                view.rightButtonImage = AdmiralUIResources.Asset.Security.Outline.faceIDOutline.image
+                view.rightButtonImage = AdmiralImages.Asset.Security.Outline.faceIDOutline.image
             }
         } 
     }

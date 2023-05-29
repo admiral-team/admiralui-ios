@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  UploadDocumentViewScheme - the visual scheme of UploadDocumentView.
  You can create a by specifying the following parameters in init:

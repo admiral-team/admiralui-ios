@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 /**
  IconTab - A horizontal control that consists of multiple segments, each segment functioning as a  image with text. The component is used to switch between two or three tabs. It is presented in two versions without additional indentation.
 

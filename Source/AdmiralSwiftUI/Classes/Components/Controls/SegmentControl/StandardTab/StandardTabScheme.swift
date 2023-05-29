@@ -5,7 +5,6 @@
 //  Created on 21.05.2021.
 //
 import AdmiralTheme
-import AdmiralUIResources
 /**
  StandardTabScheme - the visual scheme.
  You can create a by specifying the following parameters in init:

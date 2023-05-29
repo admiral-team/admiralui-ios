@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 
 @available(iOS 14.0.0, *)
 /// The tint color style of ActionBarItemImage.

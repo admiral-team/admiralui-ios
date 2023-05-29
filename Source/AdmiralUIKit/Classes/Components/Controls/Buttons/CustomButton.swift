@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import AdmiralUIResources
 
 /// The base button class with extended properties for UIControl.State.
 open class CustomButton: UIButton {

@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  BankCardTextFieldScheme - the visual scheme of BankCardTextField.
  You can create a by specifying the following parameters in init:

@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import AdmiralUIResources
 import AdmiralTheme
 
 /// The style of ActionCellView.

@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  SubtitleTitleListViewScheme - the visual scheme of SubtitleTitleListView.
  You can create a by specifying the following parameters in init:

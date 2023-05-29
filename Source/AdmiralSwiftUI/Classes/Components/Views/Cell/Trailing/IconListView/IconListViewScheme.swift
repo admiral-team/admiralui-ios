@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  IconListViewScheme - the visual scheme of IconListView.
  You can create a by specifying the following parameters in init:

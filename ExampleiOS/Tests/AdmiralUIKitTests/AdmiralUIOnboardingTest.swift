@@ -22,8 +22,8 @@ class AdmiralUIOnboardingTest: XCTestCase {
         
         app.tables.staticTexts["Alerts"].tap()
         app.tables.staticTexts["Onboarding"].tap()
-        app.buttons["arrowRight"].tap()
-        app.buttons["arrowRight"].tap()
-        app.buttons["arrowRight"].tap()
+        app.buttons["arrowRightOutline"].tap()
+        app.buttons["arrowRightOutline"].tap()
+        app.buttons["arrowRightOutline"].tap()
     }
 }

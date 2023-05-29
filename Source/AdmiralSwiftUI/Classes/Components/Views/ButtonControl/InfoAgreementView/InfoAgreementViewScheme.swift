@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  InfoAgreementViewScheme - the visual scheme  of InfoAgreementView.
  You can create a by specifying the following parameters in init:

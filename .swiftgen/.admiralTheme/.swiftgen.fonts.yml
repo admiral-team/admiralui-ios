@@ -1,5 +1,5 @@
 fonts:
-    inputs: ../../Source/AdmiralTheme/Classes/CoreFoundation/AppTheme/Fonts/SFFont 
+    inputs: ../../Source/AdmiralTheme/Resources/Fonts
     outputs:
         templateName: swift5
         output: ../../Source/AdmiralTheme/Classes/CoreFoundation/AppTheme/Fonts/Fonts.swift 

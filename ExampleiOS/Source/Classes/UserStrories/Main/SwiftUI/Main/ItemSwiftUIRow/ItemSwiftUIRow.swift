@@ -6,8 +6,8 @@
 //
 
 import AdmiralTheme
+import AdmiralSymbols
 import AdmiralSwiftUI
-import AdmiralUIResources
 import SwiftUI
 
 @available(iOS 14.0.0, *)
@@ -41,7 +41,7 @@ struct ItemSwiftUIRow: View {
                     .foregroundColor(scheme.subtitleColor.swiftUIColor)
             }
             Spacer()
-            Image(uiImage: AdmiralUIResources.Asset.System.Outline.chevronRightOutline.image)
+            AdmiralSymbols.AssetSymbol.System.Outline.chevronRight.swiftUIImage
                 .frame(width: LayoutGrid.halfModule * 7, height: LayoutGrid.halfModule * 7)
                 .foregroundColor(scheme.arrowImageTintColor.swiftUIColor)
         }

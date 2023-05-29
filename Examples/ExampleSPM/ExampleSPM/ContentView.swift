@@ -9,7 +9,7 @@ import SwiftUI
 import AdmiralUIKit
 import AdmiralSwiftUI
 import AdmiralSymbols
-import AdmiralUIResources
+import AdmiralImages
 
 struct ContentView: View {
     

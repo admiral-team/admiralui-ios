@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 import UIKit
 
 /// The protocol that describes communication with ErrorView.

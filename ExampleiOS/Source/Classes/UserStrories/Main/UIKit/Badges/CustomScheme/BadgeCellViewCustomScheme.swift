@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 
 struct BadgeCellViewCustomScheme {
     var titleFont: AFont

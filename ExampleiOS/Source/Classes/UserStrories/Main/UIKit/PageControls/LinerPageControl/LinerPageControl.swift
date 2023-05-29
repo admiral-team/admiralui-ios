@@ -7,7 +7,7 @@
 
 import AdmiralUIKit
 import AdmiralTheme
-import AdmiralUIResources
+import AdmiralImages
 import UIKit
 
 final class LinerPageControl: BaseViewController {
@@ -60,7 +60,7 @@ final class LinerPageControl: BaseViewController {
     
     private func configureButtons() {
         nextButton.setTitle("Next", for: [])
-        nextButton.setImage(AdmiralUIResources.Asset.System.Outline.arrowRightOutline.image, for: .normal)
+        nextButton.setImage(AdmiralImages.Asset.System.Outline.arrowRightOutline.image, for: .normal)
         nextButton.addTarget(self, action: #selector(tapNexButton), for: .touchUpInside)
         nextButton.semanticContentAttribute = .forceRightToLeft
         nextButton.imageEdgeInsets = UIEdgeInsets(top: 0.0, left: LayoutGrid.doubleModule, bottom: 0.0, right: 0.0)

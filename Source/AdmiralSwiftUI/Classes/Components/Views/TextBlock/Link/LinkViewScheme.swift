@@ -5,7 +5,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  LinkViewScheme - the visual scheme of LinkViewScheme.
  You can create a by specifying the following parameters in init:

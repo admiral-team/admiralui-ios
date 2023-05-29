@@ -7,7 +7,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 import UIKit
 
 struct ControlCellViewCustomScheme {

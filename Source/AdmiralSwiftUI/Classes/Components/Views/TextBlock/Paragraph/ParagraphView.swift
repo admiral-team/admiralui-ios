@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 /**
  ParagraphView - A group of text components exists in several variants.
  You can create a ParagraphView by specifying the following parameters in the initializer

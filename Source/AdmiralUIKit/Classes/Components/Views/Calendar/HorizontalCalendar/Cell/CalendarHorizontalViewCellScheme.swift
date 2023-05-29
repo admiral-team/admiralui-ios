@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 
 /**
  CalendarHorizontalViewCellScheme - the visual scheme.

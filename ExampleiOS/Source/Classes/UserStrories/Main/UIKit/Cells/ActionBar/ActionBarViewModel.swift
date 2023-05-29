@@ -6,8 +6,7 @@
 //
 
 import AdmiralUIKit
-import AdmiralUIResources
-import Foundation
+import AdmiralImages
 import UIKit
 
 final class ActionBarViewModel {
@@ -109,7 +108,7 @@ final class ActionBarViewModel {
                 subTitle: "50 000.00 ₽",
                 cardImage: Asset.Card.visa.image,
                 swipeSubtitle: "Swipe",
-                swipeImage: AdmiralUIResources.Asset.System.Outline.arrowLeftOutline.image,
+                swipeImage: AdmiralImages.Asset.System.Outline.arrowLeftOutline.image,
                 type: .default,
                 actions: defaultActions,
                 accessibilityIdentifier: "defaultAction"
@@ -120,7 +119,7 @@ final class ActionBarViewModel {
                 subTitle: "50 000.00 ₽",
                 cardImage: Asset.Card.visa.image,
                 swipeSubtitle: "Swipe",
-                swipeImage: AdmiralUIResources.Asset.System.Outline.arrowLeftOutline.image,
+                swipeImage: AdmiralImages.Asset.System.Outline.arrowLeftOutline.image,
                 type: .secondary,
                 actions: secondaryActions,
                 accessibilityIdentifier: "secondaryAction"

@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  LeadingCardListViewScheme - the visual scheme of LeadingCardListView.
  You can create a by specifying the following parameters in init:

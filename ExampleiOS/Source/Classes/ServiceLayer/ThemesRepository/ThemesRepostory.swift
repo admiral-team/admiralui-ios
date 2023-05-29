@@ -5,7 +5,6 @@
 //  Created on 17.02.2021.
 //
 
-import AdmiralUIResources
 import AdmiralUIKit
 import AdmiralSwiftUI
 import AdmiralTheme

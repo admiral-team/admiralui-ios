@@ -7,7 +7,6 @@
 
 import UIKit
 import AdmiralTheme
-import AdmiralUIResources
 
 /**
  ActionItemBarDefaultControlScheme - the visual scheme.

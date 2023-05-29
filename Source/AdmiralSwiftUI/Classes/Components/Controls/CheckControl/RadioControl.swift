@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 import SwiftUI
 /**
  RadioControl - A type of button that lets the user choose between two opposite states, actions, or values. They are applied when there is a list of options from which the user can select only one option.

@@ -7,7 +7,7 @@
 
 import AdmiralUIKit
 import AdmiralTheme
-import AdmiralUIResources
+import AdmiralImages
 import UIKit
 
 struct MenuListViewModel: TableViewListItem {
@@ -127,7 +127,7 @@ final class MenuListCell: UITableViewCell, AnyAppThemable, TableViewListItemConf
     
     private func commonInit() {
         autoManage()
-        arrowImageView.image = AdmiralUIResources.Asset.System.Outline.chevronRightOutline.image
+        arrowImageView.image = AdmiralImages.Asset.System.Outline.chevronRightOutline.image
         configureConstraints()
     }
     

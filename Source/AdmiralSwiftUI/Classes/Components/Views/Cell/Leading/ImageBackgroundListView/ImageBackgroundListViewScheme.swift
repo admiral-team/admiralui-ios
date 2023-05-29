@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  ImageNameListViewScheme - the visual scheme of ImageNameListView.
  You can create a by specifying the following parameters in init:

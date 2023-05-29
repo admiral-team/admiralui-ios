@@ -1,6 +1,5 @@
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 /**
  MapButtonScheme - the visual scheme of MapButtonStyle.
  You can create a by specifying the following parameters in init:
