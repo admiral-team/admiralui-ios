@@ -4092,7 +4092,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\ncd ..\nswiftlint --path Source\n";
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\ncd ..\nswiftlint --path Source\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
