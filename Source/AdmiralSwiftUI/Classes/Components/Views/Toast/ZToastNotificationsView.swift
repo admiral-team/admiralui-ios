@@ -72,7 +72,7 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
         isAfterTouchUpdateTimer: Bool = true,
         topOffset: CGFloat,
         bottomOffset: CGFloat = 0.0,
-        toastsDidDisappear: @escaping  ()->() = {},
+        toastsDidDisappear: @escaping  () -> () = {},
         @ViewBuilder content: @escaping (ToastPresenter) -> (Content)) {
         self.content = content
         self.direction = direction

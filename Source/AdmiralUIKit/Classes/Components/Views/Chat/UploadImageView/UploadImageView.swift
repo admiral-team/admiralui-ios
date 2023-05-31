@@ -98,7 +98,7 @@ public final class UploadImageView: UIView, AnyAppThemable {
     }
 
     /// An image of image view.
-    public var image: UIImage? = nil {
+    public var image: UIImage? {
         didSet {
             imageView.image = image
         }

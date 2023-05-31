@@ -26,7 +26,7 @@ public class RadioButtonListView: BaseListView, TralingListViewComponent, AnyApp
     }
 
     /// Radio button title text.
-    public var text: String? = nil {
+    public var text: String? {
         didSet {
             radioButton.text = text
         }

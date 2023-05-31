@@ -26,7 +26,7 @@ open class CheckBoxListView: BaseListView, TralingListViewComponent, AnyAppThema
     }
 
     /// Checkbox title text.
-    public var text: String? = nil {
+    public var text: String? {
         didSet {
             checkBox.text = text
         }

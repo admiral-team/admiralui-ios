@@ -58,7 +58,7 @@ public final class CurrencyView: UIView, AnyAppThemable {
     // MARK: - Public Properties
 
     /// An image.
-    public var image: UIImage? = nil {
+    public var image: UIImage? {
         didSet {
             imageView.image = image
             updateCurrencyConstraints()
@@ -66,35 +66,35 @@ public final class CurrencyView: UIView, AnyAppThemable {
     }
 
     /// The text of currency text label.
-    public var currencyText: String? = nil {
+    public var currencyText: String? {
         didSet {
             currencyTextLabel.text = currencyText
         }
     }
 
     /// The text of buy text label.
-    public var buyText: String? = nil {
+    public var buyText: String? {
         didSet {
             buyTextLabel.text = buyText
         }
     }
 
     /// The text of sell text label.
-    public var sellText: String? = nil {
+    public var sellText: String? {
         didSet {
             sellTextLabel.text = sellText
         }
     }
 
     /// The type of sell cell.
-    public var sellCellType: CurrencyCellType? = nil {
+    public var sellCellType: CurrencyCellType? {
         didSet {
             updateSellConstraints()
         }
     }
 
     /// The type of buy cell.
-    public var buyCellType: CurrencyCellType? = nil {
+    public var buyCellType: CurrencyCellType? {
         didSet {
             updateBuyConstraints()
         }

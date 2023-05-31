@@ -287,7 +287,7 @@ public class ScrollablePageControl: UIView, AppThemeable {
         case .right:
             firstItem.index = lastItem.index + 1
             firstItem.frame = CGRect(
-                x: CGFloat(firstItem.index) * itemSize ,
+                x: CGFloat(firstItem.index) * itemSize,
                 y: 0,
                 width: itemSize,
                 height: itemSize)

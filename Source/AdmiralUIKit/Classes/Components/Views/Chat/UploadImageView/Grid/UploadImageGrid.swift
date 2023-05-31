@@ -69,7 +69,7 @@ public final class UploadImageGridView: UIView, AnyAppThemable {
     }
 
     /// The chatStatus.
-    public var chatStatus: ChatStatus? = nil {
+    public var chatStatus: ChatStatus? {
         didSet {
             chatBubbleStatusView.chatStatus = chatStatus
             updateScheme()

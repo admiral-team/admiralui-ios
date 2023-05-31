@@ -47,7 +47,7 @@ public class ChatBubbleStatusView: UIView, AnyAppThemable {
     // MARK: - Public properties
 
     /// The chat status of ChatBubbleStatusView.
-    public var chatStatus: ChatStatus? = nil {
+    public var chatStatus: ChatStatus? {
         didSet {
             updateScheme()
         }

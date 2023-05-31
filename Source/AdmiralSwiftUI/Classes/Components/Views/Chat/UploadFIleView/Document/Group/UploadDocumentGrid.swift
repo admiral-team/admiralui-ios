@@ -71,7 +71,7 @@ public struct UploadDocumentGrid: View {
         models: [UploadDocument],
         direction: ChatDirection,
         tappedIndex: ((_ index: Int) -> Void)? = nil,
-        errorAction: @escaping ()->() = {},
+        errorAction: @escaping () -> () = {},
         schemeProvider: SchemeProvider<UploadDocumentGridScheme> = AppThemeSchemeProvider<UploadDocumentGridScheme>()
     ) {
         self.models = models
@@ -85,7 +85,7 @@ public struct UploadDocumentGrid: View {
         model: UploadDocument,
         direction: ChatDirection,
         tappedIndex: ((_ index: Int) -> Void)? = nil,
-        errorAction: @escaping ()->() = {},
+        errorAction: @escaping () -> () = {},
         schemeProvider: SchemeProvider<UploadDocumentGridScheme> = AppThemeSchemeProvider<UploadDocumentGridScheme>()
     ) {
         self.models = [model]

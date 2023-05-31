@@ -88,7 +88,7 @@ public struct ToolBar: View {
         items: Binding<[ToolBarItem]>,
         type: Binding<ToolBarType>,
         selectedIndex: Binding<Int>,
-        onTap: @escaping (Int) ->(),
+        onTap: @escaping (Int) -> (),
         isSelectable: Bool = true,
         schemeProvider: SchemeProvider<ToolBarScheme> = AppThemeSchemeProvider<ToolBarScheme>()
     ) {

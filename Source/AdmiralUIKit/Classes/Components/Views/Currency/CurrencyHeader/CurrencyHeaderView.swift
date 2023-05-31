@@ -42,21 +42,21 @@ public final class CurrencyHeaderView: UIView, AnyAppThemable {
     // MARK: - Public properties
 
     /// The text of currency label.
-    public var currencyText: String? = nil {
+    public var currencyText: String? {
         didSet {
             currencyTextLabel.text = currencyText
         }
     }
 
     /// The text of buy label.
-    public var buyText: String? = nil {
+    public var buyText: String? {
         didSet {
             buyTextLabel.text = currencyText
         }
     }
 
     /// The text of sell label.
-    public var sellText: String? = nil {
+    public var sellText: String? {
         didSet {
             sellTextLabel.text = currencyText
         }

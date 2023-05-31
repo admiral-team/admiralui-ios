@@ -65,7 +65,7 @@ public final class TextOperationView: UIView, AnyAppThemable {
     // MARK: - Public properties
 
     /// The chatStatus.
-    public var chatStatus: ChatStatus? = nil {
+    public var chatStatus: ChatStatus? {
         didSet {
             chatStatusBubbleView.chatStatus = chatStatus
             updateScheme()
@@ -82,7 +82,7 @@ public final class TextOperationView: UIView, AnyAppThemable {
 
     /// TextOperationView style.
     public var style: TextOperationViewStyle? {
-        get { return textOperationStyle }
+        get { textOperationStyle }
         set {
             textOperationStyle = newValue
             updateScheme()
@@ -91,7 +91,7 @@ public final class TextOperationView: UIView, AnyAppThemable {
 
     /// The title label name text.
     public var titleName: String? {
-        get { return titleLabel.text }
+        get { titleLabel.text }
         set {
             titleLabel.text = newValue
             updateScheme()
@@ -100,7 +100,7 @@ public final class TextOperationView: UIView, AnyAppThemable {
 
     /// Text description name text.
     public var discriptionName: String? {
-        get { return discriptionLabel.text }
+        get { discriptionLabel.text }
         set {
             discriptionLabel.text = newValue
             updateScheme()
@@ -109,7 +109,7 @@ public final class TextOperationView: UIView, AnyAppThemable {
 
     /// Time text.
     public var timeName: String? {
-        get { return timeLabel.text }
+        get { timeLabel.text }
         set {
             timeLabel.text = newValue
             updateScheme()
@@ -118,7 +118,7 @@ public final class TextOperationView: UIView, AnyAppThemable {
 
     /// ChatBubbleStatusView time label text.
     public var chatBubbleTime: String? {
-        get { return chatStatusBubbleView.timeTitle }
+        get { chatStatusBubbleView.timeTitle }
         set {
             chatStatusBubbleView.timeTitle = newValue
             updateScheme()

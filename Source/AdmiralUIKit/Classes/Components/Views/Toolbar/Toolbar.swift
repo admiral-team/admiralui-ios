@@ -57,7 +57,7 @@ open class Toolbar: UIView, AnyAppThemable {
     }
 
     /// A pre-selected index.
-    open var selectedItem: Int? = nil {
+    open var selectedItem: Int? {
         didSet { configureScheme() }
     }
     

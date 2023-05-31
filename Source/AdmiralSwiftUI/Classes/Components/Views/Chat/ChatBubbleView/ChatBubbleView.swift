@@ -119,7 +119,7 @@ public struct ChatBubbleView: View {
         name: String? = nil,
         isRoundAllCorners: Bool = false,
         maxWidth: CGFloat? = nil,
-        errorAction: @escaping ()->() = {},
+        errorAction: @escaping () -> () = {},
         schemeProvider: SchemeProvider<ChatBubbleViewScheme> = AppThemeSchemeProvider<ChatBubbleViewScheme>()
     ) {
         self.text = text
