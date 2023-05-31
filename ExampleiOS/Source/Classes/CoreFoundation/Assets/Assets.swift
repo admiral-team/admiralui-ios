@@ -47,7 +47,7 @@ public enum Asset {
     public static let warning = ImageAsset(name: "Card/warning")
   }
   public enum Chat {
-    public static let comment = ImageAsset(name: "Chat/Сomment")
+    public static let comment = ImageAsset(name: "Chat/Comment")
     public static let photo = ImageAsset(name: "Chat/Photo")
   }
   public enum Currency {
