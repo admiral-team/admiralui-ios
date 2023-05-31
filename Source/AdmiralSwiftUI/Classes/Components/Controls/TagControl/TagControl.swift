@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 import SwiftUI
 
 public enum TagStyle: Int {

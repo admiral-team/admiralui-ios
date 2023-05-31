@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 
 /**
  TitleMoreDetailTextMessageListView - A view object with title, more label, detaile label and message view.

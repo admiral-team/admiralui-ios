@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 /**
  CardListViewScheme - the visual scheme of CardListView.
  You can create a by specifying the following parameters in init:

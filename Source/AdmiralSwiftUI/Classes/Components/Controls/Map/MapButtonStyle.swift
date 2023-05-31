@@ -6,7 +6,6 @@
 //
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 
 @available(iOS 14.0, *)
 public enum MapButtonType {

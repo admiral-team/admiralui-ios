@@ -6,7 +6,6 @@
 //
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 /**
  TagControlScheme - the visual scheme of PrimaryLinkControlStyle.
  You can create a by specifying the following parameters in init:

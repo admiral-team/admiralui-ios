@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 import CoreGraphics
 
 struct MapButtonCellScheme: AppThemeScheme {

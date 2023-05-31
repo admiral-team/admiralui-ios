@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 import SwiftUI
 /**
  TextView - An object that displays an editable text area and slider.

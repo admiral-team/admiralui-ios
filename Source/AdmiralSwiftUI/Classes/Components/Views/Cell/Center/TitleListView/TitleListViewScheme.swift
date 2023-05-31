@@ -5,7 +5,6 @@
 //  Created on 07.06.2021.
 //
 import AdmiralTheme
-import AdmiralUIResources
 /**
  TitleListViewScheme - the visual scheme of TitleListView.
  You can create a by specifying the following parameters in init:

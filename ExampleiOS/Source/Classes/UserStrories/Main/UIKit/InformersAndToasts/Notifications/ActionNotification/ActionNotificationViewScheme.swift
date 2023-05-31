@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 
 struct ActionNotificationViewScheme {
     var titleFont: AFont

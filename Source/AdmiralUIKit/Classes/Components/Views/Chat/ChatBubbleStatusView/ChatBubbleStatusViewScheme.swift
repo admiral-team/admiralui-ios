@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 
 /**
  ChatBubbleStatusViewScheme - the visual scheme.

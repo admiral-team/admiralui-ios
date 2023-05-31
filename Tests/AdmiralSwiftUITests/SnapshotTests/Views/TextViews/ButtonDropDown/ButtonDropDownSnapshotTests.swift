@@ -9,7 +9,6 @@ import XCTest
 import SwiftUI
 import SnapshotTesting
 import AdmiralTheme
-import AdmiralUIResources
 @testable import AdmiralSwiftUI
 
 private struct ButtonDropDownWrapper<T: View>: View {

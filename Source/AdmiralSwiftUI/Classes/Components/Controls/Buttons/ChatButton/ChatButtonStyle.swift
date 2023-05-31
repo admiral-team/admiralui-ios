@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import AdmiralUIResources
 import AdmiralTheme
 
 @available(iOS 14.0.0, *)

@@ -5,7 +5,6 @@
 //  Created on 09.06.2021.
 //
 import AdmiralTheme
-import AdmiralUIResources
 /**
  MonthYearViewScheme - the visual scheme of MonthYearView.
  You can create a by specifying the following parameters in init:

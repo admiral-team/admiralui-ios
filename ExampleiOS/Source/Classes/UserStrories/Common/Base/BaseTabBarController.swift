@@ -7,7 +7,7 @@
 
 import AdmiralUIKit
 import AdmiralTheme
-import AdmiralUIResources
+import AdmiralImages
 import UIKit
 
 class BaseTabBarController: UITabBarController, AppThemeable {
@@ -43,7 +43,7 @@ class BaseTabBarController: UITabBarController, AppThemeable {
             let mainVC = SwiftUIController()
             mainVC.tabBarItem = UITabBarItem(
                 title: Constants.mainTabBarTitle,
-                image: AdmiralUIResources.Asset.System.Solid.starSolid.image,
+                image: AdmiralImages.Asset.System.Solid.starSolid.image,
                 tag: 0)
             mainVC.tabBarItem.accessibilityIdentifier = "MainTabBarItem"
             return mainVC
@@ -59,7 +59,7 @@ class BaseTabBarController: UITabBarController, AppThemeable {
         mainVC.navigationItem.title = Constants.mainTabBarNavTitle
         mainVC.tabBarItem = UITabBarItem(
             title: Constants.mainTabBarTitle,
-            image: AdmiralUIResources.Asset.System.Solid.starSolid.image,
+            image: AdmiralImages.Asset.System.Solid.starSolid.image,
             tag: 0)
         mainVC.tabBarItem.accessibilityIdentifier = "MainTabBarItem"
         return BaseNavigationController(rootViewController: mainVC)
@@ -70,7 +70,7 @@ class BaseTabBarController: UITabBarController, AppThemeable {
         chatVC.navigationItem.title = "Chat"
         chatVC.tabBarItem = UITabBarItem(
             title: Constants.chatTitle,
-            image: AdmiralUIResources.Asset.Category.Solid.chatSolid.image,
+            image: AdmiralImages.Asset.Category.Solid.chatSolid.image,
             tag: 2)
         chatVC.tabBarItem.accessibilityIdentifier = "ChatTabBarItem"
         return BaseNavigationController(rootViewController: chatVC)
@@ -83,7 +83,7 @@ class BaseTabBarController: UITabBarController, AppThemeable {
             let chatVC = SwiftUIChatViewController()
             chatVC.tabBarItem = UITabBarItem(
                 title: Constants.chatTitle,
-                image: AdmiralUIResources.Asset.Category.Solid.chatSolid.image,
+                image: AdmiralImages.Asset.Category.Solid.chatSolid.image,
                 tag: 0)
             chatVC.tabBarItem.accessibilityIdentifier = "ChatTabBarItem"
             return chatVC
@@ -119,7 +119,7 @@ class BaseTabBarController: UITabBarController, AppThemeable {
         infoVC.navigationItem.title = Constants.infoTitle
         infoVC.tabBarItem = UITabBarItem(
             title: Constants.infoTitle,
-            image: AdmiralUIResources.Asset.Category.Solid.mobileSolid.image,
+            image: AdmiralImages.Asset.Category.Solid.mobileSolid.image,
             tag: 1)
         infoVC.tabBarItem.accessibilityIdentifier = "InfoTabBarItem"
         return BaseNavigationController(rootViewController: infoVC)

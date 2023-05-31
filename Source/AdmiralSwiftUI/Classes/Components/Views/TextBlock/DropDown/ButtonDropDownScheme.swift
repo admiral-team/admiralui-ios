@@ -5,7 +5,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  ButtonDropDownScheme - the visual scheme of ButtonDropDown.
  You can create a by specifying the following parameters in init:

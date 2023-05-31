@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 import SwiftUI
 /// Type size image from alert view.
 public enum AlertViewImageType {

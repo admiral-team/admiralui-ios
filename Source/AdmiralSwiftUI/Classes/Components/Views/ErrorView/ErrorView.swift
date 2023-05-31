@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 /**
  ErrorView - the component is used to attract the user's attention as a message.
  You can create a ZeroScreenView with the zero frame rectangle by specifying the following parameters in init:

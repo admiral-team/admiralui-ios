@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 import SwiftUI
 /**
  TextOperationView - the component that presents a rounded view with title, description and chatBubbleStatusView.

@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 import SwiftUI
 /**
  UploadingImageGrid - the component that used to add imageViews to group

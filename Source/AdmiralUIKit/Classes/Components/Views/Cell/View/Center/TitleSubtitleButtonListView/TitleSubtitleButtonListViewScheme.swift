@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 
 /**
  TitleSubtitleButtonListViewScheme - the visual scheme.

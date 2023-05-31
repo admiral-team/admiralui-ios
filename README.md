@@ -28,7 +28,6 @@ To learn more about the status of the `AdmiralUI` design system components and t
 
 ## Demo app
 A live example of using the `AdmiralUI` library is our demo application, which is `AdmiralUI.xcworkspace`. Using it you can evaluate all the components implemented in the library in different states, with the ability to switch between built-in color themes and create your own ones.
-=======
 - 🎨 **Themization** - support for different color palettes, the ability to create your own and instantly switch between them.
 - 🏗 **Support** - releases come out every two weeks, support `SwiftUI` and `UIKit`.
 - 📱 **Consistent style across platforms** - availible library for [Android](https://github.com/admiral-team/admiralui-android)
@@ -43,12 +42,13 @@ A live example of using the `AdmiralUI` library is our demo application, which i
 
 ### Project structure
 The project is divided into 5 modules:
-* `AdmiralUIResources` - all resources (icons / fonts / colors)
-* `AdmiralTheme` - app theme manager
+* `AdmiralImages` - collection of images organized into different categories
+* `AdmiralSymbols` - collection of symbols organized into different categories
+* `AdmiralTheme` - dynamic change app theming
 * `AdmrialUIKit`- component library of UIKit
 * `AdmiralSwiftUI` - component library of SwiftUI
 
-> The modules work independently of each other and can be connected separately. For example, if you need only icons and fonts, you should only connect `AdmiralUIResources`, and if you need only a theme manager - `AdmiralTheme`
+> The modules work independently of each other and can be connected separately. For example, if you need only icons, you should only connect `AdmiralImages`, and if you need only a theme manager - `AdmiralTheme`
 <br/>  
 
 ## Contributors

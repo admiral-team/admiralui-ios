@@ -5,7 +5,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  SubtitleTitleHeaderScheme - the visual scheme of SubtitleTitleHeader.
  You can create a by specifying the following parameters in init:

@@ -7,8 +7,6 @@
 
 import UIKit
 import AdmiralTheme
-import AdmiralUIResources
-
 /**
  ArrowListViewScheme - the visual scheme.
  You can create a by specifying the following parameters in init:

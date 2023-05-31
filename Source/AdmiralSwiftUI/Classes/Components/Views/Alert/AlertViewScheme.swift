@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  ActivityIndicatorScheme - the visual scheme of AlertView.
  You can create a by specifying the following parameters in init:

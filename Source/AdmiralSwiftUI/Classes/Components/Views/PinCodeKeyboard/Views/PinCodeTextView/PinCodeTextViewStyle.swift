@@ -8,7 +8,6 @@
 import SwiftUI
 import Combine
 import AdmiralTheme
-import AdmiralUIResources
 
 @available(iOS 14.0.0, *)
 public struct PinCodeTextViewStyle: ButtonStyle {

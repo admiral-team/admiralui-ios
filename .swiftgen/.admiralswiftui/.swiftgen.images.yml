@@ -1,8 +1,8 @@
 xcassets:
-    inputs: ../../Source/AdmiralSwiftUI/Resources/Images.xcassets
+    inputs: ../../Source/AdmiralSwiftUI/Resources/Assets/Images.xcassets
     outputs:
         templatePath: ../../Templates/Images.stencil
-        output: ../../Source/AdmiralSwiftUI/Resources/Generated/Images.swift
+        output: ../../Source/AdmiralSwiftUI/Classes/CoreFoundation/Assets/Images.swift
         params:
             allValues: true
             enumName: ImageAssets

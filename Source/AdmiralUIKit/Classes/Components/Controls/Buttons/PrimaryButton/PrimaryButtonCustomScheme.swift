@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 
 /**
  PrimaryButtonCustomScheme - the visual scheme.

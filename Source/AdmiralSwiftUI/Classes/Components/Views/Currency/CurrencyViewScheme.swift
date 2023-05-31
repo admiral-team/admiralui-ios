@@ -7,7 +7,6 @@
 
 import UIKit
 import AdmiralTheme
-import AdmiralUIResources
 /**
  CurrencyViewScheme - the visual scheme.
  You can create a by specifying the following parameters in init:

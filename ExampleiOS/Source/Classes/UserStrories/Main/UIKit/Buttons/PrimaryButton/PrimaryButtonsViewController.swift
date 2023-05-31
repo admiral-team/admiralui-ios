@@ -6,9 +6,9 @@
 //
 // swiftlint:disable all
 
-import AdmiralUIResources
 import AdmiralUIKit
 import AdmiralTheme
+import AdmiralImages
 import UIKit
 
 final class PrimaryButtonsViewController: ScrollViewController {
@@ -32,8 +32,8 @@ final class PrimaryButtonsViewController: ScrollViewController {
     // MARK: - Internal Properties
     
     private let buttonsContainer = ButtonsView(buttonViews: [])
-    private let heartImage = AdmiralUIResources.Asset.Category.Outline.heartOutline.image
-    private let maintenanceImage = AdmiralUIResources.Asset.Category.Solid.maintenanceSolid.image
+    private let heartImage = AdmiralImages.Asset.Category.Outline.heartOutline.image
+    private let maintenanceImage = AdmiralImages.Asset.Category.Solid.maintenanceSolid.image
     
     // MARK: - Internal Methods
     

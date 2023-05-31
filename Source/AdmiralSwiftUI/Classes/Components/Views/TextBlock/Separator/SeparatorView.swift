@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 /**
  Separator - separator element with height equal 16 points, exist in three different variants.
  - long - separator whole width

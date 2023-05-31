@@ -9,7 +9,7 @@ import XCTest
 import SwiftUI
 import SnapshotTesting
 import AdmiralTheme
-import AdmiralUIResources
+import AdmiralImages
 @testable import AdmiralSwiftUI
 
 private struct TitleWithImageListViewWrapper<T: View>: View {
@@ -68,14 +68,14 @@ final class TitleWithImageListViewSnapshotTests: XCTestCase {
     func createTitleWithImageListView() -> some View {
         let view = TitleWithImageListView(
             title: "Курсы валют",
-            image: Image(uiImage: Asset.Service.Solid.dragSolid.image))
+            image: Image(uiImage: AdmiralImages.Asset.Service.Solid.dragSolid.image))
         return view
     }
 
     func createTitleWithImageListView(schemeProvider: SchemeProvider<TitleWithImageListViewScheme>) -> some View {
         let view = TitleWithImageListView(
             title: "Курсы валют",
-            image: Image(uiImage: Asset.Service.Solid.dragSolid.image),
+            image: Image(uiImage: AdmiralImages.Asset.Service.Solid.dragSolid.image),
             renderingMode: .template,
             schemeProvider: schemeProvider
         )

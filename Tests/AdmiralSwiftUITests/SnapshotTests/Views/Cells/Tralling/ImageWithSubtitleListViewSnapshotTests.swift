@@ -9,7 +9,7 @@ import XCTest
 import SwiftUI
 import SnapshotTesting
 import AdmiralTheme
-import AdmiralUIResources
+import AdmiralImages
 @testable import AdmiralSwiftUI
 
 private struct ImageWithSubtitleListViewWrapper<T: View>: View {
@@ -66,14 +66,17 @@ final class ImageWithSubtitleListViewSnapshotTests: XCTestCase {
     }
     
     func createImageWithSubtitleListView() -> some View {
-        let view = ImageWithSubtitleListView(subtitle: "Subtitle", image: Image(uiImage: Asset.Documents.Solid.accountDetailSolid.image)).padding()
+        let view = ImageWithSubtitleListView(
+            subtitle: "Subtitle",
+            image: Image(uiImage: AdmiralImages.Asset.Documents.Solid.accountDetailSolid.image)
+        ).padding()
         return view
     }
 
     func createImageWithSubtitleListView(schemeProvider: SchemeProvider<ImageWithSubtitleListViewScheme>) -> some View {
         let view = ImageWithSubtitleListView(
             subtitle: "Subtitle",
-            image: Image(uiImage: Asset.Documents.Solid.accountDetailSolid.image),
+            image: Image(uiImage: AdmiralImages.Asset.Documents.Solid.accountDetailSolid.image),
             renderingMode: .template,
             schemeProvider: schemeProvider
         ).padding()

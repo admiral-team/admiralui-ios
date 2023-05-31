@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
   TextOperationViewScheme - the visual scheme of TextOperationView.
    You can create a by specifying the following parameters in init:

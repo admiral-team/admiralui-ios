@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 
 /**
  DefaultAlertViewCustomScheme - the visual scheme.

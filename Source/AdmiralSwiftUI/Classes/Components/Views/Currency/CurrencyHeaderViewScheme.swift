@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  CurrencyHeaderViewScheme - the visual scheme of CurrencyHeaderView.
  You can create a by specifying the following parameters in init:

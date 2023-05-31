@@ -5,7 +5,6 @@
 //  Created on 20.05.2021.
 //
 import AdmiralTheme
-import AdmiralUIResources
 /**
  StandardTextFieldScheme - the visual scheme of StandardTextField.
  You can create a by specifying the following parameters in init:

@@ -6,7 +6,6 @@
 //
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 /**
  The style for creating the Pin Button. Pin Button - tеhe component displays the position of the object on the map, exists in two states: Default and Selected. It is also possible to change the company logo inside the component or install an icon.
 

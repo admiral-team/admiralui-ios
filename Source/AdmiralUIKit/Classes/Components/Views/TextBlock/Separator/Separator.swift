@@ -7,7 +7,6 @@
 
 import UIKit
 import AdmiralTheme
-import AdmiralUIResources
 
 /**
  SeparatorStyle - Public enum for Separator AdmiralSwiftUI library

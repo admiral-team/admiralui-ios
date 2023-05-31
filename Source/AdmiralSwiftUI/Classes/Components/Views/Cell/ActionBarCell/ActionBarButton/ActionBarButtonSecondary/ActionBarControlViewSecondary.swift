@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 
 /**
  ActionBarControlViewTwo - A view object with background view and image view for ActionBarView.

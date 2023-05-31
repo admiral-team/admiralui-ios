@@ -5,7 +5,6 @@
 //  Created on 14.07.2021.
 //
 import AdmiralTheme
-import AdmiralUIResources
 /**
  PickerViewScheme - the visual scheme of UIKitPickerView.
  You can create a by specifying the following parameters in init:

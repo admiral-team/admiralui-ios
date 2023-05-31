@@ -7,7 +7,6 @@
 
 import AdmiralUIKit
 import AdmiralTheme
-import AdmiralUIResources
 import UIKit
 
 final class BadgeCellView<T>: UIView, AnyAppThemable, AccessibilitySupport where T: Badge {

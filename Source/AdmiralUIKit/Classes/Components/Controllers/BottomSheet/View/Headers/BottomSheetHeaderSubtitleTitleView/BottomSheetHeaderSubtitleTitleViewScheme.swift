@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 
 /**
  BottomSheetHeaderSubtitleTitleViewScheme - the visual scheme.

@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 import UIKit
 
 class CountDownTimerView: UIView, AnyAppThemable {

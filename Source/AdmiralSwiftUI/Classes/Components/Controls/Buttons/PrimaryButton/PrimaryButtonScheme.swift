@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 /**
  PrimaryButtonScheme - the visual scheme of PageControlView.
  You can create a by specifying the following parameters in init:

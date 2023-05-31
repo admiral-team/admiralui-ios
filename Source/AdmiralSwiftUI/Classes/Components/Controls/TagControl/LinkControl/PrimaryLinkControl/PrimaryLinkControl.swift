@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 import SwiftUI
 /**
  PrimaryLinkControlStyle - the button style that presents button with image and text.

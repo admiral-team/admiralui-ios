@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 
 @available(iOS 14.0, *)
 public struct UploadDocumentGridScheme: AppThemeScheme {

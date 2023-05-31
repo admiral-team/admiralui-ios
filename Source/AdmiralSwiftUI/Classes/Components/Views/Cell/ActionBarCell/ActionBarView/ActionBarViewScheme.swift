@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  ActionBarViewScheme - the visual scheme of ActionBarView.
  You can create a by specifying the following parameters in init:

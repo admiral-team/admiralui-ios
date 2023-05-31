@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 /**
  PlatformButtonScheme - the visual scheme of PlatformButtonStyle.
  You can create a by specifying the following parameters in init:

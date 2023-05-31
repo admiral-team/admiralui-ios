@@ -7,7 +7,6 @@
 
 import UIKit
 import AdmiralTheme
-import AdmiralUIResources
 /**
  DefaultAlertView - the component that presents a warning message to the user with diffrent options.
  You can create a DefaultAlertView with the zero frame rectangle by specifying the following parameters in init:

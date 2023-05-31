@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  TitleMoreDetailTextMessageListViewScheme - the visual scheme of TitleMoreDetailTextMessageListView.
  You can create a by specifying the following parameters in init:

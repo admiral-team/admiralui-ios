@@ -7,7 +7,6 @@
 
 import AdmiralSwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 
 @available(iOS 14.0.0, *)
 struct ThemeSwitchViewScheme: AppThemeScheme {
