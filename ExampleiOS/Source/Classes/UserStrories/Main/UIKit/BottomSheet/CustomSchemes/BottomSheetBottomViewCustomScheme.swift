@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 
 struct BottomSheetBottomViewCustomScheme {
     var titleFont: AFont

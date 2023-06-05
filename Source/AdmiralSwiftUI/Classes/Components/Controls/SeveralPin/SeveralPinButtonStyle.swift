@@ -6,7 +6,6 @@
 //
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 /**
  The style for creating the Several Pin Button. Several Pin Button - the component displays the position of several objects on the map at one point, exists in three sizes: Small, Medium and Big - use the appropriate one depending on the number of characters.
  You can create a SeveralPinButtonStyle by specifying the following parameters in the initializer

@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 import SwiftUI
 /**
  RadioControl - A type of button that lets the user choose between two opposite states, actions, or values. They are applied when there is a list of options from which the user can select only one option.
@@ -53,7 +52,7 @@ public struct RadioControl: View {
     // MARK: - Computed Properites
 
     private var image: Image {
-        return isSelected ? Image(uiImage: SystemAsset.Custom.Control.radioButtonOn.image) : Image(uiImage: SystemAsset.Custom.Control.radioButtonOff.image)
+        return isSelected ? Image(uiImage: ImageAssets.Custom.Control.radioButtonOn.image) : Image(uiImage: ImageAssets.Custom.Control.radioButtonOff.image)
     }
     
     // MARK: - Initializer

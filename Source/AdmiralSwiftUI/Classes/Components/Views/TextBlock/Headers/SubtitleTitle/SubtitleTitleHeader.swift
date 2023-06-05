@@ -6,7 +6,6 @@
 //
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 /**
  SubtitleTitleHeader - A header with header subtitle and title.
 

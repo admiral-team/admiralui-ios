@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 import SwiftUI
 /**
  UploadDocumentGrid - the component that presents a view container for UploadDocumentView.
@@ -137,8 +136,9 @@ public struct UploadDocumentGrid: View {
     private func statusError(scheme: UploadDocumentGridScheme) -> some View {
         VStack(spacing: 0) {
             if isStatusError() {
-                Image(uiImage: Asset.Service.Solid.errorSolid.image)
+                SymbolAssets.Service.Solid.error.swiftUIImage
                     .resizable()
+                    .padding(LayoutGrid.halfModule)
                     .frame(width: LayoutGrid.halfModule * 7, height: LayoutGrid.halfModule * 7)
                     .foregroundColor(scheme.errorImageColor.swiftUIColor)
                     .padding(.top, LayoutGrid.module)

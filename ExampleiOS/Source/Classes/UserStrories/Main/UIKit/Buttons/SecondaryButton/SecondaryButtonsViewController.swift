@@ -5,8 +5,8 @@
 //  Created on 14.06.2022.
 //
 
-import AdmiralUIResources
 import AdmiralUIKit
+import AdmiralImages
 import AdmiralTheme
 import UIKit
 
@@ -31,8 +31,8 @@ final class SecondaryButtonsViewController: ScrollViewController {
     // MARK: - Internal Properties
     
     private let buttonsContainer = ButtonsView(buttonViews: [])
-    private let heartImage = AdmiralUIResources.Asset.Category.Outline.heartOutline.image
-    private let maintenanceImage = AdmiralUIResources.Asset.Category.Solid.maintenanceSolid.image
+    private let heartImage = AdmiralImages.Asset.Category.Outline.heartOutline.image
+    private let maintenanceImage = AdmiralImages.Asset.Category.Solid.maintenanceSolid.image
     
     // MARK: - Internal Methods
     

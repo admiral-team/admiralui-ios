@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  CheckBoxListViewScheme - the visual scheme of CheckBoxListView.
  You can create a by specifying the following parameters in init:

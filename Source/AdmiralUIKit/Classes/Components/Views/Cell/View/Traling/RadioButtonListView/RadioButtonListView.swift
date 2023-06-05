@@ -7,7 +7,6 @@
 
 import UIKit
 import AdmiralTheme
-import AdmiralUIResources
 
 /// A view object with radio button.
 public class RadioButtonListView: BaseListView, TralingListViewComponent, AnyAppThemable {

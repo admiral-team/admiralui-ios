@@ -5,8 +5,8 @@
 //  Created on 25.02.2022.
 //
 
-import AdmiralUIResources
 import AdmiralUIKit
+import AdmiralImages
 import UIKit
 
 final class MapButtonsListViewModel {
@@ -37,9 +37,9 @@ final class MapButtonsListViewModel {
     init() {
         buttons = [
             MapButtonModel(title: "Pins", buttons: [
-                .pin(AdmiralUIResources.Asset.Category.Solid.bankSolid.image, selection: false),
-                .pin(AdmiralUIResources.Asset.Finance.Solid.moneySolid.image, selection: false),
-                .pin(AdmiralUIResources.Asset.Finance.Solid.cashSolid.image, selection: false)
+                .pin(AdmiralImages.Asset.Category.Solid.bankSolid.image, selection: false),
+                .pin(AdmiralImages.Asset.Finance.Solid.moneySolid.image, selection: false),
+                .pin(AdmiralImages.Asset.Finance.Solid.cashSolid.image, selection: false)
             ]),
             MapButtonModel(title: "Several Pins", buttons: [
                 .severalPin(.small, title: "2"),

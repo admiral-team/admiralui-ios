@@ -6,8 +6,8 @@
 //
 
 import SwiftUI
+import AdmiralSymbols
 import AdmiralTheme
-import AdmiralUIResources
 import AdmiralSwiftUI
 
 @available(iOS 14.0.0, *)
@@ -16,7 +16,7 @@ struct PinCodeTextFieldView: View {
     // MARK: - Private Properties
     
     @State private var leftButtonTitle: String = "Не могу войти"
-    @State private var rightButtonImage: Image = AdmiralUIResources.AssetSymbol.Security.Outline.faceID.image
+    @State private var rightButtonImage: Image = AdmiralSymbols.AssetSymbol.Security.Outline.faceID.swiftUIImage
     @State private var selectedNumber: String = ""
     @State private var controlsState: Int = 0
     @State private var maxCountNumbers: Double = 6

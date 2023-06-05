@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 
 /**
  ActionBarControlViewTwo - A view object with background view and image view for ActionBarView.
@@ -95,7 +94,7 @@ struct ActionBarControlViewTwo_Previews: PreviewProvider {
 
     static var previews: some View {
         ActionBarControlViewSecondary(
-            image: Image(uiImage: Asset.Category.Outline.addCommentOutline.image),
+            image: SymbolAssets.Category.Outline.addCommen.swiftUIImage,
             imageStyle: .accent,
             backgroundColor: nil,
             imageTintColor: nil,

@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 /**
  MonthYearButtonScheme - the visual scheme of MonthYearButtonStyle.
  You can create a by specifying the following parameters in init:

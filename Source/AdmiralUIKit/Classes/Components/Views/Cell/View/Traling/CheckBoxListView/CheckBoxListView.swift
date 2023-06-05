@@ -7,7 +7,6 @@
 
 import UIKit
 import AdmiralTheme
-import AdmiralUIResources
 
 /// A view object with check box view.
 open class CheckBoxListView: BaseListView, TralingListViewComponent, AnyAppThemable {

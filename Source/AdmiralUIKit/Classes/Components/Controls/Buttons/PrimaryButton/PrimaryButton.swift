@@ -7,7 +7,6 @@
 
 import UIKit
 import AdmiralTheme
-import AdmiralUIResources
 
 /// Main button. Used for the most important actions. It is advisable to use one such button on the screen.
 open class PrimaryButton: CustomButton, AnyAppThemable, AccessibilitySupport {

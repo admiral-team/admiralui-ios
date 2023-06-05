@@ -5,10 +5,8 @@
 //  Created on 28.05.2021.
 //
 
-import AdmiralCore
 import AdmiralSwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 
 @available(iOS 14.0.0, *)
 final public class InfoSwiftUIViewScheme: AppThemeScheme {

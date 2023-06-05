@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  InputNumberScheme - the visual scheme.
  You can create a by specifying the following parameters in init:

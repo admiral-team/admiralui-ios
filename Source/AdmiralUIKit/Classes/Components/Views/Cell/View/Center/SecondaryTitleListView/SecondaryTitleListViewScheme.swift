@@ -6,8 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
-
 /**
  SecondaryTitleListViewScheme - the visual scheme.
  You can create a by specifying the following parameters in init:

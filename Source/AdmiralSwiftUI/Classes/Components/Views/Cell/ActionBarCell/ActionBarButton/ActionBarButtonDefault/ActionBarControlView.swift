@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 
 @available(iOS 14.0.0, *)
 /// The tint color style of ActionBarItemImage.
@@ -93,7 +92,7 @@ struct ActionBarControlView_Previews: PreviewProvider {
     
     static var previews: some View {
         ActionBarControlView(
-            image: Image(uiImage: Asset.Category.Outline.addCommentOutline.image),
+            image: SymbolAssets.Category.Outline.addCommen.swiftUIImage,
             imageStyle: .accent,
             tapActionBar: {}
         )

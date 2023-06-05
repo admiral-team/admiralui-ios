@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import AdmiralUIResources
 
 /**
  RadioControl is an interface element that allows the user to select one option (item) from a predefined set (group).
@@ -34,8 +33,8 @@ public class RadioControl: CheckControl {
     
     override func commonInit() {
         super.commonInit()
-        selectedImage = SystemAsset.Custom.Control.radioButtonOn.image
-        defaultImage = SystemAsset.Custom.Control.radioButtonOff.image
+        selectedImage = Asset.Custom.Control.radioButtonOn.image
+        defaultImage = Asset.Custom.Control.radioButtonOff.image
         updateState()
     }
     

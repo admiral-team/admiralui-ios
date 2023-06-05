@@ -7,7 +7,7 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
+import AdmiralSymbols
 import AdmiralSwiftUI
 
 @available(iOS 14.0.0, *)
@@ -59,7 +59,7 @@ struct ParagraphSwiftUIView: View {
                         
                         ParagraphView(
                             title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-                            trailingImage: AdmiralUIResources.AssetSymbol.Service.Outline.info.image,
+                            trailingImage: AdmiralSymbols.AssetSymbol.Service.Outline.info.swiftUIImage,
                             textAligment: .leading,
                             paragraphStyle: .primary)
                         
@@ -97,7 +97,7 @@ struct ParagraphSwiftUIView: View {
                         
                         ParagraphView(
                             title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-                            trailingImage: AdmiralUIResources.AssetSymbol.Service.Outline.info.image,
+                            trailingImage: AdmiralSymbols.AssetSymbol.Service.Outline.info.swiftUIImage,
                             textAligment: .leading,
                             paragraphStyle: .secondary)
                         

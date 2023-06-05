@@ -6,8 +6,8 @@
 //
 
 import AdmiralUIKit
-import AdmiralUIResources
 import AdmiralTheme
+import AdmiralImages
 import UIKit
 
 final class TextBaseCellViewController: ScrollViewController {
@@ -61,7 +61,7 @@ final class TextBaseCellViewController: ScrollViewController {
         let titleListView2 = TitleListView()
         titleListView2.title = Constants.cellText
         let iconListView = IconListView()
-        iconListView.image = AdmiralUIResources.Asset.Service.Outline.infoOutline.image
+        iconListView.image = AdmiralImages.Asset.Service.Outline.infoOutline.image
         let listView2 = ListCell<ListCellEmpty, TitleListView, IconListView>(
             centerView: titleListView2,
             tralingView: iconListView)

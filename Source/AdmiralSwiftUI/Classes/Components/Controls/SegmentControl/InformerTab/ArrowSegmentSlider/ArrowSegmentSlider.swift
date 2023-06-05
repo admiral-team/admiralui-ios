@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 import SwiftUI
 /**
  ArrowSegmentSlider - the view that presents the arrow image in informerTab..
@@ -26,7 +25,7 @@ public struct ArrowSegmentSlider: View {
 
     enum Constants {
         static let imageSize = CGSize(width: 32.0, height: 12.0)
-        static let arrowImage = SystemAsset.Custom.Segment.arrowUp.image
+        static let arrowImage = ImageAssets.Custom.Segment.arrowUp.image
         static let animationDuration: Double = 0.3
     }
 

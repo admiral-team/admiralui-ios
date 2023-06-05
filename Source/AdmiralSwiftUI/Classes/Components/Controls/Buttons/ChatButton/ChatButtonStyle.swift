@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import AdmiralUIResources
 import AdmiralTheme
 
 @available(iOS 14.0.0, *)
@@ -92,7 +91,7 @@ struct ChatButtonStyle_Previews: PreviewProvider {
 
     static var previews: some View {
         Button(action: {}, label: {
-            AssetSymbol.System.Outline.arrowRight.image
+            SymbolAssets.System.Outline.arrowRight.swiftUIImage
         })
         .buttonStyle(ChatButtonStyle())
     }

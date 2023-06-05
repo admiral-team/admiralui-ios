@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  OTPTextFieldScheme - the visual scheme of OTPTextField.
  You can create a by specifying the following parameters in init:

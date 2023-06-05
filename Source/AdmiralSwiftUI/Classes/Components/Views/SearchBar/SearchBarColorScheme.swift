@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  SearchBarColorScheme - the visual scheme .
  You can create a by specifying the following parameters in init:

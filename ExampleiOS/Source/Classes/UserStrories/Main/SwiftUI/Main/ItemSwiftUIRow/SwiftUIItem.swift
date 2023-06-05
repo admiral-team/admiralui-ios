@@ -80,7 +80,7 @@ enum SwiftUIItem: String, CaseIterable {
             return "Bottom-sheet"
         case .currency:
             return "Currency"
-        case .chat :
+        case .chat:
             return "Chat"
         case .admiralGun:
             return "Admiral Gun"

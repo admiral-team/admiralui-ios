@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 import SwiftUI
 /**
  UploadDocumentState - Public enum for UploadDocumentView
@@ -239,12 +238,12 @@ struct UploadDocumentView: View {
                     closeAction: model.closeAction
                 )
             case .description:
-                Image(uiImage: Asset.Documents.Outline.descriptionOutline.image)
+                SymbolAssets.Documents.Outline.description.swiftUIImage
                     .foregroundColor(scheme.iconColor.parameter(style: direction)?.swiftUIColor)
                     .frame(width: LayoutGrid.tripleModule, height: LayoutGrid.tripleModule)
                     .eraseToAnyView()
             case .download:
-                Image(uiImage: Asset.System.Outline.arrowDownOutline.image)
+                SymbolAssets.System.Outline.arrowDown.swiftUIImage
                     .foregroundColor(scheme.iconColor.parameter(style: direction)?.swiftUIColor)
                     .frame(width: LayoutGrid.doubleModule, height: LayoutGrid.doubleModule)
                     .eraseToAnyView()

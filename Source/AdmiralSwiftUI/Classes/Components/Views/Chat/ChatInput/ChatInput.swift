@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 import SwiftUI
 /**
  ChatInput - A view for chat input message and add files.
@@ -225,7 +224,7 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
                 HStack(alignment: .bottom, spacing: .zero) {
                     if isShowFileButton {
                         Button(action: { tapFileButton() }, label: {
-                            AssetSymbol.System.Outline.attachFile.image
+                            SymbolAssets.System.Outline.attachFile.swiftUIImage
                         })
                         .foregroundColor(scheme.imageTintColor.swiftUIColor)
                         .frame(width: LayoutGrid.doubleModule, height: LayoutGrid.doubleModule)
@@ -262,7 +261,7 @@ public struct ChatInput: View, AccessabilitySupportUIKit {
                                 clear()
                             }
                         }, label: {
-                            AssetSymbol.System.Outline.arrowRight.image
+                            SymbolAssets.System.Outline.arrowRight.swiftUIImage
                         })
                         .buttonStyle(ChatButtonStyle())
                         .disabled(isSendButtonDisabled ?? isSendButtonEnabled)

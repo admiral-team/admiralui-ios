@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 /**
  ZeroScreenView - the component is used to attract the user's attention as a message. A view with title, subtitle and image.
  You can create a ZeroScreenView with the zero frame rectangle by specifying the following parameters in init:
@@ -141,7 +140,7 @@ public struct ZeroScreenView: View {
 struct ZeroScreenView_Previews: PreviewProvider {
 
     static var previews: some View {
-        let image = Image(uiImage: SystemAsset.Custom.Informers.question.image)
+        let image = Image(uiImage: ImageAssets.Custom.Informers.question.image)
         ZeroScreenView(
             image: image,
             title: "Title Center",

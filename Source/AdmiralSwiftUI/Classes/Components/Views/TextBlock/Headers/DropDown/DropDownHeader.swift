@@ -6,7 +6,6 @@
 //
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 /**
  DropDownHeader - A header with header title, arrow and button.
 
@@ -54,7 +53,7 @@ public struct DropDownHeader: View {
     public init(
         title: String?,
         dropDownHeaderType: DropDownHeaderType = .down,
-        renderingMode: Image.TemplateRenderingMode = .original,
+        renderingMode: Image.TemplateRenderingMode = .template,
         headerStyle: HeaderStyle = .title,
         schemeProvider: SchemeProvider<DropDownHeaderScheme> = AppThemeSchemeProvider<DropDownHeaderScheme>()
     ) {

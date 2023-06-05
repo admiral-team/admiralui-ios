@@ -7,7 +7,6 @@
 
 import UIKit
 import AdmiralTheme
-import AdmiralUIResources
 
 /// MessageInformer is a component that used to show some information.
 open class MessageInformer: UIView, AnyAppThemable, AccessibilitySupport {
@@ -81,7 +80,7 @@ open class MessageInformer: UIView, AnyAppThemable, AccessibilitySupport {
     // MARK: - Private Properties
     
     private enum Constants {
-        static let arrowImage: UIImage = SystemAsset.Custom.Segment.arrowUp.image
+        static let arrowImage: UIImage = Asset.Custom.Segment.arrowUp.image
         static let heightImageView: CGFloat = LayoutGrid.module
         static let widthImageView: CGFloat = LayoutGrid.doubleModule
         static let questionImage: UIImage = Asset.Service.Solid.helpSolid.image

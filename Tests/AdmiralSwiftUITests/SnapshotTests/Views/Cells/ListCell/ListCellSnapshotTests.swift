@@ -9,7 +9,7 @@ import XCTest
 import SwiftUI
 import SnapshotTesting
 import AdmiralTheme
-import AdmiralUIResources
+import AdmiralImages
 @testable import AdmiralSwiftUI
 
 private struct ListCellWrapper<T: View>: View {
@@ -66,7 +66,7 @@ final class ListCellSnapshotTests: XCTestCase {
     
     func createListCell() -> some View {
         let view = ListCell(
-            leadingView: { LeadingCardListView(cardImage: Image(uiImage: Asset.Finance.Solid.cashSolid.image)) },
+            leadingView: { LeadingCardListView(cardImage: Image(uiImage: AdmiralImages.Asset.Finance.Solid.cashSolid.image)) },
             centerView: { TitleListView(title: "Title") },
             trailingView: { DatePercentListView(date: "Date", percent: "Text") },
             isSelected: .constant(true))

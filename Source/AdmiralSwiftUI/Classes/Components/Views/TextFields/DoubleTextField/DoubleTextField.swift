@@ -103,17 +103,6 @@ public struct DoubleTextField<T1, T2>: View where T1: TextFieldInput, T2: TextFi
     public var body: some View {
         let scheme = schemeProvider.scheme
         let isShowInfo = firstTextField.info.isEmpty && secondTextField.info.isEmpty && !info.isEmpty
-        var infoColor = scheme.underlineColor.swiftUIColor
-        switch state {
-        case .error:
-            infoColor = scheme.errorColor.swiftUIColor
-        case .disabled:
-            infoColor = scheme.disabledColor.swiftUIColor
-        case .readOnly:
-            infoColor = scheme.underlineColor.swiftUIColor
-        default:
-            break
-        }
 
         return VStack(spacing: 0) {
             switch alignment {
@@ -129,7 +118,7 @@ public struct DoubleTextField<T1, T2>: View where T1: TextFieldInput, T2: TextFi
                 }
                 .padding(.top, LayoutGrid.tripleModule)
                 if isShowInfo {
-                    textInfoView(infoColor: infoColor, textFont: scheme.informerFont.swiftUIFont)
+                    textInfoView(scheme)
                         .offset(y: LayoutGrid.tripleModule)
                         .padding(.bottom, LayoutGrid.halfModule * 3)
                 }
@@ -145,7 +134,7 @@ public struct DoubleTextField<T1, T2>: View where T1: TextFieldInput, T2: TextFi
                 }
                 .padding(.top, LayoutGrid.tripleModule)
                 if isShowInfo {
-                    textInfoView(infoColor: infoColor, textFont: scheme.informerFont.swiftUIFont)
+                    textInfoView(scheme)
                         .offset(y: LayoutGrid.tripleModule)
                         .padding(.bottom, LayoutGrid.halfModule * 3)
                 }
@@ -167,7 +156,7 @@ public struct DoubleTextField<T1, T2>: View where T1: TextFieldInput, T2: TextFi
                     .fill(Color.clear)
                     .modifier(SizeAwareViewModifier(viewSize: $segmentedSize))
                 if isShowInfo {
-                    textInfoView(infoColor: infoColor, textFont: scheme.informerFont.swiftUIFont)
+                    textInfoView(scheme)
                         .offset(y: -LayoutGrid.halfModule)
                         .padding(.bottom, LayoutGrid.halfModule * 3)
                 }
@@ -177,11 +166,23 @@ public struct DoubleTextField<T1, T2>: View where T1: TextFieldInput, T2: TextFi
     
     // MARK: - Private Methods
     
-    private func textInfoView(infoColor: Color, textFont: Font) -> some View {
+    private func textInfoView(_ scheme: DoubleTextFieldScheme) -> some View {
+        var infoColor = scheme.underlineColor.swiftUIColor
+        switch state {
+        case .error:
+            infoColor = scheme.errorColor.swiftUIColor
+        case .disabled:
+            infoColor = scheme.disabledColor.swiftUIColor
+        case .readOnly:
+            infoColor = scheme.underlineColor.swiftUIColor
+        default:
+            break
+        }
+        
         return Text(info)
             .frame(maxWidth: .infinity, alignment: .leading)
             .lineLimit(infoNumberOfLines)
-            .font(textFont)
+            .font(scheme.informerFont.swiftUIFont)
             .accessibilityIdentifier(accessibilityIdentifier ?? "")
             .foregroundColor(infoColor)
             .accessibilityIdentifier(TextFieldsAccessibilityIdentifiers.info.accessibilityViewIdentifier(accessibilityIdentifier: accessibilityIdentifier))

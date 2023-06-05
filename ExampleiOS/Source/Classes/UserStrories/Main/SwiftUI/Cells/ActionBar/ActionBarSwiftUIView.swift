@@ -7,7 +7,7 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
+import AdmiralSymbols
 import AdmiralSwiftUI
 
 @available(iOS 14.0.0, *)
@@ -50,7 +50,7 @@ struct ActionBarSwiftUIView: View {
                             trailingView: {
                                 SubtitleWithImageListView(
                                     subtitle: "Swipe",
-                                    image: AdmiralUIResources.AssetSymbol.System.Outline.arrowLeft.image,
+                                    image: AdmiralSymbols.AssetSymbol.System.Outline.arrowLeft.swiftUIImage,
                                     renderingMode: .template
                                 )
                                     .accessibilityElement()
@@ -105,7 +105,7 @@ struct ActionBarSwiftUIView: View {
                             centerView: { TitleMoreDetailTextMessageListView(title: "Card", detaile: "50 000.00 ₽") },
                             trailingView: { SubtitleWithImageListView(
                                 subtitle: "Swipe",
-                                image: AdmiralUIResources.AssetSymbol.System.Outline.arrowLeft.image,
+                                image: AdmiralSymbols.AssetSymbol.System.Outline.arrowLeft.swiftUIImage,
                                 renderingMode: .template)
                                     .accessibilityElement()
                                     .accessibility(identifier: "SecondaryCellSwipe")

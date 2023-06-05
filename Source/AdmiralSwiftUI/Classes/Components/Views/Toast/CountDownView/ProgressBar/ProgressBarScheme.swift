@@ -5,7 +5,6 @@
 //  Created on 18.08.2022.
 //
 import AdmiralTheme
-import AdmiralUIResources
 /**
  ProgressBarScheme - the visual scheme of ProgressBar.
  You can create a by specifying the following parameters in init:

@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import AdmiralUIResources
 import AdmiralTheme
 
 /// The style of ActionCellView.
@@ -168,16 +167,16 @@ struct ActionCellView_Previews: PreviewProvider {
             ArrowListView()
         }), actions: [
             ActionItemBarAction(
-                image: Image(uiImage: Asset.Category.Outline.acceptOutline.image),
+                image: SymbolAssets.Category.Outline.accept.swiftUIImage,
                 imageStyle: .accent,
                 handler: {}),
             ActionItemBarAction(
-                image: Image(uiImage: Asset.Category.Outline.acceptOutline.image),
+                image: SymbolAssets.Category.Outline.accept.swiftUIImage,
                 imageStyle: .accent,
                 handler: {}
             ),
             ActionItemBarAction(
-                image: Image(uiImage: Asset.Category.Outline.acceptOutline.image),
+                image: SymbolAssets.Category.Outline.accept.swiftUIImage,
                 imageStyle: .accent,
                 handler: {}
             )

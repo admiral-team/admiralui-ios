@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 
 /**
  DoubleInputRangeTextFieldScheme - the visual scheme.

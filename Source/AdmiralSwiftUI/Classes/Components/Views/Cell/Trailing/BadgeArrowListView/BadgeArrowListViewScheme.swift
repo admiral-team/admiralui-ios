@@ -7,7 +7,6 @@
 
 import UIKit
 import AdmiralTheme
-import AdmiralUIResources
 /**
  BadgeArrowListViewScheme - the visual scheme of BadgeArrowListView.
  You can create a by specifying the following parameters in init:

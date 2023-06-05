@@ -7,7 +7,6 @@
 
 import AdmiralTheme
 import AdmiralSwiftUI
-import AdmiralUIResources
 import SwiftUI
 
 @available(iOS 14.0.0, *)

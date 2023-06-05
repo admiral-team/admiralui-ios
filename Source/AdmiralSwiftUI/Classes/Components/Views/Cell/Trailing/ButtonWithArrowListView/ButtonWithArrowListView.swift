@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 
 /**
  ButtonWithArrowListView - A view object with subtitle label and image view.
@@ -39,6 +38,8 @@ public struct ButtonWithArrowListView: View, CenterListViewComponent, TralingLis
     @State public var isHighlighted: Bool = false
     @State public var isHighlightedEnabled: Bool = true
     
+    public static let defaultImage = SymbolAssets.System.Outline.chevronDown.swiftUIImage
+    
     // MARK: Internal Properties
     
     @Binding var image: Image
@@ -56,7 +57,7 @@ public struct ButtonWithArrowListView: View, CenterListViewComponent, TralingLis
     /// Initializes and returns a newly allocated view object with the zero frame rectangle.
     public init(
         text: String,
-        image: Image = Image(uiImage: Asset.System.Outline.chevronDownOutline.image),
+        image: Image = ButtonWithArrowListView.defaultImage,
         accesibilityId: String = "",
         schemeProvider: SchemeProvider<ButtonWithArrowListViewScheme> = AppThemeSchemeProvider<ButtonWithArrowListViewScheme>(),
         action: @escaping () -> ()

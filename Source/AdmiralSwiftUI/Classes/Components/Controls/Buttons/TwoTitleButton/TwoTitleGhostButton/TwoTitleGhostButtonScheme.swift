@@ -5,7 +5,6 @@
 //  Created on 06.07.2021.
 //
 import AdmiralTheme
-import AdmiralUIResources
 /**
  TwoTitleGhostButtonScheme - the visual scheme of TwoTitleGhostButton.
  You can create a by specifying the following parameters in init:

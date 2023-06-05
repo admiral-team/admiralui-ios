@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  SubtitleWithImageListViewScheme - the visual scheme of SubtitleImageArrowListView.
  You can create a by specifying the following parameters in init:

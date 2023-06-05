@@ -6,7 +6,6 @@
 //
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 /**
  CheckboxTextbuttonView - The component is used to inform users with the option to select in the checkBox. And also one interaction buttons.
 

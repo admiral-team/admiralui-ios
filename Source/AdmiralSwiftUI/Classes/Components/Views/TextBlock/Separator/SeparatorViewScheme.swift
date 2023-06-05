@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 /**
  SeparatorViewScheme - the visual scheme of SeparatorView.
  You can create a by specifying the following parameters in init:

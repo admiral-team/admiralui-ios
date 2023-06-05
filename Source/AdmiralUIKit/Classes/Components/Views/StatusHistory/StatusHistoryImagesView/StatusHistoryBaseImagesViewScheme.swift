@@ -7,7 +7,6 @@
 
 import UIKit
 import AdmiralTheme
-import AdmiralUIResources
 
 /**
  StatusHistoryBaseImagesViewScheme - the visual scheme.

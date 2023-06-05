@@ -7,16 +7,16 @@
 
 import AdmiralUIKit
 import AdmiralTheme
-import AdmiralUIResources
+import AdmiralImages
 import UIKit
 
 class ImageSectionViewModel {
     var title: String
-    var icons: [AdmiralUIResources.ImageAsset]
+    var icons: [AdmiralImages.ImageAsset]
     var size: CGSize
     
     init(title: String,
-         icons: [AdmiralUIResources.ImageAsset],
+         icons: [AdmiralImages.ImageAsset],
          size: CGSize) {
         self.title = title
         self.icons = icons
@@ -108,7 +108,7 @@ final class IconsViewController: UIViewController, AnyAppThemable {
     }
     
     private func configureDataSource() {
-        for image in AdmiralUIResources.Asset.allImages {
+        for image in AdmiralImages.Asset.allImages {
             let title = nameSectionTitle(image.name)
 
             if image.name.contains(Constants.outlineKey) {
@@ -198,7 +198,7 @@ final class IconsViewController: UIViewController, AnyAppThemable {
             dataSource = segmentControl.selectedSegmentIndex == 0 ? searchOutlineImageSections : searchSolidImageSections
         }
 
-        for image in AdmiralUIResources.Asset.allImages {
+        for image in AdmiralImages.Asset.allImages {
             let title = nameSectionTitle(image.name)
 
             guard image.name.lowercased().contains(text.lowercased().replacingOccurrences(of: " ", with: "")) else { continue }

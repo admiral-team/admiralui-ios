@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 
 struct ToastNotificationsViewScheme {
     var titleFont: AFont

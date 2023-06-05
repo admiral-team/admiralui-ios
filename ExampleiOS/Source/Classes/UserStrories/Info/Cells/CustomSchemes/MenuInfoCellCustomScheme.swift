@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 
 struct MenuInfoCellCustomScheme {
     var titleFont: AFont

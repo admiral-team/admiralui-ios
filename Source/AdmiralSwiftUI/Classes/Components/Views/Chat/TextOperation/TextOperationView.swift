@@ -6,7 +6,6 @@
 //
 
 import AdmiralTheme
-import AdmiralUIResources
 import SwiftUI
 /**
  TextOperationView - the component that presents a rounded view with title, description and chatBubbleStatusView.
@@ -170,8 +169,9 @@ public struct TextOperationView: View {
     private func statusError(scheme: TextOperationViewScheme) -> some View {
         return VStack {
             if chatStatus == .error && direction == .right {
-                Image(uiImage: Asset.Service.Solid.errorSolid.image)
+                SymbolAssets.Service.Solid.error.swiftUIImage
                     .resizable()
+                    .padding(LayoutGrid.halfModule)
                     .frame(width: LayoutGrid.halfModule * 7, height: LayoutGrid.halfModule * 7)
                     .foregroundColor(scheme.errorImageColor.swiftUIColor)
                     .padding(.top, LayoutGrid.module)

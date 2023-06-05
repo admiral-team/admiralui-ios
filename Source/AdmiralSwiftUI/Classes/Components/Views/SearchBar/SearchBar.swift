@@ -5,7 +5,6 @@
 //  Created on 15.06.2021.
 //
 import AdmiralTheme
-import AdmiralUIResources
 import SwiftUI
 /**
  SearchBar - A specialized view for receiving search-related information from the user.
@@ -49,8 +48,10 @@ public struct SearchBar: View, AccessabilitySupportUIKit {
     // MARK: - Constants
 
     enum Constants {
-        static let closeImage = Asset.Service.Solid.closeSolid.image
+        static let closeImage = SymbolAssets.Service.Solid.close.swiftUIImage
     }
+    
+    public static let defaultSearchImage = SymbolAssets.System.Outline.search.swiftUIImage
 
     // MARK: - Private Properties
 
@@ -102,7 +103,7 @@ public struct SearchBar: View, AccessabilitySupportUIKit {
         autocorrectionType: UITextAutocorrectionType = .no,
         isResponder: Binding<Bool>? = nil,
         placeholder: String = "",
-        searchImage: SwiftUI.Image? = AssetSymbol.System.Outline.search.image,
+        searchImage: SwiftUI.Image? = defaultSearchImage,
         schemeProvider: SchemeProvider<SearchBarColorScheme> = AppThemeSchemeProvider<SearchBarColorScheme>()
     ) {
         self._content = content
@@ -156,7 +157,7 @@ public struct SearchBar: View, AccessabilitySupportUIKit {
                 Button(action: {
                     clear()
                 }, label: {
-                    Image(uiImage: Constants.closeImage)
+                    Constants.closeImage
                         .frame(width: LayoutGrid.halfModule * 7, height: LayoutGrid.halfModule * 7)
                         .foregroundColor(style.imageTintColor.swiftUIColor)
                 })

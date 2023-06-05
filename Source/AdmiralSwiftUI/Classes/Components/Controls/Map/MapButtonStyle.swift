@@ -6,7 +6,6 @@
 //
 import SwiftUI
 import AdmiralTheme
-import AdmiralUIResources
 
 @available(iOS 14.0, *)
 public enum MapButtonType {
@@ -46,11 +45,11 @@ public struct MapButtonStyle: ButtonStyle {
         self.schemeProvider = schemeProvider
         switch type {
         case .plus:
-            image = AssetSymbol.Service.Outline.plus.image
+            image = SymbolAssets.Service.Outline.plus.swiftUIImage
         case .minus:
-            image = AssetSymbol.Service.Outline.minus.image
+            image = SymbolAssets.Service.Outline.minus.swiftUIImage
         case .location:
-            image = AssetSymbol.Location.Solid.gPS.image
+            image = SymbolAssets.Location.Solid.gps.swiftUIImage
         case .custom(let image):
             self.image = image
         }

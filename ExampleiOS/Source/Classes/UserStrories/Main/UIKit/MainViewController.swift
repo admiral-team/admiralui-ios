@@ -6,8 +6,8 @@
 //
 
 import AdmiralUIKit
-import AdmiralUIResources
 import AdmiralTheme
+import AdmiralImages
 import UIKit
 
 class MainViewController: UIViewController, AnyAppThemable {
@@ -255,7 +255,7 @@ class MainViewController: UIViewController, AnyAppThemable {
             MainTableViewCellViewModel(
                 title: "Map Elements",
                 subtitle: "Элементы для карты",
-                image: AdmiralUIResources.Asset.Location.Solid.locationSolid.image,
+                image: AdmiralImages.Asset.Location.Solid.locationSolid.image,
                 didSelect: { [weak self] in self?.presentMapElements() })
         ]
     }
