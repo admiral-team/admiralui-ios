@@ -77,6 +77,7 @@ final class ActionBarsViewController: ScrollViewController {
             tralingView: swipeView
         )
         cell.centerOffset = .zero
+        cell.accessibilityIdentifier = "ActionBarCell"
 
         return cell
     }

@@ -193,8 +193,6 @@ final public class CheckTextControl<C: CheckControl>: UIControl, AnyAppThemable,
         if let text = text {
             textLabel.text = text
             textLabelLeadingConstraint?.constant = LayoutGrid.module
-            
-            layoutIfNeeded()
         }
 
     }

@@ -85,6 +85,7 @@ final class TralingElementsViewController: ScrollViewController {
         let titleListView = TitleListView()
         titleListView.title = "Title"
         let cell: ListCell<ListCellEmpty, TitleListView, ArrowListView> = ListCell(centerView: titleListView, tralingView: ArrowListView())
+        cell.accessibilityIdentifier = "ArrowCell"
         return cell
     }
     

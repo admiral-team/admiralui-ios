@@ -261,27 +261,17 @@ public class ListCell<L, C, T>: UIView, AnyAppThemable, ListViewCell where C: Ce
     
     private func updateLeadingConstraints() {
         leadingViewLeadingConstraint?.constant = leaingOffset
-        
-        updateLayout()
     }
     
     private func updateCenterConstraints() {
         centerViewLeadingConstraint?.constant = centerOffset
         centerViewTrailingConstraint?.constant = centerOffset
-        
-        updateLayout()
     }
     
     private func updateTrailingConstraints() {
         trailingViewTrailingConstraint?.constant = trailingOffset
-        
-        updateLayout()
     }
-    
-    private func updateLayout() {
-        setNeedsLayout()
-    }
-    
+
     private func configureUI() {
         apply(theme: defaultTheme)
     }
