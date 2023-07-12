@@ -8,6 +8,7 @@
 import SwiftUI
 import AdmiralTheme
 import AdmiralSwiftUI
+import AdmiralCalendarSwiftUI
 
 @available(iOS 14.0.0, *)
 struct CalendarSwiftUIView: View {

@@ -24,11 +24,17 @@ let package = Package(
         .library(
             name: "AdmiralSymbols",
             targets: ["AdmiralSymbols"]),
+        .library(
+            name: "AdmiralCore",
+            targets: ["AdmiralCore"]),
+        .library(
+            name: "AdmiralCalendarSwiftUI",
+            targets: ["AdmiralCalendarSwiftUI"]),
     ],
     targets: [
         .target(
             name: "AdmiralUIKit",
-            dependencies: ["AdmiralTheme"],
+            dependencies: ["AdmiralTheme", "AdmiralCore"],
             path: "Source/AdmiralUIKit",
             exclude: ["Supporting Files"],
             resources: [
@@ -36,7 +42,7 @@ let package = Package(
             ]),
         .target(
             name: "AdmiralSwiftUI",
-            dependencies: ["AdmiralTheme"],
+            dependencies: ["AdmiralTheme", "AdmiralCore"],
             path: "Source/AdmiralSwiftUI",
             exclude: ["Supporting Files"],
             resources: [
@@ -51,19 +57,31 @@ let package = Package(
                 .process("Resources/Fonts")
             ]),
         .target(
-                name: "AdmiralImages",
-                dependencies: [],
-                path: "Source/AdmiralImages",
-                exclude: ["Supporting Files"],
-                resources: [
-                    .process("Resources/Assets"),
-                ]),
+            name: "AdmiralImages",
+            dependencies: [],
+            path: "Source/AdmiralImages",
+            exclude: ["Supporting Files"],
+            resources: [
+                .process("Resources/Assets"),
+            ]),
         .target(
             name: "AdmiralSymbols",
             dependencies: [],
             path: "Source/AdmiralSymbols",
             resources: [
                 .process("Resources/Assets")
-            ])
+            ]),
+        .target(
+            name: "AdmiralCalendarSwiftUI",
+            dependencies: ["AdmiralTheme", "AdmiralCore"],
+            path: "Source/AdmiralCalendarSwiftUI",
+            resources: [
+                .process("Resources/Assets")
+            ]),
+        .target(
+            name: "AdmiralCore",
+            dependencies: [],
+            path: "Source/AdmiralCore"
+        )
     ]
 )
