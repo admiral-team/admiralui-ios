@@ -3,7 +3,7 @@
 
 import PackageDescription
 
-let package = Package(
+let mainPackage = Package(
     name: "AdmiralUI",
     platforms: [
         .iOS(.v11)
@@ -85,3 +85,44 @@ let package = Package(
         )
     ]
 )
+
+let calendarPackage = Package(
+    name: "AdmiralCalendarSwiftUI",
+    platforms: [
+        .iOS(.v11)
+    ],
+    products: [
+        .library(
+            name: "AdmiralTheme",
+            targets: ["AdmiralTheme"]),
+        .library(
+            name: "AdmiralCore",
+            targets: ["AdmiralCore"]),
+        .library(
+            name: "AdmiralCalendarSwiftUI",
+            targets: ["AdmiralCalendarSwiftUI"]),
+    ],
+    targets: [
+        .target(
+            name: "AdmiralTheme",
+            dependencies: [],
+            path: "Source/AdmiralTheme",
+            exclude: ["Supporting Files"],
+            resources: [
+                .process("Resources/Fonts")
+            ]),
+        .target(
+            name: "AdmiralCalendarSwiftUI",
+            dependencies: ["AdmiralTheme", "AdmiralCore"],
+            path: "Source/AdmiralCalendarSwiftUI",
+            resources: [
+                .process("Resources/Assets")
+            ]),
+        .target(
+            name: "AdmiralCore",
+            dependencies: [],
+            path: "Source/AdmiralCore"
+        )
+    ]
+)
+
