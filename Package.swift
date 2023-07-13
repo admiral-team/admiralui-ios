@@ -3,7 +3,7 @@
 
 import PackageDescription
 
-let package = Package(
+let main = Package(
     name: "AdmiralUI",
     platforms: [
         .iOS(.v11)
@@ -24,46 +24,64 @@ let package = Package(
         .library(
             name: "AdmiralSymbols",
             targets: ["AdmiralSymbols"]),
+        .library(
+            name: "AdmiralCore",
+            targets: ["AdmiralCore"]),
+        .library(
+            name: "AdmiralCalendarSwiftUI",
+            targets: ["AdmiralCalendarSwiftUI"]),
     ],
     targets: [
         .target(
             name: "AdmiralUIKit",
-            dependencies: ["AdmiralTheme"],
-            path: "Source/AdmiralUIKit",
+            dependencies: ["AdmiralTheme", "AdmiralCore"],
+            path: "Source/AdmiralUIKit/",
             exclude: ["Supporting Files"],
             resources: [
-                .process("Resources/Assets")
+                .process("Resources/Assets/")
             ]),
         .target(
             name: "AdmiralSwiftUI",
-            dependencies: ["AdmiralTheme"],
-            path: "Source/AdmiralSwiftUI",
+            dependencies: ["AdmiralTheme", "AdmiralCore"],
+            path: "Source/AdmiralSwiftUI/",
             exclude: ["Supporting Files"],
             resources: [
-                .process("Resources/Assets")
+                .process("Resources/Assets/")
             ]),
         .target(
             name: "AdmiralTheme",
             dependencies: [],
-            path: "Source/AdmiralTheme",
+            path: "Source/AdmiralTheme/",
             exclude: ["Supporting Files"],
             resources: [
-                .process("Resources/Fonts")
+                .process("Resources/Fonts/")
             ]),
         .target(
-                name: "AdmiralImages",
-                dependencies: [],
-                path: "Source/AdmiralImages",
-                exclude: ["Supporting Files"],
-                resources: [
-                    .process("Resources/Assets"),
-                ]),
+            name: "AdmiralImages",
+            dependencies: [],
+            path: "Source/AdmiralImages/",
+            exclude: ["Supporting Files"],
+            resources: [
+                .process("Resources/Assets/"),
+            ]),
         .target(
             name: "AdmiralSymbols",
             dependencies: [],
-            path: "Source/AdmiralSymbols",
+            path: "Source/AdmiralSymbols/",
             resources: [
-                .process("Resources/Assets")
-            ])
+                .process("Resources/Assets/")
+            ]),
+        .target(
+            name: "AdmiralCalendarSwiftUI",
+            dependencies: ["AdmiralTheme", "AdmiralCore"],
+            path: "Source/AdmiralCalendarSwiftUI/",
+            resources: [
+                .process("Resources/Assets/")
+            ]),
+        .target(
+            name: "AdmiralCore",
+            dependencies: [],
+            path: "Source/AdmiralCore/"
+        )
     ]
 )
