@@ -27,6 +27,8 @@ public struct CalendarDaysView: View {
     private var date: Date
     private var notActiveAfterDate: Date?
     private var pointDates: [Date]
+    private let selectedDays: [Date]
+    private let spacingBetweenRows: CGFloat
     private let generator = CalendarGenerator()
     private var chunkedDays = [[CalendarDay]]()
 
@@ -41,6 +43,8 @@ public struct CalendarDaysView: View {
         endDate: Binding<Date?>,
         notActiveAfterDate: Date?,
         pointDates: [Date],
+        selectedDays: [Date],
+        spacingBetweenRows: CGFloat = LayoutGrid.halfModule * 5,
         schemeProvider: SchemeProvider<CalendarViewCellColorScheme> = AppThemeSchemeProvider<CalendarViewCellColorScheme>()
     ) {
         self.date = date
@@ -48,11 +52,13 @@ public struct CalendarDaysView: View {
         self._startDate = startDate
         self._endDate = endDate
         self.pointDates = pointDates.map( { $0.removeTimeStamp() })
+        self.selectedDays = selectedDays
         self.notActiveAfterDate = notActiveAfterDate
         self.schemeProvider = schemeProvider
+        self.spacingBetweenRows = spacingBetweenRows
         
         if let monthMetadata = generator.monthMetadata(for: date) {
-            let days = generator.generateDaysInMonth(metadata: monthMetadata)
+            let days = generator.generateDaysInMonth(metadata: monthMetadata, selectedDays: selectedDays)
             chunkedDays = days.chunked(into: Constants.numberOfDaysInWeek)
         }
     }
@@ -60,7 +66,7 @@ public struct CalendarDaysView: View {
     // MARK: - Body
 
     public var body: some View {
-        return VStack(spacing: LayoutGrid.halfModule * 5) {
+        return VStack(spacing: spacingBetweenRows) {
             ForEach(0..<chunkedDays.count, id: \.self) { index in
                 HStack {
                     ForEach(Array(chunkedDays[index].enumerated()), id: \.offset) { indexDay, day in
@@ -104,6 +110,8 @@ public struct CalendarDaysView: View {
         if let notActiveAfterDate = notActiveAfterDate.removeTimeStamp(), notActiveAfterDate < day.date, day.isDisplayedInMonth {
             inactiveTextView(day: day)
         } else if checkSelect(date: day.date), day.isDisplayedInMonth {
+            selectedTextView(day: day)
+        } else if day.isSelected, day.isDisplayedInMonth {
             selectedTextView(day: day)
         } else if day.isCurrentDay, day.isDisplayedInMonth {
             currentTextView(day: day)

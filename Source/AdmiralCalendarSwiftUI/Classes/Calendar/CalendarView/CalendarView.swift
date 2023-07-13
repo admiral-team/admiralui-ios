@@ -40,13 +40,13 @@ public enum CalendarViewType {
  # Code
  ```
  CalendarView(
-     type: .vertical,
-     startDate: startDate,
-     endDate: endDate,
-     selectedStartDate: $selectedStartDate,
-     selectedEndDate: $selectedEndDate,
-     monthYearDate: Date(),
-     notActiveAfterDate: Date()
+ type: .vertical,
+ startDate: startDate,
+ endDate: endDate,
+ selectedStartDate: $selectedStartDate,
+ selectedEndDate: $selectedEndDate,
+ monthYearDate: Date(),
+ notActiveAfterDate: Date()
  )
  .onChange(of: selectedStartDate, perform: { (_) in })
  .onChange(of: selectedEndDate, perform: { (_) in })
@@ -57,13 +57,13 @@ public enum CalendarViewType {
  # Code
  ```
  CalendarView(
-     type: .horizontal,
-     startDate: startDate,
-     endDate: endDate,
-     selectedStartDate: $selectedStartDate,
-     selectedEndDate: $selectedEndDate,
-     monthYearDate: Date(),
-     notActiveAfterDate: Date()
+ type: .horizontal,
+ startDate: startDate,
+ endDate: endDate,
+ selectedStartDate: $selectedStartDate,
+ selectedEndDate: $selectedEndDate,
+ monthYearDate: Date(),
+ notActiveAfterDate: Date()
  )
  .onChange(of: selectedStartDate, perform: { (_) in })
  .onChange(of: selectedEndDate, perform: { (_) in })
@@ -101,6 +101,12 @@ public struct CalendarView: View {
     /// Dates with a dot at the bottom.
     private let pointDates: [Date]
 
+    /// Selected dates.
+    private let selectedDates: [Date]
+
+    /// Spacing between rows of days.
+    private let spacingBetweenRows: CGFloat
+
     /// Type calendar.
     private let type: CalendarViewType
 
@@ -124,6 +130,7 @@ public struct CalendarView: View {
     ///   - notActiveAfterDate: Not active after date.
     ///   - isMutlipleSelectionAllowed: The state selection.
     ///   - pointDates: Dates with a dot at the bottom.
+    ///   - selectedDates: Selected dates.
     public init(
         type: CalendarViewType,
         startDate: Date? = nil,
@@ -135,6 +142,8 @@ public struct CalendarView: View {
         notActiveAfterDate: Date? = nil,
         isMutlipleSelectionAllowed: Bool = true,
         pointDates: [Date] = [],
+        selectedDates: [Date] = [],
+        spacingBetweenRows: CGFloat = LayoutGrid.halfModule * 5,
         horizontalSchemeProvider: SchemeProvider<CalendarHorizontalViewScheme> = AppThemeSchemeProvider<CalendarHorizontalViewScheme>(),
         verticalSchemeProvider: SchemeProvider<CalendarVerticalViewScheme> = AppThemeSchemeProvider<CalendarVerticalViewScheme>()
     ) {
@@ -148,6 +157,8 @@ public struct CalendarView: View {
         self.isMutlipleSelectionAllowed = isMutlipleSelectionAllowed
         self.type = type
         self.pointDates = pointDates
+        self.selectedDates = selectedDates
+        self.spacingBetweenRows = spacingBetweenRows
         self.horizontalSchemeProvider = horizontalSchemeProvider
         self.verticalSchemeProvider = verticalSchemeProvider
     }
@@ -167,9 +178,11 @@ public struct CalendarView: View {
                 notActiveAfterDate: notActiveAfterDate,
                 isMutlipleSelectionAllowed: isMutlipleSelectionAllowed,
                 pointDates: pointDates,
+                selectedDates: selectedDates,
+                spacingBetweenRows: spacingBetweenRows,
                 schemeProvider: horizontalSchemeProvider
             )
-                .eraseToAnyView()
+            .eraseToAnyView()
         case .vertical:
             return CalendarVerticalView(
                 startDate: startDate,
@@ -181,9 +194,11 @@ public struct CalendarView: View {
                 notActiveAfterDate: notActiveAfterDate,
                 isMutlipleSelectionAllowed: isMutlipleSelectionAllowed,
                 pointDates: pointDates,
+                selectedDates: selectedDates,
+                spacingBetweenRows: spacingBetweenRows,
                 schemeProvider: verticalSchemeProvider
             )
-                .eraseToAnyView()
+            .eraseToAnyView()
         }
 
     }
