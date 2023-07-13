@@ -57,6 +57,12 @@ public struct CalendarHorizontalView: View {
     /// Dates with a dot at the bottom.
     let pointDates: [Date]
 
+    /// Selected dates.
+    let selectedDates: [Date]
+
+    /// Spacing between rows of days.
+    let spacingBetweenRows: CGFloat
+
     // MARK: - Private Properties
 
     @State private var currentTouchOffset: CGFloat?
@@ -91,6 +97,8 @@ public struct CalendarHorizontalView: View {
         notActiveAfterDate: Date?,
         isMutlipleSelectionAllowed: Bool = true,
         pointDates: [Date],
+        selectedDates: [Date],
+        spacingBetweenRows: CGFloat = LayoutGrid.halfModule * 5,
         schemeProvider: SchemeProvider<CalendarHorizontalViewScheme> = AppThemeSchemeProvider<CalendarHorizontalViewScheme>()
     ) {
         self.startDate = startDate
@@ -98,6 +106,8 @@ public struct CalendarHorizontalView: View {
 
         self.locale = locale
         self.pointDates = pointDates
+        self.selectedDates = selectedDates
+        self.spacingBetweenRows = spacingBetweenRows
 
         self._currentDate = .init(initialValue: monthYearDate ?? Date())
 
@@ -427,6 +437,8 @@ public struct CalendarHorizontalView: View {
                         endDate: $selectedEndDate,
                         notActiveAfterDate: notActiveAfterDate,
                         pointDates: pointDates,
+                        selectedDays: selectedDates,
+                        spacingBetweenRows: spacingBetweenRows,
                         schemeProvider: SchemeProvider.constant(scheme: scheme.calendarViewCellColorScheme)
                     )
                         .frame(height: Constants.calendarHorizontalViewHeight, alignment: .top)
@@ -450,6 +462,8 @@ public struct CalendarHorizontalView: View {
                     endDate: $selectedEndDate,
                     notActiveAfterDate: notActiveAfterDate,
                     pointDates: pointDates,
+                    selectedDays: selectedDates,
+                    spacingBetweenRows: spacingBetweenRows,
                     schemeProvider: SchemeProvider.constant(scheme: scheme.calendarViewCellColorScheme)
                 )
                     .frame(height: Constants.calendarHorizontalViewHeight, alignment: .top)
@@ -465,6 +479,8 @@ public struct CalendarHorizontalView: View {
                         endDate: $selectedEndDate,
                         notActiveAfterDate: notActiveAfterDate,
                         pointDates: pointDates,
+                        selectedDays: selectedDates,
+                        spacingBetweenRows: spacingBetweenRows,
                         schemeProvider: SchemeProvider.constant(scheme: scheme.calendarViewCellColorScheme)
                     )
                         .frame(height: Constants.calendarHorizontalViewHeight, alignment: .top)

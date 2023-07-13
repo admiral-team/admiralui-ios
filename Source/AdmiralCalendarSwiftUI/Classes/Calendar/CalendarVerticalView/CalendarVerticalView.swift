@@ -52,6 +52,12 @@ struct CalendarVerticalView: View {
     /// Dates with a dot at the bottom.
     let pointDates: [Date]
 
+    /// Selected dates.
+    let selectedDates: [Date]
+
+    /// Spacing between rows of days.
+    let spacingBetweenRows: CGFloat
+
     // MARK: - Private Properties
 
     @State private var dates = [Date]()
@@ -75,6 +81,8 @@ struct CalendarVerticalView: View {
         didSelectedDate: ((Date?) -> ())? = nil,
         didSelectedDates: (([Date]) -> ())? = nil,
         pointDates: [Date],
+        selectedDates: [Date],
+        spacingBetweenRows: CGFloat = LayoutGrid.halfModule * 5,
         schemeProvider: SchemeProvider<CalendarVerticalViewScheme> = AppThemeSchemeProvider<CalendarVerticalViewScheme>()
     ) {
         if let startDate = startDate {
@@ -90,6 +98,8 @@ struct CalendarVerticalView: View {
         }
 
         self.pointDates = pointDates
+        self.selectedDates = selectedDates
+        self.spacingBetweenRows = spacingBetweenRows
         self.locale = locale
         self._selectedStartDate = selectedStartDate
         self._selectedEndDate = selectedEndDate
@@ -180,6 +190,8 @@ struct CalendarVerticalView: View {
                 endDate: $selectedEndDate,
                 notActiveAfterDate: notActiveAfterDate,
                 pointDates: pointDates,
+                selectedDays: selectedDates,
+                spacingBetweenRows: spacingBetweenRows,
                 schemeProvider: SchemeProvider.constant(scheme: scheme.calendarViewCellColorScheme)
             )
             Spacer()
@@ -201,7 +213,9 @@ struct CalendarView_Previews: PreviewProvider {
             startDate: Calendar.current.date(byAdding: .weekOfYear, value: -1, to: Date())!,
             endDate: Calendar.current.date(byAdding: .weekOfYear, value: 1, to: Date())!,
             notActiveAfterDate: Date(),
-            pointDates: [])
+            pointDates: [],
+            selectedDates: []
+        )
         .padding()
         .environment(\.manager, SwiftUIThemeManager(theme: .dark))
     }

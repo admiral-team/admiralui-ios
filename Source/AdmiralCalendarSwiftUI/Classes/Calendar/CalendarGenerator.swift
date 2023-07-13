@@ -312,7 +312,7 @@ public struct CalendarGenerator: CalendarGeneratorDelegate {
                              firstDayWeekday: firstDayWeekday)
     }
     
-    public func generateDaysInMonth(metadata: MonthMetadata) -> [CalendarDay] {
+    public func generateDaysInMonth(metadata: MonthMetadata, selectedDays: [Date] = []) -> [CalendarDay] {
         let numberOfDaysInMonth = metadata.numberOfDays
         let offsetInInitialRow = metadata.firstDayWeekday
         let firstDayOfMonth = metadata.firstDay
@@ -322,9 +322,12 @@ public struct CalendarGenerator: CalendarGeneratorDelegate {
         for i in 1..<totalDays {
             let isWithinDisplayedMonth = i >= offsetInInitialRow
             let dayOffset = isWithinDisplayedMonth ? i - offsetInInitialRow : -(offsetInInitialRow - i)
-            let day = generateDay(offsetBy: dayOffset,
-                                  for: firstDayOfMonth,
-                                  isWithinDisplayedMonth: isWithinDisplayedMonth)
+            let day = generateDay(
+                offsetBy: dayOffset,
+                for: firstDayOfMonth,
+                isWithinDisplayedMonth: isWithinDisplayedMonth,
+                selectedDays: selectedDays
+            )
             days.append(day)
         }
  
@@ -334,7 +337,8 @@ public struct CalendarGenerator: CalendarGeneratorDelegate {
     private func generateDay(
         offsetBy dayOffset: Int,
         for baseDate: Date,
-        isWithinDisplayedMonth: Bool
+        isWithinDisplayedMonth: Bool,
+        selectedDays: [Date] = []
     ) -> CalendarDay {
         
         let date = calendar.date(byAdding: .day,
@@ -346,7 +350,7 @@ public struct CalendarGenerator: CalendarGeneratorDelegate {
         return CalendarDay(
             date: date,
             number: dateFormatter.string(from: date),
-            isSelected: false,
+            isSelected: date.isBetween(in: selectedDays),
             isCurrentDay: isCurrentDay,
             isDisplayedInMonth: isWithinDisplayedMonth
         )
