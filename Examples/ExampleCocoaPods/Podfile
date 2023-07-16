@@ -6,11 +6,11 @@ target 'ExampleCocoaPods' do
   use_frameworks!
 
   # Pods for ExampleCocoaPods
-  pod 'AdmiralTheme', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'develop'
-  pod 'AdmiralSwiftUI', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'develop'
-  pod 'AdmiralUIKit', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'develop'
-  pod 'AdmiralSymbols', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'develop'
-  pod 'AdmiralImages', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'develop'
-  pod 'AdmiralCore', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'develop'
-  pod 'AdmiralCalendarSwiftUI', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'develop'
+  pod 'AdmiralTheme', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'rc/13.0.0'
+  pod 'AdmiralSwiftUI', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'rc/13.0.0'
+  pod 'AdmiralUIKit', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'rc/13.0.0'
+  pod 'AdmiralSymbols', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'rc/13.0.0'
+  pod 'AdmiralImages', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'rc/13.0.0'
+  pod 'AdmiralCore', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'rc/13.0.0'
+  pod 'AdmiralCalendarSwiftUI', :git => 'https://github.com/admiral-team/admiralui-ios.git', :branch => 'rc/13.0.0'
 end
