@@ -9,7 +9,7 @@ import XCTest
 import SwiftUI
 import SnapshotTesting
 import AdmiralTheme
-@testable import AdmiralSwiftUI
+@testable import AdmiralCalendarSwiftUI
 
 private struct CalendarViewWrapper<T: View>: View {
     

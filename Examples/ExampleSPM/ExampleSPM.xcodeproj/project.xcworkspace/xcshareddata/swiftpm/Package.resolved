@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/admiral-team/admiralui-ios.git",
       "state" : {
-        "branch" : "develop",
-        "revision" : "7d2dc87c3946ec0b3b6871a98438237eea7c6582"
+        "branch" : "rc/13.0.0",
+        "revision" : "b09fa738efb814926d174daca16301a01aa736b6"
       }
     }
   ],
