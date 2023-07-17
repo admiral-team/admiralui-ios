@@ -1,7 +1,9 @@
 {
-  "AdmiralSwiftUI": "15c4d2979671ddbf58ebdf99ece7b8e7ebcd7c496baf98e683512ca2be5360a1",
-  "AdmiralTheme": "303d138b23db70806c4ca0d66446830e13a244d420cfbcbf3597dd42cab22f8f",
-  "AdmiralUIKit": "67fda49ea4c5607db18dbcc25ab15f2d0d89455a72a4d29404f28913790de2c0",
-  "AdmiralSymbols": "99bf223399a63fda4e14eb2630c296a817e1cdaefb0fd6a068cd64aa33d95680",
-  "AdmiralImages": "7ccb396bc50d4e0f860e5ce6b3d74c5ac1ca93f91bfa8ab20793a5d4363b2bbf"
+  "AdmiralSwiftUI": "fe0d2066bec2338966d3777694a44c9df37673a2d9b2fffd61f4284c6127b073",
+  "AdmiralTheme": "a9b0f9c224ae052022595a8956ccdb52e3e4e5f2c4e8368c5c260bfcdcbdfb31",
+  "AdmiralUIKit": "d407c335b4d8270b17ef3967a5c0afb5b4867cb0635ebc15b11466c90e589275",
+  "AdmiralSymbols": "74ef8d3e33c8fc23d2bbb0d40e8a6c1db7701e149446fccaf6e68e6f0f4d1c45",
+  "AdmiralImages": "5636f9c95d0fc7c88f8d79be51b20f4f77651064020e9072c656dfb0103e1922",
+  "AdmiralCalendarSwiftUI": "a140e6083f9beae798d831bf9e7f5fb0cf449ba0e2e1c58e622ee9d49a4eb00a",
+  "AdmiralCore": "3bd772ce67efc31faaccb325027965f850979a2258bc07a9e31e90c88ef0926c"
 }
