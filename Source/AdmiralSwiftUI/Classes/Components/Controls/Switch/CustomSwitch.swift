@@ -70,7 +70,7 @@ private struct CustomSwitchStyle: ToggleStyle {
 
     // MARK: - Private Properties
 
-    private var schemeProvider: SchemeProvider<CustomSwitchScheme>
+    @ObservedObject var schemeProvider: SchemeProvider<CustomSwitchScheme>
 
     // MARK: - Inializer
 
