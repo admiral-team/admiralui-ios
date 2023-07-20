@@ -114,7 +114,7 @@ public struct CalendarView: View {
     private let horizontalSchemeProvider: SchemeProvider<CalendarHorizontalViewScheme>
 
     /// Vertical calendar scheme provider serves for changing scheme while change theme.
-    private let verticalSchemeProvider: SchemeProvider<CalendarVerticalViewScheme>
+    @ObservedObject private var verticalSchemeProvider: SchemeProvider<CalendarVerticalViewScheme>
 
     // MARK: - Initializer
 
