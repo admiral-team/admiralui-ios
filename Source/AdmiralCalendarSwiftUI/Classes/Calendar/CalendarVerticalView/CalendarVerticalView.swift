@@ -58,6 +58,9 @@ struct CalendarVerticalView: View {
     /// Spacing between rows of days.
     let spacingBetweenRows: CGFloat
 
+    /// Scroll Anchor
+    let scrollAnchor: UnitPoint?
+
     // MARK: - Private Properties
 
     @State private var dates = [Date]()
@@ -83,6 +86,7 @@ struct CalendarVerticalView: View {
         pointDates: [Date],
         selectedDates: [Date],
         spacingBetweenRows: CGFloat = LayoutGrid.halfModule * 5,
+        scrollAnchor: UnitPoint? = nil,
         schemeProvider: SchemeProvider<CalendarVerticalViewScheme> = AppThemeSchemeProvider<CalendarVerticalViewScheme>()
     ) {
         if let startDate = startDate {
@@ -104,6 +108,7 @@ struct CalendarVerticalView: View {
         self._selectedStartDate = selectedStartDate
         self._selectedEndDate = selectedEndDate
         self.schemeProvider = schemeProvider
+        self.scrollAnchor = scrollAnchor
         self.notActiveAfterDate = notActiveAfterDate
         self._isMutlipleSelectionAllowed = .init(initialValue: isMutlipleSelectionAllowed)
         self._didSelectedDate = .init(initialValue: didSelectedDate)
@@ -132,7 +137,7 @@ struct CalendarVerticalView: View {
                             self.dates = dates.0
                             self.currentMonthDate = dates.1
                             DispatchQueue.main.async {
-                                scrollView.scrollTo(dates.1)
+                                scrollView.scrollTo(dates.1, anchor: scrollAnchor ?? .center)
                                 self.isScrollCalendar = true
                             }
                         }
