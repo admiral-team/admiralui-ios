@@ -63,6 +63,9 @@ public struct CalendarHorizontalView: View {
     /// Spacing between rows of days.
     let spacingBetweenRows: CGFloat
 
+    /// Scroll Anchor.
+    let scrollAnchor: UnitPoint?
+
     // MARK: - Private Properties
 
     @State private var currentTouchOffset: CGFloat?
@@ -99,6 +102,7 @@ public struct CalendarHorizontalView: View {
         pointDates: [Date],
         selectedDates: [Date],
         spacingBetweenRows: CGFloat = LayoutGrid.halfModule * 5,
+        scrollAnchor: UnitPoint?,
         schemeProvider: SchemeProvider<CalendarHorizontalViewScheme> = AppThemeSchemeProvider<CalendarHorizontalViewScheme>()
     ) {
         self.startDate = startDate
@@ -116,6 +120,7 @@ public struct CalendarHorizontalView: View {
         self._selectedEndDate = selectedEndDate
         self.monthYearDate = monthYearDate.removeTimeStamp()
         self.notActiveAfterDate = notActiveAfterDate
+        self.scrollAnchor = scrollAnchor
         self.schemeProvider = schemeProvider
 
         let preInitDates = preInitDate()
