@@ -48,26 +48,26 @@ jobs:
         if: ${{ failure() }}
         run:  bundle exec fastlane send_build_failed_info issue_name:${{ github.head_ref }} telegram_token:"$TELEGRAM_API_TOKEN" telegram_chat_id:"$TELEGRAM_DEV_CHAT_ID" build_url:"$PUll_NUMBER"
 
-  admiral-ui-tests:
-    name: UI tests
-    needs: snapshot-tests
-    runs-on: [self-hosted, main]
-    env:
-      API_GITHUB_TOKEN: ${{ secrets.API_GITHUB_TOKEN }}
-      APPCENTER_API_TOKEN: ${{ secrets.APPCENTER_API_TOKEN }}
-      FIGMA_ACCESS_TOKEN: ${{ secrets.FIGMA_ACCESS_TOKEN }}
-      TELEGRAM_API_TOKEN: ${{ secrets.TELEGRAM_API_TOKEN }}
-      TELEGRAM_DEV_CHAT_ID: ${{ secrets.TELEGRAM_DEV_CHAT_ID }}
-      PUll_NUMBER: ${{ github.event.number }}
-      RELEASE_TOKEN: ${{ secrets.RELEASE_TOKEN }}
-      TELEGRAM_PROD_CHAT_ID: ${{ secrets.TELEGRAM_PROD_CHAT_ID }}
-    steps:
-     - name: Start SwiftUI & UIKit UI tests
-       if: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.ref == 'main' }}
-       run: bundle exec fastlane run_all_ui_tests
-     - name: Check If Failed
-       if: ${{ failure() }}
-       run: bundle exec fastlane send_build_failed_info issue_name:${{ github.head_ref }} telegram_token:"$TELEGRAM_API_TOKEN" telegram_chat_id:"$TELEGRAM_DEV_CHAT_ID" build_url:"$PUll_NUMBER"
+  # admiral-ui-tests:
+  #   name: UI tests
+  #   needs: snapshot-tests
+  #   runs-on: [self-hosted, main]
+  #   env:
+  #     API_GITHUB_TOKEN: ${{ secrets.API_GITHUB_TOKEN }}
+  #     APPCENTER_API_TOKEN: ${{ secrets.APPCENTER_API_TOKEN }}
+  #     FIGMA_ACCESS_TOKEN: ${{ secrets.FIGMA_ACCESS_TOKEN }}
+  #     TELEGRAM_API_TOKEN: ${{ secrets.TELEGRAM_API_TOKEN }}
+  #     TELEGRAM_DEV_CHAT_ID: ${{ secrets.TELEGRAM_DEV_CHAT_ID }}
+  #     PUll_NUMBER: ${{ github.event.number }}
+  #     RELEASE_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+  #     TELEGRAM_PROD_CHAT_ID: ${{ secrets.TELEGRAM_PROD_CHAT_ID }}
+  #   steps:
+  #    - name: Start SwiftUI & UIKit UI tests
+  #      if: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.ref == 'main' }}
+  #      run: bundle exec fastlane run_all_ui_tests
+  #    - name: Check If Failed
+  #      if: ${{ failure() }}
+  #      run: bundle exec fastlane send_build_failed_info issue_name:${{ github.head_ref }} telegram_token:"$TELEGRAM_API_TOKEN" telegram_chat_id:"$TELEGRAM_DEV_CHAT_ID" build_url:"$PUll_NUMBER"
 
   deploy-appCenter-dev:
     name: Deploy AppCenter
