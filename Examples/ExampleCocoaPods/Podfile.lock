@@ -14,58 +14,58 @@ PODS:
     - AdmiralTheme
 
 DEPENDENCIES:
-  - AdmiralCalendarSwiftUI (from `https://github.com/admiral-team/admiralui-ios.git`, branch `rc/13.0.0`)
-  - AdmiralCore (from `https://github.com/admiral-team/admiralui-ios.git`, branch `rc/13.0.0`)
-  - AdmiralImages (from `https://github.com/admiral-team/admiralui-ios.git`, branch `rc/13.0.0`)
-  - AdmiralSwiftUI (from `https://github.com/admiral-team/admiralui-ios.git`, branch `rc/13.0.0`)
-  - AdmiralSymbols (from `https://github.com/admiral-team/admiralui-ios.git`, branch `rc/13.0.0`)
-  - AdmiralTheme (from `https://github.com/admiral-team/admiralui-ios.git`, branch `rc/13.0.0`)
-  - AdmiralUIKit (from `https://github.com/admiral-team/admiralui-ios.git`, branch `rc/13.0.0`)
+  - AdmiralCalendarSwiftUI (from `https://github.com/admiral-team/admiralui-ios.git`, branch `main`)
+  - AdmiralCore (from `https://github.com/admiral-team/admiralui-ios.git`, branch `main`)
+  - AdmiralImages (from `https://github.com/admiral-team/admiralui-ios.git`, branch `main`)
+  - AdmiralSwiftUI (from `https://github.com/admiral-team/admiralui-ios.git`, branch `main`)
+  - AdmiralSymbols (from `https://github.com/admiral-team/admiralui-ios.git`, branch `main`)
+  - AdmiralTheme (from `https://github.com/admiral-team/admiralui-ios.git`, branch `main`)
+  - AdmiralUIKit (from `https://github.com/admiral-team/admiralui-ios.git`, branch `main`)
 
 EXTERNAL SOURCES:
   AdmiralCalendarSwiftUI:
-    :branch: rc/13.0.0
+    :branch: main
     :git: https://github.com/admiral-team/admiralui-ios.git
   AdmiralCore:
-    :branch: rc/13.0.0
+    :branch: main
     :git: https://github.com/admiral-team/admiralui-ios.git
   AdmiralImages:
-    :branch: rc/13.0.0
+    :branch: main
     :git: https://github.com/admiral-team/admiralui-ios.git
   AdmiralSwiftUI:
-    :branch: rc/13.0.0
+    :branch: main
     :git: https://github.com/admiral-team/admiralui-ios.git
   AdmiralSymbols:
-    :branch: rc/13.0.0
+    :branch: main
     :git: https://github.com/admiral-team/admiralui-ios.git
   AdmiralTheme:
-    :branch: rc/13.0.0
+    :branch: main
     :git: https://github.com/admiral-team/admiralui-ios.git
   AdmiralUIKit:
-    :branch: rc/13.0.0
+    :branch: main
     :git: https://github.com/admiral-team/admiralui-ios.git
 
 CHECKOUT OPTIONS:
   AdmiralCalendarSwiftUI:
-    :commit: b09fa738efb814926d174daca16301a01aa736b6
+    :commit: 89e76bfd329194dc95da58975a7e40afa911442d
     :git: https://github.com/admiral-team/admiralui-ios.git
   AdmiralCore:
-    :commit: b09fa738efb814926d174daca16301a01aa736b6
+    :commit: 89e76bfd329194dc95da58975a7e40afa911442d
     :git: https://github.com/admiral-team/admiralui-ios.git
   AdmiralImages:
-    :commit: b09fa738efb814926d174daca16301a01aa736b6
+    :commit: 89e76bfd329194dc95da58975a7e40afa911442d
     :git: https://github.com/admiral-team/admiralui-ios.git
   AdmiralSwiftUI:
-    :commit: b09fa738efb814926d174daca16301a01aa736b6
+    :commit: 89e76bfd329194dc95da58975a7e40afa911442d
     :git: https://github.com/admiral-team/admiralui-ios.git
   AdmiralSymbols:
-    :commit: b09fa738efb814926d174daca16301a01aa736b6
+    :commit: 89e76bfd329194dc95da58975a7e40afa911442d
     :git: https://github.com/admiral-team/admiralui-ios.git
   AdmiralTheme:
-    :commit: b09fa738efb814926d174daca16301a01aa736b6
+    :commit: 89e76bfd329194dc95da58975a7e40afa911442d
     :git: https://github.com/admiral-team/admiralui-ios.git
   AdmiralUIKit:
-    :commit: b09fa738efb814926d174daca16301a01aa736b6
+    :commit: 89e76bfd329194dc95da58975a7e40afa911442d
     :git: https://github.com/admiral-team/admiralui-ios.git
 
 SPEC CHECKSUMS:
@@ -77,6 +77,6 @@ SPEC CHECKSUMS:
   AdmiralTheme: a1d3251c4360eb647a1a143544e340bacbb33a3b
   AdmiralUIKit: f647ed2407ba4be22ac53bd9e7df292ca60a9cdd
 
-PODFILE CHECKSUM: eede83c704ad44481e94154e81e136950529750f
+PODFILE CHECKSUM: d8b7e6a3996a51a352807a20ebd967809f6b7367
 
 COCOAPODS: 1.9.3

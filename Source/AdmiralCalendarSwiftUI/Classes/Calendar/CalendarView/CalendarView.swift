@@ -110,11 +110,14 @@ public struct CalendarView: View {
     /// Type calendar.
     private let type: CalendarViewType
 
+    /// Scroll Anchor.
+    private let scrollAnchor: UnitPoint?
+
     /// Horizontal calendar scheme provider serves for changing scheme while change theme.
-    private let horizontalSchemeProvider: SchemeProvider<CalendarHorizontalViewScheme>
+    @ObservedObject private var horizontalSchemeProvider: SchemeProvider<CalendarHorizontalViewScheme>
 
     /// Vertical calendar scheme provider serves for changing scheme while change theme.
-    private let verticalSchemeProvider: SchemeProvider<CalendarVerticalViewScheme>
+    @ObservedObject private var verticalSchemeProvider: SchemeProvider<CalendarVerticalViewScheme>
 
     // MARK: - Initializer
 
@@ -131,6 +134,7 @@ public struct CalendarView: View {
     ///   - isMutlipleSelectionAllowed: The state selection.
     ///   - pointDates: Dates with a dot at the bottom.
     ///   - selectedDates: Selected dates.
+    ///   - scrollAnchor: Scroll Anchor.
     public init(
         type: CalendarViewType,
         startDate: Date? = nil,
@@ -144,6 +148,7 @@ public struct CalendarView: View {
         pointDates: [Date] = [],
         selectedDates: [Date] = [],
         spacingBetweenRows: CGFloat = LayoutGrid.halfModule * 5,
+        scrollAnchor: UnitPoint? = nil,
         horizontalSchemeProvider: SchemeProvider<CalendarHorizontalViewScheme> = AppThemeSchemeProvider<CalendarHorizontalViewScheme>(),
         verticalSchemeProvider: SchemeProvider<CalendarVerticalViewScheme> = AppThemeSchemeProvider<CalendarVerticalViewScheme>()
     ) {
@@ -159,6 +164,7 @@ public struct CalendarView: View {
         self.pointDates = pointDates
         self.selectedDates = selectedDates
         self.spacingBetweenRows = spacingBetweenRows
+        self.scrollAnchor = scrollAnchor
         self.horizontalSchemeProvider = horizontalSchemeProvider
         self.verticalSchemeProvider = verticalSchemeProvider
     }
@@ -180,6 +186,7 @@ public struct CalendarView: View {
                 pointDates: pointDates,
                 selectedDates: selectedDates,
                 spacingBetweenRows: spacingBetweenRows,
+                scrollAnchor: scrollAnchor,
                 schemeProvider: horizontalSchemeProvider
             )
             .eraseToAnyView()
@@ -196,6 +203,7 @@ public struct CalendarView: View {
                 pointDates: pointDates,
                 selectedDates: selectedDates,
                 spacingBetweenRows: spacingBetweenRows,
+                scrollAnchor: scrollAnchor,
                 schemeProvider: verticalSchemeProvider
             )
             .eraseToAnyView()
