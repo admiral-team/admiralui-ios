@@ -63,7 +63,7 @@ jobs:
       TELEGRAM_PROD_CHAT_ID: ${{ secrets.TELEGRAM_PROD_CHAT_ID }}
     steps:
      - name: Start SwiftUI & UIKit UI tests
-       if: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.ref != 'main' }}
+       if: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.ref == 'main' }}
        run: bundle exec fastlane run_all_ui_tests
      - name: Check If Failed
        if: ${{ failure() }}
