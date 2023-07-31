@@ -15,15 +15,15 @@ struct CalendarVerticalView: View {
 
     enum Constants {
         static let offsetY: CGFloat = -0.03
+        static let scrollName = "CalendarScroll"
     }
-
     // MARK: - Public Properties
 
     /// The start date
-    @State var startDate: Date
+    @State var startDate: Date?
 
     /// The end date
-    @State var endDate: Date
+    @State var endDate: Date?
 
     /// Calendar loclole
     var locale: Locale?
@@ -40,7 +40,7 @@ struct CalendarVerticalView: View {
     /// Selected start date
     @Binding var selectedStartDate: Date?
 
-    /// Selected end date 
+    /// Selected end date
     @Binding var selectedEndDate: Date?
 
     /// The date of moth and year.
@@ -67,8 +67,10 @@ struct CalendarVerticalView: View {
 
     @State private var currentMonthDate: Date?
     @State private var isScrollCalendar: Bool = false
+    @State private var viewSize: CGSize = .zero
 
     @ObservedObject var schemeProvider: SchemeProvider<CalendarVerticalViewScheme>
+    @StateObject private var paginator = CalendarPaginator()
 
     // MARK: - Initializer
 
@@ -89,15 +91,22 @@ struct CalendarVerticalView: View {
         scrollAnchor: UnitPoint? = nil,
         schemeProvider: SchemeProvider<CalendarVerticalViewScheme> = AppThemeSchemeProvider<CalendarVerticalViewScheme>()
     ) {
-        if let startDate = startDate {
-            self._startDate = .init(initialValue: startDate)
-        } else {
-            self._startDate = .init(initialValue: Calendar.current.date(byAdding: .year, value: -10, to: Date()) ?? Date())
-        }
 
-        if let endDate = endDate {
-            self._endDate = .init(initialValue: endDate)
-        } else {
+        switch (startDate, endDate) {
+        case (let start, let end) where start != nil && end != nil:
+            self._startDate = .init(initialValue: start)
+            self._endDate = .init(initialValue: end)
+        case (nil, nil):
+            self._startDate = .init(initialValue: nil)
+            self._endDate = .init(initialValue: nil)
+        case (let start, nil) where start != nil:
+            self._startDate = .init(initialValue: start)
+            self._endDate = .init(initialValue: Calendar.current.date(byAdding: .year, value: 10, to: Date()) ?? Date())
+        case (nil, let end) where end != nil:
+            self._startDate = .init(initialValue: Calendar.current.date(byAdding: .year, value: -10, to: Date()) ?? Date())
+            self._endDate = .init(initialValue: end)
+        default:
+            self._startDate = .init(initialValue: Calendar.current.date(byAdding: .year, value: -10, to: Date()) ?? Date())
             self._endDate = .init(initialValue: Calendar.current.date(byAdding: .year, value: 10, to: Date()) ?? Date())
         }
 
@@ -121,38 +130,124 @@ struct CalendarVerticalView: View {
         let scheme = schemeProvider.scheme
         return ZStack {
             scheme.backgroundColor.swiftUIColor
-            ScrollViewReader { scrollView in
-                ScrollView(showsIndicators: false) {
-                        contentListCell()
-                }
-                .padding(.horizontal, LayoutGrid.doubleModule)
-                .opacity(isScrollCalendar ? 1.0 : 0.0)
-                .onAppear {
-                    let generator = CalendarGenerator()
-                    getDates(
-                        generator: generator,
-                        startDate: self.startDate,
-                        endDate: self.endDate,
-                        monthDate: monthYearDate) { dates in
-                            self.dates = dates.0
-                            self.currentMonthDate = dates.1
-                            DispatchQueue.main.async {
-                                scrollView.scrollTo(dates.1, anchor: scrollAnchor ?? .center)
-                                self.isScrollCalendar = true
-                            }
-                        }
-                    }
+            ScrollViewReader { reader in
+                if startDate == nil && endDate == nil {
+                    infinityCalendar(reader)
+                } else {
+                    fixedCalendar(reader)
                 }
             }
+        }
     }
 
-    func contentListCell() -> some View {
+    private func fixedCalendar(_ reader: ScrollViewProxy) -> some View {
+        ScrollView(showsIndicators: false) {
+            contentListCell()
+        }
+        .padding(.horizontal, LayoutGrid.doubleModule)
+        .opacity(isScrollCalendar ? 1.0 : 0.0)
+        .onAppear {
+            let generator = CalendarGenerator()
+            getDates(
+                generator: generator,
+                startDate: self.startDate ?? Date(),
+                endDate: self.endDate ?? Date(),
+                monthDate: monthYearDate) { dates in
+                    self.dates = dates.0
+                    self.currentMonthDate = dates.1
+                    DispatchQueue.main.async {
+                        reader.scrollTo(dates.1, anchor: scrollAnchor ?? .center)
+                        self.isScrollCalendar = true
+                    }
+                }
+        }
+    }
+
+    private func contentListCell() -> some View {
         LazyVStack(spacing: LayoutGrid.module) {
             ForEach(dates, id: \.self) { date in
                 monthView(date: date)
                     .id(date)
             }
         }
+    }
+
+    private func infinityCalendar(_ reader: ScrollViewProxy) -> some View {
+        InversedScrollView(isScrollInversed: .constant(true)) {
+            LazyVStack(spacing: LayoutGrid.module) {
+                topOffsetWatcher
+                ForEach(paginator.dates, id: \.self) { date in
+                    monthView(date: date)
+                        .id(date)
+                }
+            }
+            .background(
+                GeometryReader {
+                    Color.clear.preference(
+                        key: CGRectPreferenceKey.self,
+                        value: $0.frame(in: .named(Constants.scrollName))
+                    )
+                }
+            )
+            .onPreferenceChange(CGRectPreferenceKey.self) { rect in
+                let height = rect.height
+                let yPosition = rect.origin.y
+                let fullViewSize = abs(viewSize.height) + abs(yPosition)
+                let difference = height - fullViewSize
+
+                if difference > 50 && difference < 100 && !paginator.isLoading {
+                    DispatchQueue.main.async {
+                        paginator.isLoading = true
+                        paginator.paginationTopAction = ()
+                    }
+                }
+            }
+            .onAppear {
+                paginator.setupInitialDates(completion: { dates, date in
+                    DispatchQueue.main.async {
+                        reader.scrollTo(date, anchor: .bottom)
+                        self.isScrollCalendar = true
+                    }
+                })
+            }
+        }
+        .padding(.horizontal, LayoutGrid.doubleModule)
+        .opacity(isScrollCalendar ? 1.0 : 0.0)
+        .onChange(of: paginator.lastShownDate) { item in
+            DispatchQueue.main.async {
+                reader.scrollTo(item, anchor: .top)
+            }
+        }
+        .coordinateSpace(name: Constants.scrollName)
+        .background(
+            GeometryReader { proxy in
+                Color.clear.preference(
+                    key: ViewSizePreferenceKey.self,
+                    value: proxy.size
+                )
+            }
+        )
+        .onPreferenceChange(ViewSizePreferenceKey.self) { size in
+            DispatchQueue.main.async {
+                self.viewSize = size
+            }
+        }
+    }
+
+    @ViewBuilder
+    private var topOffsetWatcher: some View {
+        GeometryReader { proxy in
+            Color.clear
+                .onChange(of: proxy.frame(in: .named(Constants.scrollName)).minY) { newValue in
+                    if newValue > 0 && newValue < 5 && !paginator.isLoading {
+                        DispatchQueue.main.async {
+                            paginator.isLoading = true
+                            paginator.paginationAction = ()
+                        }
+                    }
+                }
+        }
+        .frame(width: 1, height: 1)
     }
 
     // MARK: - Private Methods
@@ -208,6 +303,22 @@ struct CalendarVerticalView: View {
         }
     }
 
+}
+
+private struct ViewSizePreferenceKey: PreferenceKey {
+    typealias Value = CGSize
+    static var defaultValue: Value = .zero
+    static func reduce(value _: inout Value, nextValue: () -> Value) {
+         _ = nextValue()
+    }
+}
+
+private struct CGRectPreferenceKey: PreferenceKey {
+    typealias Value = CGRect
+    static var defaultValue = CGRect.zero
+    static func reduce(value: inout Value, nextValue: () -> Value) {
+        _ = nextValue()
+    }
 }
 
 @available(iOS 14.0, *)
