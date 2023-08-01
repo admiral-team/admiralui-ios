@@ -144,7 +144,6 @@ struct CalendarVerticalView: View {
         ScrollView(showsIndicators: false) {
             contentListCell()
         }
-        .padding(.horizontal, LayoutGrid.doubleModule)
         .opacity(isScrollCalendar ? 1.0 : 0.0)
         .onAppear {
             let generator = CalendarGenerator()
@@ -161,6 +160,7 @@ struct CalendarVerticalView: View {
                     }
                 }
         }
+
     }
 
     private func contentListCell() -> some View {
