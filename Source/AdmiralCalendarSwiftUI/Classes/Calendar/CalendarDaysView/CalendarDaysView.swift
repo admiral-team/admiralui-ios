@@ -10,12 +10,6 @@ import SwiftUI
 
 @available(iOS 14.0.0, *)
 public struct CalendarDaysView: View {
-    
-    // MARK: - Constants
-    
-    private struct Constants {
-        static let numberOfDaysInWeek = 7
-    }
 
     // MARK: - Private Properties
 
@@ -56,36 +50,27 @@ public struct CalendarDaysView: View {
         self.notActiveAfterDate = notActiveAfterDate
         self.schemeProvider = schemeProvider
         self.spacingBetweenRows = spacingBetweenRows
-        
-        if let monthMetadata = generator.monthMetadata(for: date) {
-            let days = generator.generateDaysInMonth(metadata: monthMetadata, selectedDays: selectedDays)
-            chunkedDays = days.chunked(into: Constants.numberOfDaysInWeek)
-        }
     }
 
     // MARK: - Body
 
     public var body: some View {
-        return VStack(spacing: spacingBetweenRows) {
-            ForEach(0..<chunkedDays.count, id: \.self) { index in
-                HStack {
-                    ForEach(Array(chunkedDays[index].enumerated()), id: \.offset) { indexDay, day in
-                        dayView(day: day)
-                        if indexDay != Constants.numberOfDaysInWeek - 1 {
-                            Spacer()
-                        }
-                    }
-                    if chunkedDays[index].count < Constants.numberOfDaysInWeek {
-                        ForEach(chunkedDays[index].count..<Constants.numberOfDaysInWeek, id: \.self) { index in
-                            Rectangle()
-                                .frame(width: LayoutGrid.halfModule * 9, height: LayoutGrid.halfModule * 9)
-                                .hidden()
-                            if index != 6 {
-                                Spacer()
-                            }
-                        }
-                    }
-                }
+        let grid = [
+            GridItem(.flexible()),
+            GridItem(.flexible()),
+            GridItem(.flexible()),
+            GridItem(.flexible()),
+            GridItem(.flexible()),
+            GridItem(.flexible()),
+            GridItem(.flexible())]
+        let generator = CalendarGenerator()
+        var days = [CalendarDay]()
+        if let monthMetadata = generator.monthMetadata(for: date) {
+            days = generator.generateDaysInMonth(metadata: monthMetadata)
+        }
+        return LazyVGrid(columns: grid, spacing: spacingBetweenRows) {
+            ForEach(0..<days.count, id: \.self) { index in
+                dayView(day: days[index])
             }
         }
     }

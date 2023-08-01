@@ -123,9 +123,8 @@ struct CalendarVerticalView: View {
             scheme.backgroundColor.swiftUIColor
             ScrollViewReader { scrollView in
                 ScrollView(showsIndicators: false) {
-                        contentListCell()
+                    contentListCell()
                 }
-                .padding(.horizontal, LayoutGrid.doubleModule)
                 .opacity(isScrollCalendar ? 1.0 : 0.0)
                 .onAppear {
                     let generator = CalendarGenerator()
