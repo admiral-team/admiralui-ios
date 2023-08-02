@@ -10,11 +10,11 @@ import Combine
 import Foundation
 
 @available(iOS 14.0, *)
-final class CalendarPaginator: ObservableObject {
+final class CalendarVerticalPaginator: ObservableObject {
 
     // MARK: - Published Properties
 
-    @Published var paginationAction: Void = ()
+    @Published var paginationBottomAction: Void = ()
     @Published var paginationTopAction: Void = ()
     @Published var dates = [Date]()
     @Published var isLoading = false
@@ -33,7 +33,7 @@ final class CalendarPaginator: ObservableObject {
     // MARK: - Private Methods
 
     private func bindPublishers() {
-        $paginationAction
+        $paginationBottomAction
             .dropFirst()
             .debounce(for: 0.5, scheduler: DispatchQueue.main)
             .sink { [weak self] in
@@ -67,6 +67,7 @@ final class CalendarPaginator: ObservableObject {
         let previousMonths = (1...20).map { Calendar.current.date(byAdding: .month, value: -$0, to: date) ?? Date()}
         DispatchQueue.main.async {
             var datesCopy = self.dates
+            guard self.dates.count > 20 else { return }
             datesCopy.removeSubrange(self.dates.count - 20...self.dates.count - 1)
             self.dates = (previousMonths + datesCopy).sorted(by: { $0.compare($1) == .orderedAscending })
             self.lastShownDate = datesCopy.first

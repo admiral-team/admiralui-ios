@@ -797,7 +797,7 @@
 		E99FCEFC2A5D712A006D88D8 /* DateFormmer+WeekDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E38F312266F78F4002AD565 /* DateFormmer+WeekDay.swift */; };
 		E99FCF002A5D720C006D88D8 /* CalendarLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99FCEFF2A5D720C006D88D8 /* CalendarLine.swift */; };
 		E99FCF112A5D80CB006D88D8 /* AdmiralCore.h in Headers */ = {isa = PBXBuildFile; fileRef = E99FCF102A5D80CB006D88D8 /* AdmiralCore.h */; };
-		E9A0F9C82A780366006EDF5C /* CalendarPaginator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A0F9C72A780366006EDF5C /* CalendarPaginator.swift */; };
+		E9A0F9C82A780366006EDF5C /* CalendarVerticalPaginator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A0F9C72A780366006EDF5C /* CalendarVerticalPaginator.swift */; };
 		E9A0F9CA2A780861006EDF5C /* InversedScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A0F9C92A780861006EDF5C /* InversedScrollView.swift */; };
 		E9A18D9A273A4F9000668C03 /* UploadingImageGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A18D98273A4F4B00668C03 /* UploadingImageGrid.swift */; };
 		E9A18D9E273BE26300668C03 /* UploadingImageGroupModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A18D9D273BE26200668C03 /* UploadingImageGroupModifier.swift */; };
@@ -1782,7 +1782,7 @@
 		E99FCF102A5D80CB006D88D8 /* AdmiralCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdmiralCore.h; sourceTree = "<group>"; };
 		E99FCF162A5D8106006D88D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E99FD56A28BE6FBC0014C97C /* MonthYearButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYearButtonStyle.swift; sourceTree = "<group>"; };
-		E9A0F9C72A780366006EDF5C /* CalendarPaginator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPaginator.swift; sourceTree = "<group>"; };
+		E9A0F9C72A780366006EDF5C /* CalendarVerticalPaginator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVerticalPaginator.swift; sourceTree = "<group>"; };
 		E9A0F9C92A780861006EDF5C /* InversedScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InversedScrollView.swift; sourceTree = "<group>"; };
 		E9A18D98273A4F4B00668C03 /* UploadingImageGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingImageGrid.swift; sourceTree = "<group>"; };
 		E9A18D9D273BE26200668C03 /* UploadingImageGroupModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadingImageGroupModifier.swift; sourceTree = "<group>"; };
@@ -3512,7 +3512,7 @@
 			children = (
 				0E38F2FB266F7361002AD565 /* CalendarVerticalView.swift */,
 				E9A0F9C92A780861006EDF5C /* InversedScrollView.swift */,
-				E9A0F9C72A780366006EDF5C /* CalendarPaginator.swift */,
+				E9A0F9C72A780366006EDF5C /* CalendarVerticalPaginator.swift */,
 				0E2A62E126E7CB5D009CE2C0 /* CalendarVerticalViewScheme.swift */,
 			);
 			path = CalendarVerticalView;
@@ -8498,7 +8498,7 @@
 				E99FCED02A5D67D7006D88D8 /* CalendarHorizontalViewScheme.swift in Sources */,
 				E99FCEF42A5D6F09006D88D8 /* CalendarGhostButtonScheme.swift in Sources */,
 				E99FCED82A5D67F7006D88D8 /* CalendarVerticalViewScheme.swift in Sources */,
-				E9A0F9C82A780366006EDF5C /* CalendarPaginator.swift in Sources */,
+				E9A0F9C82A780366006EDF5C /* CalendarVerticalPaginator.swift in Sources */,
 				E99FCEF92A5D7017006D88D8 /* CalendarActivityIndicator.swift in Sources */,
 				E9587F872A5FEF2C00FC014C /* Date+isBetween.swift in Sources */,
 				E99FCED72A5D67F3006D88D8 /* CalendarVerticalView.swift in Sources */,

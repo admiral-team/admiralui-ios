@@ -16,6 +16,12 @@ struct CalendarVerticalView: View {
     enum Constants {
         static let offsetY: CGFloat = -0.03
         static let scrollName = "CalendarScroll"
+        static let bottomOffsetBorder: CGFloat = 5
+
+        enum TopOffsetBorder {
+            static let topBorder: CGFloat = 50
+            static let bottomBorder: CGFloat = 100
+        }
     }
     // MARK: - Public Properties
 
@@ -70,7 +76,7 @@ struct CalendarVerticalView: View {
     @State private var viewSize: CGSize = .zero
 
     @ObservedObject var schemeProvider: SchemeProvider<CalendarVerticalViewScheme>
-    @StateObject private var paginator = CalendarPaginator()
+    @StateObject private var paginator = CalendarVerticalPaginator()
 
     // MARK: - Initializer
 
@@ -97,8 +103,8 @@ struct CalendarVerticalView: View {
             self._startDate = .init(initialValue: start)
             self._endDate = .init(initialValue: end)
         case (nil, nil):
-            self._startDate = .init(initialValue: nil)
-            self._endDate = .init(initialValue: nil)
+            self._startDate = .init(initialValue: Calendar.current.date(byAdding: .year, value: -10, to: Date()) ?? Date())
+            self._endDate = .init(initialValue: Calendar.current.date(byAdding: .year, value: 10, to: Date()) ?? Date())
         case (let start, nil) where start != nil:
             self._startDate = .init(initialValue: start)
             self._endDate = .init(initialValue: Calendar.current.date(byAdding: .year, value: 10, to: Date()) ?? Date())
@@ -195,7 +201,7 @@ struct CalendarVerticalView: View {
                 let fullViewSize = abs(viewSize.height) + abs(yPosition)
                 let difference = height - fullViewSize
 
-                if difference > 50 && difference < 100 && !paginator.isLoading {
+                if difference > Constants.TopOffsetBorder.topBorder && difference < Constants.TopOffsetBorder.bottomBorder && !paginator.isLoading {
                     DispatchQueue.main.async {
                         paginator.isLoading = true
                         paginator.paginationTopAction = ()
@@ -239,10 +245,10 @@ struct CalendarVerticalView: View {
         GeometryReader { proxy in
             Color.clear
                 .onChange(of: proxy.frame(in: .named(Constants.scrollName)).minY) { newValue in
-                    if newValue > 0 && newValue < 5 && !paginator.isLoading {
+                    if newValue > .zero && newValue < Constants.bottomOffsetBorder && !paginator.isLoading {
                         DispatchQueue.main.async {
                             paginator.isLoading = true
-                            paginator.paginationAction = ()
+                            paginator.paginationBottomAction = ()
                         }
                     }
                 }
