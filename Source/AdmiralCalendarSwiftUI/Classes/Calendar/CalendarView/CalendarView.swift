@@ -171,10 +171,11 @@ public struct CalendarView: View {
 
     // MARK: - Body
 
+    @ViewBuilder
     public var body: some View {
         switch type {
         case .horizontal:
-            return CalendarHorizontalView(
+            CalendarHorizontalView(
                 startDate: startDate,
                 endDate: endDate,
                 locale: locale,
@@ -189,9 +190,8 @@ public struct CalendarView: View {
                 scrollAnchor: scrollAnchor,
                 schemeProvider: horizontalSchemeProvider
             )
-            .eraseToAnyView()
         case .vertical:
-            return CalendarVerticalView(
+            CalendarVerticalView(
                 startDate: startDate,
                 endDate: endDate,
                 locale: locale,
@@ -206,7 +206,6 @@ public struct CalendarView: View {
                 scrollAnchor: scrollAnchor,
                 schemeProvider: verticalSchemeProvider
             )
-            .eraseToAnyView()
         }
 
     }

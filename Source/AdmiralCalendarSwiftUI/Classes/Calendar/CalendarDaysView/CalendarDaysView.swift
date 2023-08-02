@@ -10,12 +10,6 @@ import SwiftUI
 
 @available(iOS 14.0.0, *)
 public struct CalendarDaysView: View {
-    
-    // MARK: - Constants
-    
-    private struct Constants {
-        static let numberOfDaysInWeek = 7
-    }
 
     // MARK: - Private Properties
 
@@ -30,7 +24,6 @@ public struct CalendarDaysView: View {
     private let selectedDays: [Date]
     private let spacingBetweenRows: CGFloat
     private let generator = CalendarGenerator()
-    private var chunkedDays = [[CalendarDay]]()
 
     @ObservedObject var schemeProvider: SchemeProvider<CalendarViewCellColorScheme>
 
@@ -56,29 +49,32 @@ public struct CalendarDaysView: View {
         self.notActiveAfterDate = notActiveAfterDate
         self.schemeProvider = schemeProvider
         self.spacingBetweenRows = spacingBetweenRows
-        
-        if let monthMetadata = generator.monthMetadata(for: date) {
-            let days = generator.generateDaysInMonth(metadata: monthMetadata, selectedDays: selectedDays)
-            chunkedDays = days.chunked(into: Constants.numberOfDaysInWeek)
-        }
     }
 
     // MARK: - Body
 
     public var body: some View {
-        return VStack(spacing: spacingBetweenRows) {
+        let numberOfDaysInWeek = 7
+        let generator = CalendarGenerator()
+        var days = [CalendarDay]()
+        if let monthMetadata = generator.monthMetadata(for: date) {
+            days = generator.generateDaysInMonth(metadata: monthMetadata)
+        }
+        let chunkedDays = days.chunked(into: numberOfDaysInWeek)
+        return VStack(spacing: LayoutGrid.halfModule * 5) {
             ForEach(0..<chunkedDays.count, id: \.self) { index in
                 HStack {
                     ForEach(Array(chunkedDays[index].enumerated()), id: \.offset) { indexDay, day in
                         dayView(day: day)
-                        if indexDay != Constants.numberOfDaysInWeek - 1 {
+                        if indexDay != 6 {
                             Spacer()
                         }
                     }
-                    if chunkedDays[index].count < Constants.numberOfDaysInWeek {
-                        ForEach(chunkedDays[index].count..<Constants.numberOfDaysInWeek, id: \.self) { index in
+                    if chunkedDays[index].count < numberOfDaysInWeek {
+                        ForEach(chunkedDays[index].count..<numberOfDaysInWeek, id: \.self) { index in
                             Rectangle()
-                                .frame(width: LayoutGrid.halfModule * 9, height: LayoutGrid.halfModule * 9)
+                                .frame(maxWidth: LayoutGrid.halfModule * 9)
+                                .frame(height: LayoutGrid.halfModule * 9)
                                 .hidden()
                             if index != 6 {
                                 Spacer()
@@ -89,7 +85,6 @@ public struct CalendarDaysView: View {
             }
         }
     }
-
     // MARK: - Priate Methods
 
     @ViewBuilder
@@ -142,7 +137,8 @@ public struct CalendarDaysView: View {
             let backgroundColor = scheme.selectedBackgroundColors.parameter(for: .tailSelected)?.swiftUIColor
             return backgroundColor?
                 .cornerRadius(LayoutGrid.halfModule)
-                .frame(width: LayoutGrid.halfModule * 9, height: LayoutGrid.halfModule * 9)
+                .frame(maxWidth: LayoutGrid.halfModule * 9)
+                .frame(height: LayoutGrid.halfModule * 9)
                 .overlay(
                     Text(day.isDisplayedInMonth  ? day.number : "")
                         .font(scheme.titleLabelFont.swiftUIFont)
@@ -156,7 +152,8 @@ public struct CalendarDaysView: View {
             let date = day.date.copyDate()
             let backgroundColor = scheme.selectedBackgroundColors.parameter(for: .selected)?.swiftUIColor
             return backgroundColor?
-                .frame(width: LayoutGrid.halfModule * 9, height: LayoutGrid.halfModule * 9)
+                .frame(maxWidth: LayoutGrid.halfModule * 9)
+                .frame(height: LayoutGrid.halfModule * 9)
                 .cornerRadius(LayoutGrid.halfModule)
                 .overlay(
                     Text(day.isDisplayedInMonth  ? day.number : "")
@@ -177,7 +174,8 @@ public struct CalendarDaysView: View {
             tapDate(date)
         }) {
             Text(day.isDisplayedInMonth  ? day.number : "")
-            .frame(width: LayoutGrid.halfModule * 9, height: LayoutGrid.halfModule * 9)
+                .frame(maxWidth: LayoutGrid.halfModule * 9)
+                .frame(height: LayoutGrid.halfModule * 9)
             .font(scheme.titleLabelFont.swiftUIFont)
             .foregroundColor(scheme.textColors.parameter(for: .currentDate)?.swiftUIColor)
             .overlay(
@@ -190,7 +188,8 @@ public struct CalendarDaysView: View {
     private func inactiveTextView(day: CalendarDay) -> some View {
         let scheme = schemeProvider.scheme
         return Text(day.isDisplayedInMonth ? day.number : "")
-            .frame(width: LayoutGrid.halfModule * 9, height: LayoutGrid.halfModule * 9)
+            .frame(maxWidth: LayoutGrid.halfModule * 9)
+            .frame(height: LayoutGrid.halfModule * 9)
             .font(scheme.titleLabelFont.swiftUIFont)
             .foregroundColor(scheme.textColors.parameter(for: .inactive)?.swiftUIColor)
             .eraseToAnyView()
@@ -205,14 +204,16 @@ public struct CalendarDaysView: View {
                 tapDate(date)
             }) {
                 Text(day.isDisplayedInMonth ? day.number : "")
-                    .frame(width: LayoutGrid.halfModule * 9, height: LayoutGrid.halfModule * 9)
+                    .frame(maxWidth: LayoutGrid.halfModule * 9)
+                    .frame(height: LayoutGrid.halfModule * 9)
                     .font(scheme.titleLabelFont.swiftUIFont)
                     .foregroundColor(scheme.textColors.parameter(for: .normal)?.swiftUIColor)
             }
             .eraseToAnyView()
         } else {
             return Text(day.isDisplayedInMonth ? day.number : "")
-                .frame(width: LayoutGrid.halfModule * 9, height: LayoutGrid.halfModule * 9)
+                .frame(maxWidth: LayoutGrid.halfModule * 9)
+                .frame(height: LayoutGrid.halfModule * 9)
                 .font(scheme.titleLabelFont.swiftUIFont)
                 .foregroundColor(scheme.textColors.parameter(for: .normal)?.swiftUIColor)
                 .eraseToAnyView()
