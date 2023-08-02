@@ -35,7 +35,7 @@ public struct CalendarWeekView: View {
         return HStack {
             ForEach(0..<weakDays.count, id: \.self) { index in
                 Text(weakDays[index])
-                    .frame(width: LayoutGrid.halfModule * 9, height: LayoutGrid.halfModule * 9)
+                    .frame(maxWidth: LayoutGrid.halfModule * 9, maxHeight: LayoutGrid.halfModule * 9)
                 if index != 6 {
                     Spacer()
                 }
