@@ -139,7 +139,7 @@ public struct CalendarDaysView: View {
             let date = day.date.copyDate()
             let backgroundColor = scheme.selectedBackgroundColors.parameter(for: .tailSelected)?.swiftUIColor
             return backgroundColor?
-                .cornerRadius(LayoutGrid.halfModule)
+                .cornerRadius(dayCellCornerRadius)
                 .frame(maxWidth: LayoutGrid.halfModule * 9)
                 .frame(height: LayoutGrid.halfModule * 9)
                 .overlay(
@@ -157,7 +157,7 @@ public struct CalendarDaysView: View {
             return backgroundColor?
                 .frame(maxWidth: LayoutGrid.halfModule * 9)
                 .frame(height: LayoutGrid.halfModule * 9)
-                .cornerRadius(LayoutGrid.halfModule)
+                .cornerRadius(dayCellCornerRadius)
                 .overlay(
                     Text(day.isDisplayedInMonth  ? day.number : "")
                         .font(scheme.titleLabelFont.swiftUIFont)
@@ -182,7 +182,7 @@ public struct CalendarDaysView: View {
             .font(scheme.titleLabelFont.swiftUIFont)
             .foregroundColor(scheme.textColors.parameter(for: .currentDate)?.swiftUIColor)
             .overlay(
-                RoundedRectangle(cornerRadius: LayoutGrid.halfModule)
+                RoundedRectangle(cornerRadius: dayCellCornerRadius)
                     .stroke(scheme.borderColors.parameter(for: .currentDate)?.swiftUIColor ?? .clear, lineWidth: 2)
             )
         }

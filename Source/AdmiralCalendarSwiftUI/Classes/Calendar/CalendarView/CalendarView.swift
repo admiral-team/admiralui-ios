@@ -215,6 +215,7 @@ public struct CalendarView: View {
                 selectedDates: selectedDates,
                 spacingBetweenRows: spacingBetweenRows,
                 scrollAnchor: scrollAnchor,
+                isSeparatorVisible: isSeparatorVisible,
                 dayCellCornerRadius: dayCellCornerRadius,
                 schemeProvider: verticalSchemeProvider
             )
