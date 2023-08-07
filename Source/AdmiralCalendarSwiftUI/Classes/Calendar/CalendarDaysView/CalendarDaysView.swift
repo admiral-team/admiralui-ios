@@ -23,6 +23,7 @@ public struct CalendarDaysView: View {
     private var pointDates: [Date]
     private let selectedDays: [Date]
     private let spacingBetweenRows: CGFloat
+    private let dayCellCornerRadius: CGFloat
     private let generator = CalendarGenerator()
 
     @ObservedObject var schemeProvider: SchemeProvider<CalendarViewCellColorScheme>
@@ -38,6 +39,7 @@ public struct CalendarDaysView: View {
         pointDates: [Date],
         selectedDays: [Date],
         spacingBetweenRows: CGFloat = LayoutGrid.halfModule * 5,
+        dayCellCornerRadius: CGFloat = LayoutGrid.halfModule,
         schemeProvider: SchemeProvider<CalendarViewCellColorScheme> = AppThemeSchemeProvider<CalendarViewCellColorScheme>()
     ) {
         self.date = date
@@ -48,6 +50,7 @@ public struct CalendarDaysView: View {
         self.selectedDays = selectedDays
         self.notActiveAfterDate = notActiveAfterDate
         self.schemeProvider = schemeProvider
+        self.dayCellCornerRadius = dayCellCornerRadius
         self.spacingBetweenRows = spacingBetweenRows
     }
 

@@ -112,6 +112,12 @@ public struct CalendarView: View {
 
     /// Scroll Anchor.
     private let scrollAnchor: UnitPoint?
+    
+    /// The value that show/hides separator
+    private let isSeparatorVisible: Bool
+    
+    /// The day cell corner radius
+    private let dayCellCornerRadius: CGFloat
 
     /// Horizontal calendar scheme provider serves for changing scheme while change theme.
     @ObservedObject private var horizontalSchemeProvider: SchemeProvider<CalendarHorizontalViewScheme>
@@ -135,6 +141,7 @@ public struct CalendarView: View {
     ///   - pointDates: Dates with a dot at the bottom.
     ///   - selectedDates: Selected dates.
     ///   - scrollAnchor: Scroll Anchor.
+    ///   - isSeparatorVisible: show/hide separator.
     public init(
         type: CalendarViewType,
         startDate: Date? = nil,
@@ -149,6 +156,8 @@ public struct CalendarView: View {
         selectedDates: [Date] = [],
         spacingBetweenRows: CGFloat = LayoutGrid.halfModule * 5,
         scrollAnchor: UnitPoint? = nil,
+        isSeparatorVisible: Bool = true,
+        dayCellCornerRadius: CGFloat = LayoutGrid.halfModule,
         horizontalSchemeProvider: SchemeProvider<CalendarHorizontalViewScheme> = AppThemeSchemeProvider<CalendarHorizontalViewScheme>(),
         verticalSchemeProvider: SchemeProvider<CalendarVerticalViewScheme> = AppThemeSchemeProvider<CalendarVerticalViewScheme>()
     ) {
@@ -165,6 +174,8 @@ public struct CalendarView: View {
         self.selectedDates = selectedDates
         self.spacingBetweenRows = spacingBetweenRows
         self.scrollAnchor = scrollAnchor
+        self.isSeparatorVisible = isSeparatorVisible
+        self.dayCellCornerRadius = dayCellCornerRadius
         self.horizontalSchemeProvider = horizontalSchemeProvider
         self.verticalSchemeProvider = verticalSchemeProvider
     }
@@ -204,6 +215,7 @@ public struct CalendarView: View {
                 selectedDates: selectedDates,
                 spacingBetweenRows: spacingBetweenRows,
                 scrollAnchor: scrollAnchor,
+                dayCellCornerRadius: dayCellCornerRadius,
                 schemeProvider: verticalSchemeProvider
             )
         }

@@ -542,11 +542,11 @@
 		3B574AA227C7DB08006FEF9A /* ZeroScreenSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B574AA127C7DB08006FEF9A /* ZeroScreenSnapshotTest.swift */; };
 		3B574AA527C7DC95006FEF9A /* ZeroScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B574AA427C7DC95006FEF9A /* ZeroScreenView.swift */; };
 		3B574AA727C7DCB8006FEF9A /* ZeroScreenScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B574AA627C7DCB8006FEF9A /* ZeroScreenScheme.swift */; };
-		3B5B5C9B2A14C93300F3A5F2 /* SFProDisplay-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3B5B5C962A14C93100F3A5F2 /* SFProDisplay-Medium.otf */; };
-		3B5B5C9C2A14C93300F3A5F2 /* SFProDisplay-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3B5B5C972A14C93200F3A5F2 /* SFProDisplay-Bold.otf */; };
-		3B5B5C9D2A14C93300F3A5F2 /* SFProDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3B5B5C982A14C93200F3A5F2 /* SFProDisplay-Regular.otf */; };
-		3B5B5C9E2A14C93300F3A5F2 /* SFProText-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3B5B5C992A14C93200F3A5F2 /* SFProText-Medium.otf */; };
-		3B5B5C9F2A14C93300F3A5F2 /* SFProDisplay-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3B5B5C9A2A14C93200F3A5F2 /* SFProDisplay-Semibold.otf */; };
+		3B5B5C9B2A14C93300F3A5F2 /* Admiral-SFProDisplay-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3B5B5C962A14C93100F3A5F2 /* Admiral-SFProDisplay-Medium.otf */; };
+		3B5B5C9C2A14C93300F3A5F2 /* Admiral-SFProDisplay-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3B5B5C972A14C93200F3A5F2 /* Admiral-SFProDisplay-Bold.otf */; };
+		3B5B5C9D2A14C93300F3A5F2 /* Admiral-SFProDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3B5B5C982A14C93200F3A5F2 /* Admiral-SFProDisplay-Regular.otf */; };
+		3B5B5C9E2A14C93300F3A5F2 /* Admiral-SFProText-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3B5B5C992A14C93200F3A5F2 /* Admiral-SFProText-Medium.otf */; };
+		3B5B5C9F2A14C93300F3A5F2 /* Admiral-SFProDisplay-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3B5B5C9A2A14C93200F3A5F2 /* Admiral-SFProDisplay-Semibold.otf */; };
 		3B5B5CA32A14DFCA00F3A5F2 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5B5CA22A14DFCA00F3A5F2 /* Fonts.swift */; };
 		3B5B5CA92A15152700F3A5F2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B5B5CA82A15152700F3A5F2 /* Images.xcassets */; };
 		3B5B5CAC2A1526D800F3A5F2 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5B5CAB2A1526D800F3A5F2 /* Assets.swift */; };
@@ -759,7 +759,7 @@
 		E995668A2727F0B700C5800A /* PinButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99566882727F06400C5800A /* PinButton.swift */; };
 		E995668E2727F1EC00C5800A /* TagControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E995668C2727F1DB00C5800A /* TagControl.swift */; };
 		E99BBE7C2722EB9F00EE6F51 /* CustomSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99BBE7A2722EB9000EE6F51 /* CustomSwitch.swift */; };
-		E99FCEBA2A5D384D006D88D8 /* AdmiralCalendarSwiftUI.h in Headers */ = {isa = PBXBuildFile; fileRef = E99FCEB92A5D384D006D88D8 /* AdmiralCalendarSwiftUI.h */; };
+		E99FCEBA2A5D384D006D88D8 /* AdmiralCalendarSwiftUI.h in Headers */ = {isa = PBXBuildFile; fileRef = E99FCEB92A5D384D006D88D8 /* AdmiralCalendarSwiftUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E99FCEC62A5D4F49006D88D8 /* AdmiralTheme.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E0E881225FBA24C00127626 /* AdmiralTheme.framework */; };
 		E99FCEC72A5D67B0006D88D8 /* CalendarWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C6BF1928C7A7F900213F5C /* CalendarWeek.swift */; };
 		E99FCEC82A5D67B6006D88D8 /* CalendarPickerYear.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C6BF1A28C7A7F900213F5C /* CalendarPickerYear.swift */; };
@@ -796,7 +796,7 @@
 		E99FCEFB2A5D705E006D88D8 /* CalendarActivityIndicatorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99FCEFA2A5D705E006D88D8 /* CalendarActivityIndicatorScheme.swift */; };
 		E99FCEFC2A5D712A006D88D8 /* DateFormmer+WeekDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E38F312266F78F4002AD565 /* DateFormmer+WeekDay.swift */; };
 		E99FCF002A5D720C006D88D8 /* CalendarLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99FCEFF2A5D720C006D88D8 /* CalendarLine.swift */; };
-		E99FCF112A5D80CB006D88D8 /* AdmiralCore.h in Headers */ = {isa = PBXBuildFile; fileRef = E99FCF102A5D80CB006D88D8 /* AdmiralCore.h */; };
+		E99FCF112A5D80CB006D88D8 /* AdmiralCore.h in Headers */ = {isa = PBXBuildFile; fileRef = E99FCF102A5D80CB006D88D8 /* AdmiralCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E9A0F9C82A780366006EDF5C /* CalendarVerticalPaginator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A0F9C72A780366006EDF5C /* CalendarVerticalPaginator.swift */; };
 		E9A0F9CA2A780861006EDF5C /* InversedScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A0F9C92A780861006EDF5C /* InversedScrollView.swift */; };
 		E9A18D9A273A4F9000668C03 /* UploadingImageGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A18D98273A4F4B00668C03 /* UploadingImageGrid.swift */; };
@@ -1366,11 +1366,11 @@
 		3B574AA127C7DB08006FEF9A /* ZeroScreenSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZeroScreenSnapshotTest.swift; sourceTree = "<group>"; };
 		3B574AA427C7DC95006FEF9A /* ZeroScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroScreenView.swift; sourceTree = "<group>"; };
 		3B574AA627C7DCB8006FEF9A /* ZeroScreenScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroScreenScheme.swift; sourceTree = "<group>"; };
-		3B5B5C962A14C93100F3A5F2 /* SFProDisplay-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Medium.otf"; sourceTree = "<group>"; };
-		3B5B5C972A14C93200F3A5F2 /* SFProDisplay-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.otf"; sourceTree = "<group>"; };
-		3B5B5C982A14C93200F3A5F2 /* SFProDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Regular.otf"; sourceTree = "<group>"; };
-		3B5B5C992A14C93200F3A5F2 /* SFProText-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Medium.otf"; sourceTree = "<group>"; };
-		3B5B5C9A2A14C93200F3A5F2 /* SFProDisplay-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Semibold.otf"; sourceTree = "<group>"; };
+		3B5B5C962A14C93100F3A5F2 /* Admiral-SFProDisplay-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Admiral-SFProDisplay-Medium.otf"; sourceTree = "<group>"; };
+		3B5B5C972A14C93200F3A5F2 /* Admiral-SFProDisplay-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Admiral-SFProDisplay-Bold.otf"; sourceTree = "<group>"; };
+		3B5B5C982A14C93200F3A5F2 /* Admiral-SFProDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Admiral-SFProDisplay-Regular.otf"; sourceTree = "<group>"; };
+		3B5B5C992A14C93200F3A5F2 /* Admiral-SFProText-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Admiral-SFProText-Medium.otf"; sourceTree = "<group>"; };
+		3B5B5C9A2A14C93200F3A5F2 /* Admiral-SFProDisplay-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Admiral-SFProDisplay-Semibold.otf"; sourceTree = "<group>"; };
 		3B5B5CA22A14DFCA00F3A5F2 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		3B5B5CA82A15152700F3A5F2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3B5B5CAB2A1526D800F3A5F2 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
@@ -2413,11 +2413,11 @@
 		0E319FC92A1F70B100243CC8 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				3B5B5C972A14C93200F3A5F2 /* SFProDisplay-Bold.otf */,
-				3B5B5C962A14C93100F3A5F2 /* SFProDisplay-Medium.otf */,
-				3B5B5C982A14C93200F3A5F2 /* SFProDisplay-Regular.otf */,
-				3B5B5C9A2A14C93200F3A5F2 /* SFProDisplay-Semibold.otf */,
-				3B5B5C992A14C93200F3A5F2 /* SFProText-Medium.otf */,
+				3B5B5C972A14C93200F3A5F2 /* Admiral-SFProDisplay-Bold.otf */,
+				3B5B5C962A14C93100F3A5F2 /* Admiral-SFProDisplay-Medium.otf */,
+				3B5B5C982A14C93200F3A5F2 /* Admiral-SFProDisplay-Regular.otf */,
+				3B5B5C9A2A14C93200F3A5F2 /* Admiral-SFProDisplay-Semibold.otf */,
+				3B5B5C992A14C93200F3A5F2 /* Admiral-SFProText-Medium.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -7566,12 +7566,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B5B5C9D2A14C93300F3A5F2 /* SFProDisplay-Regular.otf in Resources */,
-				3B5B5C9C2A14C93300F3A5F2 /* SFProDisplay-Bold.otf in Resources */,
-				3B5B5C9E2A14C93300F3A5F2 /* SFProText-Medium.otf in Resources */,
+				3B5B5C9D2A14C93300F3A5F2 /* Admiral-SFProDisplay-Regular.otf in Resources */,
+				3B5B5C9C2A14C93300F3A5F2 /* Admiral-SFProDisplay-Bold.otf in Resources */,
+				3B5B5C9E2A14C93300F3A5F2 /* Admiral-SFProText-Medium.otf in Resources */,
 				E9A709F927610270003233DF /* version.json in Resources */,
-				3B5B5C9B2A14C93300F3A5F2 /* SFProDisplay-Medium.otf in Resources */,
-				3B5B5C9F2A14C93300F3A5F2 /* SFProDisplay-Semibold.otf in Resources */,
+				3B5B5C9B2A14C93300F3A5F2 /* Admiral-SFProDisplay-Medium.otf in Resources */,
+				3B5B5C9F2A14C93300F3A5F2 /* Admiral-SFProDisplay-Semibold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

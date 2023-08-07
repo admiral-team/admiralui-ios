@@ -21,14 +21,14 @@ internal typealias Font = FontConvertible.Font
 // swiftlint:disable identifier_name line_length type_body_length
 internal enum FontFamily {
   internal enum SFProDisplay {
-    internal static let bold = FontConvertible(name: "SFProDisplay-Bold", family: "SF Pro Display", path: "SFProDisplay-Bold.otf")
-    internal static let medium = FontConvertible(name: "SFProDisplay-Medium", family: "SF Pro Display", path: "SFProDisplay-Medium.otf")
-    internal static let regular = FontConvertible(name: "SFProDisplay-Regular", family: "SF Pro Display", path: "SFProDisplay-Regular.otf")
-    internal static let semibold = FontConvertible(name: "SFProDisplay-Semibold", family: "SF Pro Display", path: "SFProDisplay-Semibold.otf")
+    internal static let bold = FontConvertible(name: "SFProDisplay-Bold", family: "SF Pro Display", path: "Admiral-SFProDisplay-Bold.otf")
+    internal static let medium = FontConvertible(name: "SFProDisplay-Medium", family: "SF Pro Display", path: "Admiral-SFProDisplay-Medium.otf")
+    internal static let regular = FontConvertible(name: "SFProDisplay-Regular", family: "SF Pro Display", path: "Admiral-SFProDisplay-Regular.otf")
+    internal static let semibold = FontConvertible(name: "SFProDisplay-Semibold", family: "SF Pro Display", path: "Admiral-SFProDisplay-Semibold.otf")
     internal static let all: [FontConvertible] = [bold, medium, regular, semibold]
   }
   internal enum SFProText {
-    internal static let medium = FontConvertible(name: "SFProText-Medium", family: "SF Pro Text", path: "SFProText-Medium.otf")
+    internal static let medium = FontConvertible(name: "SFProText-Medium", family: "SF Pro Text", path: "Admiral-SFProText-Medium.otf")
     internal static let all: [FontConvertible] = [medium]
   }
   internal static let allCustomFonts: [FontConvertible] = [SFProDisplay.all, SFProText.all].flatMap { $0 }
