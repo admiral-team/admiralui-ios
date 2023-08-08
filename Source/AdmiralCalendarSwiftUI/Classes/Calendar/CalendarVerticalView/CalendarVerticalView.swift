@@ -66,6 +66,12 @@ struct CalendarVerticalView: View {
 
     /// Scroll Anchor
     let scrollAnchor: UnitPoint?
+    
+    /// The value that shows/hides separator
+    let isSeparatorVisible: Bool
+    
+    /// The day cell corner radius
+    let dayCellCornerRadius: CGFloat
 
     // MARK: - Private Properties
 
@@ -95,6 +101,8 @@ struct CalendarVerticalView: View {
         selectedDates: [Date],
         spacingBetweenRows: CGFloat = LayoutGrid.halfModule * 5,
         scrollAnchor: UnitPoint? = nil,
+        isSeparatorVisible: Bool = true,
+        dayCellCornerRadius: CGFloat = LayoutGrid.halfModule,
         schemeProvider: SchemeProvider<CalendarVerticalViewScheme> = AppThemeSchemeProvider<CalendarVerticalViewScheme>()
     ) {
 
@@ -125,6 +133,8 @@ struct CalendarVerticalView: View {
         self.schemeProvider = schemeProvider
         self.scrollAnchor = scrollAnchor
         self.notActiveAfterDate = notActiveAfterDate
+        self.isSeparatorVisible = isSeparatorVisible
+        self.dayCellCornerRadius = dayCellCornerRadius
         self._isMutlipleSelectionAllowed = .init(initialValue: isMutlipleSelectionAllowed)
         self._didSelectedDate = .init(initialValue: didSelectedDate)
         self._didSelectedDates = .init(initialValue: didSelectedDates)
@@ -298,12 +308,15 @@ struct CalendarVerticalView: View {
                 pointDates: pointDates,
                 selectedDays: selectedDates,
                 spacingBetweenRows: spacingBetweenRows,
+                dayCellCornerRadius: dayCellCornerRadius,
                 schemeProvider: SchemeProvider.constant(scheme: scheme.calendarViewCellColorScheme)
             )
             Spacer()
                 .frame(height: LayoutGrid.halfModule)
-            CalendarLine()
-                .foregroundColor(scheme.lineBackgroundColor.swiftUIColor)
+            if isSeparatorVisible {
+                CalendarLine()
+                    .foregroundColor(scheme.lineBackgroundColor.swiftUIColor)
+            }
             Spacer()
                 .frame(height: LayoutGrid.halfModule * 3)
         }

@@ -23,6 +23,7 @@ public struct CalendarDaysView: View {
     private var pointDates: [Date]
     private let selectedDays: [Date]
     private let spacingBetweenRows: CGFloat
+    private let dayCellCornerRadius: CGFloat
     private let generator = CalendarGenerator()
 
     @ObservedObject var schemeProvider: SchemeProvider<CalendarViewCellColorScheme>
@@ -38,6 +39,7 @@ public struct CalendarDaysView: View {
         pointDates: [Date],
         selectedDays: [Date],
         spacingBetweenRows: CGFloat = LayoutGrid.halfModule * 5,
+        dayCellCornerRadius: CGFloat = LayoutGrid.halfModule,
         schemeProvider: SchemeProvider<CalendarViewCellColorScheme> = AppThemeSchemeProvider<CalendarViewCellColorScheme>()
     ) {
         self.date = date
@@ -48,6 +50,7 @@ public struct CalendarDaysView: View {
         self.selectedDays = selectedDays
         self.notActiveAfterDate = notActiveAfterDate
         self.schemeProvider = schemeProvider
+        self.dayCellCornerRadius = dayCellCornerRadius
         self.spacingBetweenRows = spacingBetweenRows
     }
 
@@ -136,7 +139,7 @@ public struct CalendarDaysView: View {
             let date = day.date.copyDate()
             let backgroundColor = scheme.selectedBackgroundColors.parameter(for: .tailSelected)?.swiftUIColor
             return backgroundColor?
-                .cornerRadius(LayoutGrid.halfModule)
+                .cornerRadius(dayCellCornerRadius)
                 .frame(maxWidth: LayoutGrid.halfModule * 9)
                 .frame(height: LayoutGrid.halfModule * 9)
                 .overlay(
@@ -154,7 +157,7 @@ public struct CalendarDaysView: View {
             return backgroundColor?
                 .frame(maxWidth: LayoutGrid.halfModule * 9)
                 .frame(height: LayoutGrid.halfModule * 9)
-                .cornerRadius(LayoutGrid.halfModule)
+                .cornerRadius(dayCellCornerRadius)
                 .overlay(
                     Text(day.isDisplayedInMonth  ? day.number : "")
                         .font(scheme.titleLabelFont.swiftUIFont)
@@ -179,7 +182,7 @@ public struct CalendarDaysView: View {
             .font(scheme.titleLabelFont.swiftUIFont)
             .foregroundColor(scheme.textColors.parameter(for: .currentDate)?.swiftUIColor)
             .overlay(
-                RoundedRectangle(cornerRadius: LayoutGrid.halfModule)
+                RoundedRectangle(cornerRadius: dayCellCornerRadius)
                     .stroke(scheme.borderColors.parameter(for: .currentDate)?.swiftUIColor ?? .clear, lineWidth: 2)
             )
         }
