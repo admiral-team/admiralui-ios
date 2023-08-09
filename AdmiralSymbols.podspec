@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
 
   spec.platform = :ios
   spec.name         = "AdmiralSymbols"
-  spec.version      = "13.0.2"
+  spec.version      = "13.0.3"
   spec.summary      = "Team UI Components."
 
   spec.description  = <<-DESC

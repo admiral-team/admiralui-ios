@@ -759,7 +759,7 @@
 		E995668A2727F0B700C5800A /* PinButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99566882727F06400C5800A /* PinButton.swift */; };
 		E995668E2727F1EC00C5800A /* TagControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E995668C2727F1DB00C5800A /* TagControl.swift */; };
 		E99BBE7C2722EB9F00EE6F51 /* CustomSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99BBE7A2722EB9000EE6F51 /* CustomSwitch.swift */; };
-		E99FCEBA2A5D384D006D88D8 /* AdmiralCalendarSwiftUI.h in Headers */ = {isa = PBXBuildFile; fileRef = E99FCEB92A5D384D006D88D8 /* AdmiralCalendarSwiftUI.h */; };
+		E99FCEBA2A5D384D006D88D8 /* AdmiralCalendarSwiftUI.h in Headers */ = {isa = PBXBuildFile; fileRef = E99FCEB92A5D384D006D88D8 /* AdmiralCalendarSwiftUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E99FCEC62A5D4F49006D88D8 /* AdmiralTheme.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E0E881225FBA24C00127626 /* AdmiralTheme.framework */; };
 		E99FCEC72A5D67B0006D88D8 /* CalendarWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C6BF1928C7A7F900213F5C /* CalendarWeek.swift */; };
 		E99FCEC82A5D67B6006D88D8 /* CalendarPickerYear.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C6BF1A28C7A7F900213F5C /* CalendarPickerYear.swift */; };
@@ -796,7 +796,7 @@
 		E99FCEFB2A5D705E006D88D8 /* CalendarActivityIndicatorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99FCEFA2A5D705E006D88D8 /* CalendarActivityIndicatorScheme.swift */; };
 		E99FCEFC2A5D712A006D88D8 /* DateFormmer+WeekDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E38F312266F78F4002AD565 /* DateFormmer+WeekDay.swift */; };
 		E99FCF002A5D720C006D88D8 /* CalendarLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99FCEFF2A5D720C006D88D8 /* CalendarLine.swift */; };
-		E99FCF112A5D80CB006D88D8 /* AdmiralCore.h in Headers */ = {isa = PBXBuildFile; fileRef = E99FCF102A5D80CB006D88D8 /* AdmiralCore.h */; };
+		E99FCF112A5D80CB006D88D8 /* AdmiralCore.h in Headers */ = {isa = PBXBuildFile; fileRef = E99FCF102A5D80CB006D88D8 /* AdmiralCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E9A0F9C82A780366006EDF5C /* CalendarVerticalPaginator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A0F9C72A780366006EDF5C /* CalendarVerticalPaginator.swift */; };
 		E9A0F9CA2A780861006EDF5C /* InversedScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A0F9C92A780861006EDF5C /* InversedScrollView.swift */; };
 		E9A18D9A273A4F9000668C03 /* UploadingImageGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A18D98273A4F4B00668C03 /* UploadingImageGrid.swift */; };
