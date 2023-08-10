@@ -61,7 +61,7 @@ public struct CalendarDaysView: View {
         let generator = CalendarGenerator()
         var days = [CalendarDay]()
         if let monthMetadata = generator.monthMetadata(for: date) {
-            days = generator.generateDaysInMonth(metadata: monthMetadata)
+            days = generator.generateDaysInMonth(metadata: monthMetadata, selectedDays: selectedDays)
         }
         let chunkedDays = days.chunked(into: numberOfDaysInWeek)
         return VStack(spacing: LayoutGrid.halfModule * 5) {
