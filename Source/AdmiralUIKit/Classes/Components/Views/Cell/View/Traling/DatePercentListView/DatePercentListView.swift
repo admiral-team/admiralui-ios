@@ -106,12 +106,12 @@ public class DatePercentListView: BaseListView, TralingListViewComponent, AnyApp
         
         NSLayoutConstraint.activate([
             centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor, constant: LayoutGrid.halfModule * 3),
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: LayoutGrid.doubleModule),
-            trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: LayoutGrid.doubleModule),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
             
             subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: LayoutGrid.halfModule),
-            subtitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: LayoutGrid.doubleModule),
-            trailingAnchor.constraint(equalTo: subtitleLabel.trailingAnchor, constant: LayoutGrid.doubleModule),
+            subtitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            trailingAnchor.constraint(equalTo: subtitleLabel.trailingAnchor),
             bottomAnchor.constraint(greaterThanOrEqualTo: subtitleLabel.bottomAnchor),
             subtitleCenterY
         ])

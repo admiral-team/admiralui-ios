@@ -84,7 +84,9 @@ final class TralingElementsViewController: ScrollViewController {
     private func configureArrowCell() -> ListCell<ListCellEmpty, TitleListView, ArrowListView> {
         let titleListView = TitleListView()
         titleListView.title = "Title"
-        return ListCell(centerView: titleListView, tralingView: ArrowListView())
+        let cell: ListCell<ListCellEmpty, TitleListView, ArrowListView> = ListCell(centerView: titleListView, tralingView: ArrowListView())
+        cell.accessibilityIdentifier = "ArrowCell"
+        return cell
     }
     
     private func configureRadioButtonCell() -> ListCell<ListCellEmpty, TitleListView, RadioButtonListView> {

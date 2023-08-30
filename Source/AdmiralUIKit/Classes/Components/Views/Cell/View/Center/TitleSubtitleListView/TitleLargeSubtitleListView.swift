@@ -69,7 +69,7 @@ public class TitleLargeSubtitleListView: BaseListView, CenterListViewComponent, 
     }()
     
     private lazy var additionalTitleTrailingConstraint: NSLayoutConstraint = {
-        return trailingAnchor.constraint(equalTo: additionalTitleLabel.trailingAnchor, constant: LayoutGrid.doubleModule)
+        return trailingAnchor.constraint(equalTo: additionalTitleLabel.trailingAnchor)
     }()
 
     // MARK: - Initializer
@@ -112,7 +112,7 @@ public class TitleLargeSubtitleListView: BaseListView, CenterListViewComponent, 
         
         NSLayoutConstraint.activate([
             titleCenterYConstraint,
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: LayoutGrid.doubleModule),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: additionalTitleLabel.leadingAnchor, constant: -LayoutGrid.module),
             titleLabel.topAnchor.constraint(greaterThanOrEqualTo: topAnchor),
             titleCenterYConstraint,
@@ -121,7 +121,7 @@ public class TitleLargeSubtitleListView: BaseListView, CenterListViewComponent, 
             additionalTitleTrailingConstraint,
             
             subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: LayoutGrid.halfModule),
-            subtitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: LayoutGrid.doubleModule),
+            subtitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             trailingAnchor.constraint(equalTo: subtitleLabel.trailingAnchor, constant: LayoutGrid.doubleModule),
             subtitleCenterY,
             bottomAnchor.constraint(greaterThanOrEqualTo: subtitleLabel.bottomAnchor)

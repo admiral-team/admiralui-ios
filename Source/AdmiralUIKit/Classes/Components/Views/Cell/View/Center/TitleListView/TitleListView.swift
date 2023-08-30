@@ -92,8 +92,8 @@ open class TitleListView: BaseListView, CenterListViewComponent, AnyAppThemable,
     
     private func configureLayout() {
         let top = titleLabel.topAnchor.constraint(equalTo: topAnchor)
-        let leading = titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: LayoutGrid.doubleModule)
-        let trailing = trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: LayoutGrid.doubleModule)
+        let leading = titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor)
+        let trailing = trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor)
         let bottom = bottomAnchor.constraint(equalTo: titleLabel.bottomAnchor)
 
         NSLayoutConstraint.activate([

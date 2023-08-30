@@ -99,13 +99,13 @@ final class LeadingElementsViewController: ScrollViewController {
         return cell
     }
 
-    private func configureImageCell() -> ListCell<ImageListView, TitleListView, ArrowListView> {
+    private func configureImageNameListViewCell() -> ListCell<ImageNameListView, TitleListView, ArrowListView> {
         let titleListView = TitleListView()
-        titleListView.title = "Icon Place"
-        let iconListView = ImageListView()
-        iconListView.image = Asset.Main.gem.image
-        let cell = ListCell(leadingView: iconListView, centerView: titleListView, tralingView: ArrowListView())
-        cell.accessibilityIdentifier = "ImageCell"
+        titleListView.title = "Icon Name"
+        let imageNameListView = ImageNameListView()
+        imageNameListView.text = "IN"
+        let cell = ListCell(leadingView: imageNameListView, centerView: titleListView, tralingView: ArrowListView())
+        cell.accessibilityIdentifier = "ImageNameListViewCell"
         return cell
     }
     
@@ -119,15 +119,17 @@ final class LeadingElementsViewController: ScrollViewController {
         return cell
     }
     
-    private func configureImageNameListViewCell() -> ListCell<ImageNameListView, TitleListView, ArrowListView> {
+    private func configureImageCell() -> ListCell<ImageListView, TitleListView, ArrowListView> {
         let titleListView = TitleListView()
-        titleListView.title = "Icon Name"
-        let imageNameListView = ImageNameListView()
-        imageNameListView.text = "IN"
-        let cell = ListCell(leadingView: imageNameListView, centerView: titleListView, tralingView: ArrowListView())
-        cell.accessibilityIdentifier = "ImageNameListViewCell"
+        titleListView.title = "Icon Place"
+        let iconListView = ImageListView()
+        iconListView.image = Asset.Main.gem.image
+        let cell = ListCell(leadingView: iconListView, centerView: titleListView, tralingView: ArrowListView())
+        cell.accessibilityIdentifier = "ImageCell"
         return cell
     }
+    
+
     
     
 }

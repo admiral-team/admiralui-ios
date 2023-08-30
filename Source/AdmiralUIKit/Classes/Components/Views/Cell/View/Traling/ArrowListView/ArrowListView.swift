@@ -79,7 +79,7 @@ public class ArrowListView: BaseListView, TralingListViewComponent, AnyAppThemab
         let top = arrowImageView.topAnchor.constraint(lessThanOrEqualTo: topAnchor, constant: (LayoutGrid.halfModule / 2) * 11)
         let center = arrowImageView.centerYAnchor.constraint(equalTo: centerYAnchor)
         center.priority = .defaultHigh
-        let trailing = trailingAnchor.constraint(equalTo: arrowImageView.trailingAnchor, constant: LayoutGrid.doubleModule)
+        let trailing = trailingAnchor.constraint(equalTo: arrowImageView.trailingAnchor)
         let arrowImageViewWidth = arrowImageView.widthAnchor.constraint(equalToConstant: LayoutGrid.tripleModule)
         let arrowImageViewHeight = arrowImageView.heightAnchor.constraint(equalToConstant: LayoutGrid.tripleModule)
         

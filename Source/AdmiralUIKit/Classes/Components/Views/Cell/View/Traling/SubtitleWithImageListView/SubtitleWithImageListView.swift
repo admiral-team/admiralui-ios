@@ -112,8 +112,8 @@ public class SubtitleWithImageListView: BaseListView, TralingListViewComponent, 
             bottomAnchor.constraint(equalTo: subtitleLabel.bottomAnchor),
             leadingConstraint,
             
-            trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: LayoutGrid.doubleModule),
-            subtitleLabel.leadingAnchor.constraint(greaterThanOrEqualTo: leadingAnchor, constant: LayoutGrid.doubleModule),
+            trailingAnchor.constraint(equalTo: imageView.trailingAnchor),
+            subtitleLabel.leadingAnchor.constraint(greaterThanOrEqualTo: leadingAnchor),
             
             imageView.heightAnchor.constraint(equalToConstant: LayoutGrid.doubleModule),
             imageView.widthAnchor.constraint(equalToConstant: LayoutGrid.halfModule * 7),
