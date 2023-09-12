@@ -107,8 +107,6 @@
 		0EB1ACAA265BE2A4007D7795 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB1ACA9265BE2A4007D7795 /* NavigationBarModifier.swift */; };
 		0EB755F52600CBC1009BFC21 /* AdmiralSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB755F42600CBC1009BFC21 /* AdmiralSwiftUI.framework */; };
 		0EB755F62600CBC1009BFC21 /* AdmiralSwiftUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB755F42600CBC1009BFC21 /* AdmiralSwiftUI.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		0EB755F82600CBC5009BFC21 /* AdmiralTheme.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB755F72600CBC5009BFC21 /* AdmiralTheme.framework */; };
-		0EB755F92600CBC5009BFC21 /* AdmiralTheme.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB755F72600CBC5009BFC21 /* AdmiralTheme.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0EB757DF2600D6B0009BFC21 /* AdmiralUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB757DE2600D6B0009BFC21 /* AdmiralUIKit.framework */; };
 		0EB757E02600D6B0009BFC21 /* AdmiralUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB757DE2600D6B0009BFC21 /* AdmiralUIKit.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0EBC46AA269F0044003CF5FA /* CalendarsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBC46A9269F0044003CF5FA /* CalendarsSwiftUIView.swift */; };
@@ -463,10 +461,10 @@
 		E95553CD27A2C84000A14BCA /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95553CC27A2C84000A14BCA /* ChatViewModel.swift */; };
 		E95553CF27A2CBE300A14BCA /* TextOperationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95553CE27A2CBE300A14BCA /* TextOperationViewModel.swift */; };
 		E95DC44727A12DDA00532BDC /* Publishers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95DC44627A12DDA00532BDC /* Publishers+Extensions.swift */; };
-		E99FCEC42A5D3958006D88D8 /* AdmiralCalendarSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E99FCEC32A5D3958006D88D8 /* AdmiralCalendarSwiftUI.framework */; };
-		E99FCEC52A5D3958006D88D8 /* AdmiralCalendarSwiftUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E99FCEC32A5D3958006D88D8 /* AdmiralCalendarSwiftUI.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		E99FCF1A2A5D81BC006D88D8 /* AdmiralCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E99FCF192A5D81BC006D88D8 /* AdmiralCore.framework */; };
-		E99FCF1B2A5D81BC006D88D8 /* AdmiralCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E99FCF192A5D81BC006D88D8 /* AdmiralCore.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E975A8932AAF907400D70768 /* AdmiralCore in Frameworks */ = {isa = PBXBuildFile; productRef = E975A8922AAF907400D70768 /* AdmiralCore */; };
+		E975A8A32AB03C2D00D70768 /* AdmiralTheme in Frameworks */ = {isa = PBXBuildFile; productRef = E975A8A22AB03C2D00D70768 /* AdmiralTheme */; };
+		E975A8B32AB06C5D00D70768 /* AdmiralCalendarSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = E975A8B22AB06C5D00D70768 /* AdmiralCalendarSwiftUI */; };
+		E975A8B62AB071B500D70768 /* AdmiralNotificationsSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = E975A8B52AB071B500D70768 /* AdmiralNotificationsSwiftUI */; };
 		E9A18D7F27393ED900668C03 /* SwiftUIChatItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A18D7E27393ED900668C03 /* SwiftUIChatItem.swift */; };
 		E9A18D87273946BD00668C03 /* SwiftUIChatInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A18D86273946BD00668C03 /* SwiftUIChatInputView.swift */; };
 		E9A18D8B2739523300668C03 /* SwiftUITextMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A18D8A2739523300668C03 /* SwiftUITextMessageView.swift */; };
@@ -547,11 +545,8 @@
 			dstSubfolderSpec = 10;
 			files = (
 				0EB755F62600CBC1009BFC21 /* AdmiralSwiftUI.framework in Embed Frameworks */,
-				0EB755F92600CBC5009BFC21 /* AdmiralTheme.framework in Embed Frameworks */,
-				E99FCF1B2A5D81BC006D88D8 /* AdmiralCore.framework in Embed Frameworks */,
 				0EB757E02600D6B0009BFC21 /* AdmiralUIKit.framework in Embed Frameworks */,
 				E9212C7A2A18027C00646505 /* AdmiralSymbols.framework in Embed Frameworks */,
-				E99FCEC52A5D3958006D88D8 /* AdmiralCalendarSwiftUI.framework in Embed Frameworks */,
 				E9212C982A18056A00646505 /* AdmiralImages.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -1086,12 +1081,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E975A8B32AB06C5D00D70768 /* AdmiralCalendarSwiftUI in Frameworks */,
+				E975A8932AAF907400D70768 /* AdmiralCore in Frameworks */,
+				E975A8B62AB071B500D70768 /* AdmiralNotificationsSwiftUI in Frameworks */,
 				0EB755F52600CBC1009BFC21 /* AdmiralSwiftUI.framework in Frameworks */,
-				0EB755F82600CBC5009BFC21 /* AdmiralTheme.framework in Frameworks */,
-				E99FCF1A2A5D81BC006D88D8 /* AdmiralCore.framework in Frameworks */,
+				E975A8A32AB03C2D00D70768 /* AdmiralTheme in Frameworks */,
 				0EB757DF2600D6B0009BFC21 /* AdmiralUIKit.framework in Frameworks */,
 				E9212C792A18027C00646505 /* AdmiralSymbols.framework in Frameworks */,
-				E99FCEC42A5D3958006D88D8 /* AdmiralCalendarSwiftUI.framework in Frameworks */,
 				E9212C972A18056A00646505 /* AdmiralImages.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3972,6 +3968,12 @@
 			dependencies = (
 			);
 			name = ExampleiOS;
+			packageProductDependencies = (
+				E975A8922AAF907400D70768 /* AdmiralCore */,
+				E975A8A22AB03C2D00D70768 /* AdmiralTheme */,
+				E975A8B22AB06C5D00D70768 /* AdmiralCalendarSwiftUI */,
+				E975A8B52AB071B500D70768 /* AdmiralNotificationsSwiftUI */,
+			);
 			productName = "Example iOS";
 			productReference = E6D91C442532047C00DCE489 /* ExampleiOS.app */;
 			productType = "com.apple.product-type.application";
@@ -4026,6 +4028,12 @@
 				ru,
 			);
 			mainGroup = E6D91C3B2532047C00DCE489;
+			packageReferences = (
+				E975A8912AAF907400D70768 /* XCRemoteSwiftPackageReference "AdmiralCore" */,
+				E975A8A12AB03C2D00D70768 /* XCRemoteSwiftPackageReference "AdmiralTheme" */,
+				E975A8B12AB06C5D00D70768 /* XCRemoteSwiftPackageReference "AdmiralCalendarSwiftUI" */,
+				E975A8B42AB071B500D70768 /* XCRemoteSwiftPackageReference "AdmiralNotificationsSwiftUI" */,
+			);
 			productRefGroup = E6D91C452532047C00DCE489 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -4081,7 +4089,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftgen >/dev/null; then\n    cd ..\n    swiftgen config run --config .swiftgen.yml\n    swiftgen config run --config .swiftgenExample.yml\n    swiftgen config run --config .swiftgen/.admiralswiftui/.swiftgen.images.yml\n    swiftgen config run --config .swiftgen/.admiralswiftui/.swiftgen.symbols.yml\n    swiftgen config run --config .swiftgen/.admiralTheme/.swiftgen.fonts.yml\nelse\n    echo \"SwiftGen does not exist, download from https://github.com/AliSoftware/SwiftGen\"\n    exit 1\nfi\n";
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftgen >/dev/null; then\n    cd ..\n    swiftgen config run --config .swiftgen.yml\n    swiftgen config run --config .swiftgenExample.yml\n    swiftgen config run --config .swiftgen/.admiralswiftui/.swiftgen.images.yml\n    swiftgen config run --config .swiftgen/.admiralswiftui/.swiftgen.symbols.yml\nelse\n    echo \"SwiftGen does not exist, download from https://github.com/AliSoftware/SwiftGen\"\n    exit 1\nfi\n";
 		};
 		E6D91C8925320D3C00DCE489 /* Swift Lint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -4819,7 +4827,7 @@
 				DEVELOPMENT_TEAM = N7B9Y8WYA7;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "Source/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -4846,7 +4854,7 @@
 				DEVELOPMENT_TEAM = N7B9Y8WYA7;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "Source/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -4958,6 +4966,64 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E975A8912AAF907400D70768 /* XCRemoteSwiftPackageReference "AdmiralCore" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/admiral-team/AdmiralCore";
+			requirement = {
+				kind = exactVersion;
+				version = 0.0.1;
+			};
+		};
+		E975A8A12AB03C2D00D70768 /* XCRemoteSwiftPackageReference "AdmiralTheme" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/admiral-team/AdmiralTheme";
+			requirement = {
+				kind = exactVersion;
+				version = 0.0.1;
+			};
+		};
+		E975A8B12AB06C5D00D70768 /* XCRemoteSwiftPackageReference "AdmiralCalendarSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/admiral-team/AdmiralCalendarSwiftUI";
+			requirement = {
+				kind = exactVersion;
+				version = 0.0.1;
+			};
+		};
+		E975A8B42AB071B500D70768 /* XCRemoteSwiftPackageReference "AdmiralNotificationsSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/admiral-team/AdmiralNotificationsSwiftUI";
+			requirement = {
+				kind = exactVersion;
+				version = 0.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E975A8922AAF907400D70768 /* AdmiralCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E975A8912AAF907400D70768 /* XCRemoteSwiftPackageReference "AdmiralCore" */;
+			productName = AdmiralCore;
+		};
+		E975A8A22AB03C2D00D70768 /* AdmiralTheme */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E975A8A12AB03C2D00D70768 /* XCRemoteSwiftPackageReference "AdmiralTheme" */;
+			productName = AdmiralTheme;
+		};
+		E975A8B22AB06C5D00D70768 /* AdmiralCalendarSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E975A8B12AB06C5D00D70768 /* XCRemoteSwiftPackageReference "AdmiralCalendarSwiftUI" */;
+			productName = AdmiralCalendarSwiftUI;
+		};
+		E975A8B52AB071B500D70768 /* AdmiralNotificationsSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E975A8B42AB071B500D70768 /* XCRemoteSwiftPackageReference "AdmiralNotificationsSwiftUI" */;
+			productName = AdmiralNotificationsSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E6D91C3C2532047C00DCE489 /* Project object */;
 }

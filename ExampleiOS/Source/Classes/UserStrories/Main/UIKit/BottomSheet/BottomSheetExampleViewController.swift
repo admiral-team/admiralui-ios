@@ -57,8 +57,6 @@ final class BottomSheetExampleViewController: UIViewController, BottomSheetPrese
             return .default
         case .dark:
             return .lightContent
-        @unknown default:
-            return .default
         }
     }
 

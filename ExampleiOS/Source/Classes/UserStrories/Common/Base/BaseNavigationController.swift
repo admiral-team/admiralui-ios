@@ -21,8 +21,6 @@ class BaseNavigationController: UINavigationController, AppThemeable {
             }
         case .dark:
             return .lightContent
-        @unknown default:
-            return .lightContent
         }
     }
     

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AdmiralSwiftUI
+import AdmiralNotificationsSwiftUI
 
 @available(iOS 14.0, *)
 struct ToastNotificationsViewModel {

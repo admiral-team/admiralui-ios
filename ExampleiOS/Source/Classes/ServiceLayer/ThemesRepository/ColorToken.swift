@@ -5,6 +5,7 @@
 //  Created on 17.02.2021.
 //
 
+import AdmiralUIKit
 import UIKit
 
 struct ColorToken {
