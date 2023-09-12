@@ -1,9 +1,0 @@
-xcassets:
-    inputs: Source/AdmiralCalendarSwiftUI/Resources/Assets/Symbols.xcassets
-    outputs:
-        templatePath: Templates/Images.stencil
-        output: Source/AdmiralCalendarSwiftUI/Classes/Assets/Symbols.swift
-        params:
-            publicAccess: 1
-            allValues: 1
-            enumName: AssetSymbol

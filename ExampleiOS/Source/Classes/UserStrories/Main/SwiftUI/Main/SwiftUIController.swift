@@ -8,6 +8,7 @@
 import SwiftUI
 import AdmiralTheme
 import AdmiralSwiftUI
+import AdmiralNotificationsSwiftUI
 
 @available(iOS 14.0.0, *)
 struct NavBarAccessor: UIViewControllerRepresentable {
@@ -58,7 +59,7 @@ struct CustomSwiftUIView: View {
         ZToastNotificationsView(
             direction: viewModel.toastDirection,
             isAfterTouchUpdateTimer: viewModel.toastDirection == .up,
-            topOffset: UIApplication.shared.statusBarFrame.height,
+            topOffset: 64.0,
             bottomOffset: 64.0,
             toastsDidDisappear: {
                 toastManager.model = nil
@@ -236,8 +237,6 @@ class SwiftUIController: UIHostingController<CustomSwiftUIView> {
         case .light:
             return .darkContent
         case .dark:
-            return .lightContent
-        @unknown default:
             return .lightContent
         }
     }

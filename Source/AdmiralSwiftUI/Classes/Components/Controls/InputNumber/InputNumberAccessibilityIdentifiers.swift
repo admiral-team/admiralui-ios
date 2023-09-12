@@ -19,7 +19,7 @@ enum InputNumberAccessibilityIdentifiers: String {
     
     func accessibilityViewIdentifier(accessibilityIdentifier: String?) -> String {
         guard let accessibilityIdentifier = accessibilityIdentifier else { return "" }
-        return accessibilityIdentifier + ToastViewAccessibilityIdentifiers.separator + self.rawValue
+        return accessibilityIdentifier + "." + self.rawValue
     }
     
 }

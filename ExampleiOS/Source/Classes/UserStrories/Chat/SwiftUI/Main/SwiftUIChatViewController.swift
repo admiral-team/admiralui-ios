@@ -117,8 +117,6 @@ class SwiftUIChatViewController: UIHostingController<ChatSwiftUIView> {
             return .darkContent
         case .dark:
             return .lightContent
-        @unknown default:
-            return .lightContent
         }
     }
 

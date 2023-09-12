@@ -6,6 +6,7 @@
 //
 
 import AdmiralSwiftUI
+import AdmiralNotificationsSwiftUI
 import Combine
 
 @available(iOS 14.0.0, *)

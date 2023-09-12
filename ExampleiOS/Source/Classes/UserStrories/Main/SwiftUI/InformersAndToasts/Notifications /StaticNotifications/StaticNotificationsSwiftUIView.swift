@@ -8,6 +8,7 @@
 import SwiftUI
 import AdmiralTheme
 import AdmiralSwiftUI
+import AdmiralNotificationsSwiftUI
 
 @available(iOS 14.0.0, *)
 struct StaticNotificationsSwiftUIView: View {
