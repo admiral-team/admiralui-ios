@@ -8,7 +8,7 @@
 import Combine
 import SwiftUI
 
-@available (iOS 14.0.0, *)
+@available(iOS 14.0.0, *)
 /// Scheme provider is classs to store scheme.
 public class SchemeProvider<S>: ObservableObject where S: AppThemeScheme {
 
