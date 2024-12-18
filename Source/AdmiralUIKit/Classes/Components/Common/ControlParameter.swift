@@ -10,6 +10,6 @@ import UIKit
 
 public typealias ControlParameter<P> = ParameterBox<UIControl.State,P>
 
-extension UIControl.State: DefaultRepresentable {
+extension UIControl.State: @retroactive DefaultRepresentable {
     public static var defaultValue: UIControl.State { return .normal }
 }
