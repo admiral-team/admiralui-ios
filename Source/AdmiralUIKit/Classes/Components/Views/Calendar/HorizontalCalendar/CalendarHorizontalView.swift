@@ -15,6 +15,7 @@ class CalendarHorizontalView: UIView, AnyAppThemable {
         static let calendarHeight: CGFloat = 367.0
         static let minimumLineSpacing: CGFloat = LayoutGrid.doubleModule
         static let viewDivider: CGFloat = LayoutGrid.halfModule
+        static let velocity: CGFloat = 0.1
         static let monthFormat = "LLLL"
         static let yearFormat = "yyyy"
     }
@@ -503,11 +504,13 @@ extension CalendarHorizontalView: UICollectionViewDataSource {
         }
     }
     
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        print(velocity)
+        
         let offset = scrollView.contentOffset.x - scrollView.frame.width
-        if offset > scrollView.frame.width / Constants.viewDivider {
+        if offset >= scrollView.frame.width / Constants.viewDivider || velocity.x > Constants.velocity {
             scrollRight()
-        } else if offset < -scrollView.frame.width / Constants.viewDivider {
+        } else if offset < -scrollView.frame.width / Constants.viewDivider || velocity.x < -Constants.velocity {
             scrollLeft()
         } else {
             scrollView.setContentOffset(CGPoint(x: scrollView.frame.width + Constants.minimumLineSpacing, y: 0.0), animated: true)
