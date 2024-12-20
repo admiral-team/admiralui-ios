@@ -76,6 +76,7 @@ final class IconsCurrencyViewController: UIViewController, AnyAppThemable {
 
     private func configureHeader() {
         let header = CurrencyHeaderView()
+        header.currencyText = viewModel.headerItem.currencyText
         header.sellText = viewModel.headerItem.sellText
         header.buyText = viewModel.headerItem.buyText
         header.isTextSpacingEnabled = viewModel.headerItem.isTextSpacingEnabled
