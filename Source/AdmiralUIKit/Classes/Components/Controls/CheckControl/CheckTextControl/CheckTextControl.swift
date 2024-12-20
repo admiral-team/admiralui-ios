@@ -80,7 +80,7 @@ final public class CheckTextControl<C: CheckControl>: UIControl, AnyAppThemable,
     /// The text displayed in the text label.
     public var text: String? {
         get { return textLabel.text }
-        set { textLabel.text = newValue }
+        set { updateTextLabel(with: newValue) }
     }
     
     /// The maximum number of lines for rendering text text label.
@@ -111,6 +111,7 @@ final public class CheckTextControl<C: CheckControl>: UIControl, AnyAppThemable,
     
     private let checkControl: C
     private let textLabel = UILabel()
+    private var textLabelLeadingConstraint: NSLayoutConstraint?
     
     // MARK: - Initializer
     
@@ -150,10 +151,13 @@ final public class CheckTextControl<C: CheckControl>: UIControl, AnyAppThemable,
     }
     
     private func configureConstraints() {
+        let textLabelLeading = textLabel.leadingAnchor.constraint(equalTo: checkControl.trailingAnchor)
+        textLabelLeadingConstraint = textLabelLeading
+        
         NSLayoutConstraint.activate([
             checkControl.leadingAnchor.constraint(equalTo: leadingAnchor),
             checkControl.topAnchor.constraint(equalTo: topAnchor),
-            textLabel.leadingAnchor.constraint(equalTo: checkControl.trailingAnchor, constant: LayoutGrid.module),
+            textLabelLeading,
             checkControl.widthAnchor.constraint(equalToConstant: LayoutGrid.tripleModule),
             checkControl.heightAnchor.constraint(equalToConstant: LayoutGrid.tripleModule),
             textLabel.topAnchor.constraint(equalTo: topAnchor),
@@ -183,6 +187,14 @@ final public class CheckTextControl<C: CheckControl>: UIControl, AnyAppThemable,
     
     private func updateSchemeColors() {
         textLabel.textColor = scheme.textColor.parameter(for: state)?.uiColor
+    }
+    
+    private func updateTextLabel(with text: String?) {
+        if let text = text {
+            textLabel.text = text
+            textLabelLeadingConstraint?.constant = LayoutGrid.module
+        }
+
     }
     
 }

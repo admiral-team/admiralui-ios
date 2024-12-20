@@ -84,7 +84,7 @@ public class CurcleIconListView: BaseListView, TralingListViewComponent, AnyAppT
         widthConstraint.priority = UILayoutPriority(UILayoutPriority.required.rawValue - 1)
         
         NSLayoutConstraint.activate([
-            trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: LayoutGrid.doubleModule),
+            trailingAnchor.constraint(equalTo: imageView.trailingAnchor),
             imageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             imageView.heightAnchor.constraint(equalToConstant: LayoutGrid.halfModule * 8),
             imageView.widthAnchor.constraint(equalToConstant: LayoutGrid.halfModule * 8),

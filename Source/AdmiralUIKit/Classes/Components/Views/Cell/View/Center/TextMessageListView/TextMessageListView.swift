@@ -103,8 +103,8 @@ public class TextMessageListView: BaseListView, CenterListViewComponent, AnyAppT
             titleLabel.centerYAnchor.constraint(equalTo: messageView.centerYAnchor),
             titleLabel.centerXAnchor.constraint(equalTo: messageView.centerXAnchor),
             
-            messageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: LayoutGrid.doubleModule),
-            trailingAnchor.constraint(greaterThanOrEqualTo: messageView.trailingAnchor, constant: LayoutGrid.doubleModule),
+            messageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            trailingAnchor.constraint(greaterThanOrEqualTo: messageView.trailingAnchor),
             messageView.topAnchor.constraint(greaterThanOrEqualTo: topAnchor, constant: LayoutGrid.module),
             bottomAnchor.constraint(greaterThanOrEqualTo: messageView.bottomAnchor, constant: LayoutGrid.module),
             

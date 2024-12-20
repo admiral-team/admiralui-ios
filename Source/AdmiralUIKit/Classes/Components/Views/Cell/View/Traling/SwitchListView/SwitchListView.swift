@@ -92,7 +92,7 @@ public class SwitchListView: BaseListView, TralingListViewComponent, AnyAppThema
         
         NSLayoutConstraint.activate([
             customSwitch.centerYAnchor.constraint(equalTo: centerYAnchor),
-            trailingAnchor.constraint(equalTo: customSwitch.trailingAnchor, constant: LayoutGrid.doubleModule),
+            trailingAnchor.constraint(equalTo: customSwitch.trailingAnchor),
             widthConstraint
         ])
     }

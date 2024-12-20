@@ -166,25 +166,25 @@ public class TitleSubtitleButtonListView: BaseListView, CenterListViewComponent,
         
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: LayoutGrid.halfModule * 3),
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: LayoutGrid.doubleModule),
-            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: LayoutGrid.doubleModule),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             titleLabel.heightAnchor.constraint(equalToConstant: LayoutGrid.halfModule * 5),
             
             constraintSubtitleLeading,
             
             subtitleTagLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: LayoutGrid.halfModule),
             subtitleTagLabel.heightAnchor.constraint(equalToConstant: LayoutGrid.halfModule * 5),
-            subtitleTagLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: LayoutGrid.doubleModule),
+            subtitleTagLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             trailingAnchor.constraint(greaterThanOrEqualTo: tagView.trailingAnchor, constant: LayoutGrid.doubleModule),
             
             tagView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: LayoutGrid.halfModule),
             tagView.heightAnchor.constraint(equalToConstant: 20.0),
             
             subtitleLabel.topAnchor.constraint(equalTo: subtitleTagLabel.bottomAnchor, constant: LayoutGrid.module),
-            subtitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: LayoutGrid.doubleModule),
+            subtitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             trailingAnchor.constraint(equalTo: subtitleLabel.trailingAnchor, constant: LayoutGrid.doubleModule),
             
-            ghostButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: LayoutGrid.doubleModule),
+            ghostButton.leadingAnchor.constraint(equalTo: leadingAnchor),
             ghostButton.heightAnchor.constraint(equalToConstant: LayoutGrid.halfModule * 5),
             ghostButton.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: LayoutGrid.halfModule * 3),
             ghostButton.heightAnchor.constraint(equalToConstant: LayoutGrid.halfModule * 5),

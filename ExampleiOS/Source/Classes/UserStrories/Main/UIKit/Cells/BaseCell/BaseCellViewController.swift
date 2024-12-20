@@ -55,7 +55,8 @@ final class BaseCellViewController: ScrollViewController {
     private func configureTitleCell(_ title: String?) -> ListCell<ListCellEmpty, TitleListView, ArrowListView> {
         let titleListView = TitleListView()
         titleListView.title = title
-        return ListCell(centerView: titleListView, tralingView: ArrowListView())
+        let cell: ListCell<ListCellEmpty, TitleListView, ArrowListView> = ListCell(centerView: titleListView, tralingView: ArrowListView())
+        return cell
     }
     
     @objc private func tapCell(_ tap: UITapGestureRecognizer) {

@@ -113,7 +113,7 @@ open class CheckBoxListView: BaseListView, TralingListViewComponent, AnyAppThema
     private func configureLayout() {        
         NSLayoutConstraint.activate([
             checkBox.centerYAnchor.constraint(equalTo: centerYAnchor),
-            trailingAnchor.constraint(equalTo: checkBox.trailingAnchor, constant: LayoutGrid.module)
+            trailingAnchor.constraint(equalTo: checkBox.trailingAnchor)
         ])
     }
 

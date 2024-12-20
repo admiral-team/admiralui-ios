@@ -205,7 +205,7 @@ public class TitleMoreDetailTextMessageListView: BaseListView, CenterListViewCom
         
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: LayoutGrid.halfModule * 3),
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: LayoutGrid.doubleModule),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             titleLabel.heightAnchor.constraint(equalToConstant: LayoutGrid.halfModule * 5),
             moreLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: LayoutGrid.doubleModule),
             
@@ -216,7 +216,7 @@ public class TitleMoreDetailTextMessageListView: BaseListView, CenterListViewCom
             
             detaileTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: LayoutGrid.halfModule),
             detaileTitleLabel.heightAnchor.constraint(equalToConstant: LayoutGrid.halfModule * 5),
-            detaileTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: LayoutGrid.doubleModule),
+            detaileTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             infoImageView.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: LayoutGrid.doubleModule),
 
             constraintDetaileLeading,
@@ -231,7 +231,7 @@ public class TitleMoreDetailTextMessageListView: BaseListView, CenterListViewCom
             constraintSubtitleLeading,
             
             subtitleLabel.topAnchor.constraint(equalTo: detaileTitleLabel.bottomAnchor, constant: LayoutGrid.halfModule),
-            subtitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: LayoutGrid.doubleModule),
+            subtitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             tagView.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: LayoutGrid.doubleModule),
             
             tagView.centerYAnchor.constraint(equalTo: subtitleLabel.centerYAnchor),
@@ -240,7 +240,7 @@ public class TitleMoreDetailTextMessageListView: BaseListView, CenterListViewCom
             messageTitleLabel.centerYAnchor.constraint(equalTo: messageView.centerYAnchor),
             messageTitleLabel.centerXAnchor.constraint(equalTo: messageView.centerXAnchor),
             
-            messageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: LayoutGrid.doubleModule),
+            messageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             messageView.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 10.0),
             messageView.heightAnchor.constraint(equalToConstant: LayoutGrid.module * 4),
             trailingAnchor.constraint(greaterThanOrEqualTo: messageView.trailingAnchor, constant: LayoutGrid.doubleModule),

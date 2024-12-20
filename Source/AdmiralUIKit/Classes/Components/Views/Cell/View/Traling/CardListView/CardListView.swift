@@ -84,8 +84,8 @@ public class CardListView: BaseListView, TralingListViewComponent, AnyAppThemabl
         widthConstraint.priority = UILayoutPriority(UILayoutPriority.required.rawValue - 1)
         
         let top = imageView.topAnchor.constraint(equalTo: topAnchor)
-        let leading = imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: LayoutGrid.doubleModule)
-        let trailing = trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: LayoutGrid.doubleModule)
+        let leading = imageView.leadingAnchor.constraint(equalTo: leadingAnchor)
+        let trailing = trailingAnchor.constraint(equalTo: imageView.trailingAnchor)
         let bottom = bottomAnchor.constraint(equalTo: imageView.bottomAnchor)
 
         NSLayoutConstraint.activate([

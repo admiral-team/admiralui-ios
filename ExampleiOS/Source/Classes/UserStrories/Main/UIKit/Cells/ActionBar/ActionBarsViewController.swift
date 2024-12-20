@@ -69,12 +69,16 @@ final class ActionBarsViewController: ScrollViewController {
         let swipeView = SubtitleWithImageListView()
         swipeView.subtitle = item.swipeSubtitle
         swipeView.image = item.swipeImage
-
-        return ListCell<LeadingCardListView, TitleLargeSubtitleListView, SubtitleWithImageListView>(
+        
+        let cell = ListCell<LeadingCardListView, TitleLargeSubtitleListView, SubtitleWithImageListView>(
             leadingView: cardListView,
             centerView: titleListView,
             tralingView: swipeView
         )
+        cell.centerOffset = .zero
+        cell.accessibilityIdentifier = "ActionBarCell"
+
+        return cell
     }
 
     @objc private func segmentedValueChanged(_ control: StandardSegmentedControl) {
