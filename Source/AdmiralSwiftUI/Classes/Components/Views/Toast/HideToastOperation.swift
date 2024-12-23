@@ -8,7 +8,7 @@
 import SwiftUI
 
 @available(iOS 14.0, *)
-final class HideToastOperation: Operation {
+final class HideToastOperation: Operation, @unchecked Sendable {
 
     // MARK: - Constants
 
