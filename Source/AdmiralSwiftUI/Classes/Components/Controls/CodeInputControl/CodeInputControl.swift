@@ -95,8 +95,7 @@ public struct CodeInputControl: View {
                     .frame(width: LayoutGrid.halfModule * 3, height: LayoutGrid.halfModule * 3)
             }
         }
-        .animation(.default)
-    }
+        .animation(.default, value: cursorPosition)    }
 
 }
 

@@ -114,7 +114,7 @@ public struct ActionCellView<T>: View where T: ListViewCell {
             .frame(height: LayoutGrid.halfModule * 17)
             cellView
                 .offset(x: cellViewOffset)
-                .animation(.easeInOut)
+                .animation(.easeInOut, value: cellViewOffset)
                 .gesture(
                     DragGesture(minimumDistance: 0, coordinateSpace: .local)
                         .onChanged({ value in

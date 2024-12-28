@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "Admiral",
     platforms: [
-        .iOS(.v13) //, .macCatalyst(.v15), .macOS(.v10_15)
+        .iOS(.v15) //, .macCatalyst(.v15), .macOS(.v10_15)
     ],
     products: [
         .library(

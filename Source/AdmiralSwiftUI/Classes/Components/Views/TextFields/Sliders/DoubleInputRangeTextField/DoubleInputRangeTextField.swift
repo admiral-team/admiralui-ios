@@ -543,7 +543,9 @@ public struct DoubleInputRangeTextField: AccessabilitySupportUIKit, Identifiable
                         font: textFieldFont?.uiFont.monospacedDigitFont,
                         onSubmit: onSubmit ?? {
                             // TODO: - Close keyboard by flag
-                            UIApplication.shared.keyWindow?.endEditing(true)
+                            if let windowScene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
+                                windowScene.windows.first(where: { $0.isKeyWindow })?.endEditing(true)
+                            }
                         },
                         accessibilityIdentifier: accessibilityIdentifierSecond
                     )
@@ -629,7 +631,9 @@ public struct DoubleInputRangeTextField: AccessabilitySupportUIKit, Identifiable
                         font: textFieldFont?.uiFont.monospacedDigitFont,
                         onSubmit: onSubmit ?? {
                             // TODO: - Close keyboard by flag
-                            UIApplication.shared.keyWindow?.endEditing(true)
+                            if let windowScene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
+                                windowScene.windows.first(where: { $0.isKeyWindow })?.endEditing(true)
+                            }
                         },
                         accessibilityIdentifier: accessibilityIdentifierFirst
                     )

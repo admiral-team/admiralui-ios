@@ -29,7 +29,7 @@ open class PinButton: CustomButton, AnyAppThemable {
     private enum Constants {
         /// Front layer properties.
         static let size = CGSize(width: LayoutGrid.halfModule * 9, height: LayoutGrid.halfModule * 9)
-        static let edgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        static let edgeInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
         static let cornerRadius: CGFloat = 18
 
         /// Main layer properties.
@@ -102,7 +102,7 @@ open class PinButton: CustomButton, AnyAppThemable {
         imageView?.contentMode = .scaleAspectFit
         contentVerticalAlignment = .fill
         contentHorizontalAlignment = .fill
-        imageEdgeInsets = Constants.edgeInsets
+        configuration?.contentInsets = Constants.edgeInsets
     }
 
     private func updateScheme() {

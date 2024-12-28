@@ -67,11 +67,11 @@ extension View {
  ```
  */
 @available(iOS 14.0.0, *)
-struct ShimmerView : View {
-
+struct ShimmerView: View {
     // MARK: - Private Properties
 
     @EnvironmentObject private var shimmerConfig: ShimmerConfig
+    @State private var shimmerOffset: CGFloat = -UIScreen.main.bounds.width
 
     // MARK: - Body
 
@@ -95,23 +95,22 @@ struct ShimmerView : View {
                     .foregroundColor(.clear)
                     .background(linearGradient)
                     .rotationEffect(Angle(degrees: self.shimmerConfig.shimmerAngle))
-                    .offset(x: self.shimmerConfig.isActive ? self.shimmerOffset(geometry.size.width) : -self.shimmerOffset(geometry.size.width), y: 0)
+                    .offset(x: shimmerOffset, y: 0)
                     .transition(.move(edge: .leading))
-                    .animation(.linear(duration: self.shimmerConfig.shimmerDuration))
             }
-            .padding(
-                EdgeInsets(
-                    top: -self.shimmerOffset(geometry.size.width),
-                    leading: 0,
-                    bottom: -self.shimmerOffset(geometry.size.width),
-                    trailing: 0
-                )
-            )
+            .onAppear {
+                startShimmerAnimation(for: geometry.size.width)
+            }
         }
     }
 
-    func shimmerOffset(_ width: CGFloat) -> CGFloat {
-        width + CGFloat(2 * self.shimmerConfig.shimmerAngle)
+    // MARK: - Private Methods
+
+    private func startShimmerAnimation(for width: CGFloat) {
+        shimmerOffset = -width
+        withAnimation(Animation.linear(duration: self.shimmerConfig.shimmerDuration).repeatForever(autoreverses: false)) {
+            shimmerOffset = width
+        }
     }
 }
 

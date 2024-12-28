@@ -70,13 +70,12 @@ public struct FeedbackInputControl: View {
                 ForEach(1..<itemsCount + 1, id: \.self) { index in
                     SymbolAssets.System.Solid.star.swiftUIImage
                         .frame(width: 24.0, height: 24.0)
-                        .animation(Animation.linear(duration: Constants.animationDuration))
                         .foregroundColor(
                             cursorPosition >= index ?
                                 scheme.selectedColor.parameter(for: isEnabled ? .normal : .disabled)?.swiftUIColor :
                                 scheme.defaultColor.parameter(for: isEnabled ? .normal : .disabled)?.swiftUIColor)
                         .onTapGesture {
-                            self.cursorPosition = index
+                            withAnimation(Animation.linear(duration: Constants.animationDuration)) { self.cursorPosition = index }
                         }
                 }
             }

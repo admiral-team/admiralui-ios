@@ -17,18 +17,15 @@ public extension UIFont {
 
 private extension UIFontDescriptor {
     var monospacedDigitFontDescriptor: UIFontDescriptor {
-        let fontDescriptorFeatureSettings = [
+        let fontDescriptorFeatureSettings: [[UIFontDescriptor.FeatureKey: Int]] = [
             [
-                UIFontDescriptor.FeatureKey.featureIdentifier: kNumberSpacingType,
-                UIFontDescriptor.FeatureKey.typeIdentifier: kMonospacedNumbersSelector
+                UIFontDescriptor.FeatureKey.type: kNumberSpacingType,
+                UIFontDescriptor.FeatureKey.selector: kMonospacedNumbersSelector
             ]
         ]
-
         let fontDescriptorAttributes = [
-            UIFontDescriptor.AttributeName.featureSettings: fontDescriptorFeatureSettings
-        ]
-
-        let fontDescriptor = addingAttributes(fontDescriptorAttributes)
-        return fontDescriptor
+             UIFontDescriptor.AttributeName.featureSettings: fontDescriptorFeatureSettings
+         ]
+         return addingAttributes(fontDescriptorAttributes)
     }
 }

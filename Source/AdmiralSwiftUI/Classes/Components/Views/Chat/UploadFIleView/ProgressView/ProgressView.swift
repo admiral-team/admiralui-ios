@@ -134,10 +134,8 @@ public struct ProgressView: View {
                 .rotationEffect(
                     .init(degrees: animate ? Constants.progressRotationAngle : 0)
                 )
-                .animation(
-                    Animation.linear(duration: Constants.animationDuration)
-                        .repeatForever(autoreverses: false)
-                )
+                .animation(Animation.linear(duration: Constants.animationDuration)
+                    .repeatForever(autoreverses: false), value: animate)
             SymbolAssets.Service.Outline.close.swiftUIImage
                 .foregroundColor(scheme.iconColor.parameter(style: style)?.swiftUIColor)
                 .frame(

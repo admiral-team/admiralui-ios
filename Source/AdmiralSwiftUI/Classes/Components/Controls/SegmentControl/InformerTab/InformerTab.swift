@@ -95,7 +95,6 @@ public struct InformerTab: View {
             .foregroundColor(Color.clear)
             .frame(width: segmentSize.width, height: Constants.segmentHeight)
             .offset(x: self.computeActiveSegmentHorizontalOffset(), y: 0)
-            .animation(Animation.linear(duration: Constants.animationDuration))
             .eraseToAnyView()
 
     }
@@ -200,7 +199,11 @@ public struct InformerTab: View {
                     .stroke(strokeColor?.swiftUIColor ?? .clear, lineWidth: isSelected ? Constants.selectedLineWidth : Constants.lineWidth)
             )
             .contentShape(Rectangle())
-            .onTapGesture { onItemTap(index: index) }
+            .onTapGesture {
+                withAnimation(Animation.linear(duration: Constants.animationDuration)) {
+                    onItemTap(index: index)
+                }
+            }
             .modifier(SizeAwareViewModifier(viewSize: $segmentSize))
             .accessibilityElement()
             .accessibilityAddTraits(.isButton)

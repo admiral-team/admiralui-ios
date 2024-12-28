@@ -114,7 +114,12 @@ class BannerWindowViewController: UIViewController {
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return UIApplication.shared.windows.first?.rootViewController?.preferredStatusBarStyle ?? .default
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let window = windowScene.windows.first {
+            return window.rootViewController?.preferredStatusBarStyle ?? .default
+        }
+        return .default
+
     }
     
     // MARK: - Internal Methods

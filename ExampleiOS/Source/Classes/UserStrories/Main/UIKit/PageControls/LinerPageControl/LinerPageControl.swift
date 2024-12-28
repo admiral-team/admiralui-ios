@@ -63,7 +63,7 @@ final class LinerPageControl: BaseViewController {
         nextButton.setImage(AdmiralImages.Asset.System.Outline.arrowRightOutline.image, for: .normal)
         nextButton.addTarget(self, action: #selector(tapNexButton), for: .touchUpInside)
         nextButton.semanticContentAttribute = .forceRightToLeft
-        nextButton.imageEdgeInsets = UIEdgeInsets(top: 0.0, left: LayoutGrid.doubleModule, bottom: 0.0, right: 0.0)
+        nextButton.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: LayoutGrid.doubleModule)
         nextButton.accessibilityIdentifier = "NextLiner"
     }
     

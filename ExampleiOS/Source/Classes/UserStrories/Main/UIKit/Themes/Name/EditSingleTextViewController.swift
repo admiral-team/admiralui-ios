@@ -192,7 +192,10 @@ extension EditSingleTextViewController: TextFieldInputDelegate {
 extension EditSingleTextViewController: KeyboardBindable {
         
     func keyboardFrameWillChangeFrame(info: KeyboardInfo) {
-        let window = UIApplication.shared.windows.first
+        let window = UIApplication.shared.connectedScenes
+            .compactMap { $0 as? UIWindowScene }
+            .flatMap { $0.windows }
+            .first
         let bottomInset = window?.safeAreaInsets.bottom ?? 0
         let tabBarHeight = tabBarController?.tabBar.frame.height ?? 0
         var bottomOffset: CGFloat = 0.0

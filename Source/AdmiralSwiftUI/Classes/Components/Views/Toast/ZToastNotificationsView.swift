@@ -50,7 +50,12 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
     private var isAfterTouchUpdateTimer: Bool = true
     @State private var toastOffset: CGFloat = 0.0
     @State private var toastNextOffset: CGFloat = 0.0
-    @State private var topOffset: CGFloat = UIApplication.shared.statusBarFrame.height
+    @State private var topOffset: CGFloat = UIApplication.shared.connectedScenes
+        .compactMap { $0 as? UIWindowScene }
+        .flatMap { $0.windows }
+        .first { $0.isKeyWindow }?
+        .windowScene?
+        .statusBarManager?.statusBarFrame.height ?? 0
     @State private var bottomOffset: CGFloat = 0.0
     private var toastsDidDisappear: () -> () = {}
 
@@ -169,7 +174,8 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
                             }
                         }))
             .offset(x: 0.0, y: toastOffset)
-            .animation(.easeInOut(duration: toastPresenter.animationDuration))
+            // TODO: - Fix animation
+            .animation(.easeInOut(duration: toastPresenter.animationDuration), value: toastOffset)
     }
 
     private func toastDownView() -> some View {
@@ -204,8 +210,8 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
                             }
                         }))
             .offset(x: 0.0, y: defaultToastYOffset + toastOffset)
-            .animation(.easeInOut(duration: toastPresenter.animationDuration))
-    }
+        // TODO: - Fix animation
+        .animation(.easeInOut(duration: toastPresenter.animationDuration), value: toastOffset)    }
 
     private func toastDownNextView() -> some View {
         toastPresenter.toastNext
@@ -238,9 +244,9 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
                                 }
                             }
                         }))
-            .offset(x: 0.0, y: defaultToastYOffset + toastNextOffset)
-            .animation(.easeInOut(duration: toastPresenter.animationDuration))
-    }
+        .offset(x: 0.0, y: defaultToastYOffset + toastNextOffset)
+        // TODO: - Fix animation
+        .animation(.easeInOut(duration: toastPresenter.animationDuration), value: toastOffset)}
 
     private func toastNextView() -> some View {
         toastPresenter.toastNext
@@ -275,7 +281,8 @@ public struct ZToastNotificationsView<Content>: View where Content: View {
                             }
                         }))
             .offset(x: 0.0, y: toastNextOffset)
-            .animation(.easeInOut(duration: toastPresenter.animationDuration))
+            // TODO: - Fix animation
+            .animation(.easeInOut(duration: toastPresenter.animationDuration), value: toastNextOffset)
     }
 
     private func removeTostsFromModel() {
