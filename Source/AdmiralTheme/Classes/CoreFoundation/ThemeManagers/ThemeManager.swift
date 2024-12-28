@@ -271,13 +271,16 @@ final class ThemeManager {
             )
 
             if let sharedApplication = self.optionalSharedApplication {
-                for window in sharedApplication.windows {
-                    for view in window.subviews {
-                        // Fix keyboard calculating. UIInputSetContainerView
-                        let viewType = "VUlJbnB1dFNldENvbnRhaW5lclZpZXc=".base64Decoded()
-                        if type(of: view).description() != viewType {
-                            view.removeFromSuperview()
-                            window.addSubview(view)
+                for scene in sharedApplication.connectedScenes {
+                    guard let windowScene = scene as? UIWindowScene else { continue }
+                    for window in windowScene.windows {
+                        for view in window.subviews {
+                            // Fix keyboard calculating. UIInputSetContainerView
+                            let viewType = "VUlJbnB1dFNldENvbnRhaW5lclZpZXc=".base64Decoded()
+                            if type(of: view).description() != viewType {
+                                view.removeFromSuperview()
+                                window.addSubview(view)
+                            }
                         }
                     }
                 }
