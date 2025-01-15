@@ -7,7 +7,7 @@
 
 import XCTest
 import SwiftUI
-import SnapshotTesting
+internal import SnapshotTesting
 import AdmiralTheme
 @testable import AdmiralSwiftUI
 
@@ -124,7 +124,7 @@ private extension DoubleTextFieldSnapshotTests {
         let doubleTextFieldWrapper = DoubleTextFieldWrapper(view: view)
         let view = UIHostingController(rootView: doubleTextFieldWrapper)
         let result = verifySnapshot(
-            matching: view,
+            of: view,
             as: .image,
             named: named,
             file: getFilePath(),

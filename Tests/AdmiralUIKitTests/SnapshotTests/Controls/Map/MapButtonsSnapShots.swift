@@ -1,5 +1,5 @@
 import XCTest
-import SnapshotTesting
+internal import SnapshotTesting
 import UIKit
 import AdmiralTheme
 @testable import AdmiralUIKit

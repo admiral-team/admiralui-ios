@@ -7,7 +7,7 @@
 
 import XCTest
 import SwiftUI
-import SnapshotTesting
+internal import SnapshotTesting
 import AdmiralTheme
 @testable import AdmiralSwiftUI
 
@@ -135,7 +135,7 @@ private extension TextViewSnapshotTests {
         let textViewWrapper = TextViewWrapper(view: view)
         let view = UIHostingController(rootView: textViewWrapper)
         let result = verifySnapshot(
-            matching: view,
+            of: view,
             as: .image,
             named: named,
             file: getFilePath(),

@@ -7,7 +7,7 @@
 
 import XCTest
 import SwiftUI
-import SnapshotTesting
+internal import SnapshotTesting
 import AdmiralTheme
 @testable import AdmiralSwiftUI
 
@@ -98,7 +98,7 @@ private extension ChatInputSnapshotTests {
         let chatInputWrapper = ChatInputWrapper(view: view)
         let view = UIHostingController(rootView: chatInputWrapper)
         let result = verifySnapshot(
-            matching: view,
+            of: view,
             as: .image,
             named: named,
             file: getFilePath(),

@@ -7,7 +7,7 @@
 
 import XCTest
 import SwiftUI
-import SnapshotTesting
+internal import SnapshotTesting
 import AdmiralTheme
 @testable import AdmiralSwiftUI
 
@@ -96,7 +96,7 @@ private extension TitleSubtitleHeaderSnapshotTests {
         let titleSubtitleHeaderWrapper = TitleSubtitleHeaderWrapper(view: view)
         let view = UIHostingController(rootView: titleSubtitleHeaderWrapper)
         let result = verifySnapshot(
-            matching: view,
+            of: view,
             as: .image,
             named: named,
             file: getFilePath(),

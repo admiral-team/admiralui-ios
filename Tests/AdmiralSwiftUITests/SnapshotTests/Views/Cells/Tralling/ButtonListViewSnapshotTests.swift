@@ -7,7 +7,7 @@
 
 import XCTest
 import SwiftUI
-import SnapshotTesting
+internal import SnapshotTesting
 import AdmiralTheme
 @testable import AdmiralSwiftUI
 
@@ -85,7 +85,7 @@ private extension ButtonListViewSnapshotTests {
         let buttonListViewWrapper = ButtonListViewWrapper(view: view)
         let view = UIHostingController(rootView: buttonListViewWrapper)
         let result = verifySnapshot(
-            matching: view,
+            of: view,
             as: .image,
             named: named,
             file: getFilePath(),

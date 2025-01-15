@@ -7,7 +7,7 @@
 
 import XCTest
 import SwiftUI
-import SnapshotTesting
+internal import SnapshotTesting
 import AdmiralTheme
 @testable import AdmiralSwiftUI
 
@@ -84,7 +84,7 @@ private extension LinkViewSnapshotTests {
         let linkViewWrapper = LinkViewWrapper(view: view)
         let view = UIHostingController(rootView: linkViewWrapper)
         let result = verifySnapshot(
-            matching: view,
+            of: view,
             as: .image,
             named: named,
             file: getFilePath(),

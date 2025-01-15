@@ -7,7 +7,7 @@
 
 import XCTest
 import SwiftUI
-import SnapshotTesting
+internal import SnapshotTesting
 import AdmiralTheme
 @testable import AdmiralSwiftUI
 
@@ -86,7 +86,7 @@ private extension DatePercentListViewSnapshotTests {
         let datePercentListViewWrapper = DatePercentListViewWrapper(view: view)
         let view = UIHostingController(rootView: datePercentListViewWrapper)
         let result = verifySnapshot(
-            matching: view,
+            of: view,
             as: .image,
             named: named,
             file: getFilePath(),

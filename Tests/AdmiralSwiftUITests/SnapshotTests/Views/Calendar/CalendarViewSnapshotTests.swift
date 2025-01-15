@@ -7,7 +7,7 @@
 
 import XCTest
 import SwiftUI
-import SnapshotTesting
+internal import SnapshotTesting
 import AdmiralTheme
 @testable import AdmiralCalendarSwiftUI
 
@@ -140,7 +140,7 @@ private extension CalendarViewSnapshotTests {
         let calendarViewWrapper = CalendarViewWrapper(view: view)
         let view = UIHostingController(rootView: calendarViewWrapper)
         let result = verifySnapshot(
-            matching: view,
+            of: view,
             as: .image,
             named: named,
             file: getFilePath(),
