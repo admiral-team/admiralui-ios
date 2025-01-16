@@ -4,4 +4,4 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd "$DIR"
 cd ".."
 
-bundle exec fastlane run_all_tests
+bundle exec fastlane run_all_snapshot_tests
