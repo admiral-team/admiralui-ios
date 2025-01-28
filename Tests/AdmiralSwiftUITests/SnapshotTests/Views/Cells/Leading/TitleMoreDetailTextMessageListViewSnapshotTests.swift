@@ -7,7 +7,7 @@
 
 import XCTest
 import SwiftUI
-import SnapshotTesting
+internal import SnapshotTesting
 import AdmiralTheme
 import AdmiralSymbols
 @testable import AdmiralSwiftUI
@@ -103,7 +103,7 @@ private extension TitleMoreDetailTextMessageListViewSnapshotTests {
         let titleMoreDetailTextMessageListViewWrapper = TitleMoreDetailTextMessageListViewWrapper(view: view)
         let view = UIHostingController(rootView: titleMoreDetailTextMessageListViewWrapper)
         let result = verifySnapshot(
-            matching: view,
+            of: view,
             as: .image,
             named: named,
             file: getFilePath(),

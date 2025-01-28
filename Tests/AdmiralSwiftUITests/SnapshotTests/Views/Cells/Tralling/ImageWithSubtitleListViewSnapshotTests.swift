@@ -7,7 +7,7 @@
 
 import XCTest
 import SwiftUI
-import SnapshotTesting
+internal import SnapshotTesting
 import AdmiralTheme
 import AdmiralImages
 @testable import AdmiralSwiftUI
@@ -91,7 +91,7 @@ private extension ImageWithSubtitleListViewSnapshotTests {
         let imageWithSubtitleListViewWrapper = ImageWithSubtitleListViewWrapper(view: view)
         let view = UIHostingController(rootView: imageWithSubtitleListViewWrapper)
         let result = verifySnapshot(
-            matching: view,
+            of: view,
             as: .image,
             named: named,
             file: getFilePath(),

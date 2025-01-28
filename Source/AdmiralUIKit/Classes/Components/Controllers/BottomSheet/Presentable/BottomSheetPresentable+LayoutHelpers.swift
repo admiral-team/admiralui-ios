@@ -70,11 +70,11 @@ extension BottomSheetPresentable where Self: UIViewController {
     }
     
     private var rootViewController: UIViewController? {
-        guard
-            let application = UIApplication.value(forKeyPath: #keyPath(UIApplication.shared)) as? UIApplication
-        else { return nil }
-
-        return application.keyWindow?.rootViewController
+        guard let windowScene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene,
+              let rootViewController = windowScene.windows.first(where: { $0.isKeyWindow })?.rootViewController else {
+            return nil
+        }
+        return rootViewController
     }
 
 }

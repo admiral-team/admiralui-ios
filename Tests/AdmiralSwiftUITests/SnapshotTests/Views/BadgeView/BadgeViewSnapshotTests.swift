@@ -7,7 +7,7 @@
 
 import XCTest
 import SwiftUI
-import SnapshotTesting
+internal import SnapshotTesting
 import AdmiralTheme
 @testable import AdmiralSwiftUI
 
@@ -145,7 +145,7 @@ private extension BadgeViewSnapshotTests {
     func checkNumberBadgeView<T: View>(view: T, named: String, testName: String, disabled: Bool = false) {
         let view = UIHostingController(rootView: view)
         let result = verifySnapshot(
-            matching: view,
+            of: view,
             as: .image,
             named: named,
             file: getFilePath(),

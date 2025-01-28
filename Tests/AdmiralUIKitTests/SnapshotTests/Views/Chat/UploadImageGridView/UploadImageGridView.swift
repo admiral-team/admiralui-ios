@@ -1,5 +1,5 @@
 import XCTest
-import SnapshotTesting
+internal import SnapshotTesting
 import AdmiralTheme
 @testable import AdmiralUIKit
 
@@ -102,7 +102,7 @@ class UploadImageGridViewTest: XCTestCase {
 
     private func checkView(view: UIView, named: String, testName: String) {
         let result = verifySnapshot(
-            matching: view,
+            of: view,
             as: .image,
             named: named,
             file: getFilePath(),

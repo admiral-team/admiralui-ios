@@ -7,7 +7,7 @@
 
 import XCTest
 import SwiftUI
-import SnapshotTesting
+internal import SnapshotTesting
 import AdmiralTheme
 @testable import AdmiralSwiftUI
 
@@ -105,7 +105,7 @@ private extension CodeInputControlSnapshotTests {
         let codeInputControlButtonWrapper = CodeInputControlButtonWrapper(view: view)
         let view = UIHostingController(rootView: codeInputControlButtonWrapper)
         let result = verifySnapshot(
-            matching: view,
+            of: view,
             as: .image,
             named: named,
             file: getFilePath(),

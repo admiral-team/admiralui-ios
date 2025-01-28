@@ -1,5 +1,5 @@
 import XCTest
-import SnapshotTesting
+internal import SnapshotTesting
 import AdmiralTheme
 @testable import AdmiralUIKit
 
@@ -53,7 +53,7 @@ class PinSnapShots: XCTestCase {
 
     private func checkButton(button: UIControl, named: String, testName: String) {
         let result = verifySnapshot(
-            matching: button,
+            of: button,
             as: .image,
             named: named,
             file: getFilePath(),

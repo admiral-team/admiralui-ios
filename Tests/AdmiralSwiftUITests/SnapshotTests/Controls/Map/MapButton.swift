@@ -7,7 +7,7 @@
 
 import XCTest
 import SwiftUI
-import SnapshotTesting
+internal import SnapshotTesting
 import AdmiralTheme
 @testable import AdmiralSwiftUI
 
@@ -101,7 +101,7 @@ private extension MapButtonSnapshotTests {
         let mapButtonWrapper = MapButtonWrapper(view: view)
         let view = UIHostingController(rootView: mapButtonWrapper)
         let result = verifySnapshot(
-            matching: view,
+            of: view,
             as: .image,
             named: named,
             file: getFilePath(),

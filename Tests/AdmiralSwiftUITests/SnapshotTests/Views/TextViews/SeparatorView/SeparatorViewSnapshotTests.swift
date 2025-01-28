@@ -7,7 +7,7 @@
 
 import XCTest
 import SwiftUI
-import SnapshotTesting
+internal import SnapshotTesting
 import AdmiralTheme
 @testable import AdmiralSwiftUI
 
@@ -108,7 +108,7 @@ private extension SeparatorViewSnapshotTests {
         let separatorViewWrapper = SeparatorViewWrapper(view: view)
         let view = UIHostingController(rootView: separatorViewWrapper)
         let result = verifySnapshot(
-            matching: view,
+            of: view,
             as: .image,
             named: named,
             file: getFilePath(),

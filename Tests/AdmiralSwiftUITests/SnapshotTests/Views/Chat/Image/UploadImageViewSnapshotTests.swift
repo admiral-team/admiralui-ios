@@ -7,7 +7,7 @@
 
 import XCTest
 import SwiftUI
-import SnapshotTesting
+internal import SnapshotTesting
 import AdmiralTheme
 @testable import AdmiralSwiftUI
 
@@ -114,7 +114,7 @@ private extension UploadImageViewSnapshotTests {
         let uploadImageViewWrapper = UploadImageViewWrapper(view: view)
         let view = UIHostingController(rootView: uploadImageViewWrapper)
         let result = verifySnapshot(
-            matching: view,
+            of: view,
             as: .image,
             named: named,
             file: getFilePath(),

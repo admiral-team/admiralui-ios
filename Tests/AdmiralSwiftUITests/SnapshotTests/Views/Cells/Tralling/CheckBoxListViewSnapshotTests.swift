@@ -7,7 +7,7 @@
 
 import XCTest
 import SwiftUI
-import SnapshotTesting
+internal import SnapshotTesting
 import AdmiralTheme
 @testable import AdmiralSwiftUI
 
@@ -97,7 +97,7 @@ private extension CheckBoxListViewSnapshotTests {
         let checkBoxListViewWrapper = CheckBoxListViewWrapper(view: view)
         let view = UIHostingController(rootView: checkBoxListViewWrapper)
         let result = verifySnapshot(
-            matching: view,
+            of: view,
             as: .image,
             named: named,
             file: getFilePath(),

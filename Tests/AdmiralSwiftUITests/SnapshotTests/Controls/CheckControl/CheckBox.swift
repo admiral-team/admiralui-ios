@@ -7,7 +7,7 @@
 
 import XCTest
 import SwiftUI
-import SnapshotTesting
+internal import SnapshotTesting
 import AdmiralTheme
 @testable import AdmiralSwiftUI
 
@@ -117,7 +117,7 @@ private extension CheckControlSnapshotTests {
         let checkControlWrapper = CheckControlWrapper(view: view)
         let view = UIHostingController(rootView: checkControlWrapper)
         let result = verifySnapshot(
-            matching: view,
+            of: view,
             as: .image,
             named: named,
             file: getFilePath(),

@@ -75,10 +75,10 @@ final class OtherButtonsViewController: ScrollViewController {
             switch direction {
             case .left:
                 button.semanticContentAttribute = .forceLeftToRight
-                button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: LayoutGrid.doubleModule)
+                button.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: LayoutGrid.doubleModule)
             case .right:
                 button.semanticContentAttribute = .forceRightToLeft
-                button.imageEdgeInsets = UIEdgeInsets(top: 0, left: LayoutGrid.module, bottom: 0, right: 0)
+                button.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: LayoutGrid.doubleModule, bottom: 0, trailing: 0)
             }
         }
 

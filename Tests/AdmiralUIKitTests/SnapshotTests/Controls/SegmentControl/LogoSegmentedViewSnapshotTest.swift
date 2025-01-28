@@ -1,5 +1,5 @@
 import XCTest
-import SnapshotTesting
+internal import SnapshotTesting
 import AdmiralTheme
 import AdmiralImages
 @testable import AdmiralUIKit
@@ -42,7 +42,7 @@ class LogoSegmentedViewSnapshotTest: XCTestCase {
     
     private func checkControl(control: UIControl, named: String, testName: String) {
         let result = verifySnapshot(
-            matching: control,
+            of: control,
             as: .image,
             named: named,
             file: getFilePath(),

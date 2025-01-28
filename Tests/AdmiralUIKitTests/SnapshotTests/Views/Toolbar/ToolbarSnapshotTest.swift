@@ -1,5 +1,5 @@
 import XCTest
-import SnapshotTesting
+internal import SnapshotTesting
 import AdmiralTheme
 import AdmiralImages
 @testable import AdmiralUIKit
@@ -65,7 +65,7 @@ class ToolbarSnapshotTest: XCTestCase {
     
     private func checkView(view: UIView, named: String, testName: String) {
         let result = verifySnapshot(
-            matching: view,
+            of: view,
             as: .image,
             named: named,
             file: getFilePath(),

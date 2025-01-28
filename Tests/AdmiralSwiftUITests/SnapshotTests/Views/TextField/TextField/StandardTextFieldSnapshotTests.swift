@@ -7,7 +7,7 @@
 
 import XCTest
 import SwiftUI
-import SnapshotTesting
+internal import SnapshotTesting
 import AdmiralTheme
 @testable import AdmiralSwiftUI
 
@@ -105,7 +105,7 @@ private extension StandardTextFieldSnapshotTests {
         let standardTextFieldWrapper = StandardTextFieldWrapper(view: view)
         let view = UIHostingController(rootView: standardTextFieldWrapper)
         let result = verifySnapshot(
-            matching: view,
+            of: view,
             as: .image,
             named: named,
             file: getFilePath(),

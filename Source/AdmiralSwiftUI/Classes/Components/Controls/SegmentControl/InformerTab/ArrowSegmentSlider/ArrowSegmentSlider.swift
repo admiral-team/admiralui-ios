@@ -33,6 +33,8 @@ public struct ArrowSegmentSlider: View {
 
     @ObservedObject private var schemeProvider: SchemeProvider<ArrowSegmentSliderScheme>
 
+    @State private var isAnimating: Bool = false
+
     // MARK: - Initializer
 
     public init(
@@ -48,8 +50,12 @@ public struct ArrowSegmentSlider: View {
         Image(uiImage: Constants.arrowImage)
             .frame(width: Constants.imageSize.width)
             .frame(height: Constants.imageSize.height)
-            .animation(Animation.easeInOut(duration: Constants.animationDuration))
             .foregroundColor(scheme.imageTintColor.swiftUIColor)
+            .onAppear {
+                withAnimation(Animation.easeInOut(duration: Constants.animationDuration)) {
+                    isAnimating.toggle()
+                }
+            }
     }
 
 }

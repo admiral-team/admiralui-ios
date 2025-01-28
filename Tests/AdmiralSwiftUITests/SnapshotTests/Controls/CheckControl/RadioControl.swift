@@ -7,7 +7,7 @@
 
 import XCTest
 import SwiftUI
-import SnapshotTesting
+internal import SnapshotTesting
 import AdmiralTheme
 @testable import AdmiralSwiftUI
 
@@ -117,7 +117,7 @@ private extension RadioControlSnapshotTests {
         let radioControlButtonWrapper = RadioControlButtonWrapper(view: view)
         let view = UIHostingController(rootView: radioControlButtonWrapper)
         let result = verifySnapshot(
-            matching: view,
+            of: view,
             as: .image,
             named: named,
             file: getFilePath(),

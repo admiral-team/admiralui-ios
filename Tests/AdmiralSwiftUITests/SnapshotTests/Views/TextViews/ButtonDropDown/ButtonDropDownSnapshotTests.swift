@@ -7,7 +7,7 @@
 
 import XCTest
 import SwiftUI
-import SnapshotTesting
+internal import SnapshotTesting
 import AdmiralTheme
 @testable import AdmiralSwiftUI
 
@@ -60,7 +60,7 @@ private extension ButtonDropDownSnapshotTests {
         let buttonDropDownWrapper = ButtonDropDownWrapper(view: view)
         let view = UIHostingController(rootView: buttonDropDownWrapper)
         let result = verifySnapshot(
-            matching: view,
+            of: view,
             as: .image,
             named: named,
             file: getFilePath(),

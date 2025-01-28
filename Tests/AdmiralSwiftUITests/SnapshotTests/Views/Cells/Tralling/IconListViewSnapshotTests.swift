@@ -7,7 +7,7 @@
 
 import XCTest
 import SwiftUI
-import SnapshotTesting
+internal import SnapshotTesting
 import AdmiralTheme
 import AdmiralImages
 @testable import AdmiralSwiftUI
@@ -86,7 +86,7 @@ private extension IconListViewSnapshotTests {
         let iconListViewWrapper = IconListViewWrapper(view: view)
         let view = UIHostingController(rootView: iconListViewWrapper)
         let result = verifySnapshot(
-            matching: view,
+            of: view,
             as: .image,
             named: named,
             file: getFilePath(),

@@ -7,7 +7,7 @@
 
 import XCTest
 import SwiftUI
-import SnapshotTesting
+internal import SnapshotTesting
 import AdmiralTheme
 @testable import AdmiralSwiftUI
 
@@ -99,7 +99,7 @@ private extension SeveralPinButtonSnapshotTests {
         let buttonWrapper = ButtonWrapper(view: view, disabled: disabled)
         let view = UIHostingController(rootView: buttonWrapper)
         let result = verifySnapshot(
-            matching: view,
+            of: view,
             as: .image,
             named: named,
             file: getFilePath(),

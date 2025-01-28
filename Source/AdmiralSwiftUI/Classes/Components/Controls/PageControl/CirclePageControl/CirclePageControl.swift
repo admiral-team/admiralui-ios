@@ -146,8 +146,8 @@ private extension CirclePageControlStyle {
                     .foregroundColor(scheme.backgroundColor.parameter(for: configuration.isPressed, style: style)?.swiftUIColor)
                     .frame(width: Constants.progressFrameSize, height: Constants.progressFrameSize)
                     .rotationEffect(.init(degrees: Constants.progressRotationAngle))
-                    .animation(.linear)
-                if let color = scheme.backgroundColor.parameter(for: configuration.isPressed, style: style) {
+                    .animation(.linear, value: step)
+                    if let color = scheme.backgroundColor.parameter(for: configuration.isPressed, style: style) {
                     Circle()
                         .fill(color.swiftUIColor)
                         .frame(width: Constants.circleSize, height: Constants.circleSize)

@@ -87,7 +87,7 @@ public struct LogoTab: View {
             .foregroundColor(Color.clear)
             .frame(width: segmentSize.width, height: Constants.height)
             .offset(x: self.computeActiveSegmentHorizontalOffset(), y: 0)
-            .animation(Animation.linear(duration: Durations.Default.half))
+            .animation(.linear(duration: Durations.Default.half), value: selection)
             .eraseToAnyView()
 
     }

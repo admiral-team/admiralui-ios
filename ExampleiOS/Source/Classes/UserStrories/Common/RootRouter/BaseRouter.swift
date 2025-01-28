@@ -31,7 +31,9 @@ extension BaseRouter {
     
     static func setRootViewController(viewController: UIViewController,
                                       animated: Bool = false) {
-        guard let window = UIApplication.shared.keyWindow else { return }
+        let scenes = UIApplication.shared.connectedScenes
+        let windowScene = scenes.first as? UIWindowScene
+        guard let window = windowScene?.windows.first else { return }
         
         window.rootViewController = viewController
         window.makeKey()
@@ -87,7 +89,10 @@ extension BaseRouter {
     }
     
     func dismissModalToRoot(animated: Bool = true) {
-        UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: animated)
+        let scenes = UIApplication.shared.connectedScenes
+        let windowScene = scenes.first as? UIWindowScene
+        guard let window = windowScene?.windows.first else { return }
+        window.rootViewController?.dismiss(animated: animated)
     }
     
     /// Dismiss view controller from navigation stack.

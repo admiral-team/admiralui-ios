@@ -573,6 +573,10 @@
 		3B606A99274697E100C76ACB /* ButtonWithArrowListViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B606A98274697E100C76ACB /* ButtonWithArrowListViewSnapshotTests.swift */; };
 		3B625C0B2746511D0045DC38 /* ImageCardListViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B625C0A2746511D0045DC38 /* ImageCardListViewSnapshotTests.swift */; };
 		3B6FA9FF2889B0C50072F173 /* ParagraphTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FA9FE2889B0C50072F173 /* ParagraphTest.swift */; };
+		3B7656F32D37B0D400A3EDF9 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 3B7656F22D37B0D400A3EDF9 /* InlineSnapshotTesting */; };
+		3B7656F52D37B0D400A3EDF9 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 3B7656F42D37B0D400A3EDF9 /* SnapshotTesting */; };
+		3B7656F72D37B32600A3EDF9 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 3B7656F62D37B32600A3EDF9 /* InlineSnapshotTesting */; };
+		3B7656F92D37B32600A3EDF9 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 3B7656F82D37B32600A3EDF9 /* SnapshotTesting */; };
 		3B9B1CEB2885A7BB001D7049 /* ParagaphImageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9B1CEA2885A7BB001D7049 /* ParagaphImageType.swift */; };
 		3B9B1CED2885CEFE001D7049 /* ParagraphScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9B1CEC2885CEFE001D7049 /* ParagraphScheme.swift */; };
 		3BAE3C63287D976400E8605F /* Separator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAE3C62287D976400E8605F /* Separator.swift */; };
@@ -665,7 +669,6 @@
 		E65B4C4726C2C1EE00AACEBB /* InputNumberScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F2D143256DB04E00EF9281 /* InputNumberScheme.swift */; };
 		E6C6D025268C945600972A1B /* ControlParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C6D017268C93BD00972A1B /* ControlParameter.swift */; };
 		E6C6D038268C94BA00972A1B /* ControlParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C6D009268C937400972A1B /* ControlParameter.swift */; };
-		E6EEF8FC26F4DED900FAA8E3 /* SnapshotTesting.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6EEF8FA26F4DECE00FAA8E3 /* SnapshotTesting.xcframework */; };
 		E90E512D28CF6FD6004D0386 /* UIKitThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90E512928CF6FD6004D0386 /* UIKitThemeManager.swift */; };
 		E90E512E28CF6FD6004D0386 /* SwiftUISchemeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90E512B28CF6FD6004D0386 /* SwiftUISchemeProvider.swift */; };
 		E90E512F28CF6FD6004D0386 /* SwiftUIThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90E512C28CF6FD6004D0386 /* SwiftUIThemeManager.swift */; };
@@ -683,7 +686,6 @@
 		E916F9F627677B2700628C96 /* TextOperationViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E916F9F527677B2700628C96 /* TextOperationViewScheme.swift */; };
 		E916F9FC27688E5900628C96 /* TextOperationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E916F9FB27688E5900628C96 /* TextOperationView.swift */; };
 		E916F9FE27688E6500628C96 /* TextOperationViewScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E916F9FD27688E6500628C96 /* TextOperationViewScheme.swift */; };
-		E91F79FE2726A9390068B92A /* SnapshotTesting.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6EEF8FA26F4DECE00FAA8E3 /* SnapshotTesting.xcframework */; };
 		E9212C992A18076A00646505 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9212C7F2A18033000646505 /* Assets.swift */; };
 		E9212C9A2A18076B00646505 /* SystemAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9212C802A18033000646505 /* SystemAssets.swift */; };
 		E9212C9B2A18077000646505 /* AdmiralImages.h in Headers */ = {isa = PBXBuildFile; fileRef = E9212C852A18033000646505 /* AdmiralImages.h */; };
@@ -1892,8 +1894,9 @@
 				E94817382A5E98CF0042319E /* AdmiralCalendarSwiftUI.framework in Frameworks */,
 				0E08AED62A1F8FFA007363D8 /* AdmiralSymbols.framework in Frameworks */,
 				0E08AED52A1F8FF3007363D8 /* AdmiralImages.framework in Frameworks */,
+				3B7656F92D37B32600A3EDF9 /* SnapshotTesting in Frameworks */,
 				0E3961BD25FFCF7D006E2005 /* AdmiralSwiftUI.framework in Frameworks */,
-				E6EEF8FC26F4DED900FAA8E3 /* SnapshotTesting.xcframework in Frameworks */,
+				3B7656F72D37B32600A3EDF9 /* InlineSnapshotTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1911,7 +1914,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E08AED42A1F8FEC007363D8 /* AdmiralImages.framework in Frameworks */,
-				E91F79FE2726A9390068B92A /* SnapshotTesting.xcframework in Frameworks */,
+				3B7656F52D37B0D400A3EDF9 /* SnapshotTesting in Frameworks */,
+				3B7656F32D37B0D400A3EDF9 /* InlineSnapshotTesting in Frameworks */,
 				0EB756B62600D578009BFC21 /* AdmiralUIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -7377,6 +7381,8 @@
 			);
 			name = AdmiralSwiftUITests;
 			packageProductDependencies = (
+				3B7656F62D37B32600A3EDF9 /* InlineSnapshotTesting */,
+				3B7656F82D37B32600A3EDF9 /* SnapshotTesting */,
 			);
 			productName = AdmiralSwiftUITests;
 			productReference = 0E3961BC25FFCF7D006E2005 /* AdmiralSwiftUITests.xctest */;
@@ -7417,6 +7423,8 @@
 			);
 			name = AdmiralUIKitTests;
 			packageProductDependencies = (
+				3B7656F22D37B0D400A3EDF9 /* InlineSnapshotTesting */,
+				3B7656F42D37B0D400A3EDF9 /* SnapshotTesting */,
 			);
 			productName = AdmiralUIKitTests;
 			productReference = 0EB756B52600D578009BFC21 /* AdmiralUIKitTests.xctest */;
@@ -7543,6 +7551,7 @@
 			);
 			mainGroup = E6D91BEC2532011B00DCE489;
 			packageReferences = (
+				3B7656F12D37B0D400A3EDF9 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
 			);
 			productRefGroup = E6D91BF72532011B00DCE489 /* Products */;
 			projectDirPath = "";
@@ -8594,7 +8603,7 @@
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "Source/AdmiralTheme/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -8626,7 +8635,7 @@
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "Source/AdmiralTheme/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -8658,7 +8667,7 @@
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "Source/AdmiralSwiftUI/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -8691,7 +8700,7 @@
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "Source/AdmiralSwiftUI/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -8712,13 +8721,12 @@
 		0E3961C925FFCF7D006E2005 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Tests/AdmiralSwiftUITests/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -8736,13 +8744,12 @@
 		0E3961CA25FFCF7D006E2005 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Tests/AdmiralSwiftUITests/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -8772,7 +8779,7 @@
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "Source/AdmiralUIKit/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -8804,7 +8811,7 @@
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "Source/AdmiralUIKit/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -8824,13 +8831,12 @@
 		0EB756C22600D578009BFC21 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Tests/AdmiralUIKitTests/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -8848,13 +8854,12 @@
 		0EB756C32600D578009BFC21 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Tests/AdmiralUIKitTests/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -8884,7 +8889,7 @@
 				INFOPLIST_FILE = "Source/AdmiralSymbols/Supporting Files/Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -8916,7 +8921,7 @@
 				INFOPLIST_FILE = "Source/AdmiralSymbols/Supporting Files/Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -9075,7 +9080,7 @@
 				INFOPLIST_FILE = "Source/AdmiralImages/Supporting Files/Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -9107,7 +9112,7 @@
 				INFOPLIST_FILE = "Source/AdmiralImages/Supporting Files/Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -9140,7 +9145,7 @@
 				INFOPLIST_FILE = "Source/AdmiralCalendarSwiftUI/Supporting Files/Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -9175,7 +9180,7 @@
 				INFOPLIST_FILE = "Source/AdmiralCalendarSwiftUI/Supporting Files/Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -9211,7 +9216,7 @@
 				INFOPLIST_FILE = "Source/AdmiralCore/Supporting Files/Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -9248,7 +9253,7 @@
 				INFOPLIST_FILE = "Source/AdmiralCore/Supporting Files/Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -9361,6 +9366,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3B7656F12D37B0D400A3EDF9 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.17.7;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3B7656F22D37B0D400A3EDF9 /* InlineSnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B7656F12D37B0D400A3EDF9 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = InlineSnapshotTesting;
+		};
+		3B7656F42D37B0D400A3EDF9 /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B7656F12D37B0D400A3EDF9 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
+		};
+		3B7656F62D37B32600A3EDF9 /* InlineSnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B7656F12D37B0D400A3EDF9 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = InlineSnapshotTesting;
+		};
+		3B7656F82D37B32600A3EDF9 /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B7656F12D37B0D400A3EDF9 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E6D91BED2532011B00DCE489 /* Project object */;
 }

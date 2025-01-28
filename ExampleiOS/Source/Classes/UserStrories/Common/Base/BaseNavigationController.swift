@@ -79,9 +79,9 @@ class BaseNavigationController: UINavigationController, AppThemeable {
             coloredAppearance.titleTextAttributes = [.foregroundColor: theme.colors.textPrimary.uiColor]
             coloredAppearance.largeTitleTextAttributes = [.foregroundColor: theme.colors.textPrimary.uiColor]
 
-            UINavigationBar.appearance().standardAppearance = coloredAppearance
-            UINavigationBar.appearance().compactAppearance = coloredAppearance
-            UINavigationBar.appearance().scrollEdgeAppearance = coloredAppearance
+            navigationBar.standardAppearance = coloredAppearance
+            navigationBar.scrollEdgeAppearance = coloredAppearance
+            navigationBar.compactAppearance = coloredAppearance
         }
     }
     

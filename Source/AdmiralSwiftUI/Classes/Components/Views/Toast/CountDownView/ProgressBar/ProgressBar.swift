@@ -42,11 +42,11 @@ struct ProgressBar: View {
                 style: StrokeStyle(
                     lineWidth: LayoutGrid.halfModule / 2,
                     lineCap: .round,
-                    lineJoin:.round
+                    lineJoin: .round
                 )
             )
             .foregroundColor(scheme.tintColor.swiftUIColor)
-            .animation(counter == 0 ? nil : .linear(duration: 1))
+            .animation(counter == 0 ? nil : .linear(duration: 1), value: counter)
     }
 
     // MARK: - Internal Methods

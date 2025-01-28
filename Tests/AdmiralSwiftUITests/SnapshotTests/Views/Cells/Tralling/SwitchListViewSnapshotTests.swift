@@ -7,7 +7,7 @@
 
 import XCTest
 import SwiftUI
-import SnapshotTesting
+internal import SnapshotTesting
 import AdmiralTheme
 @testable import AdmiralSwiftUI
 
@@ -99,7 +99,7 @@ private extension SwitchListViewSnapshotTests {
         let switchListViewWrapper = SwitchListViewWrapper(view: view)
         let view = UIHostingController(rootView: switchListViewWrapper)
         let result = verifySnapshot(
-            matching: view,
+            of: view,
             as: .image,
             named: named,
             file: getFilePath(),

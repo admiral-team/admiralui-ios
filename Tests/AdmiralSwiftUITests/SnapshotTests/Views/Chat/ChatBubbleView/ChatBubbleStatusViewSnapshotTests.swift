@@ -7,7 +7,7 @@
 
 import XCTest
 import SwiftUI
-import SnapshotTesting
+internal import SnapshotTesting
 import AdmiralTheme
 @testable import AdmiralSwiftUI
 
@@ -154,7 +154,7 @@ private extension ChatBubbleStatusViewSnapshotTests {
         let chatBubbleStatusViewWrapper = ChatBubbleStatusViewWrapper(view: view)
         let view = UIHostingController(rootView: chatBubbleStatusViewWrapper)
         let result = verifySnapshot(
-            matching: view,
+            of: view,
             as: .image,
             named: named,
             file: getFilePath(),

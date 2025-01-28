@@ -7,7 +7,7 @@
 
 import XCTest
 import SwiftUI
-import SnapshotTesting
+internal import SnapshotTesting
 import AdmiralTheme
 import AdmiralImages
 @testable import AdmiralSwiftUI
@@ -90,7 +90,7 @@ private extension ButtonWithArrowListViewSnapshotTests {
         let buttonWithArrowListViewWrapper = ButtonWithArrowListViewWrapper(view: view)
         let view = UIHostingController(rootView: buttonWithArrowListViewWrapper)
         let result = verifySnapshot(
-            matching: view,
+            of: view,
             as: .image,
             named: named,
             file: getFilePath(),
